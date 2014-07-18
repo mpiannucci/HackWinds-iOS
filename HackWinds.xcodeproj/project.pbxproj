@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
+		3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838B19795D0F00655F15 /* CoreGraphics.framework */; };
+		3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
+		3430839419795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3430839219795D0F00655F15 /* InfoPlist.strings */; };
+		3430839619795D0F00655F15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3430839519795D0F00655F15 /* main.m */; };
+		3430839A19795D0F00655F15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3430839919795D0F00655F15 /* AppDelegate.m */; };
+		3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3430839B19795D0F00655F15 /* Main_iPhone.storyboard */; };
+		343083A019795D0F00655F15 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3430839E19795D0F00655F15 /* Main_iPad.storyboard */; };
+		343083A319795D0F00655F15 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* FirstViewController.m */; };
+		343083A619795D0F00655F15 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* SecondViewController.m */; };
+		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
+		343083AF19795D0F00655F15 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343083AE19795D0F00655F15 /* XCTest.framework */; };
+		343083B019795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
+		343083B119795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
+		343083B919795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343083B719795D0F00655F15 /* InfoPlist.strings */; };
+		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		343083B219795D0F00655F15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3430838519795D0F00655F15;
+			remoteInfo = HackWinds;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3430838619795D0F00655F15 /* HackWinds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWinds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3430838919795D0F00655F15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3430838B19795D0F00655F15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3430838D19795D0F00655F15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3430839119795D0F00655F15 /* HackWinds-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HackWinds-Info.plist"; sourceTree = "<group>"; };
+		3430839319795D0F00655F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3430839519795D0F00655F15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3430839719795D0F00655F15 /* HackWinds-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWinds-Prefix.pch"; sourceTree = "<group>"; };
+		3430839819795D0F00655F15 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3430839919795D0F00655F15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3430839C19795D0F00655F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		3430839F19795D0F00655F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		343083A119795D0F00655F15 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		343083A219795D0F00655F15 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		343083A419795D0F00655F15 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		343083A519795D0F00655F15 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		343083A719795D0F00655F15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		343083AD19795D0F00655F15 /* HackWindsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		343083AE19795D0F00655F15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		343083B619795D0F00655F15 /* HackWindsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HackWindsTests-Info.plist"; sourceTree = "<group>"; };
+		343083B819795D0F00655F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		343083BA19795D0F00655F15 /* HackWindsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3430838319795D0F00655F15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */,
+				3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */,
+				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		343083AA19795D0F00655F15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				343083AF19795D0F00655F15 /* XCTest.framework in Frameworks */,
+				343083B119795D0F00655F15 /* UIKit.framework in Frameworks */,
+				343083B019795D0F00655F15 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3430837D19795D0F00655F15 = {
+			isa = PBXGroup;
+			children = (
+				3430838F19795D0F00655F15 /* HackWinds */,
+				343083B419795D0F00655F15 /* HackWindsTests */,
+				3430838819795D0F00655F15 /* Frameworks */,
+				3430838719795D0F00655F15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3430838719795D0F00655F15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3430838619795D0F00655F15 /* HackWinds.app */,
+				343083AD19795D0F00655F15 /* HackWindsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3430838819795D0F00655F15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3430838919795D0F00655F15 /* Foundation.framework */,
+				3430838B19795D0F00655F15 /* CoreGraphics.framework */,
+				3430838D19795D0F00655F15 /* UIKit.framework */,
+				343083AE19795D0F00655F15 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3430838F19795D0F00655F15 /* HackWinds */ = {
+			isa = PBXGroup;
+			children = (
+				3430839819795D0F00655F15 /* AppDelegate.h */,
+				3430839919795D0F00655F15 /* AppDelegate.m */,
+				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
+				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
+				343083A119795D0F00655F15 /* FirstViewController.h */,
+				343083A219795D0F00655F15 /* FirstViewController.m */,
+				343083A419795D0F00655F15 /* SecondViewController.h */,
+				343083A519795D0F00655F15 /* SecondViewController.m */,
+				343083A719795D0F00655F15 /* Images.xcassets */,
+				3430839019795D0F00655F15 /* Supporting Files */,
+			);
+			path = HackWinds;
+			sourceTree = "<group>";
+		};
+		3430839019795D0F00655F15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3430839119795D0F00655F15 /* HackWinds-Info.plist */,
+				3430839219795D0F00655F15 /* InfoPlist.strings */,
+				3430839519795D0F00655F15 /* main.m */,
+				3430839719795D0F00655F15 /* HackWinds-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		343083B419795D0F00655F15 /* HackWindsTests */ = {
+			isa = PBXGroup;
+			children = (
+				343083BA19795D0F00655F15 /* HackWindsTests.m */,
+				343083B519795D0F00655F15 /* Supporting Files */,
+			);
+			path = HackWindsTests;
+			sourceTree = "<group>";
+		};
+		343083B519795D0F00655F15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				343083B619795D0F00655F15 /* HackWindsTests-Info.plist */,
+				343083B719795D0F00655F15 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3430838519795D0F00655F15 /* HackWinds */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 343083BE19795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWinds" */;
+			buildPhases = (
+				3430838219795D0F00655F15 /* Sources */,
+				3430838319795D0F00655F15 /* Frameworks */,
+				3430838419795D0F00655F15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackWinds;
+			productName = HackWinds;
+			productReference = 3430838619795D0F00655F15 /* HackWinds.app */;
+			productType = "com.apple.product-type.application";
+		};
+		343083AC19795D0F00655F15 /* HackWindsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 343083C119795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWindsTests" */;
+			buildPhases = (
+				343083A919795D0F00655F15 /* Sources */,
+				343083AA19795D0F00655F15 /* Frameworks */,
+				343083AB19795D0F00655F15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				343083B319795D0F00655F15 /* PBXTargetDependency */,
+			);
+			name = HackWindsTests;
+			productName = HackWindsTests;
+			productReference = 343083AD19795D0F00655F15 /* HackWindsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3430837E19795D0F00655F15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Rhodysurf Development";
+				TargetAttributes = {
+					343083AC19795D0F00655F15 = {
+						TestTargetID = 3430838519795D0F00655F15;
+					};
+				};
+			};
+			buildConfigurationList = 3430838119795D0F00655F15 /* Build configuration list for PBXProject "HackWinds" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3430837D19795D0F00655F15;
+			productRefGroup = 3430838719795D0F00655F15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3430838519795D0F00655F15 /* HackWinds */,
+				343083AC19795D0F00655F15 /* HackWindsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3430838419795D0F00655F15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				343083A019795D0F00655F15 /* Main_iPad.storyboard in Resources */,
+				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
+				3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */,
+				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		343083AB19795D0F00655F15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				343083B919795D0F00655F15 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3430838219795D0F00655F15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				343083A619795D0F00655F15 /* SecondViewController.m in Sources */,
+				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
+				343083A319795D0F00655F15 /* FirstViewController.m in Sources */,
+				3430839619795D0F00655F15 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		343083A919795D0F00655F15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		343083B319795D0F00655F15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3430838519795D0F00655F15 /* HackWinds */;
+			targetProxy = 343083B219795D0F00655F15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3430839219795D0F00655F15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3430839319795D0F00655F15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3430839B19795D0F00655F15 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3430839C19795D0F00655F15 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		3430839E19795D0F00655F15 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3430839F19795D0F00655F15 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		343083B719795D0F00655F15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				343083B819795D0F00655F15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		343083BC19795D0F00655F15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		343083BD19795D0F00655F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		343083BF19795D0F00655F15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				INFOPLIST_FILE = "HackWinds/HackWinds-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		343083C019795D0F00655F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				INFOPLIST_FILE = "HackWinds/HackWinds-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		343083C219795D0F00655F15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HackWindsTests/HackWindsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		343083C319795D0F00655F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				INFOPLIST_FILE = "HackWindsTests/HackWindsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3430838119795D0F00655F15 /* Build configuration list for PBXProject "HackWinds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				343083BC19795D0F00655F15 /* Debug */,
+				343083BD19795D0F00655F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		343083BE19795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWinds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				343083BF19795D0F00655F15 /* Debug */,
+				343083C019795D0F00655F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		343083C119795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWindsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				343083C219795D0F00655F15 /* Debug */,
+				343083C319795D0F00655F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3430837E19795D0F00655F15 /* Project object */;
+}
