@@ -478,6 +478,7 @@
 				343083C019795D0F00655F15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		343083C119795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWindsTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +487,7 @@
 				343083C319795D0F00655F15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
