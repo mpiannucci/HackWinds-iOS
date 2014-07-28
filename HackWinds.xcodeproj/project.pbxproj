@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		342A76221985E18100077F8C /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* ThirdViewController.m */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
 		3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838B19795D0F00655F15 /* CoreGraphics.framework */; };
 		3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		342A76201985E18100077F8C /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		342A76211985E18100077F8C /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		3430838619795D0F00655F15 /* HackWinds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWinds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3430838919795D0F00655F15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3430838B19795D0F00655F15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				3430839819795D0F00655F15 /* AppDelegate.h */,
+				342A76201985E18100077F8C /* ThirdViewController.h */,
+				342A76211985E18100077F8C /* ThirdViewController.m */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
 				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
 				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
@@ -259,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343083A619795D0F00655F15 /* SecondViewController.m in Sources */,
+				342A76221985E18100077F8C /* ThirdViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				343083A319795D0F00655F15 /* FirstViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,

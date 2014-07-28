@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="487" y="430"/>
         </scene>
-        <!--View Controller - Tide-->
+        <!--Third View Controller - Tide-->
         <scene sceneID="E0N-BJ-gQ2">
             <objects>
-                <viewController title="Tide" id="7l6-ar-fdw" sceneMemberID="viewController">
+                <viewController title="Tide" id="7l6-ar-fdw" customClass="ThirdViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="58G-7u-fcf"/>
                         <viewControllerLayoutGuide type="bottom" id="MpP-OR-gb6"/>
