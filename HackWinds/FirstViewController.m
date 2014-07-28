@@ -7,8 +7,11 @@
 //
 
 #import "FirstViewController.h"
+#import "AsyncImageView.h"
 
 @interface FirstViewController ()
+
+@property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 
 @end
 
@@ -17,7 +20,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Load the imageview
+    NSURL *url = [NSURL URLWithString:@"http://www.warmwinds.com/wp-content/uploads/surf-cam-stills/image00001.jpg"];
+    [_holderImageButton setImageURL:url];
+    
 }
 
 - (void)didReceiveMemoryWarning

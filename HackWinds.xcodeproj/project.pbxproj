@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		342A76221985E18100077F8C /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* ThirdViewController.m */; };
+		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
+		342A76271985E4EF00077F8C /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76261985E4EF00077F8C /* AsyncImageView.m */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
 		3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838B19795D0F00655F15 /* CoreGraphics.framework */; };
 		3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
@@ -39,6 +41,9 @@
 /* Begin PBXFileReference section */
 		342A76201985E18100077F8C /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		342A76231985E38600077F8C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		342A76251985E4EF00077F8C /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = "../../../Downloads/nicklockwood-AsyncImageView-7968e03/AsyncImageView/AsyncImageView.h"; sourceTree = "<group>"; };
+		342A76261985E4EF00077F8C /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = "../../../Downloads/nicklockwood-AsyncImageView-7968e03/AsyncImageView/AsyncImageView.m"; sourceTree = "<group>"; };
 		3430838619795D0F00655F15 /* HackWinds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWinds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3430838919795D0F00655F15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3430838B19795D0F00655F15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */,
 				3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */,
 				3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */,
 				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
@@ -109,6 +115,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				342A76231985E38600077F8C /* MediaPlayer.framework */,
 				3430838919795D0F00655F15 /* Foundation.framework */,
 				3430838B19795D0F00655F15 /* CoreGraphics.framework */,
 				3430838D19795D0F00655F15 /* UIKit.framework */,
@@ -125,6 +132,8 @@
 				342A76211985E18100077F8C /* ThirdViewController.m */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
 				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
+				342A76251985E4EF00077F8C /* AsyncImageView.h */,
+				342A76261985E4EF00077F8C /* AsyncImageView.m */,
 				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
 				343083A119795D0F00655F15 /* FirstViewController.h */,
 				343083A219795D0F00655F15 /* FirstViewController.m */,
@@ -264,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343083A619795D0F00655F15 /* SecondViewController.m in Sources */,
+				342A76271985E4EF00077F8C /* AsyncImageView.m in Sources */,
 				342A76221985E18100077F8C /* ThirdViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				343083A319795D0F00655F15 /* FirstViewController.m in Sources */,
