@@ -49,6 +49,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return so there will always be 6 rows
+    return 6;
+}
+
+- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mswHourItem"];
+//    UILabel *hourLabel = (UILabel *)[cell viewWithTag:100];
+//    UILabel *waveLabel = (UILabel *)[cell viewWithTag:100];
+//    UILabel *windLabel = (UILabel *)[cell viewWithTag:100];
+//    UILabel *swellLabel = (UILabel *)[cell viewWithTag:100];
+    //[hourlabel setText:];
+    return cell;
+}
+
 - (NSString *)getDayHeader:(NSDate *)date
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -59,10 +80,14 @@
 - (void)fetchedMSWData:(NSData *)responseData {
     //parse out the MSW json data
     NSError* error;
-    NSDictionary* json = [NSJSONSerialization
+    NSArray* json = [NSJSONSerialization
                           JSONObjectWithData:responseData
                           options:kNilOptions
                           error:&error];
+    // Quick log to chekc the amount of json objects recieved
+    NSLog(@"%lu", (unsigned long)[json count]);
+    
+    // Loop through the objects, create new condition objects, and append to the array
 }
 
 @end
