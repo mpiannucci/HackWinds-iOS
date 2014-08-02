@@ -11,8 +11,6 @@
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
 		342A76271985E4EF00077F8C /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76261985E4EF00077F8C /* AsyncImageView.m */; };
 		342A762A1985FD2E00077F8C /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76291985FD2E00077F8C /* Condition.m */; };
-		342A762E1985FEC900077F8C /* ConditionCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A762D1985FEC900077F8C /* ConditionCommunicator.m */; };
-		342A7631198601A100077F8C /* ConditionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A7630198601A100077F8C /* ConditionBuilder.m */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
 		3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838B19795D0F00655F15 /* CoreGraphics.framework */; };
 		3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
@@ -49,11 +47,6 @@
 		342A76261985E4EF00077F8C /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = "../../../Downloads/nicklockwood-AsyncImageView-7968e03/AsyncImageView/AsyncImageView.m"; sourceTree = "<group>"; };
 		342A76281985FD2E00077F8C /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		342A76291985FD2E00077F8C /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
-		342A762B1985FE4200077F8C /* ConditionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConditionDelegate.h; sourceTree = "<group>"; };
-		342A762C1985FEC900077F8C /* ConditionCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionCommunicator.h; sourceTree = "<group>"; };
-		342A762D1985FEC900077F8C /* ConditionCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionCommunicator.m; sourceTree = "<group>"; };
-		342A762F198601A100077F8C /* ConditionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionBuilder.h; sourceTree = "<group>"; };
-		342A7630198601A100077F8C /* ConditionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionBuilder.m; sourceTree = "<group>"; };
 		3430838619795D0F00655F15 /* HackWinds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWinds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3430838919795D0F00655F15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3430838B19795D0F00655F15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,11 +133,6 @@
 				3430839819795D0F00655F15 /* AppDelegate.h */,
 				342A76201985E18100077F8C /* ThirdViewController.h */,
 				342A76281985FD2E00077F8C /* Condition.h */,
-				342A762B1985FE4200077F8C /* ConditionDelegate.h */,
-				342A762F198601A100077F8C /* ConditionBuilder.h */,
-				342A7630198601A100077F8C /* ConditionBuilder.m */,
-				342A762C1985FEC900077F8C /* ConditionCommunicator.h */,
-				342A762D1985FEC900077F8C /* ConditionCommunicator.m */,
 				342A76291985FD2E00077F8C /* Condition.m */,
 				342A76211985E18100077F8C /* ThirdViewController.m */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
@@ -291,8 +279,6 @@
 			files = (
 				343083A619795D0F00655F15 /* SecondViewController.m in Sources */,
 				342A762A1985FD2E00077F8C /* Condition.m in Sources */,
-				342A762E1985FEC900077F8C /* ConditionCommunicator.m in Sources */,
-				342A7631198601A100077F8C /* ConditionBuilder.m in Sources */,
 				342A76271985E4EF00077F8C /* AsyncImageView.m in Sources */,
 				342A76221985E18100077F8C /* ThirdViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
