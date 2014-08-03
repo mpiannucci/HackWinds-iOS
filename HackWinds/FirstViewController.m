@@ -12,6 +12,7 @@
 
 #import "FirstViewController.h"
 #import "AsyncImageView.h"
+#import "Condition.h"
 
 @interface FirstViewController ()
 
@@ -33,6 +34,9 @@
     NSDate *now = [[NSDate alloc] init];
     NSString *day = [self getDayHeader:now];
     [_dayHeader setText:day];
+    
+    // array to load data into
+    NSMutableArray *conditions = [[NSMutableArray alloc] init];
     
     // Load the MSW Data
     dispatch_async(mswBgQueue, ^{
@@ -61,12 +65,22 @@
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
+    // Get the interface items
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mswHourItem"];
-//    UILabel *hourLabel = (UILabel *)[cell viewWithTag:100];
-//    UILabel *waveLabel = (UILabel *)[cell viewWithTag:100];
-//    UILabel *windLabel = (UILabel *)[cell viewWithTag:100];
-//    UILabel *swellLabel = (UILabel *)[cell viewWithTag:100];
-    //[hourlabel setText:];
+    UILabel *hourLabel = (UILabel *)[cell viewWithTag:100];
+    UILabel *waveLabel = (UILabel *)[cell viewWithTag:100];
+    UILabel *windLabel = (UILabel *)[cell viewWithTag:100];
+    UILabel *swellLabel = (UILabel *)[cell viewWithTag:100];
+    
+    // Set the hour
+    
+    // Set the surf
+    
+    // Set the wind
+    
+    // Set the swell
+    
+    
     return cell;
 }
 
@@ -75,6 +89,22 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     return [dateFormatter stringFromDate:date];
+}
+
+- (NSString *)formatDate:(NSUInteger *)epoch
+{
+    // Return the formatted date string
+    NSDate *forcTime = [NSDate dateWithTimeIntervalSince1970:*epoch];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"K a"];
+    [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSString *formatted = [format stringFromDate:forcTime];
+    if ([formatted hasPrefix:@"0"]) {
+        [format setDateFormat:@"HH a"];
+        [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+        formatted = [format stringFromDate:forcTime];
+    }
+    return formatted;
 }
 
 - (void)fetchedMSWData:(NSData *)responseData {
@@ -88,6 +118,25 @@
     NSLog(@"%lu", (unsigned long)[json count]);
     
     // Loop through the objects, create new condition objects, and append to the array
+    int i = 0;
+    int j = 0;
+    while (i<6) {
+        NSDictionary *thisDict = [json objectAtIndex:j];
+        j++;
+        
+        Condition *thisCondition = [Condition init];
+        
+        // Get the hour
+        NSString *date =
+        
+        
+        // Get the surf
+        
+        // Get the wind
+        
+        // Get the swell
+        
+    }
 }
 
 @end
