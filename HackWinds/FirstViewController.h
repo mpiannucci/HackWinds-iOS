@@ -10,7 +10,5 @@
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
-
 
 @end

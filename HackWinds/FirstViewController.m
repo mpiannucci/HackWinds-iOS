@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
+@property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
 
 @end
 
@@ -63,6 +64,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
+    NSLog(@"%lu", (unsigned long)[conditions count]);
     return [conditions count];
 }
 
@@ -70,23 +72,26 @@
 {
     // Get the interface items
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mswHourItem"];
-    UILabel *hourLabel = (UILabel *)[cell viewWithTag:100];
-    UILabel *waveLabel = (UILabel *)[cell viewWithTag:100];
-    UILabel *windLabel = (UILabel *)[cell viewWithTag:100];
-    UILabel *swellLabel = (UILabel *)[cell viewWithTag:100];
+    UILabel *hourLabel = (UILabel *)[cell viewWithTag:11];
+    UILabel *waveLabel = (UILabel *)[cell viewWithTag:12];
+    UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
+    UILabel *swellLabel = (UILabel *)[cell viewWithTag:14];
     
     // Get the condition object
     Condition *thisCondition = [conditions objectAtIndex:indexPath.row];
     NSLog(@"%@", thisCondition.date);
     
     // Set the hour
+    [hourLabel setText:thisCondition.date];
     
     // Set the surf
+    [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreak, thisCondition.maxBreak]];
     
     // Set the wind
+    [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDir, thisCondition.windSpeed]];
     
     // Set the swell
-    
+    [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDir, thisCondition.swellHeight, thisCondition.swellPeriod]];
     
     return cell;
 }
@@ -146,6 +151,8 @@
         [conditions addObject:thisCondition];
         i++;
     }
+    // reload the table data
+    [_mswTodayTable reloadData];
 }
 
 - (NSString *)formatDate:(NSUInteger)epoch
