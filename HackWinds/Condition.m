@@ -11,6 +11,4 @@
 @implementation Condition
 
 
-
-
 @end

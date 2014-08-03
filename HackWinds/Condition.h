@@ -19,6 +19,6 @@
 @property (strong, nonatomic) NSString *windDir;
 @property (strong, nonatomic) NSString *swellHeight;
 @property (strong, nonatomic) NSString *swellPeriod;
-@property (strong, nonatomic) NSString *swellDegree;
+@property (strong, nonatomic) NSString *swellDir;
 
 @end
