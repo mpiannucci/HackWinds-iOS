@@ -22,6 +22,9 @@
 @end
 
 @implementation FirstViewController
+{
+    NSMutableArray *conditions;
+}
 
 - (void)viewDidLoad
 {
@@ -36,7 +39,7 @@
     [_dayHeader setText:day];
     
     // array to load data into
-    NSMutableArray *conditions = [[NSMutableArray alloc] init];
+    conditions = [[NSMutableArray alloc] init];
     
     // Load the MSW Data
     dispatch_async(mswBgQueue, ^{
@@ -107,6 +110,19 @@
     return formatted;
 }
 
+- (Boolean)checkDate:(NSString *)dateString
+{
+    // Check if the date is for a valid time
+    NSRange AMrange = [dateString rangeOfString:@"AM"];
+    NSRange Zerorange = [dateString rangeOfString:@"0"];
+    NSRange Threerange = [dateString rangeOfString:@"3"];
+    if (((AMrange.location != NSNotFound) && (Zerorange.location != NSNotFound)) || ((AMrange.location != NSNotFound) && (Threerange.location != NSNotFound)))
+    {
+        return false;
+    }
+    return true;
+}
+
 - (void)fetchedMSWData:(NSData *)responseData {
     //parse out the MSW json data
     NSError* error;
@@ -123,11 +139,9 @@
     while (i<6) {
         NSDictionary *thisDict = [json objectAtIndex:j];
         j++;
-        
         Condition *thisCondition = [Condition init];
         
         // Get the hour
-        NSString *date =
         
         
         // Get the surf
@@ -135,6 +149,9 @@
         // Get the wind
         
         // Get the swell
+        
+        // Append the condition
+        [conditions addObject:thisCondition];
         
     }
 }
