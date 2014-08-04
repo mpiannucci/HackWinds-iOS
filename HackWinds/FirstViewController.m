@@ -185,4 +185,9 @@
     return true;
 }
 
+- (IBAction)playButton:(id)sender {
+    // Handle play button click
+    NSLog(@"Play button pressed");
+}
+
 @end

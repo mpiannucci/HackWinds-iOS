@@ -10,5 +10,6 @@
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+- (IBAction)playButton:(id)sender;
 
 @end
