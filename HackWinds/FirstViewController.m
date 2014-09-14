@@ -9,7 +9,9 @@
 #define mswBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define mswURL [NSURL URLWithString:@"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=1103&fields=localTimestamp,swell.*,wind.*"]
 #define wwStillURL [NSURL URLWithString:@"http://www.warmwinds.com/wp-content/uploads/surf-cam-stills/image00001.jpg"]
+#define wwLiveURL [NSURL URLWithString:@"http://162.243.101.197:1935/surfcam/live.stream/playlist.m3u8"]
 
+#import <MediaPlayer/MediaPlayer.h>
 #import "FirstViewController.h"
 #import "AsyncImageView.h"
 #import "Condition.h"
@@ -19,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
+@property (strong,nonatomic) MPMoviePlayerController *moviePlayer;
 
 @end
 
@@ -187,7 +190,12 @@
 
 - (IBAction)playButton:(id)sender {
     // Handle play button click
-    NSLog(@"Play button pressed");
+    NSLog(@"Video play button pressed");
+    self.moviePlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
+    [self.moviePlayer.view setFrame:CGRectMake(0, 65, 315, 225)];
+    [self.view addSubview:self.moviePlayer.view];
+    [self.moviePlayer prepareToPlay];
+    [self.moviePlayer play];
 }
 
 @end
