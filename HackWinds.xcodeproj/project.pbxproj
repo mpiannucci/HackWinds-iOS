@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		342A76221985E18100077F8C /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* ThirdViewController.m */; };
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
-		342A76271985E4EF00077F8C /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76261985E4EF00077F8C /* AsyncImageView.m */; };
 		342A762A1985FD2E00077F8C /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76291985FD2E00077F8C /* Condition.m */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
 		3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838B19795D0F00655F15 /* CoreGraphics.framework */; };
@@ -27,6 +26,7 @@
 		343083B119795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
 		343083B919795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343083B719795D0F00655F15 /* InfoPlist.strings */; };
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
+		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
 		34FD036E198F0B3600BA0FB0 /* play_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FD036D198F0B3600BA0FB0 /* play_video@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +44,6 @@
 		342A76201985E18100077F8C /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		342A76231985E38600077F8C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		342A76251985E4EF00077F8C /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = "../../../Downloads/nicklockwood-AsyncImageView-7968e03/AsyncImageView/AsyncImageView.h"; sourceTree = "<group>"; };
-		342A76261985E4EF00077F8C /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = "../../../Downloads/nicklockwood-AsyncImageView-7968e03/AsyncImageView/AsyncImageView.m"; sourceTree = "<group>"; };
 		342A76281985FD2E00077F8C /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		342A76291985FD2E00077F8C /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		3430838619795D0F00655F15 /* HackWinds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWinds.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +68,8 @@
 		343083B619795D0F00655F15 /* HackWindsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HackWindsTests-Info.plist"; sourceTree = "<group>"; };
 		343083B819795D0F00655F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		343083BA19795D0F00655F15 /* HackWindsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsTests.m; sourceTree = "<group>"; };
+		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		34FD036D198F0B3600BA0FB0 /* play_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_video@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,14 +135,14 @@
 				34FD036A198F0A4F00BA0FB0 /* Resources */,
 				3430839819795D0F00655F15 /* AppDelegate.h */,
 				342A76201985E18100077F8C /* ThirdViewController.h */,
+				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
 				342A76281985FD2E00077F8C /* Condition.h */,
+				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
 				342A76291985FD2E00077F8C /* Condition.m */,
 				342A76211985E18100077F8C /* ThirdViewController.m */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
 				343083A119795D0F00655F15 /* FirstViewController.h */,
 				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
-				342A76251985E4EF00077F8C /* AsyncImageView.h */,
-				342A76261985E4EF00077F8C /* AsyncImageView.m */,
 				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
 				343083A219795D0F00655F15 /* FirstViewController.m */,
 				343083A419795D0F00655F15 /* SecondViewController.h */,
@@ -291,11 +291,11 @@
 			files = (
 				343083A619795D0F00655F15 /* SecondViewController.m in Sources */,
 				342A762A1985FD2E00077F8C /* Condition.m in Sources */,
-				342A76271985E4EF00077F8C /* AsyncImageView.m in Sources */,
 				342A76221985E18100077F8C /* ThirdViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				343083A319795D0F00655F15 /* FirstViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
+				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
