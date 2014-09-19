@@ -60,7 +60,8 @@
     // Get the interface items
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"forecastItem"];
     
-    NSLog(@"Loaded cell");
+    
+    
     // Return the cell view
     return cell;
 }
