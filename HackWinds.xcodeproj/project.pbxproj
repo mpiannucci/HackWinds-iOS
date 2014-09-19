@@ -26,6 +26,7 @@
 		343083B119795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
 		343083B919795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343083B719795D0F00655F15 /* InfoPlist.strings */; };
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
+		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
 		34FD036E198F0B3600BA0FB0 /* play_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FD036D198F0B3600BA0FB0 /* play_video@2x.png */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		343083B619795D0F00655F15 /* HackWindsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HackWindsTests-Info.plist"; sourceTree = "<group>"; };
 		343083B819795D0F00655F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		343083BA19795D0F00655F15 /* HackWindsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsTests.m; sourceTree = "<group>"; };
+		3431F9D019CBE135007FA7CA /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		34FD036D198F0B3600BA0FB0 /* play_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_video@2x.png"; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				343083A519795D0F00655F15 /* SecondViewController.m */,
 				343083A719795D0F00655F15 /* Images.xcassets */,
 				3430839019795D0F00655F15 /* Supporting Files */,
+				3431F9D019CBE135007FA7CA /* Forecast.h */,
+				3431F9D119CBE135007FA7CA /* Forecast.m */,
 			);
 			path = HackWinds;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				342A762A1985FD2E00077F8C /* Condition.m in Sources */,
 				342A76221985E18100077F8C /* ThirdViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
+				3431F9D219CBE135007FA7CA /* Forecast.m in Sources */,
 				343083A319795D0F00655F15 /* FirstViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
