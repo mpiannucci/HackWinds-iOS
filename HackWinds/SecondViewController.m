@@ -7,6 +7,7 @@
 //
 #define mswBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define mswURL [NSURL URLWithString:@"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=1103&fields=localTimestamp,swell.*,wind.*"]
+#define weekdays [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
 #import "SecondViewController.h"
 #import "Forecast.h"
@@ -20,6 +21,7 @@
 @implementation SecondViewController
 {
     NSMutableArray *forecasts;
+    NSInteger currentday;
 }
 
 - (void)viewDidLoad
@@ -29,6 +31,11 @@
 
     // array to load data into
     forecasts = [[NSMutableArray alloc] init];
+    
+    // get the day of the week
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    currentday = [comps weekday];
     
     // Load the MSW Data
     dispatch_async(mswBgQueue, ^{
@@ -60,7 +67,8 @@
     // Get the interface items
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"forecastItem"];
     
-    
+    // Get the forecast object
+    // Algorithm: i*2==morning, i*2+1==afternoon
     
     // Return the cell view
     return cell;
@@ -79,7 +87,7 @@
     // Loop through the objects, create new condition objects, and append to the array
     int i = 0;
     int j = 0;
-    while (i<6) {
+    while (i<10) {
         NSDictionary *thisDict = [json objectAtIndex:j];
         j++;
         
@@ -112,6 +120,12 @@
     [_forecastTable reloadData];
 }
 
+
+- (NSString *)getDayHeader:(NSInteger)day
+{
+    return [weekdays objectAtIndex:day];
+}
+
 - (NSString *)formatDate:(NSUInteger)epoch
 {
     // Return the formatted date string
@@ -132,10 +146,18 @@
 {
     // Check if the date is for a valid time
     NSRange AMrange = [dateString rangeOfString:@"AM"];
+    NSRange PMrange = [dateString rangeOfString:@"PM"];
     NSRange Zerorange = [dateString rangeOfString:@"0"];
     NSRange Threerange = [dateString rangeOfString:@"3"];
+    NSRange Sixrange = [dateString rangeOfString:@"6"];
+    NSRange Ninerange = [dateString rangeOfString:@"9"];
+    NSRange Twelverange = [dateString rangeOfString:@"12"];
     if (((AMrange.location != NSNotFound) && (Zerorange.location != NSNotFound)) ||
-        ((AMrange.location != NSNotFound) && (Threerange.location != NSNotFound)))
+        ((AMrange.location != NSNotFound) && (Threerange.location != NSNotFound)) ||
+        ((AMrange.location != NSNotFound) && (Sixrange.location != NSNotFound)) ||
+        ((PMrange.location != NSNotFound) && (Twelverange.location != NSNotFound)) ||
+        ((PMrange.location != NSNotFound) && (Sixrange.location != NSNotFound)) ||
+        ((PMrange.location != NSNotFound) && (Ninerange.location != NSNotFound)))
     {
         return false;
     }
