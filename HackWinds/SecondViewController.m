@@ -101,7 +101,7 @@
                      JSONObjectWithData:responseData
                      options:kNilOptions
                      error:&error];
-    // Quick log to chekc the amount of json objects recieved
+    // Quick log to check the amount of json objects recieved
     NSLog(@"%lu", (unsigned long)[json count]);
     
     // Loop through the objects, create new condition objects, and append to the array
