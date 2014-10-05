@@ -70,6 +70,8 @@
     UILabel *dayLabel = (UILabel *)[cell viewWithTag:21];
     UILabel *morningLabel = (UILabel*)[cell viewWithTag:22];
     UILabel *afternoonLabel = (UILabel *)[cell viewWithTag:23];
+    //UILabel *morningHeaderLabel = (UILabel *)[cell viewWithTag:24];
+    //ILabel *afternoonHeaderLabel = (UILabel *)[cell viewWithTag:25];
     NSUInteger index = indexPath.row;
     
     // Get the forecast object
@@ -85,6 +87,8 @@
     
     [afternoonLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
                            afternoonForecast.minBreak, afternoonForecast.maxBreak, afternoonForecast.windDir, afternoonForecast.windSpeed]];
+    
+    // TODO: Set the color of the label based on whether its good or not
     
     // Return the cell view
     return cell;
