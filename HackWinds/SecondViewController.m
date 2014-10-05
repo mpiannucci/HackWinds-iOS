@@ -140,12 +140,6 @@
     [_forecastTable reloadData];
 }
 
-
-- (NSString *)getDayHeader:(NSInteger)day
-{
-    return [weekdays objectAtIndex:day];
-}
-
 - (NSString *)formatDate:(NSUInteger)epoch
 {
     // Return the formatted date string
