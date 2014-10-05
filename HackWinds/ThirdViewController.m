@@ -14,8 +14,6 @@
 
 @interface ThirdViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tideTable;
-
 @end
 
 @implementation ThirdViewController
@@ -50,25 +48,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 5 rows
-    return 1;
-}
-
-- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
-{
-    // Get the interface items
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tideItem"];
-    
-    // Return the cell view
-    return cell;
 }
 
 - (void)fetchedWunderData:(NSData *)responseData {
