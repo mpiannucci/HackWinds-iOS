@@ -59,16 +59,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 5 rows
-    return 5;
+    NSLog(@"%lu", (unsigned long)[forecasts count]);
+    return [forecasts count]/2;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     // Get the interface items
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"forecastItem"];
+    UILabel *dayLabel = (UILabel *)[cell viewWithTag:21];
+    UILabel *morningLabel = (UILabel*)[cell viewWithTag:22];
+    UILabel *afternoonLabel = (UILabel *)[cell viewWithTag:23];
+    NSUInteger index = indexPath.row;
     
     // Get the forecast object
     // Algorithm: i*2==morning, i*2+1==afternoon
+    Forecast *morningForecast = [forecasts objectAtIndex:index*2];
+    Forecast *afternoonForecast = [forecasts objectAtIndex:(index*2)+1];
+    
+    // Construct the strings and display them
+    [dayLabel setText:[weekdays objectAtIndex:currentday + (index - 1)]];
+    
+    [morningLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
+                           morningForecast.minBreak, morningForecast.maxBreak, morningForecast.windDir, morningForecast.windSpeed]];
+    
+    [afternoonLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
+                           afternoonForecast.minBreak, afternoonForecast.maxBreak, afternoonForecast.windDir, afternoonForecast.windSpeed]];
     
     // Return the cell view
     return cell;
