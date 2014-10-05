@@ -14,6 +14,8 @@
 
 @interface ThirdViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tideTable;
+
 @end
 
 @implementation ThirdViewController
@@ -57,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 5 rows
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -80,7 +82,10 @@
     NSLog(@"%lu", (unsigned long)[json count]);
 
     // Loop through the data and sort it into Tide objects
-    for (int i=0; i<[json ])
+    for (int i=0; i<[json count]; i++) {
+        
+    
+    }
 
 }
 
