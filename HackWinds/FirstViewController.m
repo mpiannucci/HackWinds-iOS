@@ -191,11 +191,14 @@
 - (IBAction)playButton:(id)sender {
     // Handle play button click
     NSLog(@"Video play button pressed");
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
     self.moviePlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
-    [self.moviePlayer.view setFrame:CGRectMake(0, 65, 315, 225)];
+    [self.moviePlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.moviePlayer.view];
     [self.moviePlayer prepareToPlay];
     [self.moviePlayer play];
+    [self.holderImageButton setHidden:YES];
 }
 
 @end
