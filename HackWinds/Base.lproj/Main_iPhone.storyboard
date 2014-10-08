@@ -233,7 +233,7 @@
         <scene sceneID="GfZ-n8-Cv3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8bO-FM-kiq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Live" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Live" image="LiveIcon" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wTv-2z-bK8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -252,7 +252,7 @@
         <scene sceneID="l8g-4p-yvN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZwS-Yr-Mhb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Forecast" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="Forecast" image="ForecastIcon" id="Z7h-1E-pvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2xg-gX-If3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -271,7 +271,7 @@
         <scene sceneID="OPe-de-4Cg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2CQ-XL-rjV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tide" image="second" id="1cy-TD-W5Q"/>
+                    <tabBarItem key="tabBarItem" title="Tide" image="TideIcon" id="1cy-TD-W5Q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tK8-b1-cHe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -288,9 +288,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ForecastIcon" width="30" height="30"/>
+        <image name="LiveIcon" width="30" height="30"/>
         <image name="PlayButton" width="120" height="120"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="TideIcon" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
