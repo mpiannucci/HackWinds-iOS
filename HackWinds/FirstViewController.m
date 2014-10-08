@@ -198,6 +198,8 @@
     [self.view addSubview:self.moviePlayer.view];
     [self.moviePlayer prepareToPlay];
     [self.moviePlayer play];
+    
+    // Hide the async holder image
     [self.holderImageButton setHidden:YES];
 }
 

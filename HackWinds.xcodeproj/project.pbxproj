@@ -28,6 +28,7 @@
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
 		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
+		34B10B9A19E4DC08006FB814 /* play_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 34B10B9919E4DC08006FB814 /* play_video.png */; };
 		34FD036E198F0B3600BA0FB0 /* play_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FD036D198F0B3600BA0FB0 /* play_video@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		34B10B9919E4DC08006FB814 /* play_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_video.png; sourceTree = "<group>"; };
 		34FD036D198F0B3600BA0FB0 /* play_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_video@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34B10B9919E4DC08006FB814 /* play_video.png */,
 				34FD036D198F0B3600BA0FB0 /* play_video@2x.png */,
 			);
 			name = Resources;
@@ -279,6 +282,7 @@
 				34FD036E198F0B3600BA0FB0 /* play_video@2x.png in Resources */,
 				3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
+				34B10B9A19E4DC08006FB814 /* play_video.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
