@@ -80,7 +80,7 @@
     Forecast *afternoonForecast = [forecasts objectAtIndex:(index*2)+1];
     
     // Construct the strings and display them
-    [dayLabel setText:[weekdays objectAtIndex:currentday + (index - 1)]];
+    [dayLabel setText:[weekdays objectAtIndex:((currentday + index)%7)]];
     
     [morningLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
                            morningForecast.minBreak, morningForecast.maxBreak, morningForecast.windDir, morningForecast.windSpeed]];
