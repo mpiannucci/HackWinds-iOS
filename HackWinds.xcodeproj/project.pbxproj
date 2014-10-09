@@ -27,6 +27,9 @@
 		343083B919795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343083B719795D0F00655F15 /* InfoPlist.strings */; };
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
 		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
+		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
+		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
+		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
 		34B10B9A19E4DC08006FB814 /* play_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 34B10B9919E4DC08006FB814 /* play_video.png */; };
 		34FD036E198F0B3600BA0FB0 /* play_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FD036D198F0B3600BA0FB0 /* play_video@2x.png */; };
@@ -39,6 +42,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3430838519795D0F00655F15;
 			remoteInfo = HackWinds;
+		};
+		349679DF19E63C810043A21B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		349679E119E63CBD0043A21B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,6 +89,9 @@
 		343083BA19795D0F00655F15 /* HackWindsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsTests.m; sourceTree = "<group>"; };
 		3431F9D019CBE135007FA7CA /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		34B10B9919E4DC08006FB814 /* play_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_video.png; sourceTree = "<group>"; };
@@ -83,10 +103,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
+				349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */,
 				342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */,
 				3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */,
 				3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */,
 				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
+				349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +133,7 @@
 				343083B419795D0F00655F15 /* HackWindsTests */,
 				3430838819795D0F00655F15 /* Frameworks */,
 				3430838719795D0F00655F15 /* Products */,
+				349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +149,8 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				349679E619E63DE90043A21B /* Accelerate.framework */,
+				349679E419E63DE20043A21B /* QuartzCore.framework */,
 				342A76231985E38600077F8C /* MediaPlayer.framework */,
 				3430838919795D0F00655F15 /* Foundation.framework */,
 				3430838B19795D0F00655F15 /* CoreGraphics.framework */,
@@ -189,6 +215,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		349679DA19E63C800043A21B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +246,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				349679E219E63CBD0043A21B /* PBXTargetDependency */,
 			);
 			name = HackWinds;
 			productName = HackWinds;
@@ -264,6 +299,12 @@
 			mainGroup = 3430837D19795D0F00655F15;
 			productRefGroup = 3430838719795D0F00655F15 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 349679DA19E63C800043A21B /* Products */;
+					ProjectRef = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3430838519795D0F00655F15 /* HackWinds */,
@@ -271,6 +312,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = 349679DF19E63C810043A21B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3430838419795D0F00655F15 /* Resources */ = {
@@ -327,6 +378,11 @@
 			isa = PBXTargetDependency;
 			target = 3430838519795D0F00655F15 /* HackWinds */;
 			targetProxy = 343083B219795D0F00655F15 /* PBXContainerItemProxy */;
+		};
+		349679E219E63CBD0043A21B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 349679E119E63CBD0043A21B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -447,7 +503,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../core-plot/framework/**",
+				);
 				INFOPLIST_FILE = "HackWinds/HackWinds-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -463,7 +525,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../core-plot/framework/**",
+				);
 				INFOPLIST_FILE = "HackWinds/HackWinds-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
