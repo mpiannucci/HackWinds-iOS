@@ -15,8 +15,9 @@
     // Override point for customization after application launch.
     
     // Use these to set the color of the nav bar and tab bar
-    //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:0.0]];
-    //[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:0.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:1.0]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }
