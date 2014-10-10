@@ -27,6 +27,7 @@
 		343083B919795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343083B719795D0F00655F15 /* InfoPlist.strings */; };
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
 		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
+		3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyViewController.m */; };
 		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
@@ -89,6 +90,8 @@
 		343083BA19795D0F00655F15 /* HackWindsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsTests.m; sourceTree = "<group>"; };
 		3431F9D019CBE135007FA7CA /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		3495C95319E7773100C8F4D7 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
+		3495C95419E7773100C8F4D7 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
 		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -165,6 +168,8 @@
 			children = (
 				34FD036A198F0A4F00BA0FB0 /* Resources */,
 				3430839819795D0F00655F15 /* AppDelegate.h */,
+				3495C95319E7773100C8F4D7 /* BuoyViewController.h */,
+				3495C95419E7773100C8F4D7 /* BuoyViewController.m */,
 				342A76201985E18100077F8C /* TideViewController.h */,
 				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
 				342A76281985FD2E00077F8C /* Condition.h */,
@@ -352,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */,
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
 				342A762A1985FD2E00077F8C /* Condition.m in Sources */,
 				342A76221985E18100077F8C /* TideViewController.m in Sources */,
