@@ -8,6 +8,8 @@
 // Block Island ID: Station 44097
 // Montauk ID: Station 44017
 //
+#define BIurl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.spec"]
+#define montaukUrl [NSURL URLWithString:@""http://www.ndbc.noaa.gov/data/realtime2/44017.spec"]
 
 #import "BuoyViewController.h"
 #import "Buoy.h"
