@@ -5,14 +5,23 @@
 //  Created by Matthew Iannucci on 10/9/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
+// Block Island ID: Station 44097
+// Montauk ID: Station 44017
+//
 
 #import "BuoyViewController.h"
+#import "Buoy.h"
 
 @interface BuoyViewController ()
+@property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHolder;
+@property (weak, nonatomic) IBOutlet UITableView *buoyTable;
 
 @end
 
 @implementation BuoyViewController
+{
+    NSMutableArray *buoyDatas;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +31,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return so there will always be 20 rows
+    return 20;
+}
+
+- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    // Get the interface items
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buoyItem"];
+    
+    // Return the cell view
+    return cell;
 }
 
 /*

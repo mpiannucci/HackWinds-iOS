@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CorePlot-CocoaTouch.h"
 
-@interface BuoyViewController : UIViewController
+@interface BuoyViewController : UIViewController <UITableViewDataSource,
+    UITableViewDelegate>
 
 @end
