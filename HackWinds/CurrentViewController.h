@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  HackWinds
 //
 //  Created by Matthew Iannucci on 7/18/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+- (IBAction)playButton:(id)sender;
 
 @end

@@ -9,14 +9,14 @@
 #define wunderURL [NSURL URLWithString:@"http://api.wunderground.com/api/2e5424aab8c91757/tide/q/RI/Point_Judith.json"]
 #define weekdays [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
-#import "ThirdViewController.h"
+#import "TideViewController.h"
 #import "Tide.h"
 
-@interface ThirdViewController ()
+@interface TideViewController ()
 
 @end
 
-@implementation ThirdViewController
+@implementation TideViewController
 {
     NSMutableArray *tides;
     NSInteger currentday;

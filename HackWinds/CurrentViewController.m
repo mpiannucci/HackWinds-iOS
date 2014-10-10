@@ -12,11 +12,11 @@
 #define wwLiveURL [NSURL URLWithString:@"http://162.243.101.197:1935/surfcam/live.stream/playlist.m3u8"]
 
 #import <MediaPlayer/MediaPlayer.h>
-#import "FirstViewController.h"
+#import "CurrentViewController.h"
 #import "AsyncImageView.h"
 #import "Condition.h"
 
-@interface FirstViewController ()
+@interface CurrentViewController ()
 
 @property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation FirstViewController
+@implementation CurrentViewController
 {
     NSMutableArray *conditions;
 }

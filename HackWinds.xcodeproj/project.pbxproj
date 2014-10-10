@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		342A76221985E18100077F8C /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* ThirdViewController.m */; };
+		342A76221985E18100077F8C /* TideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* TideViewController.m */; };
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
 		342A762A1985FD2E00077F8C /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76291985FD2E00077F8C /* Condition.m */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
@@ -18,8 +18,8 @@
 		3430839A19795D0F00655F15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3430839919795D0F00655F15 /* AppDelegate.m */; };
 		3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3430839B19795D0F00655F15 /* Main_iPhone.storyboard */; };
 		343083A019795D0F00655F15 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3430839E19795D0F00655F15 /* Main_iPad.storyboard */; };
-		343083A319795D0F00655F15 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* FirstViewController.m */; };
-		343083A619795D0F00655F15 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* SecondViewController.m */; };
+		343083A319795D0F00655F15 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* CurrentViewController.m */; };
+		343083A619795D0F00655F15 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* ForecastViewController.m */; };
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
 		343083AF19795D0F00655F15 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343083AE19795D0F00655F15 /* XCTest.framework */; };
 		343083B019795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
@@ -60,8 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		342A76201985E18100077F8C /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
-		342A76211985E18100077F8C /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
+		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
 		342A76231985E38600077F8C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		342A76281985FD2E00077F8C /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		342A76291985FD2E00077F8C /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
@@ -77,10 +77,10 @@
 		3430839919795D0F00655F15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3430839C19795D0F00655F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		3430839F19795D0F00655F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		343083A119795D0F00655F15 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		343083A219795D0F00655F15 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		343083A419795D0F00655F15 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		343083A519795D0F00655F15 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		343083A119795D0F00655F15 /* CurrentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentViewController.h; sourceTree = "<group>"; };
+		343083A219795D0F00655F15 /* CurrentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentViewController.m; sourceTree = "<group>"; };
+		343083A419795D0F00655F15 /* ForecastViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
+		343083A519795D0F00655F15 /* ForecastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		343083A719795D0F00655F15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		343083AD19795D0F00655F15 /* HackWindsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		343083AE19795D0F00655F15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -165,19 +165,19 @@
 			children = (
 				34FD036A198F0A4F00BA0FB0 /* Resources */,
 				3430839819795D0F00655F15 /* AppDelegate.h */,
-				342A76201985E18100077F8C /* ThirdViewController.h */,
+				342A76201985E18100077F8C /* TideViewController.h */,
 				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
 				342A76281985FD2E00077F8C /* Condition.h */,
 				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
 				342A76291985FD2E00077F8C /* Condition.m */,
-				342A76211985E18100077F8C /* ThirdViewController.m */,
+				342A76211985E18100077F8C /* TideViewController.m */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
-				343083A119795D0F00655F15 /* FirstViewController.h */,
+				343083A119795D0F00655F15 /* CurrentViewController.h */,
 				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
 				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
-				343083A219795D0F00655F15 /* FirstViewController.m */,
-				343083A419795D0F00655F15 /* SecondViewController.h */,
-				343083A519795D0F00655F15 /* SecondViewController.m */,
+				343083A219795D0F00655F15 /* CurrentViewController.m */,
+				343083A419795D0F00655F15 /* ForecastViewController.h */,
+				343083A519795D0F00655F15 /* ForecastViewController.m */,
 				343083A719795D0F00655F15 /* Images.xcassets */,
 				3430839019795D0F00655F15 /* Supporting Files */,
 				3431F9D019CBE135007FA7CA /* Forecast.h */,
@@ -352,12 +352,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343083A619795D0F00655F15 /* SecondViewController.m in Sources */,
+				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
 				342A762A1985FD2E00077F8C /* Condition.m in Sources */,
-				342A76221985E18100077F8C /* ThirdViewController.m in Sources */,
+				342A76221985E18100077F8C /* TideViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				3431F9D219CBE135007FA7CA /* Forecast.m in Sources */,
-				343083A319795D0F00655F15 /* FirstViewController.m in Sources */,
+				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
 			);

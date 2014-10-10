@@ -8,7 +8,7 @@
         <!--Live-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
-                <viewController title="Live" id="CZ4-MO-1fc" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController title="Live" id="CZ4-MO-1fc" customClass="CurrentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s9W-kb-ARv"/>
                         <viewControllerLayoutGuide type="bottom" id="dtj-EO-iXF"/>
@@ -121,7 +121,7 @@
         <!--Forecast-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
-                <viewController title="Forecast" id="QUy-BD-bpt" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="Forecast" id="QUy-BD-bpt" customClass="ForecastViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FgS-U6-xeU"/>
                         <viewControllerLayoutGuide type="bottom" id="stI-4g-hlJ"/>
@@ -190,7 +190,7 @@
         <!--Tide-->
         <scene sceneID="E0N-BJ-gQ2">
             <objects>
-                <viewController title="Tide" id="7l6-ar-fdw" customClass="ThirdViewController" sceneMemberID="viewController">
+                <viewController title="Tide" id="7l6-ar-fdw" customClass="TideViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="58G-7u-fcf"/>
                         <viewControllerLayoutGuide type="bottom" id="MpP-OR-gb6"/>

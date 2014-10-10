@@ -9,16 +9,16 @@
 #define mswURL [NSURL URLWithString:@"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=1103&fields=localTimestamp,swell.*,wind.*"]
 #define weekdays [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
-#import "SecondViewController.h"
+#import "ForecastViewController.h"
 #import "Forecast.h"
 
-@interface SecondViewController ()
+@interface ForecastViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *forecastTable;
 
 @end
 
-@implementation SecondViewController
+@implementation ForecastViewController
 {
     NSMutableArray *forecasts;
     NSInteger currentday;
