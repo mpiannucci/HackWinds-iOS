@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -186,6 +187,42 @@
             </objects>
             <point key="canvasLocation" x="487" y="430"/>
         </scene>
+        <!--BuoysNav-->
+        <scene sceneID="A4J-ge-FDf">
+            <objects>
+                <navigationController title="BuoysNav" id="PkK-9Y-fvK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Buoys" image="BuoyIcon" id="YRv-Xf-e4c"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ziH-lJ-hAZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="avJ-rZ-EzA" kind="relationship" relationship="rootViewController" id="ez2-mg-VDu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDx-JE-S9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39" y="1173"/>
+        </scene>
+        <!--Buoys-->
+        <scene sceneID="rsP-b4-j7Q">
+            <objects>
+                <viewController title="Buoys" id="avJ-rZ-EzA" customClass="BuoyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BM7-Og-0qb"/>
+                        <viewControllerLayoutGuide type="bottom" id="dzs-Pb-Jae"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1q2-P7-Pfr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bRE-al-kA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="487" y="1175"/>
+        </scene>
         <!--Tide-->
         <scene sceneID="E0N-BJ-gQ2">
             <objects>
@@ -228,6 +265,7 @@
                     <connections>
                         <segue destination="8bO-FM-kiq" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="ZwS-Yr-Mhb" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="PkK-9Y-fvK" kind="relationship" relationship="viewControllers" id="k2P-LQ-Xtj"/>
                         <segue destination="2CQ-XL-rjV" kind="relationship" relationship="viewControllers" id="8Mm-7k-s5n"/>
                     </connections>
                 </tabBarController>
@@ -235,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="-788" y="430"/>
         </scene>
-        <!--Live-->
+        <!--LiveNav-->
         <scene sceneID="GfZ-n8-Cv3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8bO-FM-kiq" sceneMemberID="viewController">
+                <navigationController title="LiveNav" automaticallyAdjustsScrollViewInsets="NO" id="8bO-FM-kiq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Live" image="LiveIcon" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wTv-2z-bK8">
@@ -257,10 +295,10 @@
             </objects>
             <point key="canvasLocation" x="-39" y="-498"/>
         </scene>
-        <!--Forecast-->
+        <!--ForecastNav-->
         <scene sceneID="l8g-4p-yvN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZwS-Yr-Mhb" sceneMemberID="viewController">
+                <navigationController title="ForecastNav" automaticallyAdjustsScrollViewInsets="NO" id="ZwS-Yr-Mhb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Forecast" image="ForecastIcon" id="Z7h-1E-pvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2xg-gX-If3">
@@ -276,10 +314,10 @@
             </objects>
             <point key="canvasLocation" x="-39" y="430"/>
         </scene>
-        <!--Tide-->
+        <!--TideNav-->
         <scene sceneID="OPe-de-4Cg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2CQ-XL-rjV" sceneMemberID="viewController">
+                <navigationController title="TideNav" automaticallyAdjustsScrollViewInsets="NO" id="2CQ-XL-rjV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tide" image="TideIcon" id="1cy-TD-W5Q"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -301,6 +339,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BuoyIcon" width="30" height="30"/>
         <image name="ForecastIcon" width="30" height="30"/>
         <image name="LiveIcon" width="30" height="30"/>
         <image name="PlayButton" width="120" height="120"/>
