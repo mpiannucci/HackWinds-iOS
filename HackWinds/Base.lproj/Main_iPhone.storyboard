@@ -108,6 +108,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="dayHeader" destination="1rm-Eb-nhm" id="OOE-OZ-GBX"/>
                         <outlet property="holderImageButton" destination="Yy3-HW-pDb" id="IzP-48-wZL"/>
@@ -338,7 +339,7 @@
             <objects>
                 <tabBarController title="Overview" id="8YX-ce-x5E" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="HackWinds" id="dg9-NY-af5"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
@@ -363,6 +364,7 @@
                 <navigationController title="LiveNav" automaticallyAdjustsScrollViewInsets="NO" id="8bO-FM-kiq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Live" image="LiveIcon" id="u1e-5L-l1D"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wTv-2z-bK8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
