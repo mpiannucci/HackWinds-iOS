@@ -9,6 +9,9 @@
 // Montauk ID: Station 44017
 //
 #define NDBCBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define BLOCK_ISLAND_LOCATION 41
+#define MONTAUK_LOCATION 42
+#define DATA_POINTS 20
 #define BIurl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.spec"]
 #define montaukUrl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.spec"]
 
@@ -29,6 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Load the buoy data
+    [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +49,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 20 rows
-    return 20;
+    return DATA_POINTS;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -53,6 +59,35 @@
     
     // Return the cell view
     return cell;
+}
+                        
+- (void)fetchBuoyData:(NSNumber*)location {
+    NSString* buoyData;
+    NSError *err = nil;
+    if ((int)location == BLOCK_ISLAND_LOCATION) {
+        buoyData = [NSString stringWithContentsOfURL:BIurl encoding:NSUTF8StringEncoding error:&err];
+    } else {
+        // Montauk
+        buoyData = [NSString stringWithContentsOfURL:montaukUrl encoding:NSUTF8StringEncoding error:&err];
+    }
+    NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
+    NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
+    
+    NSArray *parts = [buoyData componentsSeparatedByCharactersInSet:whitespaces];
+    NSArray *filteredArray = [parts filteredArrayUsingPredicate:noEmptyStrings];
+    buoyData = [filteredArray componentsJoinedByString:@" "];
+    NSArray* cleanData = [buoyData componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    // Parse the data into buoy objects
+    for(int i=0; i<DATA_POINTS; i++) {
+        Buoy* newBuoy = [[Buoy alloc] init];
+        
+        
+        // Append the buoy to the list of buoys
+        [buoyDatas addObject:newBuoy];
+    }
+    // Update the views
+    
 }
 
 /*

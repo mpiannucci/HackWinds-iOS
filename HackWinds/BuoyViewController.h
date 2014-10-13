@@ -12,4 +12,6 @@
 @interface BuoyViewController : UIViewController <UITableViewDataSource,
     UITableViewDelegate>
 
+- (void)fetchBuoyData:(NSNumber*)location;
+
 @end
