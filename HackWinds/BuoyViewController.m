@@ -33,6 +33,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Array to load the data into 
+    buoyDatas = [[NSMutableArray alloc] init];
+    
     // Load the buoy data
     [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
 }
@@ -49,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 20 rows
-    return DATA_POINTS;
+    return [buoyDatas count];
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

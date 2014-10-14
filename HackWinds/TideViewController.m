@@ -30,7 +30,7 @@
     // Array to load the data into
     tides = [[NSMutableArray alloc] init];
 
-    // get the day of the week
+    // get the day of the week and set it as the header
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
     currentday = [comps weekday];
@@ -61,7 +61,7 @@
     NSLog(@"%lu", (unsigned long)[json count]);
 
     // Loop through the data and sort it into Tide objects
-    for (int i=0; i<[json count]; i++) {
+    for (int i=0; i<6; i++) {
         
     
     }
