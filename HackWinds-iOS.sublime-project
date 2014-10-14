@@ -1,0 +1,26 @@
+{
+	"SublimeLinter":
+	{
+		"linters":
+		{
+			"javac":
+			{
+				"@disable": true,
+				"args":
+				[
+					"-cp",
+					"",
+					"-sourcepath",
+					""
+				]
+			}
+		}
+	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}

@@ -6,3 +6,4 @@
 #
 # Pods/
 *.xcuserstate
+*.sublime-workspace
