@@ -33,6 +33,7 @@
 @implementation BuoyViewController
 {
     NSMutableArray *buoyDatas;
+    CPTScatterPlot* plot;
 }
 
 - (void)viewDidLoad {
@@ -41,6 +42,16 @@
     
     // Array to load the data into 
     buoyDatas = [[NSMutableArray alloc] init];
+    
+    // Create the graph view
+    CPTGraph* graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
+    _graphHolder.hostedGraph = graph;
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 16 )]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -4 ) length:CPTDecimalFromFloat( 8 )]];
+    plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
+    plot.dataSource = self;
+    [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
     
     // Load the buoy data
     [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
@@ -82,6 +93,26 @@
     // Return the cell view
     return cell;
 }
+
+-(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
+    return [buoyDatas count]; // Our sample graph contains 9 'points'
+}
+
+-(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
+{
+    // We need to provide an X or Y (this method will be called for each) value for every index
+    int x = index - 4;
+    
+    // This method is actually called twice per point in the plot, one for the X and one for the Y value
+    if(fieldEnum == CPTScatterPlotFieldX)
+    {
+        // Return x value, which will, depending on index, be between -4 to 4
+        return [NSNumber numberWithInt: x];
+    } else {
+        // Return y value, for this example we'll be plotting y = x * x
+        return [NSNumber numberWithInt: x * x];
+    }
+}
                         
 - (void)fetchBuoyData:(NSNumber*)location {
     buoyDatas = [[NSMutableArray alloc] init];
@@ -116,7 +147,7 @@
     [_buoyTable reloadData];
     
     // Update the plot
-    
+    [plot reloadData];
 }
 
 - (IBAction)locationSegmentValueChanged:(id)sender {
