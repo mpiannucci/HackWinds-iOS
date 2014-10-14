@@ -13,5 +13,6 @@
     UITableViewDelegate>
 
 - (void)fetchBuoyData:(NSNumber*)location;
+- (IBAction)locationSegmentValueChanged:(id)sender;
 
 @end

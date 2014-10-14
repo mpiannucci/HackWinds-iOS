@@ -84,9 +84,10 @@
 }
                         
 - (void)fetchBuoyData:(NSNumber*)location {
+    buoyDatas = [[NSMutableArray alloc] init];
     NSString* buoyData;
     NSError *err = nil;
-    if ((int)location == BLOCK_ISLAND_LOCATION) {
+    if ([location isEqualToNumber:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]]) {
         buoyData = [NSString stringWithContentsOfURL:BIurl encoding:NSUTF8StringEncoding error:&err];
     } else {
         // Montauk
@@ -116,6 +117,17 @@
     
     // Update the plot
     
+}
+
+- (IBAction)locationSegmentValueChanged:(id)sender {
+    int location = 0;
+    if ([sender selectedSegmentIndex] == 0) {
+        location = BLOCK_ISLAND_LOCATION;
+    } else {
+        location = MONTAUK_LOCATION;
+    }
+    // Load the buoy data
+    [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:location]];
 }
 
 /*
