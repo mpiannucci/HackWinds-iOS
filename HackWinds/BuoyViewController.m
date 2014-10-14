@@ -12,6 +12,12 @@
 #define BLOCK_ISLAND_LOCATION 41
 #define MONTAUK_LOCATION 42
 #define DATA_POINTS 20
+#define DATA_HEADER_LENGTH 30
+#define HOUR_OFFSET 3
+#define MINUTE_OFFSET 4
+#define WVHT_OFFSET 5
+#define APD_OFFSET 13
+#define STEEPNESS_OFFSET 12
 #define BIurl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.spec"]
 #define montaukUrl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.spec"]
 
@@ -59,6 +65,19 @@
 {
     // Get the interface items
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buoyItem"];
+    UILabel *timeLabel = (UILabel *)[cell viewWithTag:31];
+    UILabel *wvhtLabel = (UILabel *)[cell viewWithTag:32];
+    UILabel *apdLabel = (UILabel *)[cell viewWithTag:33];
+    UILabel *steepnessLabel = (UILabel *)[cell viewWithTag:34];
+    
+    // Get the object
+    Buoy *thisBuoy = [buoyDatas objectAtIndex:indexPath.row];
+    
+    // Set the data to the label
+    [timeLabel setText:thisBuoy.time];
+    [wvhtLabel setText:thisBuoy.wvht];
+    [apdLabel setText:thisBuoy.apd];
+    [steepnessLabel setText:thisBuoy.steepness];
     
     // Return the cell view
     return cell;
@@ -82,14 +101,20 @@
     NSArray* cleanData = [buoyData componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     // Parse the data into buoy objects
-    for(int i=0; i<DATA_POINTS; i++) {
+    for(int i=30; i<(30+(15*DATA_POINTS)); i+=15) {
         Buoy* newBuoy = [[Buoy alloc] init];
-        
+        [newBuoy setTime:[NSString stringWithFormat:@"%@:%@", [cleanData objectAtIndex:i+HOUR_OFFSET], [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
+        [newBuoy setWvht:[cleanData objectAtIndex:i+WVHT_OFFSET]];
+        [newBuoy setApd:[cleanData objectAtIndex:i+APD_OFFSET]];
+        [newBuoy setSteepness:[cleanData objectAtIndex:i+STEEPNESS_OFFSET]];
         
         // Append the buoy to the list of buoys
         [buoyDatas addObject:newBuoy];
     }
-    // Update the views
+    // Update the table
+    [_buoyTable reloadData];
+    
+    // Update the plot
     
 }
 

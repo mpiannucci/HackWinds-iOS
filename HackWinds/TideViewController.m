@@ -13,6 +13,7 @@
 #import "Tide.h"
 
 @interface TideViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *dayHeaderLabel;
 
 @end
 
@@ -34,6 +35,7 @@
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
     currentday = [comps weekday];
+    [_dayHeaderLabel setText:[weekdays objectAtIndex:currentday-1]];
 
     // Load the Wunderground Data
     dispatch_async(wunderBgQueue, ^{
