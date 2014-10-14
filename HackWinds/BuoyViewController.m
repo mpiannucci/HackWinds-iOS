@@ -100,17 +100,20 @@
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
+    // Get the buoy object for the index
+    Buoy *thisBuoy = [buoyDatas objectAtIndex:index];
+    
     // We need to provide an X or Y (this method will be called for each) value for every index
-    int x = index - 4;
+    int x = index;
     
     // This method is actually called twice per point in the plot, one for the X and one for the Y value
     if(fieldEnum == CPTScatterPlotFieldX)
     {
         // Return x value, which will, depending on index, be between -4 to 4
-        return [NSNumber numberWithInt: x];
+        return [NSNumber numberWithInteger:x];
     } else {
         // Return y value, for this example we'll be plotting y = x * x
-        return [NSNumber numberWithInt: x * x];
+        return [NSNumber numberWithInteger:[thisBuoy.wvht integerValue]];
     }
 }
                         
