@@ -47,11 +47,40 @@
     CPTGraph* graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
     _graphHolder.hostedGraph = graph;
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 16 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -4 ) length:CPTDecimalFromFloat( 8 )]];
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0) length:CPTDecimalFromFloat( 5)]];
+    
     plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
     plot.dataSource = self;
     [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
+    NSNumberFormatter *axisFormatter = [[NSNumberFormatter alloc] init];
+    [axisFormatter setMinimumIntegerDigits:1];
+    [axisFormatter setMaximumFractionDigits:0];
+    
+    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
+    [textStyle setFontSize:12.0f];
+    
+    [[graph plotAreaFrame] setPaddingLeft:20.0f];
+    [[graph plotAreaFrame] setPaddingTop:10.0f];
+    [[graph plotAreaFrame] setPaddingBottom:20.0f];
+    [[graph plotAreaFrame] setPaddingRight:10.0f];
+    [[graph plotAreaFrame] setBorderLineStyle:nil];
+    
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)[graph axisSet];
+    
+    CPTXYAxis *xAxis = [axisSet xAxis];
+    [xAxis setMajorIntervalLength:CPTDecimalFromInt(1)];
+    [xAxis setMinorTickLineStyle:nil];
+    [xAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
+    [xAxis setLabelTextStyle:textStyle];
+    [xAxis setLabelFormatter:axisFormatter];
+    
+    CPTXYAxis *yAxis = [axisSet yAxis];
+    [yAxis setMajorIntervalLength:CPTDecimalFromInt(1)];
+    [yAxis setMinorTickLineStyle:nil];
+    [yAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
+    [yAxis setLabelTextStyle:textStyle];
+    [yAxis setLabelFormatter:axisFormatter];
     
     // Load the buoy data
     [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
@@ -104,16 +133,16 @@
     Buoy *thisBuoy = [buoyDatas objectAtIndex:index];
     
     // We need to provide an X or Y (this method will be called for each) value for every index
-    int x = index;
+    double x = (double) index/4;
     
     // This method is actually called twice per point in the plot, one for the X and one for the Y value
     if(fieldEnum == CPTScatterPlotFieldX)
     {
         // Return x value, which will, depending on index, be between -4 to 4
-        return [NSNumber numberWithInteger:x];
+        return [NSNumber numberWithDouble:x];
     } else {
         // Return y value, for this example we'll be plotting y = x * x
-        return [NSNumber numberWithInteger:[thisBuoy.wvht integerValue]];
+        return [NSNumber numberWithDouble:[thisBuoy.wvht doubleValue]];
     }
 }
                         
