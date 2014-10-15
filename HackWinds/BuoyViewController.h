@@ -13,6 +13,8 @@
     UITableViewDelegate, CPTPlotDataSource, CPTPlotDelegate>
 
 - (void)fetchBuoyData:(NSNumber*)location;
+- (void)setAxisLabels;
+
 - (IBAction)locationSegmentValueChanged:(id)sender;
 
 @end
