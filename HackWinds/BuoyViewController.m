@@ -46,6 +46,7 @@
     // Create the graph view
     CPTGraph* graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
     _graphHolder.hostedGraph = graph;
+    [graph setTitle:@"Wave Height (m)"];
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
     [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 5 ) length:CPTDecimalFromFloat( -5 )]];
@@ -61,7 +62,7 @@
     [textStyle setFontSize:12.0f];
     
     [[graph plotAreaFrame] setPaddingLeft:20.0f];
-    [[graph plotAreaFrame] setPaddingTop:10.0f];
+    [[graph plotAreaFrame] setPaddingTop:5.0f];
     [[graph plotAreaFrame] setPaddingBottom:50.0f];
     [[graph plotAreaFrame] setPaddingRight:10.0f];
     [[graph plotAreaFrame] setBorderLineStyle:nil];
