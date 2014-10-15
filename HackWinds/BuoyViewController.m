@@ -186,6 +186,10 @@
     [plot reloadData];
 }
 
+- (void)setAxisLabels:(CPXYGraph*)graphForAxis {
+    
+}
+
 - (IBAction)locationSegmentValueChanged:(id)sender {
     int location = 0;
     if ([sender selectedSegmentIndex] == 0) {
