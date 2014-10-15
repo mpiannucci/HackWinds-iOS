@@ -62,7 +62,7 @@
     
     [[graph plotAreaFrame] setPaddingLeft:20.0f];
     [[graph plotAreaFrame] setPaddingTop:10.0f];
-    [[graph plotAreaFrame] setPaddingBottom:20.0f];
+    [[graph plotAreaFrame] setPaddingBottom:50.0f];
     [[graph plotAreaFrame] setPaddingRight:10.0f];
     [[graph plotAreaFrame] setBorderLineStyle:nil];
     
