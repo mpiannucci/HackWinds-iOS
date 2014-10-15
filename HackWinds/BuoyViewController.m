@@ -48,7 +48,7 @@
     _graphHolder.hostedGraph = graph;
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0) length:CPTDecimalFromFloat( 5)]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 5 ) length:CPTDecimalFromFloat( -5 )]];
     
     plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
     plot.dataSource = self;
@@ -74,6 +74,8 @@
     [xAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
     [xAxis setLabelTextStyle:textStyle];
     [xAxis setLabelFormatter:axisFormatter];
+    [xAxis setTitle:@"Hours Ago"];
+    xAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(0.0);
     
     CPTXYAxis *yAxis = [axisSet yAxis];
     [yAxis setMajorIntervalLength:CPTDecimalFromInt(1)];
@@ -81,6 +83,7 @@
     [yAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
     [yAxis setLabelTextStyle:textStyle];
     [yAxis setLabelFormatter:axisFormatter];
+    yAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(5.0);
     
     // Load the buoy data
     [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
