@@ -19,7 +19,7 @@
 
 @implementation TideViewController
 {
-    NSMutableArray *tides;
+    Tide *tide;
     NSInteger currentday;
 }
 
@@ -29,7 +29,7 @@
     // Do any additional setup after loading the view.
     
     // Array to load the data into
-    tides = [[NSMutableArray alloc] init];
+    tide = [[Tide alloc] init];
 
     // get the day of the week and set it as the header
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -55,17 +55,24 @@
 - (void)fetchedTideData:(NSData *)responseData {
     //parse out the Wunderground json data
     NSError* error;
-    NSArray* json = [NSJSONSerialization
+    NSDictionary* json = [NSJSONSerialization
                      JSONObjectWithData:responseData
                      options:kNilOptions
                      error:&error];
     // Quick log to check the amount of json objects recieved
-    NSLog(@"%lu", (unsigned long)[json count]);
-
-    // Loop through the data and sort it into Tide objects
-    for (int i=0; i<6; i++) {
-        
+    NSArray* tideSummary = [[json objectForKey:@"tide"] objectForKey:@"tideSummary"];
     
+    // Loop through the data and sort it into Tide objects
+    int count = 0;
+    int i = 0;
+    while (count < 7) {
+        // Get the data type and timestamp
+        NSDictionary* thisTide = [tideSummary objectAtIndex:i];
+        NSString* dataType = [[thisTide objectForKey:@"data"] objectForKey:@"type"];
+        
+        // Check for the type and set it to the object
+        i++;
+        count = 8;
     }
 
 }
