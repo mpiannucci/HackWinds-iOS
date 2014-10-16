@@ -34,6 +34,7 @@
 {
     NSMutableArray *buoyDatas;
     CPTScatterPlot* plot;
+    CPTGraph* graph;
 }
 
 - (void)viewDidLoad {
@@ -44,12 +45,12 @@
     buoyDatas = [[NSMutableArray alloc] init];
     
     // Create the graph view
-    CPTGraph* graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
+    graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
     _graphHolder.hostedGraph = graph;
     [graph setTitle:@"Wave Height (m)"];
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 5 ) length:CPTDecimalFromFloat( -5 )]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 10 ) length:CPTDecimalFromFloat( -10 )]];
     
     plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
     plot.dataSource = self;
@@ -70,7 +71,7 @@
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)[graph axisSet];
     
     CPTXYAxis *xAxis = [axisSet xAxis];
-    [xAxis setMajorIntervalLength:CPTDecimalFromInt(1)];
+    [xAxis setMajorIntervalLength:CPTDecimalFromInt(2)];
     [xAxis setMinorTickLineStyle:nil];
     [xAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
     [xAxis setLabelTextStyle:textStyle];
@@ -84,7 +85,7 @@
     [yAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
     [yAxis setLabelTextStyle:textStyle];
     [yAxis setLabelFormatter:axisFormatter];
-    yAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(5.0);
+    yAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(10.0);
     
     // Load the buoy data
     [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
@@ -137,7 +138,7 @@
     Buoy *thisBuoy = [buoyDatas objectAtIndex:index];
     
     // We need to provide an X or Y (this method will be called for each) value for every index
-    double x = (double) index/4;
+    double x = (double) index/2;
     
     // This method is actually called twice per point in the plot, one for the X and one for the Y value
     if(fieldEnum == CPTScatterPlotFieldX)
@@ -152,6 +153,7 @@
                         
 - (void)fetchBuoyData:(NSNumber*)location {
     buoyDatas = [[NSMutableArray alloc] init];
+    NSMutableArray* wvhts = [[NSMutableArray alloc] init];
     NSString* buoyData;
     NSError *err = nil;
     if ([location isEqualToNumber:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]]) {
@@ -178,15 +180,17 @@
         
         // Append the buoy to the list of buoys
         [buoyDatas addObject:newBuoy];
+        
+        // Append the wave height for scaling
+        [wvhts addObject:[cleanData objectAtIndex:i+WVHT_OFFSET]];
     }
     // Update the table
     [_buoyTable reloadData];
     
     // Update the plot
     [plot reloadData];
-}
-
-- (void)setAxisLabels:(CPXYGraph*)graphForAxis {
+    
+    // Scale the y axis
     
 }
 
