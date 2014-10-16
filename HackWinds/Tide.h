@@ -18,7 +18,7 @@
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *sunset;
 @property (strong, nonatomic) NSString *sunrise;
-@property (strong, nonatomic) NSArray *highTide;
-@property (strong, nonatomic) NSArray *lowtide;
+@property (strong, nonatomic) NSMutableArray *highTide;
+@property (strong, nonatomic) NSMutableArray *lowtide;
 
 @end

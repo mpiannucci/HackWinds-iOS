@@ -70,9 +70,24 @@
         NSDictionary* thisTide = [tideSummary objectAtIndex:i];
         NSString* dataType = [[thisTide objectForKey:@"data"] objectForKey:@"type"];
         
+        // Create the tide string
+        NSString* time = @"time";
+        
         // Check for the type and set it to the object
+        if ([dataType isEqualToString:SUNRISE_TAG]) {
+            [tide setSunrise:time];
+            count++;
+        } else if ([dataType isEqualToString:SUNSET_TAG]) {
+            [tide setSunset:time];
+            count++;
+        } else if ([dataType isEqualToString:HIGH_TIDE_TAG]) {
+            [tide.highTide addObject:time];
+            count++;
+        } else if ([dataType isEqualToString:LOW_TIDE_TAG]) {
+            [tide.lowtide addObject:time];
+            count++;
+        }
         i++;
-        count = 8;
     }
 
 }
