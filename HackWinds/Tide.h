@@ -16,7 +16,9 @@
 
 // Define the data for the condition model
 @property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) NSMutableArray *values;
-@property (strong, nonatomic) NSMutableArray *types;
+@property (strong, nonatomic) NSString *sunset;
+@property (strong, nonatomic) NSString *sunrise;
+@property (strong, nonatomic) NSArray *highTide;
+@property (strong, nonatomic) NSArray *lowtide;
 
 @end

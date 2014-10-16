@@ -11,4 +11,6 @@
 
 @interface TideViewController : UIViewController
 
+- (void)fetchedTideData:(NSData *)responseData;
+
 @end

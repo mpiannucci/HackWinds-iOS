@@ -41,7 +41,7 @@
     dispatch_async(wunderBgQueue, ^{
         NSData* data = [NSData dataWithContentsOfURL:
                         wunderURL];
-        [self performSelectorOnMainThread:@selector(fetchedWunderData:)
+        [self performSelectorOnMainThread:@selector(fetchedTideData:)
                                withObject:data waitUntilDone:YES];
     });
 }
@@ -52,7 +52,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)fetchedWunderData:(NSData *)responseData {
+- (void)fetchedTideData:(NSData *)responseData {
     //parse out the Wunderground json data
     NSError* error;
     NSArray* json = [NSJSONSerialization
