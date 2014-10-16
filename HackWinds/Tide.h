@@ -15,10 +15,8 @@
 @interface Tide : NSObject
 
 // Define the data for the condition model
-@property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) NSString *sunset;
-@property (strong, nonatomic) NSString *sunrise;
-@property (strong, nonatomic) NSMutableArray *highTide;
-@property (strong, nonatomic) NSMutableArray *lowtide;
+@property (strong, nonatomic) NSString *time;
+@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *height;
 
 @end

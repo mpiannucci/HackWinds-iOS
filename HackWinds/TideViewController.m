@@ -19,7 +19,7 @@
 
 @implementation TideViewController
 {
-    Tide *tide;
+    NSMutableArray *tides;
     NSInteger currentday;
 }
 
@@ -29,7 +29,7 @@
     // Do any additional setup after loading the view.
     
     // Array to load the data into
-    tide = [[Tide alloc] init];
+    tides = [[NSMutableArray alloc] init];
 
     // get the day of the week and set it as the header
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -66,25 +66,32 @@
     int count = 0;
     int i = 0;
     while (count < 7) {
+        
         // Get the data type and timestamp
         NSDictionary* thisTide = [tideSummary objectAtIndex:i];
         NSString* dataType = [[thisTide objectForKey:@"data"] objectForKey:@"type"];
+        NSString* height = [[thisTide objectForKey:@"data"] objectForKey:@"height"];
+        NSString* hour = [[thisTide objectForKey:@"date"] objectForKey:@"hour"];
+        NSString* minute = [[thisTide objectForKey:@"date"] objectForKey:@"min"];
         
         // Create the tide string
-        NSString* time = @"time";
+        NSString* time = [NSString stringWithFormat:@"%@:%@", hour, minute];
         
         // Check for the type and set it to the object
-        if ([dataType isEqualToString:SUNRISE_TAG]) {
-            [tide setSunrise:time];
-            count++;
-        } else if ([dataType isEqualToString:SUNSET_TAG]) {
-            [tide setSunset:time];
-            count++;
-        } else if ([dataType isEqualToString:HIGH_TIDE_TAG]) {
-            [tide.highTide addObject:time];
-            count++;
-        } else if ([dataType isEqualToString:LOW_TIDE_TAG]) {
-            [tide.lowtide addObject:time];
+        if ([dataType isEqualToString:SUNRISE_TAG] ||
+            [dataType isEqualToString:SUNSET_TAG] ||
+            [dataType isEqualToString:HIGH_TIDE_TAG] ||
+            [dataType isEqualToString:LOW_TIDE_TAG]) {
+            // Create the new tide object
+            Tide* tide = [[Tide alloc] init];
+            [tide setType:dataType];
+            [tide setTime:time];
+            [tide setHeight:height];
+            
+            // Add the tide to the array
+            [tides addObject:tide];
+            
+            // Increment the count of the tide objects
             count++;
         }
         i++;
