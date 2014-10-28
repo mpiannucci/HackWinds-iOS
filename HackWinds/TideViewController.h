@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CorePlot-CocoaTouch.h"
 
-@interface TideViewController : UIViewController <CPTPlotDataSource, CPTPlotDelegate>
+@interface TideViewController : UIViewController
 
 - (void)fetchedTideData:(NSData *)responseData;
+
+- (void)reloadView;
 
 @end
