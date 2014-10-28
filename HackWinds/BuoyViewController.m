@@ -36,11 +36,15 @@
     NSMutableArray *buoyDatas;
     CPTScatterPlot* plot;
     CPTGraph* graph;
+    int buoy_location;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Initialize the location
+    buoy_location = 41;
     
     // Array to load the data into 
     buoyDatas = [[NSMutableArray alloc] init];
@@ -130,7 +134,11 @@
 }
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
-    return [buoyDatas count]; // Our sample graph contains 9 'points'
+    // The time scales are different time deltas, make sure they both show 9 hours of data
+    if (buoy_location == BLOCK_ISLAND_LOCATION)
+        return [buoyDatas count];
+    else
+        return [buoyDatas count]/2;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
@@ -138,16 +146,21 @@
     // Get the buoy object for the index
     Buoy *thisBuoy = [buoyDatas objectAtIndex:index];
     
-    // We need to provide an X or Y (this method will be called for each) value for every index
-    double x = (double) index/2;
+    // Depending on the buoy location set the axis scaling
+    double x;
+    if (buoy_location == BLOCK_ISLAND_LOCATION)
+        x = (double) index/2;
+    else
+        x = (double) index;
     
+    // We need to provide an X or Y (this method will be called for each) value for every index
     // This method is actually called twice per point in the plot, one for the X and one for the Y value
     if(fieldEnum == CPTScatterPlotFieldX)
     {
-        // Return x value, which will, depending on index, be between -4 to 4
+        // Return x value
         return [NSNumber numberWithDouble:x];
     } else {
-        // Return y value, for this example we'll be plotting y = x * x
+        // Return y value, for this example we'll be plotting y = mx
         return [NSNumber numberWithDouble:[thisBuoy.wvht doubleValue]];
     }
 }
@@ -205,14 +218,13 @@
 }
 
 - (IBAction)locationSegmentValueChanged:(id)sender {
-    int location = 0;
     if ([sender selectedSegmentIndex] == 0) {
-        location = BLOCK_ISLAND_LOCATION;
+        buoy_location = BLOCK_ISLAND_LOCATION;
     } else {
-        location = MONTAUK_LOCATION;
+        buoy_location = MONTAUK_LOCATION;
     }
     // Load the buoy data
-    [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:location]];
+    [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:buoy_location]];
 }
 
 /*
