@@ -13,19 +13,19 @@
 		<key>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</key>
 		<string>https://github.com/core-plot/core-plot.git</string>
 		<key>E419394132B0212764C79CDBC7FE49CB36E2E238</key>
-		<string>https://github.com/mpiannucci/HackWinds-iOS.git</string>
+		<string>github.com:mpiannucci/HackWinds-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HackWinds/HackWinds.xcodeproj/project.xcworkspace</string>
+	<string>HackWinds.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</key>
-		<string>../../../../core-plot</string>
+		<string>../../../core-plot</string>
 		<key>E419394132B0212764C79CDBC7FE49CB36E2E238</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/mpiannucci/HackWinds-iOS.git</string>
+	<string>github.com:mpiannucci/HackWinds-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

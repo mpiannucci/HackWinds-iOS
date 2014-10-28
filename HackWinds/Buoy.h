@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *wvht;
-@property (strong, nonatomic) NSString *apd;
-@property (strong, nonatomic) NSString *steepness;
+@property (strong, nonatomic) NSString *dpd;
+@property (strong, nonatomic) NSString *direction;
 
 @end

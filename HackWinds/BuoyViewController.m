@@ -12,14 +12,15 @@
 #define BLOCK_ISLAND_LOCATION 41
 #define MONTAUK_LOCATION 42
 #define DATA_POINTS 20
-#define DATA_HEADER_LENGTH 30
+#define DATA_HEADER_LENGTH 38
+#define DATA_LINE_LEN 19
 #define HOUR_OFFSET 3
 #define MINUTE_OFFSET 4
-#define WVHT_OFFSET 5
-#define APD_OFFSET 13
-#define STEEPNESS_OFFSET 12
-#define BIurl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.spec"]
-#define montaukUrl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.spec"]
+#define WVHT_OFFSET 8
+#define DPD_OFFSET 9
+#define DIRECTION_OFFSET 11
+#define BIurl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
+#define montaukUrl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
 
 #import "BuoyViewController.h"
 #import "Buoy.h"
@@ -47,7 +48,7 @@
     // Create the graph view
     graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
     _graphHolder.hostedGraph = graph;
-    [graph setTitle:@"Wave Height (m)"];
+    [graph setTitle:@"Wave Height (ft)"];
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
     [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 10 ) length:CPTDecimalFromFloat( -10 )]];
@@ -121,8 +122,8 @@
     // Set the data to the label
     [timeLabel setText:thisBuoy.time];
     [wvhtLabel setText:thisBuoy.wvht];
-    [apdLabel setText:thisBuoy.apd];
-    [steepnessLabel setText:thisBuoy.steepness];
+    [apdLabel setText:thisBuoy.dpd];
+    [steepnessLabel setText:thisBuoy.direction];
     
     // Return the cell view
     return cell;
@@ -171,18 +172,24 @@
     NSArray* cleanData = [buoyData componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     // Parse the data into buoy objects
-    for(int i=30; i<(30+(15*DATA_POINTS)); i+=15) {
+    for(int i=DATA_HEADER_LENGTH; i<(DATA_HEADER_LENGTH+(DATA_LINE_LEN*DATA_POINTS)); i+=DATA_LINE_LEN) {
         Buoy* newBuoy = [[Buoy alloc] init];
         [newBuoy setTime:[NSString stringWithFormat:@"%@:%@", [cleanData objectAtIndex:i+HOUR_OFFSET], [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
-        [newBuoy setWvht:[cleanData objectAtIndex:i+WVHT_OFFSET]];
-        [newBuoy setApd:[cleanData objectAtIndex:i+APD_OFFSET]];
-        [newBuoy setSteepness:[cleanData objectAtIndex:i+STEEPNESS_OFFSET]];
+        [newBuoy setDpd:[cleanData objectAtIndex:i+DPD_OFFSET]];
+        [newBuoy setDirection:[cleanData objectAtIndex:i+DIRECTION_OFFSET]];
+        
+        // Change the wave height to feet
+        NSString* wv = [cleanData objectAtIndex:i+WVHT_OFFSET];
+        double h =  [wv doubleValue]*3.28;
+        
+        // Set the wave height
+        [newBuoy setWvht:[NSString stringWithFormat:@"%2.2f", h]];
         
         // Append the buoy to the list of buoys
         [buoyDatas addObject:newBuoy];
         
         // Append the wave height for scaling
-        [wvhts addObject:[cleanData objectAtIndex:i+WVHT_OFFSET]];
+        [wvhts addObject:[NSString stringWithFormat:@"%2.2f", h]];
     }
     // Update the table
     [_buoyTable reloadData];
