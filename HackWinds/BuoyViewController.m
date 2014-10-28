@@ -8,7 +8,6 @@
 // Block Island ID: Station 44097
 // Montauk ID: Station 44017
 //
-#define NDBCBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define BLOCK_ISLAND_LOCATION 41
 #define MONTAUK_LOCATION 42
 #define DATA_POINTS 20
@@ -43,13 +42,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Initialize the location
-    buoy_location = 41;
+    // Initialize the location, initialize to BI
+    buoy_location = BLOCK_ISLAND_LOCATION;
     
     // Array to load the data into 
     buoyDatas = [[NSMutableArray alloc] init];
     
-    // Create the graph view
+    // Create the graph view and format it
     graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
     _graphHolder.hostedGraph = graph;
     [graph setTitle:@"Wave Height (ft)"];
@@ -57,6 +56,7 @@
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
     [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 10 ) length:CPTDecimalFromFloat( -10 )]];
     
+    // Set the plot
     plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
     plot.dataSource = self;
     [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
@@ -64,15 +64,18 @@
     [axisFormatter setMinimumIntegerDigits:1];
     [axisFormatter setMaximumFractionDigits:0];
     
+    // Set the text style
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     [textStyle setFontSize:12.0f];
     
+    // Set the padding
     [[graph plotAreaFrame] setPaddingLeft:20.0f];
     [[graph plotAreaFrame] setPaddingTop:5.0f];
     [[graph plotAreaFrame] setPaddingBottom:50.0f];
     [[graph plotAreaFrame] setPaddingRight:10.0f];
     [[graph plotAreaFrame] setBorderLineStyle:nil];
     
+    // Setup the axiss
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)[graph axisSet];
     
     CPTXYAxis *xAxis = [axisSet xAxis];
@@ -117,8 +120,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buoyItem"];
     UILabel *timeLabel = (UILabel *)[cell viewWithTag:31];
     UILabel *wvhtLabel = (UILabel *)[cell viewWithTag:32];
-    UILabel *apdLabel = (UILabel *)[cell viewWithTag:33];
-    UILabel *steepnessLabel = (UILabel *)[cell viewWithTag:34];
+    UILabel *dpdLabel = (UILabel *)[cell viewWithTag:33];
+    UILabel *directionLabel = (UILabel *)[cell viewWithTag:34];
     
     // Get the object
     Buoy *thisBuoy = [buoyDatas objectAtIndex:indexPath.row];
@@ -126,8 +129,8 @@
     // Set the data to the label
     [timeLabel setText:thisBuoy.time];
     [wvhtLabel setText:thisBuoy.wvht];
-    [apdLabel setText:thisBuoy.dpd];
-    [steepnessLabel setText:thisBuoy.direction];
+    [dpdLabel setText:thisBuoy.dpd];
+    [directionLabel setText:thisBuoy.direction];
     
     // Return the cell view
     return cell;
@@ -166,8 +169,13 @@
 }
                         
 - (void)fetchBuoyData:(NSNumber*)location {
+    // Create a new Buoy Object
     buoyDatas = [[NSMutableArray alloc] init];
+    
+    // Create a new array for the wave heights to be loaded into
     NSMutableArray* wvhts = [[NSMutableArray alloc] init];
+    
+    // Get the buoy data
     NSString* buoyData;
     NSError *err = nil;
     if ([location isEqualToNumber:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]]) {
@@ -218,6 +226,7 @@
 }
 
 - (IBAction)locationSegmentValueChanged:(id)sender {
+    // Check the selection location
     if ([sender selectedSegmentIndex] == 0) {
         buoy_location = BLOCK_ISLAND_LOCATION;
     } else {
