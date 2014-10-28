@@ -36,11 +36,17 @@
     CPTScatterPlot* plot;
     CPTGraph* graph;
     int buoy_location;
+    int timeOffset;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Check if daylight savings is in effect
+    NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
+    int daylightoff = [eastnTZ daylightSavingTimeOffset]/3600;
+    timeOffset = daylightoff + 3;
     
     // Initialize the location, initialize to BI
     buoy_location = BLOCK_ISLAND_LOCATION;
@@ -195,7 +201,7 @@
     // Parse the data into buoy objects
     for(int i=DATA_HEADER_LENGTH; i<(DATA_HEADER_LENGTH+(DATA_LINE_LEN*DATA_POINTS)); i+=DATA_LINE_LEN) {
         Buoy* newBuoy = [[Buoy alloc] init];
-        [newBuoy setTime:[NSString stringWithFormat:@"%@:%@", [cleanData objectAtIndex:i+HOUR_OFFSET], [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
+        [newBuoy setTime:[NSString stringWithFormat:@"%d:%@", (((int)[[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue])-timeOffset+12)%12, [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
         [newBuoy setDpd:[cleanData objectAtIndex:i+DPD_OFFSET]];
         [newBuoy setDirection:[cleanData objectAtIndex:i+DIRECTION_OFFSET]];
         
