@@ -46,7 +46,7 @@
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
     currentday = [comps weekday];
-    [_dayHeaderLabel setText:[weekdays objectAtIndex:currentday-1]];
+    //[_dayHeaderLabel setText:[weekdays objectAtIndex:currentday-1]];
 
     
     // Load the Wunderground Data
@@ -76,8 +76,10 @@
     NSString* firstEvent = [[tides objectAtIndex:firstIndex] eventType];
     if ([firstEvent isEqualToString:HIGH_TIDE_TAG]) {
         [_statusLabel setText:@"Incoming"];
+        [_statusLabel setTextColor:[UIColor colorWithRed:0.00 green:0.77 blue:0.00 alpha:1.0]];
     } else if ([firstEvent isEqualToString:LOW_TIDE_TAG]) {
         [_statusLabel setText:@"Outgoing"];
+        [_statusLabel setTextColor:[UIColor colorWithRed:0.84 green:0.00 blue:0.00 alpha:1.0]];
     }
     
     int tideCount = 0;
@@ -89,12 +91,13 @@
         } else if ([[thisTide eventType] isEqualToString:SUNSET_TAG]) {
             [_sunsetTimeLabel setText:thisTide.time];
         } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG]) {
-            [(UILabel *)[labels objectAtIndex:tideCount] setText:@"High Tide"];
+            NSString* message = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.height, thisTide.time];
+            [(UILabel *)[labels objectAtIndex:tideCount] setText:message];
             tideCount++;
         } else if ([[thisTide eventType] isEqualToString:LOW_TIDE_TAG]) {
-            [(UILabel *)[labels objectAtIndex:tideCount] setText:@"Low Tide"];
+            NSString* message = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.height, thisTide.time];
+            [(UILabel *)[labels objectAtIndex:tideCount] setText:message];
             tideCount++;
-            // test comment
         }
     }
 }
