@@ -94,6 +94,7 @@
 		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		343F33CF19EF5C5A005802FA /* Tide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tide.h; sourceTree = "<group>"; };
 		343F33D019EF5C5A005802FA /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tide.m; sourceTree = "<group>"; };
+		34639D151A01E8B400C5CAD7 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		3495C95319E7773100C8F4D7 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
 		3495C95419E7773100C8F4D7 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
 		3495C95919E78DCF00C8F4D7 /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buoy.h; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
 				342A76291985FD2E00077F8C /* Condition.m */,
 				342A76211985E18100077F8C /* TideViewController.m */,
+				34639D151A01E8B400C5CAD7 /* Colors.h */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
 				343083A119795D0F00655F15 /* CurrentViewController.h */,
 				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,

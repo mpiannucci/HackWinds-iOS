@@ -10,8 +10,10 @@
 
 #import "TideViewController.h"
 #import "Tide.h"
+#import "Colors.h"
 
 @interface TideViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tideLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *tideLabel2;
@@ -53,7 +55,14 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    _mainScrollView.contentSize = CGSizeMake(320, 500);
+    // For some reason the scaling sucks on less than an iphone 5, so fix it
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    if (screenHeight > 500) {
+        _mainScrollView.contentSize = CGSizeMake(320, 425);
+    } else {
+        _mainScrollView.contentSize = CGSizeMake(320, 500);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,10 +83,10 @@
     NSString* firstEvent = [[tides objectAtIndex:firstIndex] eventType];
     if ([firstEvent isEqualToString:HIGH_TIDE_TAG]) {
         [_statusLabel setText:@"Incoming"];
-        [_statusLabel setTextColor:[UIColor colorWithRed:0.00 green:0.77 blue:0.00 alpha:1.0]];
+        [_statusLabel setTextColor:GREEN_COLOR];
     } else if ([firstEvent isEqualToString:LOW_TIDE_TAG]) {
         [_statusLabel setText:@"Outgoing"];
-        [_statusLabel setTextColor:[UIColor colorWithRed:0.84 green:0.00 blue:0.00 alpha:1.0]];
+        [_statusLabel setTextColor:RED_COLOR];
     }
     
     int tideCount = 0;

@@ -1,0 +1,16 @@
+//
+//  Colors.h
+//  HackWinds
+//
+//  Created by Matthew Iannucci on 10/29/14.
+//  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
+//
+
+#ifndef HackWinds_Colors_h
+#define HackWinds_Colors_h
+
+// Define some colors to use everywhere
+#define GREEN_COLOR [UIColor colorWithRed:0.00 green:0.77 blue:0.00 alpha:1.0]
+#define RED_COLOR [UIColor colorWithRed:0.84 green:0.00 blue:0.00 alpha:1.0]
+
+#endif
