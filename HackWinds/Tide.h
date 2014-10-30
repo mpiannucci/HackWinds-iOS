@@ -17,7 +17,7 @@
 
 // Define the data for the condition model
 @property (strong, nonatomic) NSString *time;
-@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *eventType;
 @property (strong, nonatomic) NSString *height;
 
 @end
