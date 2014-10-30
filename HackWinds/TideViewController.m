@@ -14,6 +14,13 @@
 
 @interface TideViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *dayHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tideLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *tideLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *tideLabel3;
+@property (weak, nonatomic) IBOutlet UILabel *tideLabel4;
+@property (weak, nonatomic) IBOutlet UILabel *sunriseTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sunsetTimeLabel;
 
 @end
 

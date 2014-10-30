@@ -226,7 +226,7 @@
     
     // Scale the y axis
     NSNumber *maxWV = [wvhts valueForKeyPath:@"@max.doubleValue"];
-    double max = round([maxWV doubleValue]+1);
+    double max = round([maxWV doubleValue]+2);
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat(max)]];
 }
