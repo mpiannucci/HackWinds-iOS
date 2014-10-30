@@ -94,6 +94,7 @@
         } else if ([[thisTide eventType] isEqualToString:LOW_TIDE_TAG]) {
             [(UILabel *)[labels objectAtIndex:tideCount] setText:@"Low Tide"];
             tideCount++;
+            // test comment
         }
     }
 }
