@@ -10,6 +10,7 @@
 
 @interface Buoy : NSObject
 
+// Define data for the buoy data model
 @property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *wvht;
 @property (strong, nonatomic) NSString *dpd;
