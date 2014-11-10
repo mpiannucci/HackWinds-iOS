@@ -51,7 +51,7 @@
 
 @end
 
-// This is a workaround just enables white text colour in status bar in iOS7, iOS7.1
+// This is a workaround just enables white text colour in status bar in iOS 8.1/8/7.1/7
 // Dont touch it until things break
 // Despite this category says "draw white", colour automatically becomes black on white background w/o additional code
 @interface UINavigationController (StatusBarStyle)
