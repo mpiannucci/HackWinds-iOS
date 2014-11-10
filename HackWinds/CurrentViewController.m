@@ -15,6 +15,7 @@
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
 #import "Condition.h"
+#import "Colors.h"
 
 @interface CurrentViewController ()
 
@@ -101,6 +102,7 @@
 
 - (NSString *)getDayHeader:(NSDate *)date
 {
+    // Get the date and set the weekday text
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     return [dateFormatter stringFromDate:date];
@@ -113,17 +115,16 @@
                      JSONObjectWithData:responseData
                      options:kNilOptions
                      error:&error];
-    // Quick log to chekc the amount of json objects recieved
-    NSLog(@"%lu", (unsigned long)[json count]);
     
     // Loop through the objects, create new condition objects, and append to the array
     int i = 0;
     int j = 0;
     while (i<6) {
+        // Get the next json object and increment the count
         NSDictionary *thisDict = [json objectAtIndex:j];
         j++;
         
-        // Get the hour
+        // Get the hour and make sure it is valid
         NSNumber *rawDate = [thisDict objectForKey:@"localTimestamp"];
         NSString *date = [self formatDate:[rawDate unsignedIntegerValue]];
         Boolean check = [self checkDate:date];
@@ -131,21 +132,23 @@
         {
             continue;
         }
+        
+        // Get a new condition object
         Condition *thisCondition = [[Condition alloc] init];
         [thisCondition setDate:date];
         
-        // Get the surf
+        // Get the minumum and maximum wave heights
         NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
         [thisCondition setMinBreak:[swellDict objectForKey:@"minBreakingHeight"]];
         [thisCondition setMaxBreak:[swellDict objectForKey:@"maxBreakingHeight"]];
         
-        // Get the wind
+        // Get the wind direction and speed
         NSDictionary *windDict = [thisDict objectForKey:@"wind"];
         [thisCondition setWindSpeed:[windDict objectForKey:@"speed"]];
         [thisCondition setWindDeg:[windDict objectForKey:@"direction"]];
         [thisCondition setWindDir:[windDict objectForKey:@"compassDirection"]];
         
-        // Get the swell
+        // Get the swell height, period, and direction
         [thisCondition setSwellHeight:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"height"]];
         [thisCondition setSwellPeriod:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"period"]];
         [thisCondition setSwellDir:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"compassDirection"]];
@@ -160,7 +163,7 @@
 
 - (NSString *)formatDate:(NSUInteger)epoch
 {
-    // Return the formatted date string
+    // Return the formatted date string so it has the form "12:38 am"
     NSDate *forcTime = [NSDate dateWithTimeIntervalSince1970:epoch];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"K a"];
@@ -176,26 +179,34 @@
 
 - (Boolean)checkDate:(NSString *)dateString
 {
-    // Check if the date is for a valid time
+    // Check if the date is for a valid time, we dont care about midnight nor 3 am
     NSRange AMrange = [dateString rangeOfString:@"AM"];
     NSRange Zerorange = [dateString rangeOfString:@"0"];
     NSRange Threerange = [dateString rangeOfString:@"3"];
     if (((AMrange.location != NSNotFound) && (Zerorange.location != NSNotFound)) ||
         ((AMrange.location != NSNotFound) && (Threerange.location != NSNotFound)))
     {
+        // We dont car, return false
         return false;
     }
+    // Valid time
     return true;
 }
 
 - (IBAction)playButton:(id)sender {
     // Handle play button click
     NSLog(@"Video play button pressed");
+    
+    // Get the screen size
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
+    
+    // Create a new MoviePlayer with the Live Stream URL
     self.moviePlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
     [self.moviePlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.moviePlayer.view];
+    
+    // Load the stream and play it
     [self.moviePlayer prepareToPlay];
     [self.moviePlayer play];
     
