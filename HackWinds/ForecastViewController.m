@@ -11,6 +11,7 @@
 
 #import "ForecastViewController.h"
 #import "Forecast.h"
+#import "Colors.h"
 
 @interface ForecastViewController ()
 
@@ -88,7 +89,20 @@
     [afternoonLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
                            afternoonForecast.minBreak, afternoonForecast.maxBreak, afternoonForecast.windDir, afternoonForecast.windSpeed]];
     
-    // TODO: Set the color of the label based on whether its good or not
+    // TODO: INCORPORATE WIND TO MAKE THIS MORE ACCURATE
+    // Set the color of the morning label based on whether it has size or not
+    if ([morningForecast.minBreak doubleValue] > 2) {
+        [morningLabel setTextColor:GREEN_COLOR];
+    } else {
+        [morningLabel setTextColor:RED_COLOR];
+    }
+    
+    // Set the color of the afternoon label based on whether it has size or not
+    if ([afternoonForecast.minBreak doubleValue] > 2) {
+        [afternoonLabel setTextColor:GREEN_COLOR];
+    } else {
+        [afternoonLabel setTextColor:RED_COLOR];
+    }
     
     // Return the cell view
     return cell;
@@ -111,7 +125,7 @@
         NSDictionary *thisDict = [json objectAtIndex:j];
         j++;
         
-        // Get the hour
+        // Get the hour and check if its one that we care about
         NSNumber *rawDate = [thisDict objectForKey:@"localTimestamp"];
         NSString *date = [self formatDate:[rawDate unsignedIntegerValue]];
         Boolean check = [self checkDate:date];
@@ -119,20 +133,24 @@
         {
             continue;
         }
+        
+        // Get a new Foreccast object
         Forecast *thisForecast = [[Forecast alloc] init];
+        
+        // Set the date
         [thisForecast setDate:date];
         
-        // Get the surf
+        // Get the minimum and maximumm breaking heights
         NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
         [thisForecast setMinBreak:[swellDict objectForKey:@"minBreakingHeight"]];
         [thisForecast setMaxBreak:[swellDict objectForKey:@"maxBreakingHeight"]];
         
-        // Get the wind
+        // Get the wind speed and direction
         NSDictionary *windDict = [thisDict objectForKey:@"wind"];
         [thisForecast setWindSpeed:[windDict objectForKey:@"speed"]];
         [thisForecast setWindDir:[windDict objectForKey:@"compassDirection"]];
         
-        // Append the condition
+        // Append the forecast to the list
         [forecasts addObject:thisForecast];
         i++;
     }
@@ -142,7 +160,7 @@
 
 - (NSString *)formatDate:(NSUInteger)epoch
 {
-    // Return the formatted date string
+    // Return the formatted date string that looks like "12:38 am"
     NSDate *forcTime = [NSDate dateWithTimeIntervalSince1970:epoch];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"K a"];
@@ -158,7 +176,7 @@
 
 - (Boolean)checkDate:(NSString *)dateString
 {
-    // Check if the date is for a valid time
+    // Check if the date is for a valid time, if its not return false (We only want very specific times for this
     NSRange AMrange = [dateString rangeOfString:@"AM"];
     NSRange PMrange = [dateString rangeOfString:@"PM"];
     NSRange Zerorange = [dateString rangeOfString:@"0"];
