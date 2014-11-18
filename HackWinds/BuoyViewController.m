@@ -221,14 +221,21 @@
     // Update the table
     [_buoyTable reloadData];
     
-    // Update the plot
+    // Update the plot data sets
     [plot reloadData];
     
-    // Scale the y axis
+    // Scale the y axis to fit the data
     NSNumber *maxWV = [wvhts valueForKeyPath:@"@max.doubleValue"];
     double max = round([maxWV doubleValue]+2);
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat(max)]];
+    
+    // Set the axis ticks to fit labels without squishing them
+    if (max > 8) {
+        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(2)];
+    } else {
+        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(1)];
+    }
 }
 
 - (IBAction)locationSegmentValueChanged:(id)sender {
