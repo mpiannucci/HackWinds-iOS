@@ -71,8 +71,8 @@
     UILabel *dayLabel = (UILabel *)[cell viewWithTag:21];
     UILabel *morningLabel = (UILabel*)[cell viewWithTag:22];
     UILabel *afternoonLabel = (UILabel *)[cell viewWithTag:23];
-    //UILabel *morningHeaderLabel = (UILabel *)[cell viewWithTag:24];
-    //ILabel *afternoonHeaderLabel = (UILabel *)[cell viewWithTag:25];
+    UILabel *morningHeaderLabel = (UILabel *)[cell viewWithTag:24];
+    UILabel *afternoonHeaderLabel = (UILabel *)[cell viewWithTag:25];
     NSUInteger index = indexPath.row;
     
     // Get the forecast object
@@ -92,16 +92,16 @@
     // TODO: INCORPORATE WIND TO MAKE THIS MORE ACCURATE
     // Set the color of the morning label based on whether it has size or not
     if ([morningForecast.minBreak doubleValue] > 2) {
-        [morningLabel setTextColor:GREEN_COLOR];
+        [morningHeaderLabel setTextColor:GREEN_COLOR];
     } else {
-        [morningLabel setTextColor:RED_COLOR];
+        [morningHeaderLabel setTextColor:RED_COLOR];
     }
     
     // Set the color of the afternoon label based on whether it has size or not
     if ([afternoonForecast.minBreak doubleValue] > 2) {
-        [afternoonLabel setTextColor:GREEN_COLOR];
+        [afternoonHeaderLabel setTextColor:GREEN_COLOR];
     } else {
-        [afternoonLabel setTextColor:RED_COLOR];
+        [afternoonHeaderLabel setTextColor:RED_COLOR];
     }
     
     // Return the cell view
