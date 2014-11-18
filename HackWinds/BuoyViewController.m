@@ -207,7 +207,7 @@
         
         // Change the wave height to feet
         NSString* wv = [cleanData objectAtIndex:i+WVHT_OFFSET];
-        double h =  [wv doubleValue]*3.28;
+        double h = [wv doubleValue]*3.28;
         
         // Set the wave height
         [newBuoy setWvht:[NSString stringWithFormat:@"%2.2f", h]];
