@@ -12,5 +12,6 @@
 // Define some colors to use everywhere for consistency
 #define GREEN_COLOR [UIColor colorWithRed:0.00 green:0.77 blue:0.00 alpha:1.0]
 #define RED_COLOR [UIColor colorWithRed:0.84 green:0.00 blue:0.00 alpha:1.0]
+#define YELLOW_COLOR [UIColor colorWithRed:0.66 green:0.66 blue:0.05 alpha:1.0]
 
 #endif

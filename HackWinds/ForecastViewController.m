@@ -91,15 +91,37 @@
     
     // TODO: INCORPORATE WIND TO MAKE THIS MORE ACCURATE
     // Set the color of the morning label based on whether it has size or not
-    if ([morningForecast.minBreak doubleValue] > 2) {
-        [morningHeaderLabel setTextColor:GREEN_COLOR];
+    if ([morningForecast.minBreak doubleValue] > 1.9) {
+        if ([morningForecast.windDir isEqualToString:@"WSW"] ||
+            [morningForecast.windDir isEqualToString:@"W"] ||
+            [morningForecast.windDir isEqualToString:@"WNW"] ||
+            [morningForecast.windDir isEqualToString:@"NW"] ||
+            [morningForecast.windDir isEqualToString:@"NNW"] ||
+            [morningForecast.windDir isEqualToString:@"N"]) {
+            [morningHeaderLabel setTextColor:GREEN_COLOR];
+        } else if ([morningForecast.windSpeed doubleValue] < 8.0){
+            [morningHeaderLabel setTextColor:GREEN_COLOR];
+        } else {
+            [morningHeaderLabel setTextColor:YELLOW_COLOR];
+        }
     } else {
         [morningHeaderLabel setTextColor:RED_COLOR];
     }
     
     // Set the color of the afternoon label based on whether it has size or not
-    if ([afternoonForecast.minBreak doubleValue] > 2) {
-        [afternoonHeaderLabel setTextColor:GREEN_COLOR];
+    if ([afternoonForecast.minBreak doubleValue] > 1.9) {
+        if ([afternoonForecast.windDir isEqualToString:@"WSW"] ||
+            [afternoonForecast.windDir isEqualToString:@"W"] ||
+            [afternoonForecast.windDir isEqualToString:@"WNW"] ||
+            [afternoonForecast.windDir isEqualToString:@"NW"] ||
+            [afternoonForecast.windDir isEqualToString:@"NNW"] ||
+            [afternoonForecast.windDir isEqualToString:@"N"]) {
+            [afternoonHeaderLabel setTextColor:GREEN_COLOR];
+        } else if ([afternoonForecast.windSpeed doubleValue] < 8.0){
+            [afternoonHeaderLabel setTextColor:GREEN_COLOR];
+        } else {
+            [afternoonHeaderLabel setTextColor:YELLOW_COLOR];
+        }
     } else {
         [afternoonHeaderLabel setTextColor:RED_COLOR];
     }
