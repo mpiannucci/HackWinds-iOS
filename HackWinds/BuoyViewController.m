@@ -18,8 +18,8 @@
 #define WVHT_OFFSET 8
 #define DPD_OFFSET 9
 #define DIRECTION_OFFSET 11
-#define BIurl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
-#define montaukUrl [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
+#define BI_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
+#define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
 
 #import "BuoyViewController.h"
 #import "Buoy.h"
@@ -37,11 +37,17 @@
     CPTGraph* graph;
     int buoy_location;
     int timeOffset;
+    NSArray* dirs;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Direction array
+    dirs = [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE"
+            , @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW"
+            ,@"NNW", nil];
     
     // Check if daylight savings is in effect
     NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
@@ -136,7 +142,10 @@
     [timeLabel setText:thisBuoy.time];
     [wvhtLabel setText:thisBuoy.wvht];
     [dpdLabel setText:thisBuoy.dpd];
-    [directionLabel setText:thisBuoy.direction];
+    
+    // Set the direction to its letter value on a compass
+    NSString* dir = [dirs objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[dirs count])];
+    [directionLabel setText:dir];
     
     // Return the cell view
     return cell;
@@ -185,10 +194,10 @@
     NSString* buoyData;
     NSError *err = nil;
     if ([location isEqualToNumber:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]]) {
-        buoyData = [NSString stringWithContentsOfURL:BIurl encoding:NSUTF8StringEncoding error:&err];
+        buoyData = [NSString stringWithContentsOfURL:BI_URL encoding:NSUTF8StringEncoding error:&err];
     } else {
         // Montauk
-        buoyData = [NSString stringWithContentsOfURL:montaukUrl encoding:NSUTF8StringEncoding error:&err];
+        buoyData = [NSString stringWithContentsOfURL:MTK_URL encoding:NSUTF8StringEncoding error:&err];
     }
     NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
     NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
