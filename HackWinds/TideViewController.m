@@ -36,9 +36,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Set the constraints for the scrollview
-    
-    
     // Array to load the data into
     tides = [[NSMutableArray alloc] init];
     
@@ -82,9 +79,12 @@
     }
     NSString* firstEvent = [[tides objectAtIndex:firstIndex] eventType];
     if ([firstEvent isEqualToString:HIGH_TIDE_TAG]) {
+        // Show that the tide is incoming, using green because typically surf increases with incoming tides
         [_statusLabel setText:@"Incoming"];
         [_statusLabel setTextColor:GREEN_COLOR];
+        
     } else if ([firstEvent isEqualToString:LOW_TIDE_TAG]) {
+        // Show that the tide is outgoing, use red because the surf typically decreases with an outgoing tide
         [_statusLabel setText:@"Outgoing"];
         [_statusLabel setTextColor:RED_COLOR];
     }
@@ -100,10 +100,12 @@
         } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG]) {
             NSString* message = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.height, thisTide.time];
             [(UILabel *)[labels objectAtIndex:tideCount] setText:message];
+            // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
         } else if ([[thisTide eventType] isEqualToString:LOW_TIDE_TAG]) {
             NSString* message = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.height, thisTide.time];
             [(UILabel *)[labels objectAtIndex:tideCount] setText:message];
+            // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
         }
     }
@@ -134,7 +136,7 @@
         // Create the tide string
         NSString* time = [NSString stringWithFormat:@"%@:%@", hour, minute];
         
-        // Check for the type and set it to the object
+        // Check for the type and set it to the object. We dont care about anything but these tidal events
         if ([dataType isEqualToString:SUNRISE_TAG] ||
             [dataType isEqualToString:SUNSET_TAG] ||
             [dataType isEqualToString:HIGH_TIDE_TAG] ||
@@ -154,6 +156,7 @@
         }
         i++;
     }
+    // Reload the view to reflect the data that was received
     [self reloadView];
 }
 

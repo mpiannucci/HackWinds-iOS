@@ -20,6 +20,7 @@
 #define DIRECTION_OFFSET 11
 #define BI_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
 #define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
+#define WIND_DIRS [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE", @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW", @"NNW", nil]
 
 #import "BuoyViewController.h"
 #import "Buoy.h"
@@ -32,22 +33,17 @@
 
 @implementation BuoyViewController
 {
+    // Initilize some things we want available over the entire view controller
     NSMutableArray *buoyDatas;
     CPTScatterPlot* plot;
     CPTGraph* graph;
     int buoy_location;
     int timeOffset;
-    NSArray* dirs;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Direction array
-    dirs = [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE"
-            , @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW"
-            ,@"NNW", nil];
     
     // Check if daylight savings is in effect
     NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
@@ -90,6 +86,7 @@
     // Setup the axiss
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)[graph axisSet];
     
+    // x axis configs
     CPTXYAxis *xAxis = [axisSet xAxis];
     [xAxis setMajorIntervalLength:CPTDecimalFromInt(2)];
     [xAxis setMinorTickLineStyle:nil];
@@ -99,6 +96,7 @@
     [xAxis setTitle:@"Hours Ago"];
     xAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(0.0);
     
+    // y axis configs
     CPTXYAxis *yAxis = [axisSet yAxis];
     [yAxis setMajorIntervalLength:CPTDecimalFromInt(1)];
     [yAxis setMinorTickLineStyle:nil];
@@ -144,7 +142,7 @@
     [dpdLabel setText:thisBuoy.dpd];
     
     // Set the direction to its letter value on a compass
-    NSString* dir = [dirs objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[dirs count])];
+    NSString* dir = [WIND_DIRS objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count])];
     [directionLabel setText:dir];
     
     // Return the cell view
@@ -210,7 +208,11 @@
     // Parse the data into buoy objects
     for(int i=DATA_HEADER_LENGTH; i<(DATA_HEADER_LENGTH+(DATA_LINE_LEN*DATA_POINTS)); i+=DATA_LINE_LEN) {
         Buoy* newBuoy = [[Buoy alloc] init];
+        
+        // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
         [newBuoy setTime:[NSString stringWithFormat:@"%d:%@", (((int)[[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue])-timeOffset+12)%12, [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
+        
+        // Period and wind direction values
         [newBuoy setDpd:[cleanData objectAtIndex:i+DPD_OFFSET]];
         [newBuoy setDirection:[cleanData objectAtIndex:i+DIRECTION_OFFSET]];
         
