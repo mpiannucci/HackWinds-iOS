@@ -25,6 +25,10 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="2BL-CY-DuK"/>
+                                    <constraint firstAttribute="height" constant="190" id="QTa-SU-Biv"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iW-jK-hSF">
                                 <rect key="frame" x="8" y="323" width="42" height="21"/>
@@ -120,7 +124,7 @@
                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDO-91-P06">
                                 <rect key="frame" x="0.0" y="65" width="320" height="190"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="8mh-Cr-EKs"/>
+                                    <constraint firstAttribute="width" constant="320" id="8mh-Cr-EKs"/>
                                     <constraint firstAttribute="height" priority="750" constant="190" id="GOx-QR-NyJ"/>
                                 </constraints>
                                 <state key="normal" image="PlayButton">
@@ -156,6 +160,7 @@
                             <constraint firstAttribute="centerX" secondItem="yDO-91-P06" secondAttribute="centerX" id="93x-wU-MYG"/>
                             <constraint firstItem="NVw-5c-VLL" firstAttribute="leading" secondItem="dkH-zZ-LR6" secondAttribute="trailing" constant="38" id="9hM-Dn-8sW"/>
                             <constraint firstItem="NVw-5c-VLL" firstAttribute="top" secondItem="1rm-Eb-nhm" secondAttribute="bottom" constant="14" id="Dnp-dt-T1I"/>
+                            <constraint firstAttribute="centerX" secondItem="Yy3-HW-pDb" secondAttribute="centerX" id="F4l-eP-SOc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NVw-5c-VLL" secondAttribute="trailing" constant="62" id="I6L-T1-bl9"/>
                             <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="yDO-91-P06" secondAttribute="bottom" constant="24" id="IZm-8K-Sm4"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="top" secondItem="7iW-jK-hSF" secondAttribute="bottom" constant="8" symbolic="YES" id="JEp-Ut-MnS"/>
@@ -166,6 +171,8 @@
                             <constraint firstItem="dkH-zZ-LR6" firstAttribute="firstBaseline" secondItem="NVw-5c-VLL" secondAttribute="firstBaseline" id="ZCa-kc-10D"/>
                             <constraint firstItem="Yy3-HW-pDb" firstAttribute="top" secondItem="s9W-kb-ARv" secondAttribute="bottom" constant="1" id="dH3-9n-Uyh"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="centerX" secondItem="Yy3-HW-pDb" secondAttribute="centerX" id="g5y-Tl-O37"/>
+                            <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="ho2-Ja-XZ6"/>
+                            <constraint firstAttribute="trailing" secondItem="yDO-91-P06" secondAttribute="trailing" id="irD-W7-LlD"/>
                             <constraint firstItem="1rm-Eb-nhm" firstAttribute="leading" secondItem="7iW-jK-hSF" secondAttribute="leading" id="jFc-U6-6nO"/>
                             <constraint firstItem="cuT-eR-ppY" firstAttribute="leading" secondItem="7iW-jK-hSF" secondAttribute="trailing" constant="17" id="khf-8n-bva"/>
                             <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="Yy3-HW-pDb" secondAttribute="leading" id="nfI-xe-egP"/>
