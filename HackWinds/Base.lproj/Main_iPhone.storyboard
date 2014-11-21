@@ -346,8 +346,8 @@
                                 <rect key="frame" x="16" y="108" width="288" height="194"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="194" id="Mc5-8i-7tO"/>
                                     <constraint firstAttribute="width" constant="288" id="YXr-aH-Amy"/>
-                                    <constraint firstAttribute="height" constant="194" id="gN3-dh-Ice"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0CD-y8-6s2">
