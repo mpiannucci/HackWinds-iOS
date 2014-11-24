@@ -14,4 +14,4 @@ I do not own or claim to own neither the wave camera images or the forecast info
 
 License
 -----------------
-This project is realeased under the [MIT License](https://github.com/mpiannucci/HackWinds-iOS/blob/master/LICENSE)
+This project is realeased under the [MIT License](https://github.com/mpiannucci/HackWinds-iOS/blob/master/LICENSE).
