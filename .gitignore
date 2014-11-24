@@ -7,3 +7,6 @@
 # Pods/
 *.xcuserstate
 *.sublime-workspace
+
+# DS_Store File
+*.DS_Store
