@@ -24,6 +24,7 @@
 
 #import "BuoyViewController.h"
 #import "Buoy.h"
+#import "Colors.h"
 
 @interface BuoyViewController ()
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHolder;
@@ -120,8 +121,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 20 rows
-    return [buoyDatas count];
+    // Return so there will always be 20 rows, plus an extra dor the column headers
+    return [buoyDatas count]+1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -133,17 +134,56 @@
     UILabel *dpdLabel = (UILabel *)[cell viewWithTag:33];
     UILabel *directionLabel = (UILabel *)[cell viewWithTag:34];
     
-    // Get the object
-    Buoy *thisBuoy = [buoyDatas objectAtIndex:indexPath.row];
-    
     // Set the data to the label
-    [timeLabel setText:thisBuoy.time];
-    [wvhtLabel setText:thisBuoy.wvht];
-    [dpdLabel setText:thisBuoy.dpd];
+    if ([indexPath row] < 1) {
+        // Set the headers for the first row
+        [timeLabel setText:@"Time"];
+        [wvhtLabel setText:@"Waves"];
+        [dpdLabel setText:@"Period"];
+        [directionLabel setText:@"Direction"];
+        
+        // Set the color to be different so you can tell it's the header
+        [timeLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [wvhtLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [dpdLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [directionLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        
+        // Make the font bold cuz its the header
+        [timeLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [wvhtLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [dpdLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [directionLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        
+        // Set the blckground color of the cell to a light grey
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    } else {
+        // Get the object
+        Buoy *thisBuoy = [buoyDatas objectAtIndex:indexPath.row-1];
+        
+        // Set the labels to the data
+        [timeLabel setText:thisBuoy.time];
+        [wvhtLabel setText:thisBuoy.wvht];
+        [dpdLabel setText:thisBuoy.dpd];
     
-    // Set the direction to its letter value on a compass
-    NSString* dir = [WIND_DIRS objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count])];
-    [directionLabel setText:dir];
+        // Set the direction to its letter value on a compass
+        NSString* dir = [WIND_DIRS objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count])];
+        [directionLabel setText:dir];
+        
+        // Make sure the text is black
+        [timeLabel setTextColor:[UIColor blackColor]];
+        [wvhtLabel setTextColor:[UIColor blackColor]];
+        [dpdLabel setTextColor:[UIColor blackColor]];
+        [directionLabel setTextColor:[UIColor blackColor]];
+        
+        // Make sure the font is not bold
+        [timeLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [wvhtLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [dpdLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [directionLabel setFont:[UIFont systemFontOfSize:17.0]];
+        
+        // Set the blckground color of the cell to a light grey
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    }
     
     // Return the cell view
     return cell;
