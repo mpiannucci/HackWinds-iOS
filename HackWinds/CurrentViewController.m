@@ -69,7 +69,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
     NSLog(@"%lu", (unsigned long)[conditions count]);
-    return [conditions count];
+    return [conditions count]+1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -81,21 +81,47 @@
     UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
     UILabel *swellLabel = (UILabel *)[cell viewWithTag:14];
     
-    // Get the condition object
-    Condition *thisCondition = [conditions objectAtIndex:indexPath.row];
-    NSLog(@"%@", thisCondition.date);
+    if ([indexPath row] < 1) {
+        // Set the heder text cuz its the first row
+        [hourLabel setText:@"Time"];
+        [waveLabel setText:@"Surf"];
+        [windLabel setText:@"Wind"];
+        [swellLabel setText:@"Swell"];
+        
+        // Set the header label to be hackwinds color blue
+        [hourLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [waveLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [windLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [swellLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        
+        // Set the text to be bold
+        [hourLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [waveLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [windLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [swellLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        
+    } else {
+        // Get the condition object
+        Condition *thisCondition = [conditions objectAtIndex:indexPath.row-1];
     
-    // Set the hour
-    [hourLabel setText:thisCondition.date];
-    
-    // Set the surf
-    [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreak, thisCondition.maxBreak]];
-    
-    // Set the wind
-    [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDir, thisCondition.windSpeed]];
-    
-    // Set the swell
-    [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDir, thisCondition.swellHeight, thisCondition.swellPeriod]];
+        // Set the data to show in the labels
+        [hourLabel setText:thisCondition.date];
+        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreak, thisCondition.maxBreak]];
+        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDir, thisCondition.windSpeed]];
+        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDir, thisCondition.swellHeight, thisCondition.swellPeriod]];
+        
+        // Make sure that the text is black
+        [hourLabel setTextColor:[UIColor blackColor]];
+        [waveLabel setTextColor:[UIColor blackColor]];
+        [windLabel setTextColor:[UIColor blackColor]];
+        [swellLabel setTextColor:[UIColor blackColor]];
+        
+        // Make sure the text isnt bold
+        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
+    }
     
     return cell;
 }

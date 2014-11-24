@@ -154,8 +154,6 @@
         [dpdLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
         [directionLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
         
-        // Set the blckground color of the cell to a light grey
-        [cell setBackgroundColor:[UIColor whiteColor]];
     } else {
         // Get the object
         Buoy *thisBuoy = [buoyDatas objectAtIndex:indexPath.row-1];
@@ -181,8 +179,6 @@
         [dpdLabel setFont:[UIFont systemFontOfSize:17.0]];
         [directionLabel setFont:[UIFont systemFontOfSize:17.0]];
         
-        // Set the blckground color of the cell to a light grey
-        [cell setBackgroundColor:[UIColor whiteColor]];
     }
     
     // Return the cell view
