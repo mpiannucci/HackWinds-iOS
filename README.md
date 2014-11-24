@@ -11,3 +11,7 @@ Disclaimer
 ----------------
 
 I do not own or claim to own neither the wave camera images or the forecast information displayed in this app. This app is simply an interface to make checking the waves easier for surfers when using a phone. I am speifically operating within the user licensing for the MagicSeaweed and Wunderground API's.
+
+License
+-----------------
+This project is realeased under the [MIT LICENSE](https://github.com/mpiannucci/HackWinds-iOS/blob/master/LICENSE)
