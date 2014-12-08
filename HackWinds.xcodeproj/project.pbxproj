@@ -34,9 +34,7 @@
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
-		34B10B9A19E4DC08006FB814 /* play_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 34B10B9919E4DC08006FB814 /* play_video.png */; };
 		34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */; };
-		34FD036E198F0B3600BA0FB0 /* play_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FD036D198F0B3600BA0FB0 /* play_video@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,9 +103,7 @@
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
-		34B10B9919E4DC08006FB814 /* play_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_video.png; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		34FD036D198F0B3600BA0FB0 /* play_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_video@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,8 +242,6 @@
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				34B10B9919E4DC08006FB814 /* play_video.png */,
-				34FD036D198F0B3600BA0FB0 /* play_video@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -350,11 +344,9 @@
 			files = (
 				343083A019795D0F00655F15 /* Main_iPad.storyboard in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
-				34FD036E198F0B3600BA0FB0 /* play_video@2x.png in Resources */,
 				34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */,
 				3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
-				34B10B9A19E4DC08006FB814 /* play_video.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

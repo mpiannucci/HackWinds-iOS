@@ -46,10 +46,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Check if daylight savings is in effect
+    // Check if daylight savings is in effect. Make sure the time scaling is for EST (GMT-5)
     NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
     int daylightoff = [eastnTZ daylightSavingTimeOffset]/3600;
-    timeOffset = daylightoff + 3;
+    timeOffset = -5 + daylightoff;
     
     // Initialize the location, initialize to BI
     buoy_location = BLOCK_ISLAND_LOCATION;
@@ -246,7 +246,7 @@
         Buoy* newBuoy = [[Buoy alloc] init];
         
         // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
-        [newBuoy setTime:[NSString stringWithFormat:@"%d:%@", (((int)[[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue])-timeOffset+12)%12, [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
+        [newBuoy setTime:[NSString stringWithFormat:@"%d:%@", (((int)[[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue])+timeOffset+12)%12, [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
         
         // Period and wind direction values
         [newBuoy setDpd:[cleanData objectAtIndex:i+DPD_OFFSET]];
