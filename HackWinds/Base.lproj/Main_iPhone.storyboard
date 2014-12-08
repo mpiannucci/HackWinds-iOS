@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -308,25 +306,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="34" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj2-6w-Jl3">
-                                                    <rect key="frame" x="240" y="11" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="32" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRg-NF-Bom">
-                                                    <rect key="frame" x="80" y="11" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="33" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T4-ma-b74">
-                                                    <rect key="frame" x="160" y="11" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="31" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLp-D5-m3s">
-                                                    <rect key="frame" x="0.0" y="11" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -334,21 +328,17 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wj2-6w-Jl3" firstAttribute="leading" secondItem="JLp-D5-m3s" secondAttribute="trailing" constant="160" id="0g9-ef-IYk"/>
-                                                <constraint firstItem="1T4-ma-b74" firstAttribute="baseline" secondItem="wj2-6w-Jl3" secondAttribute="firstBaseline" id="14n-Iz-VnY"/>
                                                 <constraint firstItem="LRg-NF-Bom" firstAttribute="leading" secondItem="JLp-D5-m3s" secondAttribute="trailing" id="4bp-yZ-txY"/>
                                                 <constraint firstItem="JLp-D5-m3s" firstAttribute="leading" secondItem="uqk-pL-uih" secondAttribute="leadingMargin" constant="-8" id="53P-Tr-9E5"/>
                                                 <constraint firstItem="JLp-D5-m3s" firstAttribute="baseline" secondItem="LRg-NF-Bom" secondAttribute="baseline" id="BUZ-Kp-QDG"/>
-                                                <constraint firstItem="JLp-D5-m3s" firstAttribute="baseline" secondItem="LRg-NF-Bom" secondAttribute="firstBaseline" id="LNU-vR-xkK"/>
                                                 <constraint firstItem="JLp-D5-m3s" firstAttribute="width" secondItem="LRg-NF-Bom" secondAttribute="width" id="LXS-1n-ywq"/>
                                                 <constraint firstItem="1T4-ma-b74" firstAttribute="leading" secondItem="LRg-NF-Bom" secondAttribute="trailing" id="R3F-KS-1c6"/>
                                                 <constraint firstItem="1T4-ma-b74" firstAttribute="baseline" secondItem="wj2-6w-Jl3" secondAttribute="baseline" id="VVo-Es-h68"/>
                                                 <constraint firstItem="wj2-6w-Jl3" firstAttribute="leading" secondItem="1T4-ma-b74" secondAttribute="trailing" id="e51-nN-6mO"/>
                                                 <constraint firstItem="wj2-6w-Jl3" firstAttribute="width" secondItem="1T4-ma-b74" secondAttribute="width" id="pEb-ZJ-6yh"/>
-                                                <constraint firstItem="LRg-NF-Bom" firstAttribute="baseline" secondItem="JLp-D5-m3s" secondAttribute="firstBaseline" id="r5g-fs-70t"/>
                                                 <constraint firstItem="1T4-ma-b74" firstAttribute="baseline" secondItem="LRg-NF-Bom" secondAttribute="baseline" id="riM-Vn-gtH"/>
                                                 <constraint firstItem="JLp-D5-m3s" firstAttribute="centerY" secondItem="uqk-pL-uih" secondAttribute="centerY" id="uj0-UH-YzH"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wj2-6w-Jl3" secondAttribute="trailing" constant="-8" id="wWR-PW-2CS"/>
-                                                <constraint firstItem="LRg-NF-Bom" firstAttribute="baseline" secondItem="1T4-ma-b74" secondAttribute="firstBaseline" id="y2G-hO-cm9"/>
                                                 <constraint firstItem="LRg-NF-Bom" firstAttribute="width" secondItem="1T4-ma-b74" secondAttribute="width" id="yaK-ZI-4aL"/>
                                             </constraints>
                                         </tableViewCellContentView>
