@@ -10,6 +10,8 @@
 
 @interface TideModel : NSObject
 
+@property (strong, nonatomic) NSMutableArray *tides;
+
 - (NSMutableArray*) getTideData;
 + (instancetype) sharedModel;
 

@@ -10,9 +10,4 @@
 
 @interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-- (void)fetchedMSWData:(NSData *)responseData;
-- (NSString *)formatDate:(NSUInteger)epoch;
-- (Boolean)checkDate:(NSString *)dateString;
-
-
 @end

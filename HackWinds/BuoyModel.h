@@ -12,6 +12,11 @@
 
 @interface BuoyModel : NSObject
 
+@property (strong, nonatomic) NSMutableArray *blockIslandBuoys;
+@property (strong, nonatomic) NSMutableArray *blockIslandWaveHeights;
+@property (strong, nonatomic) NSMutableArray *montaukBuoys;
+@property (strong, nonatomic) NSMutableArray *montaukWaveHeights;
+
 - (NSMutableArray*) getBuoyDataForLocation:(int)location;
 - (NSMutableArray*) getWaveHeightForLocation:(int)location;
 + (instancetype) sharedModel;

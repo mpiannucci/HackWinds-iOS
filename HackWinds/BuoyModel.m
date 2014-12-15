@@ -19,15 +19,6 @@
 #import "BuoyModel.h"
 #import "Buoy.h"
 
-@interface BuoyModel ()
-
-@property (strong, nonatomic) NSMutableArray *blockIslandBuoys;
-@property (strong, nonatomic) NSMutableArray *blockIslandWaveHeights;
-@property (strong, nonatomic) NSMutableArray *montaukBuoys;
-@property (strong, nonatomic) NSMutableArray *montaukWaveHeights;
-
-@end
-
 @implementation BuoyModel
 {
     int timeOffset;

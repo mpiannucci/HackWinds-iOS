@@ -10,12 +10,6 @@
 #import "TideModel.h"
 #import "Tide.h"
 
-@interface TideModel ()
-
-@property (strong, nonatomic) NSMutableArray *tides;
-
-@end
-
 @implementation TideModel
 
 + (instancetype) sharedModel {
