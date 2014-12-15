@@ -66,25 +66,27 @@
 #pragma mark - Allowing the movie players to rotate in fullscreen
 
 // These next three methods are hacks to make the landscpae orientation work when playing full screen
-// video. The first notifies when the controller requests full screen. The second notifies when the
-// video controller is returning from full screen. The last overrides the orientations allowed for the
-// views to use
-
+// video.
+// Handles the media player requesting full screen
 - (void)willEnterFullScreen:(NSNotification *)notification
 {
     _isFullScreen = YES;
 }
 
+// Handles the media player leaving full screen.
 - (void)willExitFullScreen:(NSNotification *)notification
 {
     _isFullScreen = NO;
 }
 
+// Sets the supported orientation based on whether or not the controller is full screen
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     if (_isFullScreen) {
+        // Its full screen, so all rotation
         return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
     } else {
+        // Its not full screen so dont allow it to rotate
         return UIInterfaceOrientationMaskPortrait;
     }
 }
@@ -100,6 +102,7 @@
 
 @implementation UINavigationController (StatusBarStyle)
 - (UIStatusBarStyle)preferredStatusBarStyle {
+    // Force light lettering in the status bar
     return UIStatusBarStyleLightContent;
 }
 @end
