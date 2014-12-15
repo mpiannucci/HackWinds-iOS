@@ -5,10 +5,10 @@
 //  Created by Matthew Iannucci on 7/27/14.
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
-#define wunderBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define wunderURL [NSURL URLWithString:@"http://api.wunderground.com/api/2e5424aab8c91757/tide/q/RI/Point_Judith.json"]
+#define tideFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 #import "TideViewController.h"
+#import "TideModel.h"
 #import "Tide.h"
 #import "Colors.h"
 
@@ -23,31 +23,28 @@
 @property (weak, nonatomic) IBOutlet UILabel *sunsetTimeLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
+@property (strong, nonatomic) TideModel *tideModel;
+@property (strong, nonatomic) NSArray *labels;
+
 @end
 
 @implementation TideViewController
-{
-    NSMutableArray *tides;
-    NSArray *labels;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Array to load the data into
-    tides = [[NSMutableArray alloc] init];
+    // Get the tide model
+    _tideModel = [TideModel sharedModel];
     
     // An array to hold the tide labels
-    labels = [[NSArray alloc] initWithObjects:_tideLabel1, _tideLabel2, _tideLabel3, _tideLabel4, nil];
+    _labels = [[NSArray alloc] initWithObjects:_tideLabel1, _tideLabel2, _tideLabel3, _tideLabel4, nil];
     
-    // Load the Wunderground Data
-    dispatch_async(wunderBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:
-                        wunderURL];
-        [self performSelectorOnMainThread:@selector(fetchedTideData:)
-                               withObject:data waitUntilDone:YES];
+    // Get the buoy data and reload the views
+    dispatch_async(tideFetchBgQueue, ^{
+        NSMutableArray *tideData = [_tideModel getTideData];
+        [self performSelectorOnMainThread:@selector(reloadView:)
+                               withObject:tideData waitUntilDone:YES];
     });
 }
 
@@ -68,16 +65,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)reloadView {
+- (void)reloadView:(NSMutableArray* ) tideData {
     // First, if it is the first item, check what it is,
     // then set the status accordingly
     int firstIndex = 0;
-    if (([[[tides objectAtIndex:0] eventType] isEqualToString:SUNRISE_TAG]) ||
-        ([[[tides objectAtIndex:0] eventType] isEqualToString:SUNSET_TAG])) {
+    if (([[[tideData objectAtIndex:0] eventType] isEqualToString:SUNRISE_TAG]) ||
+        ([[[tideData objectAtIndex:0] eventType] isEqualToString:SUNSET_TAG])) {
         // If its sunrise or sunset we dont care for now, skip it.
         firstIndex++;
     }
-    NSString* firstEvent = [[tides objectAtIndex:firstIndex] eventType];
+    NSString* firstEvent = [[tideData objectAtIndex:firstIndex] eventType];
     if ([firstEvent isEqualToString:HIGH_TIDE_TAG]) {
         // Show that the tide is incoming, using green because typically surf increases with incoming tides
         [_statusLabel setText:@"Incoming"];
@@ -90,74 +87,25 @@
     }
     
     int tideCount = 0;
-    for (int i = 0; i < [tides count]; i++) {
+    for (int i = 0; i < [tideData count]; i++) {
         // Then check what is is again, and set correct text box
-        Tide* thisTide = [tides objectAtIndex:i];
+        Tide* thisTide = [tideData objectAtIndex:i];
         if ([[thisTide eventType] isEqualToString:SUNRISE_TAG]) {
             [_sunriseTimeLabel setText:thisTide.time];
         } else if ([[thisTide eventType] isEqualToString:SUNSET_TAG]) {
             [_sunsetTimeLabel setText:thisTide.time];
         } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG]) {
             NSString* message = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.height, thisTide.time];
-            [(UILabel *)[labels objectAtIndex:tideCount] setText:message];
+            [(UILabel *)[_labels objectAtIndex:tideCount] setText:message];
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
         } else if ([[thisTide eventType] isEqualToString:LOW_TIDE_TAG]) {
             NSString* message = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.height, thisTide.time];
-            [(UILabel *)[labels objectAtIndex:tideCount] setText:message];
+            [(UILabel *)[_labels objectAtIndex:tideCount] setText:message];
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
         }
     }
-}
-
-- (void)fetchedTideData:(NSData *)responseData {
-    //parse out the Wunderground json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                     JSONObjectWithData:responseData
-                     options:kNilOptions
-                     error:&error];
-    // Quick log to check the amount of json objects recieved
-    NSArray* tideSummary = [[json objectForKey:@"tide"] objectForKey:@"tideSummary"];
-    
-    // Loop through the data and sort it into Tide objects
-    int count = 0;
-    int i = 0;
-    while (count < 6) {
-        
-        // Get the data type and timestamp
-        NSDictionary* thisTide = [tideSummary objectAtIndex:i];
-        NSString* dataType = [[thisTide objectForKey:@"data"] objectForKey:@"type"];
-        NSString* height = [[thisTide objectForKey:@"data"] objectForKey:@"height"];
-        NSString* hour = [[thisTide objectForKey:@"date"] objectForKey:@"hour"];
-        NSString* minute = [[thisTide objectForKey:@"date"] objectForKey:@"min"];
-        
-        // Create the tide string
-        NSString* time = [NSString stringWithFormat:@"%@:%@", hour, minute];
-        
-        // Check for the type and set it to the object. We dont care about anything but these tidal events
-        if ([dataType isEqualToString:SUNRISE_TAG] ||
-            [dataType isEqualToString:SUNSET_TAG] ||
-            [dataType isEqualToString:HIGH_TIDE_TAG] ||
-            [dataType isEqualToString:LOW_TIDE_TAG]) {
-            
-            // Create the new tide object
-            Tide* tide = [[Tide alloc] init];
-            [tide setEventType:dataType];
-            [tide setTime:time];
-            [tide setHeight:height];
-        
-            // Add the tide to the array
-            [tides addObject:tide];
-            
-            // Increment the count of the tide objects
-            count++;
-        }
-        i++;
-    }
-    // Reload the view to reflect the data that was received
-    [self reloadView];
 }
 
 @end

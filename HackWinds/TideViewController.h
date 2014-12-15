@@ -10,10 +10,7 @@
 
 @interface TideViewController : UIViewController
 
-- (void)fetchedTideData:(NSData *)responseData;
-
-- (void)reloadView;
-
+- (void)reloadView:(NSMutableArray*)tideData;
 
 
 @end
