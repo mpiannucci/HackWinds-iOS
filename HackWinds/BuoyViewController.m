@@ -8,55 +8,169 @@
 // Block Island ID: Station 44097
 // Montauk ID: Station 44017
 //
-#define BLOCK_ISLAND_LOCATION 41
-#define MONTAUK_LOCATION 42
-#define DATA_POINTS 20
-#define DATA_HEADER_LENGTH 38
-#define DATA_LINE_LEN 19
-#define HOUR_OFFSET 3
-#define MINUTE_OFFSET 4
-#define WVHT_OFFSET 8
-#define DPD_OFFSET 9
-#define DIRECTION_OFFSET 11
-#define BI_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
-#define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
+
+#define buoyFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define WIND_DIRS [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE", @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW", @"NNW", nil]
 
 #import "BuoyViewController.h"
+#import "BuoyModel.h"
 #import "Buoy.h"
 #import "Colors.h"
 
 @interface BuoyViewController ()
+
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHolder;
 @property (weak, nonatomic) IBOutlet UITableView *buoyTable;
+
+@property (strong, nonatomic) BuoyModel *buoyModel;
 
 @end
 
 @implementation BuoyViewController
 {
     // Initilize some things we want available over the entire view controller
-    NSMutableArray *buoyDatas;
-    CPTScatterPlot* plot;
-    CPTGraph* graph;
+    NSMutableArray *currentBuoyData;
+    NSMutableArray *currentWaveHeights;
+    CPTScatterPlot *plot;
+    CPTGraph *graph;
     int buoy_location;
-    int timeOffset;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Check if daylight savings is in effect. Make sure the time scaling is for EST (GMT-5)
-    NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
-    int daylightoff = [eastnTZ daylightSavingTimeOffset]/3600;
-    timeOffset = -5 + daylightoff;
-    
     // Initialize the location, initialize to BI
     buoy_location = BLOCK_ISLAND_LOCATION;
     
-    // Array to load the data into 
-    buoyDatas = [[NSMutableArray alloc] init];
+    // Initialize the buoy model
+    _buoyModel = [BuoyModel sharedModel];
     
+    // Initialize the current buoy data
+    currentBuoyData = [[NSMutableArray alloc] init];
+    currentWaveHeights = [[NSMutableArray alloc] init];
+    
+    // Setup the graph view
+    [self setupGraphView];
+    
+    // Get the buoy data for the defualt location and reload the view
+    dispatch_async(buoyFetchBgQueue, ^{
+        currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
+        currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
+        [self performSelectorOnMainThread:@selector(reloadView)
+                               withObject:nil waitUntilDone:YES];
+    });
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return so there will always be 20 rows, plus an extra dor the column headers
+    return [currentBuoyData count]+1;
+}
+
+- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    // Get the interface items
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buoyItem"];
+    UILabel *timeLabel = (UILabel *)[cell viewWithTag:31];
+    UILabel *wvhtLabel = (UILabel *)[cell viewWithTag:32];
+    UILabel *dpdLabel = (UILabel *)[cell viewWithTag:33];
+    UILabel *directionLabel = (UILabel *)[cell viewWithTag:34];
+    
+    // Set the data to the label
+    if ([indexPath row] < 1) {
+        // Set the headers for the first row
+        [timeLabel setText:@"Time"];
+        [wvhtLabel setText:@"Waves"];
+        [dpdLabel setText:@"Period"];
+        [directionLabel setText:@"Direction"];
+        
+        // Set the color to be different so you can tell it's the header
+        [timeLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [wvhtLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [dpdLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [directionLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        
+        // Make the font bold cuz its the header
+        [timeLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [wvhtLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [dpdLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [directionLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        
+    } else {
+        // Get the object
+        Buoy *thisBuoy = [currentBuoyData objectAtIndex:indexPath.row-1];
+        
+        // Set the labels to the data
+        [timeLabel setText:thisBuoy.time];
+        [wvhtLabel setText:thisBuoy.wvht];
+        [dpdLabel setText:thisBuoy.dpd];
+    
+        // Set the direction to its letter value on a compass
+        NSString* dir = [WIND_DIRS objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count])];
+        [directionLabel setText:dir];
+        
+        // Make sure the text is black
+        [timeLabel setTextColor:[UIColor blackColor]];
+        [wvhtLabel setTextColor:[UIColor blackColor]];
+        [dpdLabel setTextColor:[UIColor blackColor]];
+        [directionLabel setTextColor:[UIColor blackColor]];
+        
+        // Make sure the font is not bold
+        [timeLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [wvhtLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [dpdLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [directionLabel setFont:[UIFont systemFontOfSize:17.0]];
+        
+    }
+    
+    // Return the cell view
+    return cell;
+}
+
+-(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
+    // The time scales are different time deltas, make sure they both show 9 hours of data
+    if (buoy_location == BLOCK_ISLAND_LOCATION)
+        return [currentBuoyData count];
+    else
+        return [currentBuoyData count]/2;
+}
+
+-(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
+{
+    // Get the buoy object for the index
+    Buoy *thisBuoy = [currentBuoyData objectAtIndex:index];
+    
+    // Depending on the buoy location set the axis scaling
+    double x;
+    if (buoy_location == BLOCK_ISLAND_LOCATION)
+        x = (double) index/2;
+    else
+        x = (double) index;
+    
+    // We need to provide an X or Y (this method will be called for each) value for every index
+    // This method is actually called twice per point in the plot, one for the X and one for the Y value
+    if(fieldEnum == CPTScatterPlotFieldX)
+    {
+        // Return x value
+        return [NSNumber numberWithDouble:x];
+    } else {
+        // Return y value, for this example we'll be plotting y = mx
+        return [NSNumber numberWithDouble:[thisBuoy.wvht doubleValue]];
+    }
+}
+
+- (void)setupGraphView {
     // Create the graph view and format it
     graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
     _graphHolder.hostedGraph = graph;
@@ -105,166 +219,9 @@
     [yAxis setLabelTextStyle:textStyle];
     [yAxis setLabelFormatter:axisFormatter];
     yAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(10.0);
-    
-    // Load the buoy data
-    [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 20 rows, plus an extra dor the column headers
-    return [buoyDatas count]+1;
-}
-
-- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
-{
-    // Get the interface items
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buoyItem"];
-    UILabel *timeLabel = (UILabel *)[cell viewWithTag:31];
-    UILabel *wvhtLabel = (UILabel *)[cell viewWithTag:32];
-    UILabel *dpdLabel = (UILabel *)[cell viewWithTag:33];
-    UILabel *directionLabel = (UILabel *)[cell viewWithTag:34];
-    
-    // Set the data to the label
-    if ([indexPath row] < 1) {
-        // Set the headers for the first row
-        [timeLabel setText:@"Time"];
-        [wvhtLabel setText:@"Waves"];
-        [dpdLabel setText:@"Period"];
-        [directionLabel setText:@"Direction"];
-        
-        // Set the color to be different so you can tell it's the header
-        [timeLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [wvhtLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [dpdLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [directionLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        
-        // Make the font bold cuz its the header
-        [timeLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [wvhtLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [dpdLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [directionLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        
-    } else {
-        // Get the object
-        Buoy *thisBuoy = [buoyDatas objectAtIndex:indexPath.row-1];
-        
-        // Set the labels to the data
-        [timeLabel setText:thisBuoy.time];
-        [wvhtLabel setText:thisBuoy.wvht];
-        [dpdLabel setText:thisBuoy.dpd];
-    
-        // Set the direction to its letter value on a compass
-        NSString* dir = [WIND_DIRS objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count])];
-        [directionLabel setText:dir];
-        
-        // Make sure the text is black
-        [timeLabel setTextColor:[UIColor blackColor]];
-        [wvhtLabel setTextColor:[UIColor blackColor]];
-        [dpdLabel setTextColor:[UIColor blackColor]];
-        [directionLabel setTextColor:[UIColor blackColor]];
-        
-        // Make sure the font is not bold
-        [timeLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [wvhtLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [dpdLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [directionLabel setFont:[UIFont systemFontOfSize:17.0]];
-        
-    }
-    
-    // Return the cell view
-    return cell;
-}
-
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
-    // The time scales are different time deltas, make sure they both show 9 hours of data
-    if (buoy_location == BLOCK_ISLAND_LOCATION)
-        return [buoyDatas count];
-    else
-        return [buoyDatas count]/2;
-}
-
--(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
-{
-    // Get the buoy object for the index
-    Buoy *thisBuoy = [buoyDatas objectAtIndex:index];
-    
-    // Depending on the buoy location set the axis scaling
-    double x;
-    if (buoy_location == BLOCK_ISLAND_LOCATION)
-        x = (double) index/2;
-    else
-        x = (double) index;
-    
-    // We need to provide an X or Y (this method will be called for each) value for every index
-    // This method is actually called twice per point in the plot, one for the X and one for the Y value
-    if(fieldEnum == CPTScatterPlotFieldX)
-    {
-        // Return x value
-        return [NSNumber numberWithDouble:x];
-    } else {
-        // Return y value, for this example we'll be plotting y = mx
-        return [NSNumber numberWithDouble:[thisBuoy.wvht doubleValue]];
-    }
-}
-                        
-- (void)fetchBuoyData:(NSNumber*)location {
-    // Create a new Buoy Object
-    buoyDatas = [[NSMutableArray alloc] init];
-    
-    // Create a new array for the wave heights to be loaded into
-    NSMutableArray* wvhts = [[NSMutableArray alloc] init];
-    
-    // Get the buoy data
-    NSString* buoyData;
-    NSError *err = nil;
-    if ([location isEqualToNumber:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]]) {
-        buoyData = [NSString stringWithContentsOfURL:BI_URL encoding:NSUTF8StringEncoding error:&err];
-    } else {
-        // Montauk
-        buoyData = [NSString stringWithContentsOfURL:MTK_URL encoding:NSUTF8StringEncoding error:&err];
-    }
-    NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
-    NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
-    
-    NSArray *parts = [buoyData componentsSeparatedByCharactersInSet:whitespaces];
-    NSArray *filteredArray = [parts filteredArrayUsingPredicate:noEmptyStrings];
-    buoyData = [filteredArray componentsJoinedByString:@" "];
-    NSArray* cleanData = [buoyData componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    // Parse the data into buoy objects
-    for(int i=DATA_HEADER_LENGTH; i<(DATA_HEADER_LENGTH+(DATA_LINE_LEN*DATA_POINTS)); i+=DATA_LINE_LEN) {
-        Buoy* newBuoy = [[Buoy alloc] init];
-        
-        // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
-        [newBuoy setTime:[NSString stringWithFormat:@"%d:%@", (((int)[[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue])+timeOffset+12)%12, [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
-        
-        // Period and wind direction values
-        [newBuoy setDpd:[cleanData objectAtIndex:i+DPD_OFFSET]];
-        [newBuoy setDirection:[cleanData objectAtIndex:i+DIRECTION_OFFSET]];
-        
-        // Change the wave height to feet
-        NSString* wv = [cleanData objectAtIndex:i+WVHT_OFFSET];
-        double h = [wv doubleValue]*3.28;
-        
-        // Set the wave height
-        [newBuoy setWvht:[NSString stringWithFormat:@"%2.2f", h]];
-        
-        // Append the buoy to the list of buoys
-        [buoyDatas addObject:newBuoy];
-        
-        // Append the wave height for scaling
-        [wvhts addObject:[NSString stringWithFormat:@"%2.2f", h]];
-    }
+- (void)reloadView {
     // Update the table
     [_buoyTable reloadData];
     
@@ -272,7 +229,7 @@
     [plot reloadData];
     
     // Scale the y axis to fit the data
-    NSNumber *maxWV = [wvhts valueForKeyPath:@"@max.doubleValue"];
+    NSNumber *maxWV = [currentWaveHeights valueForKeyPath:@"@max.doubleValue"];
     double max = round([maxWV doubleValue]+2);
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat(max)]];
@@ -292,8 +249,13 @@
     } else {
         buoy_location = MONTAUK_LOCATION;
     }
-    // Load the buoy data
-    [self performSelectorInBackground:@selector(fetchBuoyData:) withObject:[NSNumber numberWithInt:buoy_location]];
+    // Get the new buoy data and reload the main view
+    dispatch_async(buoyFetchBgQueue, ^{
+        currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
+        currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
+        [self performSelectorOnMainThread:@selector(reloadView)
+                               withObject:nil waitUntilDone:YES];
+    });
 }
 
 /*

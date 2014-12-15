@@ -12,8 +12,7 @@
 @interface BuoyViewController : UIViewController <UITableViewDataSource,
     UITableViewDelegate, CPTPlotDataSource, CPTPlotDelegate>
 
-- (void)fetchBuoyData:(NSNumber*)location;
-
+- (void)reloadView;
 - (IBAction)locationSegmentValueChanged:(id)sender;
 
 @end
