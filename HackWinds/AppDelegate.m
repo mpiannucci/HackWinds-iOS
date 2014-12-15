@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation AppDelegate
+{
+    BOOL _isFullScreen;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -18,6 +22,16 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:1.0]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:1.0]];
+    
+    // We register ourselves to be notified when the movie player enters or exits full screen
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willEnterFullScreen:)
+                                                 name:MPMoviePlayerWillEnterFullscreenNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willExitFullScreen:)
+                                                 name:MPMoviePlayerWillExitFullscreenNotification
+                                               object:nil];
     
     return YES;
 }
@@ -47,6 +61,32 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Allowing the movie players to rotate in fullscreen
+
+// These next three methods are hacks to make the landscpae orientation work when playing full screen
+// video. The first notifies when the controller requests full screen. The second notifies when the
+// video controller is returning from full screen. The last overrides the orientations allowed for the
+// views to use
+
+- (void)willEnterFullScreen:(NSNotification *)notification
+{
+    _isFullScreen = YES;
+}
+
+- (void)willExitFullScreen:(NSNotification *)notification
+{
+    _isFullScreen = NO;
+}
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    if (_isFullScreen) {
+        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
 }
 
 @end
