@@ -3,7 +3,7 @@
 //  HackWinds
 //
 //  Created by Matthew Iannucci on 7/27/14.
-//  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
+//  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 #define LOW_TIDE_TAG @"Low Tide"
 #define HIGH_TIDE_TAG @"High Tide"

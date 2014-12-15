@@ -1,9 +1,9 @@
 //
-//  ThirdViewController.m
+//  TideViewController.m
 //  HackWinds
 //
 //  Created by Matthew Iannucci on 7/27/14.
-//  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
+//  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 #define wunderBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define wunderURL [NSURL URLWithString:@"http://api.wunderground.com/api/2e5424aab8c91757/tide/q/RI/Point_Judith.json"]

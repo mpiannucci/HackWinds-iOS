@@ -1,9 +1,9 @@
 //
-//  SecondViewController.m
+//  ForecastViewController.m
 //  HackWinds
 //
 //  Created by Matthew Iannucci on 7/18/14.
-//  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
+//  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 #define mswBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define mswURL [NSURL URLWithString:@"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=1103&fields=localTimestamp,swell.*,wind.*"]
