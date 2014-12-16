@@ -5,7 +5,7 @@
 //  Created by Matthew Iannucci on 7/27/14.
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
-#define tideFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define TIDE_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 #import "TideViewController.h"
 #import "TideModel.h"
@@ -41,7 +41,7 @@
     _labels = [[NSArray alloc] initWithObjects:_tideLabel1, _tideLabel2, _tideLabel3, _tideLabel4, nil];
     
     // Get the buoy data and reload the views
-    dispatch_async(tideFetchBgQueue, ^{
+    dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
         NSMutableArray *tideData = [_tideModel getTideData];
         [self performSelectorOnMainThread:@selector(reloadView:)
                                withObject:tideData waitUntilDone:YES];

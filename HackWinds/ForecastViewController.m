@@ -5,8 +5,8 @@
 //  Created by Matthew Iannucci on 7/18/14.
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
-#define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define weekdays [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
+#define FORECAST_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define WEEKDAYS [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
 #import "ForecastViewController.h"
 #import "ForecastModel.h"
@@ -40,7 +40,7 @@
     currentday = [comps weekday];
     
     // Load the MSW Data
-    dispatch_async(forecastFetchBgQueue, ^{
+    dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
         [_forecastModel getForecasts];
         [_forecastTable performSelectorOnMainThread:@selector(reloadData)
                                withObject:nil waitUntilDone:YES];
@@ -80,7 +80,7 @@
     Forecast *afternoonForecast = [[_forecastModel forecasts] objectAtIndex:(index*2)+1];
     
     // Construct the strings and display them
-    [dayLabel setText:[weekdays objectAtIndex:(((currentday-1) + index)%7)]];
+    [dayLabel setText:[WEEKDAYS objectAtIndex:(((currentday-1) + index)%7)]];
     
     [morningLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
                            morningForecast.minBreak, morningForecast.maxBreak, morningForecast.windDir, morningForecast.windSpeed]];

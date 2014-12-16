@@ -9,7 +9,7 @@
 // Montauk ID: Station 44017
 //
 
-#define buoyFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define BUOY_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define WIND_DIRS [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE", @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW", @"NNW", nil]
 
 #import "BuoyViewController.h"
@@ -54,7 +54,7 @@
     [self setupGraphView];
     
     // Get the buoy data for the defualt location and reload the view
-    dispatch_async(buoyFetchBgQueue, ^{
+    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
         currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
         currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
         [self performSelectorOnMainThread:@selector(reloadView)
@@ -250,7 +250,7 @@
         buoy_location = MONTAUK_LOCATION;
     }
     // Get the new buoy data and reload the main view
-    dispatch_async(buoyFetchBgQueue, ^{
+    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
         currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
         currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
         [self performSelectorOnMainThread:@selector(reloadView)
