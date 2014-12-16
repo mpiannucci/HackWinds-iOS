@@ -19,6 +19,13 @@
 #import "BuoyModel.h"
 #import "Buoy.h"
 
+@interface BuoyModel ()
+
+// Private methods
+- (BOOL) parseBuoyData:(NSNumber* )location;
+
+@end
+
 @implementation BuoyModel
 {
     int timeOffset;

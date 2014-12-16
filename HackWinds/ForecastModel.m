@@ -12,6 +12,18 @@
 #import "Forecast.h"
 #import "Condition.h"
 
+@interface ForecastModel ()
+
+// Private methods
+- (void) loadRawData;
+- (BOOL) parseConditions;
+- (BOOL) parseForecasts;
+- (NSString *) formatDate:(NSUInteger)epoch;
+- (BOOL) checkConditionDate:(NSString *)dateString;
+- (BOOL) checkForecastDate:(NSString *)dateString;
+
+@end
+
 @implementation ForecastModel
 {
     NSData *rawData;
@@ -186,7 +198,7 @@
     return formatted;
 }
 
-- (Boolean)checkConditionDate:(NSString *)dateString
+- (BOOL)checkConditionDate:(NSString *)dateString
 {
     // Check if the date is for a valid time, we dont care about midnight nor 3 am
     NSRange AMrange = [dateString rangeOfString:@"AM"];
@@ -202,7 +214,7 @@
     return true;
 }
 
-- (Boolean)checkForecastDate:(NSString *)dateString
+- (BOOL)checkForecastDate:(NSString *)dateString
 {
     // Check if the date is for a valid time, if its not return false (We only want very specific times for this
     NSRange AMrange = [dateString rangeOfString:@"AM"];

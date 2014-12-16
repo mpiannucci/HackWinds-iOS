@@ -88,7 +88,6 @@
     [afternoonLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
                            afternoonForecast.minBreak, afternoonForecast.maxBreak, afternoonForecast.windDir, afternoonForecast.windSpeed]];
     
-    // TODO: INCORPORATE WIND TO MAKE THIS MORE ACCURATE
     // Set the color of the morning label based on whether it has size or not
     if ([morningForecast.minBreak doubleValue] > 1.9) {
         if ([morningForecast.windDir isEqualToString:@"WSW"] ||

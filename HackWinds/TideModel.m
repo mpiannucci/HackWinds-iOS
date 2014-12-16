@@ -10,6 +10,13 @@
 #import "TideModel.h"
 #import "Tide.h"
 
+@interface TideModel ()
+
+// Private methods
+- (bool) parseTideData:(NSData *)responseData;
+
+@end
+
 @implementation TideModel
 
 + (instancetype) sharedModel {

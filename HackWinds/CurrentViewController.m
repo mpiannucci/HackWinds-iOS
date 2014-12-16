@@ -19,11 +19,13 @@
 
 @interface CurrentViewController ()
 
+// UI properties
 @property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
 
+// Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
 
 @end
