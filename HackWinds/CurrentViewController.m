@@ -139,12 +139,6 @@
     [self.moviePlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.moviePlayer.view];
     
-    // Create an observer to handle the callback from the movie player finishing
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(moviePlayBackDidFinish:)
-//                                                 name:MPMoviePlayerLoadStateDidChangeNotification
-//                                               object:_moviePlayer];
-    
     // Load the stream and play it
     [self.moviePlayer prepareToPlay];
     [self.moviePlayer play];
