@@ -36,6 +36,9 @@
 {
     [super viewDidLoad];
     
+    // Check for network connectivity. If theres no network, do nothing.
+    
+    
     // Load the imageview
     [_holderImageButton setImageURL:wwStillURL];
     

@@ -82,6 +82,11 @@
 }
 
 - (BOOL) parseConditions {
+    // If there's no data, return nothing
+    if (rawData == nil) {
+        return NO;
+    }
+    
     //parse out the MSW json data
     NSError* error;
     NSArray* json = [NSJSONSerialization
@@ -134,6 +139,11 @@
 }
 
 - (BOOL) parseForecasts {
+    // If there's no data, return nothing
+    if (rawData == nil) {
+        return NO;
+    }
+    
     //parse out the MSW json data
     NSError* error;
     NSArray* json = [NSJSONSerialization

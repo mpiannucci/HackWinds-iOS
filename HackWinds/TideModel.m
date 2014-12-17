@@ -52,6 +52,11 @@
 }
 
 - (bool) parseTideData:(NSData *)responseData {
+    // If theres no data return false
+    if (responseData == nil) {
+        return NO;
+    }
+    
     //parse out the Wunderground json data
     NSError* error;
     NSDictionary* json = [NSJSONSerialization

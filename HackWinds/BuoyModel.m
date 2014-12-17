@@ -96,6 +96,11 @@
         // Montauk
         buoyData = [NSString stringWithContentsOfURL:MTK_URL encoding:NSUTF8StringEncoding error:&err];
     }
+    // If it was unsuccessful, return false
+    if (err != nil) {
+        return NO;
+    }
+    
     NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
     NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
     NSArray *parts = [buoyData componentsSeparatedByCharactersInSet:whitespaces];

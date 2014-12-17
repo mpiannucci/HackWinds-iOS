@@ -66,6 +66,11 @@
 }
 
 - (void)reloadView:(NSMutableArray* ) tideData {
+    // If there are no tide items return early
+    if ([tideData count] == 0) {
+        return;
+    }
+    
     // First, if it is the first item, check what it is,
     // then set the status accordingly
     int firstIndex = 0;
