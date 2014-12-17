@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "Reachability.h"
 
 @implementation AppDelegate
 {
@@ -32,6 +33,18 @@
                                              selector:@selector(willExitFullScreen:)
                                                  name:MPMoviePlayerWillExitFullscreenNotification
                                                object:nil];
+    // Check for network connectivity. If theres no network, show a dialog.
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        NSLog(@"No internet connection");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+                                                message:@"You can't check waves with no internet!!"
+                                                delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [alert show];
+    }
     
     return YES;
 }

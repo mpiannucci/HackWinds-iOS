@@ -36,6 +36,8 @@
 		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
+		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
+		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
 		34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
@@ -110,6 +112,9 @@
 		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -120,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
 				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
 				349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */,
 				342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */,
@@ -166,6 +172,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34AA86571A41357300AD09CF /* SystemConfiguration.framework */,
 				349679E619E63DE90043A21B /* Accelerate.framework */,
 				349679E419E63DE20043A21B /* QuartzCore.framework */,
 				342A76231985E38600077F8C /* MediaPlayer.framework */,
@@ -183,6 +190,8 @@
 				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
 				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
 				34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */,
+				34AA865C1A41382F00AD09CF /* Reachability.h */,
+				34AA865D1A41382F00AD09CF /* Reachability.m */,
 				3430839819795D0F00655F15 /* AppDelegate.h */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
 				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
@@ -384,6 +393,7 @@
 				3478C6151A3E8F2600479DE1 /* BuoyModel.m in Sources */,
 				3478C6101A3E833900479DE1 /* TideModel.m in Sources */,
 				343F33D119EF5C5A005802FA /* Tide.m in Sources */,
+				34AA865E1A41382F00AD09CF /* Reachability.m in Sources */,
 				3478C6191A3E9D8200479DE1 /* ForecastModel.m in Sources */,
 				3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */,
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
