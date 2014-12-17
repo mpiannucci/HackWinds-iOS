@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
-@property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -135,16 +135,34 @@
     CGFloat screenWidth = screenRect.size.width;
     
     // Create a new MoviePlayer with the Live Stream URL
-    self.moviePlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
-    [self.moviePlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
-    [self.view addSubview:self.moviePlayer.view];
+    self.streamPlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
+    [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
+    [self.view addSubview:self.streamPlayer.view];
+    
+    // Set a listener for the video playback finishing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                        selector:@selector(streamPlayBackDidFinish:)
+                                        name:MPMoviePlayerPlaybackDidFinishNotification
+                                        object:self.streamPlayer];
     
     // Load the stream and play it
-    [self.moviePlayer prepareToPlay];
-    [self.moviePlayer play];
+    [self.streamPlayer prepareToPlay];
+    [self.streamPlayer play];
     
     // Hide the async holder image
     [self.holderImageButton setHidden:YES];
+}
+
+- (void) streamPlayBackDidFinish:(NSNotification*)notification {
+    // Remove the notification for the player
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                        name:MPMoviePlayerPlaybackDidFinishNotification
+                                        object:self.streamPlayer];
+    // Show the holder image again
+    [self.holderImageButton setHidden:NO];
+    
+    // Remove the player from the superview
+    [self.streamPlayer.view removeFromSuperview];
 }
 
 @end

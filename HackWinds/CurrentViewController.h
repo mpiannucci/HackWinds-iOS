@@ -11,5 +11,6 @@
 @interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 - (IBAction)playButton:(id)sender;
+- (void) streamPlayBackDidFinish:(NSNotification*)notification;
 
 @end
