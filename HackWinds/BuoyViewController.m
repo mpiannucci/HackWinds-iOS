@@ -117,7 +117,13 @@
         [dpdLabel setText:thisBuoy.dpd];
     
         // Set the direction to its letter value on a compass
-        NSString* dir = [WIND_DIRS objectAtIndex:(int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count])];
+        int windIndex = (int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count]);
+        if (windIndex >= [WIND_DIRS count]) {
+            // Quick hack to make sure it never crashes because of a precision error.
+            // Basically if its larger than NNW, just assume North
+            windIndex = 0;
+        }
+        NSString* dir = [WIND_DIRS objectAtIndex:windIndex];
         [directionLabel setText:dir];
         
         // Make sure the text is black
