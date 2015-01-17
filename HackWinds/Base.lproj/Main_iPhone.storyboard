@@ -137,7 +137,14 @@
                             <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="ytA-lV-0pK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U"/>
+                    <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="Gql-J9-MJW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="aBS-Ey-vdF" kind="push" id="d80-Bn-9At"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="dayHeader" destination="1rm-Eb-nhm" id="OOE-OZ-GBX"/>
@@ -247,7 +254,14 @@
                             <constraint firstAttribute="centerX" secondItem="C1T-Vk-p88" secondAttribute="centerX" id="w3F-HK-m5T"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="HackWinds" id="2g7-1n-mfa"/>
+                    <navigationItem key="navigationItem" title="HackWinds" id="2g7-1n-mfa">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="nZI-lu-uSE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="aBS-Ey-vdF" kind="push" id="0iC-sR-QVf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="forecastTable" destination="C1T-Vk-p88" id="f3u-I3-LFq"/>
                     </connections>
@@ -378,7 +392,14 @@
                             <constraint firstItem="9ox-3V-peN" firstAttribute="centerX" secondItem="0CD-y8-6s2" secondAttribute="centerX" id="xOc-P7-ee8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT"/>
+                    <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="6FW-fZ-hBl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="aBS-Ey-vdF" kind="push" id="iWp-UQ-eS2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="buoyTable" destination="0CD-y8-6s2" id="fbK-9X-tt1"/>
                         <outlet property="graphHolder" destination="9ox-3V-peN" id="gt6-eX-OLR"/>
@@ -387,6 +408,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRE-al-kA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="1168"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="aHo-Dm-6Ss">
+            <objects>
+                <viewController id="aBS-Ey-vdF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qaf-Xd-a9r"/>
+                        <viewControllerLayoutGuide type="bottom" id="k01-Fr-XTt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lLu-ic-YRE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="Tlq-25-cbQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2BA-8f-CLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1238" y="776"/>
         </scene>
         <!--Tide-->
         <scene sceneID="E0N-BJ-gQ2">
@@ -589,7 +629,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Vfe-NX-JLl" secondAttribute="trailing" constant="-16" id="lf1-HN-wNI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="HackWinds" id="AYv-Ft-NBo"/>
+                    <navigationItem key="navigationItem" title="HackWinds" id="AYv-Ft-NBo">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="2x3-Pn-JcO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="aBS-Ey-vdF" kind="push" id="mDB-1e-Y9c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mainScrollView" destination="Vfe-NX-JLl" id="saF-zL-b6c"/>
                         <outlet property="statusLabel" destination="9QU-sC-k2X" id="LY1-pq-pgC"/>
@@ -700,6 +747,7 @@
         <image name="ForecastIcon" width="30" height="30"/>
         <image name="LiveIcon" width="30" height="30"/>
         <image name="PlayButton" width="120" height="120"/>
+        <image name="SettingsIcon" width="25" height="25"/>
         <image name="TideIcon" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -707,4 +755,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="0iC-sR-QVf"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -36,6 +36,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     // Load the imageview
     [_holderImageButton setImageURL:wwStillURL];
     
