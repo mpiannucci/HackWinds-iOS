@@ -444,6 +444,9 @@
                                                     <state key="normal" title="Choose Forecast Location...">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="locationButtonClick:" destination="Dj6-dg-yw8" eventType="touchUpInside" id="tcu-no-T2V"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -507,6 +510,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0ch-Rh-Vuc"/>
+                    <connections>
+                        <outlet property="locationLabel" destination="Jb7-wv-5Xg" id="FAy-4F-ANa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ay-tU-U19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

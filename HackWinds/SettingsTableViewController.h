@@ -10,4 +10,9 @@
 
 @interface SettingsTableViewController : UITableViewController
 
+- (IBAction)locationButtonClick:(id)sender;
+- (void)updateForecastLocation:(NSString*)newLocation;
+
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
 @end
