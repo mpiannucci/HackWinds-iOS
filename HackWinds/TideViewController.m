@@ -14,17 +14,7 @@
 
 @interface TideViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tideLabel1;
-@property (weak, nonatomic) IBOutlet UILabel *tideLabel2;
-@property (weak, nonatomic) IBOutlet UILabel *tideLabel3;
-@property (weak, nonatomic) IBOutlet UILabel *tideLabel4;
-@property (weak, nonatomic) IBOutlet UILabel *sunriseTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sunsetTimeLabel;
-@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
-
 @property (strong, nonatomic) TideModel *tideModel;
-@property (strong, nonatomic) NSArray *labels;
 
 @end
 
@@ -37,9 +27,6 @@
     // Get the tide model
     _tideModel = [TideModel sharedModel];
     
-    // An array to hold the tide labels
-    _labels = [[NSArray alloc] initWithObjects:_tideLabel1, _tideLabel2, _tideLabel3, _tideLabel4, nil];
-    
     // Get the buoy data and reload the views
     dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
         NSMutableArray *tideData = [_tideModel getTideData];
@@ -49,14 +36,6 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    // For some reason the scaling sucks on less than an iphone 5, so fix it
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    if (screenHeight > 500) {
-        _mainScrollView.contentSize = CGSizeMake(320, 425);
-    } else {
-        _mainScrollView.contentSize = CGSizeMake(320, 500);
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,15 +59,16 @@
         firstIndex++;
     }
     NSString* firstEvent = [[tideData objectAtIndex:firstIndex] eventType];
+    UILabel* currentTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:41];
     if ([firstEvent isEqualToString:HIGH_TIDE_TAG]) {
         // Show that the tide is incoming, using green because typically surf increases with incoming tides
-        [_statusLabel setText:@"Incoming"];
-        [_statusLabel setTextColor:GREEN_COLOR];
+        [currentTideLabel setText:@"Incoming"];
+        [currentTideLabel setTextColor:GREEN_COLOR];
         
     } else if ([firstEvent isEqualToString:LOW_TIDE_TAG]) {
         // Show that the tide is outgoing, use red because the surf typically decreases with an outgoing tide
-        [_statusLabel setText:@"Outgoing"];
-        [_statusLabel setTextColor:RED_COLOR];
+        [currentTideLabel setText:@"Outgoing"];
+        [currentTideLabel setTextColor:RED_COLOR];
     }
     
     int tideCount = 0;
@@ -96,21 +76,34 @@
         // Then check what is is again, and set correct text box
         Tide* thisTide = [tideData objectAtIndex:i];
         if ([[thisTide eventType] isEqualToString:SUNRISE_TAG]) {
-            [_sunriseTimeLabel setText:thisTide.time];
+            // Get the first row in the sunrise and sunset section and set the text of the label to the time
+            UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
+            NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.time];
+            [sunriseLabel setText:sunrisetext];
         } else if ([[thisTide eventType] isEqualToString:SUNSET_TAG]) {
-            [_sunsetTimeLabel setText:thisTide.time];
+            // Get the second row in the sunrise and sunset section and set the text of the label to the time
+            UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
+            NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.time];
+            [sunsetLabel setText:sunsetText];
         } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG]) {
-            NSString* message = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.height, thisTide.time];
-            [(UILabel *)[_labels objectAtIndex:tideCount] setText:message];
+            // Get the next cell and its label so we can update it
+            UILabel* highTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
+            NSString* highTideText = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.height, thisTide.time];
+            [highTideLabel setText:highTideText];
+            
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
         } else if ([[thisTide eventType] isEqualToString:LOW_TIDE_TAG]) {
-            NSString* message = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.height, thisTide.time];
-            [(UILabel *)[_labels objectAtIndex:tideCount] setText:message];
+            // Get the next cell and its label so we can update it
+            UILabel* lowTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
+            NSString* lowTideText = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.height, thisTide.time];
+            [lowTideLabel setText:lowTideText];
+            
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
         }
     }
+    [self.tableView reloadData];
 }
 
 @end

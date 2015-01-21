@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TideViewController : UIViewController
+@interface TideViewController : UITableViewController
 
 - (void)reloadView:(NSMutableArray*)tideData;
 
