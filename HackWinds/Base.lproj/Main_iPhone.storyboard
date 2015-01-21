@@ -140,9 +140,6 @@
                     <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U">
                         <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="Gql-J9-MJW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Dj6-dg-yw8" kind="push" id="7PS-cv-1gM"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -257,9 +254,6 @@
                     <navigationItem key="navigationItem" title="HackWinds" id="2g7-1n-mfa">
                         <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="nZI-lu-uSE">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Dj6-dg-yw8" kind="push" id="LYP-Zu-Yv9"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -395,9 +389,6 @@
                     <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT">
                         <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="6FW-fZ-hBl">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Dj6-dg-yw8" kind="push" id="pxL-tA-mDE"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -408,115 +399,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRE-al-kA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="1168"/>
-        </scene>
-        <!--Settings Table View Controller-->
-        <scene sceneID="a3k-7r-YsQ">
-            <objects>
-                <tableViewController id="Dj6-dg-yw8" customClass="SettingsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Uxp-wH-SqL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection headerTitle="Forecast Location" id="vmE-Y2-mDA">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qMJ-fg-6s1">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qMJ-fg-6s1" id="P9l-uH-fph">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb7-wv-5Xg">
-                                                    <rect key="frame" x="8" y="11" width="129" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4gM-fS-vAe">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4gM-fS-vAe" id="gkI-Vc-d84">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPf-zN-wqe">
-                                                    <rect key="frame" x="8" y="7" width="194" height="30"/>
-                                                    <state key="normal" title="Choose Forecast Location...">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="locationButtonClick:" destination="Dj6-dg-yw8" eventType="touchUpInside" id="tcu-no-T2V"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="About" id="sCJ-mG-fWe">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="T4w-Zk-l8A">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T4w-Zk-l8A" id="9dq-ju-F9D">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykq-2v-prS">
-                                                    <rect key="frame" x="8" y="7" width="129" height="30"/>
-                                                    <state key="normal" title="Contact Developer">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="coR-FY-QU3">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="coR-FY-QU3" id="3dR-UJ-Afh">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgs-2O-2e5">
-                                                    <rect key="frame" x="8" y="7" width="72" height="30"/>
-                                                    <state key="normal" title="Disclaimer">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NDi-dq-THO">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NDi-dq-THO" id="bZL-T0-IRf">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nn-UG-t1k">
-                                                    <rect key="frame" x="8" y="0.0" width="53" height="30"/>
-                                                    <state key="normal" title="License">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="0Nn-UG-t1k" firstAttribute="leading" secondItem="bZL-T0-IRf" secondAttribute="leading" constant="8" id="QiV-Il-T7I"/>
-                                                <constraint firstItem="0Nn-UG-t1k" firstAttribute="top" secondItem="bZL-T0-IRf" secondAttribute="top" id="mWm-OJ-69Z"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="Dj6-dg-yw8" id="gq0-Jl-Ag0"/>
-                            <outlet property="delegate" destination="Dj6-dg-yw8" id="D5g-Oj-x7p"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="0ch-Rh-Vuc"/>
-                    <connections>
-                        <outlet property="locationLabel" destination="Jb7-wv-5Xg" id="FAy-4F-ANa"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ay-tU-U19" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1232" y="801"/>
         </scene>
         <!--Tide-->
         <scene sceneID="E0N-BJ-gQ2">
@@ -722,9 +604,6 @@
                     <navigationItem key="navigationItem" title="HackWinds" id="AYv-Ft-NBo">
                         <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="2x3-Pn-JcO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Dj6-dg-yw8" kind="push" id="Izk-sV-RzJ"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -845,7 +724,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="7PS-cv-1gM"/>
-    </inferredMetricsTieBreakers>
 </document>
