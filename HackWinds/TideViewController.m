@@ -53,12 +53,12 @@
     // First, if it is the first item, check what it is,
     // then set the status accordingly
     int firstIndex = 0;
-    if (([[[tideData objectAtIndex:0] eventType] isEqualToString:SUNRISE_TAG]) ||
-        ([[[tideData objectAtIndex:0] eventType] isEqualToString:SUNSET_TAG])) {
+    if (([[[tideData objectAtIndex:0] EventType] isEqualToString:SUNRISE_TAG]) ||
+        ([[[tideData objectAtIndex:0] EventType] isEqualToString:SUNSET_TAG])) {
         // If its sunrise or sunset we dont care for now, skip it.
         firstIndex++;
     }
-    NSString* firstEvent = [[tideData objectAtIndex:firstIndex] eventType];
+    NSString* firstEvent = [[tideData objectAtIndex:firstIndex] EventType];
     UILabel* currentTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:41];
     if ([firstEvent isEqualToString:HIGH_TIDE_TAG]) {
         // Show that the tide is incoming, using green because typically surf increases with incoming tides
@@ -75,28 +75,28 @@
     for (int i = 0; i < [tideData count]; i++) {
         // Then check what is is again, and set correct text box
         Tide* thisTide = [tideData objectAtIndex:i];
-        if ([[thisTide eventType] isEqualToString:SUNRISE_TAG]) {
+        if ([[thisTide EventType] isEqualToString:SUNRISE_TAG]) {
             // Get the first row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
-            NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.time];
+            NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.Time];
             [sunriseLabel setText:sunrisetext];
-        } else if ([[thisTide eventType] isEqualToString:SUNSET_TAG]) {
+        } else if ([[thisTide EventType] isEqualToString:SUNSET_TAG]) {
             // Get the second row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
-            NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.time];
+            NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.Time];
             [sunsetLabel setText:sunsetText];
-        } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG]) {
+        } else if ([[thisTide EventType] isEqualToString:HIGH_TIDE_TAG]) {
             // Get the next cell and its label so we can update it
             UILabel* highTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
-            NSString* highTideText = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.height, thisTide.time];
+            NSString* highTideText = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.Height, thisTide.Time];
             [highTideLabel setText:highTideText];
             
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
-        } else if ([[thisTide eventType] isEqualToString:LOW_TIDE_TAG]) {
+        } else if ([[thisTide EventType] isEqualToString:LOW_TIDE_TAG]) {
             // Get the next cell and its label so we can update it
             UILabel* lowTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
-            NSString* lowTideText = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.height, thisTide.time];
+            NSString* lowTideText = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.Height, thisTide.Time];
             [lowTideLabel setText:lowTideText];
             
             // Only increment the tide count for a tide event and not a sunrise or sunset

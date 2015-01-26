@@ -11,9 +11,9 @@
 @interface Buoy : NSObject
 
 // Define data for the buoy data model
-@property (strong, nonatomic) NSString *time;
-@property (strong, nonatomic) NSString *wvht;
-@property (strong, nonatomic) NSString *dpd;
-@property (strong, nonatomic) NSString *direction;
+@property (strong, nonatomic) NSString *Time;
+@property (strong, nonatomic) NSString *WaveHeight;
+@property (strong, nonatomic) NSString *DominantPeriod;
+@property (strong, nonatomic) NSString *Direction;
 
 @end

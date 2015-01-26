@@ -11,10 +11,10 @@
 @interface Forecast : NSObject
 
 // Define a simplified model for the forecast data
-@property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) NSString *minBreak;
-@property (strong, nonatomic) NSString *maxBreak;
-@property (strong, nonatomic) NSString *windSpeed;
-@property (strong, nonatomic) NSString *windDir;
+@property (strong, nonatomic) NSString *Date;
+@property (strong, nonatomic) NSString *MinBreakHeight;
+@property (strong, nonatomic) NSString *MaxBreakHeight;
+@property (strong, nonatomic) NSString *WindSpeed;
+@property (strong, nonatomic) NSString *WindDir;
 
 @end

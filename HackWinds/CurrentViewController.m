@@ -107,10 +107,10 @@
         Condition *thisCondition = [[_forecastModel conditions] objectAtIndex:indexPath.row-1];
     
         // Set the data to show in the labels
-        [hourLabel setText:thisCondition.date];
-        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreak, thisCondition.maxBreak]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDir, thisCondition.windSpeed]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDir, thisCondition.swellHeight, thisCondition.swellPeriod]];
+        [hourLabel setText:thisCondition.Date];
+        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.MinBreakHeight, thisCondition.MaxBreakHeight]];
+        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.WindDirection, thisCondition.WindSpeed]];
+        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.SwellDirection, thisCondition.SwellHeight, thisCondition.SwellPeriod]];
         
         // Make sure that the text is black
         [hourLabel setTextColor:[UIColor blackColor]];

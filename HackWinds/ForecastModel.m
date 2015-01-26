@@ -117,19 +117,19 @@
         
         // Get the minumum and maximum wave heights
         NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
-        [thisCondition setMinBreak:[swellDict objectForKey:@"minBreakingHeight"]];
-        [thisCondition setMaxBreak:[swellDict objectForKey:@"maxBreakingHeight"]];
+        [thisCondition setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
+        [thisCondition setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
         
         // Get the wind direction and speed
         NSDictionary *windDict = [thisDict objectForKey:@"wind"];
         [thisCondition setWindSpeed:[windDict objectForKey:@"speed"]];
         [thisCondition setWindDeg:[windDict objectForKey:@"direction"]];
-        [thisCondition setWindDir:[windDict objectForKey:@"compassDirection"]];
+        [thisCondition setWindDirection:[windDict objectForKey:@"compassDirection"]];
         
         // Get the swell height, period, and direction
         [thisCondition setSwellHeight:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"height"]];
         [thisCondition setSwellPeriod:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"period"]];
-        [thisCondition setSwellDir:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"compassDirection"]];
+        [thisCondition setSwellDirection:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"compassDirection"]];
         
         // Append the condition
         [_conditions addObject:thisCondition];
@@ -175,8 +175,8 @@
         
         // Get the minimum and maximumm breaking heights
         NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
-        [thisForecast setMinBreak:[swellDict objectForKey:@"minBreakingHeight"]];
-        [thisForecast setMaxBreak:[swellDict objectForKey:@"maxBreakingHeight"]];
+        [thisForecast setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
+        [thisForecast setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
         
         // Get the wind speed and direction
         NSDictionary *windDict = [thisDict objectForKey:@"wind"];

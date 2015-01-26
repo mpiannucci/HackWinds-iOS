@@ -116,7 +116,7 @@
         [newBuoy setTime:[NSString stringWithFormat:@"%d:%@", (((int)[[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue])+timeOffset+12)%12, [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
         
         // Period and wind direction values
-        [newBuoy setDpd:[cleanData objectAtIndex:i+DPD_OFFSET]];
+        [newBuoy setDominantPeriod:[cleanData objectAtIndex:i+DPD_OFFSET]];
         [newBuoy setDirection:[cleanData objectAtIndex:i+DIRECTION_OFFSET]];
         
         // Change the wave height to feet
@@ -124,7 +124,7 @@
         double h = [wv doubleValue]*3.28;
         
         // Set the wave height
-        [newBuoy setWvht:[NSString stringWithFormat:@"%2.2f", h]];
+        [newBuoy setWaveHeight:[NSString stringWithFormat:@"%2.2f", h]];
         
         // Append the buoy to the list of buoys
         if ([location isEqualToNumber:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]]) {

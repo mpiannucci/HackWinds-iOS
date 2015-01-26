@@ -112,12 +112,12 @@
         Buoy *thisBuoy = [currentBuoyData objectAtIndex:indexPath.row-1];
         
         // Set the labels to the data
-        [timeLabel setText:thisBuoy.time];
-        [wvhtLabel setText:thisBuoy.wvht];
-        [dpdLabel setText:thisBuoy.dpd];
+        [timeLabel setText:thisBuoy.Time];
+        [wvhtLabel setText:thisBuoy.WaveHeight];
+        [dpdLabel setText:thisBuoy.DominantPeriod];
     
         // Set the direction to its letter value on a compass
-        int windIndex = (int)[[thisBuoy direction] doubleValue]/(360/[WIND_DIRS count]);
+        int windIndex = (int)[[thisBuoy Direction] doubleValue]/(360/[WIND_DIRS count]);
         if (windIndex >= [WIND_DIRS count]) {
             // Quick hack to make sure it never crashes because of a precision error.
             // Basically if its larger than NNW, just assume North
@@ -172,7 +172,7 @@
         return [NSNumber numberWithDouble:x];
     } else {
         // Return y value, for this example we'll be plotting y = mx
-        return [NSNumber numberWithDouble:[thisBuoy.wvht doubleValue]];
+        return [NSNumber numberWithDouble:[thisBuoy.WaveHeight doubleValue]];
     }
 }
 

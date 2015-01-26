@@ -16,8 +16,8 @@
 @interface Tide : NSObject
 
 // Define the data for the tide model
-@property (strong, nonatomic) NSString *time;
-@property (strong, nonatomic) NSString *eventType;
-@property (strong, nonatomic) NSString *height;
+@property (strong, nonatomic) NSString *Time;
+@property (strong, nonatomic) NSString *EventType;
+@property (strong, nonatomic) NSString *Height;
 
 @end
