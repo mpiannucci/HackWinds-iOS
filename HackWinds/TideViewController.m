@@ -50,27 +50,6 @@
         return;
     }
     
-    // First, if it is the first item, check what it is,
-    // then set the status accordingly
-    int firstIndex = 0;
-    if (([[[tideData objectAtIndex:0] EventType] isEqualToString:SUNRISE_TAG]) ||
-        ([[[tideData objectAtIndex:0] EventType] isEqualToString:SUNSET_TAG])) {
-        // If its sunrise or sunset we dont care for now, skip it.
-        firstIndex++;
-    }
-    NSString* firstEvent = [[tideData objectAtIndex:firstIndex] EventType];
-    UILabel* currentTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:41];
-    if ([firstEvent isEqualToString:HIGH_TIDE_TAG]) {
-        // Show that the tide is incoming, using green because typically surf increases with incoming tides
-        [currentTideLabel setText:@"Incoming"];
-        [currentTideLabel setTextColor:GREEN_COLOR];
-        
-    } else if ([firstEvent isEqualToString:LOW_TIDE_TAG]) {
-        // Show that the tide is outgoing, use red because the surf typically decreases with an outgoing tide
-        [currentTideLabel setText:@"Outgoing"];
-        [currentTideLabel setTextColor:RED_COLOR];
-    }
-    
     int tideCount = 0;
     for (int i = 0; i < [tideData count]; i++) {
         // Then check what is is again, and set correct text box
@@ -80,27 +59,40 @@
             UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
             NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.Time];
             [sunriseLabel setText:sunrisetext];
+            
         } else if ([[thisTide EventType] isEqualToString:SUNSET_TAG]) {
             // Get the second row in the sunrise and sunset section and set the text of the label to the time
-            UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
+            UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]] viewWithTag:61];
             NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.Time];
             [sunsetLabel setText:sunsetText];
-        } else if ([[thisTide EventType] isEqualToString:HIGH_TIDE_TAG]) {
+            
+        } else if ([[thisTide EventType] isEqualToString:HIGH_TIDE_TAG] ||
+                   [[thisTide EventType] isEqualToString:LOW_TIDE_TAG] ) {
             // Get the next cell and its label so we can update it
-            UILabel* highTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
-            NSString* highTideText = [NSString stringWithFormat:@"High Tide: %@ at %@", thisTide.Height, thisTide.Time];
-            [highTideLabel setText:highTideText];
+            UILabel* tideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
+            NSString* tideText = [NSString stringWithFormat:@"%@: %@ at %@", thisTide.EventType, thisTide.Height, thisTide.Time];
+            [tideLabel setText:tideText];
+            
+            // If its the first object, set it to the current status
+            if (tideCount == 0) {
+                // Get the current tide label
+                UILabel* currentTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:41];
+                
+                if ([thisTide.EventType isEqualToString:HIGH_TIDE_TAG]) {
+                    // Show that the tide is incoming, using green because typically surf increases with incoming tides
+                    [currentTideLabel setText:@"Incoming"];
+                    [currentTideLabel setTextColor:GREEN_COLOR];
+                    
+                } else if ([thisTide.EventType isEqualToString:LOW_TIDE_TAG]) {
+                    // Show that the tide is outgoing, use red because the surf typically decreases with an outgoing tide
+                    [currentTideLabel setText:@"Outgoing"];
+                    [currentTideLabel setTextColor:RED_COLOR];
+                }
+            }
             
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
-        } else if ([[thisTide EventType] isEqualToString:LOW_TIDE_TAG]) {
-            // Get the next cell and its label so we can update it
-            UILabel* lowTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
-            NSString* lowTideText = [NSString stringWithFormat:@"Low Tide: %@ at %@", thisTide.Height, thisTide.Time];
-            [lowTideLabel setText:lowTideText];
             
-            // Only increment the tide count for a tide event and not a sunrise or sunset
-            tideCount++;
         }
     }
     [self.tableView reloadData];
