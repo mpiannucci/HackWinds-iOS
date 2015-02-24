@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
 - (IBAction)locationBarButtonClicked:(id)sender;
 

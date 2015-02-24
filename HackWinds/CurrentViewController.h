@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
 - (IBAction)locationBarButtonClicked:(id)sender;
 
