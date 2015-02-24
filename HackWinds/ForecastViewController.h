@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ForecastModel.h"
 
 @interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
 - (IBAction)locationBarButtonClicked:(id)sender;
+- (void) updateDataFromModel;
 
 @end

@@ -13,7 +13,6 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
-#import "ForecastModel.h"
 #import "Condition.h"
 #import "Colors.h"
 
@@ -49,13 +48,23 @@
     
     // Initialize the forecast model
     _forecastModel = [ForecastModel sharedModel];
-    
-    // Load the MSW Data
-    dispatch_async(forecastFetchBgQueue, ^{
-        [_forecastModel getCurrentConditions];
-        [_mswTodayTable performSelectorOnMainThread:@selector(reloadData)
-                               withObject:nil waitUntilDone:YES];
-    });
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    // Register the notification center listener when the view appears
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateDataFromModel)
+                                                 name:@"ForecastModelDidUpdateDataNotification"
+                                               object:nil];
+    // Update the data in the table using the forecast model
+    [self updateDataFromModel];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    // Remove the listener when the view goes out of focus
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"ForecastModelDidUpdateDataNotification"
+                                                  object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -184,16 +193,18 @@
         // If the user selects a location, set the settings key to the new location
         [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
         [defaults synchronize];
-        // Load the MSW Data
-        
-        dispatch_async(forecastFetchBgQueue, ^{
-            [_forecastModel getCurrentConditions];
-            [_mswTodayTable performSelectorOnMainThread:@selector(reloadData)
-                                             withObject:nil waitUntilDone:YES];
-        });
     } else {
         NSLog(@"Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
     }
+}
+
+- (void) updateDataFromModel {
+    // Load the MSW Data
+    dispatch_async(forecastFetchBgQueue, ^{
+        [_forecastModel getCurrentConditions];
+        [_mswTodayTable performSelectorOnMainThread:@selector(reloadData)
+                                         withObject:nil waitUntilDone:YES];
+    });
 }
 
 @end

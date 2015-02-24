@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ForecastModel.h"
 
 @interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
@@ -14,5 +15,6 @@
 
 - (IBAction)playButton:(id)sender;
 - (void) streamPlayBackDidFinish:(NSNotification*)notification;
+- (void) updateDataFromModel;
 
 @end

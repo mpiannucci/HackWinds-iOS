@@ -9,7 +9,6 @@
 #define WEEKDAYS [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
 #import "ForecastViewController.h"
-#import "ForecastModel.h"
 #import "Forecast.h"
 #import "Colors.h"
 
@@ -38,13 +37,23 @@
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
     currentday = [comps weekday];
-    
-    // Load the MSW Data
-    dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
-        [_forecastModel getForecasts];
-        [_forecastTable performSelectorOnMainThread:@selector(reloadData)
-                               withObject:nil waitUntilDone:YES];
-    });
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    // Register listener for the data model update
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateDataFromModel)
+                                                 name:@"ForecastModelDidUpdateDataNotification"
+                                               object:nil];
+    // Update the data table using the loaded data
+    [self updateDataFromModel];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    // Remove the notifcation lsitener when the view is not in focus
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"ForecastModelDidUpdateDataNotification"
+                                                  object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,6 +157,15 @@
     } else {
         NSLog(@"Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
     }
+}
+
+- (void) updateDataFromModel {
+    // Load the MSW Data
+    dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
+        [_forecastModel getForecasts];
+        [_forecastTable performSelectorOnMainThread:@selector(reloadData)
+                                         withObject:nil waitUntilDone:YES];
+    });
 }
 
 @end

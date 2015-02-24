@@ -55,7 +55,7 @@
                                             forKeyPath:@"ForecastLocation"
                                                options:NSKeyValueObservingOptionNew
                                                context:NULL];
-    
+    change = true;
     return self;
 }
 
@@ -91,7 +91,12 @@
 }
 
 - (void)loadRawData {
-    rawData = [NSData dataWithContentsOfURL:MSW_NARR_PIER_URL];
+    if (change) {
+        rawData = [NSData dataWithContentsOfURL:MSW_NARR_PIER_URL];
+    } else {
+        rawData = [NSData dataWithContentsOfURL:POINT_JUDITH_URL];
+    }
+    change ^= true;
 }
 
 - (BOOL) parseConditions {
@@ -259,12 +264,23 @@
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     // Callback for the forecast location settings changing
+    // First clear all of the old data so that everything reloads
     if (rawData.length > 0) {
         rawData = [[NSData alloc] init];
     }
     if ([_conditions count] > 0) {
         [_conditions removeAllObjects];
     }
+    if ([_forecasts count] > 0) {
+        [_forecasts removeAllObjects];
+    }
+    
+    // Tell everyone the data has updated
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"ForecastModelDidUpdateDataNotification"
+         object:self];
+    });
 }
 
 @end
