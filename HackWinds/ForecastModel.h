@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSMutableArray *conditions;
 @property (strong, nonatomic) NSMutableArray *forecasts;
 
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
+- (void) changeForecastLocation;
 - (NSMutableArray *) getCurrentConditions;
 - (NSMutableArray *) getForecasts;
 + (instancetype) sharedModel;

@@ -184,6 +184,13 @@
         // If the user selects a location, set the settings key to the new location
         [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
         [defaults synchronize];
+        // Load the MSW Data
+        
+        dispatch_async(forecastFetchBgQueue, ^{
+            [_forecastModel getCurrentConditions];
+            [_mswTodayTable performSelectorOnMainThread:@selector(reloadData)
+                                             withObject:nil waitUntilDone:YES];
+        });
     } else {
         NSLog(@"Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
     }
