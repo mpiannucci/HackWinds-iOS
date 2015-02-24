@@ -128,4 +128,7 @@
     return cell;
 }
 
+- (IBAction)locationBarButtonClicked:(id)sender {
+    NSLog(@"Location Bar Button Clicked");
+}
 @end

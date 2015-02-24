@@ -10,6 +10,8 @@
 
 @interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+- (IBAction)locationBarButtonClicked:(id)sender;
+
 - (IBAction)playButton:(id)sender;
 - (void) streamPlayBackDidFinish:(NSNotification*)notification;
 

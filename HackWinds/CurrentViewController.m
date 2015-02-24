@@ -128,6 +128,10 @@
     return cell;
 }
 
+- (IBAction)locationBarButtonClicked:(id)sender {
+    NSLog(@"Location Bar Button Clicked");
+}
+
 - (IBAction)playButton:(id)sender {
     // Handle play button click
     NSLog(@"Video play button pressed");

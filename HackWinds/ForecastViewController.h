@@ -10,4 +10,6 @@
 
 @interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+- (IBAction)locationBarButtonClicked:(id)sender;
+
 @end
