@@ -297,7 +297,7 @@
                         <sections>
                             <tableViewSection headerTitle="Forecast Location" id="dTu-te-6tR">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kbc-4G-4O5">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kbc-4G-4O5">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="Kbc-4G-4O5" id="iP4-ec-aOj">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -343,7 +343,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="About" id="sDX-JA-wEM">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Z6A-fP-M2j">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Z6A-fP-M2j">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z6A-fP-M2j" id="vYB-Ha-EKv">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -365,7 +365,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SWE-A2-bMW">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="SWE-A2-bMW">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SWE-A2-bMW" id="JuT-H9-MmK">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -387,7 +387,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BHd-wO-f64">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BHd-wO-f64">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="BHd-wO-f64" id="BSF-lL-JaH">
                                             <autoresizingMask key="autoresizingMask"/>
