@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
 
-#define MSW_NARR_PIER_URL [NSURL URLWithString:@"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=1103&fields=localTimestamp,swell.*,wind.*"]
-#define POINT_JUDITH_URL [NSURL URLWithString:@"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=376&fields=localTimestamp,swell.*,wind.*"]
-
 #import "ForecastModel.h"
 #import "Forecast.h"
 #import "Condition.h"
@@ -28,7 +25,8 @@
 @implementation ForecastModel
 {
     NSData *rawData;
-    bool change;
+    NSDictionary *locationURLs;
+    NSString *currentLocation;
 }
 
 + (instancetype) sharedModel {
@@ -46,6 +44,11 @@
 {
     self = [super init];
     
+    // Load locations from file
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ForecastLocations"
+                                                     ofType:@"plist"];
+    locationURLs = [NSDictionary dictionaryWithContentsOfFile:path];
+    
     // Initialize the data holders
     _conditions = [[NSMutableArray alloc] init];
     _forecasts = [[NSMutableArray alloc] init];
@@ -55,13 +58,16 @@
                                             forKeyPath:@"ForecastLocation"
                                                options:NSKeyValueObservingOptionNew
                                                context:NULL];
-    change = true;
+    // Get the forecast location
+    [self changeForecastLocation];
     return self;
 }
 
 - (void) changeForecastLocation {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults objectForKey:@"ForecastLocation"];
+    
+    // Load the url for the current location using the url dictionary
+    currentLocation = [locationURLs objectForKey:[defaults objectForKey:@"ForecastLocation"]];
 }
 
 - (NSMutableArray *) getCurrentConditions {
@@ -91,7 +97,7 @@
 }
 
 - (void)loadRawData {
-    rawData = [NSData dataWithContentsOfURL:MSW_NARR_PIER_URL];
+    rawData = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLocation]];
 }
 
 - (BOOL) parseConditions {
@@ -269,6 +275,9 @@
     if ([_forecasts count] > 0) {
         [_forecasts removeAllObjects];
     }
+    
+    // Update the location
+    [self changeForecastLocation];
     
     // Tell everyone the data has updated
     dispatch_async(dispatch_get_main_queue(), ^{
