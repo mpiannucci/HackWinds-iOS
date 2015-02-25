@@ -299,14 +299,40 @@
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kbc-4G-4O5">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kbc-4G-4O5" id="iP4-ec-aOj">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="Kbc-4G-4O5" id="iP4-ec-aOj">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Narragansett Town Beach" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHb-Hw-w0b">
+                                                    <rect key="frame" x="8" y="12" width="198" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="xHb-Hw-w0b" secondAttribute="centerY" id="Z0s-hx-AWq"/>
+                                                <constraint firstItem="xHb-Hw-w0b" firstAttribute="top" secondItem="iP4-ec-aOj" secondAttribute="topMargin" constant="4" id="eQH-w3-d1g"/>
+                                                <constraint firstItem="xHb-Hw-w0b" firstAttribute="leading" secondItem="iP4-ec-aOj" secondAttribute="leadingMargin" id="qc7-DU-ZKB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WpS-lZ-a1Y">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WpS-lZ-a1Y" id="k27-ne-NeQ">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCv-is-ciH">
+                                                    <rect key="frame" x="8" y="8" width="117" height="30"/>
+                                                    <state key="normal" title="Change Location">
+                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="FCv-is-ciH" secondAttribute="centerY" constant="-1" id="07O-Vr-7bu"/>
+                                                <constraint firstItem="FCv-is-ciH" firstAttribute="leading" secondItem="k27-ne-NeQ" secondAttribute="leadingMargin" id="vju-fx-CxI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -317,18 +343,76 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z6A-fP-M2j" id="vYB-Ha-EKv">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubn-AG-75I">
+                                                    <rect key="frame" x="8" y="7" width="129" height="30"/>
+                                                    <state key="normal" title="Contact Developer">
+                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="ubn-AG-75I" secondAttribute="centerY" id="RV5-y0-6Z6"/>
+                                                <constraint firstItem="ubn-AG-75I" firstAttribute="leading" secondItem="vYB-Ha-EKv" secondAttribute="leadingMargin" id="ePF-Yk-zrd"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SWE-A2-bMW">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SWE-A2-bMW" id="JuT-H9-MmK">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjK-wG-fsr">
+                                                    <rect key="frame" x="8" y="7" width="72" height="30"/>
+                                                    <state key="normal" title="Disclaimer">
+                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="HjK-wG-fsr" secondAttribute="centerY" id="Hp6-je-rOa"/>
+                                                <constraint firstItem="HjK-wG-fsr" firstAttribute="leading" secondItem="JuT-H9-MmK" secondAttribute="leadingMargin" id="eD1-yf-W4v"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1Ry-fN-x5y">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ry-fN-x5y" id="Riy-DU-uez">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wur-RJ-6kf">
+                                                    <rect key="frame" x="8" y="7" width="155" height="30"/>
+                                                    <state key="normal" title="Open Source Licenses">
+                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="wur-RJ-6kf" secondAttribute="centerY" id="obv-9B-eSS"/>
+                                                <constraint firstItem="wur-RJ-6kf" firstAttribute="leading" secondItem="Riy-DU-uez" secondAttribute="leadingMargin" id="w7u-Qq-syZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BHd-wO-f64">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="BHd-wO-f64" id="BSF-lL-JaH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2014 Matthew Iannucci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHC-IS-z94">
+                                                    <rect key="frame" x="8" y="11" width="259" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vHC-IS-z94" firstAttribute="top" secondItem="BSF-lL-JaH" secondAttribute="topMargin" constant="3" id="TIm-Dw-4nx"/>
+                                                <constraint firstItem="vHC-IS-z94" firstAttribute="leading" secondItem="BSF-lL-JaH" secondAttribute="leadingMargin" id="sLK-4a-Qnc"/>
+                                                <constraint firstAttribute="centerY" secondItem="vHC-IS-z94" secondAttribute="centerY" id="stI-Qz-fui"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
