@@ -64,22 +64,13 @@
 
 - (IBAction)showDisclaimerClicked:(id)sender {
     // Construct and show the disclaimer alert
+    NSString* disclaimer = @"I do not own or claim to own neither the wave camera images or the forecast information displayed in this app. This app is simply an interface to make checking the waves easier for surfers when using a phone. I am speifically operating within the user licensing for the MagicSeaweed and Wunderground API's.";
     UIAlertView *disclaimerMessage = [[UIAlertView alloc] initWithTitle:@"Disclaimer"
-                                                    message:@"Disclaimer goes here"
+                                                    message:disclaimer
                                                    delegate:nil
                                           cancelButtonTitle:@"Done"
                                           otherButtonTitles:nil];
     [disclaimerMessage show];
-}
-
-- (IBAction)showLicensesClicked:(id)sender {
-    // Construct and show the license alert
-    UIAlertView *licenseMessage = [[UIAlertView alloc] initWithTitle:@"Licenses"
-                                                                message:@"Licenses go here"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Done"
-                                                      otherButtonTitles:nil];
-    [licenseMessage show];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{

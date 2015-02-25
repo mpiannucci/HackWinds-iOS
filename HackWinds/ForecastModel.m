@@ -26,7 +26,7 @@
 {
     NSData *rawData;
     NSDictionary *locationURLs;
-    NSString *currentLocation;
+    NSString *currentLocationURL;
 }
 
 + (instancetype) sharedModel {
@@ -67,7 +67,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Load the url for the current location using the url dictionary
-    currentLocation = [locationURLs objectForKey:[defaults objectForKey:@"ForecastLocation"]];
+    currentLocationURL = [locationURLs objectForKey:[defaults objectForKey:@"ForecastLocation"]];
 }
 
 - (NSMutableArray *) getCurrentConditions {
@@ -97,7 +97,7 @@
 }
 
 - (void)loadRawData {
-    rawData = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLocation]];
+    rawData = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLocationURL]];
 }
 
 - (BOOL) parseConditions {
