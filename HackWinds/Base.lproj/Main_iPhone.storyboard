@@ -138,10 +138,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U">
-                        <barButtonItem key="rightBarButtonItem" image="LocationIcon" id="Ok1-MP-hcj">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="hFX-9A-fnG">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="locationBarButtonClicked:" destination="CZ4-MO-1fc" id="6fV-6g-jMl"/>
+                                <segue destination="n3n-Wz-yM1" kind="modal" id="rYr-bo-HPU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="-498"/>
+            <point key="canvasLocation" x="487" y="-378"/>
         </scene>
         <!--Forecast-->
         <scene sceneID="ot8-2e-RuS">
@@ -255,10 +255,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="2g7-1n-mfa">
-                        <barButtonItem key="rightBarButtonItem" image="LocationIcon" id="0ZF-ZU-Lgr">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="Kqz-Bk-Cpg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="locationBarButtonClicked:" destination="QUy-BD-bpt" id="AbZ-0P-bLB"/>
+                                <segue destination="n3n-Wz-yM1" kind="modal" id="l1V-PH-Aev"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -269,6 +269,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="430"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="mGC-WS-SzO">
+            <objects>
+                <tableViewController id="pEq-Gp-R1Y" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Drq-Do-GmF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="pEq-Gp-R1Y" id="zbK-Lu-z0U"/>
+                            <outlet property="delegate" destination="pEq-Gp-R1Y" id="kFY-BA-HRX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="ESk-3f-bnx">
+                        <barButtonItem key="rightBarButtonItem" image="CheckmarkIcon" id="D1t-MN-84W">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKW-rD-KU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688" y="724"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jXm-cI-FGF">
+            <objects>
+                <navigationController id="n3n-Wz-yM1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O10-Tn-Wt7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pEq-Gp-R1Y" kind="relationship" relationship="rootViewController" id="RUS-wn-k6b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X1k-LD-dnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="724"/>
         </scene>
         <!--BuoysNav-->
         <scene sceneID="A4J-ge-FDf">
@@ -392,7 +431,14 @@
                             <constraint firstItem="9ox-3V-peN" firstAttribute="centerX" secondItem="0CD-y8-6s2" secondAttribute="centerX" id="xOc-P7-ee8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT"/>
+                    <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="6ca-PQ-P5R">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="n3n-Wz-yM1" kind="modal" id="pa9-s7-zVu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="buoyTable" destination="0CD-y8-6s2" id="fbK-9X-tt1"/>
                         <outlet property="graphHolder" destination="9ox-3V-peN" id="gt6-eX-OLR"/>
@@ -400,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRE-al-kA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="1168"/>
+            <point key="canvasLocation" x="487" y="1173"/>
         </scene>
         <!--HackWinds-->
         <scene sceneID="3O8-LN-fGy">
@@ -570,11 +616,18 @@
                             <outlet property="delegate" destination="0Zs-ye-E6z" id="Chv-rl-R69"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="HackWinds" id="DQn-p6-DmC"/>
+                    <navigationItem key="navigationItem" title="HackWinds" id="DQn-p6-DmC">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="AXZ-Zg-BhP">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="n3n-Wz-yM1" kind="modal" id="XkZ-iH-OSJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYh-69-X7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="444" y="2261"/>
+            <point key="canvasLocation" x="487" y="2007"/>
         </scene>
         <!--Overview-->
         <scene sceneID="Vex-rW-GRa">
@@ -621,7 +674,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Jm-bA-3bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="-498"/>
+            <point key="canvasLocation" x="-39" y="-378"/>
         </scene>
         <!--ForecastNav-->
         <scene sceneID="l8g-4p-yvN">
@@ -663,15 +716,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUo-oH-f19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="2261"/>
+            <point key="canvasLocation" x="-39" y="2007"/>
         </scene>
     </scenes>
     <resources>
         <image name="BuoyIcon" width="30" height="30"/>
+        <image name="CheckmarkIcon" width="12" height="13"/>
         <image name="ForecastIcon" width="30" height="30"/>
         <image name="LiveIcon" width="30" height="30"/>
-        <image name="LocationIcon" width="25" height="25"/>
         <image name="PlayButton" width="120" height="120"/>
+        <image name="SettingsIcon" width="25" height="25"/>
         <image name="TideIcon" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -679,4 +733,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="XkZ-iH-OSJ"/>
+    </inferredMetricsTieBreakers>
 </document>
