@@ -91,12 +91,7 @@
 }
 
 - (void)loadRawData {
-    if (change) {
-        rawData = [NSData dataWithContentsOfURL:MSW_NARR_PIER_URL];
-    } else {
-        rawData = [NSData dataWithContentsOfURL:POINT_JUDITH_URL];
-    }
-    change ^= true;
+    rawData = [NSData dataWithContentsOfURL:MSW_NARR_PIER_URL];
 }
 
 - (BOOL) parseConditions {

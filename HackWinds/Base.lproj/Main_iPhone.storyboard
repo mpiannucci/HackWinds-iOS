@@ -302,21 +302,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="Kbc-4G-4O5" id="iP4-ec-aOj">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Narragansett Town Beach" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHb-Hw-w0b">
-                                                    <rect key="frame" x="8" y="12" width="198" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHb-Hw-w0b">
+                                                    <rect key="frame" x="8" y="12" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="xHb-Hw-w0b" firstAttribute="trailing" secondItem="iP4-ec-aOj" secondAttribute="trailingMargin" id="69k-oX-PhT"/>
                                                 <constraint firstAttribute="centerY" secondItem="xHb-Hw-w0b" secondAttribute="centerY" id="Z0s-hx-AWq"/>
                                                 <constraint firstItem="xHb-Hw-w0b" firstAttribute="top" secondItem="iP4-ec-aOj" secondAttribute="topMargin" constant="4" id="eQH-w3-d1g"/>
                                                 <constraint firstItem="xHb-Hw-w0b" firstAttribute="leading" secondItem="iP4-ec-aOj" secondAttribute="leadingMargin" id="qc7-DU-ZKB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WpS-lZ-a1Y">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="WpS-lZ-a1Y">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WpS-lZ-a1Y" id="k27-ne-NeQ">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -327,6 +328,9 @@
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="changeForecastLocationClicked:" destination="QkF-AZ-b7C" eventType="touchUpInside" id="W7K-Cf-3j5"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -350,6 +354,9 @@
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="contactDevClicked:" destination="QkF-AZ-b7C" eventType="touchUpInside" id="Wcc-rP-D4E"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -369,6 +376,9 @@
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="showDisclaimerClicked:" destination="QkF-AZ-b7C" eventType="touchUpInside" id="Fi1-nh-Scq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -388,6 +398,9 @@
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="showLicensesClicked:" destination="QkF-AZ-b7C" eventType="touchUpInside" id="vil-Mo-qUp"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -402,16 +415,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2014 Matthew Iannucci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHC-IS-z94">
-                                                    <rect key="frame" x="8" y="11" width="259" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="304" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vHC-IS-z94" firstAttribute="trailing" secondItem="BSF-lL-JaH" secondAttribute="trailingMargin" id="6yd-Du-qs1"/>
                                                 <constraint firstItem="vHC-IS-z94" firstAttribute="top" secondItem="BSF-lL-JaH" secondAttribute="topMargin" constant="3" id="TIm-Dw-4nx"/>
                                                 <constraint firstItem="vHC-IS-z94" firstAttribute="leading" secondItem="BSF-lL-JaH" secondAttribute="leadingMargin" id="sLK-4a-Qnc"/>
-                                                <constraint firstAttribute="centerY" secondItem="vHC-IS-z94" secondAttribute="centerY" id="stI-Qz-fui"/>
+                                                <constraint firstAttribute="centerY" secondItem="vHC-IS-z94" secondAttribute="centerY" constant="-1.5" id="stI-Qz-fui"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -431,6 +445,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="forecastLocationLabel" destination="xHb-Hw-w0b" id="I8e-87-fyb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7d-8T-0jY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

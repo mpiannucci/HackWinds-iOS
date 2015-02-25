@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : UITableViewController <UIActionSheetDelegate>
+
+- (void) loadSettings;
+
 - (IBAction)acceptSettingsClick:(id)sender;
+- (IBAction)changeForecastLocationClicked:(id)sender;
+- (IBAction)contactDevClicked:(id)sender;
+- (IBAction)showDisclaimerClicked:(id)sender;
+- (IBAction)showLicensesClicked:(id)sender;
 
 @end
