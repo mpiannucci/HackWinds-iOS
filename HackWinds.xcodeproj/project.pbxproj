@@ -40,6 +40,7 @@
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
+		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,8 @@
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		34CA15321A9D657000DAB1F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +218,8 @@
 				3478C6141A3E8F2600479DE1 /* BuoyModel.m */,
 				3495C95319E7773100C8F4D7 /* BuoyViewController.h */,
 				3495C95419E7773100C8F4D7 /* BuoyViewController.m */,
+				34CA15321A9D657000DAB1F8 /* SettingsViewController.h */,
+				34CA15331A9D657000DAB1F8 /* SettingsViewController.m */,
 				343F33CF19EF5C5A005802FA /* Tide.h */,
 				343F33D019EF5C5A005802FA /* Tide.m */,
 				3478C60E1A3E833900479DE1 /* TideModel.h */,
@@ -396,6 +401,7 @@
 				3495C95B19E78DCF00C8F4D7 /* Buoy.m in Sources */,
 				3478C6151A3E8F2600479DE1 /* BuoyModel.m in Sources */,
 				3478C6101A3E833900479DE1 /* TideModel.m in Sources */,
+				34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */,
 				343F33D119EF5C5A005802FA /* Tide.m in Sources */,
 				34AA865E1A41382F00AD09CF /* Reachability.m in Sources */,
 				3478C6191A3E9D8200479DE1 /* ForecastModel.m in Sources */,

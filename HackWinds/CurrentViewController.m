@@ -137,16 +137,6 @@
     return cell;
 }
 
-- (IBAction)locationBarButtonClicked:(id)sender {
-    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Forecast Location"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Cancel"
-                                                       destructiveButtonTitle:nil
-                                                            otherButtonTitles:@"Narragansett Town Beach", @"Point Judith", @"Matunuck", @"Second Beach", nil];
-    // Show the action sheet
-    [locationActionSheet showInView:self.view];
-}
-
 - (IBAction)playButton:(id)sender {
     // Handle play button click
     NSLog(@"Video play button pressed");
@@ -184,18 +174,6 @@
     
     // Remove the player from the superview
     [self.streamPlayer.view removeFromSuperview];
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
-        // If the user selects a location, set the settings key to the new location
-        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
-        [defaults synchronize];
-    } else {
-        NSLog(@"Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
-    }
 }
 
 - (void) updateDataFromModel {

@@ -270,29 +270,6 @@
             </objects>
             <point key="canvasLocation" x="487" y="430"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="mGC-WS-SzO">
-            <objects>
-                <tableViewController id="pEq-Gp-R1Y" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Drq-Do-GmF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="pEq-Gp-R1Y" id="zbK-Lu-z0U"/>
-                            <outlet property="delegate" destination="pEq-Gp-R1Y" id="kFY-BA-HRX"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="ESk-3f-bnx">
-                        <barButtonItem key="rightBarButtonItem" image="CheckmarkIcon" id="D1t-MN-84W">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vKW-rD-KU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1688" y="724"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jXm-cI-FGF">
             <objects>
@@ -302,12 +279,46 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="pEq-Gp-R1Y" kind="relationship" relationship="rootViewController" id="RUS-wn-k6b"/>
+                        <segue destination="QkF-AZ-b7C" kind="relationship" relationship="rootViewController" id="LRe-zr-z6Z"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1k-LD-dnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1257" y="724"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="MWs-NI-uAe">
+            <objects>
+                <tableViewController id="QkF-AZ-b7C" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LCq-qE-7oH" customClass="Settings">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kbc-4G-4O5">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kbc-4G-4O5" id="iP4-ec-aOj">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QkF-AZ-b7C" id="fdi-Lg-aco"/>
+                            <outlet property="delegate" destination="QkF-AZ-b7C" id="mnO-Gz-Usv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="FJA-r7-XBl">
+                        <barButtonItem key="rightBarButtonItem" image="CheckmarkIcon" id="w0g-SJ-1ti">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="acceptSettingsClick:" destination="QkF-AZ-b7C" id="QUP-e7-igb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w7d-8T-0jY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="724"/>
         </scene>
         <!--BuoysNav-->
         <scene sceneID="A4J-ge-FDf">
