@@ -21,7 +21,7 @@ This project is realeased under the [MIT License](https://github.com/mpiannucci/
 Open Source Licenses
 -----------------
 
-#### core-plot
+#### [Core-Plot](https://github.com/core-plot/core-plot)
 ```
 Copyright (c) 2014, Drew McCormack, Brad Larson, Eric Skroch, Barry Wark, Dirkjan Krijnders, Rick Maddy, Vijay Kalusani, Caleb Cannon, Jeff Buck, Thomas Elstner, Jeroen Leenarts, Craig Hockenberry, Hartwig Wiesmann, Koen van der Drift, Nino Ag, Mike Lischke, Trevor Harmon, Travis Fischer, Graham Mueller, Rafał Wójcik, Mike Rossetti, Michael Merickel, Ingmar Stein, and Victor Martin Garcia.
 All rights reserved.
