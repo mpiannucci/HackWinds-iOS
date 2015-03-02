@@ -56,7 +56,7 @@
 
 - (IBAction)contactDevClicked:(id)sender {
     // Open the compose view using the mailto url
-    NSString *recipients = @"mailto:rhodysurf13@gmail.com&subject=HackWinds for iOS";
+    NSString *recipients = @"mailto:rhodysurf13@gmail.com?subject=HackWinds for iOS";
     NSString *email = [NSString stringWithFormat:@"%@", recipients];
     email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
