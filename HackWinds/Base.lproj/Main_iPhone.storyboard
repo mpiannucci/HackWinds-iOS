@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -727,6 +727,50 @@
                                                 <constraint firstItem="5F1-2f-HyL" firstAttribute="centerY" secondItem="T1N-54-YYn" secondAttribute="centerY" id="Rwc-yk-Nan"/>
                                                 <constraint firstItem="5F1-2f-HyL" firstAttribute="trailing" secondItem="T1N-54-YYn" secondAttribute="trailingMargin" id="a8Y-Zn-QnP"/>
                                                 <constraint firstItem="5F1-2f-HyL" firstAttribute="top" secondItem="T1N-54-YYn" secondAttribute="topMargin" constant="-4" id="jRe-Jd-9xa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Water Temperature" id="jtN-cx-Cqx">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="n4M-NQ-jNj">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n4M-NQ-jNj" id="U5u-nn-z1d">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="71" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqo-Zz-Emd">
+                                                    <rect key="frame" x="8" y="4" width="304" height="41"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aqo-Zz-Emd" firstAttribute="trailing" secondItem="U5u-nn-z1d" secondAttribute="trailingMargin" id="0d6-3v-qTS"/>
+                                                <constraint firstItem="aqo-Zz-Emd" firstAttribute="top" secondItem="U5u-nn-z1d" secondAttribute="topMargin" constant="-4" id="3RX-nU-b0x"/>
+                                                <constraint firstItem="aqo-Zz-Emd" firstAttribute="leading" secondItem="U5u-nn-z1d" secondAttribute="leadingMargin" id="bBB-td-Pmq"/>
+                                                <constraint firstItem="aqo-Zz-Emd" firstAttribute="centerY" secondItem="U5u-nn-z1d" secondAttribute="centerY" id="qMy-Xy-Bj5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="lms-Qh-D8Y">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lms-Qh-D8Y" id="zSb-YY-IeT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="61" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wH-CZ-W7e">
+                                                    <rect key="frame" x="8" y="4" width="304" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8wH-CZ-W7e" firstAttribute="centerY" secondItem="zSb-YY-IeT" secondAttribute="centerY" id="Ji0-PP-BLf"/>
+                                                <constraint firstItem="8wH-CZ-W7e" firstAttribute="trailing" secondItem="zSb-YY-IeT" secondAttribute="trailingMargin" id="Sr3-6l-AJi"/>
+                                                <constraint firstItem="8wH-CZ-W7e" firstAttribute="leading" secondItem="zSb-YY-IeT" secondAttribute="leadingMargin" id="iRp-9I-y4I"/>
+                                                <constraint firstItem="8wH-CZ-W7e" firstAttribute="top" secondItem="zSb-YY-IeT" secondAttribute="topMargin" constant="-4" id="nsu-zW-XrB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

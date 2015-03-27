@@ -10,11 +10,14 @@
 #import "TideViewController.h"
 #import "TideModel.h"
 #import "Tide.h"
+#import "BuoyModel.h"
+#import "Buoy.h"
 #import "Colors.h"
 
 @interface TideViewController ()
 
 @property (strong, nonatomic) TideModel *tideModel;
+@property (strong, nonatomic) BuoyModel *buoyModel;
 
 @end
 
@@ -24,14 +27,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // Get the tide model
+    // Get the tide model and buoy model
     _tideModel = [TideModel sharedModel];
+    _buoyModel = [BuoyModel sharedModel];
     
     // Get the buoy data and reload the views
     dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
-        NSMutableArray *tideData = [_tideModel getTideData];
-        [self performSelectorOnMainThread:@selector(reloadView:)
-                               withObject:tideData waitUntilDone:YES];
+        [_tideModel getTideData];
+        [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+        [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
     });
 }
 
@@ -44,8 +48,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)reloadView:(NSMutableArray* ) tideData {
+- (void)reloadView {
     // If there are no tide items return early
+    NSMutableArray* tideData = [_tideModel getTideData];
+    NSMutableArray* buoyData = [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+    
     if ([tideData count] == 0) {
         return;
     }
@@ -89,12 +96,16 @@
                     [currentTideLabel setTextColor:RED_COLOR];
                 }
             }
-            
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
-            
         }
     }
+    // TODO: Get the water temperature
+    UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
+    NSString* waterTemp = [[buoyData objectAtIndex:0] WaterTemperature];
+    NSString* waterTempStatus = [NSString stringWithFormat:@"Block Island: %@ %@F", waterTemp, @"\u00B0"];
+    [currentWaterTempLabel setText:waterTempStatus];
+    
     [self.tableView reloadData];
 }
 

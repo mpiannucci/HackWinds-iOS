@@ -10,7 +10,7 @@
 
 @interface TideViewController : UITableViewController
 
-- (void)reloadView:(NSMutableArray*)tideData;
+- (void)reloadView;
 
 
 @end
