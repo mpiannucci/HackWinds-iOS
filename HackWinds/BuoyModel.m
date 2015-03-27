@@ -13,6 +13,7 @@
 #define WVHT_OFFSET 8
 #define DPD_OFFSET 9
 #define DIRECTION_OFFSET 11
+#define TEMPERATURE_OFFSET 14
 #define BI_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
 #define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
 
@@ -118,6 +119,9 @@
         // Period and wind direction values
         [newBuoy setDominantPeriod:[cleanData objectAtIndex:i+DPD_OFFSET]];
         [newBuoy setDirection:[cleanData objectAtIndex:i+DIRECTION_OFFSET]];
+        
+        // Water Temperature Values
+        [newBuoy setWaterTemperature:[cleanData objectAtIndex:i+TEMPERATURE_OFFSET]];
         
         // Change the wave height to feet
         NSString* wv = [cleanData objectAtIndex:i+WVHT_OFFSET];

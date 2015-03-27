@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *WaveHeight;
 @property (strong, nonatomic) NSString *DominantPeriod;
 @property (strong, nonatomic) NSString *Direction;
+@property (strong, nonatomic) NSString *WaterTemperature;
 
 @end
