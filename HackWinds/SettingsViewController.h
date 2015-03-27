@@ -16,5 +16,6 @@
 - (IBAction)changeForecastLocationClicked:(id)sender;
 - (IBAction)contactDevClicked:(id)sender;
 - (IBAction)showDisclaimerClicked:(id)sender;
+- (IBAction)rateAppClicked:(id)sender;
 
 @end
