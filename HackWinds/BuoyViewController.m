@@ -225,6 +225,16 @@
     [yAxis setLabelTextStyle:textStyle];
     [yAxis setLabelFormatter:axisFormatter];
     yAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(10.0);
+	
+	// animate the graph (only once)
+	[CPTAnimation animate:plotSpace
+				 property:@"xRange"
+				   period:[CPTAnimationPeriod periodWithStartPlotRange:nil
+														  endPlotRange:plotSpace.xRange
+															  duration:1.25
+															 withDelay:0]
+		   animationCurve:CPTAnimationCurveCubicInOut
+				 delegate:nil];
 }
 
 - (void)reloadView {
