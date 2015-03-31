@@ -40,6 +40,7 @@
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
+		34C8E71A1ACA2ED90038E895 /* ConditionPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7191ACA2ED90038E895 /* ConditionPopoverViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */; };
 		34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */; };
@@ -122,6 +123,8 @@
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		34C8E7181ACA2ED90038E895 /* ConditionPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionPopoverViewController.h; sourceTree = "<group>"; };
+		34C8E7191ACA2ED90038E895 /* ConditionPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionPopoverViewController.m; sourceTree = "<group>"; };
 		34CA15321A9D657000DAB1F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		34CA15361A9D787A00DAB1F8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				34CA15361A9D787A00DAB1F8 /* Constants.h */,
 				342A76281985FD2E00077F8C /* Condition.h */,
 				342A76291985FD2E00077F8C /* Condition.m */,
+				34C8E7181ACA2ED90038E895 /* ConditionPopoverViewController.h */,
+				34C8E7191ACA2ED90038E895 /* ConditionPopoverViewController.m */,
 				343083A119795D0F00655F15 /* CurrentViewController.h */,
 				343083A219795D0F00655F15 /* CurrentViewController.m */,
 				3431F9D019CBE135007FA7CA /* Forecast.h */,
@@ -420,6 +425,7 @@
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				3431F9D219CBE135007FA7CA /* Forecast.m in Sources */,
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
+				34C8E71A1ACA2ED90038E895 /* ConditionPopoverViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
 			);

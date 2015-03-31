@@ -10,6 +10,7 @@
 
 #import "ForecastViewController.h"
 #import "Forecast.h"
+#import "ConditionPopoverViewController.h"
 #import "Colors.h"
 
 @interface ForecastViewController ()
@@ -135,6 +136,20 @@
     
     // Return the cell view
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Create the popover view controller
+    ConditionPopoverViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ConditionPopoverViewController"];
+    
+    // TODO: Set the index so the view may be set up
+    
+    // Show the popover view controller
+    [self presentViewController:detailViewController animated:YES completion:nil];
+    
+    // Deselect the row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void) updateDataFromModel {
