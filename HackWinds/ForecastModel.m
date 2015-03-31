@@ -70,7 +70,7 @@
     currentLocationURL = [locationURLs objectForKey:[defaults objectForKey:@"ForecastLocation"]];
 }
 
-- (NSMutableArray *) getCurrentConditions {
+- (NSArray *) getConditionsForIndex:(int)index {
     if (rawData.length == 0) {
         // Theres no data yet so load form the url
         [self loadRawData];
@@ -80,7 +80,8 @@
         [self parseConditions];
     }
     
-    return _conditions;
+    NSArray *currentConditions = [_conditions subarrayWithRange:NSMakeRange(index*6, index*6+6)];
+    return currentConditions;
 }
 
 - (NSMutableArray *) getForecasts {
@@ -116,7 +117,7 @@
     // Loop through the objects, create new condition objects, and append to the array
     int i = 0;
     int j = 0;
-    while (i<6) {
+    while (i < 30) {
         // Get the next json object and increment the count
         NSDictionary *thisDict = [json objectAtIndex:j];
         j++;

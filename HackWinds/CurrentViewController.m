@@ -29,7 +29,9 @@
 
 @end
 
-@implementation CurrentViewController
+@implementation CurrentViewController {
+    NSArray *currentConditions;
+}
 
 - (void)viewDidLoad
 {
@@ -80,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
-    return [[_forecastModel conditions] count]+1;
+    return [[_forecastModel conditions] count]/5+1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -113,7 +115,7 @@
         
     } else {
         // Get the condition object
-        Condition *thisCondition = [[_forecastModel conditions] objectAtIndex:indexPath.row-1];
+        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
     
         // Set the data to show in the labels
         [hourLabel setText:thisCondition.Date];
@@ -179,7 +181,7 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
-        [_forecastModel getCurrentConditions];
+        currentConditions = [_forecastModel getConditionsForIndex:0];
         [_mswTodayTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
     });
