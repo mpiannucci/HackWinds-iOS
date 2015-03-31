@@ -159,7 +159,6 @@
         <!--DetailedForecast-->
         <scene sceneID="1jj-Jj-Ist">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WF1-Xf-BHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DetailedForecastViewController" title="DetailedForecast" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0hE-yb-Bg6" customClass="DetailedForecastViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uh0-ti-pXy"/>
@@ -172,6 +171,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detailed Forecast" id="dlj-EF-Xkq"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WF1-Xf-BHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1257" y="-174"/>
         </scene>

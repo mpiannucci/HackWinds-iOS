@@ -14,7 +14,6 @@
 
 // Private methods
 - (void) loadRawData;
-- (BOOL) parseConditions;
 - (BOOL) parseForecasts;
 - (NSString *) formatDate:(NSUInteger)epoch;
 - (BOOL) checkConditionDate:(NSString *)dateString;
@@ -24,7 +23,7 @@
 
 @implementation ForecastModel
 {
-    NSData *rawData;
+    NSArray *rawData;
     NSDictionary *locationURLs;
     NSString *currentLocationURL;
 }
@@ -71,13 +70,13 @@
 }
 
 - (NSArray *) getConditionsForIndex:(int)index {
-    if (rawData.length == 0) {
+    if (rawData.count == 0) {
         // Theres no data yet so load form the url
         [self loadRawData];
     }
     if ([_conditions count] == 0) {
         // There are no conditions so parse them out
-        [self parseConditions];
+        [self parseForecasts];
     }
     
     NSArray *currentConditions = [_conditions subarrayWithRange:NSMakeRange(index*6, index*6+6)];
@@ -85,7 +84,7 @@
 }
 
 - (NSMutableArray *) getForecasts {
-    if (rawData.length == 0) {
+    if (rawData.count == 0) {
         // Theres no data yet so load form the url
         [self loadRawData];
     }
@@ -98,64 +97,12 @@
 }
 
 - (void)loadRawData {
-    rawData = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLocationURL]];
-}
-
-- (BOOL) parseConditions {
-    // If there's no data, return nothing
-    if (rawData == nil) {
-        return NO;
-    }
-    
-    //parse out the MSW json data
-    NSError* error;
-    NSArray* json = [NSJSONSerialization
-                     JSONObjectWithData:rawData
-                     options:kNilOptions
-                     error:&error];
-    
-    // Loop through the objects, create new condition objects, and append to the array
-    int i = 0;
-    int j = 0;
-    while (i < 30) {
-        // Get the next json object and increment the count
-        NSDictionary *thisDict = [json objectAtIndex:j];
-        j++;
-        
-        // Get the hour and make sure it is valid
-        NSNumber *rawDate = [thisDict objectForKey:@"localTimestamp"];
-        NSString *date = [self formatDate:[rawDate unsignedIntegerValue]];
-        Boolean check = [self checkConditionDate:date];
-        if (!check)
-        {
-            continue;
-        }
-        
-        // Get a new condition object
-        Condition *thisCondition = [[Condition alloc] init];
-        [thisCondition setDate:date];
-        
-        // Get the minumum and maximum wave heights
-        NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
-        [thisCondition setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
-        [thisCondition setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
-        
-        // Get the wind direction and speed
-        NSDictionary *windDict = [thisDict objectForKey:@"wind"];
-        [thisCondition setWindSpeed:[windDict objectForKey:@"speed"]];
-        [thisCondition setWindDeg:[windDict objectForKey:@"direction"]];
-        [thisCondition setWindDirection:[windDict objectForKey:@"compassDirection"]];
-        
-        // Get the swell height, period, and direction
-        [thisCondition setSwellHeight:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"height"]];
-        [thisCondition setSwellPeriod:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"period"]];
-        [thisCondition setSwellDirection:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"compassDirection"]];
-        
-        // Append the condition
-        [_conditions addObject:thisCondition];
-        i++;
-    }
-    return YES;
+    NSData *mswResponse = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLocationURL]];
+    NSError *error;
+    rawData = [NSJSONSerialization
+               JSONObjectWithData:mswResponse
+               options:kNilOptions
+               error:&error];
 }
 
 - (BOOL) parseForecasts {
@@ -164,48 +111,72 @@
         return NO;
     }
     
-    //parse out the MSW json data
-    NSError* error;
-    NSArray* json = [NSJSONSerialization
-                     JSONObjectWithData:rawData
-                     options:kNilOptions
-                     error:&error];
-    
     // Loop through the objects, create new condition objects, and append to the array
-    int i = 0;
-    int j = 0;
-    while (i<10) {
-        NSDictionary *thisDict = [json objectAtIndex:j];
-        j++;
+    int conditionCount = 0;
+    int forecastCount = 0;
+    int dataIndex = 0;
+    while ((conditionCount < 30) || (forecastCount < 10)) {
+        // Get the next json object and increment the count
+        NSDictionary *thisDict = [rawData objectAtIndex:dataIndex];
+        dataIndex++;
         
-        // Get the hour and check if its one that we care about
+        // Get the hour and make sure it is valid for a condition object
         NSNumber *rawDate = [thisDict objectForKey:@"localTimestamp"];
         NSString *date = [self formatDate:[rawDate unsignedIntegerValue]];
-        Boolean check = [self checkForecastDate:date];
-        if (!check)
+        Boolean conditionCheck = [self checkConditionDate:date];
+        Boolean forecastCheck = [self checkForecastDate:date];
+        if (!conditionCheck && !forecastCheck)
         {
             continue;
         }
         
-        // Get a new Foreccast object
-        Forecast *thisForecast = [[Forecast alloc] init];
-        
-        // Set the date
-        [thisForecast setDate:date];
-        
-        // Get the minimum and maximumm breaking heights
+        // Get the dictionaries from the json array
         NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
-        [thisForecast setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
-        [thisForecast setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
-        
-        // Get the wind speed and direction
         NSDictionary *windDict = [thisDict objectForKey:@"wind"];
-        [thisForecast setWindSpeed:[windDict objectForKey:@"speed"]];
-        [thisForecast setWindDir:[windDict objectForKey:@"compassDirection"]];
         
-        // Append the forecast to the list
-        [_forecasts addObject:thisForecast];
-        i++;
+        if (conditionCheck && conditionCount < 30) {
+            // Get a new condition object
+            Condition *thisCondition = [[Condition alloc] init];
+            [thisCondition setDate:date];
+        
+            // Get the minumum and maximum wave heights
+            [thisCondition setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
+            [thisCondition setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
+        
+            // Get the wind direction and speed
+            [thisCondition setWindSpeed:[windDict objectForKey:@"speed"]];
+            [thisCondition setWindDeg:[windDict objectForKey:@"direction"]];
+            [thisCondition setWindDirection:[windDict objectForKey:@"compassDirection"]];
+        
+            // Get the swell height, period, and direction
+            [thisCondition setSwellHeight:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"height"]];
+            [thisCondition setSwellPeriod:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"period"]];
+            [thisCondition setSwellDirection:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"compassDirection"]];
+        
+            // Append the condition
+            [_conditions addObject:thisCondition];
+            conditionCount++;
+        }
+        
+        if (forecastCheck && (forecastCount < 10)) {
+            // Get a new Forecast object
+            Forecast *thisForecast = [[Forecast alloc] init];
+        
+            // Set the date
+            [thisForecast setDate:date];
+        
+            // Get the minimum and maximumm breaking heights
+            [thisForecast setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
+            [thisForecast setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
+        
+            // Get the wind speed and direction
+            [thisForecast setWindSpeed:[windDict objectForKey:@"speed"]];
+            [thisForecast setWindDir:[windDict objectForKey:@"compassDirection"]];
+        
+            // Append the forecast to the list
+            [_forecasts addObject:thisForecast];
+            forecastCount++;
+        }
     }
     return YES;
 }
@@ -267,8 +238,8 @@
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     // Callback for the forecast location settings changing
     // First clear all of the old data so that everything reloads
-    if (rawData.length > 0) {
-        rawData = [[NSData alloc] init];
+    if (rawData.count > 0) {
+        rawData = [[NSArray alloc] init];
     }
     if ([_conditions count] > 0) {
         [_conditions removeAllObjects];
