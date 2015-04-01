@@ -168,8 +168,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GYc-zm-LQY">
+                                <rect key="frame" x="16" y="72" width="288" height="29"/>
+                                <segments>
+                                    <segment title="Swell"/>
+                                    <segment title="Wind"/>
+                                    <segment title="Period"/>
+                                </segments>
+                                <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ogB-9u-1iM">
-                                <rect key="frame" x="0.0" y="292" width="320" height="227"/>
+                                <rect key="frame" x="0.0" y="319" width="320" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mswHourItem" id="RNj-Ta-EGv">
@@ -240,8 +249,12 @@
                         <constraints>
                             <constraint firstItem="ogB-9u-1iM" firstAttribute="leading" secondItem="pSq-BY-NQ5" secondAttribute="leading" id="5VN-5r-H1o"/>
                             <constraint firstItem="vlF-u1-X3F" firstAttribute="top" secondItem="ogB-9u-1iM" secondAttribute="bottom" id="PLT-IB-SEB"/>
-                            <constraint firstItem="ogB-9u-1iM" firstAttribute="top" secondItem="Uh0-ti-pXy" secondAttribute="bottom" constant="228" id="Z4e-GX-LM5"/>
+                            <constraint firstItem="GYc-zm-LQY" firstAttribute="leading" secondItem="pSq-BY-NQ5" secondAttribute="leadingMargin" id="ThG-8v-ibB"/>
+                            <constraint firstItem="GYc-zm-LQY" firstAttribute="trailing" secondItem="pSq-BY-NQ5" secondAttribute="trailingMargin" id="Un8-zr-Q69"/>
+                            <constraint firstItem="ogB-9u-1iM" firstAttribute="top" secondItem="Uh0-ti-pXy" secondAttribute="bottom" constant="255" id="Z4e-GX-LM5"/>
                             <constraint firstAttribute="trailing" secondItem="ogB-9u-1iM" secondAttribute="trailing" id="fKM-7N-dqM"/>
+                            <constraint firstItem="GYc-zm-LQY" firstAttribute="top" secondItem="Uh0-ti-pXy" secondAttribute="bottom" constant="8" id="pbg-d1-Zlx"/>
+                            <constraint firstItem="GYc-zm-LQY" firstAttribute="centerX" secondItem="ogB-9u-1iM" secondAttribute="centerX" id="qCY-Xr-tNi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detailed Forecast" id="dlj-EF-Xkq"/>
@@ -1024,6 +1037,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rYr-bo-HPU"/>
+        <segue reference="pa9-s7-zVu"/>
     </inferredMetricsTieBreakers>
 </document>
