@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>Narragansett Town Beach</key>
-	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=1103&amp;fields=localTimestamp,swell.*,wind.*</string>
+	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=1103&amp;fields=localTimestamp,swell.*,wind.*,charts.*</string>
 	<key>Point Judith Lighthouse</key>
-	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=376&amp;fields=localTimestamp,swell.*,wind.*</string>
+	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=376&amp;fields=localTimestamp,swell.*,wind.*,charts.*</string>
 	<key>Matunuck</key>
-	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=377&amp;fields=localTimestamp,swell.*,wind.*</string>
+	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=377&amp;fields=localTimestamp,swell.*,wind.*,charts.*</string>
 	<key>Second Beach</key>
-	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=846&amp;fields=localTimestamp,swell.*,wind.*</string>
+	<string>http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=846&amp;fields=localTimestamp,swell.*,wind.*,charts.*</string>
 </dict>
 </plist>
