@@ -176,6 +176,9 @@
                                     <segment title="Period"/>
                                 </segments>
                                 <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <action selector="chartTypeChanged:" destination="0hE-yb-Bg6" eventType="valueChanged" id="VFY-J6-KGo"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ogB-9u-1iM">
                                 <rect key="frame" x="0.0" y="319" width="320" height="200"/>
@@ -244,21 +247,32 @@
                                     <outlet property="delegate" destination="0hE-yb-Bg6" id="Csz-Va-axl"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKf-fk-iZP">
+                                <rect key="frame" x="0.0" y="108" width="320" height="203"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="203" id="fGb-JA-tqA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ogB-9u-1iM" firstAttribute="leading" secondItem="pSq-BY-NQ5" secondAttribute="leading" id="5VN-5r-H1o"/>
+                            <constraint firstItem="xKf-fk-iZP" firstAttribute="top" secondItem="GYc-zm-LQY" secondAttribute="bottom" constant="8" symbolic="YES" id="9cX-W9-9dM"/>
+                            <constraint firstItem="xKf-fk-iZP" firstAttribute="leading" secondItem="pSq-BY-NQ5" secondAttribute="leadingMargin" constant="-16" id="BB9-Qc-exP"/>
                             <constraint firstItem="vlF-u1-X3F" firstAttribute="top" secondItem="ogB-9u-1iM" secondAttribute="bottom" id="PLT-IB-SEB"/>
                             <constraint firstItem="GYc-zm-LQY" firstAttribute="leading" secondItem="pSq-BY-NQ5" secondAttribute="leadingMargin" id="ThG-8v-ibB"/>
                             <constraint firstItem="GYc-zm-LQY" firstAttribute="trailing" secondItem="pSq-BY-NQ5" secondAttribute="trailingMargin" id="Un8-zr-Q69"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xKf-fk-iZP" secondAttribute="trailing" constant="-16" id="VFz-Re-fMt"/>
                             <constraint firstItem="ogB-9u-1iM" firstAttribute="top" secondItem="Uh0-ti-pXy" secondAttribute="bottom" constant="255" id="Z4e-GX-LM5"/>
                             <constraint firstAttribute="trailing" secondItem="ogB-9u-1iM" secondAttribute="trailing" id="fKM-7N-dqM"/>
                             <constraint firstItem="GYc-zm-LQY" firstAttribute="top" secondItem="Uh0-ti-pXy" secondAttribute="bottom" constant="8" id="pbg-d1-Zlx"/>
                             <constraint firstItem="GYc-zm-LQY" firstAttribute="centerX" secondItem="ogB-9u-1iM" secondAttribute="centerX" id="qCY-Xr-tNi"/>
+                            <constraint firstItem="ogB-9u-1iM" firstAttribute="top" secondItem="xKf-fk-iZP" secondAttribute="bottom" constant="8" symbolic="YES" id="w0N-Q5-JNC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detailed Forecast" id="dlj-EF-Xkq"/>
                     <connections>
+                        <outlet property="chartImageView" destination="xKf-fk-iZP" id="Meg-id-Dsa"/>
                         <outlet property="mswTable" destination="ogB-9u-1iM" id="KvY-Gy-OZE"/>
                     </connections>
                 </viewController>
@@ -893,6 +907,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5n-Kp-AIv">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                                     <state key="normal" title="Change Location">
+                                                        <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -919,6 +934,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBj-eq-pwI">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                                     <state key="normal" title="Contact Developer">
+                                                        <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -941,6 +957,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znY-n5-4jE">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                                     <state key="normal" title="Disclaimer">
+                                                        <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -963,6 +980,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNB-QD-q65">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                                     <state key="normal" title="Rate on the App Store">
+                                                        <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>

@@ -12,6 +12,7 @@
 
 @property NSInteger dayIndex;
 
--(void) getModelData;
+- (void) getModelData;
+- (IBAction)chartTypeChanged:(id)sender;
 
 @end

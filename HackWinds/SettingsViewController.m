@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #include "Constants.h"
+#import "Colors.h"
 
 @interface SettingsViewController ()
 
@@ -51,6 +52,7 @@
                                                        destructiveButtonTitle:nil
                                                             otherButtonTitles:FORECAST_LOCATIONS];
     // Show the action sheet
+    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
     [locationActionSheet showInView:self.view];
 }
 
@@ -70,6 +72,7 @@
                                                    delegate:nil
                                           cancelButtonTitle:@"Done"
                                           otherButtonTitles:nil];
+    [disclaimerMessage setTintColor:HACKWINDS_BLUE_COLOR];
     [disclaimerMessage show];
 }
 

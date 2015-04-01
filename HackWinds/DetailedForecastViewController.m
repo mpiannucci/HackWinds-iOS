@@ -11,11 +11,13 @@
 #import "ForecastModel.h"
 #import "Condition.h"
 #import "Colors.h"
+#import "AsyncImageView.h"
 
 @interface DetailedForecastViewController ()
 
 // UI Properties
 @property (weak, nonatomic) IBOutlet UITableView *mswTable;
+@property (weak, nonatomic) IBOutlet UIImageView *chartImageView;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -37,9 +39,12 @@
     
     // Get the forecast model instance
     _forecastModel = [ForecastModel sharedModel];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [_chartImageView setImage:[UIImage imageNamed:@"chartplaceholder.gif"]];
+    
     // Reload the data for the correct day
     [self getModelData];
 }
@@ -56,6 +61,10 @@
         [_mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
     });
+}
+
+- (IBAction)chartTypeChanged:(id)sender {
+    
 }
 
 #pragma mark - TableView Handling
