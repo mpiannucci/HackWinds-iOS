@@ -133,6 +133,7 @@
         // Get the dictionaries from the json array
         NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
         NSDictionary *windDict = [thisDict objectForKey:@"wind"];
+        NSDictionary *chartDict = [thisDict objectForKey:@"charts"];
         
         if (conditionCheck && conditionCount < 30) {
             // Get a new condition object
@@ -152,6 +153,11 @@
             [thisCondition setSwellHeight:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"height"]];
             [thisCondition setSwellPeriod:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"period"]];
             [thisCondition setSwellDirection:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"compassDirection"]];
+            
+            // Get the Chart URLS
+            [thisCondition setSwellChartURL:[chartDict objectForKey:@"swell"]];
+            [thisCondition setWindChartURL:[chartDict objectForKey:@"wind"]];
+            [thisCondition setPeriodChartURL:[chartDict objectForKey:@"period"]];
         
             // Append the condition
             [_conditions addObject:thisCondition];

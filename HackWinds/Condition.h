@@ -20,5 +20,8 @@
 @property (strong, nonatomic) NSString *SwellHeight;
 @property (strong, nonatomic) NSString *SwellPeriod;
 @property (strong, nonatomic) NSString *SwellDirection;
+@property (strong, nonatomic) NSString *SwellChartURL;
+@property (strong, nonatomic) NSString *WindChartURL;
+@property (strong, nonatomic) NSString *PeriodChartURL;
 
 @end
