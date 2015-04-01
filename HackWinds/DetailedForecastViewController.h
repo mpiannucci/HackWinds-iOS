@@ -10,6 +10,8 @@
 
 @interface DetailedForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property NSInteger dayIndex;
+
 -(void) getModelData;
 
 @end

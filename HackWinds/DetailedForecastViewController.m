@@ -49,6 +49,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) getModelData {
+    // Load the MSW Data
+    dispatch_async(forecastFetchBgQueue, ^{
+        currentConditions = [_forecastModel getConditionsForIndex:(int)_dayIndex];
+        [_mswTable performSelectorOnMainThread:@selector(reloadData)
+                                    withObject:nil waitUntilDone:YES];
+    });
+}
+
+#pragma mark - TableView Handling
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
@@ -113,23 +124,12 @@
     return cell;
 }
 
-- (void) getModelData {
-    // Load the MSW Data
-    dispatch_async(forecastFetchBgQueue, ^{
-        currentConditions = [_forecastModel getConditionsForIndex:0];
-        [_mswTable performSelectorOnMainThread:@selector(reloadData)
-                                         withObject:nil waitUntilDone:YES];
-    });
-}
-
-/*
  #pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+// Get the new view controller using [segue destinationViewController].
+// Pass the selected object to the new view controller.
+//}
 
 @end

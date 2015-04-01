@@ -63,6 +63,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) updateDataFromModel {
+    // Load the MSW Data
+    dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
+        [_forecastModel getForecasts];
+        [_forecastTable performSelectorOnMainThread:@selector(reloadData)
+                                         withObject:nil waitUntilDone:YES];
+    });
+}
+
+#pragma mark - TableView
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
@@ -144,13 +155,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void) updateDataFromModel {
-    // Load the MSW Data
-    dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
-        [_forecastModel getForecasts];
-        [_forecastTable performSelectorOnMainThread:@selector(reloadData)
-                                         withObject:nil waitUntilDone:YES];
-    });
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailForecastSegue"]) {
+        // Get the row of the table that was selected
+        NSIndexPath *indexPath = [self.forecastTable indexPathForSelectedRow];
+        DetailedForecastViewController *detailView = segue.destinationViewController;
+        
+        // Set the day that the data should be loaded for
+        [detailView setDayIndex:indexPath.row];
+    }
 }
 
 @end

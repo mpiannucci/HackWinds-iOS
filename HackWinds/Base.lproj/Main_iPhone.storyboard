@@ -336,7 +336,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0hE-yb-Bg6" kind="push" id="xHV-6y-6sX"/>
+                                            <segue destination="0hE-yb-Bg6" kind="push" identifier="detailForecastSegue" id="xHV-6y-6sX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
