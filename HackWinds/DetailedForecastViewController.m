@@ -43,7 +43,6 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [_chartImageView setImage:[UIImage imageNamed:@"chartplaceholder.gif"]];
     
     // Reload the data for the correct day
     [self getModelData];
@@ -60,11 +59,16 @@
         currentConditions = [_forecastModel getConditionsForIndex:(int)_dayIndex];
         [_mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
+        [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:@"http://hist-2.msw.ms/wave/750/20-1428202800-1.gif"] target:self action:@selector(imageLoadSuccess:)];
     });
 }
 
 - (IBAction)chartTypeChanged:(id)sender {
     
+}
+
+- (void)imageLoadSuccess:(id)sender {
+    _chartImageView.image = sender;
 }
 
 #pragma mark - TableView Handling

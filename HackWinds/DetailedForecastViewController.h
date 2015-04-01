@@ -14,5 +14,6 @@
 
 - (void) getModelData;
 - (IBAction)chartTypeChanged:(id)sender;
+- (void) imageLoadSuccess:(id)sender;
 
 @end

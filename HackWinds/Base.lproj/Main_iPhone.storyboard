@@ -247,7 +247,7 @@
                                     <outlet property="delegate" destination="0hE-yb-Bg6" id="Csz-Va-axl"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKf-fk-iZP">
+                            <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKf-fk-iZP" customClass="AsyncImageView">
                                 <rect key="frame" x="0.0" y="108" width="320" height="203"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="203" id="fGb-JA-tqA"/>
