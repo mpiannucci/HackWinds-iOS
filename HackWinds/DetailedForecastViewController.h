@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailedForecastViewController : UIViewController
+@interface DetailedForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+-(void) getModelData;
 
 @end
