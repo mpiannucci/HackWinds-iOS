@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
 #define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define SWELL_CHART 0
+#define WIND_CHART 1
+#define PERIOD_CHART 2
 
 #import "DetailedForecastViewController.h"
 #import "ForecastModel.h"
@@ -21,6 +24,9 @@
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
+
+// View specifics
+@property (strong, nonatomic) NSMutableArray *animationImages;
 
 @end
 
@@ -42,8 +48,7 @@
     
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    
+- (void)viewWillAppear:(BOOL)animated {
     // Reload the data for the correct day
     [self getModelData];
 }
@@ -53,22 +58,64 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) getModelData {
+- (void)sendChartImageAnimationWithType:(int)type {
+    switch (type) {
+        case SWELL_CHART:
+            // Swell
+            for (int i = 0; i < 6; i++) {
+                [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:i] SwellChartURL]]
+                                                       target:self action:@selector(imageLoadSuccess:)];
+            }
+            break;
+        case WIND_CHART:
+            // Wind
+            for (int i = 0; i < 6; i++) {
+                [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:i] WindChartURL]]
+                                                       target:self action:@selector(imageLoadSuccess:)];
+            }
+            break;
+        case PERIOD_CHART:
+            // Period
+            for (int i = 0; i < 6; i++) {
+                [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:i] PeriodChartURL]]
+                                                       target:self action:@selector(imageLoadSuccess:)];
+            }
+            break;
+        default:
+            // Do Nothing
+            break;
+    }
+}
+
+- (void)getModelData {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
         currentConditions = [_forecastModel getConditionsForIndex:(int)_dayIndex];
         [_mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
-        [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:0] SwellChartURL]] target:self action:@selector(imageLoadSuccess:)];
+        [self sendChartImageAnimationWithType:SWELL_CHART];
     });
 }
 
 - (IBAction)chartTypeChanged:(id)sender {
-    
+    // Clear out the old animation images
+    [self.chartImageView stopAnimating];
+    self.animationImages = [[NSMutableArray alloc] init];
+    [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex]];
 }
 
 - (void)imageLoadSuccess:(id)sender {
-    _chartImageView.image = sender;
+    // Add the image to the array for animation
+    [self.animationImages addObject:sender];
+    
+    if ([self.animationImages count] < 2) {
+        // If its the first image set it to the header as a holder
+        _chartImageView.image = sender;
+    } else if ([self.animationImages count] == 6) {
+        _chartImageView.animationImages = self.animationImages;
+        _chartImageView.animationDuration = 5;
+        [_chartImageView startAnimating];
+    }
 }
 
 #pragma mark - TableView Handling
