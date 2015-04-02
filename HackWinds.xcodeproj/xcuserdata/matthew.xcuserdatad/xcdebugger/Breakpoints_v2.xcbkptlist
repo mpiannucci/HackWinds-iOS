@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackWinds/DetailedForecastViewController.m"
-            timestampString = "449636609.376351"
+            timestampString = "449643976.108947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-imageLoadSuccess:"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-sendChartImageAnimationWithType:forIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

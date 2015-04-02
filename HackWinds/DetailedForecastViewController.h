@@ -15,6 +15,8 @@
 - (void) getModelData;
 - (IBAction)chartTypeChanged:(id)sender;
 - (void) imageLoadSuccess:(id)sender;
-- (void)sendChartImageAnimationWithType:(int)type;
+- (void)sendChartImageAnimationWithType:(int)type forIndex:(int)index;
+- (IBAction)playButtonClicked:(id)sender;
+- (IBAction)pauseButtonClicked:(id)sender;
 
 @end

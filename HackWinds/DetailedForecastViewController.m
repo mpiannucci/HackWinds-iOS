@@ -21,6 +21,10 @@
 // UI Properties
 @property (weak, nonatomic) IBOutlet UITableView *mswTable;
 @property (weak, nonatomic) IBOutlet UIImageView *chartImageView;
+@property (weak, nonatomic) IBOutlet UIProgressView *chartLoadProgressIndicator;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *chartTypeSegmentControl;
+@property (weak, nonatomic) IBOutlet UIButton *chartAnimationPlayButton;
+@property (weak, nonatomic) IBOutlet UIButton *chartPauseButton;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -32,6 +36,7 @@
 
 @implementation DetailedForecastViewController {
     NSArray *currentConditions;
+    Boolean needsReload[3];
 }
 
 - (void)viewDidLoad {
@@ -46,45 +51,32 @@
     // Get the forecast model instance
     _forecastModel = [ForecastModel sharedModel];
     
+    // Initializew the aniimation image array
+    self.animationImages = [[NSMutableArray alloc] init];
+    
+    [[AsyncImageLoader sharedLoader] setConcurrentLoads:10];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    // Hide the play button
+    [self.chartAnimationPlayButton setHidden:YES];
+    
+    // Reset the reload flag
+    for (int i = 0; i < 3; i++) {
+        needsReload[i] = YES;
+    }
+    
     // Reload the data for the correct day
     [self getModelData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)sendChartImageAnimationWithType:(int)type {
-    switch (type) {
-        case SWELL_CHART:
-            // Swell
-            for (int i = 0; i < 6; i++) {
-                [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:i] SwellChartURL]]
-                                                       target:self action:@selector(imageLoadSuccess:)];
-            }
-            break;
-        case WIND_CHART:
-            // Wind
-            for (int i = 0; i < 6; i++) {
-                [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:i] WindChartURL]]
-                                                       target:self action:@selector(imageLoadSuccess:)];
-            }
-            break;
-        case PERIOD_CHART:
-            // Period
-            for (int i = 0; i < 6; i++) {
-                [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:i] PeriodChartURL]]
-                                                       target:self action:@selector(imageLoadSuccess:)];
-            }
-            break;
-        default:
-            // Do Nothing
-            break;
-    }
 }
 
 - (void)getModelData {
@@ -93,28 +85,80 @@
         currentConditions = [_forecastModel getConditionsForIndex:(int)_dayIndex];
         [_mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
-        [self sendChartImageAnimationWithType:SWELL_CHART];
+        [self sendChartImageAnimationWithType:SWELL_CHART forIndex:0];
     });
 }
 
 - (IBAction)chartTypeChanged:(id)sender {
     // Clear out the old animation images
+    [self.chartAnimationPlayButton setHidden:YES];
     [self.chartImageView stopAnimating];
+    [self.chartLoadProgressIndicator setProgress:0.0f animated:YES];
     self.animationImages = [[NSMutableArray alloc] init];
-    [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex]];
+    [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex] forIndex:0];
+}
+
+- (void)sendChartImageAnimationWithType:(int)type forIndex:(int)index {
+    switch (type) {
+        case SWELL_CHART:
+            // Swell
+            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] SwellChartURL]]
+                                                                       target:self action:@selector(imageLoadSuccess:)];
+            break;
+        case WIND_CHART:
+            // Wind
+            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] WindChartURL]]
+                                                                       target:self action:@selector(imageLoadSuccess:)];
+            break;
+        case PERIOD_CHART:
+            // Period
+            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] PeriodChartURL]]
+                                                                       target:self action:@selector(imageLoadSuccess:)];
+            break;
+        default:
+            // Do Nothing
+            break;
+    }
+}
+
+- (IBAction)playButtonClicked:(id)sender {
+    [self.chartImageView startAnimating];
+    [self.chartAnimationPlayButton setHidden:YES];
+    [self.chartPauseButton setHidden:NO];
+}
+
+- (IBAction)pauseButtonClicked:(id)sender {
+    [self.chartImageView stopAnimating];
+    [self.chartPauseButton setHidden:YES];
+    [self.chartAnimationPlayButton setHidden:NO];
 }
 
 - (void)imageLoadSuccess:(id)sender {
     // Add the image to the array for animation
     [self.animationImages addObject:sender];
+    [self.chartLoadProgressIndicator setProgress:self.animationImages.count/6.0f animated:YES];
     
     if ([self.animationImages count] < 2) {
         // If its the first image set it to the header as a holder
-        _chartImageView.image = sender;
+        [_chartImageView setImage:sender];
     } else if ([self.animationImages count] == 6) {
-        _chartImageView.animationImages = self.animationImages;
-        _chartImageView.animationDuration = 5;
-        [_chartImageView startAnimating];
+        // We have all of the images so animate!!!
+        [_chartImageView setAnimationImages:self.animationImages];
+        [_chartImageView setAnimationDuration:5];
+        
+        // Okay so this is really hacky... For some reasons the images are not loaded correctly on the first
+        // pass through each of the views. 
+        if (needsReload[self.chartTypeSegmentControl.selectedSegmentIndex]) {
+            self.animationImages = [[NSMutableArray alloc] init];
+            needsReload[self.chartTypeSegmentControl.selectedSegmentIndex] = NO;
+        } else {
+            [_chartAnimationPlayButton setHidden:YES];
+            [_chartAnimationPlayButton setHidden:NO];
+        }
+    }
+    if (self.animationImages.count < 6) {
+        [self sendChartImageAnimationWithType:(int)self.chartTypeSegmentControl.selectedSegmentIndex
+                                     forIndex:(int)self.animationImages.count];
     }
 }
 
