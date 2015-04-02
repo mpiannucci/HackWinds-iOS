@@ -59,7 +59,7 @@
         currentConditions = [_forecastModel getConditionsForIndex:(int)_dayIndex];
         [_mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
-        [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:@"http://hist-2.msw.ms/wave/750/20-1428202800-1.gif"] target:self action:@selector(imageLoadSuccess:)];
+        [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:0] SwellChartURL]] target:self action:@selector(imageLoadSuccess:)];
     });
 }
 

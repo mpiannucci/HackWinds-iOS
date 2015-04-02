@@ -79,7 +79,7 @@
         [self parseForecasts];
     }
     
-    NSArray *currentConditions = [_conditions subarrayWithRange:NSMakeRange(index*6, index*6+6)];
+    NSArray *currentConditions = [_conditions subarrayWithRange:NSMakeRange(index*6, 6)];
     return currentConditions;
 }
 

@@ -166,6 +166,10 @@
         
         // Set the day that the data should be loaded for
         [detailView setDayIndex:indexPath.row];
+        
+        // Set the navigation header to the name of the day
+        NSString *dayTitle = [WEEKDAYS objectAtIndex:(((currentday-1) + indexPath.row)%7)];
+        detailView.navigationItem.title = dayTitle;
     }
 }
 
