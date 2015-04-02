@@ -24,7 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *chartLoadProgressIndicator;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *chartTypeSegmentControl;
 @property (weak, nonatomic) IBOutlet UIButton *chartAnimationPlayButton;
-@property (weak, nonatomic) IBOutlet UIButton *chartPauseButton;
+@property (weak, nonatomic) IBOutlet UIButton *chartAnimationPauseButton;
+
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -49,12 +50,10 @@
     self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
     
     // Get the forecast model instance
-    _forecastModel = [ForecastModel sharedModel];
+    self.forecastModel = [ForecastModel sharedModel];
     
     // Initializew the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
-    
-    [[AsyncImageLoader sharedLoader] setConcurrentLoads:10];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,8 +81,8 @@
 - (void)getModelData {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
-        currentConditions = [_forecastModel getConditionsForIndex:(int)_dayIndex];
-        [_mswTable performSelectorOnMainThread:@selector(reloadData)
+        currentConditions = [self.forecastModel getConditionsForIndex:(int)self.dayIndex];
+        [self.mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
         [self sendChartImageAnimationWithType:SWELL_CHART forIndex:0];
     });
@@ -91,9 +90,15 @@
 
 - (IBAction)chartTypeChanged:(id)sender {
     // Clear out the old animation images
+    // Reset the image buttons and animation
     [self.chartAnimationPlayButton setHidden:YES];
     [self.chartImageView stopAnimating];
+    
+    // Reset the progress bar
+    [self.chartLoadProgressIndicator setHidden:NO];
     [self.chartLoadProgressIndicator setProgress:0.0f animated:YES];
+    
+    // Reset the animation images and start lolading the new ones
     self.animationImages = [[NSMutableArray alloc] init];
     [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex] forIndex:0];
 }
@@ -124,27 +129,30 @@
 - (IBAction)playButtonClicked:(id)sender {
     [self.chartImageView startAnimating];
     [self.chartAnimationPlayButton setHidden:YES];
-    [self.chartPauseButton setHidden:NO];
+    [self.chartAnimationPauseButton setHidden:NO];
 }
 
 - (IBAction)pauseButtonClicked:(id)sender {
     [self.chartImageView stopAnimating];
-    [self.chartPauseButton setHidden:YES];
+    [self.chartAnimationPauseButton setHidden:YES];
     [self.chartAnimationPlayButton setHidden:NO];
 }
 
 - (void)imageLoadSuccess:(id)sender {
     // Add the image to the array for animation
     [self.animationImages addObject:sender];
-    [self.chartLoadProgressIndicator setProgress:self.animationImages.count/6.0f animated:YES];
+    
+    if (needsReload[self.chartTypeSegmentControl.selectedSegmentIndex]) {
+        [self.chartLoadProgressIndicator setProgress:self.animationImages.count/6.0f animated:YES];
+    }
     
     if ([self.animationImages count] < 2) {
         // If its the first image set it to the header as a holder
-        [_chartImageView setImage:sender];
+        [self.chartImageView setImage:sender];
     } else if ([self.animationImages count] == 6) {
         // We have all of the images so animate!!!
-        [_chartImageView setAnimationImages:self.animationImages];
-        [_chartImageView setAnimationDuration:5];
+        [self.chartImageView setAnimationImages:self.animationImages];
+        [self.chartImageView setAnimationDuration:5];
         
         // Okay so this is really hacky... For some reasons the images are not loaded correctly on the first
         // pass through each of the views. 
@@ -152,11 +160,16 @@
             self.animationImages = [[NSMutableArray alloc] init];
             needsReload[self.chartTypeSegmentControl.selectedSegmentIndex] = NO;
         } else {
-            [_chartAnimationPlayButton setHidden:YES];
-            [_chartAnimationPlayButton setHidden:NO];
+            // Show the play button, Hide the stop Button
+            [self.chartAnimationPauseButton setHidden:YES];
+            [self.chartAnimationPlayButton setHidden:NO];
+            
+            // Hide the progress bar becasue its loaded
+            [self.chartLoadProgressIndicator setHidden:YES];
         }
     }
     if (self.animationImages.count < 6) {
+        // If the animation array isnt full, get the next image on the stack
         [self sendChartImageAnimationWithType:(int)self.chartTypeSegmentControl.selectedSegmentIndex
                                      forIndex:(int)self.animationImages.count];
     }
@@ -171,7 +184,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
-    return [[_forecastModel conditions] count]/5+1;
+    return [[self.forecastModel conditions] count]/5+1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

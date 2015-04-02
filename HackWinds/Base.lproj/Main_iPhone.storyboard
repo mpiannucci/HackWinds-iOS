@@ -305,10 +305,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detailed Forecast" id="dlj-EF-Xkq"/>
                     <connections>
+                        <outlet property="chartAnimationPauseButton" destination="tQo-xS-Dkd" id="fRu-6n-QqT"/>
                         <outlet property="chartAnimationPlayButton" destination="1Me-Ua-kv7" id="haR-al-ObO"/>
                         <outlet property="chartImageView" destination="xKf-fk-iZP" id="Meg-id-Dsa"/>
                         <outlet property="chartLoadProgressIndicator" destination="eQy-nC-XGB" id="9up-vd-CGg"/>
-                        <outlet property="chartPauseButton" destination="tQo-xS-Dkd" id="Jmb-eZ-cSh"/>
                         <outlet property="chartTypeSegmentControl" destination="GYc-zm-LQY" id="H6H-my-Yxm"/>
                         <outlet property="mswTable" destination="ogB-9u-1iM" id="KvY-Gy-OZE"/>
                     </connections>
