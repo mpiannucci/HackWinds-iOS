@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yMn-rE-WTZ">
-                                <rect key="frame" x="1" y="316" width="318" height="204"/>
+                                <rect key="frame" x="0.0" y="316" width="320" height="204"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mswHourItem" id="Qix-Ye-HBT">
@@ -75,7 +75,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9MT-NQ-M70" firstAttribute="leading" secondItem="JA1-4v-THV" secondAttribute="trailing" constant="6" id="1xZ-OB-Ay9"/>
-                                                <constraint firstAttribute="trailing" secondItem="SC1-cm-Z4Y" secondAttribute="trailing" constant="-2" id="7F6-ET-SbT"/>
+                                                <constraint firstAttribute="trailing" secondItem="SC1-cm-Z4Y" secondAttribute="trailing" id="7F6-ET-SbT"/>
                                                 <constraint firstAttribute="centerY" secondItem="SC1-cm-Z4Y" secondAttribute="centerY" id="8mY-hx-Ecd"/>
                                                 <constraint firstItem="JA1-4v-THV" firstAttribute="leading" secondItem="5fr-TB-aLA" secondAttribute="leading" constant="8" id="BLg-iv-Zcj"/>
                                                 <constraint firstItem="SC1-cm-Z4Y" firstAttribute="baseline" secondItem="UEb-lg-eEc" secondAttribute="baseline" id="Gcv-V2-hKh"/>
@@ -118,12 +118,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yMn-rE-WTZ" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" constant="-15" id="2I9-KE-LiY"/>
+                            <constraint firstItem="yMn-rE-WTZ" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="2I9-KE-LiY"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="bottom" secondItem="dtj-EO-iXF" secondAttribute="top" constant="1" id="2Sp-u4-O8U"/>
                             <constraint firstItem="yDO-91-P06" firstAttribute="top" secondItem="Yy3-HW-pDb" secondAttribute="top" id="4Js-eX-CHP"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="top" secondItem="1rm-Eb-nhm" secondAttribute="bottom" constant="7" id="8wS-pw-HJa"/>
                             <constraint firstAttribute="centerX" secondItem="yDO-91-P06" secondAttribute="centerX" id="93x-wU-MYG"/>
                             <constraint firstAttribute="centerX" secondItem="Yy3-HW-pDb" secondAttribute="centerX" id="F4l-eP-SOc"/>
+                            <constraint firstAttribute="trailing" secondItem="yMn-rE-WTZ" secondAttribute="trailing" id="GqO-WI-k5I"/>
                             <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="yDO-91-P06" secondAttribute="bottom" constant="24" id="IZm-8K-Sm4"/>
                             <constraint firstItem="yDO-91-P06" firstAttribute="trailing" secondItem="Yy3-HW-pDb" secondAttribute="trailing" id="JOo-nK-9XE"/>
                             <constraint firstItem="yDO-91-P06" firstAttribute="bottom" secondItem="Yy3-HW-pDb" secondAttribute="bottom" id="NXX-Mf-ftQ"/>
@@ -133,7 +134,7 @@
                             <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="ho2-Ja-XZ6"/>
                             <constraint firstAttribute="trailing" secondItem="yDO-91-P06" secondAttribute="trailing" id="irD-W7-LlD"/>
                             <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="Yy3-HW-pDb" secondAttribute="leading" id="nfI-xe-egP"/>
-                            <constraint firstItem="1rm-Eb-nhm" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" constant="-8" id="tMX-7u-gmE"/>
+                            <constraint firstItem="1rm-Eb-nhm" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="8" id="tMX-7u-gmE"/>
                             <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="ytA-lV-0pK"/>
                         </constraints>
                     </view>
