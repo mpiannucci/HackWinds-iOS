@@ -121,7 +121,7 @@
         [newBuoy setDirection:[cleanData objectAtIndex:i+DIRECTION_OFFSET]];
         
         // Water Temperature Values converted from celsius to fahrenheit
-        double waterTemp = floor(([[cleanData objectAtIndex:i+TEMPERATURE_OFFSET] doubleValue] * (9 / 5) +32)/0.05) * 0.05;
+        double waterTemp = (([[cleanData objectAtIndex:i+TEMPERATURE_OFFSET] doubleValue] * (9.0 / 5.0) +32.0 ) / 0.05) * 0.05;
         [newBuoy setWaterTemperature:[NSString stringWithFormat:@"%4.2f", waterTemp]];
         
         // Change the wave height to feet
