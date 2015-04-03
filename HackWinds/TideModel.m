@@ -35,20 +35,20 @@
     self = [super init];
     
     // Array to load the data into
-    _tides = [[NSMutableArray alloc] init];
+    self.tides = [[NSMutableArray alloc] init];
     
     return self;
 }
 
 - (NSMutableArray*) getTideData {
-    if ([_tides count] == 0) {
+    if ([self.tides count] == 0) {
         // If theres no data yet, load the Wunderground Data and parse it asynchronously
         NSData* data = [NSData dataWithContentsOfURL:WUNDERGROUND_URL];
         [self parseTideData:data];
     }
     
     // Return the tide array
-    return _tides;
+    return self.tides;
 }
 
 - (bool) parseTideData:(NSData *)responseData {
@@ -94,7 +94,7 @@
             [tide setHeight:height];
             
             // Add the tide to the array
-            [_tides addObject:tide];
+            [self.tides addObject:tide];
             
             // Increment the count of the tide objects
             count++;

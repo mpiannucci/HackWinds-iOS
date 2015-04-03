@@ -40,16 +40,16 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     // Load the imageview
-    [_holderImageButton setImageURL:wwStillURL];
+    [self.holderImageButton setImageURL:wwStillURL];
     
     // Get the date and set the weekday text
     NSDate *now = [[NSDate alloc] init];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
-    [_dayHeader setText:[dateFormatter stringFromDate:now]];
+    [self.dayHeader setText:[dateFormatter stringFromDate:now]];
     
     // Initialize the forecast model
-    _forecastModel = [ForecastModel sharedModel];
+    self.forecastModel = [ForecastModel sharedModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
-    return [[_forecastModel conditions] count]/5+1;
+    return [[self.forecastModel conditions] count]/5+1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -181,8 +181,8 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
-        currentConditions = [_forecastModel getConditionsForIndex:0];
-        [_mswTodayTable performSelectorOnMainThread:@selector(reloadData)
+        currentConditions = [self.forecastModel getConditionsForIndex:0];
+        [self.mswTodayTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
     });
 }

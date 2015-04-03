@@ -44,7 +44,7 @@
     buoy_location = BLOCK_ISLAND_LOCATION;
     
     // Initialize the buoy model
-    _buoyModel = [BuoyModel sharedModel];
+    self.buoyModel = [BuoyModel sharedModel];
     
     // Initialize the current buoy data
     currentBuoyData = [[NSMutableArray alloc] init];
@@ -178,8 +178,8 @@
 
 - (void)setupGraphView {
     // Create the graph view and format it
-    graph = [[CPTXYGraph alloc] initWithFrame:_graphHolder.bounds];
-    _graphHolder.hostedGraph = graph;
+    graph = [[CPTXYGraph alloc] initWithFrame:self.graphHolder.bounds];
+    self.graphHolder.hostedGraph = graph;
     [graph setTitle:@"Wave Height (ft)"];
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
@@ -239,7 +239,7 @@
 
 - (void)reloadView {
     // Update the table
-    [_buoyTable reloadData];
+    [self.buoyTable reloadData];
     
     // Update the plot data sets
     [plot reloadData];
@@ -267,8 +267,8 @@
     }
     // Get the new buoy data and reload the main view
     dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-        currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
-        currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
+        currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
+        currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
         [self performSelectorOnMainThread:@selector(reloadView)
                                withObject:nil waitUntilDone:YES];
     });

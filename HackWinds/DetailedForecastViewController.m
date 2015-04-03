@@ -71,6 +71,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:self];
+    [self.chartImageView stopAnimating];
 }
 
 - (void)didReceiveMemoryWarning {

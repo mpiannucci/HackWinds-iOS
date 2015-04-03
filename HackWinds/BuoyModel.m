@@ -48,10 +48,10 @@
     self = [super init];
     
     // Initialize the BI and MTK arrays
-    _blockIslandBuoys = [[NSMutableArray alloc] init];
-    _blockIslandWaveHeights = [[NSMutableArray alloc] init];
-    _montaukBuoys = [[NSMutableArray alloc] init];
-    _montaukWaveHeights = [[NSMutableArray alloc] init];
+    self.blockIslandBuoys = [[NSMutableArray alloc] init];
+    self.blockIslandWaveHeights = [[NSMutableArray alloc] init];
+    self.montaukBuoys = [[NSMutableArray alloc] init];
+    self.montaukWaveHeights = [[NSMutableArray alloc] init];
     
     // Check if daylight savings is in effect. Make sure the time scaling is for EST (GMT-5)
     NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
@@ -64,26 +64,26 @@
 - (NSMutableArray *) getBuoyDataForLocation:(int)location {
     if (location == BLOCK_ISLAND_LOCATION) {
         // If they want block island, check if its already been fetched, then return it
-        if ([_blockIslandBuoys count] == 0) {
+        if ([self.blockIslandBuoys count] == 0) {
             [self parseBuoyData:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
         }
-        return _blockIslandBuoys;
+        return self.blockIslandBuoys;
     } else {
         // Do the same for montauk
-        if ([_montaukBuoys count] == 0) {
+        if ([self.montaukBuoys count] == 0) {
             [self parseBuoyData:[NSNumber numberWithInt:MONTAUK_LOCATION]];
         }
-        return _montaukBuoys;
+        return self.montaukBuoys;
     }
 }
 
 - (NSMutableArray *) getWaveHeightForLocation:(int)location {
     if (location == BLOCK_ISLAND_LOCATION) {
         // They want block island height
-        return _blockIslandWaveHeights;
+        return self.blockIslandWaveHeights;
     } else {
         // They want montauk heights
-        return _montaukWaveHeights;
+        return self.montaukWaveHeights;
     }
 }
 
@@ -134,12 +134,12 @@
         // Append the buoy to the list of buoys
         if ([location isEqualToNumber:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]]) {
             // Append to the BI array
-            [_blockIslandBuoys addObject:newBuoy];
-            [_blockIslandWaveHeights addObject:[NSString stringWithFormat:@"%2.2f", h]];
+            [self.blockIslandBuoys addObject:newBuoy];
+            [self.blockIslandWaveHeights addObject:[NSString stringWithFormat:@"%2.2f", h]];
         }  else {
             // Append to the montauk array
-            [_montaukBuoys addObject:newBuoy];
-            [_montaukWaveHeights addObject:[NSString stringWithFormat:@"%2.2f", h]];
+            [self.montaukBuoys addObject:newBuoy];
+            [self.montaukWaveHeights addObject:[NSString stringWithFormat:@"%2.2f", h]];
         }
     }
     return YES;

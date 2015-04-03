@@ -49,8 +49,8 @@
     locationURLs = [NSDictionary dictionaryWithContentsOfFile:path];
     
     // Initialize the data holders
-    _conditions = [[NSMutableArray alloc] init];
-    _forecasts = [[NSMutableArray alloc] init];
+    self.conditions = [[NSMutableArray alloc] init];
+    self.forecasts = [[NSMutableArray alloc] init];
     
     // Get the current location and setup the settings listener
     [[NSUserDefaults standardUserDefaults] addObserver:self
@@ -74,12 +74,12 @@
         // Theres no data yet so load form the url
         [self loadRawData];
     }
-    if ([_conditions count] == 0) {
+    if ([self.conditions count] == 0) {
         // There are no conditions so parse them out
         [self parseForecasts];
     }
     
-    NSArray *currentConditions = [_conditions subarrayWithRange:NSMakeRange(index*6, 6)];
+    NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
     return currentConditions;
 }
 
@@ -88,12 +88,12 @@
         // Theres no data yet so load form the url
         [self loadRawData];
     }
-    if ([_forecasts count] == 0) {
+    if ([self.forecasts count] == 0) {
         // Theres no forecasts yet so parse them out
         [self parseForecasts];
     }
     
-    return _forecasts;
+    return self.forecasts;
 }
 
 - (void)loadRawData {
@@ -160,7 +160,7 @@
             [thisCondition setPeriodChartURL:[chartDict objectForKey:@"period"]];
         
             // Append the condition
-            [_conditions addObject:thisCondition];
+            [self.conditions addObject:thisCondition];
             conditionCount++;
         }
         
@@ -180,7 +180,7 @@
             [thisForecast setWindDir:[windDict objectForKey:@"compassDirection"]];
         
             // Append the forecast to the list
-            [_forecasts addObject:thisForecast];
+            [self.forecasts addObject:thisForecast];
             forecastCount++;
         }
     }
@@ -247,11 +247,11 @@
     if (rawData.count > 0) {
         rawData = [[NSArray alloc] init];
     }
-    if ([_conditions count] > 0) {
-        [_conditions removeAllObjects];
+    if ([self.conditions count] > 0) {
+        [self.conditions removeAllObjects];
     }
-    if ([_forecasts count] > 0) {
-        [_forecasts removeAllObjects];
+    if ([self.forecasts count] > 0) {
+        [self.forecasts removeAllObjects];
     }
     
     // Update the location
