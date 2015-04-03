@@ -75,70 +75,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 6 rows
-    return [[self.forecastModel conditions] count]/5+1;
-}
-
-- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
-{
-    // Get the interface items
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mswHourItem"];
-    UILabel *hourLabel = (UILabel *)[cell viewWithTag:11];
-    UILabel *waveLabel = (UILabel *)[cell viewWithTag:12];
-    UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
-    UILabel *swellLabel = (UILabel *)[cell viewWithTag:14];
-    
-    if ([indexPath row] < 1) {
-        // Set the heder text cuz its the first row
-        [hourLabel setText:@"Time"];
-        [waveLabel setText:@"Surf"];
-        [windLabel setText:@"Wind"];
-        [swellLabel setText:@"Swell"];
-        
-        // Set the header label to be hackwinds color blue
-        [hourLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [waveLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [windLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [swellLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        
-        // Set the text to be bold
-        [hourLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [waveLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [windLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [swellLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        
-    } else {
-        // Get the condition object
-        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
-    
-        // Set the data to show in the labels
-        [hourLabel setText:thisCondition.Date];
-        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.MinBreakHeight, thisCondition.MaxBreakHeight]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.WindDirection, thisCondition.WindSpeed]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.SwellDirection, thisCondition.SwellHeight, thisCondition.SwellPeriod]];
-        
-        // Make sure that the text is black
-        [hourLabel setTextColor:[UIColor blackColor]];
-        [waveLabel setTextColor:[UIColor blackColor]];
-        [windLabel setTextColor:[UIColor blackColor]];
-        [swellLabel setTextColor:[UIColor blackColor]];
-        
-        // Make sure the text isnt bold
-        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
-    }
-    
-    return cell;
-}
-
 - (IBAction)playButton:(id)sender {
     // Handle play button click
     NSLog(@"Video play button pressed");
@@ -186,5 +122,72 @@
                                          withObject:nil waitUntilDone:YES];
     });
 }
+
+#pragma mark - TableView
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return so there will always be 6 rows
+    return [[self.forecastModel conditions] count]/5+1;
+}
+
+- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    // Get the interface items
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mswHourItem"];
+    UILabel *hourLabel = (UILabel *)[cell viewWithTag:11];
+    UILabel *waveLabel = (UILabel *)[cell viewWithTag:12];
+    UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
+    UILabel *swellLabel = (UILabel *)[cell viewWithTag:14];
+    
+    if ([indexPath row] < 1) {
+        // Set the heder text cuz its the first row
+        [hourLabel setText:@"Time"];
+        [waveLabel setText:@"Surf"];
+        [windLabel setText:@"Wind"];
+        [swellLabel setText:@"Swell"];
+        
+        // Set the header label to be hackwinds color blue
+        [hourLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [waveLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [windLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        [swellLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        
+        // Set the text to be bold
+        [hourLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [waveLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [windLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [swellLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        
+    } else {
+        // Get the condition object
+        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
+        
+        // Set the data to show in the labels
+        [hourLabel setText:thisCondition.Date];
+        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.MinBreakHeight, thisCondition.MaxBreakHeight]];
+        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.WindDirection, thisCondition.WindSpeed]];
+        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.SwellDirection, thisCondition.SwellHeight, thisCondition.SwellPeriod]];
+        
+        // Make sure that the text is black
+        [hourLabel setTextColor:[UIColor blackColor]];
+        [waveLabel setTextColor:[UIColor blackColor]];
+        [windLabel setTextColor:[UIColor blackColor]];
+        [swellLabel setTextColor:[UIColor blackColor]];
+        
+        // Make sure the text isnt bold
+        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
+    }
+    
+    return cell;
+}
+
 
 @end

@@ -68,6 +68,45 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)reloadView {
+    // Update the table
+    [self.buoyTable reloadData];
+    
+    // Update the plot data sets
+    [plot reloadData];
+    
+    // Scale the y axis to fit the data
+    NSNumber *maxWV = [currentWaveHeights valueForKeyPath:@"@max.doubleValue"];
+    double max = round([maxWV doubleValue]+2);
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat(max)]];
+    
+    // Set the axis ticks to fit labels without squishing them
+    if (max > 8) {
+        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(2)];
+    } else {
+        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(1)];
+    }
+}
+
+- (IBAction)locationSegmentValueChanged:(id)sender {
+    // Check the selection location
+    if ([sender selectedSegmentIndex] == 0) {
+        buoy_location = BLOCK_ISLAND_LOCATION;
+    } else {
+        buoy_location = MONTAUK_LOCATION;
+    }
+    // Get the new buoy data and reload the main view
+    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
+        currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
+        currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
+        [self performSelectorOnMainThread:@selector(reloadView)
+                               withObject:nil waitUntilDone:YES];
+    });
+}
+
+#pragma mark - TabelView
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
@@ -143,6 +182,8 @@
     // Return the cell view
     return cell;
 }
+
+#pragma mark - Plotting
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
     // The time scales are different time deltas, make sure they both show 9 hours of data
@@ -235,43 +276,6 @@
 															 withDelay:0]
 		   animationCurve:CPTAnimationCurveCubicInOut
 				 delegate:nil];
-}
-
-- (void)reloadView {
-    // Update the table
-    [self.buoyTable reloadData];
-    
-    // Update the plot data sets
-    [plot reloadData];
-    
-    // Scale the y axis to fit the data
-    NSNumber *maxWV = [currentWaveHeights valueForKeyPath:@"@max.doubleValue"];
-    double max = round([maxWV doubleValue]+2);
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat(max)]];
-    
-    // Set the axis ticks to fit labels without squishing them
-    if (max > 8) {
-        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(2)];
-    } else {
-        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(1)];
-    }
-}
-
-- (IBAction)locationSegmentValueChanged:(id)sender {
-    // Check the selection location
-    if ([sender selectedSegmentIndex] == 0) {
-        buoy_location = BLOCK_ISLAND_LOCATION;
-    } else {
-        buoy_location = MONTAUK_LOCATION;
-    }
-    // Get the new buoy data and reload the main view
-    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-        currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
-        currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
-        [self performSelectorOnMainThread:@selector(reloadView)
-                               withObject:nil waitUntilDone:YES];
-    });
 }
 
 /*
