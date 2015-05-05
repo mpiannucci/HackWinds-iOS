@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -139,6 +139,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U">
+                        <barButtonItem key="leftBarButtonItem" image="CamRefreshIcon" id="3FX-Ef-fcT">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="zvH-p6-z3E" kind="modal" id="mbW-lm-AUx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="hFX-9A-fnG">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -156,6 +162,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="-378"/>
+        </scene>
+        <!--Alternate Camera Navigation Controller-->
+        <scene sceneID="OMS-rM-viZ">
+            <objects>
+                <navigationController id="zvH-p6-z3E" userLabel="Alternate Camera Navigation Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ld-1R-gWk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="20K-pt-DuJ" kind="relationship" relationship="rootViewController" id="ZWK-4i-r1B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGQ-Tp-CBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="-919"/>
+        </scene>
+        <!--AlternateCameras-->
+        <scene sceneID="DMI-3a-1af">
+            <objects>
+                <tableViewController id="20K-pt-DuJ" userLabel="AlternateCameras" customClass="AlternateCamerasViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wNO-4Z-cbw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rk8-MB-qmh">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rk8-MB-qmh" id="vjW-vz-Hnw">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="20K-pt-DuJ" id="Ck3-sX-F8R"/>
+                            <outlet property="delegate" destination="20K-pt-DuJ" id="k2h-IR-5yK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Alternate Cameras" id="GAz-e9-i5R">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="kdc-L6-cnG">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="closeViewClicked:" destination="20K-pt-DuJ" id="82F-9N-cue"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="spL-zZ-26n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="-919"/>
         </scene>
         <!--DetailedForecast-->
         <scene sceneID="1jj-Jj-Ist">
@@ -435,10 +491,10 @@
             </objects>
             <point key="canvasLocation" x="487" y="430"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings Navigation Controller-->
         <scene sceneID="jXm-cI-FGF">
             <objects>
-                <navigationController id="n3n-Wz-yM1" sceneMemberID="viewController">
+                <navigationController id="n3n-Wz-yM1" userLabel="Settings Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O10-Tn-Wt7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -606,7 +662,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKr-UG-Wne" id="M2N-KW-cIX">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="r4H-8V-pre">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="r4H-8V-pre">
                                                     <rect key="frame" x="8" y="0.0" width="304" height="71"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1080,6 +1136,7 @@
     </scenes>
     <resources>
         <image name="BuoyIcon" width="30" height="30"/>
+        <image name="CamRefreshIcon" width="28" height="21"/>
         <image name="CheckmarkIcon" width="12" height="13"/>
         <image name="ForecastIcon" width="30" height="30"/>
         <image name="LiveIcon" width="30" height="30"/>
@@ -1093,6 +1150,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pa9-s7-zVu"/>
+        <segue reference="rYr-bo-HPU"/>
     </inferredMetricsTieBreakers>
 </document>

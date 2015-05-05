@@ -29,6 +29,7 @@
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
 		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
 		343F33D119EF5C5A005802FA /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 343F33D019EF5C5A005802FA /* Tide.m */; };
+		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		3478C6101A3E833900479DE1 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C60F1A3E833900479DE1 /* TideModel.m */; };
 		3478C6151A3E8F2600479DE1 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6141A3E8F2600479DE1 /* BuoyModel.m */; };
 		3478C6191A3E9D8200479DE1 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6181A3E9D8200479DE1 /* ForecastModel.m */; };
@@ -105,6 +106,8 @@
 		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		343F33CF19EF5C5A005802FA /* Tide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tide.h; sourceTree = "<group>"; };
 		343F33D019EF5C5A005802FA /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tide.m; sourceTree = "<group>"; };
+		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
+		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34639D151A01E8B400C5CAD7 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		3478C60E1A3E833900479DE1 /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideModel.h; sourceTree = "<group>"; };
 		3478C60F1A3E833900479DE1 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideModel.m; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				3430839919795D0F00655F15 /* AppDelegate.m */,
 				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
 				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
+				34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */,
+				34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */,
 				3495C95919E78DCF00C8F4D7 /* Buoy.h */,
 				3495C95A19E78DCF00C8F4D7 /* Buoy.m */,
 				3478C6131A3E8F2600479DE1 /* BuoyModel.h */,
@@ -427,6 +432,7 @@
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
 				342A762A1985FD2E00077F8C /* Condition.m in Sources */,
 				342A76221985E18100077F8C /* TideViewController.m in Sources */,
+				34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				3431F9D219CBE135007FA7CA /* Forecast.m in Sources */,
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
