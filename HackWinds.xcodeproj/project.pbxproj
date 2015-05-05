@@ -30,6 +30,7 @@
 		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
 		343F33D119EF5C5A005802FA /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 343F33D019EF5C5A005802FA /* Tide.m */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
+		34433DBC1AF8694300E2C7E6 /* CameraLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34433DBB1AF8694300E2C7E6 /* CameraLocations.plist */; };
 		3478C6101A3E833900479DE1 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C60F1A3E833900479DE1 /* TideModel.m */; };
 		3478C6151A3E8F2600479DE1 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6141A3E8F2600479DE1 /* BuoyModel.m */; };
 		3478C6191A3E9D8200479DE1 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6181A3E9D8200479DE1 /* ForecastModel.m */; };
@@ -108,6 +109,7 @@
 		343F33D019EF5C5A005802FA /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tide.m; sourceTree = "<group>"; };
 		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
+		34433DBB1AF8694300E2C7E6 /* CameraLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CameraLocations.plist; sourceTree = "<group>"; };
 		34639D151A01E8B400C5CAD7 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		3478C60E1A3E833900479DE1 /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideModel.h; sourceTree = "<group>"; };
 		3478C60F1A3E833900479DE1 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideModel.m; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				3430839519795D0F00655F15 /* main.m */,
 				3430839719795D0F00655F15 /* HackWinds-Prefix.pch */,
 				340AFA201A9C320700DAD121 /* UISettings.plist */,
+				34433DBB1AF8694300E2C7E6 /* CameraLocations.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343083A019795D0F00655F15 /* Main_iPad.storyboard in Resources */,
+				34433DBC1AF8694300E2C7E6 /* CameraLocations.plist in Resources */,
 				340AFA211A9C320700DAD121 /* UISettings.plist in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
 				34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */,

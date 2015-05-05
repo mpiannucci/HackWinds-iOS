@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Narragansett</key>
+	<dict>
+		<key>WarmWindsStill</key>
+		<string>http://www.warmwinds.com/wp-content/uploads/surf-cam-stills/image00001.jpg</string>
+		<key>WarmWindsHD</key>
+		<string>http://162.243.101.197:1935/surfcam/live.stream/playlist.m3u8</string>
+		<key>GansettJuice</key>
+		<string>http://www.northeastsurfing.com/cams/narragansett/image00001.jpg</string>
+	</dict>
+	<key>Newport</key>
+	<dict>
+		<key>FirstBeachEast</key>
+		<string>http://70.184.11.182/axis-cgi/jpg/image.cgi?resolution=640x480</string>
+		<key>FirstBeachWest</key>
+		<string>http://70.184.13.116/axis-cgi/jpg/image.cgi?resolution=640x480</string>
+	</dict>
+	<key>Hull MA</key>
+	<dict>
+		<key>HullNorth</key>
+		<string>http://173.166.108.66/axis-cgi/jpg/image.cgi?resolution=640x480</string>
+		<key>HullSouth</key>
+		<string>http://96.237.61.93/axis-cgi/jpg/image.cgi?resolution=640x480</string>
+	</dict>
+</dict>
+</plist>
