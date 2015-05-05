@@ -7,21 +7,24 @@
 //
 
 #import "AlternateCamerasViewController.h"
+#import "IsoCameraViewController.h"
 
 @interface AlternateCamerasViewController ()
 
 @end
 
-@implementation AlternateCamerasViewController
+@implementation AlternateCamerasViewController {
+    NSDictionary *cameraURLS;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Load locations from file
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"CameraLocations"
+                                                     ofType:@"plist"];
+    cameraURLS = [NSDictionary dictionaryWithContentsOfFile:path];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,69 +39,109 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return cameraURLS.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    switch (section) {
+        case 0:
+            return [[cameraURLS objectForKey:@"Narragansett"] count] - 2;
+        case 1:
+            return [[cameraURLS objectForKey:@"Newport"] count];
+        case 2:
+            return [[cameraURLS objectForKey:@"Hull MA"] count];
+        default:
+            return 0;
+    }
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cameraLocationItem" forIndexPath:indexPath];
     
-    // Configure the cell...
+    UILabel *locationLabel = (UILabel *)[cell viewWithTag:89];
+    
+    switch (indexPath.section) {
+        case 0:
+            // Always the juice cam
+            [locationLabel setText:@"Town Beach South"];
+            break;
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                    [locationLabel setText:@"Easton Beach West"];
+                    break;
+                case 1:
+                    [locationLabel setText:@"Easton Beach East"];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            switch (indexPath.row) {
+                case 0:
+                    [locationLabel setText:@"Nantasket North"];
+                    break;
+                case 1:
+                    [locationLabel setText:@"Nantasket South"];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"Narragansett";
+            break;
+        case 1:
+            sectionName = @"Newport";
+            break;
+        case 2:
+            sectionName = @"Hull, MA";
+            break;
+        default:
+            sectionName = @"";
+            break;
+    }
+    return sectionName;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Deselect the row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"altCameraSegue"]) {
+        // Get the row of the table that was selected
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        IsoCameraViewController *cameraView = segue.destinationViewController;
+        
+        // Get the cell that was selected so we can get the name
+        UILabel *locationLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:indexPath] viewWithTag:89];
+        
+        // Set the title of the destination to the lcation picked
+        cameraView.navigationItem.title = locationLabel.text;
+    }
 }
-*/
 
 @end

@@ -183,16 +183,34 @@
         <scene sceneID="DMI-3a-1af">
             <objects>
                 <tableViewController id="20K-pt-DuJ" userLabel="AlternateCameras" customClass="AlternateCamerasViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wNO-4Z-cbw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="wNO-4Z-cbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rk8-MB-qmh">
+                            <tableViewCell tag="89" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cameraLocationItem" id="rk8-MB-qmh">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rk8-MB-qmh" id="vjW-vz-Hnw">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="89" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmp-3q-8tf">
+                                            <rect key="frame" x="8" y="11" width="271" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="zmp-3q-8tf" secondAttribute="centerX" id="6uo-oa-FO2"/>
+                                        <constraint firstAttribute="centerY" secondItem="zmp-3q-8tf" secondAttribute="centerY" id="HkX-PT-uZn"/>
+                                        <constraint firstItem="zmp-3q-8tf" firstAttribute="trailing" secondItem="vjW-vz-Hnw" secondAttribute="trailingMargin" id="ME3-Ds-Nnr"/>
+                                        <constraint firstItem="zmp-3q-8tf" firstAttribute="leading" secondItem="vjW-vz-Hnw" secondAttribute="leadingMargin" id="nwY-uC-0ms"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zmp-3q-8tf" secondAttribute="bottom" constant="3" id="oRw-5J-nhY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="orJ-Og-poC" kind="push" identifier="altCameraSegue" id="pMp-xU-0XB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -211,7 +229,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spL-zZ-26n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1689" y="-919"/>
+            <point key="canvasLocation" x="1709" y="-919"/>
+        </scene>
+        <!--IsoCamera-->
+        <scene sceneID="W6V-Sf-bSR">
+            <objects>
+                <viewController id="orJ-Og-poC" userLabel="IsoCamera" customClass="IsoCameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J9f-Am-dQ8"/>
+                        <viewControllerLayoutGuide type="bottom" id="SlJ-f5-zMY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="14P-l0-qiN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Camera Location" id="HUD-ni-j6C"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CLO-Pg-ZJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2153" y="-919"/>
         </scene>
         <!--DetailedForecast-->
         <scene sceneID="1jj-Jj-Ist">
@@ -1150,6 +1187,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rYr-bo-HPU"/>
+        <segue reference="l1V-PH-Aev"/>
     </inferredMetricsTieBreakers>
 </document>

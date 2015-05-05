@@ -7,8 +7,6 @@
 //
 
 #define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define wwStillURL [NSURL URLWithString:@"http://www.warmwinds.com/wp-content/uploads/surf-cam-stills/image00001.jpg"]
-#define wwLiveURL [NSURL URLWithString:@"http://162.243.101.197:1935/surfcam/live.stream/playlist.m3u8"]
 
 #import <MediaPlayer/MediaPlayer.h>
 #import "CurrentViewController.h"
@@ -31,6 +29,7 @@
 
 @implementation CurrentViewController {
     NSArray *currentConditions;
+    NSDictionary *cameraURLS;
 }
 
 - (void)viewDidLoad
@@ -38,6 +37,12 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    // Load locations from file
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"CameraLocations"
+                                                     ofType:@"plist"];
+    cameraURLS = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSURL *wwStillURL = [NSURL URLWithString:[[cameraURLS objectForKey:@"Narragansett"] objectForKey:@"WarmWindsStill"]];
     
     // Load the imageview
     [self.holderImageButton setImageURL:wwStillURL];
@@ -84,6 +89,7 @@
     CGFloat screenWidth = screenRect.size.width;
     
     // Create a new MoviePlayer with the Live Stream URL
+    NSURL *wwLiveURL = [NSURL URLWithString:[[cameraURLS objectForKey:@"Narragansett"] objectForKey:@"WarmWindsLive"]];
     self.streamPlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];
