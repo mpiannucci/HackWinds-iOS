@@ -40,7 +40,6 @@
 		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
-		34AA11851ACB916D00BECD3E /* chartplaceholder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 34AA11841ACB916D00BECD3E /* chartplaceholder.gif */; };
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
@@ -127,7 +126,6 @@
 		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		34AA11841ACB916D00BECD3E /* chartplaceholder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chartplaceholder.gif; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -171,6 +169,93 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		342BEA671AF9A0C2004D6EE3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */,
+				34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */,
+				3495C95319E7773100C8F4D7 /* BuoyViewController.h */,
+				3495C95419E7773100C8F4D7 /* BuoyViewController.m */,
+				343083A119795D0F00655F15 /* CurrentViewController.h */,
+				343083A219795D0F00655F15 /* CurrentViewController.m */,
+				34C8E7201ACA43EB0038E895 /* DetailedForecastViewController.h */,
+				34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */,
+				343083A419795D0F00655F15 /* ForecastViewController.h */,
+				343083A519795D0F00655F15 /* ForecastViewController.m */,
+				34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */,
+				34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */,
+				34CA15321A9D657000DAB1F8 /* SettingsViewController.h */,
+				34CA15331A9D657000DAB1F8 /* SettingsViewController.m */,
+				342A76201985E18100077F8C /* TideViewController.h */,
+				342A76211985E18100077F8C /* TideViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		342BEA681AF9A101004D6EE3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				34AA865C1A41382F00AD09CF /* Reachability.h */,
+				34AA865D1A41382F00AD09CF /* Reachability.m */,
+				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
+				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
+				34639D151A01E8B400C5CAD7 /* Colors.h */,
+				34CA15361A9D787A00DAB1F8 /* Constants.h */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		342BEA691AF9A11F004D6EE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3478C6131A3E8F2600479DE1 /* BuoyModel.h */,
+				3478C6141A3E8F2600479DE1 /* BuoyModel.m */,
+				3478C6171A3E9D8200479DE1 /* ForecastModel.h */,
+				3478C6181A3E9D8200479DE1 /* ForecastModel.m */,
+				3478C60E1A3E833900479DE1 /* TideModel.h */,
+				3478C60F1A3E833900479DE1 /* TideModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		342BEA6A1AF9A12C004D6EE3 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				3495C95919E78DCF00C8F4D7 /* Buoy.h */,
+				3495C95A19E78DCF00C8F4D7 /* Buoy.m */,
+				342A76281985FD2E00077F8C /* Condition.h */,
+				342A76291985FD2E00077F8C /* Condition.m */,
+				3431F9D019CBE135007FA7CA /* Forecast.h */,
+				3431F9D119CBE135007FA7CA /* Forecast.m */,
+				343F33CF19EF5C5A005802FA /* Tide.h */,
+				343F33D019EF5C5A005802FA /* Tide.m */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		342BEA6B1AF9A427004D6EE3 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3430839219795D0F00655F15 /* InfoPlist.strings */,
+				3430839119795D0F00655F15 /* HackWinds-Info.plist */,
+				3430839519795D0F00655F15 /* main.m */,
+				3430839719795D0F00655F15 /* HackWinds-Prefix.pch */,
+				3430839819795D0F00655F15 /* AppDelegate.h */,
+				3430839919795D0F00655F15 /* AppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		342BEA6C1AF9A626004D6EE3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
+				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
+				34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		3430837D19795D0F00655F15 = {
 			isa = PBXGroup;
 			children = (
@@ -210,67 +295,15 @@
 		3430838F19795D0F00655F15 /* HackWinds */ = {
 			isa = PBXGroup;
 			children = (
-				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
-				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
-				34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */,
-				34AA865C1A41382F00AD09CF /* Reachability.h */,
-				34AA865D1A41382F00AD09CF /* Reachability.m */,
-				3430839819795D0F00655F15 /* AppDelegate.h */,
-				3430839919795D0F00655F15 /* AppDelegate.m */,
-				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
-				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
-				34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */,
-				34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */,
-				3495C95919E78DCF00C8F4D7 /* Buoy.h */,
-				3495C95A19E78DCF00C8F4D7 /* Buoy.m */,
-				3478C6131A3E8F2600479DE1 /* BuoyModel.h */,
-				3478C6141A3E8F2600479DE1 /* BuoyModel.m */,
-				3495C95319E7773100C8F4D7 /* BuoyViewController.h */,
-				3495C95419E7773100C8F4D7 /* BuoyViewController.m */,
-				34639D151A01E8B400C5CAD7 /* Colors.h */,
-				34CA15361A9D787A00DAB1F8 /* Constants.h */,
-				342A76281985FD2E00077F8C /* Condition.h */,
-				342A76291985FD2E00077F8C /* Condition.m */,
-				343083A119795D0F00655F15 /* CurrentViewController.h */,
-				343083A219795D0F00655F15 /* CurrentViewController.m */,
-				34C8E7201ACA43EB0038E895 /* DetailedForecastViewController.h */,
-				34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */,
-				3431F9D019CBE135007FA7CA /* Forecast.h */,
-				3431F9D119CBE135007FA7CA /* Forecast.m */,
-				3478C6171A3E9D8200479DE1 /* ForecastModel.h */,
-				3478C6181A3E9D8200479DE1 /* ForecastModel.m */,
-				343083A419795D0F00655F15 /* ForecastViewController.h */,
-				343083A519795D0F00655F15 /* ForecastViewController.m */,
-				34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */,
-				34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */,
-				34CA15321A9D657000DAB1F8 /* SettingsViewController.h */,
-				34CA15331A9D657000DAB1F8 /* SettingsViewController.m */,
-				343F33CF19EF5C5A005802FA /* Tide.h */,
-				343F33D019EF5C5A005802FA /* Tide.m */,
-				3478C60E1A3E833900479DE1 /* TideModel.h */,
-				3478C60F1A3E833900479DE1 /* TideModel.m */,
-				342A76201985E18100077F8C /* TideViewController.h */,
-				342A76211985E18100077F8C /* TideViewController.m */,
-				343083A719795D0F00655F15 /* Images.xcassets */,
+				342BEA6B1AF9A427004D6EE3 /* Application */,
+				342BEA671AF9A0C2004D6EE3 /* Views */,
+				342BEA691AF9A11F004D6EE3 /* Models */,
+				342BEA6C1AF9A626004D6EE3 /* Storyboards */,
+				342BEA6A1AF9A12C004D6EE3 /* Types */,
+				342BEA681AF9A101004D6EE3 /* Utilities */,
 				34FD036A198F0A4F00BA0FB0 /* Resources */,
-				3430839019795D0F00655F15 /* Supporting Files */,
 			);
 			path = HackWinds;
-			sourceTree = "<group>";
-		};
-		3430839019795D0F00655F15 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				34AA11841ACB916D00BECD3E /* chartplaceholder.gif */,
-				34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */,
-				3430839119795D0F00655F15 /* HackWinds-Info.plist */,
-				3430839219795D0F00655F15 /* InfoPlist.strings */,
-				3430839519795D0F00655F15 /* main.m */,
-				3430839719795D0F00655F15 /* HackWinds-Prefix.pch */,
-				340AFA201A9C320700DAD121 /* UISettings.plist */,
-				34433DBB1AF8694300E2C7E6 /* CameraLocations.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		343083B419795D0F00655F15 /* HackWindsTests */ = {
@@ -302,8 +335,12 @@
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				343083A719795D0F00655F15 /* Images.xcassets */,
+				34433DBB1AF8694300E2C7E6 /* CameraLocations.plist */,
+				34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */,
+				340AFA201A9C320700DAD121 /* UISettings.plist */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,7 +445,6 @@
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
 				34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */,
 				34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */,
-				34AA11851ACB916D00BECD3E /* chartplaceholder.gif in Resources */,
 				3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
 			);
@@ -489,6 +525,7 @@
 				3430839C19795D0F00655F15 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			path = ../Application;
 			sourceTree = "<group>";
 		};
 		3430839E19795D0F00655F15 /* Main_iPad.storyboard */ = {
@@ -497,6 +534,7 @@
 				3430839F19795D0F00655F15 /* Base */,
 			);
 			name = Main_iPad.storyboard;
+			path = ../Application;
 			sourceTree = "<group>";
 		};
 		343083B719795D0F00655F15 /* InfoPlist.strings */ = {
@@ -591,13 +629,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
-				INFOPLIST_FILE = "HackWinds/HackWinds-Info.plist";
+				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -614,13 +652,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
+				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
-				INFOPLIST_FILE = "HackWinds/HackWinds-Info.plist";
+				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
