@@ -10,4 +10,8 @@
 
 @interface IsoCameraViewController : UIViewController
 
+- (IBAction)reloadButtonClick:(id)sender;
+- (IBAction)autoReloadSwitchChange:(id)sender;
+- (IBAction)fullScreenClick:(id)sender;
+
 @end

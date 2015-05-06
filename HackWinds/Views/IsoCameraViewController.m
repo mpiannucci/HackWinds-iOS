@@ -10,6 +10,9 @@
 
 @interface IsoCameraViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *camImage;
+@property (weak, nonatomic) IBOutlet UISwitch *autoReloadSwitch;
+
 @end
 
 @implementation IsoCameraViewController
@@ -28,6 +31,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)reloadButtonClick:(id)sender {
+    
+}
+
+- (IBAction)autoReloadSwitchChange:(id)sender {
+    
+}
+
+- (IBAction)fullScreenClick:(id)sender {
+    
 }
 
 /*

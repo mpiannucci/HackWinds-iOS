@@ -242,9 +242,63 @@
                     <view key="view" contentMode="scaleToFill" id="14P-l0-qiN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E57-OS-Fe1">
+                                <rect key="frame" x="0.0" y="64" width="320" height="203"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="203" id="ojz-Qr-5dB"/>
+                                </constraints>
+                            </imageView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqf-SR-fzl">
+                                <rect key="frame" x="255" y="280" width="51" height="31"/>
+                                <connections>
+                                    <action selector="autoReloadSwitchChange:" destination="orJ-Og-poC" eventType="valueChanged" id="ikj-Mu-FOn"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Reload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-sR-0fV">
+                                <rect key="frame" x="16" y="285" width="231" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uB7-YH-V4z">
+                                <rect key="frame" x="75" y="319" width="170" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="View Full Screen">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fullScreenClick:" destination="orJ-Og-poC" eventType="touchUpInside" id="Md9-Fs-sGm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gqf-SR-fzl" firstAttribute="trailing" secondItem="14P-l0-qiN" secondAttribute="trailingMargin" id="FOO-Ek-Lh4"/>
+                            <constraint firstItem="gqf-SR-fzl" firstAttribute="centerY" secondItem="AX0-sR-0fV" secondAttribute="centerY" id="K7z-pK-0gr"/>
+                            <constraint firstItem="uB7-YH-V4z" firstAttribute="top" secondItem="AX0-sR-0fV" secondAttribute="bottom" constant="13" id="Sg7-ok-4ga"/>
+                            <constraint firstItem="gqf-SR-fzl" firstAttribute="top" secondItem="E57-OS-Fe1" secondAttribute="bottom" constant="13" id="Ujf-3O-ITP"/>
+                            <constraint firstItem="AX0-sR-0fV" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" id="VrL-iH-yig"/>
+                            <constraint firstItem="gqf-SR-fzl" firstAttribute="leading" secondItem="AX0-sR-0fV" secondAttribute="trailing" constant="8" id="WCi-s1-VgV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uB7-YH-V4z" secondAttribute="trailing" constant="59" id="eTx-sO-lwo"/>
+                            <constraint firstAttribute="centerX" secondItem="uB7-YH-V4z" secondAttribute="centerX" id="ks3-hi-VFz"/>
+                            <constraint firstAttribute="trailing" secondItem="E57-OS-Fe1" secondAttribute="trailing" id="mX8-sH-J2R"/>
+                            <constraint firstItem="E57-OS-Fe1" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" id="nD5-yg-saw"/>
+                            <constraint firstItem="E57-OS-Fe1" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leading" id="qRf-i9-Dbe"/>
+                            <constraint firstItem="uB7-YH-V4z" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" constant="59" id="xT6-g6-8KN"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera Location" id="HUD-ni-j6C"/>
+                    <navigationItem key="navigationItem" title="Camera Location" id="HUD-ni-j6C">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="iiT-6q-xA8">
+                            <connections>
+                                <action selector="reloadButtonClick:" destination="orJ-Og-poC" id="DGb-Vh-MK3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="autoReloadSwitch" destination="gqf-SR-fzl" id="wAD-JK-NUe"/>
+                        <outlet property="camImage" destination="E57-OS-Fe1" id="TU9-Cb-J7Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLO-Pg-ZJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
