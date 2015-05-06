@@ -46,7 +46,7 @@
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */; };
-		34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */; };
+		34F718371A1D8D6B00D6AFFF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,7 +137,7 @@
 		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		34CA15361A9D787A00DAB1F8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForecastLocations.plist; sourceTree = "<group>"; };
-		34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +251,7 @@
 			children = (
 				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
 				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
-				34F718361A1D8D6B00D6AFFF /* LaunchScreen.xib */,
+				34F718361A1D8D6B00D6AFFF /* Base.lproj */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -443,7 +443,7 @@
 				34433DBC1AF8694300E2C7E6 /* CameraLocations.plist in Resources */,
 				340AFA211A9C320700DAD121 /* UISettings.plist in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
-				34F718371A1D8D6B00D6AFFF /* LaunchScreen.xib in Resources */,
+				34F718371A1D8D6B00D6AFFF /* Base.lproj in Resources */,
 				34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */,
 				3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
@@ -525,7 +525,6 @@
 				3430839C19795D0F00655F15 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			path = ../Application;
 			sourceTree = "<group>";
 		};
 		3430839E19795D0F00655F15 /* Main_iPad.storyboard */ = {
@@ -534,7 +533,6 @@
 				3430839F19795D0F00655F15 /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			path = ../Application;
 			sourceTree = "<group>";
 		};
 		343083B719795D0F00655F15 /* InfoPlist.strings */ = {
