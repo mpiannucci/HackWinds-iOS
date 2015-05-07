@@ -135,18 +135,20 @@
 }
 
 - (IBAction)fullScreenClick:(id)sender {
+    // Set the full screen flag
+    isFullScreen = YES;
+    
+    // Set the initial full screen image
+    [self updateFullScreenImage];
+    
     // Hide the status bar and nav bar
     shouldHideStatusBar = YES;
     [self setNeedsStatusBarAppearanceUpdate];
     [self.navigationController setNavigationBarHidden:YES];
-    
-    // Set the initial full screen image
-    [self updateFullScreenImage];
 
     // Show the full screen image and the close button
     [self.fullScreenCamImage setHidden:NO];
     [self.fullScreenExitButton setHidden:NO];
-    isFullScreen = YES;
 }
 
 - (IBAction)exitButtonClick:(id)sender {
