@@ -156,6 +156,9 @@
 }
 
 - (IBAction)fullScreenExitClick:(id)sender {
+    // Reset the full screen flag
+    isFullScreen = NO;
+    
     // Show the status bar and nav bar
     shouldHideStatusBar = NO;
     [self setNeedsStatusBarAppearanceUpdate];
@@ -164,7 +167,6 @@
     // Hide the close button and the full screen image
     [self.fullScreenCamImage setHidden:YES];
     [self.fullScreenExitButton setHidden:YES];
-    isFullScreen = NO;
 }
 
 - (BOOL)prefersStatusBarHidden {
