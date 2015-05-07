@@ -243,7 +243,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E57-OS-Fe1">
+                            <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E57-OS-Fe1" customClass="AsyncImageView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="203"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="203" id="ojz-Qr-5dB"/>

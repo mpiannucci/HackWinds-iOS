@@ -10,6 +10,7 @@
 
 @interface AlternateCamerasViewController : UITableViewController
 
+- (NSString *)nameOfSection:(NSInteger)section;
 - (IBAction)closeViewClicked:(id)sender;
 
 @end

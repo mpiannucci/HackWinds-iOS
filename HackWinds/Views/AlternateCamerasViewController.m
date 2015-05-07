@@ -14,7 +14,7 @@
 @end
 
 @implementation AlternateCamerasViewController {
-    NSDictionary *cameraURLS;
+    NSDictionary *cameraURLs;
 }
 
 
@@ -24,7 +24,7 @@
     // Load locations from file
     NSString *path = [[NSBundle mainBundle] pathForResource:@"CameraLocations"
                                                      ofType:@"plist"];
-    cameraURLS = [NSDictionary dictionaryWithContentsOfFile:path];
+    cameraURLs = [NSDictionary dictionaryWithContentsOfFile:path];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,18 +39,18 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return cameraURLS.count;
+    return cameraURLs.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     switch (section) {
         case 0:
-            return [[cameraURLS objectForKey:@"Narragansett"] count] - 2;
+            return [[cameraURLs objectForKey:@"Narragansett"] count] - 2;
         case 1:
-            return [[cameraURLS objectForKey:@"Newport"] count];
+            return [[cameraURLs objectForKey:@"Newport"] count];
         case 2:
-            return [[cameraURLS objectForKey:@"Hull MA"] count];
+            return [[cameraURLs objectForKey:@"Hull"] count];
         default:
             return 0;
     }
@@ -100,6 +100,16 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    return [self nameOfSection:section];
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Deselect the row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)nameOfSection:(NSInteger)section {
     NSString *sectionName;
     switch (section)
     {
@@ -110,19 +120,13 @@
             sectionName = @"Newport";
             break;
         case 2:
-            sectionName = @"Hull, MA";
+            sectionName = @"Hull";
             break;
         default:
             sectionName = @"";
             break;
     }
     return sectionName;
-}
-
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // Deselect the row
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Navigation
@@ -138,9 +142,9 @@
         
         // Get the cell that was selected so we can get the name
         UILabel *locationLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:indexPath] viewWithTag:89];
+        NSString *location = [self nameOfSection:indexPath.section];
         
-        // Set the title of the destination to the lcation picked
-        cameraView.navigationItem.title = locationLabel.text;
+        [cameraView setCamera:locationLabel.text forLocation:location];
     }
 }
 

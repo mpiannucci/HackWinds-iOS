@@ -29,7 +29,7 @@
 
 @implementation CurrentViewController {
     NSArray *currentConditions;
-    NSDictionary *cameraURLS;
+    NSDictionary *cameraURLs;
 }
 
 - (void)viewDidLoad
@@ -41,8 +41,8 @@
     // Load locations from file
     NSString *path = [[NSBundle mainBundle] pathForResource:@"CameraLocations"
                                                      ofType:@"plist"];
-    cameraURLS = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSURL *wwStillURL = [NSURL URLWithString:[[cameraURLS objectForKey:@"Narragansett"] objectForKey:@"WarmWindsStill"]];
+    cameraURLs = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSURL *wwStillURL = [NSURL URLWithString:[[cameraURLs objectForKey:@"Narragansett"] objectForKey:@"WarmWindsStill"]];
     
     // Load the imageview
     [self.holderImageButton setImageURL:wwStillURL];
@@ -89,7 +89,7 @@
     CGFloat screenWidth = screenRect.size.width;
     
     // Create a new MoviePlayer with the Live Stream URL
-    NSURL *wwLiveURL = [NSURL URLWithString:[[cameraURLS objectForKey:@"Narragansett"] objectForKey:@"WarmWindsLive"]];
+    NSURL *wwLiveURL = [NSURL URLWithString:[[cameraURLs objectForKey:@"Narragansett"] objectForKey:@"WarmWindsLive"]];
     self.streamPlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];
