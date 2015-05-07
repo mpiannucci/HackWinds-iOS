@@ -262,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uB7-YH-V4z">
-                                <rect key="frame" x="75" y="319" width="170" height="39"/>
+                                <rect key="frame" x="75" y="339" width="170" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="View Full Screen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,33 +271,66 @@
                                     <action selector="fullScreenClick:" destination="orJ-Og-poC" eventType="touchUpInside" id="Md9-Fs-sGm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh interval is 0 seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-NB-6cu">
+                                <rect key="frame" x="16" y="314" width="288" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-uA-nQj">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="XCl-s8-bcU"/>
+                                    <constraint firstAttribute="height" constant="504" id="hlS-TD-rDs"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dk3-38-MyN">
+                                <rect key="frame" x="5" y="515" width="50" height="50"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="CloseIcon"/>
+                                <connections>
+                                    <action selector="fullScreenExitClick:" destination="orJ-Og-poC" eventType="touchUpInside" id="511-Pw-M4R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="K5b-uA-nQj" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" id="CTe-rh-tiS"/>
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="trailing" secondItem="14P-l0-qiN" secondAttribute="trailingMargin" id="FOO-Ek-Lh4"/>
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="centerY" secondItem="AX0-sR-0fV" secondAttribute="centerY" id="K7z-pK-0gr"/>
-                            <constraint firstItem="uB7-YH-V4z" firstAttribute="top" secondItem="AX0-sR-0fV" secondAttribute="bottom" constant="13" id="Sg7-ok-4ga"/>
+                            <constraint firstItem="zhA-NB-6cu" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" id="QdF-gK-4xd"/>
+                            <constraint firstItem="zhA-NB-6cu" firstAttribute="top" secondItem="AX0-sR-0fV" secondAttribute="bottom" constant="8" id="RFJ-Ym-5TX"/>
+                            <constraint firstItem="uB7-YH-V4z" firstAttribute="top" secondItem="zhA-NB-6cu" secondAttribute="bottom" constant="10" id="Ug6-AU-xBx"/>
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="top" secondItem="E57-OS-Fe1" secondAttribute="bottom" constant="13" id="Ujf-3O-ITP"/>
                             <constraint firstItem="AX0-sR-0fV" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" id="VrL-iH-yig"/>
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="leading" secondItem="AX0-sR-0fV" secondAttribute="trailing" constant="8" id="WCi-s1-VgV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K5b-uA-nQj" secondAttribute="trailing" constant="-16" id="aiI-ag-oe6"/>
+                            <constraint firstItem="K5b-uA-nQj" firstAttribute="leading" secondItem="Dk3-38-MyN" secondAttribute="trailing" constant="-55" id="ccp-RW-GTY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uB7-YH-V4z" secondAttribute="trailing" constant="59" id="eTx-sO-lwo"/>
                             <constraint firstAttribute="centerX" secondItem="uB7-YH-V4z" secondAttribute="centerX" id="ks3-hi-VFz"/>
                             <constraint firstAttribute="trailing" secondItem="E57-OS-Fe1" secondAttribute="trailing" id="mX8-sH-J2R"/>
                             <constraint firstItem="E57-OS-Fe1" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" id="nD5-yg-saw"/>
+                            <constraint firstItem="K5b-uA-nQj" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" constant="-16" id="ola-gA-CCl"/>
                             <constraint firstItem="E57-OS-Fe1" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leading" id="qRf-i9-Dbe"/>
+                            <constraint firstItem="zhA-NB-6cu" firstAttribute="trailing" secondItem="14P-l0-qiN" secondAttribute="trailingMargin" id="r6A-Fl-IIq"/>
+                            <constraint firstItem="Dk3-38-MyN" firstAttribute="top" secondItem="K5b-uA-nQj" secondAttribute="bottom" constant="-53" id="sGA-FV-v35"/>
+                            <constraint firstItem="K5b-uA-nQj" firstAttribute="bottom" secondItem="SlJ-f5-zMY" secondAttribute="top" id="vTf-iF-WOk"/>
                             <constraint firstItem="uB7-YH-V4z" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" constant="59" id="xT6-g6-8KN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Camera Location" id="HUD-ni-j6C">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="iiT-6q-xA8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="YL2-xh-o58">
                             <connections>
-                                <action selector="reloadButtonClick:" destination="orJ-Og-poC" id="DGb-Vh-MK3"/>
+                                <action selector="exitButtonClick:" destination="orJ-Og-poC" id="4bF-PW-14S"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="autoReloadSwitch" destination="gqf-SR-fzl" id="wAD-JK-NUe"/>
                         <outlet property="camImage" destination="E57-OS-Fe1" id="TU9-Cb-J7Y"/>
+                        <outlet property="fullScreenCamImage" destination="K5b-uA-nQj" id="9a4-rJ-K9Z"/>
+                        <outlet property="fullScreenExitButton" destination="Dk3-38-MyN" id="W83-yR-Wc0"/>
+                        <outlet property="refreshIntervalLabel" destination="zhA-NB-6cu" id="NO5-iJ-0iL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLO-Pg-ZJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1229,6 +1262,7 @@
         <image name="BuoyIcon" width="30" height="30"/>
         <image name="CamRefreshIcon" width="28" height="21"/>
         <image name="CheckmarkIcon" width="12" height="13"/>
+        <image name="CloseIcon" width="50" height="50"/>
         <image name="ForecastIcon" width="30" height="30"/>
         <image name="LiveIcon" width="30" height="30"/>
         <image name="PlayButton" width="120" height="120"/>
