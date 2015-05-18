@@ -38,11 +38,9 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    // Load locations from file
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"CameraLocations"
-                                                     ofType:@"plist"];
-    cameraURLs = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSURL *wwStillURL = [NSURL URLWithString:[[cameraURLs objectForKey:@"Narragansett"] objectForKey:@"WarmWindsStill"]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    cameraURLs = [[defaults objectForKey:@"CameraLocations"] objectForKey:@"Narragansett"];
+    NSURL *wwStillURL = [NSURL URLWithString:[cameraURLs objectForKey:@"Warm Winds Still"]];
     
     // Load the imageview
     [self.holderImageButton setImageURL:wwStillURL];
@@ -89,7 +87,7 @@
     CGFloat screenWidth = screenRect.size.width;
     
     // Create a new MoviePlayer with the Live Stream URL
-    NSURL *wwLiveURL = [NSURL URLWithString:[[cameraURLs objectForKey:@"Narragansett"] objectForKey:@"WarmWindsLive"]];
+    NSURL *wwLiveURL = [NSURL URLWithString:[cameraURLs objectForKey:@"Warm Winds Live"]];
     self.streamPlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];

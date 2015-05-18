@@ -21,10 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Load locations from file
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"CameraLocations"
-                                                     ofType:@"plist"];
-    cameraURLs = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    cameraURLs = [defaults objectForKey:@"CameraLocations"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,10 +68,10 @@
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    [locationLabel setText:@"Easton Beach West"];
+                    [locationLabel setText:@"First Beach West"];
                     break;
                 case 1:
-                    [locationLabel setText:@"Easton Beach East"];
+                    [locationLabel setText:@"First Beach East"];
                     break;
                 default:
                     break;

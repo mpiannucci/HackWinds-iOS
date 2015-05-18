@@ -6,5 +6,7 @@
 	<true/>
 	<key>ForecastLocation</key>
 	<string>Narragansett Town Beach</string>
+	<key>NeedCameraLocationFetch</key>
+	<true/>
 </dict>
 </plist>

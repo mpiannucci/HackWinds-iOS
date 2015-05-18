@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "Reachability.h"
+#import "CameraModel.h"
 
 @implementation AppDelegate
 {
@@ -36,20 +37,34 @@
     // Check for network connectivity. If theres no network, show a dialog.
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    if (networkStatus == NotReachable) {
-        NSLog(@"No internet connection");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-                                                message:@"You can't check waves with no internet!!"
-                                                delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [alert show];
-    }
     
     // Set the settings plist
     NSString *defaultPrefsFile = [[NSBundle mainBundle] pathForResource:@"UISettings" ofType:@"plist"];
     NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];
+
+    // Load the camera URLs
+    CameraModel *cameraModel = [CameraModel sharedModel];
+    BOOL locationsLoaded = [cameraModel fetchCameraURLs];
+    
+    // Let the user know if anything went wrong
+    if (networkStatus == NotReachable) {
+        NSLog(@"No internet connection");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+                                                        message:@"You can't check waves with no internet!!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    } else if (locationsLoaded == NO) {
+        NSLog(@"Can't reach Camera API server");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't reach Camera API server"
+                                                        message:@"Can't reach the camera servers. Please try again soon."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     
     return YES;
 }

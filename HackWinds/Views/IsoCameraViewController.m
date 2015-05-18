@@ -92,10 +92,8 @@
     self.Camera = camera;
     self.Location = location;
     
-    // Load locations from file
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"CameraLocations"
-                                                     ofType:@"plist"];
-    NSDictionary *cameraURLs = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *cameraURLs = [defaults objectForKey:@"CameraLocations"];
     cameraURL = [NSURL URLWithString:[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera]];
 }
 
