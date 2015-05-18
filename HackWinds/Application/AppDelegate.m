@@ -57,7 +57,7 @@
 
     // Load the camera URLs
     CameraModel *cameraModel = [CameraModel sharedModel];
-    BOOL locationsLoaded = [cameraModel fetchCameraURLs];
+    BOOL locationsLoaded = [cameraModel forceFetchCameraURLs];
     
     if (locationsLoaded == NO) {
         NSLog(@"Can't reach Camera API server");
