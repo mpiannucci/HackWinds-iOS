@@ -42,11 +42,7 @@
     NSString *defaultPrefsFile = [[NSBundle mainBundle] pathForResource:@"UISettings" ofType:@"plist"];
     NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];
-
-    // Load the camera URLs
-    CameraModel *cameraModel = [CameraModel sharedModel];
-    BOOL locationsLoaded = [cameraModel fetchCameraURLs];
-    
+   
     // Let the user know if anything went wrong
     if (networkStatus == NotReachable) {
         NSLog(@"No internet connection");
@@ -56,7 +52,14 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-    } else if (locationsLoaded == NO) {
+        return YES;
+    }       
+
+    // Load the camera URLs
+    CameraModel *cameraModel = [CameraModel sharedModel];
+    BOOL locationsLoaded = [cameraModel fetchCameraURLs];
+    
+    if (locationsLoaded == NO) {
         NSLog(@"Can't reach Camera API server");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't reach Camera API server"
                                                         message:@"Can't reach the camera servers. Please try again soon."
