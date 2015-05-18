@@ -40,6 +40,10 @@
     [self.fullScreenCamImage setHidden:YES];
     isFullScreen = NO;
     shouldHideStatusBar = NO;
+    
+    // Set the state of the auto reload switch
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self.autoReloadSwitch setOn:[defaults boolForKey:@"CamAutoReload"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,7 +52,10 @@
     imageLoaderInstance.cache = nil;
     
     // Register for image loaded notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFullScreenImage) name:@"AsyncImageLoadDidFinish" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateFullScreenImage)
+                                                 name:@"AsyncImageLoadDidFinish"
+                                               object:nil];
     
     if ([self.Camera isEqualToString:@"Town Beach South"]) {
         // On the Narragansett cam the update interval is 30 seconds
@@ -131,6 +138,12 @@
 }
 
 - (IBAction)autoReloadSwitchChange:(id)sender {
+    // Update the auto reload settings
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:[sender isOn] forKey:@"CamAutoReload"];
+    [defaults synchronize];
+    
+    // Update the refresh label
     [self updateRefreshLabel];
 }
 
