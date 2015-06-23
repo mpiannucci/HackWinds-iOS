@@ -16,6 +16,7 @@
 #import "BuoyModel.h"
 #import "Buoy.h"
 #import "Colors.h"
+#import "Reachability.h"
 
 @interface BuoyViewController ()
 
@@ -53,14 +54,19 @@
     // Setup the graph view
     [self setupGraphView];
     
-    // Get the buoy data for the defualt location and reload the view
-    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-        currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
-        currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
-        [self performSelectorOnMainThread:@selector(reloadView)
-                               withObject:nil waitUntilDone:YES];
-    });
+    // Check for the network
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
     
+    // Get the buoy data for the defualt location and reload the view
+    if (networkStatus != NotReachable) {
+        dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
+            currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
+            currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
+            [self performSelectorOnMainThread:@selector(reloadView)
+                                   withObject:nil waitUntilDone:YES];
+        });
+    }
 }
 
 - (void)didReceiveMemoryWarning {

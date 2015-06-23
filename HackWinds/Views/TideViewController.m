@@ -13,6 +13,7 @@
 #import "BuoyModel.h"
 #import "Buoy.h"
 #import "Colors.h"
+#import "Reachability.h"
 
 @interface TideViewController ()
 
@@ -32,11 +33,16 @@
     _buoyModel = [BuoyModel sharedModel];
     
     // Get the buoy data and reload the views
-    dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
-        [_tideModel getTideData];
-        [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
-        [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
-    });
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
+    if (networkStatus != NotReachable) {
+        dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
+            [_tideModel getTideData];
+            [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+            [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
+        });
+    }
 }
 
 - (void)viewDidLayoutSubviews {

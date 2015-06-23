@@ -12,6 +12,7 @@
 #import "Forecast.h"
 #import "DetailedForecastViewController.h"
 #import "Colors.h"
+#import "Reachability.h"
 
 @interface ForecastViewController ()
 
@@ -47,7 +48,12 @@
                                                  name:@"ForecastModelDidUpdateDataNotification"
                                                object:nil];
     // Update the data table using the loaded data
-    [self updateDataFromModel];
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
+    if (networkStatus != NotReachable) {
+        [self updateDataFromModel];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
