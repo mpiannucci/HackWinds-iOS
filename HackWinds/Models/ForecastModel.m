@@ -109,6 +109,8 @@
     // If there's no data, return nothing
     if (rawData == nil) {
         return NO;
+    } else if (rawData.count < 1) {
+        return NO;
     }
     
     // Loop through the objects, create new condition objects, and append to the array
