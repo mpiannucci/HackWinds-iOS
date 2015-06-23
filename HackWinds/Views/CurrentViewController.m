@@ -13,6 +13,7 @@
 #import "AsyncImageView.h"
 #import "Condition.h"
 #import "Colors.h"
+#import "Reachability.h"
 
 @interface CurrentViewController ()
 
@@ -61,8 +62,14 @@
                                              selector:@selector(updateDataFromModel)
                                                  name:@"ForecastModelDidUpdateDataNotification"
                                                object:nil];
+    
     // Update the data in the table using the forecast model
-    [self updateDataFromModel];
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
+    if (networkStatus != NotReachable) {
+        [self updateDataFromModel];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

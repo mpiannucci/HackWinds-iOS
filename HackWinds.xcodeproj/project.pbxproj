@@ -17,8 +17,6 @@
 		3430839419795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3430839219795D0F00655F15 /* InfoPlist.strings */; };
 		3430839619795D0F00655F15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3430839519795D0F00655F15 /* main.m */; };
 		3430839A19795D0F00655F15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3430839919795D0F00655F15 /* AppDelegate.m */; };
-		3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3430839B19795D0F00655F15 /* Main_iPhone.storyboard */; };
-		343083A019795D0F00655F15 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3430839E19795D0F00655F15 /* Main_iPad.storyboard */; };
 		343083A319795D0F00655F15 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* CurrentViewController.m */; };
 		343083A619795D0F00655F15 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* ForecastViewController.m */; };
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
@@ -91,8 +89,6 @@
 		3430839719795D0F00655F15 /* HackWinds-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWinds-Prefix.pch"; sourceTree = "<group>"; };
 		3430839819795D0F00655F15 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3430839919795D0F00655F15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3430839C19795D0F00655F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		3430839F19795D0F00655F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		343083A119795D0F00655F15 /* CurrentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentViewController.h; sourceTree = "<group>"; };
 		343083A219795D0F00655F15 /* CurrentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentViewController.m; sourceTree = "<group>"; };
 		343083A419795D0F00655F15 /* ForecastViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
@@ -252,8 +248,6 @@
 		342BEA6C1AF9A626004D6EE3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				3430839B19795D0F00655F15 /* Main_iPhone.storyboard */,
-				3430839E19795D0F00655F15 /* Main_iPad.storyboard */,
 				34F718361A1D8D6B00D6AFFF /* Base.lproj */,
 			);
 			path = Storyboards;
@@ -441,12 +435,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343083A019795D0F00655F15 /* Main_iPad.storyboard in Resources */,
 				340AFA211A9C320700DAD121 /* UISettings.plist in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
 				34F718371A1D8D6B00D6AFFF /* Base.lproj in Resources */,
 				34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */,
-				3430839D19795D0F00655F15 /* Main_iPhone.storyboard in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,22 +511,6 @@
 				3430839319795D0F00655F15 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3430839B19795D0F00655F15 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3430839C19795D0F00655F15 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		3430839E19795D0F00655F15 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3430839F19795D0F00655F15 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		343083B719795D0F00655F15 /* InfoPlist.strings */ = {

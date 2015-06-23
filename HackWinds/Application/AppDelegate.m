@@ -47,7 +47,7 @@
     if (networkStatus == NotReachable) {
         NSLog(@"No internet connection");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-                                                        message:@"You can't check waves with no internet!!"
+                                                        message:@"You can't check waves with no internet!!\n\nMake sure you are connected to the internet and re-launch the app."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
