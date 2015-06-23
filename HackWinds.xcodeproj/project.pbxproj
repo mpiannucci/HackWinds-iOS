@@ -44,7 +44,10 @@
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */; };
-		34F718371A1D8D6B00D6AFFF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
+		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
+		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
+		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
+		34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F933901B3991B400AD23DF /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +138,12 @@
 		34CA15361A9D787A00DAB1F8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForecastLocations.plist; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		34F9338D1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		34F9338F1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		34F933911B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		34F933971B39926500AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPad.strings; sourceTree = "<group>"; };
+		34F9339A1B39926E00AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		34F9339C1B39927200AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +257,9 @@
 		342BEA6C1AF9A626004D6EE3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				34F9338C1B3991B400AD23DF /* LaunchScreen.xib */,
+				34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */,
+				34F933901B3991B400AD23DF /* Main_iPhone.storyboard */,
 				34F718361A1D8D6B00D6AFFF /* Base.lproj */,
 			);
 			path = Storyboards;
@@ -435,9 +447,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F933951B39922900AD23DF /* Base.lproj in Resources */,
+				34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */,
 				340AFA211A9C320700DAD121 /* UISettings.plist in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
-				34F718371A1D8D6B00D6AFFF /* Base.lproj in Resources */,
+				34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */,
+				34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */,
 				34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
 			);
@@ -519,6 +534,33 @@
 				343083B819795D0F00655F15 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		34F9338C1B3991B400AD23DF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34F9338D1B3991B400AD23DF /* Base */,
+				34F9339C1B39927200AD23DF /* en */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34F9338F1B3991B400AD23DF /* Base */,
+				34F933971B39926500AD23DF /* en */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		34F933901B3991B400AD23DF /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34F933911B3991B400AD23DF /* Base */,
+				34F9339A1B39926E00AD23DF /* en */,
+			);
+			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,0 +1,138 @@
+
+/* Class = "UIViewController"; title = "DetailedForecast"; ObjectID = "0hE-yb-Bg6"; */
+"0hE-yb-Bg6.title" = "DetailedForecast";
+
+/* Class = "UITabBarItem"; title = "Tide"; ObjectID = "1cy-TD-W5Q"; */
+"1cy-TD-W5Q.title" = "Tide";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "1rm-Eb-nhm"; */
+"1rm-Eb-nhm.text" = "Today";
+
+/* Class = "UINavigationController"; title = "TideNav"; ObjectID = "2CQ-XL-rjV"; */
+"2CQ-XL-rjV.title" = "TideNav";
+
+/* Class = "UINavigationItem"; title = "HackWinds"; ObjectID = "2g7-1n-mfa"; */
+"2g7-1n-mfa.title" = "HackWinds";
+
+/* Class = "UILabel"; text = "Morning"; ObjectID = "3YH-Sa-F7R"; */
+"3YH-Sa-F7R.text" = "Morning";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "620-YK-GfF"; */
+"620-YK-GfF.headerTitle" = "About";
+
+/* Class = "UITabBarController"; title = "Overview"; ObjectID = "8YX-ce-x5E"; */
+"8YX-ce-x5E.title" = "Overview";
+
+/* Class = "UINavigationController"; title = "LiveNav"; ObjectID = "8bO-FM-kiq"; */
+"8bO-FM-kiq.title" = "LiveNav";
+
+/* Class = "UILabel"; text = "Automatic Reload"; ObjectID = "AX0-sR-0fV"; */
+"AX0-sR-0fV.text" = "Automatic Reload";
+
+/* Class = "UITableViewSection"; headerTitle = "Right Now"; ObjectID = "Btf-tF-Gph"; */
+"Btf-tF-Gph.headerTitle" = "Right Now";
+
+/* Class = "UIViewController"; title = "Live"; ObjectID = "CZ4-MO-1fc"; */
+"CZ4-MO-1fc.title" = "Live";
+
+/* Class = "UINavigationItem"; title = "HackWinds"; ObjectID = "Cdi-Ct-GYT"; */
+"Cdi-Ct-GYT.title" = "HackWinds";
+
+/* Class = "UINavigationItem"; title = "HackWinds"; ObjectID = "DQn-p6-DmC"; */
+"DQn-p6-DmC.title" = "HackWinds";
+
+/* Class = "UIButton"; normalTitle = "Change Location"; ObjectID = "F5n-Kp-AIv"; */
+"F5n-Kp-AIv.normalTitle" = "Change Location";
+
+/* Class = "UINavigationItem"; title = "Alternate Cameras"; ObjectID = "GAz-e9-i5R"; */
+"GAz-e9-i5R.title" = "Alternate Cameras";
+
+/* Class = "UISegmentedControl"; GYc-zm-LQY.segmentTitles[0] = "Swell"; ObjectID = "GYc-zm-LQY"; */
+"GYc-zm-LQY.segmentTitles[0]" = "Swell";
+
+/* Class = "UISegmentedControl"; GYc-zm-LQY.segmentTitles[1] = "Wind"; ObjectID = "GYc-zm-LQY"; */
+"GYc-zm-LQY.segmentTitles[1]" = "Wind";
+
+/* Class = "UISegmentedControl"; GYc-zm-LQY.segmentTitles[2] = "Period"; ObjectID = "GYc-zm-LQY"; */
+"GYc-zm-LQY.segmentTitles[2]" = "Period";
+
+/* Class = "UIButton"; normalTitle = "Contact Developer"; ObjectID = "HBj-eq-pwI"; */
+"HBj-eq-pwI.normalTitle" = "Contact Developer";
+
+/* Class = "UINavigationItem"; title = "Camera Location"; ObjectID = "HUD-ni-j6C"; */
+"HUD-ni-j6C.title" = "Camera Location";
+
+/* Class = "UIButton"; normalTitle = "Rate on the App Store"; ObjectID = "KNB-QD-q65"; */
+"KNB-QD-q65.normalTitle" = "Rate on the App Store";
+
+/* Class = "UITableViewSection"; headerTitle = "Sunrise and Sunset"; ObjectID = "O76-F9-vuU"; */
+"O76-F9-vuU.headerTitle" = "Sunrise and Sunset";
+
+/* Class = "UINavigationController"; title = "BuoysNav"; ObjectID = "PkK-9Y-fvK"; */
+"PkK-9Y-fvK.title" = "BuoysNav";
+
+/* Class = "UIViewController"; title = "Forecast"; ObjectID = "QUy-BD-bpt"; */
+"QUy-BD-bpt.title" = "Forecast";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "Qcc-6n-f4e"; */
+"Qcc-6n-f4e.text" = "Today";
+
+/* Class = "UISegmentedControl"; V9H-yQ-GgI.segmentTitles[0] = "Block Island"; ObjectID = "V9H-yQ-GgI"; */
+"V9H-yQ-GgI.segmentTitles[0]" = "Block Island";
+
+/* Class = "UISegmentedControl"; V9H-yQ-GgI.segmentTitles[1] = "Montauk"; ObjectID = "V9H-yQ-GgI"; */
+"V9H-yQ-GgI.segmentTitles[1]" = "Montauk";
+
+/* Class = "UITabBarItem"; title = "Buoys"; ObjectID = "YRv-Xf-e4c"; */
+"YRv-Xf-e4c.title" = "Buoys";
+
+/* Class = "UITabBarItem"; title = "Forecast"; ObjectID = "Z7h-1E-pvt"; */
+"Z7h-1E-pvt.title" = "Forecast";
+
+/* Class = "UINavigationController"; title = "ForecastNav"; ObjectID = "ZwS-Yr-Mhb"; */
+"ZwS-Yr-Mhb.title" = "ForecastNav";
+
+/* Class = "UIViewController"; title = "Buoys"; ObjectID = "avJ-rZ-EzA"; */
+"avJ-rZ-EzA.title" = "Buoys";
+
+/* Class = "UINavigationItem"; title = "HackWinds"; ObjectID = "dg9-NY-af5"; */
+"dg9-NY-af5.title" = "HackWinds";
+
+/* Class = "UINavigationItem"; title = "Detailed Forecast"; ObjectID = "dlj-EF-Xkq"; */
+"dlj-EF-Xkq.title" = "Detailed Forecast";
+
+/* Class = "UILabel"; text = "Copyright 2014 Matthew Iannucci"; ObjectID = "g67-H0-85y"; */
+"g67-H0-85y.text" = "Copyright 2014 Matthew Iannucci";
+
+/* Class = "UITableViewSection"; headerTitle = "Water Temperature"; ObjectID = "jtN-cx-Cqx"; */
+"jtN-cx-Cqx.headerTitle" = "Water Temperature";
+
+/* Class = "UITableViewSection"; headerTitle = "Upcoming"; ObjectID = "oI6-M6-pbR"; */
+"oI6-M6-pbR.headerTitle" = "Upcoming";
+
+/* Class = "UITableViewSection"; headerTitle = "Forecast Location"; ObjectID = "q4l-ha-Ey0"; */
+"q4l-ha-Ey0.headerTitle" = "Forecast Location";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "q83-3Q-HzF"; */
+"q83-3Q-HzF.title" = "Settings";
+
+/* Class = "UINavigationItem"; title = "HackWinds"; ObjectID = "rzD-rL-r6U"; */
+"rzD-rL-r6U.title" = "HackWinds";
+
+/* Class = "UITabBarItem"; title = "Live"; ObjectID = "u1e-5L-l1D"; */
+"u1e-5L-l1D.title" = "Live";
+
+/* Class = "UIButton"; normalTitle = "View Full Screen"; ObjectID = "uB7-YH-V4z"; */
+"uB7-YH-V4z.normalTitle" = "View Full Screen";
+
+/* Class = "UILabel"; text = "Afternoon"; ObjectID = "uqN-vh-qaM"; */
+"uqN-vh-qaM.text" = "Afternoon";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "vm9-TX-K2g"; */
+"vm9-TX-K2g.text" = "Location";
+
+/* Class = "UILabel"; text = "Refresh interval is 0 seconds"; ObjectID = "zhA-NB-6cu"; */
+"zhA-NB-6cu.text" = "Refresh interval is 0 seconds";
+
+/* Class = "UIButton"; normalTitle = "Disclaimer"; ObjectID = "znY-n5-4jE"; */
+"znY-n5-4jE.normalTitle" = "Disclaimer";
