@@ -18,6 +18,7 @@
 - (NSString *) formatDate:(NSUInteger)epoch;
 - (BOOL) checkConditionDate:(NSString *)dateString;
 - (BOOL) checkForecastDate:(NSString *)dateString;
+- (BOOL) check24HourClock;
 
 @end
 
@@ -26,6 +27,7 @@
     NSArray *rawData;
     NSDictionary *locationURLs;
     NSString *currentLocationURL;
+    BOOL is24HourClock;
 }
 
 + (instancetype) sharedModel {
@@ -47,6 +49,9 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ForecastLocations"
                                                      ofType:@"plist"];
     locationURLs = [NSDictionary dictionaryWithContentsOfFile:path];
+    
+    // Check the format of the clock
+    [self check24HourClock];
     
     // Initialize the data holders
     self.conditions = [[NSMutableArray alloc] init];
@@ -117,7 +122,7 @@
     int conditionCount = 0;
     int forecastCount = 0;
     int dataIndex = 0;
-    while ((conditionCount < 30) || (forecastCount < 10)) {
+    while (((conditionCount < 30) || (forecastCount < 10)) && (dataIndex < rawData.count)) {
         // Get the next json object and increment the count
         NSDictionary *thisDict = [rawData objectAtIndex:dataIndex];
         dataIndex++;
@@ -189,61 +194,91 @@
     return YES;
 }
 
-- (NSString *)formatDate:(NSUInteger)epoch
-{
+- (NSString *)formatDate:(NSUInteger)epoch {
     // Return the formatted date string so it has the form "12:38 am"
     NSDate *forcTime = [NSDate dateWithTimeIntervalSince1970:epoch];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"K a"];
     [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-    NSString *formatted = [format stringFromDate:forcTime];
-    if ([formatted hasPrefix:@"0"]) {
-        [format setDateFormat:@"HH a"];
-        [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSString *formatted = @"";
+    
+    if ([self check24HourClock]) {
+        [format setDateFormat:@"HH"];
+        formatted = [NSString stringWithFormat:@"%@:00", [format stringFromDate:forcTime]];
+    } else {
+        [format setDateFormat:@"K a"];
         formatted = [format stringFromDate:forcTime];
+        if ([formatted hasPrefix:@"0"]) {
+            [format setDateFormat:@"HH a"];
+            [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+            formatted = [format stringFromDate:forcTime];
+        }
     }
     return formatted;
 }
 
-- (BOOL)checkConditionDate:(NSString *)dateString
-{
+- (BOOL)checkConditionDate:(NSString *)dateString {
     // Check if the date is for a valid time, we dont care about midnight nor 3 am
-    NSRange AMrange = [dateString rangeOfString:@"AM"];
-    NSRange Zerorange = [dateString rangeOfString:@"0"];
-    NSRange Threerange = [dateString rangeOfString:@"3"];
-    if (((AMrange.location != NSNotFound) && (Zerorange.location != NSNotFound)) ||
-        ((AMrange.location != NSNotFound) && (Threerange.location != NSNotFound)))
-    {
-        // We dont care, return false
-        return false;
+    if ([self check24HourClock]) {
+        NSRange zeroRange = [dateString rangeOfString:@"00:"];
+        NSRange threeRange = [dateString rangeOfString:@"03:"];
+        if ((zeroRange.location != NSNotFound) || (threeRange.location != NSNotFound)) {
+            // We dont care about them
+            return NO;
+        }
+        return YES;
+    } else {
+        NSRange amRange = [dateString rangeOfString:@"AM"];
+        NSRange zeroRange = [dateString rangeOfString:@"0"];
+        NSRange threeRange = [dateString rangeOfString:@"3"];
+        if (((amRange.location != NSNotFound) && (zeroRange.location != NSNotFound)) ||
+            ((amRange.location != NSNotFound) && (threeRange.location != NSNotFound)))
+        {
+            // We dont care, return false
+            return NO;
+        }
+        // Valid time
+        return YES;
     }
-    // Valid time
-    return true;
 }
 
 - (BOOL)checkForecastDate:(NSString *)dateString
 {
     // Check if the date is for a valid time, if its not return false (We only want very specific times for this
-    NSRange AMrange = [dateString rangeOfString:@"AM"];
-    NSRange PMrange = [dateString rangeOfString:@"PM"];
-    NSRange Zerorange = [dateString rangeOfString:@"0"];
-    NSRange Threerange = [dateString rangeOfString:@"3"];
-    NSRange Sixrange = [dateString rangeOfString:@"6"];
-    NSRange Ninerange = [dateString rangeOfString:@"9"];
-    NSRange Twelverange = [dateString rangeOfString:@"12"];
-    if (((AMrange.location != NSNotFound) && (Zerorange.location != NSNotFound)) ||
-        ((AMrange.location != NSNotFound) && (Threerange.location != NSNotFound)) ||
-        ((AMrange.location != NSNotFound) && (Sixrange.location != NSNotFound)) ||
-        ((PMrange.location != NSNotFound) && (Twelverange.location != NSNotFound)) ||
-        ((PMrange.location != NSNotFound) && (Sixrange.location != NSNotFound)) ||
-        ((PMrange.location != NSNotFound) && (Ninerange.location != NSNotFound)))
-    {
-        return false;
+    if ([self check24HourClock]) {
+        NSRange nineRange = [dateString rangeOfString:@"9"];
+        NSRange fifteenRange = [dateString rangeOfString:@"15"];
+        if ((nineRange.location != NSNotFound) ||
+            (fifteenRange.location != NSNotFound))
+        {
+                 return YES;
+        }
+        return NO;
+        
+    } else {
+        NSRange amRange = [dateString rangeOfString:@"AM"];
+        NSRange pmRange = [dateString rangeOfString:@"PM"];
+        NSRange threeRange = [dateString rangeOfString:@"3"];
+        NSRange nineRange = [dateString rangeOfString:@"9"];
+        if (((amRange.location != NSNotFound) && (nineRange.location != NSNotFound)) ||
+            ((pmRange.location != NSNotFound) && (threeRange.location != NSNotFound)))
+        {
+            return YES;
+        }
+        return NO;
     }
-    return true;
 }
 
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (BOOL)check24HourClock {
+    if (rawData == nil) {
+        NSLocale *locale = [NSLocale currentLocale];
+        NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
+        is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
+    }
+    return is24HourClock;
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
     // Callback for the forecast location settings changing
     // First clear all of the old data so that everything reloads
     if (rawData.count > 0) {
