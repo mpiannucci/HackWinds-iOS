@@ -53,22 +53,25 @@
     if (settingsData == nil) {
         return false;
     }
-    
-    // Save the camera urls to defaults and set the reload state
+
     NSMutableDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
     NSMutableDictionary *narragansettDict = [NSMutableDictionary dictionaryWithDictionary:[cameraDict objectForKey:@"Narragansett"]];
     
-    NSURL *pointJudithURL = [NSURL URLWithString:[narragansettDict objectForKey:@"Point Judith"]];
-    NSData *pointJudithResponse = [NSData dataWithContentsOfURL:pointJudithURL];
-    NSError *pjError;
-    NSDictionary *pointJudithData = [NSJSONSerialization
-                                     JSONObjectWithData:pointJudithResponse
-                                     options:kNilOptions
-                                     error:&pjError];
-    NSDictionary *pointJudithStreamData = [[[pointJudithData objectForKey:@"streamInfo"] objectForKey:@"stream"] objectAtIndex:0];
-    [narragansettDict setObject:pointJudithStreamData forKey:@"Point Judith"];
-    [cameraDict setObject:[NSDictionary dictionaryWithDictionary:narragansettDict] forKey:@"Narragansett"];
+    // Handle the special point judith camera
+    if ([narragansettDict count] > 3) {
+        NSURL *pointJudithURL = [NSURL URLWithString:[narragansettDict objectForKey:@"Point Judith"]];
+        NSData *pointJudithResponse = [NSData dataWithContentsOfURL:pointJudithURL];
+        NSError *pjError;
+        NSDictionary *pointJudithData = [NSJSONSerialization
+                                         JSONObjectWithData:pointJudithResponse
+                                         options:kNilOptions
+                                         error:&pjError];
+        NSDictionary *pointJudithStreamData = [[[pointJudithData objectForKey:@"streamInfo"] objectForKey:@"stream"] objectAtIndex:0];
+        [narragansettDict setObject:pointJudithStreamData forKey:@"Point Judith"];
+        [cameraDict setObject:[NSDictionary dictionaryWithDictionary:narragansettDict] forKey:@"Narragansett"];
+    }
     
+    // Save the camera urls to defaults and set the reload state
     [defaults setObject:[NSDictionary dictionaryWithDictionary:cameraDict] forKey:@"CameraLocations"];
     [defaults setBool:NO forKey:@"NeedCameraLocationFetch"];
     forceReload = NO;

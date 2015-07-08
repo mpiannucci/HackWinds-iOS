@@ -95,7 +95,7 @@
     
     // Create a new MoviePlayer with the Live Stream URL
     NSURL *wwLiveURL = [NSURL URLWithString:[cameraURLs objectForKey:@"Warm Winds Live"]];
-    self.streamPlayer=[[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];
     

@@ -309,6 +309,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="K5b-uA-nQj" firstAttribute="centerX" secondItem="AgU-Lt-1bg" secondAttribute="centerX" id="3ee-I8-7Ch"/>
                             <constraint firstItem="K5b-uA-nQj" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" id="CTe-rh-tiS"/>
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="trailing" secondItem="14P-l0-qiN" secondAttribute="trailingMargin" id="FOO-Ek-Lh4"/>
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="centerY" secondItem="AX0-sR-0fV" secondAttribute="centerY" id="K7z-pK-0gr"/>
@@ -320,10 +321,13 @@
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="leading" secondItem="AX0-sR-0fV" secondAttribute="trailing" constant="8" id="WCi-s1-VgV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K5b-uA-nQj" secondAttribute="trailing" constant="-16" id="aiI-ag-oe6"/>
                             <constraint firstItem="K5b-uA-nQj" firstAttribute="leading" secondItem="Dk3-38-MyN" secondAttribute="trailing" constant="-55" id="ccp-RW-GTY"/>
+                            <constraint firstItem="AgU-Lt-1bg" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" constant="-16" id="dJW-Y0-oo7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uB7-YH-V4z" secondAttribute="trailing" constant="59" id="eTx-sO-lwo"/>
+                            <constraint firstItem="AgU-Lt-1bg" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" constant="7" id="gPG-6n-lfr"/>
                             <constraint firstItem="AgU-Lt-1bg" firstAttribute="leading" secondItem="E57-OS-Fe1" secondAttribute="leading" id="iFH-pB-LzC"/>
                             <constraint firstItem="AgU-Lt-1bg" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" constant="7" id="keV-Bq-eU6"/>
                             <constraint firstAttribute="centerX" secondItem="uB7-YH-V4z" secondAttribute="centerX" id="ks3-hi-VFz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AgU-Lt-1bg" secondAttribute="trailing" constant="-16" id="lcn-GS-4Y2"/>
                             <constraint firstAttribute="trailing" secondItem="E57-OS-Fe1" secondAttribute="trailing" id="mX8-sH-J2R"/>
                             <constraint firstItem="E57-OS-Fe1" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" id="nD5-yg-saw"/>
                             <constraint firstItem="K5b-uA-nQj" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" constant="-16" id="ola-gA-CCl"/>
@@ -342,10 +346,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="autoReloadLabel" destination="AX0-sR-0fV" id="Yi6-9n-0IG"/>
                         <outlet property="autoReloadSwitch" destination="gqf-SR-fzl" id="wAD-JK-NUe"/>
                         <outlet property="camImage" destination="E57-OS-Fe1" id="TU9-Cb-J7Y"/>
                         <outlet property="fullScreenCamImage" destination="K5b-uA-nQj" id="9a4-rJ-K9Z"/>
                         <outlet property="fullScreenExitButton" destination="Dk3-38-MyN" id="W83-yR-Wc0"/>
+                        <outlet property="fullScreenViewButton" destination="uB7-YH-V4z" id="S0t-n1-o0N"/>
                         <outlet property="refreshIntervalLabel" destination="zhA-NB-6cu" id="NO5-iJ-0iL"/>
                         <outlet property="videoPlayButton" destination="AgU-Lt-1bg" id="VL2-yE-gsn"/>
                     </connections>

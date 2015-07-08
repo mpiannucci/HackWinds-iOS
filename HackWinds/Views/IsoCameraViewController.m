@@ -5,6 +5,7 @@
 //  Created by Matthew Iannucci on 5/4/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
+#define POINT_JUDITH_STATIC_IMAGE [NSURL URLWithString:@"http://www.asergeev.com/pictures/archives/2004/372/jpeg/20.jpg"]
 
 #import "IsoCameraViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
@@ -14,16 +15,19 @@
 
 // UI Properties
 @property (weak, nonatomic) IBOutlet AsyncImageView *camImage;
+@property (weak, nonatomic) IBOutlet UILabel *autoReloadLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *autoReloadSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *refreshIntervalLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *fullScreenCamImage;
 @property (weak, nonatomic) IBOutlet UIButton *fullScreenExitButton;
+@property (weak, nonatomic) IBOutlet UIButton *fullScreenViewButton;
 @property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
 @property (weak, nonatomic) IBOutlet UIButton *videoPlayButton;
 @end
 
 @implementation IsoCameraViewController {
     NSURL *cameraURL;
+    NSURL *videoURL;
     NSInteger refreshInterval;
     BOOL shouldHideStatusBar;
     BOOL isFullScreen;
@@ -100,11 +104,26 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *cameraURLs = [defaults objectForKey:@"CameraLocations"];
-    cameraURL = [NSURL URLWithString:[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera]];
+    
+    if ([self.Camera isEqualToString:@"Point Judith"]) {
+        cameraURL = POINT_JUDITH_STATIC_IMAGE;
+        videoURL = [NSURL URLWithString:[[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera] objectForKey:@"file"]];
+    } else {
+        cameraURL = [NSURL URLWithString:[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera]];
+    }
 }
 
 - (void)loadCamImage {
     [self.camImage setImageURL:cameraURL];
+    
+    if ([self.Camera isEqualToString:@"Point Judith"]) {
+        [self.autoReloadSwitch setOn:NO];
+        [self.autoReloadSwitch setHidden:YES];
+        [self.autoReloadLabel setHidden:YES];
+        [self.refreshIntervalLabel setHidden:YES];
+        [self.fullScreenViewButton setHidden:YES];
+        [self.videoPlayButton setHidden:NO];
+    }
     
     if (![self.autoReloadSwitch isOn]) {
         // If the switch is deactivated, dont fire the timer
@@ -187,6 +206,38 @@
 }
 
 - (IBAction)videoPlayButtonClick:(id)sender {
+    // Get the screen size
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
+    [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
+    [self.view addSubview:self.streamPlayer.view];
+    
+    // Set a listener for the video playback finishing
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoPlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:self.streamPlayer];
+    
+    // Load the stream and play it
+    [self.streamPlayer prepareToPlay];
+    [self.streamPlayer play];
+    
+    // Hide the async holder image
+    [self.camImage setHidden:YES];
+}
+
+- (void)videoPlayBackDidFinish:(NSNotification*)notification {
+    // Remove the notification for the player
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:self.streamPlayer];
+    // Show the holder image again
+    [self.camImage setHidden:NO];
+    
+    // Remove the player from the superview
+    [self.streamPlayer.view removeFromSuperview];
 }
 
 - (BOOL)prefersStatusBarHidden {
