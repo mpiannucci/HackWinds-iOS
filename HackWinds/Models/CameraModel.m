@@ -5,7 +5,7 @@
 //  Created by Matthew Iannucci on 5/17/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define HACKWINDS_API_URL [NSURL URLWithString:@"http://blog.mpiannucci.com/static/hackwinds_camera_locations.json"]
+#define HACKWINDS_API_URL [NSURL URLWithString:@"http://blog.mpiannucci.com/static/API/hackwinds_camera_locations_v2.json"]
 
 #import "CameraModel.h"
 

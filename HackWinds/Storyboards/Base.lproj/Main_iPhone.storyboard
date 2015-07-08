@@ -263,7 +263,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uB7-YH-V4z">
-                                <rect key="frame" x="75" y="339" width="170" height="39"/>
+                                <rect key="frame" x="75" y="338" width="170" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="View Full Screen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,7 +273,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh interval is 0 seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-NB-6cu">
-                                <rect key="frame" x="16" y="314" width="288" height="15"/>
+                                <rect key="frame" x="16" y="314" width="288" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -307,8 +307,8 @@
                                     <action selector="fullScreenExitClick:" destination="orJ-Og-poC" eventType="touchUpInside" id="511-Pw-M4R"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point Judith Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfW-bJ-KVO">
-                                <rect key="frame" x="16" y="285" width="288" height="222"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra Info" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfW-bJ-KVO">
+                                <rect key="frame" x="16" y="285" width="288" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -329,7 +329,6 @@
                             <constraint firstItem="AX0-sR-0fV" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" id="VrL-iH-yig"/>
                             <constraint firstItem="gqf-SR-fzl" firstAttribute="leading" secondItem="AX0-sR-0fV" secondAttribute="trailing" constant="8" id="WCi-s1-VgV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K5b-uA-nQj" secondAttribute="trailing" constant="-16" id="aiI-ag-oe6"/>
-                            <constraint firstItem="Dk3-38-MyN" firstAttribute="top" secondItem="ZfW-bJ-KVO" secondAttribute="bottom" constant="8" symbolic="YES" id="bNn-sx-gXb"/>
                             <constraint firstItem="K5b-uA-nQj" firstAttribute="leading" secondItem="Dk3-38-MyN" secondAttribute="trailing" constant="-55" id="ccp-RW-GTY"/>
                             <constraint firstItem="AgU-Lt-1bg" firstAttribute="leading" secondItem="14P-l0-qiN" secondAttribute="leadingMargin" constant="-16" id="dJW-Y0-oo7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uB7-YH-V4z" secondAttribute="trailing" constant="59" id="eTx-sO-lwo"/>

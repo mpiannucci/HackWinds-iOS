@@ -112,7 +112,7 @@
         cameraURL = POINT_JUDITH_STATIC_IMAGE;
         NSDictionary *pjData = [[cameraURLs objectForKey:self.Location] objectForKey:self.Camera];
         videoURL = [NSURL URLWithString:[pjData objectForKey:@"file"]];
-        extraInfo = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, it may be down. It is taken from Surfline and it is a bit unpredictable.", [pjData objectForKey:@"camStatus"], [pjData objectForKey:@"reportDate"], [pjData objectForKey:@"reportTime"]];
+        extraInfo = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, it may be down. It is a daily upload during the summer and it becomes unavailable each evening.", [pjData objectForKey:@"camStatus"], [pjData objectForKey:@"reportDate"], [pjData objectForKey:@"reportTime"]];
     } else {
         cameraURL = [NSURL URLWithString:[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera]];
     }
