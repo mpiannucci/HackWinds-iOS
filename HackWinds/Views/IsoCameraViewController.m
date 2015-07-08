@@ -22,12 +22,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *fullScreenExitButton;
 @property (weak, nonatomic) IBOutlet UIButton *fullScreenViewButton;
 @property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
+@property (weak, nonatomic) IBOutlet UILabel *extraCameraInfo;
 @property (weak, nonatomic) IBOutlet UIButton *videoPlayButton;
 @end
 
 @implementation IsoCameraViewController {
     NSURL *cameraURL;
     NSURL *videoURL;
+    NSString *extraInfo;
     NSInteger refreshInterval;
     BOOL shouldHideStatusBar;
     BOOL isFullScreen;
@@ -50,6 +52,7 @@
     
     // Initialize the play button to be hidden
     [self.videoPlayButton setHidden:YES];
+    [self.extraCameraInfo setHidden:YES];
     
     // Set the state of the auto reload switch
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -107,7 +110,9 @@
     
     if ([self.Camera isEqualToString:@"Point Judith"]) {
         cameraURL = POINT_JUDITH_STATIC_IMAGE;
-        videoURL = [NSURL URLWithString:[[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera] objectForKey:@"file"]];
+        NSDictionary *pjData = [[cameraURLs objectForKey:self.Location] objectForKey:self.Camera];
+        videoURL = [NSURL URLWithString:[pjData objectForKey:@"file"]];
+        extraInfo = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, it may be down. It is taken from Surfline and it is a bit unpredictable.", [pjData objectForKey:@"camStatus"], [pjData objectForKey:@"reportDate"], [pjData objectForKey:@"reportTime"]];
     } else {
         cameraURL = [NSURL URLWithString:[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera]];
     }
@@ -123,6 +128,10 @@
         [self.refreshIntervalLabel setHidden:YES];
         [self.fullScreenViewButton setHidden:YES];
         [self.videoPlayButton setHidden:NO];
+        [self.extraCameraInfo setHidden:NO];
+        [self.extraCameraInfo setNumberOfLines:0];
+        [self.extraCameraInfo setText:extraInfo];
+        [self.extraCameraInfo sizeToFit];
     }
     
     if (![self.autoReloadSwitch isOn]) {
