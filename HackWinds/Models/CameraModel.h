@@ -12,6 +12,7 @@
 
 - (BOOL) forceFetchCameraURLs;
 - (BOOL) fetchCameraURLs;
+- (BOOL) fetchPointJudithURLs;
 + (instancetype) sharedModel;
 
 @end

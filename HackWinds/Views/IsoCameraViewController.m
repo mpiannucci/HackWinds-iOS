@@ -7,16 +7,19 @@
 //
 
 #import "IsoCameraViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 #import "AsyncImageView.h"
 
 @interface IsoCameraViewController ()
 
+// UI Properties
 @property (weak, nonatomic) IBOutlet AsyncImageView *camImage;
 @property (weak, nonatomic) IBOutlet UISwitch *autoReloadSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *refreshIntervalLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *fullScreenCamImage;
 @property (weak, nonatomic) IBOutlet UIButton *fullScreenExitButton;
-
+@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
+@property (weak, nonatomic) IBOutlet UIButton *videoPlayButton;
 @end
 
 @implementation IsoCameraViewController {
@@ -40,6 +43,9 @@
     [self.fullScreenCamImage setHidden:YES];
     isFullScreen = NO;
     shouldHideStatusBar = NO;
+    
+    // Initialize the play button to be hidden
+    [self.videoPlayButton setHidden:YES];
     
     // Set the state of the auto reload switch
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -178,6 +184,9 @@
     // Hide the close button and the full screen image
     [self.fullScreenCamImage setHidden:YES];
     [self.fullScreenExitButton setHidden:YES];
+}
+
+- (IBAction)videoPlayButtonClick:(id)sender {
 }
 
 - (BOOL)prefersStatusBarHidden {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -186,7 +186,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="wNO-4Z-cbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell tag="89" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cameraLocationItem" id="rk8-MB-qmh">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -196,7 +196,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="89" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmp-3q-8tf">
                                             <rect key="frame" x="8" y="11" width="271" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -258,7 +258,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Reload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-sR-0fV">
                                 <rect key="frame" x="16" y="285" width="231" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uB7-YH-V4z">
@@ -292,6 +292,20 @@
                                     <action selector="fullScreenExitClick:" destination="orJ-Og-poC" eventType="touchUpInside" id="511-Pw-M4R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgU-Lt-1bg">
+                                <rect key="frame" x="0.0" y="71" width="320" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="2fy-N7-wLw"/>
+                                    <constraint firstAttribute="height" priority="750" constant="190" id="Wfq-zA-4Cn"/>
+                                </constraints>
+                                <state key="normal" image="PlayButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButton:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="ocN-F7-Iox"/>
+                                    <action selector="videoPlayButtonClick:" destination="orJ-Og-poC" eventType="touchUpInside" id="XUU-9b-umq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -307,6 +321,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="K5b-uA-nQj" secondAttribute="trailing" constant="-16" id="aiI-ag-oe6"/>
                             <constraint firstItem="K5b-uA-nQj" firstAttribute="leading" secondItem="Dk3-38-MyN" secondAttribute="trailing" constant="-55" id="ccp-RW-GTY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uB7-YH-V4z" secondAttribute="trailing" constant="59" id="eTx-sO-lwo"/>
+                            <constraint firstItem="AgU-Lt-1bg" firstAttribute="leading" secondItem="E57-OS-Fe1" secondAttribute="leading" id="iFH-pB-LzC"/>
+                            <constraint firstItem="AgU-Lt-1bg" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" constant="7" id="keV-Bq-eU6"/>
                             <constraint firstAttribute="centerX" secondItem="uB7-YH-V4z" secondAttribute="centerX" id="ks3-hi-VFz"/>
                             <constraint firstAttribute="trailing" secondItem="E57-OS-Fe1" secondAttribute="trailing" id="mX8-sH-J2R"/>
                             <constraint firstItem="E57-OS-Fe1" firstAttribute="top" secondItem="J9f-Am-dQ8" secondAttribute="bottom" id="nD5-yg-saw"/>
@@ -331,6 +347,7 @@
                         <outlet property="fullScreenCamImage" destination="K5b-uA-nQj" id="9a4-rJ-K9Z"/>
                         <outlet property="fullScreenExitButton" destination="Dk3-38-MyN" id="W83-yR-Wc0"/>
                         <outlet property="refreshIntervalLabel" destination="zhA-NB-6cu" id="NO5-iJ-0iL"/>
+                        <outlet property="videoPlayButton" destination="AgU-Lt-1bg" id="VL2-yE-gsn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLO-Pg-ZJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1275,6 +1292,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="l1V-PH-Aev"/>
+        <segue reference="rYr-bo-HPU"/>
     </inferredMetricsTieBreakers>
 </document>

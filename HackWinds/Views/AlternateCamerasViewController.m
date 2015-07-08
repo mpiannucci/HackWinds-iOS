@@ -62,8 +62,16 @@
     
     switch (indexPath.section) {
         case 0:
-            // Always the juice cam
-            [locationLabel setText:@"Town Beach South"];
+            switch ( indexPath.row ) {
+                case 0:
+                    [locationLabel setText:@"Town Beach South"];
+                    break;
+                case 1:
+                    [locationLabel setText:@"Point Judith"];
+                    break;
+                default:
+                    break;
+            }
             break;
         case 1:
             switch (indexPath.row) {
