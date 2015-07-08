@@ -15,6 +15,8 @@
 
 @implementation AlternateCamerasViewController {
     NSDictionary *cameraURLs;
+    NSArray *locationKeys;
+    NSArray *cameraKeys;
 }
 
 
@@ -23,6 +25,13 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     cameraURLs = [defaults objectForKey:@"CameraLocations"];
+    locationKeys = [cameraURLs allKeys];
+    
+    NSMutableArray *allCameras = [[NSMutableArray alloc] init];
+    for (NSString *key in locationKeys) {
+        [allCameras addObject:[[cameraURLs objectForKey:key] allKeys]];
+    }
+    cameraKeys = [NSArray arrayWithArray:allCameras];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,16 +51,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    switch (section) {
-        case 0:
-            return [[cameraURLs objectForKey:@"Narragansett"] count] - 2;
-        case 1:
-            return [[cameraURLs objectForKey:@"Newport"] count];
-        case 2:
-            return [[cameraURLs objectForKey:@"Hull"] count];
-        default:
-            return 0;
+    NSInteger nRows = 0;
+    if (section < cameraURLs.count) {
+        nRows = [[cameraURLs objectForKey:locationKeys[section]] count];
+        if ([locationKeys[section] isEqualToString:@"Narragansett"]) {
+            nRows -= 2;
+        }
     }
+    return nRows;
 }
 
 
@@ -60,79 +67,30 @@
     
     UILabel *locationLabel = (UILabel *)[cell viewWithTag:89];
     
-    switch (indexPath.section) {
-        case 0:
-            switch ( indexPath.row ) {
-                case 0:
-                    [locationLabel setText:@"Town Beach South"];
-                    break;
-                case 1:
-                    [locationLabel setText:@"Point Judith"];
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 1:
-            switch (indexPath.row) {
-                case 0:
-                    [locationLabel setText:@"First Beach West"];
-                    break;
-                case 1:
-                    [locationLabel setText:@"First Beach East"];
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 2:
-            switch (indexPath.row) {
-                case 0:
-                    [locationLabel setText:@"Nantasket North"];
-                    break;
-                case 1:
-                    [locationLabel setText:@"Nantasket South"];
-                    break;
-                default:
-                    break;
-            }
-            break;
-        default:
-            break;
+    NSInteger row = indexPath.row;
+    
+    if ((indexPath.section < locationKeys.count) &&
+        (indexPath.row < [[cameraKeys objectAtIndex:indexPath.section] count])) {
+        if ([locationKeys[indexPath.section] isEqualToString:@"Narragansett"]) {
+            row += 2;
+        }
+        [locationLabel setText:[[cameraKeys objectAtIndex:indexPath.section] objectAtIndex:row]];
     }
     
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [self nameOfSection:section];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     // Deselect the row
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSString *)nameOfSection:(NSInteger)section {
-    NSString *sectionName;
-    switch (section)
-    {
-        case 0:
-            sectionName = @"Narragansett";
-            break;
-        case 1:
-            sectionName = @"Newport";
-            break;
-        case 2:
-            sectionName = @"Hull";
-            break;
-        default:
-            sectionName = @"";
-            break;
-    }
-    return sectionName;
+    return locationKeys[section];
 }
 
 #pragma mark - Navigation
