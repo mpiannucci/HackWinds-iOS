@@ -10,6 +10,8 @@
 	<string>HackWinds</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>5F974450CA858AE451857DA0C3F1CD280E6322EE</key>
+		<string>https://github.com/mpiannucci/HackWinds-Data</string>
 		<key>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</key>
 		<string>https://github.com/core-plot/core-plot.git</string>
 		<key>E419394132B0212764C79CDBC7FE49CB36E2E238</key>
@@ -19,6 +21,8 @@
 	<string>HackWinds.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>5F974450CA858AE451857DA0C3F1CD280E6322EE</key>
+		<string>../../../GoHome/src/github.com/mpiannucci/HackWinds-Data</string>
 		<key>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</key>
 		<string>../../../core-plot</string>
 		<key>E419394132B0212764C79CDBC7FE49CB36E2E238</key>
@@ -39,6 +43,14 @@
 			<string>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</string>
 			<key>IDESourceControlWCCName</key>
 			<string>core-plot</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5F974450CA858AE451857DA0C3F1CD280E6322EE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HackWinds-Data</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

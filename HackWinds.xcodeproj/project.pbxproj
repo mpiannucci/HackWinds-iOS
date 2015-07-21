@@ -30,6 +30,7 @@
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
 		344BEA8E1B09870D00BB6EEB /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 344BEA8D1B09870D00BB6EEB /* CameraModel.m */; };
+		344F55A11B5E65650054C29A /* hackwindsdata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344F55A01B5E65650054C29A /* hackwindsdata.framework */; };
 		3478C6101A3E833900479DE1 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C60F1A3E833900479DE1 /* TideModel.m */; };
 		3478C6151A3E8F2600479DE1 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6141A3E8F2600479DE1 /* BuoyModel.m */; };
 		3478C6191A3E9D8200479DE1 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6181A3E9D8200479DE1 /* ForecastModel.m */; };
@@ -75,7 +76,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EC425D35F0ABB00E8A09F9C /* libPods-HackWinds.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackWinds.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340AFA201A9C320700DAD121 /* UISettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UISettings.plist; sourceTree = "<group>"; };
 		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
@@ -112,6 +112,8 @@
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
 		344BEA8C1B09870D00BB6EEB /* CameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraModel.h; sourceTree = "<group>"; };
 		344BEA8D1B09870D00BB6EEB /* CameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModel.m; sourceTree = "<group>"; };
+		344F55961B5E645F0054C29A /* hackwindsdata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = hackwindsdata.framework; sourceTree = "<group>"; };
+		344F55A01B5E65650054C29A /* hackwindsdata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = hackwindsdata.framework; path = "../GoHome/src/github.com/mpiannucci/HackWinds-Data/hackwindsdata.framework"; sourceTree = "<group>"; };
 		34639D151A01E8B400C5CAD7 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		3478C60E1A3E833900479DE1 /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideModel.h; sourceTree = "<group>"; };
 		3478C60F1A3E833900479DE1 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideModel.m; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344F55A11B5E65650054C29A /* hackwindsdata.framework in Frameworks */,
 				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
 				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
 				349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */,
@@ -288,6 +291,8 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				344F55A01B5E65650054C29A /* hackwindsdata.framework */,
+				344F55961B5E645F0054C29A /* hackwindsdata.framework */,
 				34AA86571A41357300AD09CF /* SystemConfiguration.framework */,
 				349679E619E63DE90043A21B /* Accelerate.framework */,
 				349679E419E63DE20043A21B /* QuartzCore.framework */,
@@ -296,7 +301,6 @@
 				3430838B19795D0F00655F15 /* CoreGraphics.framework */,
 				3430838D19795D0F00655F15 /* UIKit.framework */,
 				343083AE19795D0F00655F15 /* XCTest.framework */,
-				0EC425D35F0ABB00E8A09F9C /* libPods-HackWinds.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -646,6 +650,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/matthew/Development/GoHome/src/github.com/mpiannucci/HackWinds-Data",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -654,6 +663,8 @@
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -669,6 +680,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/matthew/Development/GoHome/src/github.com/mpiannucci/HackWinds-Data",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -677,6 +693,8 @@
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
