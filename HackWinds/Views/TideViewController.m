@@ -14,7 +14,7 @@
 #import "Buoy.h"
 #import "Colors.h"
 #import "Reachability.h"
-#import <hackwindsdata/Hackwindsdata.h>
+#import <HackWindsData/Hackwindsdata.h>
 
 @interface TideViewController ()
 
