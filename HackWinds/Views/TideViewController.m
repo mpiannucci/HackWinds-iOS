@@ -14,6 +14,7 @@
 #import "Buoy.h"
 #import "Colors.h"
 #import "Reachability.h"
+#import "ModelFactory.h"
 #import <HackWindsData/Hackwindsdata.h>
 
 @interface TideViewController ()
@@ -32,7 +33,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Get the tide model and buoy model
-    tideModel = GoHackwindsdataNewTideModel();
+    ModelFactory *modelFactory = [ModelFactory sharedFactory];
+    tideModel = [modelFactory getTideModel];
+    
     _buoyModel = [BuoyModel sharedModel];
     
     // Get the buoy data and reload the views

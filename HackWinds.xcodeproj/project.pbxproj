@@ -26,7 +26,8 @@
 		343083B919795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343083B719795D0F00655F15 /* InfoPlist.strings */; };
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
 		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
-		34343B661B5F4DE4002D92E5 /* HackWindsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34343B651B5F4DE4002D92E5 /* HackWindsData.framework */; };
+		34343B6F1B5F504D002D92E5 /* ModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 34343B6E1B5F504D002D92E5 /* ModelFactory.m */; };
+		34343B711B5F56CC002D92E5 /* HackWindsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34343B701B5F56CC002D92E5 /* HackWindsData.framework */; };
 		343F33D119EF5C5A005802FA /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 343F33D019EF5C5A005802FA /* Tide.m */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
@@ -104,7 +105,9 @@
 		343083BA19795D0F00655F15 /* HackWindsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsTests.m; sourceTree = "<group>"; };
 		3431F9D019CBE135007FA7CA /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
-		34343B651B5F4DE4002D92E5 /* HackWindsData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HackWindsData.framework; sourceTree = "<group>"; };
+		34343B6D1B5F504D002D92E5 /* ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelFactory.h; sourceTree = "<group>"; };
+		34343B6E1B5F504D002D92E5 /* ModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelFactory.m; sourceTree = "<group>"; };
+		34343B701B5F56CC002D92E5 /* HackWindsData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HackWindsData.framework; path = "../GoHome/src/github.com/mpiannucci/HackWinds-Data/Gen/HackWindsData.framework"; sourceTree = "<group>"; };
 		343F33CF19EF5C5A005802FA /* Tide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tide.h; sourceTree = "<group>"; };
 		343F33D019EF5C5A005802FA /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tide.m; sourceTree = "<group>"; };
 		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
@@ -152,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34343B661B5F4DE4002D92E5 /* HackWindsData.framework in Frameworks */,
+				34343B711B5F56CC002D92E5 /* HackWindsData.framework in Frameworks */,
 				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
 				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
 				349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */,
@@ -224,6 +227,8 @@
 				3478C60F1A3E833900479DE1 /* TideModel.m */,
 				344BEA8C1B09870D00BB6EEB /* CameraModel.h */,
 				344BEA8D1B09870D00BB6EEB /* CameraModel.m */,
+				34343B6D1B5F504D002D92E5 /* ModelFactory.h */,
+				34343B6E1B5F504D002D92E5 /* ModelFactory.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,7 +295,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				34343B651B5F4DE4002D92E5 /* HackWindsData.framework */,
+				34343B701B5F56CC002D92E5 /* HackWindsData.framework */,
 				34AA86571A41357300AD09CF /* SystemConfiguration.framework */,
 				349679E619E63DE90043A21B /* Accelerate.framework */,
 				349679E419E63DE20043A21B /* QuartzCore.framework */,
@@ -495,6 +500,7 @@
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
+				34343B6F1B5F504D002D92E5 /* ModelFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +658,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/matthew/Development/GoHome/src/github.com/mpiannucci/HackWinds-Data",
+					"/Users/matthew/Development/GoHome/src/github.com/mpiannucci/HackWinds-Data/Gen",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
@@ -682,6 +689,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/matthew/Development/GoHome/src/github.com/mpiannucci/HackWinds-Data",
+					"/Users/matthew/Development/GoHome/src/github.com/mpiannucci/HackWinds-Data/Gen",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";

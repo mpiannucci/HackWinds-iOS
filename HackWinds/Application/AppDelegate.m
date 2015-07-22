@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "Reachability.h"
+#import "ModelFactory.h"
+
 #import "CameraModel.h"
 
 @implementation AppDelegate
@@ -23,7 +25,7 @@
     // Use these to set the color of the nav bar and tab bar
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:1.0]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:1.0]];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:1.0]];
     
     // We register ourselves to be notified when the movie player enters or exits full screen
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -68,6 +70,10 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+    
+    // Initialize model factory
+    ModelFactory *modelFactory = [ModelFactory sharedFactory];
+    
     
     return YES;
 }
