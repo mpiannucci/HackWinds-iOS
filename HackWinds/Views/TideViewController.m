@@ -33,8 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Get the tide model and buoy model
-    ModelFactory *modelFactory = [ModelFactory sharedFactory];
-    tideModel = [modelFactory getTideModel];
+    tideModel = [ModelFactory getTideModel];
     
     _buoyModel = [BuoyModel sharedModel];
     

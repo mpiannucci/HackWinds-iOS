@@ -11,10 +11,10 @@
 
 @interface ModelFactory : NSObject
 
-- (GoHackwindsdataCameraModel *) getCameraModel;
-- (GoHackwindsdataForecastModel *) getForecastModel;
-- (GoHackwindsdataBuoyModel *) getBuoyModel;
-- (GoHackwindsdataTideModel *) getTideModel;
++ (GoHackwindsdataCameraModel *) getCameraModel;
++ (GoHackwindsdataForecastModel *) getForecastModel;
++ (GoHackwindsdataBuoyModel *) getBuoyModel;
++ (GoHackwindsdataTideModel *) getTideModel;
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
 

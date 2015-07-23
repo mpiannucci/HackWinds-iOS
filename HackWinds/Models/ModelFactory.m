@@ -10,11 +10,6 @@
 
 @interface ModelFactory()
 
-@property (strong, nonatomic) GoHackwindsdataCameraModel *cameraModel;
-@property (strong, nonatomic) GoHackwindsdataForecastModel *forecastModel;
-@property (strong, nonatomic) GoHackwindsdataBuoyModel *buoyModel;
-@property (strong, nonatomic) GoHackwindsdataTideModel *tideModel;
-
 @end
 
 @implementation ModelFactory
@@ -36,53 +31,64 @@
     return self;
 }
 
-- (GoHackwindsdataCameraModel *) getCameraModel {
-    if (self.cameraModel == nil) {
-        self.cameraModel = GoHackwindsdataNewCameraModel();
-    }
-    return self.cameraModel;
++ (GoHackwindsdataCameraModel *) getCameraModel {
+    static GoHackwindsdataCameraModel *_sharedCameraModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // code to be executed once - thread safe version!
+        _sharedCameraModel = GoHackwindsdataNewCameraModel();
+    });
+    return _sharedCameraModel;
 }
 
-- (GoHackwindsdataForecastModel *) getForecastModel {
-    if (self.forecastModel == nil) {
-        self.forecastModel = GoHackwindsdataNewForecastModel();
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
++ (GoHackwindsdataForecastModel *) getForecastModel {
+    static GoHackwindsdataForecastModel *_sharedForecastModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // code to be executed once - thread safe version!
+        _sharedForecastModel = GoHackwindsdataNewForecastModel();
         
         // Get the current location and setup the settings listener
-        [defaults addObserver:self
-                   forKeyPath:@"ForecastLocation"
-                      options:NSKeyValueObservingOptionNew
-                      context:NULL];
-        
-        // Initialize the location
-        [self.forecastModel ChangeForecastLocation:[defaults objectForKey:@"ForecastLocation"]];
-    }
-    return self.forecastModel;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [[NSUserDefaults standardUserDefaults] addObserver:[ModelFactory sharedFactory]
+                                                forKeyPath:@"ForecastLocation"
+                                                   options:NSKeyValueObservingOptionNew
+                                                   context:NULL];
+        [_sharedForecastModel ChangeForecastLocation:[defaults objectForKey:@"ForecastLocation"]];
+    });
+    return _sharedForecastModel;
 }
 
-- (GoHackwindsdataBuoyModel *) getBuoyModel {
-    if (self.buoyModel == nil) {
-        self.buoyModel = GoHackwindsdataNewBuoyModel();
-    }
-    return self.buoyModel;
++ (GoHackwindsdataBuoyModel *) getBuoyModel {
+    static GoHackwindsdataBuoyModel *_sharedBuoyModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // code to be executed once - thread safe version!
+        _sharedBuoyModel = GoHackwindsdataNewBuoyModel();
+    });
+    return _sharedBuoyModel;
 }
 
-- (GoHackwindsdataTideModel *) getTideModel {
-    if (self.tideModel == nil) {
-        self.tideModel = GoHackwindsdataNewTideModel();
-    }
-    return self.tideModel;
++ (GoHackwindsdataTideModel *) getTideModel {
+    static GoHackwindsdataTideModel *_sharedTideModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // code to be executed once - thread safe version!
+        _sharedTideModel = GoHackwindsdataNewTideModel();
+    });
+    return _sharedTideModel;
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
-    if (self.forecastModel == nil) {
+    GoHackwindsdataForecastModel *forecastModel = [ModelFactory getForecastModel];
+    
+    if (forecastModel == nil) {
         return;
     }
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [self.forecastModel ChangeForecastLocation:[defaults objectForKey:@"ForecastLocation"]];
+    [forecastModel ChangeForecastLocation:[defaults objectForKey:@"ForecastLocation"]];
     
     // Tell everyone the data has to be updated
     dispatch_async(dispatch_get_main_queue(), ^{

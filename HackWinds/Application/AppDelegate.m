@@ -72,8 +72,12 @@
     }
     
     // Initialize model factory
-    ModelFactory *modelFactory = [ModelFactory sharedFactory];
+    GoHackwindsdataCameraModel *newCameraModel = [ModelFactory getCameraModel];
+    bool loaded = [newCameraModel ForceFetchCameraURLs];
     
+    if (!loaded) {
+
+    }
     
     return YES;
 }

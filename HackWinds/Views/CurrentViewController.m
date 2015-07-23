@@ -14,6 +14,8 @@
 #import "Condition.h"
 #import "Colors.h"
 #import "Reachability.h"
+#import <HackWindsData/Hackwindsdata.h>
+#import "ModelFactory.h"
 
 @interface CurrentViewController ()
 
@@ -23,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
 @property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
 
+
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
 
@@ -30,7 +33,8 @@
 
 @implementation CurrentViewController {
     NSArray *currentConditions;
-    NSDictionary *cameraURLs;
+    NSURL *wwStillURL;
+    NSURL *wwLiveURL;
 }
 
 - (void)viewDidLoad
@@ -39,9 +43,10 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    cameraURLs = [[defaults objectForKey:@"CameraLocations"] objectForKey:@"Narragansett"];
-    NSURL *wwStillURL = [NSURL URLWithString:[cameraURLs objectForKey:@"Warm Winds Still"]];
+    GoHackwindsdataCameraModel *cameraModel = [ModelFactory getCameraModel];
+    GoHackwindsdataCamera *wwCamera = [cameraModel GetCamera:@"Warm Winds"];
+    wwStillURL = [NSURL URLWithString:wwCamera.ImageURL];
+    wwLiveURL = [NSURL URLWithString:wwCamera.VideoURL];
     
     // Load the imageview
     [self.holderImageButton setImageURL:wwStillURL];
@@ -94,7 +99,6 @@
     CGFloat screenWidth = screenRect.size.width;
     
     // Create a new MoviePlayer with the Live Stream URL
-    NSURL *wwLiveURL = [NSURL URLWithString:[cameraURLs objectForKey:@"Warm Winds Live"]];
     self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];
