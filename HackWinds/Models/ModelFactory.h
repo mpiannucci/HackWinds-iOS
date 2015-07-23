@@ -15,6 +15,9 @@
 - (GoHackwindsdataForecastModel *) getForecastModel;
 - (GoHackwindsdataBuoyModel *) getBuoyModel;
 - (GoHackwindsdataTideModel *) getTideModel;
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
+
 + (instancetype) sharedFactory;
 
 @end

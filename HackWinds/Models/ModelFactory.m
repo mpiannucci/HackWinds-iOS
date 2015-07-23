@@ -46,6 +46,17 @@
 - (GoHackwindsdataForecastModel *) getForecastModel {
     if (self.forecastModel == nil) {
         self.forecastModel = GoHackwindsdataNewForecastModel();
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        // Get the current location and setup the settings listener
+        [defaults addObserver:self
+                   forKeyPath:@"ForecastLocation"
+                      options:NSKeyValueObservingOptionNew
+                      context:NULL];
+        
+        // Initialize the location
+        [self.forecastModel ChangeForecastLocation:[defaults objectForKey:@"ForecastLocation"]];
     }
     return self.forecastModel;
 }
@@ -62,6 +73,23 @@
         self.tideModel = GoHackwindsdataNewTideModel();
     }
     return self.tideModel;
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if (self.forecastModel == nil) {
+        return;
+    }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self.forecastModel ChangeForecastLocation:[defaults objectForKey:@"ForecastLocation"]];
+    
+    // Tell everyone the data has to be updated
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"ForecastModelDidUpdateDataNotification"
+         object:self];
+    });
 }
 
 @end
