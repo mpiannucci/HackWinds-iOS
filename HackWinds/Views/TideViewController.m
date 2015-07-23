@@ -17,25 +17,12 @@
 #import "ModelFactory.h"
 #import <HackWindsData/Hackwindsdata.h>
 
-@interface TideViewController ()
-
-@property (strong, nonatomic) BuoyModel *buoyModel;
-
-@end
-
 @implementation TideViewController
-{
-    GoHackwindsdataTideModel *tideModel;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // Get the tide model and buoy model
-    tideModel = [ModelFactory getTideModel];
-    
-    _buoyModel = [BuoyModel sharedModel];
     
     // Get the buoy data and reload the views
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
@@ -43,8 +30,8 @@
     
     if (networkStatus != NotReachable) {
         dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
-            [tideModel FetchTideData];
-            [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+            [[ModelFactory getTideModel] FetchTideData];
+            [[ModelFactory getBuoyModel] FetchBlockIslandBuoyData];
             [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
         });
     }
@@ -61,17 +48,14 @@
 
 - (void)reloadView {
     // If there are no tide items return early
-    if ([tideModel TideCount] == 0) {
+    if ([[ModelFactory getTideModel] TideCount] == 0) {
         return;
     }
     
-    // We need the buoy model for the water temp
-    NSMutableArray* buoyData = [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
-    
     int tideCount = 0;
-    for (int i = 0; i < [tideModel TideCount]; i++) {
+    for (int i = 0; i < [[ModelFactory getTideModel] TideCount]; i++) {
         // Then check what is is again, and set correct text box
-        GoHackwindsdataTide *tideEvent = [tideModel GetTideEventForIndex:i];
+        GoHackwindsdataTide *tideEvent = [[ModelFactory getTideModel] GetTideEventForIndex:i];
         if ([[tideEvent EventType] isEqualToString:SUNRISE_TAG]) {
             // Get the first row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
@@ -113,7 +97,7 @@
     }
 
     UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
-    NSString* waterTemp = [[buoyData objectAtIndex:0] WaterTemperature];
+    NSString* waterTemp = [[[ModelFactory getBuoyModel] GetBlockIslandBuoyAtIndex:0] WaterTemperature];
     NSString* waterTempStatus = [NSString stringWithFormat:@"Block Island: %@ %@F", waterTemp, @"\u00B0"];
     [currentWaterTempLabel setText:waterTempStatus];
     

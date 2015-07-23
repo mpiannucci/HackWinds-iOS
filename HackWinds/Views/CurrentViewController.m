@@ -43,8 +43,7 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    GoHackwindsdataCameraModel *cameraModel = [ModelFactory getCameraModel];
-    GoHackwindsdataCamera *wwCamera = [cameraModel GetCamera:@"Warm Winds"];
+    GoHackwindsdataCamera *wwCamera = [[ModelFactory getCameraModel] GetCameraForLocation:@"Narragansett" cameraName:@"Warm Winds"];
     wwStillURL = [NSURL URLWithString:wwCamera.ImageURL];
     wwLiveURL = [NSURL URLWithString:wwCamera.VideoURL];
     
