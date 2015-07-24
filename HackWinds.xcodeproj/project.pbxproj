@@ -388,24 +388,12 @@
 		34E1BA2A1B62D84700CDA01D /* HackWindsDataKit */ = {
 			isa = PBXGroup;
 			children = (
-				34E1BA5D1B62DD8600CDA01D /* Buoy.h */,
-				34E1BA5E1B62DD8600CDA01D /* Buoy.m */,
-				34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */,
-				34E1BA601B62DD8600CDA01D /* CameraModel.h */,
-				34E1BA611B62DD8600CDA01D /* CameraModel.m */,
+				34E1BA821B62DFDC00CDA01D /* Forecast */,
+				34E1BA811B62DFD500CDA01D /* Camera */,
+				34E1BA801B62DFCF00CDA01D /* Tide */,
+				34E1BA7F1B62DF2E00CDA01D /* Buoy */,
 				34E1BA621B62DD8600CDA01D /* Colors.h */,
-				34E1BA631B62DD8600CDA01D /* Condition.h */,
-				34E1BA641B62DD8600CDA01D /* Condition.m */,
 				34E1BA651B62DD8600CDA01D /* Constants.h */,
-				34E1BA661B62DD8600CDA01D /* Forecast.h */,
-				34E1BA671B62DD8600CDA01D /* Forecast.m */,
-				34E1BA681B62DD8600CDA01D /* ForecastModel.h */,
-				34E1BA691B62DD8600CDA01D /* ForecastModel.m */,
-				34E1BA6A1B62DD8600CDA01D /* Tide.h */,
-				34E1BA6B1B62DD8600CDA01D /* Tide.m */,
-				34E1BA6C1B62DD8600CDA01D /* TideModel.h */,
-				34E1BA6D1B62DD8600CDA01D /* TideModel.m */,
-				34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */,
 				34E1BA2D1B62D84700CDA01D /* HackWindsDataKit.h */,
 				34E1BA2B1B62D84700CDA01D /* Supporting Files */,
 			);
@@ -435,6 +423,50 @@
 				34E1BA3B1B62D84700CDA01D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		34E1BA7F1B62DF2E00CDA01D /* Buoy */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA5D1B62DD8600CDA01D /* Buoy.h */,
+				34E1BA5E1B62DD8600CDA01D /* Buoy.m */,
+				34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */,
+				34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */,
+			);
+			path = Buoy;
+			sourceTree = "<group>";
+		};
+		34E1BA801B62DFCF00CDA01D /* Tide */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA6A1B62DD8600CDA01D /* Tide.h */,
+				34E1BA6B1B62DD8600CDA01D /* Tide.m */,
+				34E1BA6C1B62DD8600CDA01D /* TideModel.h */,
+				34E1BA6D1B62DD8600CDA01D /* TideModel.m */,
+			);
+			path = Tide;
+			sourceTree = "<group>";
+		};
+		34E1BA811B62DFD500CDA01D /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA601B62DD8600CDA01D /* CameraModel.h */,
+				34E1BA611B62DD8600CDA01D /* CameraModel.m */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		34E1BA821B62DFDC00CDA01D /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA631B62DD8600CDA01D /* Condition.h */,
+				34E1BA641B62DD8600CDA01D /* Condition.m */,
+				34E1BA661B62DD8600CDA01D /* Forecast.h */,
+				34E1BA671B62DD8600CDA01D /* Forecast.m */,
+				34E1BA681B62DD8600CDA01D /* ForecastModel.h */,
+				34E1BA691B62DD8600CDA01D /* ForecastModel.m */,
+			);
+			path = Forecast;
 			sourceTree = "<group>";
 		};
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
