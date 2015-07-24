@@ -69,7 +69,7 @@
                                                  name:@"AsyncImageLoadDidFinish"
                                                object:nil];
     
-    if ([self.CameraName isEqualToString:@"Town Beach South"]) {
+    if ([self.cameraName isEqualToString:@"Town Beach South"]) {
         // On the Narragansett cam the update interval is 30 seconds
         refreshInterval = 35.0;
     } else {
@@ -80,7 +80,7 @@
     [self updateRefreshLabel];
     
     // Set the navigation title
-    self.navigationItem.title = self.CameraName;
+    self.navigationItem.title = self.cameraName;
     
     // Load the first image
     [self loadCamImage];
@@ -100,18 +100,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setCamera:(NSString *)cameraName forLocation:(NSString *)locationName {
-    self.CameraName = cameraName;
-    self.LocationName = locationName;
+- (void)setCamera:(NSString *)camName forLocation:(NSString *)locName {
+    self.cameraName = camName;
+    self.locationName = locName;
     
     CameraModel *cameraModel = [CameraModel sharedModel];
-    camera = [[cameraModel.cameraURLS objectForKey:self.LocationName] objectForKey:self.CameraName];
+    camera = [[cameraModel.cameraURLS objectForKey:self.locationName] objectForKey:self.cameraName];
 }
 
 - (void)loadCamImage {
     [self.camImage setImageURL:camera.ImageURL];
     
-    if ([self.CameraName isEqualToString:@"Point Judith"]) {
+    if (![[camera.VideoURL absoluteString] isEqualToString:@""]) {
         [self.autoReloadSwitch setOn:NO];
         [self.autoReloadSwitch setHidden:YES];
         [self.autoReloadLabel setHidden:YES];

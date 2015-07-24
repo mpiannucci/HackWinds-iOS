@@ -10,10 +10,10 @@
 
 @interface IsoCameraViewController : UIViewController
 
-@property (weak, nonatomic) NSString *LocationName;
-@property (weak, nonatomic) NSString *CameraName;
+@property (weak, nonatomic) NSString *locationName;
+@property (weak, nonatomic) NSString *cameraName;
 
-- (void)setCamera:(NSString *)camera forLocation:(NSString *)location;
+- (void)setCamera:(NSString *)camName forLocation:(NSString *)locName;
 - (void)loadCamImage;
 - (void)updateRefreshLabel;
 - (void)updateFullScreenImage;
