@@ -48,10 +48,10 @@
     self = [super init];
     
     // Initialize the BI and MTK arrays
-    self.blockIslandBuoys = [[NSMutableArray alloc] init];
-    self.blockIslandWaveHeights = [[NSMutableArray alloc] init];
-    self.montaukBuoys = [[NSMutableArray alloc] init];
-    self.montaukWaveHeights = [[NSMutableArray alloc] init];
+    self.blockIslandBuoys = [NSMutableArray arrayWithCapacity:DATA_POINTS];
+    self.blockIslandWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
+    self.montaukBuoys = [NSMutableArray arrayWithCapacity:DATA_POINTS];
+    self.montaukWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
     
     // Check if daylight savings is in effect. Make sure the time scaling is for EST (GMT-5)
     NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];

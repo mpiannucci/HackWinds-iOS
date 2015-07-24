@@ -8,13 +8,10 @@
 
 #import "AlternateCamerasViewController.h"
 #import "IsoCameraViewController.h"
-
-@interface AlternateCamerasViewController ()
-
-@end
+#import <HackWindsDataKit/HackWindsDataKit.h>
 
 @implementation AlternateCamerasViewController {
-    NSDictionary *cameraURLs;
+    CameraModel *cameraModel;
     NSArray *locationKeys;
     NSArray *cameraKeys;
 }
@@ -23,15 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    cameraURLs = [defaults objectForKey:@"CameraLocations"];
-    locationKeys = [cameraURLs allKeys];
+    cameraModel = [CameraModel sharedModel];
+    locationKeys = [cameraModel.cameraURLS allKeys];
     
-    NSMutableArray *allCameras = [[NSMutableArray alloc] init];
-    for (NSString *key in locationKeys) {
-        [allCameras addObject:[[cameraURLs objectForKey:key] allKeys]];
+    NSMutableArray *tempCameraKeys = [[NSMutableArray alloc] init];
+    for (NSString *location in locationKeys) {
+        [tempCameraKeys addObject:[[[cameraModel cameraURLS] objectForKey:location] allKeys]];
     }
-    cameraKeys = [NSArray arrayWithArray:allCameras];
+    cameraKeys = [NSArray arrayWithArray:tempCameraKeys];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,17 +42,14 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return cameraURLs.count;
+    return [[[CameraModel sharedModel] cameraURLS] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     NSInteger nRows = 0;
-    if (section < cameraURLs.count) {
-        nRows = [[cameraURLs objectForKey:locationKeys[section]] count];
-        if ([locationKeys[section] isEqualToString:@"Narragansett"]) {
-            nRows -= 2;
-        }
+    if (section < [locationKeys count]) {
+        nRows += [[[cameraModel cameraURLS] objectForKey:[locationKeys objectAtIndex:section]] count];
     }
     return nRows;
 }
@@ -71,9 +64,6 @@
     
     if ((indexPath.section < locationKeys.count) &&
         (indexPath.row < [[cameraKeys objectAtIndex:indexPath.section] count])) {
-        if ([locationKeys[indexPath.section] isEqualToString:@"Narragansett"]) {
-            row += 2;
-        }
         [locationLabel setText:[[cameraKeys objectAtIndex:indexPath.section] objectAtIndex:row]];
     }
     

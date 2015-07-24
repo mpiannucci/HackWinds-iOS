@@ -33,6 +33,8 @@
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
+		34BF8CF81B62E74B00287BC1 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF8CF61B62E74B00287BC1 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34BF8CF91B62E74B00287BC1 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF8CF71B62E74B00287BC1 /* Camera.m */; };
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */; };
@@ -164,6 +166,9 @@
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		34BF8CF51B62E69B00287BC1 /* HackWinds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWinds.entitlements; sourceTree = "<group>"; };
+		34BF8CF61B62E74B00287BC1 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		34BF8CF71B62E74B00287BC1 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		34C8E7201ACA43EB0038E895 /* DetailedForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedForecastViewController.h; sourceTree = "<group>"; };
 		34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedForecastViewController.m; sourceTree = "<group>"; };
 		34CA15321A9D657000DAB1F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -350,6 +355,7 @@
 		3430838F19795D0F00655F15 /* HackWinds */ = {
 			isa = PBXGroup;
 			children = (
+				34BF8CF51B62E69B00287BC1 /* HackWinds.entitlements */,
 				342BEA6B1AF9A427004D6EE3 /* Application */,
 				342BEA671AF9A0C2004D6EE3 /* Views */,
 				342BEA6C1AF9A626004D6EE3 /* Storyboards */,
@@ -452,6 +458,8 @@
 			children = (
 				34E1BA601B62DD8600CDA01D /* CameraModel.h */,
 				34E1BA611B62DD8600CDA01D /* CameraModel.m */,
+				34BF8CF61B62E74B00287BC1 /* Camera.h */,
+				34BF8CF71B62E74B00287BC1 /* Camera.m */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -488,6 +496,7 @@
 			files = (
 				34E1BA7B1B62DD8600CDA01D /* Tide.h in Headers */,
 				34E1BA791B62DD8600CDA01D /* ForecastModel.h in Headers */,
+				34BF8CF81B62E74B00287BC1 /* Camera.h in Headers */,
 				34E1BA731B62DD8600CDA01D /* Colors.h in Headers */,
 				34E1BA761B62DD8600CDA01D /* Constants.h in Headers */,
 				34E1BA2E1B62D84700CDA01D /* HackWindsDataKit.h in Headers */,
@@ -589,6 +598,11 @@
 				TargetAttributes = {
 					3430838519795D0F00655F15 = {
 						DevelopmentTeam = 39L46PD99U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					343083AC19795D0F00655F15 = {
 						TestTargetID = 3430838519795D0F00655F15;
@@ -716,6 +730,7 @@
 				34E1BA7A1B62DD8600CDA01D /* ForecastModel.m in Sources */,
 				34E1BA701B62DD8600CDA01D /* BuoyModel.m in Sources */,
 				34E1BA751B62DD8600CDA01D /* Condition.m in Sources */,
+				34BF8CF91B62E74B00287BC1 /* Camera.m in Sources */,
 				34E1BA781B62DD8600CDA01D /* Forecast.m in Sources */,
 				34E1BA7E1B62DD8600CDA01D /* TideModel.m in Sources */,
 				34E1BA721B62DD8600CDA01D /* CameraModel.m in Sources */,
@@ -886,6 +901,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HackWinds/HackWinds.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -911,6 +927,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HackWinds/HackWinds.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1110,6 +1127,7 @@
 				34E1BA441B62D84700CDA01D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34E1BA4A1B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKitTests" */ = {
 			isa = XCConfigurationList;
@@ -1118,6 +1136,7 @@
 				34E1BA461B62D84700CDA01D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

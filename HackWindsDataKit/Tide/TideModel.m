@@ -35,7 +35,7 @@
     self = [super init];
     
     // Array to load the data into
-    self.tides = [[NSMutableArray alloc] init];
+    self.tides = [NSMutableArray arrayWithCapacity:6];
     
     return self;
 }

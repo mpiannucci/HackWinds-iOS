@@ -21,6 +21,7 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitVersionString[];
 #import "Constants.h"
 
 // Types
+#import "Camera.h"
 #import "Condition.h"
 #import "Forecast.h"
 #import "Buoy.h"

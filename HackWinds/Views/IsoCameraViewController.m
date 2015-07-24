@@ -10,6 +10,7 @@
 #import "IsoCameraViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AsyncImageView.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 
 @interface IsoCameraViewController ()
 
@@ -27,9 +28,7 @@
 @end
 
 @implementation IsoCameraViewController {
-    NSURL *cameraURL;
-    NSURL *videoURL;
-    NSString *extraInfo;
+    Camera *camera;
     NSInteger refreshInterval;
     BOOL shouldHideStatusBar;
     BOOL isFullScreen;
@@ -70,7 +69,7 @@
                                                  name:@"AsyncImageLoadDidFinish"
                                                object:nil];
     
-    if ([self.Camera isEqualToString:@"Town Beach South"]) {
+    if ([self.CameraName isEqualToString:@"Town Beach South"]) {
         // On the Narragansett cam the update interval is 30 seconds
         refreshInterval = 35.0;
     } else {
@@ -81,7 +80,7 @@
     [self updateRefreshLabel];
     
     // Set the navigation title
-    self.navigationItem.title = self.Camera;
+    self.navigationItem.title = self.CameraName;
     
     // Load the first image
     [self loadCamImage];
@@ -101,27 +100,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setCamera:(NSString *)camera forLocation:(NSString *)location {
-    self.Camera = camera;
-    self.Location = location;
+- (void)setCamera:(NSString *)cameraName forLocation:(NSString *)locationName {
+    self.CameraName = cameraName;
+    self.LocationName = locationName;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *cameraURLs = [defaults objectForKey:@"CameraLocations"];
-    
-    if ([self.Camera isEqualToString:@"Point Judith"]) {
-        cameraURL = POINT_JUDITH_STATIC_IMAGE;
-        NSDictionary *pjData = [[cameraURLs objectForKey:self.Location] objectForKey:self.Camera];
-        videoURL = [NSURL URLWithString:[pjData objectForKey:@"file"]];
-        extraInfo = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, it may be down. It is a daily upload during the summer and it becomes unavailable each evening.", [pjData objectForKey:@"camStatus"], [pjData objectForKey:@"reportDate"], [pjData objectForKey:@"reportTime"]];
-    } else {
-        cameraURL = [NSURL URLWithString:[[cameraURLs objectForKey:self.Location] objectForKey:self.Camera]];
-    }
+    CameraModel *cameraModel = [CameraModel sharedModel];
+    camera = [[cameraModel.cameraURLS objectForKey:self.LocationName] objectForKey:self.CameraName];
 }
 
 - (void)loadCamImage {
-    [self.camImage setImageURL:cameraURL];
+    [self.camImage setImageURL:camera.ImageURL];
     
-    if ([self.Camera isEqualToString:@"Point Judith"]) {
+    if ([self.CameraName isEqualToString:@"Point Judith"]) {
         [self.autoReloadSwitch setOn:NO];
         [self.autoReloadSwitch setHidden:YES];
         [self.autoReloadLabel setHidden:YES];
@@ -130,7 +120,7 @@
         [self.videoPlayButton setHidden:NO];
         [self.extraCameraInfo setHidden:NO];
         [self.extraCameraInfo setNumberOfLines:0];
-        [self.extraCameraInfo setText:extraInfo];
+        [self.extraCameraInfo setText:camera.Info];
         [self.extraCameraInfo sizeToFit];
     }
     
@@ -219,7 +209,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     
-    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:camera.VideoURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];
     

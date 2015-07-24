@@ -54,8 +54,8 @@
     [self check24HourClock];
     
     // Initialize the data holders
-    self.conditions = [[NSMutableArray alloc] init];
-    self.forecasts = [[NSMutableArray alloc] init];
+    self.conditions = [NSMutableArray arrayWithCapacity:30];
+    self.forecasts = [NSMutableArray arrayWithCapacity:10];
     
     // Get the current location and setup the settings listener
     [[NSUserDefaults standardUserDefaults] addObserver:self

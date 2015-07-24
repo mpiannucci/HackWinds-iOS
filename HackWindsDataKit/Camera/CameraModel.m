@@ -5,12 +5,20 @@
 //  Created by Matthew Iannucci on 5/17/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define HACKWINDS_API_URL [NSURL URLWithString:@"http://blog.mpiannucci.com/static/API/hackwinds_camera_locations_v2.json"]
+#define HACKWINDS_API_URL [NSURL URLWithString:@"http://blog.mpiannucci.com/static/API/hackwinds_camera_locations_v3.json"]
 
 #import "CameraModel.h"
+#import "Camera.h"
+
+@interface CameraModel()
+
+- (BOOL) fetchPointJudithURLs;
+
+@end
 
 @implementation CameraModel {
     BOOL forceReload;
+    int cameraCount;
 }
 
 + (instancetype) sharedModel {
@@ -32,14 +40,15 @@
         forceReload = NO;
     }
     
+    int cameraCount = 0;
+    self.cameraURLS = [[NSDictionary alloc] init];
+    
     return self;
 }
 
 - (BOOL) fetchCameraURLs {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL needsFetch = [defaults boolForKey:@"NeedCameraLocationFetch"];
     
-    if (!needsFetch && !forceReload) {
+    if (!forceReload) {
         return true;
     }
     
@@ -54,26 +63,46 @@
         return false;
     }
 
-    NSMutableDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
-    NSMutableDictionary *narragansettDict = [NSMutableDictionary dictionaryWithDictionary:[cameraDict objectForKey:@"Narragansett"]];
+    NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
+    NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
     
-    // Handle the special point judith camera
-    if ([narragansettDict count] > 3) {
-        NSURL *pointJudithURL = [NSURL URLWithString:[narragansettDict objectForKey:@"Point Judith"]];
-        NSData *pointJudithResponse = [NSData dataWithContentsOfURL:pointJudithURL];
-        NSError *pjError;
-        NSDictionary *pointJudithData = [NSJSONSerialization
-                                         JSONObjectWithData:pointJudithResponse
-                                         options:kNilOptions
-                                         error:&pjError];
-        NSDictionary *pointJudithStreamData = [[[pointJudithData objectForKey:@"streamInfo"] objectForKey:@"stream"] objectAtIndex:0];
-        [narragansettDict setObject:pointJudithStreamData forKey:@"Point Judith"];
-        [cameraDict setObject:[NSDictionary dictionaryWithDictionary:narragansettDict] forKey:@"Narragansett"];
+    for (NSString* locationName in cameraDict) {
+        tempDict[locationName] = [[NSMutableDictionary alloc] init];
+        
+        for (NSString *cameraName in [cameraDict objectForKey:locationName]) {
+            Camera *thisCamera = [[Camera alloc] init];
+            
+            if ([cameraName isEqualToString:@"Point Judith"]) {
+                // TODO: PJ Support
+                continue;
+            }
+            
+            // Create a new camera object to store
+            thisCamera.ImageURL = [NSURL URLWithString:[[[cameraDict objectForKey:locationName] objectForKey:cameraName] objectForKey:@"Image"]];
+            thisCamera.VideoURL = [NSURL URLWithString:[[[cameraDict objectForKey:locationName] objectForKey:cameraName] objectForKey:@"Video"]];
+            thisCamera.Info = [[[cameraDict objectForKey:locationName] objectForKey:cameraName] objectForKey:@"Info"];
+            
+            tempDict[locationName][cameraName] = thisCamera;
+        }
     }
     
+    self.cameraURLS = tempDict;
+    
+    // Handle the special point judith camera
+//    if ([narragansettDict count] > 3) {
+//        NSURL *pointJudithURL = [NSURL URLWithString:[narragansettDict objectForKey:@"Point Judith"]];
+//        NSData *pointJudithResponse = [NSData dataWithContentsOfURL:pointJudithURL];
+//        NSError *pjError;
+//        NSDictionary *pointJudithData = [NSJSONSerialization
+//                                         JSONObjectWithData:pointJudithResponse
+//                                         options:kNilOptions
+//                                         error:&pjError];
+//        NSDictionary *pointJudithStreamData = [[[pointJudithData objectForKey:@"streamInfo"] objectForKey:@"stream"] objectAtIndex:0];
+//        [narragansettDict setObject:pointJudithStreamData forKey:@"Point Judith"];
+//        [cameraDict setObject:[NSDictionary dictionaryWithDictionary:narragansettDict] forKey:@"Narragansett"];
+//    }
+    
     // Save the camera urls to defaults and set the reload state
-    [defaults setObject:[NSDictionary dictionaryWithDictionary:cameraDict] forKey:@"CameraLocations"];
-    [defaults setBool:NO forKey:@"NeedCameraLocationFetch"];
     forceReload = NO;
     
     return YES;

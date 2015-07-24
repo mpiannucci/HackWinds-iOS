@@ -28,7 +28,7 @@
 
 @implementation CurrentViewController {
     NSArray *currentConditions;
-    NSDictionary *cameraURLs;
+    Camera *wwCamera;
 }
 
 - (void)viewDidLoad
@@ -37,12 +37,11 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    cameraURLs = [[defaults objectForKey:@"CameraLocations"] objectForKey:@"Narragansett"];
-    NSURL *wwStillURL = [NSURL URLWithString:[cameraURLs objectForKey:@"Warm Winds Still"]];
+    CameraModel *cameraModel = [CameraModel sharedModel];
+    wwCamera = [[cameraModel.cameraURLS objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
     
     // Load the imageview
-    [self.holderImageButton setImageURL:wwStillURL];
+    [self.holderImageButton setImageURL:wwCamera.ImageURL];
     
     // Get the date and set the weekday text
     NSDate *now = [[NSDate alloc] init];
@@ -92,8 +91,7 @@
     CGFloat screenWidth = screenRect.size.width;
     
     // Create a new MoviePlayer with the Live Stream URL
-    NSURL *wwLiveURL = [NSURL URLWithString:[cameraURLs objectForKey:@"Warm Winds Live"]];
-    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:wwLiveURL];
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:wwCamera.VideoURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];
     

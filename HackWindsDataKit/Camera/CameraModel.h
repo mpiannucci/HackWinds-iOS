@@ -10,9 +10,10 @@
 
 @interface CameraModel : NSObject
 
+@property (strong, nonatomic) NSDictionary *cameraURLS;
+
 - (BOOL) forceFetchCameraURLs;
 - (BOOL) fetchCameraURLs;
-- (BOOL) fetchPointJudithURLs;
 + (instancetype) sharedModel;
 
 @end
