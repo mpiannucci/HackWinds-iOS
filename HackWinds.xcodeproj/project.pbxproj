@@ -75,7 +75,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EC425D35F0ABB00E8A09F9C /* libPods-HackWinds.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackWinds.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340AFA201A9C320700DAD121 /* UISettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UISettings.plist; sourceTree = "<group>"; };
 		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
@@ -296,7 +295,6 @@
 				3430838B19795D0F00655F15 /* CoreGraphics.framework */,
 				3430838D19795D0F00655F15 /* UIKit.framework */,
 				343083AE19795D0F00655F15 /* XCTest.framework */,
-				0EC425D35F0ABB00E8A09F9C /* libPods-HackWinds.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -654,6 +652,7 @@
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -677,6 +676,7 @@
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

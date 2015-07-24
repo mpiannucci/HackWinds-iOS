@@ -67,13 +67,13 @@
     for (int i = 0; i < [tideData count]; i++) {
         // Then check what is is again, and set correct text box
         Tide* thisTide = [tideData objectAtIndex:i];
-        if ([[thisTide EventType] isEqualToString:SUNRISE_TAG]) {
+        if ([thisTide isSunrise]) {
             // Get the first row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
             NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.Time];
             [sunriseLabel setText:sunrisetext];
             
-        } else if ([[thisTide EventType] isEqualToString:SUNSET_TAG]) {
+        } else if ([thisTide isSunset]) {
             // Get the second row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]] viewWithTag:61];
             NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.Time];
@@ -91,12 +91,12 @@
                 // Get the current tide label
                 UILabel* currentTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:41];
                 
-                if ([thisTide.EventType isEqualToString:HIGH_TIDE_TAG]) {
+                if ([thisTide isHighTide]) {
                     // Show that the tide is incoming, using green because typically surf increases with incoming tides
                     [currentTideLabel setText:@"Incoming"];
                     [currentTideLabel setTextColor:GREEN_COLOR];
                     
-                } else if ([thisTide.EventType isEqualToString:LOW_TIDE_TAG]) {
+                } else if ([thisTide isLowTide]) {
                     // Show that the tide is outgoing, use red because the surf typically decreases with an outgoing tide
                     [currentTideLabel setText:@"Outgoing"];
                     [currentTideLabel setTextColor:RED_COLOR];

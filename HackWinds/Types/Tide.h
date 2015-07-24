@@ -20,4 +20,12 @@
 @property (strong, nonatomic) NSString *EventType;
 @property (strong, nonatomic) NSString *Height;
 
+// Conveinence methods
+- (BOOL) isSunrise;
+- (BOOL) isSunset;
+- (BOOL) isSolarEvent;
+- (BOOL) isHighTide;
+- (BOOL) isLowTide;
+- (BOOL) isTidalEvent;
+
 @end
