@@ -8,11 +8,7 @@
 #define TIDE_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 #import "TideViewController.h"
-#import "TideModel.h"
-#import "Tide.h"
-#import "BuoyModel.h"
-#import "Buoy.h"
-#import "Colors.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
 
 @interface TideViewController ()

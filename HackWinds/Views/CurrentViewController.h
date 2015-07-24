@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ForecastModel.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 
 @interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

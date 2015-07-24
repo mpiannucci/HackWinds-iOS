@@ -11,9 +11,7 @@
 #define PERIOD_CHART 2
 
 #import "DetailedForecastViewController.h"
-#import "ForecastModel.h"
-#import "Condition.h"
-#import "Colors.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 #import "AsyncImageView.h"
 
 @interface DetailedForecastViewController ()

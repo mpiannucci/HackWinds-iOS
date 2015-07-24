@@ -10,7 +10,6 @@
 		340AFA211A9C320700DAD121 /* UISettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340AFA201A9C320700DAD121 /* UISettings.plist */; };
 		342A76221985E18100077F8C /* TideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* TideViewController.m */; };
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
-		342A762A1985FD2E00077F8C /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76291985FD2E00077F8C /* Condition.m */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
 		3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838B19795D0F00655F15 /* CoreGraphics.framework */; };
 		3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
@@ -25,16 +24,9 @@
 		343083B119795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
 		343083B919795D0F00655F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343083B719795D0F00655F15 /* InfoPlist.strings */; };
 		343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083BA19795D0F00655F15 /* HackWindsTests.m */; };
-		3431F9D219CBE135007FA7CA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431F9D119CBE135007FA7CA /* Forecast.m */; };
-		343F33D119EF5C5A005802FA /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 343F33D019EF5C5A005802FA /* Tide.m */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
-		344BEA8E1B09870D00BB6EEB /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 344BEA8D1B09870D00BB6EEB /* CameraModel.m */; };
-		3478C6101A3E833900479DE1 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C60F1A3E833900479DE1 /* TideModel.m */; };
-		3478C6151A3E8F2600479DE1 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6141A3E8F2600479DE1 /* BuoyModel.m */; };
-		3478C6191A3E9D8200479DE1 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3478C6181A3E9D8200479DE1 /* ForecastModel.m */; };
 		3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyViewController.m */; };
-		3495C95B19E78DCF00C8F4D7 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95A19E78DCF00C8F4D7 /* Buoy.m */; };
 		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
@@ -44,6 +36,29 @@
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */; };
+		34E1BA2E1B62D84700CDA01D /* HackWindsDataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA2D1B62D84700CDA01D /* HackWindsDataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
+		34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */; };
+		34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
+		34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34E1BA5C1B62DD6600CDA01D /* BuoyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA6E1B62DD8600CDA01D /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5D1B62DD8600CDA01D /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA6F1B62DD8600CDA01D /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5E1B62DD8600CDA01D /* Buoy.m */; };
+		34E1BA701B62DD8600CDA01D /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */; };
+		34E1BA711B62DD8600CDA01D /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA601B62DD8600CDA01D /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA721B62DD8600CDA01D /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA611B62DD8600CDA01D /* CameraModel.m */; };
+		34E1BA731B62DD8600CDA01D /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA621B62DD8600CDA01D /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA741B62DD8600CDA01D /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA631B62DD8600CDA01D /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA751B62DD8600CDA01D /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA641B62DD8600CDA01D /* Condition.m */; };
+		34E1BA761B62DD8600CDA01D /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA651B62DD8600CDA01D /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA771B62DD8600CDA01D /* Forecast.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA661B62DD8600CDA01D /* Forecast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA781B62DD8600CDA01D /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA671B62DD8600CDA01D /* Forecast.m */; };
+		34E1BA791B62DD8600CDA01D /* ForecastModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA681B62DD8600CDA01D /* ForecastModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA7A1B62DD8600CDA01D /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA691B62DD8600CDA01D /* ForecastModel.m */; };
+		34E1BA7B1B62DD8600CDA01D /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6A1B62DD8600CDA01D /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA7C1B62DD8600CDA01D /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6B1B62DD8600CDA01D /* Tide.m */; };
+		34E1BA7D1B62DD8600CDA01D /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6C1B62DD8600CDA01D /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E1BA7E1B62DD8600CDA01D /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6D1B62DD8600CDA01D /* TideModel.m */; };
 		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
@@ -72,15 +87,48 @@
 			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
 			remoteInfo = "CorePlot-CocoaTouch";
 		};
+		34E1BA351B62D84700CDA01D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34E1BA281B62D84700CDA01D;
+			remoteInfo = HackWindsDataKit;
+		};
+		34E1BA371B62D84700CDA01D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3430838519795D0F00655F15;
+			remoteInfo = HackWinds;
+		};
+		34E1BA3E1B62D84700CDA01D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34E1BA281B62D84700CDA01D;
+			remoteInfo = HackWindsDataKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		34E1BA411B62D84700CDA01D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		340AFA201A9C320700DAD121 /* UISettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UISettings.plist; sourceTree = "<group>"; };
 		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
 		342A76231985E38600077F8C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		342A76281985FD2E00077F8C /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
-		342A76291985FD2E00077F8C /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		3430838619795D0F00655F15 /* HackWinds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWinds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3430838919795D0F00655F15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3430838B19795D0F00655F15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,27 +149,13 @@
 		343083B619795D0F00655F15 /* HackWindsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HackWindsTests-Info.plist"; sourceTree = "<group>"; };
 		343083B819795D0F00655F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		343083BA19795D0F00655F15 /* HackWindsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsTests.m; sourceTree = "<group>"; };
-		3431F9D019CBE135007FA7CA /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
-		3431F9D119CBE135007FA7CA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
-		343F33CF19EF5C5A005802FA /* Tide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tide.h; sourceTree = "<group>"; };
-		343F33D019EF5C5A005802FA /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tide.m; sourceTree = "<group>"; };
 		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
-		344BEA8C1B09870D00BB6EEB /* CameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraModel.h; sourceTree = "<group>"; };
-		344BEA8D1B09870D00BB6EEB /* CameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModel.m; sourceTree = "<group>"; };
 		34639D151A01E8B400C5CAD7 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
-		3478C60E1A3E833900479DE1 /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideModel.h; sourceTree = "<group>"; };
-		3478C60F1A3E833900479DE1 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideModel.m; sourceTree = "<group>"; };
-		3478C6131A3E8F2600479DE1 /* BuoyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyModel.h; sourceTree = "<group>"; };
-		3478C6141A3E8F2600479DE1 /* BuoyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyModel.m; sourceTree = "<group>"; };
-		3478C6171A3E9D8200479DE1 /* ForecastModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastModel.h; sourceTree = "<group>"; };
-		3478C6181A3E9D8200479DE1 /* ForecastModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastModel.m; sourceTree = "<group>"; };
 		3495C95319E7773100C8F4D7 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
 		3495C95419E7773100C8F4D7 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
-		3495C95919E78DCF00C8F4D7 /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buoy.h; sourceTree = "<group>"; };
-		3495C95A19E78DCF00C8F4D7 /* Buoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buoy.m; sourceTree = "<group>"; };
 		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -136,6 +170,30 @@
 		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		34CA15361A9D787A00DAB1F8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForecastLocations.plist; sourceTree = "<group>"; };
+		34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34E1BA2D1B62D84700CDA01D /* HackWindsDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HackWindsDataKit.h; path = HackWindsDataKit/HackWindsDataKit.h; sourceTree = SOURCE_ROOT; };
+		34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsDataKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E1BA3B1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitTests.m; sourceTree = "<group>"; };
+		34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyModel.h; sourceTree = "<group>"; };
+		34E1BA5D1B62DD8600CDA01D /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buoy.h; sourceTree = "<group>"; };
+		34E1BA5E1B62DD8600CDA01D /* Buoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buoy.m; sourceTree = "<group>"; };
+		34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyModel.m; sourceTree = "<group>"; };
+		34E1BA601B62DD8600CDA01D /* CameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraModel.h; sourceTree = "<group>"; };
+		34E1BA611B62DD8600CDA01D /* CameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModel.m; sourceTree = "<group>"; };
+		34E1BA621B62DD8600CDA01D /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		34E1BA631B62DD8600CDA01D /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
+		34E1BA641B62DD8600CDA01D /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
+		34E1BA651B62DD8600CDA01D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		34E1BA661B62DD8600CDA01D /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		34E1BA671B62DD8600CDA01D /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		34E1BA681B62DD8600CDA01D /* ForecastModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastModel.h; sourceTree = "<group>"; };
+		34E1BA691B62DD8600CDA01D /* ForecastModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastModel.m; sourceTree = "<group>"; };
+		34E1BA6A1B62DD8600CDA01D /* Tide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tide.h; sourceTree = "<group>"; };
+		34E1BA6B1B62DD8600CDA01D /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tide.m; sourceTree = "<group>"; };
+		34E1BA6C1B62DD8600CDA01D /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideModel.h; sourceTree = "<group>"; };
+		34E1BA6D1B62DD8600CDA01D /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideModel.m; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		34F9338D1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34F9338F1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -156,6 +214,7 @@
 				342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */,
 				3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */,
 				3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */,
+				34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
 				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
 				349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
@@ -168,6 +227,21 @@
 				343083AF19795D0F00655F15 /* XCTest.framework in Frameworks */,
 				343083B119795D0F00655F15 /* UIKit.framework in Frameworks */,
 				343083B019795D0F00655F15 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E1BA251B62D84700CDA01D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E1BA301B62D84700CDA01D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,36 +284,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		342BEA691AF9A11F004D6EE3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3478C6131A3E8F2600479DE1 /* BuoyModel.h */,
-				3478C6141A3E8F2600479DE1 /* BuoyModel.m */,
-				3478C6171A3E9D8200479DE1 /* ForecastModel.h */,
-				3478C6181A3E9D8200479DE1 /* ForecastModel.m */,
-				3478C60E1A3E833900479DE1 /* TideModel.h */,
-				3478C60F1A3E833900479DE1 /* TideModel.m */,
-				344BEA8C1B09870D00BB6EEB /* CameraModel.h */,
-				344BEA8D1B09870D00BB6EEB /* CameraModel.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		342BEA6A1AF9A12C004D6EE3 /* Types */ = {
-			isa = PBXGroup;
-			children = (
-				3495C95919E78DCF00C8F4D7 /* Buoy.h */,
-				3495C95A19E78DCF00C8F4D7 /* Buoy.m */,
-				342A76281985FD2E00077F8C /* Condition.h */,
-				342A76291985FD2E00077F8C /* Condition.m */,
-				3431F9D019CBE135007FA7CA /* Forecast.h */,
-				3431F9D119CBE135007FA7CA /* Forecast.m */,
-				343F33CF19EF5C5A005802FA /* Tide.h */,
-				343F33D019EF5C5A005802FA /* Tide.m */,
-			);
-			path = Types;
-			sourceTree = "<group>";
-		};
 		342BEA6B1AF9A427004D6EE3 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +313,8 @@
 			children = (
 				3430838F19795D0F00655F15 /* HackWinds */,
 				343083B419795D0F00655F15 /* HackWindsTests */,
+				34E1BA2A1B62D84700CDA01D /* HackWindsDataKit */,
+				34E1BA391B62D84700CDA01D /* HackWindsDataKitTests */,
 				3430838819795D0F00655F15 /* Frameworks */,
 				3430838719795D0F00655F15 /* Products */,
 				349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */,
@@ -280,6 +326,8 @@
 			children = (
 				3430838619795D0F00655F15 /* HackWinds.app */,
 				343083AD19795D0F00655F15 /* HackWindsTests.xctest */,
+				34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */,
+				34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,9 +352,7 @@
 			children = (
 				342BEA6B1AF9A427004D6EE3 /* Application */,
 				342BEA671AF9A0C2004D6EE3 /* Views */,
-				342BEA691AF9A11F004D6EE3 /* Models */,
 				342BEA6C1AF9A626004D6EE3 /* Storyboards */,
-				342BEA6A1AF9A12C004D6EE3 /* Types */,
 				342BEA681AF9A101004D6EE3 /* Utilities */,
 				34FD036A198F0A4F00BA0FB0 /* Resources */,
 			);
@@ -339,6 +385,58 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		34E1BA2A1B62D84700CDA01D /* HackWindsDataKit */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA5D1B62DD8600CDA01D /* Buoy.h */,
+				34E1BA5E1B62DD8600CDA01D /* Buoy.m */,
+				34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */,
+				34E1BA601B62DD8600CDA01D /* CameraModel.h */,
+				34E1BA611B62DD8600CDA01D /* CameraModel.m */,
+				34E1BA621B62DD8600CDA01D /* Colors.h */,
+				34E1BA631B62DD8600CDA01D /* Condition.h */,
+				34E1BA641B62DD8600CDA01D /* Condition.m */,
+				34E1BA651B62DD8600CDA01D /* Constants.h */,
+				34E1BA661B62DD8600CDA01D /* Forecast.h */,
+				34E1BA671B62DD8600CDA01D /* Forecast.m */,
+				34E1BA681B62DD8600CDA01D /* ForecastModel.h */,
+				34E1BA691B62DD8600CDA01D /* ForecastModel.m */,
+				34E1BA6A1B62DD8600CDA01D /* Tide.h */,
+				34E1BA6B1B62DD8600CDA01D /* Tide.m */,
+				34E1BA6C1B62DD8600CDA01D /* TideModel.h */,
+				34E1BA6D1B62DD8600CDA01D /* TideModel.m */,
+				34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */,
+				34E1BA2D1B62D84700CDA01D /* HackWindsDataKit.h */,
+				34E1BA2B1B62D84700CDA01D /* Supporting Files */,
+			);
+			path = HackWindsDataKit;
+			sourceTree = "<group>";
+		};
+		34E1BA2B1B62D84700CDA01D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA2C1B62D84700CDA01D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		34E1BA391B62D84700CDA01D /* HackWindsDataKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */,
+				34E1BA3A1B62D84700CDA01D /* Supporting Files */,
+			);
+			path = HackWindsDataKitTests;
+			sourceTree = "<group>";
+		};
+		34E1BA3A1B62D84700CDA01D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				34E1BA3B1B62D84700CDA01D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +449,27 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		34E1BA261B62D84700CDA01D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E1BA7B1B62DD8600CDA01D /* Tide.h in Headers */,
+				34E1BA791B62DD8600CDA01D /* ForecastModel.h in Headers */,
+				34E1BA731B62DD8600CDA01D /* Colors.h in Headers */,
+				34E1BA761B62DD8600CDA01D /* Constants.h in Headers */,
+				34E1BA2E1B62D84700CDA01D /* HackWindsDataKit.h in Headers */,
+				34E1BA741B62DD8600CDA01D /* Condition.h in Headers */,
+				34E1BA711B62DD8600CDA01D /* CameraModel.h in Headers */,
+				34E1BA6E1B62DD8600CDA01D /* Buoy.h in Headers */,
+				34E1BA5C1B62DD6600CDA01D /* BuoyModel.h in Headers */,
+				34E1BA771B62DD8600CDA01D /* Forecast.h in Headers */,
+				34E1BA7D1B62DD8600CDA01D /* TideModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		3430838519795D0F00655F15 /* HackWinds */ = {
 			isa = PBXNativeTarget;
@@ -359,11 +478,13 @@
 				3430838219795D0F00655F15 /* Sources */,
 				3430838319795D0F00655F15 /* Frameworks */,
 				3430838419795D0F00655F15 /* Resources */,
+				34E1BA411B62D84700CDA01D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				349679E219E63CBD0043A21B /* PBXTargetDependency */,
+				34E1BA3F1B62D84700CDA01D /* PBXTargetDependency */,
 			);
 			name = HackWinds;
 			productName = HackWinds;
@@ -388,6 +509,43 @@
 			productReference = 343083AD19795D0F00655F15 /* HackWindsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		34E1BA281B62D84700CDA01D /* HackWindsDataKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34E1BA491B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKit" */;
+			buildPhases = (
+				34E1BA241B62D84700CDA01D /* Sources */,
+				34E1BA251B62D84700CDA01D /* Frameworks */,
+				34E1BA261B62D84700CDA01D /* Headers */,
+				34E1BA271B62D84700CDA01D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackWindsDataKit;
+			productName = HackWindsDataKit;
+			productReference = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		34E1BA321B62D84700CDA01D /* HackWindsDataKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34E1BA4A1B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKitTests" */;
+			buildPhases = (
+				34E1BA2F1B62D84700CDA01D /* Sources */,
+				34E1BA301B62D84700CDA01D /* Frameworks */,
+				34E1BA311B62D84700CDA01D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34E1BA361B62D84700CDA01D /* PBXTargetDependency */,
+				34E1BA381B62D84700CDA01D /* PBXTargetDependency */,
+			);
+			name = HackWindsDataKitTests;
+			productName = HackWindsDataKitTests;
+			productReference = 34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -401,6 +559,14 @@
 						DevelopmentTeam = 39L46PD99U;
 					};
 					343083AC19795D0F00655F15 = {
+						TestTargetID = 3430838519795D0F00655F15;
+					};
+					34E1BA281B62D84700CDA01D = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 39L46PD99U;
+					};
+					34E1BA321B62D84700CDA01D = {
+						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 3430838519795D0F00655F15;
 					};
 				};
@@ -426,6 +592,8 @@
 			targets = (
 				3430838519795D0F00655F15 /* HackWinds */,
 				343083AC19795D0F00655F15 /* HackWindsTests */,
+				34E1BA281B62D84700CDA01D /* HackWindsDataKit */,
+				34E1BA321B62D84700CDA01D /* HackWindsDataKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -464,6 +632,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		34E1BA271B62D84700CDA01D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E1BA311B62D84700CDA01D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -472,22 +654,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */,
-				3495C95B19E78DCF00C8F4D7 /* Buoy.m in Sources */,
-				3478C6151A3E8F2600479DE1 /* BuoyModel.m in Sources */,
-				3478C6101A3E833900479DE1 /* TideModel.m in Sources */,
 				34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */,
 				34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */,
-				344BEA8E1B09870D00BB6EEB /* CameraModel.m in Sources */,
-				343F33D119EF5C5A005802FA /* Tide.m in Sources */,
 				34AA865E1A41382F00AD09CF /* Reachability.m in Sources */,
-				3478C6191A3E9D8200479DE1 /* ForecastModel.m in Sources */,
 				3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */,
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
-				342A762A1985FD2E00077F8C /* Condition.m in Sources */,
 				342A76221985E18100077F8C /* TideViewController.m in Sources */,
 				34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
-				3431F9D219CBE135007FA7CA /* Forecast.m in Sources */,
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
@@ -499,6 +673,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				343083BB19795D0F00655F15 /* HackWindsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E1BA241B62D84700CDA01D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E1BA7C1B62DD8600CDA01D /* Tide.m in Sources */,
+				34E1BA7A1B62DD8600CDA01D /* ForecastModel.m in Sources */,
+				34E1BA701B62DD8600CDA01D /* BuoyModel.m in Sources */,
+				34E1BA751B62DD8600CDA01D /* Condition.m in Sources */,
+				34E1BA781B62DD8600CDA01D /* Forecast.m in Sources */,
+				34E1BA7E1B62DD8600CDA01D /* TideModel.m in Sources */,
+				34E1BA721B62DD8600CDA01D /* CameraModel.m in Sources */,
+				34E1BA6F1B62DD8600CDA01D /* Buoy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E1BA2F1B62D84700CDA01D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +711,21 @@
 			isa = PBXTargetDependency;
 			name = "CorePlot-CocoaTouch";
 			targetProxy = 349679E119E63CBD0043A21B /* PBXContainerItemProxy */;
+		};
+		34E1BA361B62D84700CDA01D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34E1BA281B62D84700CDA01D /* HackWindsDataKit */;
+			targetProxy = 34E1BA351B62D84700CDA01D /* PBXContainerItemProxy */;
+		};
+		34E1BA381B62D84700CDA01D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3430838519795D0F00655F15 /* HackWinds */;
+			targetProxy = 34E1BA371B62D84700CDA01D /* PBXContainerItemProxy */;
+		};
+		34E1BA3F1B62D84700CDA01D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34E1BA281B62D84700CDA01D /* HackWindsDataKit */;
+			targetProxy = 34E1BA3E1B62D84700CDA01D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -653,6 +865,7 @@
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -677,6 +890,7 @@
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -725,6 +939,108 @@
 			};
 			name = Release;
 		};
+		34E1BA431B62D84700CDA01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HackWindsDataKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		34E1BA441B62D84700CDA01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		34E1BA451B62D84700CDA01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HackWindsDataKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
+			};
+			name = Debug;
+		};
+		34E1BA461B62D84700CDA01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -754,6 +1070,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		34E1BA491B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E1BA431B62D84700CDA01D /* Debug */,
+				34E1BA441B62D84700CDA01D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		34E1BA4A1B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E1BA451B62D84700CDA01D /* Debug */,
+				34E1BA461B62D84700CDA01D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

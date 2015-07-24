@@ -9,9 +9,7 @@
 #define WEEKDAYS [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
 #import "ForecastViewController.h"
-#import "Forecast.h"
 #import "DetailedForecastViewController.h"
-#import "Colors.h"
 #import "Reachability.h"
 
 @interface ForecastViewController ()

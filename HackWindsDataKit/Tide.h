@@ -10,7 +10,6 @@
 #define SUNRISE_TAG @"Sunrise"
 #define SUNSET_TAG @"Sunset"
 
-#import "CorePLot-CocoaTouch.h"
 #import <Foundation/Foundation.h>
 
 @interface Tide : NSObject

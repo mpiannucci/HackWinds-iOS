@@ -11,8 +11,6 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
-#import "Condition.h"
-#import "Colors.h"
 #import "Reachability.h"
 
 @interface CurrentViewController ()

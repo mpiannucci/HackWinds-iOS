@@ -7,8 +7,7 @@
 //
 
 #import "SettingsViewController.h"
-#include "Constants.h"
-#import "Colors.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 
 @interface SettingsViewController ()
 

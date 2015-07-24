@@ -13,9 +13,7 @@
 #define WIND_DIRS [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE", @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW", @"NNW", nil]
 
 #import "BuoyViewController.h"
-#import "BuoyModel.h"
-#import "Buoy.h"
-#import "Colors.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
 
 @interface BuoyViewController ()
