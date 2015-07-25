@@ -14,4 +14,9 @@
 @property (strong, nonatomic) NSURL *VideoURL;
 @property (strong, nonatomic) NSString *Info;
 
+- (void) setIsRefreshable:(BOOL)refresh;
+- (BOOL) isRefreshable;
+- (void) setRefreshDuration:(int)refreshDur;
+- (int) getRefreshDuration;
+
 @end

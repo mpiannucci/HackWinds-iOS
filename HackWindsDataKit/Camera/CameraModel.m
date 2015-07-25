@@ -68,16 +68,20 @@
         tempDict[locationName] = [[NSMutableDictionary alloc] init];
         
         for (NSString *cameraName in [cameraDict objectForKey:locationName]) {
+            
+            NSDictionary *thisCameraDict = [[cameraDict objectForKey:locationName] objectForKey:cameraName];
             Camera *thisCamera = [[Camera alloc] init];
             
             if ([cameraName isEqualToString:@"Point Judith"]) {
-                thisCamera = [self fetchPointJudithURLs:[[[cameraDict objectForKey:locationName] objectForKey:cameraName] objectForKey:@"Info"]];
+                thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
             } else {
-                thisCamera.VideoURL = [NSURL URLWithString:[[[cameraDict objectForKey:locationName] objectForKey:cameraName] objectForKey:@"Video"]];
+                thisCamera.VideoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
             }
             
             // For now, the image is common
-            thisCamera.ImageURL = [NSURL URLWithString:[[[cameraDict objectForKey:locationName] objectForKey:cameraName] objectForKey:@"Image"]];
+            thisCamera.ImageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
+            [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
+            [thisCamera setRefreshDuration:(int)[[thisCameraDict objectForKey:@"RefreshDuration"] integerValue]];
             
             tempDict[locationName][cameraName] = thisCamera;
         }

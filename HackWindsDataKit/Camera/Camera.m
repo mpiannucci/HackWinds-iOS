@@ -8,6 +8,34 @@
 
 #import "Camera.h"
 
-@implementation Camera
+@implementation Camera {
+    bool refreshable;
+    int refreshDuration;
+}
+
+- (id) init {
+    self = [super init];
+    
+    refreshable = false;
+    refreshDuration = 0;
+    
+    return self;
+}
+
+- (void) setIsRefreshable:(BOOL)refresh {
+    refreshable = refresh;
+}
+
+- (BOOL) isRefreshable {
+    return refreshable;
+}
+
+- (void) setRefreshDuration:(int)refreshDur {
+    refreshDuration = refreshDur;
+}
+
+- (int) getRefreshDuration {
+    return refreshDuration;
+}
 
 @end
