@@ -29,7 +29,6 @@
 
 @implementation IsoCameraViewController {
     Camera *camera;
-    NSInteger refreshInterval;
     BOOL shouldHideStatusBar;
     BOOL isFullScreen;
 }
@@ -68,14 +67,6 @@
                                              selector:@selector(updateFullScreenImage)
                                                  name:@"AsyncImageLoadDidFinish"
                                                object:nil];
-    
-    if ([self.cameraName isEqualToString:@"Town Beach South"]) {
-        // On the Narragansett cam the update interval is 30 seconds
-        refreshInterval = 35.0;
-    } else {
-        // Otherwise relaod every 5 seconds
-        refreshInterval = 3.0;
-    }
     
     [self updateRefreshLabel];
     
@@ -130,7 +121,7 @@
     }
     
     // Fire the refresh timer
-    [NSTimer scheduledTimerWithTimeInterval:refreshInterval
+    [NSTimer scheduledTimerWithTimeInterval:[camera isRefreshable]
                                      target:self
                                    selector:@selector(loadCamImage)
                                    userInfo:nil
@@ -141,7 +132,7 @@
     // Show the refresh label if auto refresh is turned on
     if ([self.autoReloadSwitch isOn]) {
         [self.refreshIntervalLabel setHidden:NO];
-        [self.refreshIntervalLabel setText:[NSString stringWithFormat:@"Refresh interval is %ld seconds", (long)refreshInterval]];
+        [self.refreshIntervalLabel setText:[NSString stringWithFormat:@"Refresh interval is %ld seconds", (long)[camera getRefreshDuration]]];
     } else {
         [self.refreshIntervalLabel setHidden:YES];
     }
