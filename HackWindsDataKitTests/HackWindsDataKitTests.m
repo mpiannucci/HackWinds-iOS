@@ -12,6 +12,11 @@
 
 @interface HackWindsDataKitTests : XCTestCase
 
+@property (strong, nonatomic) CameraModel *cameraModel;
+@property (strong, nonatomic) ForecastModel *forecastModel;
+@property (strong, nonatomic) BuoyModel *buoyModel;
+@property (strong, nonatomic) TideModel *tideModel;
+
 @end
 
 @implementation HackWindsDataKitTests
@@ -19,6 +24,11 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    self.cameraModel = [CameraModel sharedModel];
+    self.forecastModel = [ForecastModel sharedModel];
+    self.buoyModel = [BuoyModel sharedModel];
+    self.tideModel = [TideModel sharedModel];
 }
 
 - (void)tearDown {
@@ -26,16 +36,27 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+- (void) testCameraModelFetch {
+    XCTAssert([self.cameraModel fetchCameraURLs]);
+}
+
+- (void) testForecastModelFetch {
+    XCTAssert([[self.forecastModel getConditionsForIndex:0] count] > 0);
+}
+
+- (void) testBuoyModelFetch {
+    XCTAssert([[self.buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION] count] > 0);
+}
+
+- (void) testTideModelFetch {
+    XCTAssert([[self.tideModel getTideData] count] > 0);
 }
 
 @end
