@@ -112,10 +112,8 @@
     
     Camera *thisCamera = [[Camera alloc] init];
     thisCamera.VideoURL = [NSURL URLWithString:[pointJudithStreamData objectForKey:@"file"]];
-    thisCamera.Info = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime:%@\n If the video does not play, the camera may be down. It is a daily upload during the summer and it becomes unavailbale each evening.", [pointJudithStreamData objectForKey:@"camStatus"],
+    thisCamera.Info = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, the camera may be down. It is a daily upload during the summer and it becomes unavailable each evening.", [pointJudithStreamData objectForKey:@"camStatus"],
                        [pointJudithStreamData objectForKey:@"reportDate"], [pointJudithStreamData objectForKey:@"reportTime"]];
-    
-    // Image is sent in JSON
     
     return thisCamera;
 

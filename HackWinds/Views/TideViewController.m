@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 #define TIDE_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define TIDE_DATA_FONT_SIZE 25
 
 #import "TideViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
@@ -15,6 +16,8 @@
 
 @property (strong, nonatomic) TideModel *tideModel;
 @property (strong, nonatomic) BuoyModel *buoyModel;
+
+- (NSMutableAttributedString*)makeTideViewDataString:(NSString*)rawString;
 
 @end
 
@@ -52,8 +55,8 @@
 
 - (void)reloadView {
     // If there are no tide items return early
-    NSMutableArray* tideData = [_tideModel getTideData];
-    NSMutableArray* buoyData = [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+    NSArray* tideData = [self.tideModel tides];
+    NSArray* buoyData = [self.buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
     
     if ([tideData count] == 0) {
         return;
@@ -67,20 +70,21 @@
             // Get the first row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
             NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.Time];
-            [sunriseLabel setText:sunrisetext];
+            [sunriseLabel setAttributedText:[self makeTideViewDataString:sunrisetext]];
             
         } else if ([thisTide isSunset]) {
             // Get the second row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]] viewWithTag:61];
             NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.Time];
-            [sunsetLabel setText:sunsetText];
+            [sunsetLabel setAttributedText:[self makeTideViewDataString:sunsetText]];
             
         } else if ([[thisTide EventType] isEqualToString:HIGH_TIDE_TAG] ||
                    [[thisTide EventType] isEqualToString:LOW_TIDE_TAG] ) {
             // Get the next cell and its label so we can update it
             UILabel* tideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
             NSString* tideText = [NSString stringWithFormat:@"%@: %@ at %@", thisTide.EventType, thisTide.Height, thisTide.Time];
-            [tideLabel setText:tideText];
+            
+            [tideLabel setAttributedText:[self makeTideViewDataString:tideText]];
             
             // If its the first object, set it to the current status
             if (tideCount == 0) {
@@ -102,13 +106,32 @@
             tideCount++;
         }
     }
-    // TODO: Get the water temperature
+    
     UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
     NSString* waterTemp = [[buoyData objectAtIndex:0] WaterTemperature];
     NSString* waterTempStatus = [NSString stringWithFormat:@"Block Island: %@ %@F", waterTemp, @"\u00B0"];
-    [currentWaterTempLabel setText:waterTempStatus];
+    [currentWaterTempLabel setAttributedText:[self makeTideViewDataString:waterTempStatus]];
     
     [self.tableView reloadData];
+}
+
+- (NSMutableAttributedString*)makeTideViewDataString:(NSString*)rawString {
+    NSDictionary *subAttrs = @{
+                               NSFontAttributeName:[UIFont boldSystemFontOfSize:TIDE_DATA_FONT_SIZE],
+                               };
+    NSDictionary *baseAttrs = @{
+                                NSFontAttributeName:[UIFont systemFontOfSize:TIDE_DATA_FONT_SIZE]
+                                };
+    
+    const NSRange seperatorRange = [rawString rangeOfString:@":"];
+    const NSRange range = NSMakeRange(0, seperatorRange.location);
+    
+    // Create the attributed string (text + attributes)
+    NSMutableAttributedString *attributedText =
+    [[NSMutableAttributedString alloc] initWithString:rawString
+                                           attributes:baseAttrs];
+    [attributedText setAttributes:subAttrs range:range];
+    return attributedText;
 }
 
 @end
