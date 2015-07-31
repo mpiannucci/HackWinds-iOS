@@ -24,6 +24,7 @@
 
 // Private methods
 - (BOOL) parseBuoyData:(NSNumber* )location;
+- (BOOL) check24HourClock;
 
 @end
 
@@ -61,18 +62,30 @@
     return self;
 }
 
-- (NSMutableArray *) getBuoyDataForLocation:(int)location {
+- (BOOL) fetchBuoyDataForLocation:(int)location {
     if (location == BLOCK_ISLAND_LOCATION) {
         // If they want block island, check if its already been fetched, then return it
         if ([self.blockIslandBuoys count] == 0) {
-            [self parseBuoyData:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
+            return [self parseBuoyData:[NSNumber numberWithInt:BLOCK_ISLAND_LOCATION]];
+        } else {
+            return YES;
         }
-        return self.blockIslandBuoys;
     } else {
         // Do the same for montauk
         if ([self.montaukBuoys count] == 0) {
-            [self parseBuoyData:[NSNumber numberWithInt:MONTAUK_LOCATION]];
+            return [self parseBuoyData:[NSNumber numberWithInt:MONTAUK_LOCATION]];
+        } else {
+            return YES;
         }
+    }
+}
+
+- (NSMutableArray *) getBuoyDataForLocation:(int)location {
+    if (location == BLOCK_ISLAND_LOCATION) {
+        // If they want block island, check if its already been fetched, then return it
+        return self.blockIslandBuoys;
+    } else {
+        // Do the same for montauk
         return self.montaukBuoys;
     }
 }
@@ -111,10 +124,30 @@
     
     // Parse the data into buoy objects
     for(int i=DATA_HEADER_LENGTH; i<(DATA_HEADER_LENGTH+(DATA_LINE_LEN*DATA_POINTS)); i+=DATA_LINE_LEN) {
-        Buoy* newBuoy = [[Buoy alloc] init];
+        Buoy *newBuoy = [[Buoy alloc] init];
         
         // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
-        [newBuoy setTime:[NSString stringWithFormat:@"%d:%@", (((int)[[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue])+timeOffset+12)%12, [cleanData objectAtIndex:i+MINUTE_OFFSET]]];
+        NSInteger originalHour = [[cleanData objectAtIndex:i+HOUR_OFFSET] integerValue] + timeOffset;
+        NSInteger convertedHour = 0;
+        
+        // Formate the hour correctly if the user has 24 hour time enabled
+        if ([self check24HourClock]) {
+            convertedHour = (originalHour + 24) % 24;
+            if (convertedHour == 0) {
+                if ((originalHour + timeOffset) > 0) {
+                    convertedHour = 12;
+                }
+            }
+        } else {
+            convertedHour = (originalHour + 12) % 12;
+            if (convertedHour == 0) {
+                convertedHour = 12;
+            }
+        }
+        
+        // Set the time value for the object
+        NSString *minute = [cleanData objectAtIndex:i+MINUTE_OFFSET];
+        [newBuoy setTime:[NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute]];
         
         // Period and wind direction values
         [newBuoy setDominantPeriod:[cleanData objectAtIndex:i+DPD_OFFSET]];
@@ -125,7 +158,7 @@
         [newBuoy setWaterTemperature:[NSString stringWithFormat:@"%4.2f", waterTemp]];
         
         // Change the wave height to feet
-        NSString* wv = [cleanData objectAtIndex:i+WVHT_OFFSET];
+        NSString *wv = [cleanData objectAtIndex:i+WVHT_OFFSET];
         double h = [wv doubleValue]*3.28;
         
         // Set the wave height
@@ -145,5 +178,11 @@
     return YES;
 }
 
+- (BOOL)check24HourClock {
+    // Slightly different than the ofrecast model check.. not caching the value at all
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
+    return ([dateCheck rangeOfString:@"a"].location == NSNotFound);
+}
 
 @end

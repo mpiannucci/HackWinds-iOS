@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSMutableArray *montaukBuoys;
 @property (strong, nonatomic) NSMutableArray *montaukWaveHeights;
 
+- (BOOL) fetchBuoyDataForLocation:(int)location;
+
 - (NSMutableArray*) getBuoyDataForLocation:(int)location;
 - (NSMutableArray*) getWaveHeightForLocation:(int)location;
 + (instancetype) sharedModel;

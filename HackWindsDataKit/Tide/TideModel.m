@@ -14,6 +14,7 @@
 
 // Private methods
 - (bool) parseTideData:(NSData *)responseData;
+- (BOOL) check24HourClock;
 
 @end
 
@@ -40,15 +41,14 @@
     return self;
 }
 
-- (NSMutableArray*) getTideData {
+- (BOOL) fetchTideData {
     if ([self.tides count] == 0) {
         // If theres no data yet, load the Wunderground Data and parse it asynchronously
         NSData* data = [NSData dataWithContentsOfURL:WUNDERGROUND_URL];
-        [self parseTideData:data];
+        return [self parseTideData:data];
+    } else {
+        return YES;
     }
-    
-    // Return the tide array
-    return self.tides;
 }
 
 - (bool) parseTideData:(NSData *)responseData {
@@ -77,9 +77,29 @@
         NSString* height = [[thisTide objectForKey:@"data"] objectForKey:@"height"];
         NSString* hour = [[thisTide objectForKey:@"date"] objectForKey:@"hour"];
         NSString* minute = [[thisTide objectForKey:@"date"] objectForKey:@"min"];
+        NSString *ampm = @"";
+        
+        if (![self check24HourClock]) {
+            long hourValue = [hour integerValue];
+            
+            // Check am, pm
+            if (hourValue < 12) {
+                ampm = @"am";
+            } else {
+                ampm = @"pm";
+            }
+            
+            NSInteger convertedHour = hourValue % 12;
+            if (convertedHour == 0) {
+                convertedHour = 12;
+            }
+            
+            // Convert to twelve hour
+            hour = [NSString stringWithFormat:@"%ld", (long)convertedHour];
+        }
         
         // Create the tide string
-        NSString* time = [NSString stringWithFormat:@"%@:%@", hour, minute];
+        NSString* time = [NSString stringWithFormat:@"%@:%@ %@", hour, minute, ampm];
         
         // Check for the type and set it to the object. We dont care about anything but these tidal events
         if ([dataType isEqualToString:SUNRISE_TAG] ||
@@ -102,6 +122,13 @@
         i++;
     }
     return YES;
+}
+
+- (BOOL)check24HourClock {
+    // Slightly different than the ofrecast model check.. not caching the value at all
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
+    return ([dateCheck rangeOfString:@"a"].location == NSNotFound);
 }
 
 @end

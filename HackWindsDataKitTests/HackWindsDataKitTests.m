@@ -45,11 +45,13 @@
 }
 
 - (void) testBuoyModelFetch {
+    XCTAssert([self.buoyModel fetchBuoyDataForLocation:BLOCK_ISLAND_LOCATION]);
     XCTAssert([[self.buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION] count] > 0);
 }
 
 - (void) testTideModelFetch {
-    XCTAssert([[self.tideModel getTideData] count] > 0);
+    XCTAssert([self.tideModel fetchTideData]);
+    XCTAssert(self.tideModel.tides.count == 6);
 }
 
 @end

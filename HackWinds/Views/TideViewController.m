@@ -17,8 +17,6 @@
 @property (strong, nonatomic) TideModel *tideModel;
 @property (strong, nonatomic) BuoyModel *buoyModel;
 
-- (NSMutableAttributedString*)makeTideViewDataString:(NSString*)rawString;
-
 @end
 
 @implementation TideViewController
@@ -28,8 +26,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Get the tide model and buoy model
-    _tideModel = [TideModel sharedModel];
-    _buoyModel = [BuoyModel sharedModel];
+    self.tideModel = [TideModel sharedModel];
+    self.buoyModel = [BuoyModel sharedModel];
     
     // Get the buoy data and reload the views
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
@@ -37,8 +35,8 @@
     
     if (networkStatus != NotReachable) {
         dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
-            [_tideModel getTideData];
-            [_buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+            [self.tideModel fetchTideData];
+            [self.buoyModel fetchBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
             [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
         });
     }
