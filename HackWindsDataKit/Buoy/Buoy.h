@@ -17,4 +17,6 @@
 @property (strong, nonatomic) NSString *Direction;
 @property (strong, nonatomic) NSString *WaterTemperature;
 
++ (NSString*) getCompassDirection:(NSString*)degreeDirection;
+
 @end

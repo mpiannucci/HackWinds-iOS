@@ -10,7 +10,6 @@
 //
 
 #define BUOY_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define WIND_DIRS [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE", @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW", @"NNW", nil]
 
 #import "BuoyViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
@@ -59,8 +58,9 @@
     // Get the buoy data for the defualt location and reload the view
     if (networkStatus != NotReachable) {
         dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-            currentBuoyData = [_buoyModel getBuoyDataForLocation:buoy_location];
-            currentWaveHeights = [_buoyModel getWaveHeightForLocation:buoy_location];
+            [self.buoyModel fetchBuoyDataForLocation:buoy_location];
+            currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
+            currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
             [self performSelectorOnMainThread:@selector(reloadView)
                                    withObject:nil waitUntilDone:YES];
         });
@@ -102,6 +102,7 @@
     }
     // Get the new buoy data and reload the main view
     dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
+        [self.buoyModel fetchBuoyDataForLocation:buoy_location];
         currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
         currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
         [self performSelectorOnMainThread:@selector(reloadView)
@@ -158,16 +159,9 @@
         [timeLabel setText:thisBuoy.Time];
         [wvhtLabel setText:thisBuoy.WaveHeight];
         [dpdLabel setText:thisBuoy.DominantPeriod];
-    
+        
         // Set the direction to its letter value on a compass
-        int windIndex = (int)[[thisBuoy Direction] doubleValue]/(360/[WIND_DIRS count]);
-        if (windIndex >= [WIND_DIRS count]) {
-            // Quick hack to make sure it never crashes because of a precision error.
-            // Basically if its larger than NNW, just assume North
-            windIndex = 0;
-        }
-        NSString* dir = [WIND_DIRS objectAtIndex:windIndex];
-        [directionLabel setText:dir];
+        [directionLabel setText:[Buoy getCompassDirection:thisBuoy.Direction]];
         
         // Make sure the text is black
         [timeLabel setTextColor:[UIColor blackColor]];
@@ -270,26 +264,26 @@
     [yAxis setLabelTextStyle:textStyle];
     [yAxis setLabelFormatter:axisFormatter];
     yAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(10.0);
-	
-	// animate the graph (only once)
-	[CPTAnimation animate:plotSpace
-				 property:@"xRange"
-				   period:[CPTAnimationPeriod periodWithStartPlotRange:nil
-														  endPlotRange:plotSpace.xRange
-															  duration:1.25
-															 withDelay:0]
-		   animationCurve:CPTAnimationCurveCubicInOut
-				 delegate:nil];
+    
+    // animate the graph (only once)
+    [CPTAnimation animate:plotSpace
+                 property:@"xRange"
+                   period:[CPTAnimationPeriod periodWithStartPlotRange:nil
+                                                          endPlotRange:plotSpace.xRange
+                                                              duration:1.25
+                                                             withDelay:0]
+           animationCurve:CPTAnimationCurveCubicInOut
+                 delegate:nil];
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
