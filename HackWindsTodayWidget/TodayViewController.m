@@ -41,11 +41,11 @@
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
     // Perform any setup necessary in order to update the view.
+    [self updateData];
     
     // If an error is encountered, use NCUpdateResultFailed
     // If there's no update required, use NCUpdateResultNoData
     // If there's an update, use NCUpdateResultNewData
-
     completionHandler(NCUpdateResultNewData);
 }
 
@@ -74,7 +74,8 @@
             } else {
                 tideCurrentStatus = @"Outgoing";
             }
-            nextTideEvent = [NSString stringWithFormat:@"%@ = %@", thisTide.Time, thisTide.EventType];
+            nextTideEvent = [NSString stringWithFormat:@"%@ - %@", thisTide.EventType, thisTide.Time];
+            break;
         }
         [self.tideCurrentStatusLabel setText:tideCurrentStatus];
         [self.nextTideEventLabel setText:nextTideEvent];
