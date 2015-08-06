@@ -101,30 +101,37 @@
     });
 }
 
-- (NSArray *) getConditionsForIndex:(int)index {
+- (BOOL) fetchForecastData {
+    bool success = true;
+    
     if (rawData.count == 0) {
         // Theres no data yet so load form the url
         [self loadRawData];
     }
+    
     if ([self.conditions count] == 0) {
         // There are no conditions so parse them out
-        [self parseForecasts];
+        success = [self parseForecasts];
     }
     
-    NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
-    return currentConditions;
+    if (success) {
+        if ([self.forecasts count] == 0) {
+            // Theres no forecasts yet so parse them out
+            success = [self parseForecasts];
+        }
+    }
+    return success;
+}
+
+- (NSArray *) getConditionsForIndex:(int)index {
+    if (self.conditions.count > ((index * 6) + 6)) {
+        NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
+        return currentConditions;
+    }
+    return [[NSArray alloc] init];
 }
 
 - (NSMutableArray *) getForecasts {
-    if (rawData.count == 0) {
-        // Theres no data yet so load form the url
-        [self loadRawData];
-    }
-    if ([self.forecasts count] == 0) {
-        // Theres no forecasts yet so parse them out
-        [self parseForecasts];
-    }
-    
     return self.forecasts;
 }
 

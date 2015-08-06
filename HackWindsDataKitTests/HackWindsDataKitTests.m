@@ -41,7 +41,17 @@
 }
 
 - (void) testForecastModelFetch {
-    XCTAssert([[self.forecastModel getConditionsForIndex:0] count] > 0);
+    XCTAssert([self.forecastModel fetchForecastData]);
+    
+    // Check theres the correct amount of data objects
+    XCTAssert(self.forecastModel.conditions.count == 30);
+    XCTAssert(self.forecastModel.forecasts.count == 10);
+    
+    // Check the condition splitting
+    NSArray *firstConditions = [self.forecastModel getConditionsForIndex:0];
+    XCTAssert(firstConditions.count == 6);
+    XCTAssert([[[firstConditions objectAtIndex:0] Date] isEqualToString:@"6 AM"]);
+    XCTAssert([[[firstConditions objectAtIndex:5] Date] isEqualToString:@"9 PM"]);
 }
 
 - (void) testBuoyModelFetch {

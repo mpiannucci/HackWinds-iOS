@@ -70,7 +70,7 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
-        [self.forecastModel getForecasts];
+        [self.forecastModel fetchForecastData];
         [self.forecastTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
     });
@@ -85,7 +85,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 5 rows
-    return [[self.forecastModel forecasts] count]/2;
+    return self.forecastModel.forecasts.count / 2;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

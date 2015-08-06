@@ -124,6 +124,7 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
+        [self.forecastModel fetchForecastData];
         currentConditions = [self.forecastModel getConditionsForIndex:0];
         [self.mswTodayTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
