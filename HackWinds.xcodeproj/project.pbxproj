@@ -19,9 +19,6 @@
 		343083A319795D0F00655F15 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* CurrentViewController.m */; };
 		343083A619795D0F00655F15 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* ForecastViewController.m */; };
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
-		343083AF19795D0F00655F15 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343083AE19795D0F00655F15 /* XCTest.framework */; };
-		343083B019795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
-		343083B119795D0F00655F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838D19795D0F00655F15 /* UIKit.framework */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
 		3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyViewController.m */; };
@@ -71,13 +68,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		343083B219795D0F00655F15 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3430838519795D0F00655F15;
-			remoteInfo = HackWinds;
-		};
 		349679DF19E63C810043A21B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
@@ -167,7 +157,6 @@
 		343083A419795D0F00655F15 /* ForecastViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
 		343083A519795D0F00655F15 /* ForecastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		343083A719795D0F00655F15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		343083AD19795D0F00655F15 /* HackWindsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		343083AE19795D0F00655F15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
@@ -246,16 +235,6 @@
 				34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
 				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
 				349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		343083AA19795D0F00655F15 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				343083AF19795D0F00655F15 /* XCTest.framework in Frameworks */,
-				343083B119795D0F00655F15 /* UIKit.framework in Frameworks */,
-				343083B019795D0F00655F15 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				3430838619795D0F00655F15 /* HackWinds.app */,
-				343083AD19795D0F00655F15 /* HackWindsTests.xctest */,
 				34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */,
 				34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */,
 				34C0AF4C1B7307E8001D2B04 /* HackWindsTodayWidget.appex */,
@@ -570,24 +548,6 @@
 			productReference = 3430838619795D0F00655F15 /* HackWinds.app */;
 			productType = "com.apple.product-type.application";
 		};
-		343083AC19795D0F00655F15 /* HackWindsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 343083C119795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWindsTests" */;
-			buildPhases = (
-				343083A919795D0F00655F15 /* Sources */,
-				343083AA19795D0F00655F15 /* Frameworks */,
-				343083AB19795D0F00655F15 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				343083B319795D0F00655F15 /* PBXTargetDependency */,
-			);
-			name = HackWindsTests;
-			productName = HackWindsTests;
-			productReference = 343083AD19795D0F00655F15 /* HackWindsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		34C0AF4B1B7307E8001D2B04 /* HackWindsTodayWidget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34C0AF5E1B7307E8001D2B04 /* Build configuration list for PBXNativeTarget "HackWindsTodayWidget" */;
@@ -659,9 +619,6 @@
 							};
 						};
 					};
-					343083AC19795D0F00655F15 = {
-						TestTargetID = 3430838519795D0F00655F15;
-					};
 					34C0AF4B1B7307E8001D2B04 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 39L46PD99U;
@@ -696,7 +653,6 @@
 			projectRoot = "";
 			targets = (
 				3430838519795D0F00655F15 /* HackWinds */,
-				343083AC19795D0F00655F15 /* HackWindsTests */,
 				34E1BA281B62D84700CDA01D /* HackWindsDataKit */,
 				34E1BA321B62D84700CDA01D /* HackWindsDataKitTests */,
 				34C0AF4B1B7307E8001D2B04 /* HackWindsTodayWidget */,
@@ -727,13 +683,6 @@
 				34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */,
 				34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		343083AB19795D0F00655F15 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,13 +730,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		343083A919795D0F00655F15 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		34C0AF481B7307E8001D2B04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -823,11 +765,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		343083B319795D0F00655F15 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3430838519795D0F00655F15 /* HackWinds */;
-			targetProxy = 343083B219795D0F00655F15 /* PBXContainerItemProxy */;
-		};
 		349679E219E63CBD0043A21B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CorePlot-CocoaTouch";
@@ -1019,46 +956,6 @@
 			};
 			name = Release;
 		};
-		343083C219795D0F00655F15 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "HackWindsTests/HackWindsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		343083C319795D0F00655F15 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HackWinds/HackWinds-Prefix.pch";
-				INFOPLIST_FILE = "HackWindsTests/HackWindsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 		34C0AF5A1B7307E8001D2B04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1223,15 +1120,6 @@
 			buildConfigurations = (
 				343083BF19795D0F00655F15 /* Debug */,
 				343083C019795D0F00655F15 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		343083C119795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWindsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				343083C219795D0F00655F15 /* Debug */,
-				343083C319795D0F00655F15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
