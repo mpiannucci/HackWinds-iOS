@@ -34,6 +34,7 @@
 - (void) loadSettings {
     // Get the settings object
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [defaults synchronize];
     
     // Get the location and set the cell to reflect it
     [self.forecastLocationLabel setText:[defaults objectForKey:@"ForecastLocation"]];
