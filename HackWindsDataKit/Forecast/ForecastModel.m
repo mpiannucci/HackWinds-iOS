@@ -20,6 +20,9 @@
 - (BOOL) checkForecastDate:(NSString *)dateString;
 - (BOOL) check24HourClock;
 
+// Private members
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
+
 @end
 
 @implementation ForecastModel
@@ -57,21 +60,45 @@
     self.conditions = [NSMutableArray arrayWithCapacity:30];
     self.forecasts = [NSMutableArray arrayWithCapacity:10];
     
+    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [self.userDefaults synchronize];
+    
     // Get the current location and setup the settings listener
-    [[NSUserDefaults standardUserDefaults] addObserver:self
-                                            forKeyPath:@"ForecastLocation"
-                                               options:NSKeyValueObservingOptionNew
-                                               context:NULL];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeForecastLocation)
+                                                 name:@"ForecastLocationChanged"
+                                               object:nil];
+    
     // Get the forecast location
     [self changeForecastLocation];
+    
     return self;
 }
 
 - (void) changeForecastLocation {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self.userDefaults synchronize];
+    
+    // Callback for the forecast location settings changing
+    // First clear all of the old data so that everything reloads
+    if (rawData.count > 0) {
+        rawData = [[NSArray alloc] init];
+    }
+    if ([self.conditions count] > 0) {
+        [self.conditions removeAllObjects];
+    }
+    if ([self.forecasts count] > 0) {
+        [self.forecasts removeAllObjects];
+    }
     
     // Load the url for the current location using the url dictionary
-    currentLocationURL = [locationURLs objectForKey:[defaults objectForKey:@"ForecastLocation"]];
+    currentLocationURL = [locationURLs objectForKey:[self.userDefaults objectForKey:@"ForecastLocation"]];
+    
+    // Tell everyone the data has updated
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"ForecastModelDidUpdateDataNotification"
+         object:self];
+    });
 }
 
 - (NSArray *) getConditionsForIndex:(int)index {
@@ -275,31 +302,6 @@
         is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
     }
     return is24HourClock;
-}
-
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    // Callback for the forecast location settings changing
-    // First clear all of the old data so that everything reloads
-    if (rawData.count > 0) {
-        rawData = [[NSArray alloc] init];
-    }
-    if ([self.conditions count] > 0) {
-        [self.conditions removeAllObjects];
-    }
-    if ([self.forecasts count] > 0) {
-        [self.forecasts removeAllObjects];
-    }
-    
-    // Update the location
-    [self changeForecastLocation];
-    
-    // Tell everyone the data has updated
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"ForecastModelDidUpdateDataNotification"
-         object:self];
-    });
 }
 
 @end

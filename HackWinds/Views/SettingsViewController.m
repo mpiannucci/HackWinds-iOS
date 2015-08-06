@@ -33,7 +33,7 @@
 
 - (void) loadSettings {
     // Get the settings object
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     
     // Get the location and set the cell to reflect it
     [self.forecastLocationLabel setText:[defaults objectForKey:@"ForecastLocation"]];
@@ -80,12 +80,20 @@
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     
     if (buttonIndex != [actionSheet numberOfButtons] - 1) {
         // If the user selects a location, set the settings key to the new location
         [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
         [defaults synchronize];
+        
+        // Tell everyone the data has updated
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"ForecastLocationChanged"
+             object:self];
+        });
+        
         [self loadSettings];
     } else {
         NSLog(@"Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
