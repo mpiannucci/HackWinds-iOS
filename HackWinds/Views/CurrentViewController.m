@@ -140,7 +140,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
-    return [[self.forecastModel conditions] count]/5+1;
+    return (self.forecastModel.conditions.count/5) + 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -173,6 +173,9 @@
         
     } else {
         // Get the condition object
+        if (currentConditions.count == 0) {
+            return cell;
+        }
         Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
@@ -193,7 +196,6 @@
         [windLabel setFont:[UIFont systemFontOfSize:17.0]];
         [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
     }
-    
     return cell;
 }
 

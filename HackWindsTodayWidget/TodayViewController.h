@@ -10,4 +10,6 @@
 
 @interface TodayViewController : UIViewController
 
+- (BOOL) updateData;
+
 @end

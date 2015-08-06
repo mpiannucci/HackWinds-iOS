@@ -7,9 +7,15 @@
 //
 
 #import "TodayViewController.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 #import <NotificationCenter/NotificationCenter.h>
 
 @interface TodayViewController () <NCWidgetProviding>
+
+// UI Properties
+@property (weak, nonatomic) IBOutlet UILabel *buoyStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tideCurrentStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nextTideEventLabel;
 
 @end
 
@@ -25,6 +31,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Reload on every view
+    [self updateData];
+
+}
+
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
     // Perform any setup necessary in order to update the view.
     
@@ -33,6 +47,40 @@
     // If there's an update, use NCUpdateResultNewData
 
     completionHandler(NCUpdateResultNewData);
+}
+
+- (BOOL)updateData {
+    // Update the buoy data
+    BuoyModel *buoyModel = [BuoyModel sharedModel];
+    bool buoyFetchSuccess = [buoyModel fetchBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+    if (buoyFetchSuccess) {
+        Buoy *thisBuoy = [[buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION] objectAtIndex:0];
+        NSString *buoyStatus = [NSString stringWithFormat:@"%@ ft @ %@s %@", thisBuoy.WaveHeight, thisBuoy.DominantPeriod, [Buoy getCompassDirection:thisBuoy.Direction]];
+        [self.buoyStatusLabel setText:buoyStatus];
+    }
+    
+    TideModel *tideModel = [TideModel sharedModel];
+    bool tideFetchSuccess = [tideModel fetchTideData];
+    if (tideFetchSuccess) {
+        NSString *tideCurrentStatus = @"";
+        NSString *nextTideEvent = @"";
+        for ( Tide *thisTide in tideModel.tides) {
+            if ([thisTide isSolarEvent]) {
+                continue;
+            }
+            
+            if ([thisTide isHighTide]) {
+                tideCurrentStatus = @"Incoming";
+            } else {
+                tideCurrentStatus = @"Outgoing";
+            }
+            nextTideEvent = [NSString stringWithFormat:@"%@ = %@", thisTide.Time, thisTide.EventType];
+        }
+        [self.tideCurrentStatusLabel setText:tideCurrentStatus];
+        [self.nextTideEventLabel setText:nextTideEvent];
+    }
+    
+    return (buoyFetchSuccess && tideFetchSuccess) && true;
 }
 
 @end
