@@ -24,6 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    static int i = 0;
+    [self updateData];
+    NSLog(@"%d", i);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,10 +37,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    // Reload on every view
-    [self updateData];
-
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
