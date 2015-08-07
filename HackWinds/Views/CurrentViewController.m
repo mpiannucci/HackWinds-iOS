@@ -139,8 +139,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 6 rows
-    return (self.forecastModel.conditions.count/5) + 1;
+    // Return so there will always be 6 rows + the header row
+    if (self.forecastModel.conditions.count == 30) {
+        // There are 5 days, 6 conditions each, + 1 header row = 7
+        return 7;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

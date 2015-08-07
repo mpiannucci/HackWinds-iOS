@@ -84,8 +84,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 5 rows
-    return self.forecastModel.forecasts.count / 2;
+    // Return so there will always be 5 rows, or 0 if the data isnt correct 
+    if (self.forecastModel.forecasts.count == 10) {
+        // 10 forecast objects / 2 objects a day
+        return 5;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
