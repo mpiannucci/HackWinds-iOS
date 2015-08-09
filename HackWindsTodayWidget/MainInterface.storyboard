@@ -27,19 +27,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25.23 ft @ 12s SSW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gkr-Gt-wBR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gkr-Gt-wBR">
                                 <rect key="frame" x="16" y="30" width="161" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duO-tR-qaz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duO-tR-qaz">
                                 <rect key="frame" x="189" y="30" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Tide - 12:30 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBL-CD-dER">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBL-CD-dER">
                                 <rect key="frame" x="189" y="50" width="115" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,17 +51,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tr8-4m-jug">
-                                <rect key="frame" x="16" y="67" width="288" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Refresh">
-                                    <color key="titleColor" red="0.34901961679999988" green="0.83179995888157898" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="refreshButtonClick:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="WU1-0u-T85"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYj-9C-XQL">
+                                <rect key="frame" x="16" y="66" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="rBL-CD-dER" secondAttribute="bottom" constant="30" id="161-aw-gpn"/>
@@ -71,14 +66,10 @@
                             <constraint firstItem="Gkr-Gt-wBR" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="GI9-H6-N48"/>
                             <constraint firstItem="VBR-IQ-IGb" firstAttribute="firstBaseline" secondItem="2k0-7j-zst" secondAttribute="firstBaseline" id="OlA-Ia-BzY"/>
                             <constraint firstItem="VBR-IQ-IGb" firstAttribute="baseline" secondItem="2k0-7j-zst" secondAttribute="baseline" id="Osx-oI-AnI"/>
-                            <constraint firstItem="tr8-4m-jug" firstAttribute="trailing" secondItem="rBL-CD-dER" secondAttribute="trailing" id="P1d-MP-htn"/>
                             <constraint firstItem="2k0-7j-zst" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="PhT-BX-TYd"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Gkr-Gt-wBR" secondAttribute="bottom" constant="38" id="SLv-UT-4IT"/>
                             <constraint firstItem="rBL-CD-dER" firstAttribute="leading" secondItem="Gkr-Gt-wBR" secondAttribute="trailing" constant="12" id="Th0-IX-9uT"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="tr8-4m-jug" secondAttribute="bottom" constant="8" id="W9d-fh-BuS"/>
-                            <constraint firstItem="tr8-4m-jug" firstAttribute="leading" secondItem="Gkr-Gt-wBR" secondAttribute="leading" id="XkS-GG-T4e"/>
                             <constraint firstItem="duO-tR-qaz" firstAttribute="trailing" secondItem="VBR-IQ-IGb" secondAttribute="trailing" id="XsO-iC-gsY"/>
-                            <constraint firstItem="tr8-4m-jug" firstAttribute="top" secondItem="Gkr-Gt-wBR" secondAttribute="bottom" constant="10" id="fYc-ix-qb7"/>
                             <constraint firstItem="VBR-IQ-IGb" firstAttribute="leading" secondItem="Gkr-Gt-wBR" secondAttribute="trailing" constant="12" id="h6u-hR-U4Q"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="2k0-7j-zst" secondAttribute="bottom" constant="66" id="hCt-Ge-UCe"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="duO-tR-qaz" secondAttribute="bottom" constant="44" id="kjU-Ga-BQN"/>
@@ -100,14 +91,14 @@
                     <size key="freeformSize" width="320" height="95"/>
                     <connections>
                         <outlet property="buoyStatusLabel" destination="Gkr-Gt-wBR" id="dZU-Ut-fHA"/>
+                        <outlet property="lastUpdatedLabel" destination="lYj-9C-XQL" id="jdi-SE-RZ1"/>
                         <outlet property="nextTideEventLabel" destination="rBL-CD-dER" id="KRP-X7-fLV"/>
-                        <outlet property="refreshButton" destination="tr8-4m-jug" id="akF-78-yjP"/>
                         <outlet property="tideCurrentStatusLabel" destination="duO-tR-qaz" id="mUO-UG-gxw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="284"/>
+            <point key="canvasLocation" x="516" y="283.5"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

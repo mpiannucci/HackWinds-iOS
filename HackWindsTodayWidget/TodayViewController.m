@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *buoyStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tideCurrentStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextTideEventLabel;
-@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
+@property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
 
 // Model Properties
 @property (strong, nonatomic) BuoyModel *buoyModel;
@@ -114,11 +114,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     NSString *dateString = [formatter stringFromDate:now];
-    [self.refreshButton setTitle:[NSString stringWithFormat:@"Updated: %@ - Click to Refresh", dateString] forState:UIControlStateNormal];
-}
-
-- (IBAction)refreshButtonClick:(id)sender {
-    [self updateViewAynsc];
+    [self.lastUpdatedLabel setText:[NSString stringWithFormat:@"last updated at %@", dateString]];
 }
 
 @end
