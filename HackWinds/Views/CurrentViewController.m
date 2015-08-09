@@ -124,7 +124,6 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
-        [self.forecastModel fetchForecastData];
         currentConditions = [self.forecastModel getConditionsForIndex:0];
         [self.mswTodayTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
@@ -140,11 +139,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows + the header row
-    if (self.forecastModel.conditions.count == 30) {
-        // There are 5 days, 6 conditions each, + 1 header row = 7
-        return 7;
-    }
-    return 0;
+    return (self.forecastModel.conditions.count / 5) + 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

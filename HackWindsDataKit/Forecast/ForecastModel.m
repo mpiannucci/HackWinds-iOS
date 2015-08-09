@@ -101,37 +101,30 @@
     });
 }
 
-- (BOOL) fetchForecastData {
-    bool success = true;
-    
+- (NSArray *) getConditionsForIndex:(int)index {
     if (rawData.count == 0) {
         // Theres no data yet so load form the url
         [self loadRawData];
     }
-    
     if ([self.conditions count] == 0) {
         // There are no conditions so parse them out
-        success = [self parseForecasts];
+        [self parseForecasts];
     }
     
-    if (success) {
-        if ([self.forecasts count] == 0) {
-            // Theres no forecasts yet so parse them out
-            success = [self parseForecasts];
-        }
-    }
-    return success;
-}
-
-- (NSArray *) getConditionsForIndex:(int)index {
-    if (self.conditions.count > ((index * 6) + 6)) {
-        NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
-        return currentConditions;
-    }
-    return [[NSArray alloc] init];
+    NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
+    return currentConditions;
 }
 
 - (NSMutableArray *) getForecasts {
+    if (rawData.count == 0) {
+        // Theres no data yet so load form the url
+        [self loadRawData];
+    }
+    if ([self.forecasts count] == 0) {
+        // Theres no forecasts yet so parse them out
+        [self parseForecasts];
+    }
+    
     return self.forecasts;
 }
 
@@ -180,16 +173,16 @@
             // Get a new condition object
             Condition *thisCondition = [[Condition alloc] init];
             [thisCondition setDate:date];
-        
+            
             // Get the minumum and maximum wave heights
             [thisCondition setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
             [thisCondition setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
-        
+            
             // Get the wind direction and speed
             [thisCondition setWindSpeed:[windDict objectForKey:@"speed"]];
             [thisCondition setWindDeg:[windDict objectForKey:@"direction"]];
             [thisCondition setWindDirection:[windDict objectForKey:@"compassDirection"]];
-        
+            
             // Get the swell height, period, and direction
             [thisCondition setSwellHeight:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"height"]];
             [thisCondition setSwellPeriod:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"period"]];
@@ -199,7 +192,7 @@
             [thisCondition setSwellChartURL:[chartDict objectForKey:@"swell"]];
             [thisCondition setWindChartURL:[chartDict objectForKey:@"wind"]];
             [thisCondition setPeriodChartURL:[chartDict objectForKey:@"period"]];
-        
+            
             // Append the condition
             [self.conditions addObject:thisCondition];
             conditionCount++;
@@ -208,18 +201,18 @@
         if (forecastCheck && (forecastCount < 10)) {
             // Get a new Forecast object
             Forecast *thisForecast = [[Forecast alloc] init];
-        
+            
             // Set the date
             [thisForecast setDate:date];
-        
+            
             // Get the minimum and maximumm breaking heights
             [thisForecast setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
             [thisForecast setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
-        
+            
             // Get the wind speed and direction
             [thisForecast setWindSpeed:[windDict objectForKey:@"speed"]];
             [thisForecast setWindDir:[windDict objectForKey:@"compassDirection"]];
-        
+            
             // Append the forecast to the list
             [self.forecasts addObject:thisForecast];
             forecastCount++;
@@ -284,7 +277,7 @@
         if ((nineRange.location != NSNotFound) ||
             (fifteenRange.location != NSNotFound))
         {
-                 return YES;
+            return YES;
         }
         return NO;
         

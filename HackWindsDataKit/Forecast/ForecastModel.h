@@ -1,3 +1,4 @@
+
 //
 //  ForecastModel.h
 //  HackWinds
@@ -14,7 +15,6 @@
 @property (strong, nonatomic) NSMutableArray *forecasts;
 
 - (void) changeForecastLocation;
-- (BOOL) fetchForecastData;
 - (NSArray *) getConditionsForIndex:(int)index;
 - (NSMutableArray *) getForecasts;
 + (instancetype) sharedModel;
