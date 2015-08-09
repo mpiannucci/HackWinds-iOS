@@ -90,6 +90,10 @@
     }
 }
 
+- (void) resetData {
+    [self.blockIslandBuoys removeAllObjects];
+}
+
 - (NSMutableArray *) getWaveHeightForLocation:(int)location {
     if (location == BLOCK_ISLAND_LOCATION) {
         // They want block island height

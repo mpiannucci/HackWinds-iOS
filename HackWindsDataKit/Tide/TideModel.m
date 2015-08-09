@@ -51,6 +51,10 @@
     }
 }
 
+- (void) resetData {
+    [self.tides removeAllObjects];
+}
+
 - (bool) parseTideData:(NSData *)responseData {
     // If theres no data return false
     if (responseData == nil) {

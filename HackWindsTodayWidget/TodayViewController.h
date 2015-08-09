@@ -11,5 +11,8 @@
 @interface TodayViewController : UIViewController
 
 - (BOOL) updateData;
+- (void) updateViewAynsc;
+- (void) reloadUI;
+- (IBAction)refreshButtonClick:(id)sender;
 
 @end

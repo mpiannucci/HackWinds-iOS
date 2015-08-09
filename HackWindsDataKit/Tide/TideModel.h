@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSMutableArray *tides;
 
 - (BOOL) fetchTideData;
+- (void) resetData;
 + (instancetype) sharedModel;
 
 @end

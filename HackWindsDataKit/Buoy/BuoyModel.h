@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSMutableArray *montaukWaveHeights;
 
 - (BOOL) fetchBuoyDataForLocation:(int)location;
+- (void) resetData;
 
 - (NSMutableArray*) getBuoyDataForLocation:(int)location;
 - (NSMutableArray*) getWaveHeightForLocation:(int)location;
