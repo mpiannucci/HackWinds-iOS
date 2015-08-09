@@ -36,7 +36,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
+    [self.buoyModel resetData];
+    [self.tideModel resetData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
