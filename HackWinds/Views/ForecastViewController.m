@@ -70,7 +70,6 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
-        [self.forecastModel getForecasts];
         [self.forecastTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
     });

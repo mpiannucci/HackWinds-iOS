@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "Reachability.h"
 #import "CameraModel.h"
+#import "ForecastModel.h"
 
 @implementation AppDelegate
 {
@@ -69,6 +70,9 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+    
+    // Fetch the new forecast data
+    [[ForecastModel sharedModel] fetchForecastData];
     
     return YES;
 }

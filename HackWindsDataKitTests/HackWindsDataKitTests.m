@@ -42,7 +42,7 @@
 
 - (void) testForecastModelFetch {
     // Fetch the conditions and forecasts
-    [self.forecastModel getForecasts];
+    XCTAssert([self.forecastModel fetchForecastData]);
     
     // Check theres the correct amount of data objects
     XCTAssert(self.forecastModel.conditions.count == 30);

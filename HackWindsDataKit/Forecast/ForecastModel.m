@@ -31,6 +31,7 @@
     NSDictionary *locationURLs;
     NSString *currentLocationURL;
     BOOL is24HourClock;
+    BOOL initialForecastChange;
 }
 
 + (instancetype) sharedModel {
@@ -55,6 +56,7 @@
     
     // Check the format of the clock
     [self check24HourClock];
+    initialForecastChange = YES;
     
     // Initialize the data holders
     self.conditions = [NSMutableArray arrayWithCapacity:30];
@@ -78,53 +80,60 @@
 - (void) changeForecastLocation {
     [self.userDefaults synchronize];
     
-    // Callback for the forecast location settings changing
-    // First clear all of the old data so that everything reloads
-    if (rawData.count > 0) {
-        rawData = [[NSArray alloc] init];
-    }
-    if ([self.conditions count] > 0) {
-        [self.conditions removeAllObjects];
-    }
-    if ([self.forecasts count] > 0) {
-        [self.forecasts removeAllObjects];
-    }
-    
     // Load the url for the current location using the url dictionary
     currentLocationURL = [locationURLs objectForKey:[self.userDefaults objectForKey:@"ForecastLocation"]];
     
-    // Tell everyone the data has updated
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"ForecastModelDidUpdateDataNotification"
-         object:self];
-    });
+    if (!initialForecastChange) {
+        // Tell everyone the data has updated
+        // Callback for the forecast location settings changing
+        // First clear all of the old data so that everything reloads
+        if (rawData.count > 0) {
+            rawData = [[NSArray alloc] init];
+        }
+        if ([self.conditions count] > 0) {
+            [self.conditions removeAllObjects];
+        }
+        if ([self.forecasts count] > 0) {
+            [self.forecasts removeAllObjects];
+        }
+        
+        BOOL success = [self fetchForecastData];
+        
+        if (success) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"ForecastModelDidUpdateDataNotification"
+                 object:self];
+            });
+        }
+    } else {
+        initialForecastChange = NO;
+    }
+}
+
+- (BOOL) fetchForecastData {
+    if (rawData.count == 0) {
+        // Theres no data yet so load form the url
+        [self loadRawData];
+    }
+    
+    if ([self.conditions count] == 0) {
+        // There are no conditions so parse them out
+        return [self parseForecasts];
+    }
+    
+    return YES;
 }
 
 - (NSArray *) getConditionsForIndex:(int)index {
-    if (rawData.count == 0) {
-        // Theres no data yet so load form the url
-        [self loadRawData];
+    if (self.conditions.count == 30) {
+        NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
+        return currentConditions;
     }
-    if ([self.conditions count] == 0) {
-        // There are no conditions so parse them out
-        [self parseForecasts];
-    }
-    
-    NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
-    return currentConditions;
+    return NULL;
 }
 
 - (NSMutableArray *) getForecasts {
-    if (rawData.count == 0) {
-        // Theres no data yet so load form the url
-        [self loadRawData];
-    }
-    if ([self.forecasts count] == 0) {
-        // Theres no forecasts yet so parse them out
-        [self parseForecasts];
-    }
-    
     return self.forecasts;
 }
 
@@ -218,7 +227,7 @@
             forecastCount++;
         }
     }
-    return YES;
+    return (self.forecasts.count == 10) && (self.conditions.count == 30);
 }
 
 - (NSString *)formatDate:(NSUInteger)epoch {
@@ -277,10 +286,10 @@
         if ((nineRange.location != NSNotFound) ||
             (fifteenRange.location != NSNotFound))
         {
+            // We care!!
             return YES;
         }
         return NO;
-        
     } else {
         NSRange amRange = [dateString rangeOfString:@"AM"];
         NSRange pmRange = [dateString rangeOfString:@"PM"];
@@ -289,6 +298,7 @@
         if (((amRange.location != NSNotFound) && (nineRange.location != NSNotFound)) ||
             ((pmRange.location != NSNotFound) && (threeRange.location != NSNotFound)))
         {
+            // We care!!
             return YES;
         }
         return NO;
