@@ -9,6 +9,7 @@
 #define MONTAUK_LOCATION 42
 
 #import <Foundation/Foundation.h>
+#import "Buoy.h"
 
 @interface BuoyModel : NSObject
 
@@ -19,9 +20,11 @@
 
 - (BOOL) fetchBuoyDataForLocation:(int)location;
 - (void) resetData;
-
+- (int) getTimeOffset;
 - (NSMutableArray*) getBuoyDataForLocation:(int)location;
 - (NSMutableArray*) getWaveHeightForLocation:(int)location;
+
++ (Buoy*) getLatestBuoyDataOnlyForLocation:(int)location;
 + (instancetype) sharedModel;
 
 @end

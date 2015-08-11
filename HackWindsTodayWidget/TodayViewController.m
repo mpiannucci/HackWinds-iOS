@@ -19,9 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nextTideEventLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
 
-// Model Properties
-@property (strong, nonatomic) BuoyModel *buoyModel;
-@property (strong, nonatomic) TideModel *tideModel;
+// Cached objects
+@property (strong, nonatomic) Buoy *latestBuoy;
+@property (strong, nonatomic) Tide *latestTide;
 
 @end
 
@@ -30,16 +30,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    if ((self.latestBuoy != nil) && (self.latestTide !=nil)) {
+        [self reloadUI];
+    }
 
     [self updateViewAynsc];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    // Dispose of any resources that can be recreated.
-    [self.buoyModel resetData];
-    [self.tideModel resetData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -48,6 +48,9 @@
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
     // Perform any setup necessary in order to update the view.
+    if ((self.latestBuoy != nil) && (self.latestTide !=nil)) {
+        [self reloadUI];
+    }
     [self updateViewAynsc];
     
     // If an error is encountered, use NCUpdateResultFailed
@@ -57,23 +60,11 @@
 }
 
 - (BOOL)updateData {
-    // Make sure the models are not null
-    if (self.buoyModel == nil) {
-        self.buoyModel = [BuoyModel sharedModel];
-    }
-    if (self.tideModel == nil) {
-        self.tideModel = [TideModel sharedModel];
-    }
-    
-    // Reset the models
-    [self.buoyModel resetData];
-    [self.tideModel resetData];
-    
     // Fetch new data
-    bool buoyFetchSuccess = [self.buoyModel fetchBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
-    bool tideFetchSuccess = [self.tideModel fetchTideData];
+    self.latestBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
+    self.latestTide = [TideModel getLatestTidalEventOnly];
     
-    return (buoyFetchSuccess && tideFetchSuccess) && true;
+    return (self.latestBuoy != nil) && [self.latestTide isTidalEvent];
 }
 
 - (void) updateViewAynsc {
@@ -88,27 +79,22 @@
 }
 
 - (void)reloadUI {
-    // Load the buoy UI
-    Buoy *thisBuoy = [[self.buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION] objectAtIndex:0];
-    NSString *buoyStatus = [NSString stringWithFormat:@"%@ ft @ %@s %@", thisBuoy.WaveHeight, thisBuoy.DominantPeriod, [Buoy getCompassDirection:thisBuoy.Direction]];
+    if ((self.latestBuoy == nil) || (self.latestTide == nil)) {
+        return;
+    }
+    
+    // Load the buoy UI from the buoy point collected
+    NSString *buoyStatus = [NSString stringWithFormat:@"%@ ft @ %@s %@", self.latestBuoy.WaveHeight, self.latestBuoy.DominantPeriod, [Buoy getCompassDirection:self.latestBuoy.Direction]];
     [self.buoyStatusLabel setText:buoyStatus];
     
-    // Load the tide UI
+    // Load the tide UI from the latest tide point collected
     NSString *tideCurrentStatus = @"";
-    NSString *nextTideEvent = @"";
-    for ( Tide *thisTide in self.tideModel.tides) {
-        if ([thisTide isSolarEvent]) {
-            continue;
-        }
-        
-        if ([thisTide isHighTide]) {
-            tideCurrentStatus = @"Incoming";
-        } else {
-            tideCurrentStatus = @"Outgoing";
-        }
-        nextTideEvent = [NSString stringWithFormat:@"%@ - %@", thisTide.EventType, thisTide.Time];
-        break;
+    if ([self.latestTide isHighTide]) {
+        tideCurrentStatus = @"Incoming";
+    } else {
+        tideCurrentStatus = @"Outgoing";
     }
+    NSString *nextTideEvent = [NSString stringWithFormat:@"%@ - %@", self.latestTide.EventType, self.latestTide.Time];
     [self.tideCurrentStatusLabel setText:tideCurrentStatus];
     [self.nextTideEventLabel setText:nextTideEvent];
     

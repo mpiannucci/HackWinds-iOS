@@ -18,7 +18,6 @@
 #define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
 
 #import "BuoyModel.h"
-#import "Buoy.h"
 
 @interface BuoyModel ()
 
@@ -78,6 +77,10 @@
             return YES;
         }
     }
+}
+
+- (int) getTimeOffset {
+    return timeOffset;
 }
 
 - (NSMutableArray *) getBuoyDataForLocation:(int)location {
@@ -180,6 +183,74 @@
         }
     }
     return YES;
+}
+
++ (Buoy*) getLatestBuoyDataOnlyForLocation:(int)location {
+    // Get the model instance
+    BuoyModel *buoyModel = [[BuoyModel alloc] init];
+    
+    // Get the buoy data
+    NSString* buoyData;
+    NSError *err = nil;
+    if (location == BLOCK_ISLAND_LOCATION) {
+        buoyData = [NSString stringWithContentsOfURL:BI_URL encoding:NSUTF8StringEncoding error:&err];
+    } else {
+        // Montauk
+        buoyData = [NSString stringWithContentsOfURL:MTK_URL encoding:NSUTF8StringEncoding error:&err];
+    }
+    // If it was unsuccessful, return false
+    if (err != nil) {
+        return NULL;
+    }
+    
+    NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
+    NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
+    NSArray *parts = [buoyData componentsSeparatedByCharactersInSet:whitespaces];
+    NSArray *filteredArray = [parts filteredArrayUsingPredicate:noEmptyStrings];
+    buoyData = [filteredArray componentsJoinedByString:@" "];
+    NSArray* cleanData = [buoyData componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    Buoy *newBuoy = [[Buoy alloc] init];
+    
+    // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
+    NSInteger originalHour = [[cleanData objectAtIndex:DATA_HEADER_LENGTH+HOUR_OFFSET] integerValue] + [buoyModel getTimeOffset];
+    NSInteger convertedHour = 0;
+    
+    // Formate the hour correctly if the user has 24 hour time enabled
+    if ([buoyModel check24HourClock]) {
+        convertedHour = (originalHour + 24) % 24;
+        if (convertedHour == 0) {
+            if ((originalHour + [buoyModel getTimeOffset]) > 0) {
+                convertedHour = 12;
+            }
+        }
+    } else {
+        convertedHour = (originalHour + 12) % 12;
+        if (convertedHour == 0) {
+            convertedHour = 12;
+        }
+    }
+    
+    // Set the time value for the object
+    NSString *minute = [cleanData objectAtIndex:DATA_HEADER_LENGTH+MINUTE_OFFSET];
+    [newBuoy setTime:[NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute]];
+    
+    // Period and wind direction values
+    [newBuoy setDominantPeriod:[cleanData objectAtIndex:DATA_HEADER_LENGTH+DPD_OFFSET]];
+    [newBuoy setDirection:[cleanData objectAtIndex:DATA_HEADER_LENGTH+DIRECTION_OFFSET]];
+    
+    // Water Temperature Values converted from celsius to fahrenheit
+    double waterTemp = (([[cleanData objectAtIndex:DATA_HEADER_LENGTH+TEMPERATURE_OFFSET] doubleValue] * (9.0 / 5.0) +32.0 ) / 0.05) * 0.05;
+    [newBuoy setWaterTemperature:[NSString stringWithFormat:@"%4.2f", waterTemp]];
+    
+    // Change the wave height to feet
+    NSString *wv = [cleanData objectAtIndex:DATA_HEADER_LENGTH+WVHT_OFFSET];
+    double h = [wv doubleValue]*3.28;
+    
+    // Set the wave height
+    [newBuoy setWaveHeight:[NSString stringWithFormat:@"%2.2f", h]];
+    
+    return newBuoy;
 }
 
 - (BOOL)check24HourClock {

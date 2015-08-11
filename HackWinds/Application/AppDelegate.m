@@ -71,7 +71,7 @@
         [alert show];
     }
     
-    // Fetch the new forecast data
+    // Pre-fetch the new forecast data so there is only one thread fetching at a time. 
     [[ForecastModel sharedModel] fetchForecastData];
     
     return YES;
