@@ -10,6 +10,23 @@
 
 @implementation Tide
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        self.Time = [aDecoder decodeObjectForKey:@"time"];
+        self.EventType = [aDecoder decodeObjectForKey:@"eventType"];
+        self.Height = [aDecoder decodeObjectForKey:@"height"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.Time forKey:@"time"];
+    [aCoder encodeObject:self.EventType forKey:@"eventType"];
+    [aCoder encodeObject:self.Height forKey:@"height"];
+}
+
 - (BOOL) isSunrise {
     if ([self.EventType isEqualToString:SUNRISE_TAG]) {
         return YES;
