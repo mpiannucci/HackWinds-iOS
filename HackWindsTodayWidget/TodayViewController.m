@@ -34,8 +34,6 @@
     if ((self.latestBuoy != nil) && (self.latestTide !=nil)) {
         [self reloadUI];
     }
-
-    [self updateViewAynsc];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,9 +46,6 @@
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
     // Perform any setup necessary in order to update the view.
-    if ((self.latestBuoy != nil) && (self.latestTide !=nil)) {
-        [self reloadUI];
-    }
     [self updateViewAynsc];
     
     // If an error is encountered, use NCUpdateResultFailed
