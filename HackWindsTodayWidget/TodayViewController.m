@@ -32,7 +32,8 @@
 @property (strong, nonatomic) Buoy *latestBuoy;
 @property (strong, nonatomic) Tide *latestTide;
 @property (strong, nonatomic) NSDate *latestRefreshTime;
-@property (strong, nonatomic) NSDate *nextUpdateTime;
+@property (strong, nonatomic) NSDate *nextBuoyUpdateTime;
+@property (strong, nonatomic) NSDate *nextTideUpdateTime;
 
 @end
 
@@ -69,19 +70,36 @@
 }
 
 - (BOOL)updateData {
-    // Check to see if its time for an update.
-    if (self.nextUpdateTime != nil) {
-        if ([self.nextUpdateTime compare:[NSDate date]] == NSOrderedDescending) {
-            // Only update if the next update time is in the past
-            return NO;
+    // Get the current date
+    NSDate *currentDate = [NSDate date];
+    BOOL buoyUpdated = false;
+    BOOL tideUpdated = false;
+    
+    // Check to see if the buoy data should be updated
+    if (self.nextBuoyUpdateTime != nil) {
+        if ([self.nextBuoyUpdateTime compare:currentDate] == NSOrderedAscending) {
+            // Update!
+            self.latestBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
+            buoyUpdated = YES;
         }
+    } else {
+        self.latestBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
+        buoyUpdated = YES;
     }
     
-    // Fetch new data
-    self.latestBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
-    self.latestTide = [TideModel getLatestTidalEventOnly];
+    // Check to see if the tide data should be updated
+    if (self.nextTideUpdateTime != nil) {
+        if ([self.nextTideUpdateTime compare:currentDate] == NSOrderedAscending) {
+            // Update!
+            self.latestTide = [TideModel getLatestTidalEventOnly];
+            tideUpdated = YES;
+        }
+    } else {
+        self.latestTide = [TideModel getLatestTidalEventOnly];
+        tideUpdated = YES;
+    }
     
-    return (self.latestBuoy != nil) && [self.latestTide isTidalEvent];
+    return buoyUpdated || tideUpdated;
 }
 
 - (void) updateViewAynsc {
@@ -142,15 +160,28 @@
     NSInteger tideHour = [[self.latestTide.Time substringToIndex:tideSeperatorRange.location] integerValue];
     NSInteger tideMinute = [[self.latestTide.Time substringWithRange:NSMakeRange(tideSeperatorRange.location+1, 2)] integerValue];
     
-    NSDate *buoyTime = [self dateWithHour:buoyHour minute:buoyMinute second:0];
-    NSDate *tideTime = [self dateWithHour:tideHour minute:tideMinute second:0];
-    
-    // Find which time comes first and set that to be the next update time
-    if ([buoyTime compare:tideTime] == NSOrderedDescending) {
-        self.nextUpdateTime = tideTime;
-    } else {
-        self.nextUpdateTime = buoyTime;
+    // Adjust time for am and pm during 24 hour time
+    if (![self check24HourClock]) {
+        // Handle the tide being in the afternoon or night
+        NSString *tideAMPM = [self.latestTide.Time substringFromIndex:tideSeperatorRange.location+4];
+        if ([tideAMPM isEqualToString:@"pm"]) {
+            tideHour += 12;
+        }
+        
+        // Handle the buoy time being in the afternoon or night
+        NSDate *currentDate = [NSDate date];
+        NSDateFormatter *buoyFormatter = [[NSDateFormatter alloc] init];
+        [buoyFormatter setDateFormat:@"a"];
+        NSString *buoyAMPM = [[buoyFormatter stringFromDate:currentDate] lowercaseString];
+        if ([buoyAMPM isEqualToString:@"pm"]) {
+            buoyHour += 12;
+        }
     }
+    
+    // Create the date objects
+    self.nextBuoyUpdateTime = [self dateWithHour:buoyHour minute:buoyMinute second:0];
+    self.nextBuoyUpdateTime = [self.nextBuoyUpdateTime dateByAddingTimeInterval:(60 * 60)];
+    self.nextTideUpdateTime = [self dateWithHour:tideHour minute:tideMinute second:0];
 }
 
 -(void) cacheData {
@@ -158,7 +189,8 @@
     [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.latestBuoy] forKey:@"latestBuoy"];
     [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.latestTide] forKey:@"latestTide"];
     [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.latestRefreshTime] forKey:@"latestRefreshTime"];
-    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.nextUpdateTime] forKey:@"nextUpdateTime"];
+    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.nextBuoyUpdateTime] forKey:@"nextBuoyUpdateTime"];
+    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.nextTideUpdateTime] forKey:@"nextTideUpdateTime"];
     [defaults synchronize];
 }
 
@@ -167,7 +199,8 @@
     self.latestBuoy = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"latestBuoy"]];
     self.latestTide = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"latestTide"]];
     self.latestRefreshTime = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"latestRefreshTime"]];
-    self.nextUpdateTime = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"nextUpdateTime"]];
+    self.nextBuoyUpdateTime = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"nextBuoyUpdateTime"]];
+    self.nextTideUpdateTime = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"nextTideUpdateTime"]];
 }
 
 /** Returns a new NSDate object with the time set to the indicated hour,
