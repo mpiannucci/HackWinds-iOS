@@ -171,7 +171,7 @@
     if (![self check24HourClock]) {
         // Handle the tide being in the afternoon or night
         NSString *tideAMPM = [self.latestTide.Time substringFromIndex:tideSeperatorRange.location+4];
-        if ([tideAMPM isEqualToString:@"pm"]) {
+        if ([tideAMPM isEqualToString:@"pm"] && (tideHour != 12)) {
             tideHour += 12;
         }
         
