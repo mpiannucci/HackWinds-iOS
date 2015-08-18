@@ -79,8 +79,15 @@
     if (self.nextBuoyUpdateTime != nil) {
         if ([self.nextBuoyUpdateTime compare:currentDate] == NSOrderedAscending) {
             // Update!
-            self.latestBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
-            buoyUpdated = YES;
+            Buoy *newBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
+            
+            // If the buoy isnt actually updatede yet don't act like it is
+            if ([newBuoy.Time isEqualToString:self.latestBuoy.Time]) {
+                buoyUpdated = NO;
+            } else {
+                self.latestBuoy = newBuoy;
+                buoyUpdated = YES;
+            }
         }
     } else {
         self.latestBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
