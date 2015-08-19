@@ -180,7 +180,7 @@
         NSDateFormatter *buoyFormatter = [[NSDateFormatter alloc] init];
         [buoyFormatter setDateFormat:@"a"];
         NSString *buoyAMPM = [[buoyFormatter stringFromDate:currentDate] lowercaseString];
-        if ([buoyAMPM isEqualToString:@"pm"]) {
+        if ([buoyAMPM isEqualToString:@"pm"] && (buoyHour != 12)) {
             buoyHour += 12;
         }
     }
