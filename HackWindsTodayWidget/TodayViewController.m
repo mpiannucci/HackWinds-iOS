@@ -226,7 +226,7 @@
                                     NSCalendarUnitDay | NSCalendarUnitHour
                                                fromDate:[NSDate date]];
     
-    if ((components.hour > 6) && (hour < 6)) {
+    if ((components.hour > 18) && (hour < 6)) {
         [components setDay:components.day+1];
     }
     
