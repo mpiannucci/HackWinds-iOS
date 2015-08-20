@@ -84,6 +84,11 @@
     
     // Remove notification observer
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    // If the user leaves the view clean up the video stuff
+    if (!self.streamPlayer.fullscreen) {
+        [self videoPlayBackDidFinish:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

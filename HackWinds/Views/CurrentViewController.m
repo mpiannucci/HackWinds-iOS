@@ -73,6 +73,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"ForecastModelDidUpdateDataNotification"
                                                   object:nil];
+    
+    // If the user is swithcing views then clean up the videoview
+    if (!self.streamPlayer.fullscreen) {
+        [self streamPlayBackDidFinish:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
