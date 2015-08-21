@@ -13,5 +13,6 @@
 - (BOOL) updateData;
 - (void) updateViewAynsc;
 - (void) reloadUI;
+- (void) lastUpdateTapped;
 
 @end

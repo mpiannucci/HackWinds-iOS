@@ -45,6 +45,11 @@
     // Restore the data from the defaults cache
     [self restoreData];
     
+    // Register the gesture for force updating the widget with a double tap
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lastUpdateTapped)];
+    tapGestureRecognizer.numberOfTapsRequired = 2;
+    [self.lastUpdatedLabel addGestureRecognizer:tapGestureRecognizer];
+    
     // Load the UI
     if ((self.latestBuoy != nil) && (self.latestTide !=nil)) {
         [self reloadUI];
@@ -226,7 +231,7 @@
                                     NSCalendarUnitDay | NSCalendarUnitHour
                                                fromDate:[NSDate date]];
     
-    if ((components.hour > 18) && (hour < 6)) {
+    if ((components.hour > 11) && (hour < 6)) {
         [components setDay:components.day+1];
     }
     
@@ -243,6 +248,16 @@
     NSLocale *locale = [NSLocale currentLocale];
     NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
     return ([dateCheck rangeOfString:@"a"].location == NSNotFound);
+}
+
+- (void) lastUpdateTapped {
+    // Foce an update when the user double taps the last update time
+    self.nextBuoyUpdateTime = nil;
+    self.nextTideUpdateTime = nil;
+    self.latestBuoy = nil;
+    self.latestTide = nil;
+    
+    [self updateViewAynsc];
 }
 
 @end
