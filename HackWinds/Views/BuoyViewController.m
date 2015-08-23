@@ -31,7 +31,7 @@
     NSMutableArray *currentWaveHeights;
     CPTScatterPlot *plot;
     CPTGraph *graph;
-    int buoy_location;
+    NSString *buoy_location;
 }
 
 - (void)viewDidLoad {
@@ -95,11 +95,8 @@
 
 - (IBAction)locationSegmentValueChanged:(id)sender {
     // Check the selection location
-    if ([sender selectedSegmentIndex] == 0) {
-        buoy_location = BLOCK_ISLAND_LOCATION;
-    } else {
-        buoy_location = MONTAUK_LOCATION;
-    }
+    buoy_location = [sender titleForSegmentAtIndex:[sender selectedSegmentIndex]];
+    
     // Get the new buoy data and reload the main view
     dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
         [self.buoyModel fetchBuoyDataForLocation:buoy_location];
@@ -185,7 +182,7 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
     // The time scales are different time deltas, make sure they both show 9 hours of data
-    if (buoy_location == BLOCK_ISLAND_LOCATION)
+    if ([buoy_location  isEqual: BLOCK_ISLAND_LOCATION])
         return [currentBuoyData count];
     else
         return [currentBuoyData count]/2;
@@ -198,7 +195,7 @@
     
     // Depending on the buoy location set the axis scaling
     double x;
-    if (buoy_location == BLOCK_ISLAND_LOCATION)
+    if ([buoy_location  isEqual: BLOCK_ISLAND_LOCATION])
         x = (double) index/2;
     else
         x = (double) index;

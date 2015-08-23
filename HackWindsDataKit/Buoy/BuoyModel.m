@@ -5,7 +5,6 @@
 //  Created by Matthew Iannucci on 12/14/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
-#define DATA_POINTS 20
 #define DATA_HEADER_LENGTH 38
 #define DATA_LINE_LEN 19
 #define HOUR_OFFSET 3
@@ -16,15 +15,17 @@
 #define TEMPERATURE_OFFSET 14
 #define BI_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
 #define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
-#define ACK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
+#define ACK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44008.txt"]
 
 #import "BuoyModel.h"
+#import "BuoyDataContainer.h"
 
 @interface BuoyModel ()
 
 // Private methods
-- (BOOL) parseBuoyData:(int)location;
-- (NSArray*) retrieveBuoyDataForLocation:(int)location;
+- (void) initBuoyContainers;
+- (BOOL) parseBuoyData:(NSString*)location;
+- (NSArray*) retrieveBuoyDataForLocation:(NSString*)location;
 - (Buoy*) getBuoyObjectForIndex:(int)index FromData:(NSArray*)rawData;
 - (BOOL) check24HourClock;
 
@@ -50,13 +51,7 @@
 {
     self = [super init];
     
-    // Initialize the BI and MTK arrays
-    self.blockIslandBuoys = [NSMutableArray arrayWithCapacity:DATA_POINTS];
-    self.blockIslandWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
-    self.montaukBuoys = [NSMutableArray arrayWithCapacity:DATA_POINTS];
-    self.montaukWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
-    self.nantucketBuoys = [NSMutableArray arrayWithCapacity:DATA_POINTS];
-    self.nantucketWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
+    [self initBuoyContainers];
     
     // Check if daylight savings is in effect. Make sure the time scaling is for EST (GMT-5)
     NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
@@ -66,30 +61,32 @@
     return self;
 }
 
-- (BOOL) fetchBuoyDataForLocation:(int)location {
-    if (location == BLOCK_ISLAND_LOCATION) {
-        // If they want block island, check if its already been fetched, then return it
-        if ([self.blockIslandBuoys count] == 0) {
-            return [self parseBuoyData:BLOCK_ISLAND_LOCATION];
-        } else {
-            return YES;
-        }
-    } else if (location == MONTAUK_LOCATION) {
-        // Do the same for montauk
-        if ([self.montaukBuoys count] == 0) {
-            return [self parseBuoyData:MONTAUK_LOCATION];
-        } else {
-            return YES;
-        }
-    } else if (location == NANTUCKET_LOCATION) {
-        // Do the same for montauk
-        if ([self.nantucketBuoys count] == 0) {
-            return [self parseBuoyData:NANTUCKET_LOCATION];
-        } else {
-            return YES;
-        }
+- (void) initBuoyContainers {
+    self.buoyDataSets = [[NSMutableDictionary alloc] init];
+    
+    // Block Island
+    BuoyDataContainer *biContainer = [[BuoyDataContainer alloc] init];
+    biContainer.url = BI_URL;
+    [self.buoyDataSets setValue:biContainer forKey:BLOCK_ISLAND_LOCATION];
+    
+    // Montauk
+    BuoyDataContainer *mtkContainer = [[BuoyDataContainer alloc] init];
+    mtkContainer.url = MTK_URL;
+    [self.buoyDataSets setValue:mtkContainer forKey:MONTAUK_LOCATION];
+    
+    // Nantucket
+    BuoyDataContainer *ackContainer = [[BuoyDataContainer alloc] init];
+    ackContainer.url = ACK_URL;
+    [self.buoyDataSets setValue:ackContainer forKey:NANTUCKET_LOCATION];
+    
+}
+
+- (BOOL) fetchBuoyDataForLocation:(NSString*)location {
+    const BuoyDataContainer *buoyContainer = [self.buoyDataSets objectForKey:location];
+    if (buoyContainer.buoyData.count == 0) {
+        return [self parseBuoyData:location];
     } else {
-        return NO;
+        return YES;
     }
 }
 
@@ -97,72 +94,39 @@
     return timeOffset;
 }
 
-- (NSMutableArray *) getBuoyDataForLocation:(int)location {
-    if (location == BLOCK_ISLAND_LOCATION) {
-        // If they want block island, check if its already been fetched, then return it
-        return self.blockIslandBuoys;
-    } else if (location == MONTAUK_LOCATION) {
-        // Do the same for montauk
-        return self.montaukBuoys;
-    } else if (location == NANTUCKET_LOCATION) {
-        // Do it for nantucket
-        return self.nantucketBuoys;
-    } else {
-        return nil;
-    }
+- (NSMutableArray *) getBuoyDataForLocation:(NSString*)location {
+    return [[self.buoyDataSets objectForKey:location] buoyData];
 }
 
 - (void) resetData {
-    [self.blockIslandBuoys removeAllObjects];
+    
 }
 
-- (NSMutableArray *) getWaveHeightForLocation:(int)location {
-    if (location == BLOCK_ISLAND_LOCATION) {
-        // They want block island height
-        return self.blockIslandWaveHeights;
-    } else if (location == MONTAUK_LOCATION) {
-        // They want montauk heights
-        return self.montaukWaveHeights;
-    } else if (location == NANTUCKET_LOCATION) {
-        // They want nantucket
-        return self.nantucketWaveHeights;
-    } else {
-        return nil;
-    }
+- (NSMutableArray *) getWaveHeightForLocation:(NSString*)location {
+    return [[self.buoyDataSets objectForKey:location] waveHeights];
 }
 
-- (BOOL) parseBuoyData:(int)location {
+- (BOOL) parseBuoyData:(NSString*)location {
     // Get the raw data from ndbc
     NSArray *rawBuoyData = [self retrieveBuoyDataForLocation:location];
     if (rawBuoyData == nil) {
         return NO;
     }
     
+    BuoyDataContainer *buoyContainer = [self.buoyDataSets objectForKey:location];
     int dataPointCount = 0;
-    while (dataPointCount < DATA_POINTS) {
+    while (dataPointCount < BUOY_DATA_POINTS) {
         // Get the next buoy object
         Buoy *newBuoy = [self getBuoyObjectForIndex:dataPointCount FromData:rawBuoyData];
         dataPointCount++;
         
-        // Append the buoy to the list of buoys
-        if (location == BLOCK_ISLAND_LOCATION) {
-            // Append to the BI array
-            [self.blockIslandBuoys addObject:newBuoy];
-            [self.blockIslandWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WaveHeight]];
-        }  else if (location == MONTAUK_LOCATION) {
-            // Append to the montauk array
-            [self.montaukBuoys addObject:newBuoy];
-            [self.montaukWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WaveHeight]];
-        } else if (location == NANTUCKET_LOCATION) {
-            // Append to the nantucket array
-            [self.nantucketBuoys addObject:newBuoy];
-            [self.nantucketWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WaveHeight]];
-        }
+        [buoyContainer.buoyData addObject:newBuoy];
+        [buoyContainer.waveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WaveHeight]];
     }
     return YES;
 }
 
-+ (Buoy*) getLatestBuoyDataOnlyForLocation:(int)location {
++ (Buoy*) getLatestBuoyDataOnlyForLocation:(NSString*)location {
     // Get the model instance
     BuoyModel *buoyModel = [[BuoyModel alloc] init];
     
@@ -175,23 +139,12 @@
     return [buoyModel getBuoyObjectForIndex:0 FromData:rawBuoyData];
 }
 
-- (NSArray*) retrieveBuoyDataForLocation:(int)location {
+- (NSArray*) retrieveBuoyDataForLocation:(NSString*)location {
     // Get the buoy data
     NSError *err = nil;
-    NSURL *dataURL = nil;
-    if (location == BLOCK_ISLAND_LOCATION) {
-        dataURL = BI_URL;
-    } else if (location == MONTAUK_LOCATION) {
-        // Montauk
-        dataURL = MTK_URL;
-    } else if (location == NANTUCKET_LOCATION) {
-        // Nantucket
-        dataURL = ACK_URL;
-    } else {
-        return nil;
-    }
     
     // Get the buoy data
+    NSURL *dataURL = [[self.buoyDataSets objectForKey:location] url];
     NSString* buoyData = [NSString stringWithContentsOfURL:dataURL encoding:NSUTF8StringEncoding error:&err];
     
     // If it was unsuccessful, return false
@@ -209,7 +162,7 @@
 
 - (Buoy*) getBuoyObjectForIndex:(int)index FromData:(NSArray *)rawData {
     int baseOffset = DATA_HEADER_LENGTH + (DATA_LINE_LEN * index);
-    if (baseOffset >= (DATA_HEADER_LENGTH+(DATA_LINE_LEN*DATA_POINTS))) {
+    if (baseOffset >= (DATA_HEADER_LENGTH+(DATA_LINE_LEN*BUOY_DATA_POINTS))) {
         return nil;
     }
     

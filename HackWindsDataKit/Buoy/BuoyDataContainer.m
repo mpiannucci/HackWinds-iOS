@@ -10,4 +10,13 @@
 
 @implementation BuoyDataContainer
 
+-(id)init {
+    self = [super init];
+    
+    self.buoyData = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
+    self.waveHeights = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
+    
+    return self;
+}
+
 @end

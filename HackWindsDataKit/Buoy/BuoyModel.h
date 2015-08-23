@@ -5,14 +5,16 @@
 //  Created by Matthew Iannucci on 12/14/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
-#define BLOCK_ISLAND_LOCATION 41
-#define MONTAUK_LOCATION 42
-#define NANTUCKET_LOCATION 43
+#define BLOCK_ISLAND_LOCATION @"Block Island"
+#define MONTAUK_LOCATION @"Montauk"
+#define NANTUCKET_LOCATION @"Nantucket"
 
 #import <Foundation/Foundation.h>
 #import "Buoy.h"
 
 @interface BuoyModel : NSObject
+
+@property (strong, nonatomic) NSMutableDictionary *buoyDataSets;
 
 @property (strong, nonatomic) NSMutableArray *blockIslandBuoys;
 @property (strong, nonatomic) NSMutableArray *blockIslandWaveHeights;
@@ -21,13 +23,13 @@
 @property (strong, nonatomic) NSMutableArray *nantucketBuoys;
 @property (strong, nonatomic) NSMutableArray *nantucketWaveHeights;
 
-- (BOOL) fetchBuoyDataForLocation:(int)location;
+- (BOOL) fetchBuoyDataForLocation:(NSString*)location;
 - (void) resetData;
 - (int) getTimeOffset;
-- (NSMutableArray*) getBuoyDataForLocation:(int)location;
-- (NSMutableArray*) getWaveHeightForLocation:(int)location;
+- (NSMutableArray*) getBuoyDataForLocation:(NSString*)location;
+- (NSMutableArray*) getWaveHeightForLocation:(NSString*)location;
 
-+ (Buoy*) getLatestBuoyDataOnlyForLocation:(int)location;
++ (Buoy*) getLatestBuoyDataOnlyForLocation:(NSString*)location;
 + (instancetype) sharedModel;
 
 @end
