@@ -16,6 +16,7 @@
 #define TEMPERATURE_OFFSET 14
 #define BI_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
 #define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
+#define ACK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
 
 #import "BuoyModel.h"
 
@@ -54,6 +55,8 @@
     self.blockIslandWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
     self.montaukBuoys = [NSMutableArray arrayWithCapacity:DATA_POINTS];
     self.montaukWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
+    self.nantucketBuoys = [NSMutableArray arrayWithCapacity:DATA_POINTS];
+    self.nantucketWaveHeights = [NSMutableArray arrayWithCapacity:DATA_POINTS];
     
     // Check if daylight savings is in effect. Make sure the time scaling is for EST (GMT-5)
     NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
@@ -71,13 +74,22 @@
         } else {
             return YES;
         }
-    } else {
+    } else if (location == MONTAUK_LOCATION) {
         // Do the same for montauk
         if ([self.montaukBuoys count] == 0) {
             return [self parseBuoyData:MONTAUK_LOCATION];
         } else {
             return YES;
         }
+    } else if (location == NANTUCKET_LOCATION) {
+        // Do the same for montauk
+        if ([self.nantucketBuoys count] == 0) {
+            return [self parseBuoyData:NANTUCKET_LOCATION];
+        } else {
+            return YES;
+        }
+    } else {
+        return NO;
     }
 }
 
@@ -89,9 +101,14 @@
     if (location == BLOCK_ISLAND_LOCATION) {
         // If they want block island, check if its already been fetched, then return it
         return self.blockIslandBuoys;
-    } else {
+    } else if (location == MONTAUK_LOCATION) {
         // Do the same for montauk
         return self.montaukBuoys;
+    } else if (location == NANTUCKET_LOCATION) {
+        // Do it for nantucket
+        return self.nantucketBuoys;
+    } else {
+        return nil;
     }
 }
 
@@ -103,9 +120,14 @@
     if (location == BLOCK_ISLAND_LOCATION) {
         // They want block island height
         return self.blockIslandWaveHeights;
-    } else {
+    } else if (location == MONTAUK_LOCATION) {
         // They want montauk heights
         return self.montaukWaveHeights;
+    } else if (location == NANTUCKET_LOCATION) {
+        // They want nantucket
+        return self.nantucketWaveHeights;
+    } else {
+        return nil;
     }
 }
 
@@ -127,10 +149,14 @@
             // Append to the BI array
             [self.blockIslandBuoys addObject:newBuoy];
             [self.blockIslandWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WaveHeight]];
-        }  else {
+        }  else if (location == MONTAUK_LOCATION) {
             // Append to the montauk array
             [self.montaukBuoys addObject:newBuoy];
             [self.montaukWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WaveHeight]];
+        } else if (location == NANTUCKET_LOCATION) {
+            // Append to the nantucket array
+            [self.nantucketBuoys addObject:newBuoy];
+            [self.nantucketWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WaveHeight]];
         }
     }
     return YES;
@@ -151,14 +177,23 @@
 
 - (NSArray*) retrieveBuoyDataForLocation:(int)location {
     // Get the buoy data
-    NSString* buoyData;
     NSError *err = nil;
+    NSURL *dataURL = nil;
     if (location == BLOCK_ISLAND_LOCATION) {
-        buoyData = [NSString stringWithContentsOfURL:BI_URL encoding:NSUTF8StringEncoding error:&err];
-    } else {
+        dataURL = BI_URL;
+    } else if (location == MONTAUK_LOCATION) {
         // Montauk
-        buoyData = [NSString stringWithContentsOfURL:MTK_URL encoding:NSUTF8StringEncoding error:&err];
+        dataURL = MTK_URL;
+    } else if (location == NANTUCKET_LOCATION) {
+        // Nantucket
+        dataURL = ACK_URL;
+    } else {
+        return nil;
     }
+    
+    // Get the buoy data
+    NSString* buoyData = [NSString stringWithContentsOfURL:dataURL encoding:NSUTF8StringEncoding error:&err];
+    
     // If it was unsuccessful, return false
     if (err != nil) {
         return nil;

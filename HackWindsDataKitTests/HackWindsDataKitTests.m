@@ -64,6 +64,10 @@
     XCTAssert([self.buoyModel fetchBuoyDataForLocation:MONTAUK_LOCATION]);
     XCTAssert([[self.buoyModel getBuoyDataForLocation:MONTAUK_LOCATION] count] == 20);
     
+    // Try getting and parsing the nantucket data
+    XCTAssert([self.buoyModel fetchBuoyDataForLocation:NANTUCKET_LOCATION]);
+    XCTAssert([[self.buoyModel getBuoyDataForLocation:NANTUCKET_LOCATION] count] == 20);
+    
     // Try to get only the latest data point with the static method
     XCTAssert([BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION] != nil);
 }

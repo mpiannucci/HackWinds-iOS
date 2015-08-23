@@ -7,6 +7,7 @@
 //
 #define BLOCK_ISLAND_LOCATION 41
 #define MONTAUK_LOCATION 42
+#define NANTUCKET_LOCATION 43
 
 #import <Foundation/Foundation.h>
 #import "Buoy.h"
@@ -17,6 +18,8 @@
 @property (strong, nonatomic) NSMutableArray *blockIslandWaveHeights;
 @property (strong, nonatomic) NSMutableArray *montaukBuoys;
 @property (strong, nonatomic) NSMutableArray *montaukWaveHeights;
+@property (strong, nonatomic) NSMutableArray *nantucketBuoys;
+@property (strong, nonatomic) NSMutableArray *nantucketWaveHeights;
 
 - (BOOL) fetchBuoyDataForLocation:(int)location;
 - (void) resetData;
