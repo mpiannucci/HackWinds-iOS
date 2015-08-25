@@ -38,6 +38,10 @@
 
 - (void) testCameraModelFetch {
     XCTAssert([self.cameraModel fetchCameraURLs]);
+    
+    Camera *newportCamera = [[[self.cameraModel cameraURLS] objectForKey:@"Newport"] objectForKey:@"First Beach East"];
+    XCTAssert([newportCamera getRefreshDuration] == 3);
+    XCTAssert(newportCamera.isRefreshable);
 }
 
 - (void) testForecastModelFetch {

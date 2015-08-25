@@ -81,7 +81,7 @@
             // For now, the image is common
             thisCamera.ImageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
             [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
-            [thisCamera setRefreshDuration:(int)[[thisCameraDict objectForKey:@"RefreshDuration"] integerValue]];
+            [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
             
             tempDict[locationName][cameraName] = thisCamera;
         }
