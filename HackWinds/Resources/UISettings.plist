@@ -6,6 +6,8 @@
 	<true/>
 	<key>ForecastLocation</key>
 	<string>Narragansett Town Beach</string>
+	<key>BuoyLocation</key>
+	<string>Block Island</string>
 	<key>NeedCameraLocationFetch</key>
 	<true/>
 </dict>

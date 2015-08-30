@@ -763,33 +763,31 @@
                                     <outlet property="delegate" destination="avJ-rZ-EzA" id="ngS-RK-csm"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V9H-yQ-GgI">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zrr-jM-CZZ">
                                 <rect key="frame" x="16" y="72" width="288" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="8bt-8w-7qA"/>
-                                    <constraint firstAttribute="height" constant="28" id="lzN-ry-4rL"/>
+                                    <constraint firstAttribute="width" constant="288" id="1vd-qF-WWe"/>
+                                    <constraint firstAttribute="height" constant="28" id="7dX-R9-1jJ"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Block Island"/>
-                                    <segment title="Montauk"/>
-                                    <segment title="Nantucket"/>
+                                    <segment title="Swell"/>
+                                    <segment title="Wind Wave"/>
                                 </segments>
                                 <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
-                                    <action selector="locationSegmentValueChanged:" destination="avJ-rZ-EzA" eventType="valueChanged" id="0Ji-ga-Ek2"/>
+                                    <action selector="dataViewModeChanged:" destination="avJ-rZ-EzA" eventType="valueChanged" id="GrU-1y-RY4"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9ox-3V-peN" firstAttribute="top" secondItem="zrr-jM-CZZ" secondAttribute="bottom" constant="8" id="IRf-rD-Z5c"/>
                             <constraint firstItem="0CD-y8-6s2" firstAttribute="leading" secondItem="1q2-P7-Pfr" secondAttribute="leading" id="U1R-QM-7Ak"/>
                             <constraint firstItem="0CD-y8-6s2" firstAttribute="bottom" secondItem="dzs-Pb-Jae" secondAttribute="top" id="XkJ-Wl-p9w"/>
-                            <constraint firstItem="9ox-3V-peN" firstAttribute="leading" secondItem="V9H-yQ-GgI" secondAttribute="leading" id="k1N-HP-RkU"/>
-                            <constraint firstItem="V9H-yQ-GgI" firstAttribute="trailing" secondItem="9ox-3V-peN" secondAttribute="trailing" id="lId-Bf-Rpi"/>
-                            <constraint firstItem="V9H-yQ-GgI" firstAttribute="top" secondItem="BM7-Og-0qb" secondAttribute="bottom" constant="8" symbolic="YES" id="pmo-Qx-gFH"/>
+                            <constraint firstItem="zrr-jM-CZZ" firstAttribute="top" secondItem="BM7-Og-0qb" secondAttribute="bottom" constant="8" id="oFv-CP-1k4"/>
+                            <constraint firstAttribute="centerX" secondItem="zrr-jM-CZZ" secondAttribute="centerX" id="pf0-Pp-tjL"/>
                             <constraint firstItem="0CD-y8-6s2" firstAttribute="top" secondItem="9ox-3V-peN" secondAttribute="bottom" constant="8" id="wcM-1a-aak"/>
                             <constraint firstAttribute="trailing" secondItem="0CD-y8-6s2" secondAttribute="trailing" id="wjJ-7K-qDM"/>
-                            <constraint firstItem="9ox-3V-peN" firstAttribute="top" secondItem="V9H-yQ-GgI" secondAttribute="bottom" constant="8" symbolic="YES" id="xHz-Ve-mbq"/>
                             <constraint firstItem="9ox-3V-peN" firstAttribute="centerX" secondItem="0CD-y8-6s2" secondAttribute="centerX" id="xOc-P7-ee8"/>
                         </constraints>
                     </view>
@@ -1315,6 +1313,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rYr-bo-HPU"/>
+        <segue reference="pa9-s7-zVu"/>
     </inferredMetricsTieBreakers>
 </document>

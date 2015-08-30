@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		340AFA211A9C320700DAD121 /* UISettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340AFA201A9C320700DAD121 /* UISettings.plist */; };
+		340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */; };
 		342A76221985E18100077F8C /* TideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* TideViewController.m */; };
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
@@ -141,6 +142,8 @@
 
 /* Begin PBXFileReference section */
 		340AFA201A9C320700DAD121 /* UISettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UISettings.plist; sourceTree = "<group>"; };
+		340B5C991B938CB400E7203C /* NavigationBarTitleWithSubtitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarTitleWithSubtitleView.h; sourceTree = "<group>"; };
+		340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarTitleWithSubtitleView.m; sourceTree = "<group>"; };
 		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
 		342A76231985E38600077F8C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -164,7 +167,6 @@
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
-		34639D151A01E8B400C5CAD7 /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		3495C95319E7773100C8F4D7 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
 		3495C95419E7773100C8F4D7 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
 		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
@@ -188,7 +190,6 @@
 		34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedForecastViewController.m; sourceTree = "<group>"; };
 		34CA15321A9D657000DAB1F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		34CA15361A9D787A00DAB1F8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForecastLocations.plist; sourceTree = "<group>"; };
 		34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -299,8 +300,8 @@
 				34AA865D1A41382F00AD09CF /* Reachability.m */,
 				34AE272319C679E7000DAB81 /* AsyncImageView.h */,
 				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
-				34639D151A01E8B400C5CAD7 /* Colors.h */,
-				34CA15361A9D787A00DAB1F8 /* Constants.h */,
+				340B5C991B938CB400E7203C /* NavigationBarTitleWithSubtitleView.h */,
+				340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -728,6 +729,7 @@
 				34AA865E1A41382F00AD09CF /* Reachability.m in Sources */,
 				3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */,
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
+				340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */,
 				342A76221985E18100077F8C /* TideViewController.m in Sources */,
 				34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,

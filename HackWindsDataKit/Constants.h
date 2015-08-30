@@ -12,4 +12,7 @@
 // Forecast Locations
 #define FORECAST_LOCATIONS @"Narragansett Town Beach", @"Point Judith Lighthouse", @"Matunuck", @"Second Beach", nil
 
+// Buoy Locations
+#define BUOY_LOCATIONS @"Block Island", @"Montauk", @"Nantucket", nil
+
 #endif

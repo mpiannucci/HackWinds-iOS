@@ -97,7 +97,7 @@
         
         [self loadSettings];
     } else {
-        NSLog(@"Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
+        NSLog(@"Forecast location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
     }
 }
 

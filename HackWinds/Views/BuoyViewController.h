@@ -10,9 +10,11 @@
 #import "CorePlot-CocoaTouch.h"
 
 @interface BuoyViewController : UIViewController <UITableViewDataSource,
-    UITableViewDelegate, CPTPlotDataSource, CPTPlotDelegate>
+    UITableViewDelegate, UIActionSheetDelegate, CPTPlotDataSource, CPTPlotDelegate>
 
+- (void)loadBuoySettings;
 - (void)reloadView;
-- (IBAction)locationSegmentValueChanged:(id)sender;
+- (void)locationButtonClicked:(id)sender;
+- (IBAction)dataViewModeChanged:(id)sender;
 
 @end

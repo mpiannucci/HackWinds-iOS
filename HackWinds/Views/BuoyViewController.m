@@ -14,11 +14,13 @@
 #import "BuoyViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
+#import "NavigationBarTitleWithSubtitleView.h"
 
 @interface BuoyViewController ()
 
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHolder;
 @property (weak, nonatomic) IBOutlet UITableView *buoyTable;
+@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) BuoyModel *buoyModel;
 
@@ -38,8 +40,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Initialize the location, initialize to BI
-    buoy_location = BLOCK_ISLAND_LOCATION;
+    // Set up the custom nav bar with the buoy location
+    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
+    [self.navigationItem setTitleView: self.navigationBarTitle];
+    [self.navigationBarTitle setTitleText:@"HackWinds"];
+    [self.navigationBarTitle.detailButton addTarget:self action:@selector(locationButtonClicked:)  forControlEvents:UIControlEventTouchDown];
+    
+    // Load the buoy settings
+    [self loadBuoySettings];
     
     // Initialize the buoy model
     self.buoyModel = [BuoyModel sharedModel];
@@ -93,21 +101,64 @@
     }
 }
 
-- (IBAction)locationSegmentValueChanged:(id)sender {
-    // Check the selection location
-    buoy_location = [sender titleForSegmentAtIndex:[sender selectedSegmentIndex]];
+- (void)loadBuoySettings {
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [defaults synchronize];
     
-    // Get the new buoy data and reload the main view
-    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-        [self.buoyModel fetchBuoyDataForLocation:buoy_location];
-        currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
-        currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
-        [self performSelectorOnMainThread:@selector(reloadView)
-                               withObject:nil waitUntilDone:YES];
-    });
+    buoy_location = [defaults objectForKey:@"BuoyLocation"];
+    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", buoy_location]];
 }
 
-#pragma mark - TabelView
+- (void)locationButtonClicked:(id)sender{
+    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Buoy Location"
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"Cancel"
+                                                       destructiveButtonTitle:nil
+                                                            otherButtonTitles:BUOY_LOCATIONS];
+    // Show the action sheet
+    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
+    [locationActionSheet showInView:self.view];
+}
+
+- (IBAction)dataViewModeChanged:(id)sender {
+    // TODO Change the table based on the data view type
+}
+
+#pragma mark - ActionSheet
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    
+    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
+        // If the user selects a location, set the settings key to the new location
+        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"BuoyLocation"];
+        [defaults synchronize];
+        
+        // Tell everyone the data has updated
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"BuoyLocationChanged"
+             object:self];
+        });
+        
+        // Update the views
+        [self loadBuoySettings];
+        
+        // Get the new buoy data and reload the main view
+        dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
+            [self.buoyModel fetchBuoyDataForLocation:buoy_location];
+            currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
+            currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
+            [self performSelectorOnMainThread:@selector(reloadView)
+                                   withObject:nil waitUntilDone:YES];
+        });
+        
+    } else {
+        NSLog(@"Buoy Location change cancelled, keep location at %@", [defaults objectForKey:@"BuoyLocation"]);
+    }
+}
+
+#pragma mark - TableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
