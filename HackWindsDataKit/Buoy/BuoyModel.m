@@ -5,17 +5,36 @@
 //  Created by Matthew Iannucci on 12/14/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
-#define DATA_HEADER_LENGTH 38
-#define DATA_LINE_LEN 19
-#define HOUR_OFFSET 3
-#define MINUTE_OFFSET 4
-#define WVHT_OFFSET 8
-#define DPD_OFFSET 9
-#define DIRECTION_OFFSET 11
-#define TEMPERATURE_OFFSET 14
-#define BI_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
-#define MTK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
-#define ACK_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44008.txt"]
+// Summary data locations
+#define SUMMARY_DATA_HEADER_LENGTH 38
+#define SUMMARY_DATA_LINE_LENGTH 19
+#define SUMMARY_HOUR_OFFSET 3
+#define SUMMARY_MINUTE_OFFSET 4
+#define SUMMARY_WVHT_OFFSET 8
+#define SUMMARY_DPD_OFFSET 9
+#define SUMMARY_DIRECTION_OFFSET 11
+#define SUMMARY_TEMPERATURE_OFFSET 14
+
+// Detail data locations
+#define DETAIL_DATA_HEADER_LENGTH 30
+#define DETAIL_DATA_LINE_LENGTH 15
+#define DETAIL_HOUR_OFFSET 3
+#define DETAIL_MINUTE_OFFSET 4
+#define DETAIL_WVHT_OFFSET 6
+#define DETAIL_SWELL_WAVE_HEIGHT_OFFSET 7
+#define DETAIL_SWELL_PERIOD_OFFSET 8
+#define DETAIL_WIND_WAVE_HEIGHT_OFFSET 9
+#define DETAIL_WIND_PERIOD_OFFSET 10
+#define DETAIL_SWELL_DIRECTION 11
+#define DETAIL_WIND_WAVE_DIRECTION 12
+
+// URLs
+#define BI_SUMMARY_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
+#define BI_DETAIL_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.spec"]
+#define MTK_SUMMARY_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
+#define MTK_DETAIL_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.spec"]
+#define ACK_SUMMARY_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44008.txt"]
+#define ACK_DETAIL_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44008.spec"]
 
 #import "BuoyModel.h"
 #import "BuoyDataContainer.h"
