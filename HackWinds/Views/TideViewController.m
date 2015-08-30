@@ -15,7 +15,7 @@
 @interface TideViewController ()
 
 @property (strong, nonatomic) TideModel *tideModel;
-@property (strong, nonatomic) BuoyModel *buoyModel;
+@property (strong, nonatomic) Buoy *latestBuoy;
 
 @end
 
@@ -27,7 +27,6 @@
     // Do any additional setup after loading the view.
     // Get the tide model and buoy model
     self.tideModel = [TideModel sharedModel];
-    self.buoyModel = [BuoyModel sharedModel];
     
     // Get the buoy data and reload the views
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
@@ -36,7 +35,7 @@
     if (networkStatus != NotReachable) {
         dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
             [self.tideModel fetchTideData];
-            [self.buoyModel fetchBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+            self.latestBuoy = [BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION];
             [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
         });
     }
@@ -54,7 +53,6 @@
 - (void)reloadView {
     // If there are no tide items return early
     NSArray* tideData = [self.tideModel tides];
-    NSArray* buoyData = [self.buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
     
     if ([tideData count] == 0) {
         return;
@@ -106,7 +104,7 @@
     }
     
     UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
-    NSString* waterTemp = [[buoyData objectAtIndex:0] WaterTemperature];
+    NSString* waterTemp = [self.latestBuoy WaterTemperature];
     NSString* waterTempStatus = [NSString stringWithFormat:@"Block Island: %@ %@F", waterTemp, @"\u00B0"];
     [currentWaterTempLabel setAttributedText:[self makeTideViewDataString:waterTempStatus]];
     
