@@ -11,8 +11,11 @@
 #import "TideViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
+#import "NavigationBarTitleWithSubtitleView.h"
 
 @interface TideViewController ()
+
+@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) TideModel *tideModel;
 @property (strong, nonatomic) BuoyModel *buoyModel;
@@ -25,6 +28,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Set up the custom nav bar with the forecast location
+    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
+    [self.navigationItem setTitleView: self.navigationBarTitle];
+    [self.navigationBarTitle setTitleText:@"HackWinds"];
+    [self.navigationBarTitle setDetailText:@"Location: Point Judith Harbor"];
+    
     // Get the tide model and buoy model
     self.tideModel = [TideModel sharedModel];
     self.buoyModel = [BuoyModel sharedModel];

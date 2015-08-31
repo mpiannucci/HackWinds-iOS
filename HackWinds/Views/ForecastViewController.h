@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
-@interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
 - (void) updateDataFromModel;
+- (void) locationButtonClicked:(id)sender;
+- (void) getForecastSettings;
 
 @end

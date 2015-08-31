@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
-@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
 - (IBAction)playButton:(id)sender;
 - (void) streamPlayBackDidFinish:(NSNotification*)notification;
 - (void) updateDataFromModel;
+- (void) locationButtonClicked:(id)sender;
+- (void) getForecastSettings;
 
 @end

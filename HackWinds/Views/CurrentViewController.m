@@ -11,6 +11,7 @@
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
 #import "Reachability.h"
+#import "NavigationBarTitleWithSubtitleView.h"
 
 @interface CurrentViewController ()
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
 @property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
+@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -36,6 +38,13 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+    // Set up the custom nav bar with the forecast location
+    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
+    [self.navigationItem setTitleView: self.navigationBarTitle];
+    [self.navigationBarTitle setTitleText:@"HackWinds"];
+    [self.navigationBarTitle.detailButton addTarget:self action:@selector(locationButtonClicked:)  forControlEvents:UIControlEventTouchDown];
+    
+    // Set up the camera model
     CameraModel *cameraModel = [CameraModel sharedModel];
     wwCamera = [[cameraModel.cameraURLS objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
     
@@ -129,9 +138,53 @@
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
         currentConditions = [self.forecastModel getConditionsForIndex:0];
+        [self performSelectorOnMainThread:@selector(getForecastSettings) withObject:nil waitUntilDone:YES];
         [self.mswTodayTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
     });
+}
+
+- (void) locationButtonClicked:(id)sender {
+    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Forecast Location"
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"Cancel"
+                                                       destructiveButtonTitle:nil
+                                                            otherButtonTitles:FORECAST_LOCATIONS];
+    // Show the action sheet
+    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
+    [locationActionSheet showInView:self.view];
+}
+
+- (void) getForecastSettings {
+    // Get the forecast location from the settings
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [defaults synchronize];
+    
+    // Grab the last set or default location
+    NSString *forecastLocation = [defaults objectForKey:@"ForecastLocation"];
+    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", forecastLocation]];
+}
+
+#pragma mark - ActionSheet
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    
+    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
+        // If the user selects a location, set the settings key to the new location
+        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
+        [defaults synchronize];
+        
+        // Tell everyone the data has updated
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"ForecastLocationChanged"
+             object:self];
+        });
+        
+    } else {
+        NSLog(@"Forecast Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
+    }
 }
 
 #pragma mark - TableView

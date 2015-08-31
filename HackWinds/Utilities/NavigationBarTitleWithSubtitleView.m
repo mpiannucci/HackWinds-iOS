@@ -19,7 +19,7 @@
         CGRect titleFrame = CGRectMake(0, 2, 200, 24);
         titleLabel = [[UILabel alloc] initWithFrame:titleFrame];
         titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        titleLabel.font = [UIFont boldSystemFontOfSize:16];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.text = @"";
@@ -29,7 +29,7 @@
         CGRect detailFrame = CGRectMake(0, 24, 200, 44-24);
         detailButton = [[UIButton alloc] initWithFrame:detailFrame];
         detailButton.backgroundColor = [UIColor clearColor];
-        detailButton.titleLabel.font = [UIFont systemFontOfSize:11];
+        detailButton.titleLabel.font = [UIFont systemFontOfSize:10];
         detailButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [detailButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [detailButton setTitle:@"" forState:UIControlStateNormal];

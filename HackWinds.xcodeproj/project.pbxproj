@@ -62,6 +62,7 @@
 		34E1BA7C1B62DD8600CDA01D /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6B1B62DD8600CDA01D /* Tide.m */; };
 		34E1BA7D1B62DD8600CDA01D /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6C1B62DD8600CDA01D /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34E1BA7E1B62DD8600CDA01D /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6D1B62DD8600CDA01D /* TideModel.m */; };
+		34EB97451B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */; };
 		34F4D4AC1B8A28DF0099E113 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */; };
 		34F4D4AD1B8A28DF0099E113 /* BuoyDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */; };
 		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
@@ -215,6 +216,8 @@
 		34E1BA6B1B62DD8600CDA01D /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tide.m; sourceTree = "<group>"; };
 		34E1BA6C1B62DD8600CDA01D /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideModel.h; sourceTree = "<group>"; };
 		34E1BA6D1B62DD8600CDA01D /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideModel.m; sourceTree = "<group>"; };
+		34EB97431B94AC8A00687615 /* AdditionalBuoyPlotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalBuoyPlotsViewController.h; sourceTree = "<group>"; };
+		34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalBuoyPlotsViewController.m; sourceTree = "<group>"; };
 		34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyDataContainer.h; sourceTree = "<group>"; };
 		34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyDataContainer.m; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
@@ -289,6 +292,8 @@
 				34CA15331A9D657000DAB1F8 /* SettingsViewController.m */,
 				342A76201985E18100077F8C /* TideViewController.h */,
 				342A76211985E18100077F8C /* TideViewController.m */,
+				34EB97431B94AC8A00687615 /* AdditionalBuoyPlotsViewController.h */,
+				34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -734,6 +739,7 @@
 				34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
+				34EB97451B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
 			);
