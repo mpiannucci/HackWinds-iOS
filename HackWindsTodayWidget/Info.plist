@@ -21,11 +21,11 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.50</string>
+	<string>2.75</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>53</string>
+	<string>54</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionMainStoryboard</key>

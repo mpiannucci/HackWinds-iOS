@@ -142,7 +142,6 @@
     // Get the model instance
     BuoyModel *buoyModel = [[BuoyModel alloc] init];
     
-    // Get the raw buoy data from ndbc
     NSArray *rawBuoyData = [buoyModel retrieveBuoyDataForLocation:location Detailed:NO];
     if (rawBuoyData == nil) {
         return nil;
@@ -156,8 +155,13 @@
 
 - (BOOL) parseBuoyData:(NSString*)location {
     // Get the raw data from ndbc
-    NSArray *rawBuoyData = [self retrieveBuoyDataForLocation:location Detailed:YES];
-    if (rawBuoyData == nil) {
+    NSArray *rawSummaryBuoyData = [self retrieveBuoyDataForLocation:location Detailed:NO];
+    if (rawSummaryBuoyData == nil) {
+        return NO;
+    }
+    
+    NSArray *rawDetailedBuoyData = [self retrieveBuoyDataForLocation:location Detailed:YES];
+    if (rawDetailedBuoyData == nil) {
         return NO;
     }
     
@@ -166,7 +170,8 @@
     while (dataPointCount < BUOY_DATA_POINTS) {
         // Get the next buoy object
         Buoy *newBuoy = [[Buoy alloc] init];
-        [self getBuoyDetailsForIndex:dataPointCount FromData:rawBuoyData FillBuoy:newBuoy];
+        [self getBuoySummaryForIndex:dataPointCount FromData:rawSummaryBuoyData FillBuoy:newBuoy];
+        [self getBuoyDetailsForIndex:dataPointCount FromData:rawDetailedBuoyData FillBuoy:newBuoy];
         
         dataPointCount++;
         
@@ -196,6 +201,7 @@
         return nil;
     }
     
+    // Strip everything thats not relevant
     NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
     NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
     NSArray *parts = [buoyData componentsSeparatedByCharactersInSet:whitespaces];
@@ -243,7 +249,6 @@
     }
     
     if (buoy.Time == nil) {
-        
         // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
         NSInteger originalHour = [[rawData objectAtIndex:baseOffset+DETAIL_HOUR_OFFSET] integerValue] + [self getTimeOffset];
         NSInteger convertedHour = [self getCorrectedHourValue:originalHour];

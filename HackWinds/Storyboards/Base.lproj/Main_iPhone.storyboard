@@ -770,6 +770,7 @@
                                     <constraint firstAttribute="height" constant="28" id="7dX-R9-1jJ"/>
                                 </constraints>
                                 <segments>
+                                    <segment title="Summary"/>
                                     <segment title="Swell"/>
                                     <segment title="Wind Wave"/>
                                 </segments>

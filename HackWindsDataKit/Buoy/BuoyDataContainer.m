@@ -15,6 +15,8 @@
     
     self.buoyData = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
     self.waveHeights = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
+    self.swellWaveHeights = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
+    self.windWaveHeights = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
     
     return self;
 }

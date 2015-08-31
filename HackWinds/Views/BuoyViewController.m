@@ -114,10 +114,12 @@
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     [defaults synchronize];
     
+    // Grab the last set or default location
     buoyLocation = [defaults objectForKey:@"BuoyLocation"];
     [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", buoyLocation]];
     
-    dataMode = SWELL_DATA_MODE;
+    // Initialize in summary mode
+    dataMode = SUMMARY_DATA_MODE;
 }
 
 - (void)locationButtonClicked:(id)sender{
@@ -260,9 +262,6 @@
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
-    // Get the buoy object for the index
-    Buoy *thisBuoy = [currentBuoyData objectAtIndex:index];
-    
     // Depending on the buoy location set the axis scaling
     double x;
     if ([buoyLocation isEqual:BLOCK_ISLAND_LOCATION])
@@ -278,7 +277,7 @@
         return [NSNumber numberWithDouble:x];
     } else {
         // Return y value, for this example we'll be plotting y = mx
-        return [NSNumber numberWithDouble:[thisBuoy.SignificantWaveHeight doubleValue]];
+        return [NSNumber numberWithDouble:[[currentWaveHeights objectAtIndex:index] doubleValue]];
     }
 }
 
