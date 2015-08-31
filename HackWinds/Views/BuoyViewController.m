@@ -77,6 +77,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self reloadDataFromModel];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
 - (void)reloadDataFromModel {
     dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
         [self.buoyModel fetchBuoyDataForLocation:buoyLocation];
@@ -255,9 +265,9 @@
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
     // The time scales are different time deltas, make sure they both show 9 hours of data
     if ([buoyLocation isEqual:BLOCK_ISLAND_LOCATION])
-        return [currentBuoyData count];
+        return [currentWaveHeights count];
     else
-        return [currentBuoyData count]/2;
+        return [currentWaveHeights count]/2;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
