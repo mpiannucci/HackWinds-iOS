@@ -49,8 +49,8 @@
     XCTAssert([self.forecastModel fetchForecastData]);
     
     // Check theres the correct amount of data objects
-    XCTAssert(self.forecastModel.conditions.count == 30);
-    XCTAssert(self.forecastModel.forecasts.count == 10);
+    XCTAssert([[self.forecastModel getConditions] count] == 30);
+    XCTAssert([[self.forecastModel getForecasts] count] == 10);
     
     // Check the condition splitting
     NSArray *firstConditions = [self.forecastModel getConditionsForIndex:0];

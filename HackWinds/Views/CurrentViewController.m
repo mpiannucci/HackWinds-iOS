@@ -137,10 +137,14 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
-        currentConditions = [self.forecastModel getConditionsForIndex:0];
-        [self performSelectorOnMainThread:@selector(getForecastSettings) withObject:nil waitUntilDone:YES];
-        [self.mswTodayTable performSelectorOnMainThread:@selector(reloadData)
+        BOOL success = [self.forecastModel fetchForecastData];
+        
+        if (success) {
+            currentConditions = [self.forecastModel getConditionsForIndex:0];
+            [self performSelectorOnMainThread:@selector(getForecastSettings) withObject:nil waitUntilDone:YES];
+            [self.mswTodayTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
+        }
     });
 }
 
@@ -196,7 +200,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows + the header row
-    return (self.forecastModel.conditions.count / 5) + 1;
+    return ([[self.forecastModel getConditions] count] / 5) + 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

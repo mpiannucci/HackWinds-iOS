@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HackWinds/Views/CurrentViewController.m"
-            timestampString = "462736651.902939"
+            filePath = "HackWinds/Views/BuoyViewController.m"
+            timestampString = "462739566.033702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "-getForecastSettings"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-reloadView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HackWinds/Views/BuoyViewController.m"
-            timestampString = "462739566.033702"
+            filePath = "HackWindsDataKit/Forecast/ForecastModel.m"
+            timestampString = "462755921.818186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-reloadView"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-fetchForecastData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

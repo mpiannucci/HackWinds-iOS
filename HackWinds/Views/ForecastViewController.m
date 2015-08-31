@@ -136,7 +136,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 5 rows, or 0 if the data isnt correct
-    return self.forecastModel.forecasts.count / 2;
+    return [[self.forecastModel getForecasts] count] / 2;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -152,8 +152,8 @@
     
     // Get the forecast object
     // Algorithm: i*2==morning, i*2+1==afternoon
-    Forecast *morningForecast = [[self.forecastModel forecasts] objectAtIndex:index*2];
-    Forecast *afternoonForecast = [[self.forecastModel forecasts] objectAtIndex:(index*2)+1];
+    Forecast *morningForecast = [[self.forecastModel getForecasts] objectAtIndex:index*2];
+    Forecast *afternoonForecast = [[self.forecastModel getForecasts] objectAtIndex:(index*2)+1];
     
     // Construct the strings and display them
     [dayLabel setText:[WEEKDAYS objectAtIndex:(((currentday-1) + index)%7)]];

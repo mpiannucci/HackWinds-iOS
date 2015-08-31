@@ -29,6 +29,8 @@
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
+		34BF63AA1B950EA100FE78A4 /* ForecastDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */; };
+		34BF63AB1B950EA100FE78A4 /* ForecastDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */; };
 		34BF8CF81B62E74B00287BC1 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF8CF61B62E74B00287BC1 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34BF8CF91B62E74B00287BC1 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF8CF71B62E74B00287BC1 /* Camera.m */; };
 		34C0AF4E1B7307E8001D2B04 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
@@ -178,6 +180,8 @@
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDataContainer.h; sourceTree = "<group>"; };
+		34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataContainer.m; sourceTree = "<group>"; };
 		34BF8CF51B62E69B00287BC1 /* HackWinds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWinds.entitlements; sourceTree = "<group>"; };
 		34BF8CF61B62E74B00287BC1 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		34BF8CF71B62E74B00287BC1 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
@@ -499,6 +503,8 @@
 				34E1BA671B62DD8600CDA01D /* Forecast.m */,
 				34E1BA681B62DD8600CDA01D /* ForecastModel.h */,
 				34E1BA691B62DD8600CDA01D /* ForecastModel.m */,
+				34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */,
+				34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 				34F4D4AC1B8A28DF0099E113 /* BuoyDataContainer.h in Headers */,
 				34E1BA761B62DD8600CDA01D /* Constants.h in Headers */,
 				34E1BA2E1B62D84700CDA01D /* HackWindsDataKit.h in Headers */,
+				34BF63AA1B950EA100FE78A4 /* ForecastDataContainer.h in Headers */,
 				34E1BA741B62DD8600CDA01D /* Condition.h in Headers */,
 				34E1BA711B62DD8600CDA01D /* CameraModel.h in Headers */,
 				34E1BA6E1B62DD8600CDA01D /* Buoy.h in Headers */,
@@ -759,6 +766,7 @@
 			files = (
 				34E1BA7C1B62DD8600CDA01D /* Tide.m in Sources */,
 				34E1BA7A1B62DD8600CDA01D /* ForecastModel.m in Sources */,
+				34BF63AB1B950EA100FE78A4 /* ForecastDataContainer.m in Sources */,
 				34F4D4AD1B8A28DF0099E113 /* BuoyDataContainer.m in Sources */,
 				34E1BA701B62DD8600CDA01D /* BuoyModel.m in Sources */,
 				34E1BA751B62DD8600CDA01D /* Condition.m in Sources */,

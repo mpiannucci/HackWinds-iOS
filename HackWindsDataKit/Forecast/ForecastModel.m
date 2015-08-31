@@ -5,14 +5,21 @@
 //  Created by Matthew Iannucci on 12/14/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
+#define BASE_MSW_URL @"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=%@&fields=localTimestamp,swell.*,wind.*,charts.*"
+#define TOWN_BEACH_ID 1103
+#define POINT_JUDITH_ID 376
+#define MATUNUCK_ID 377
+#define SECOND_BEACH_ID 846
 
 #import "ForecastModel.h"
 #import "Forecast.h"
 #import "Condition.h"
+#import "ForecastDataContainer.h"
 
 @interface ForecastModel ()
 
 // Private methods
+- (void) initForecastContainers;
 - (void) loadRawData;
 - (BOOL) parseForecasts;
 - (NSString *) formatDate:(NSUInteger)epoch;
@@ -22,14 +29,14 @@
 
 // Private members
 @property (strong, nonatomic) NSUserDefaults *userDefaults;
+@property (strong, nonatomic) NSMutableDictionary *forecastDataContainers;
 
 @end
 
 @implementation ForecastModel
 {
     NSArray *rawData;
-    NSDictionary *locationURLs;
-    NSString *currentLocationURL;
+    ForecastDataContainer *currentContainer;
     BOOL is24HourClock;
     BOOL initialForecastChange;
 }
@@ -49,18 +56,12 @@
 {
     self = [super init];
     
-    // Load locations from file
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"ForecastLocations"
-                                                     ofType:@"plist"];
-    locationURLs = [NSDictionary dictionaryWithContentsOfFile:path];
-    
     // Check the format of the clock
     [self check24HourClock];
     initialForecastChange = YES;
     
-    // Initialize the data holders
-    self.conditions = [NSMutableArray arrayWithCapacity:30];
-    self.forecasts = [NSMutableArray arrayWithCapacity:10];
+    // Load the containers wiht the data
+    [self initForecastContainers];
     
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     [self.userDefaults synchronize];
@@ -77,11 +78,30 @@
     return self;
 }
 
+- (void) initForecastContainers {
+    self.forecastDataContainers = [[NSMutableDictionary alloc] init];
+    
+    ForecastDataContainer *townBeachData = [[ForecastDataContainer alloc] init];
+    townBeachData.forecastID = [NSNumber numberWithInt:TOWN_BEACH_ID];
+    [self.forecastDataContainers setObject:townBeachData forKey:TOWN_BEACH_LOCATION];
+    
+    ForecastDataContainer *pointJudithData = [[ForecastDataContainer alloc] init];
+    pointJudithData.forecastID = [NSNumber numberWithInt:POINT_JUDITH_ID];
+    [self.forecastDataContainers setObject:pointJudithData forKey:POINT_JUDITH_LOCATION];
+    
+    ForecastDataContainer *matunuckData = [[ForecastDataContainer alloc] init];
+    matunuckData.forecastID = [NSNumber numberWithInt:MATUNUCK_ID];
+    [self.forecastDataContainers setObject:matunuckData forKey:MATUNUCK_LOCATION];
+    
+    ForecastDataContainer *secondBeachData = [[ForecastDataContainer alloc] init];
+    secondBeachData.forecastID = [NSNumber numberWithInt:SECOND_BEACH_ID];
+    [self.forecastDataContainers setObject:secondBeachData forKey:SECOND_BEACH_LOCATION];
+}
+
 - (void) changeForecastLocation {
     [self.userDefaults synchronize];
     
-    // Load the url for the current location using the url dictionary
-    currentLocationURL = [locationURLs objectForKey:[self.userDefaults objectForKey:@"ForecastLocation"]];
+    currentContainer = [self.forecastDataContainers objectForKey:[self.userDefaults objectForKey:@"ForecastLocation"]];
     
     if (!initialForecastChange) {
         // Tell everyone the data has updated
@@ -90,22 +110,12 @@
         if (rawData.count > 0) {
             rawData = [[NSArray alloc] init];
         }
-        if ([self.conditions count] > 0) {
-            [self.conditions removeAllObjects];
-        }
-        if ([self.forecasts count] > 0) {
-            [self.forecasts removeAllObjects];
-        }
         
-        BOOL success = [self fetchForecastData];
-        
-        if (success) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:@"ForecastModelDidUpdateDataNotification"
-                 object:self];
-            });
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter]
+              postNotificationName:@"ForecastModelDidUpdateDataNotification"
+                            object:self];
+        });
     } else {
         initialForecastChange = NO;
     }
@@ -117,7 +127,7 @@
         [self loadRawData];
     }
     
-    if ([self.conditions count] == 0) {
+    if ([currentContainer.conditions count] == 0) {
         // There are no conditions so parse them out
         return [self parseForecasts];
     }
@@ -126,19 +136,24 @@
 }
 
 - (NSArray *) getConditionsForIndex:(int)index {
-    if (self.conditions.count == 30) {
-        NSArray *currentConditions = [self.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
+    if (currentContainer.conditions.count == CONDITION_DATA_POINT_COUNT) {
+        NSArray *currentConditions = [currentContainer.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
         return currentConditions;
     }
     return NULL;
 }
 
+- (NSMutableArray*) getConditions {
+    return currentContainer.conditions;
+}
+
 - (NSMutableArray *) getForecasts {
-    return self.forecasts;
+    return currentContainer.forecasts;
 }
 
 - (void)loadRawData {
-    NSData *mswResponse = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLocationURL]];
+    NSURL *dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_MSW_URL, currentContainer.forecastID]];
+    NSData *mswResponse = [NSData dataWithContentsOfURL:dataURL];
     NSError *error;
     rawData = [NSJSONSerialization
                JSONObjectWithData:mswResponse
@@ -158,7 +173,7 @@
     int conditionCount = 0;
     int forecastCount = 0;
     int dataIndex = 0;
-    while (((conditionCount < 30) || (forecastCount < 10)) && (dataIndex < rawData.count)) {
+    while (((conditionCount < CONDITION_DATA_POINT_COUNT) || (forecastCount < FORECAST_DATA_POINT_COUNT)) && (dataIndex < rawData.count)) {
         // Get the next json object and increment the count
         NSDictionary *thisDict = [rawData objectAtIndex:dataIndex];
         dataIndex++;
@@ -178,7 +193,7 @@
         NSDictionary *windDict = [thisDict objectForKey:@"wind"];
         NSDictionary *chartDict = [thisDict objectForKey:@"charts"];
         
-        if (conditionCheck && conditionCount < 30) {
+        if (conditionCheck && conditionCount < CONDITION_DATA_POINT_COUNT) {
             // Get a new condition object
             Condition *thisCondition = [[Condition alloc] init];
             [thisCondition setDate:date];
@@ -203,11 +218,11 @@
             [thisCondition setPeriodChartURL:[chartDict objectForKey:@"period"]];
             
             // Append the condition
-            [self.conditions addObject:thisCondition];
+            [currentContainer.conditions addObject:thisCondition];
             conditionCount++;
         }
         
-        if (forecastCheck && (forecastCount < 10)) {
+        if (forecastCheck && (forecastCount < FORECAST_DATA_POINT_COUNT)) {
             // Get a new Forecast object
             Forecast *thisForecast = [[Forecast alloc] init];
             
@@ -223,11 +238,11 @@
             [thisForecast setWindDir:[windDict objectForKey:@"compassDirection"]];
             
             // Append the forecast to the list
-            [self.forecasts addObject:thisForecast];
+            [currentContainer.forecasts addObject:thisForecast];
             forecastCount++;
         }
     }
-    return (self.forecasts.count == 10) && (self.conditions.count == 30);
+    return (currentContainer.forecasts.count == FORECAST_DATA_POINT_COUNT) && (currentContainer.conditions.count == CONDITION_DATA_POINT_COUNT);
 }
 
 - (NSString *)formatDate:(NSUInteger)epoch {
