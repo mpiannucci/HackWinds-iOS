@@ -29,7 +29,7 @@
 #define DETAIL_WIND_WAVE_DIRECTION 11
 
 // URLs
-#define BASE_DATA_URL @"http://www.ndbc.noaa.gov/data/realtime2/"
+#define BASE_DATA_URL @"http://www.ndbc.noaa.gov/data/realtime2/%d%@"
 #define BASE_SPECTRA_PLOT_URL @"http://www.ndbc.noaa.gov/show_plot.php?station=%d&meas=spec&uom=E"
 #define BUOY_SUMMARY_SUFFIX @".txt"
 #define BUOY_DETAIL_SUFFIX @".spec"
@@ -191,9 +191,9 @@
     // Get the buoy data
     NSURL *dataURL = [[NSURL alloc] init];
     if (isDetailed) {
-        dataURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%d%@", BASE_DATA_URL, buoyID, BUOY_DETAIL_SUFFIX]];
+        dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_DATA_URL, buoyID, BUOY_DETAIL_SUFFIX]];
     } else {
-        dataURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%d%@", BASE_DATA_URL, buoyID, BUOY_SUMMARY_SUFFIX]];
+        dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_DATA_URL, buoyID, BUOY_SUMMARY_SUFFIX]];
     }
     NSString* buoyData = [NSString stringWithContentsOfURL:dataURL encoding:NSUTF8StringEncoding error:&err];
     
