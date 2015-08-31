@@ -24,6 +24,8 @@
 
 @property (strong, nonatomic) BuoyModel *buoyModel;
 
+- (void) reloadDataFromModel;
+
 @end
 
 @implementation BuoyViewController
@@ -33,7 +35,8 @@
     NSMutableArray *currentWaveHeights;
     CPTScatterPlot *plot;
     CPTGraph *graph;
-    NSString *buoy_location;
+    NSString *buoyLocation;
+    NSString *dataMode;
 }
 
 - (void)viewDidLoad {
@@ -65,13 +68,7 @@
     
     // Get the buoy data for the defualt location and reload the view
     if (networkStatus != NotReachable) {
-        dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-            [self.buoyModel fetchBuoyDataForLocation:buoy_location];
-            currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
-            currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
-            [self performSelectorOnMainThread:@selector(reloadView)
-                                   withObject:nil waitUntilDone:YES];
-        });
+        [self reloadDataFromModel];
     }
 }
 
@@ -80,7 +77,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)reloadDataFromModel {
+    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
+        [self.buoyModel fetchBuoyDataForLocation:buoyLocation];
+        currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoyLocation];
+        [self performSelectorOnMainThread:@selector(reloadView)
+                               withObject:nil waitUntilDone:YES];
+    });
+}
+
 - (void)reloadView {
+    // Grab the correct wave heights
+    currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoyLocation ForMode:dataMode];
+    
     // Update the table
     [self.buoyTable reloadData];
     
@@ -105,8 +114,10 @@
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     [defaults synchronize];
     
-    buoy_location = [defaults objectForKey:@"BuoyLocation"];
-    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", buoy_location]];
+    buoyLocation = [defaults objectForKey:@"BuoyLocation"];
+    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", buoyLocation]];
+    
+    dataMode = SWELL_DATA_MODE;
 }
 
 - (void)locationButtonClicked:(id)sender{
@@ -121,7 +132,12 @@
 }
 
 - (IBAction)dataViewModeChanged:(id)sender {
-    // TODO Change the table based on the data view type
+    // Grab the new data mode
+    UISegmentedControl *segmentSender = (UISegmentedControl*) sender;
+    dataMode = [segmentSender titleForSegmentAtIndex:segmentSender.selectedSegmentIndex];
+    
+    // Reload all of the data
+    [self reloadView];
 }
 
 #pragma mark - ActionSheet
@@ -145,13 +161,7 @@
         [self loadBuoySettings];
         
         // Get the new buoy data and reload the main view
-        dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-            [self.buoyModel fetchBuoyDataForLocation:buoy_location];
-            currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoy_location];
-            currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoy_location];
-            [self performSelectorOnMainThread:@selector(reloadView)
-                                   withObject:nil waitUntilDone:YES];
-        });
+        [self reloadDataFromModel];
         
     } else {
         NSLog(@"Buoy Location change cancelled, keep location at %@", [defaults objectForKey:@"BuoyLocation"]);
@@ -205,11 +215,20 @@
         
         // Set the labels to the data
         [timeLabel setText:thisBuoy.Time];
-        [wvhtLabel setText:thisBuoy.WaveHeight];
-        [dpdLabel setText:thisBuoy.DominantPeriod];
         
-        // Set the direction to its letter value on a compass
-        [directionLabel setText:[Buoy getCompassDirection:thisBuoy.Direction]];
+        if ([dataMode isEqualToString:SUMMARY_DATA_MODE]) {
+            [wvhtLabel setText:thisBuoy.SignificantWaveHeight];
+            [dpdLabel setText:thisBuoy.DominantPeriod];
+            [directionLabel setText:[Buoy getCompassDirection:thisBuoy.MeanDirection]];
+        } else if ([dataMode isEqualToString:SWELL_DATA_MODE]) {
+            [wvhtLabel setText:thisBuoy.SwellWaveHeight];
+            [dpdLabel setText:thisBuoy.SwellPeriod];
+            [directionLabel setText:thisBuoy.SwellDirection];
+        } else if ([dataMode isEqualToString:WIND_DATA_MODE]) {
+            [wvhtLabel setText:thisBuoy.WindWaveHeight];
+            [dpdLabel setText:thisBuoy.WindWavePeriod];
+            [directionLabel setText:thisBuoy.WindWaveDirection];
+        }
         
         // Make sure the text is black
         [timeLabel setTextColor:[UIColor blackColor]];
@@ -233,7 +252,7 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
     // The time scales are different time deltas, make sure they both show 9 hours of data
-    if ([buoy_location  isEqual: BLOCK_ISLAND_LOCATION])
+    if ([buoyLocation isEqual:BLOCK_ISLAND_LOCATION])
         return [currentBuoyData count];
     else
         return [currentBuoyData count]/2;
@@ -246,7 +265,7 @@
     
     // Depending on the buoy location set the axis scaling
     double x;
-    if ([buoy_location  isEqual: BLOCK_ISLAND_LOCATION])
+    if ([buoyLocation isEqual:BLOCK_ISLAND_LOCATION])
         x = (double) index/2;
     else
         x = (double) index;
@@ -259,7 +278,7 @@
         return [NSNumber numberWithDouble:x];
     } else {
         // Return y value, for this example we'll be plotting y = mx
-        return [NSNumber numberWithDouble:[thisBuoy.WaveHeight doubleValue]];
+        return [NSNumber numberWithDouble:[thisBuoy.SignificantWaveHeight doubleValue]];
     }
 }
 

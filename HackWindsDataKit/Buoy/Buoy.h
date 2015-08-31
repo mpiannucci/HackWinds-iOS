@@ -12,9 +12,22 @@
 
 // Define data for the buoy data model
 @property (strong, nonatomic) NSString *Time;
-@property (strong, nonatomic) NSString *WaveHeight;
+
+// Wave Heights
+@property (strong, nonatomic) NSString *SignificantWaveHeight;
+@property (strong, nonatomic) NSString *SwellWaveHeight;
+@property (strong, nonatomic) NSString *WindWaveHeight;
+
+// Period
 @property (strong, nonatomic) NSString *DominantPeriod;
-@property (strong, nonatomic) NSString *Direction;
+@property (strong, nonatomic) NSString *SwellPeriod;
+@property (strong, nonatomic) NSString *WindWavePeriod;
+
+// Direction
+@property (strong, nonatomic) NSString *MeanDirection;
+@property (strong, nonatomic) NSString *SwellDirection;
+@property (strong, nonatomic) NSString *WindWaveDirection;
+
 @property (strong, nonatomic) NSString *WaterTemperature;
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;

@@ -15,9 +15,16 @@
 {
     if (self = [super init]) {
         self.Time = [aDecoder decodeObjectForKey:@"time"];
-        self.WaveHeight = [aDecoder decodeObjectForKey:@"waveHeight"];
-        self.DominantPeriod = [aDecoder decodeObjectForKey:@"period"];
-        self.Direction = [aDecoder decodeObjectForKey:@"direction"];
+        self.SignificantWaveHeight = [aDecoder decodeObjectForKey:@"significantWaveHeight"];
+        self.SwellWaveHeight = [aDecoder decodeObjectForKey:@"swellWaveHeight"];
+        self.WindWaveHeight = [aDecoder decodeObjectForKey:@"windWaveHeight"];
+        self.DominantPeriod = [aDecoder decodeObjectForKey:@"dominantPeriod"];
+        self.SwellPeriod = [aDecoder decodeObjectForKey:@"swellPeriod"];
+        self.WindWavePeriod = [aDecoder decodeObjectForKey:@"windWavePeriod"];
+        self.MeanDirection = [aDecoder decodeObjectForKey:@"meanDirection"];
+        self.SwellDirection = [aDecoder decodeObjectForKey:@"swellDirection"];
+        self.WindWaveDirection = [aDecoder decodeObjectForKey:@"windWaveDirection"];
+        self.WaterTemperature = [aDecoder decodeObjectForKey:@"waterTemperature"];
     }
     return self;
 }
@@ -25,9 +32,16 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.Time forKey:@"time"];
-    [aCoder encodeObject:self.WaveHeight forKey:@"waveHeight"];
-    [aCoder encodeObject:self.DominantPeriod forKey:@"period"];
-    [aCoder encodeObject:self.Direction forKey:@"direction"];
+    [aCoder encodeObject:self.SignificantWaveHeight forKey:@"significantWaveHeight"];
+    [aCoder encodeObject:self.SwellWaveHeight forKey:@"swellWaveHeight"];
+    [aCoder encodeObject:self.WindWaveHeight forKey:@"windWaveHeight"];
+    [aCoder encodeObject:self.DominantPeriod forKey:@"dominantPeriod"];
+    [aCoder encodeObject:self.SwellPeriod forKey:@"swellPeriod"];
+    [aCoder encodeObject:self.WindWavePeriod forKey:@"windWavePeriod"];
+    [aCoder encodeObject:self.MeanDirection forKey:@"meanDirection"];
+    [aCoder encodeObject:self.SwellDirection forKey:@"swellDirection"];
+    [aCoder encodeObject:self.WindWaveDirection forKey:@"windWaveDirection"];
+    [aCoder encodeObject:self.WaterTemperature forKey:@"waterTemperature"];
 }
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {

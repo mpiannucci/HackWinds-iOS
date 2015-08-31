@@ -134,7 +134,7 @@
     }
     
     // Load the buoy UI from the buoy point collected
-    NSString *buoyStatus = [NSString stringWithFormat:@"%@ ft @ %@s %@", self.latestBuoy.WaveHeight, self.latestBuoy.DominantPeriod, [Buoy getCompassDirection:self.latestBuoy.Direction]];
+    NSString *buoyStatus = [NSString stringWithFormat:@"%@ ft @ %@s %@", self.latestBuoy.SignificantWaveHeight, self.latestBuoy.DominantPeriod, [Buoy getCompassDirection:self.latestBuoy.MeanDirection]];
     [self.buoyStatusLabel setText:buoyStatus];
     
     // Load the tide UI from the latest tide point collected
