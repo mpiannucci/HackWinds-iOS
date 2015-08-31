@@ -11,11 +11,8 @@
 
 @interface BuoyDataContainer : NSObject
 
-@property (strong, nonatomic) NSURL *summaryURL;
-@property (strong, nonatomic) NSURL *detailedURL;
+@property (strong, nonatomic) NSNumber *buoyID;
 @property (strong, nonatomic) NSMutableArray *buoyData;
-@property (strong, nonatomic) NSMutableArray *waveHeights;
-@property (strong, nonatomic) NSMutableArray *swellWaveHeights;
-@property (strong, nonatomic) NSMutableArray *windWaveHeights;
+@property (strong, nonatomic) NSMutableDictionary *waveHeights;
 
 @end

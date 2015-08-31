@@ -31,6 +31,7 @@
 - (int) getTimeOffset;
 - (NSMutableArray*) getBuoyDataForLocation:(NSString*)location;
 - (NSMutableArray*) getWaveHeightForLocation:(NSString*)location ForMode:(NSString*)mode;
+- (NSURL*) getSpectraPlotURLForLocation:(NSString*)location;
 
 + (Buoy*) getLatestBuoyDataOnlyForLocation:(NSString*)location;
 + (instancetype) sharedModel;

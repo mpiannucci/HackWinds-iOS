@@ -29,12 +29,13 @@
 #define DETAIL_WIND_WAVE_DIRECTION 11
 
 // URLs
-#define BI_SUMMARY_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.txt"]
-#define BI_DETAIL_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44097.spec"]
-#define MTK_SUMMARY_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.txt"]
-#define MTK_DETAIL_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44017.spec"]
-#define ACK_SUMMARY_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44008.txt"]
-#define ACK_DETAIL_URL [NSURL URLWithString:@"http://www.ndbc.noaa.gov/data/realtime2/44008.spec"]
+#define BASE_DATA_URL @"http://www.ndbc.noaa.gov/data/realtime2/"
+#define BASE_SPECTRA_PLOT_URL @"http://www.ndbc.noaa.gov/show_plot.php?station=%d&meas=spec&uom=E"
+#define BUOY_SUMMARY_SUFFIX @".txt"
+#define BUOY_DETAIL_SUFFIX @".spec"
+#define BI_BUOY_NUMBER 44097
+#define MTK_BUOY_NUMBER 44017
+#define ACK_BUOY_NUMBER 44008
 
 #import "BuoyModel.h"
 #import "BuoyDataContainer.h"
@@ -87,20 +88,17 @@
     
     // Block Island
     BuoyDataContainer *biContainer = [[BuoyDataContainer alloc] init];
-    biContainer.summaryURL = BI_SUMMARY_URL;
-    biContainer.detailedURL = BI_DETAIL_URL;
+    biContainer.buoyID = [NSNumber numberWithInt:BI_BUOY_NUMBER];
     [self.buoyDataSets setValue:biContainer forKey:BLOCK_ISLAND_LOCATION];
     
     // Montauk
     BuoyDataContainer *mtkContainer = [[BuoyDataContainer alloc] init];
-    mtkContainer.summaryURL = MTK_SUMMARY_URL;
-    mtkContainer.detailedURL = MTK_DETAIL_URL;
+    mtkContainer.buoyID = [NSNumber numberWithInt:MTK_BUOY_NUMBER];
     [self.buoyDataSets setValue:mtkContainer forKey:MONTAUK_LOCATION];
     
     // Nantucket
     BuoyDataContainer *ackContainer = [[BuoyDataContainer alloc] init];
-    ackContainer.summaryURL = ACK_SUMMARY_URL;
-    ackContainer.detailedURL = ACK_DETAIL_URL;
+    ackContainer.buoyID = [NSNumber numberWithInt:ACK_BUOY_NUMBER];
     [self.buoyDataSets setValue:ackContainer forKey:NANTUCKET_LOCATION];
     
 }
@@ -127,15 +125,15 @@
 }
 
 - (NSMutableArray *) getWaveHeightForLocation:(NSString*)location ForMode:(NSString *)mode {
-    if ([mode isEqualToString:SUMMARY_DATA_MODE]) {
-        return [[self.buoyDataSets objectForKey:location] waveHeights];
-    } else if ([mode isEqualToString:SWELL_DATA_MODE]) {
-        return [[self.buoyDataSets objectForKey:location] swellWaveHeights];
-    } else if ([mode isEqualToString:WIND_DATA_MODE]) {
-        return [[self.buoyDataSets objectForKey:location] windWaveHeights];
-    } else {
-        return nil;
-    }
+    return [[[self.buoyDataSets objectForKey:location] waveHeights] objectForKey:mode];
+}
+
+- (NSURL*) getSpectraPlotURLForLocation:(NSString *)location {
+    // Craft the URL using the macro
+    int buoyID = [[[self.buoyDataSets objectForKey:location] buoyID] intValue];
+    NSURL *spectraURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_SPECTRA_PLOT_URL, buoyID]];
+    
+    return spectraURL;
 }
 
 + (Buoy*) getLatestBuoyDataOnlyForLocation:(NSString*)location {
@@ -176,9 +174,10 @@
         dataPointCount++;
         
         [buoyContainer.buoyData addObject:newBuoy];
-        [buoyContainer.waveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.SignificantWaveHeight]];
-        [buoyContainer.swellWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.SwellWaveHeight]];
-        [buoyContainer.windWaveHeights addObject:[NSString stringWithFormat:@"%@", newBuoy.WindWaveHeight]];
+        
+        [[buoyContainer.waveHeights objectForKey:SUMMARY_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SignificantWaveHeight]];
+        [[buoyContainer.waveHeights objectForKey:SWELL_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SwellWaveHeight]];
+        [[buoyContainer.waveHeights objectForKey:WIND_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.WindWaveHeight]];
     }
     return YES;
 }
@@ -187,12 +186,14 @@
     // Get the buoy data
     NSError *err = nil;
     
+    int buoyID = [[[self.buoyDataSets objectForKey:location] buoyID] intValue];
+    
     // Get the buoy data
     NSURL *dataURL = [[NSURL alloc] init];
     if (isDetailed) {
-        dataURL = [[self.buoyDataSets objectForKey:location] detailedURL];
+        dataURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%d%@", BASE_DATA_URL, buoyID, BUOY_DETAIL_SUFFIX]];
     } else {
-        dataURL = [[self.buoyDataSets objectForKey:location] summaryURL];
+        dataURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%d%@", BASE_DATA_URL, buoyID, BUOY_SUMMARY_SUFFIX]];
     }
     NSString* buoyData = [NSString stringWithContentsOfURL:dataURL encoding:NSUTF8StringEncoding error:&err];
     
