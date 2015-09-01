@@ -79,18 +79,30 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    // Register the notification center listener when the view appears
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadDataFromModel)
+                                                 name:BUOY_DATA_UPDATED_TAG
+                                               object:nil];
 
     [self reloadDataFromModel];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    // Remove the listener when the view goes out of focus
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:BUOY_DATA_UPDATED_TAG
+                                                  object:nil];
+    
     [super viewDidDisappear:animated];
 }
 
 - (void)reloadDataFromModel {
     dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-        [self.buoyModel fetchBuoyDataForLocation:buoyLocation];
-        currentBuoyData = [self.buoyModel getBuoyDataForLocation:buoyLocation];
+        [self.buoyModel fetchBuoyData];
+        currentBuoyData = [self.buoyModel getBuoyData];
+        [self performSelectorOnMainThread:@selector(loadBuoySettings) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(reloadView)
                                withObject:nil waitUntilDone:YES];
     });
@@ -98,7 +110,7 @@
 
 - (void)reloadView {
     // Grab the correct wave heights
-    currentWaveHeights = [self.buoyModel getWaveHeightForLocation:buoyLocation ForMode:dataMode];
+    currentWaveHeights = [self.buoyModel getWaveHeightForMode:dataMode];
     
     // Update the table
     [self.buoyTable reloadData];
@@ -165,15 +177,9 @@
         // Tell everyone the data has updated
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"BuoyLocationChanged"
+             postNotificationName:BUOY_LOCATION_CHANGED_TAG
              object:self];
         });
-        
-        // Update the views
-        [self loadBuoySettings];
-        
-        // Get the new buoy data and reload the main view
-        [self reloadDataFromModel];
         
     } else {
         NSLog(@"Buoy Location change cancelled, keep location at %@", [defaults objectForKey:@"BuoyLocation"]);

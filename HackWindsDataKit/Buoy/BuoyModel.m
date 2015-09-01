@@ -44,19 +44,24 @@
 
 // Private methods
 - (void) initBuoyContainers;
-- (BOOL) parseBuoyData:(NSString*)location;
-- (NSArray*) retrieveBuoyDataForLocation:(NSString*)location Detailed:(BOOL)isDetailed;
+- (BOOL) parseBuoyData;
+- (NSArray*) retrieveBuoyData:(BOOL)isDetailed;
 - (BOOL) getBuoySummaryForIndex:(int)index FromData:(NSArray*)rawData FillBuoy:(Buoy*)buoy;
 - (BOOL) getBuoyDetailsForIndex:(int)index FromData:(NSArray*)rawData FillBuoy:(Buoy*)buoy;
 - (NSInteger) getCorrectedHourValue:(NSInteger)rawHour;
 - (double) getFootConvertedFromMetric:(double)metricValue;
 - (BOOL) check24HourClock;
 
+// Private members
+@property (strong, nonatomic) NSUserDefaults *defaults;
+@property (strong, nonatomic) NSMutableDictionary *buoyDataContainers;
+
 @end
 
 @implementation BuoyModel
 {
     int timeOffset;
+    BuoyDataContainer *currentContainer;
 }
 
 + (instancetype) sharedModel {
@@ -80,33 +85,57 @@
     int daylightoff = [eastnTZ daylightSavingTimeOffset]/3600;
     timeOffset = -5 + daylightoff;
     
+    // Grab the latest user defaults
+    self.defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [self.defaults synchronize];
+    
+    // Register to listen for the location being changed
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeBuoyLocation)
+                                                 name:BUOY_LOCATION_CHANGED_TAG
+                                               object:nil];
+    
+    // Initilize the location state
+    [self changeBuoyLocation];
+    
     return self;
 }
 
 - (void) initBuoyContainers {
-    self.buoyDataSets = [[NSMutableDictionary alloc] init];
+    self.buoyDataContainers = [[NSMutableDictionary alloc] init];
     
     // Block Island
     BuoyDataContainer *biContainer = [[BuoyDataContainer alloc] init];
     biContainer.buoyID = [NSNumber numberWithInt:BI_BUOY_NUMBER];
-    [self.buoyDataSets setValue:biContainer forKey:BLOCK_ISLAND_LOCATION];
+    [self.buoyDataContainers setValue:biContainer forKey:BLOCK_ISLAND_LOCATION];
     
     // Montauk
     BuoyDataContainer *mtkContainer = [[BuoyDataContainer alloc] init];
     mtkContainer.buoyID = [NSNumber numberWithInt:MTK_BUOY_NUMBER];
-    [self.buoyDataSets setValue:mtkContainer forKey:MONTAUK_LOCATION];
+    [self.buoyDataContainers setValue:mtkContainer forKey:MONTAUK_LOCATION];
     
     // Nantucket
     BuoyDataContainer *ackContainer = [[BuoyDataContainer alloc] init];
     ackContainer.buoyID = [NSNumber numberWithInt:ACK_BUOY_NUMBER];
-    [self.buoyDataSets setValue:ackContainer forKey:NANTUCKET_LOCATION];
+    [self.buoyDataContainers setValue:ackContainer forKey:NANTUCKET_LOCATION];
     
 }
 
-- (BOOL) fetchBuoyDataForLocation:(NSString*)location {
-    const BuoyDataContainer *buoyContainer = [self.buoyDataSets objectForKey:location];
-    if (buoyContainer.buoyData.count == 0) {
-        return [self parseBuoyData:location];
+- (void) changeBuoyLocation {
+    [self.defaults synchronize];
+    
+    // Get the correct container and send out the notification for everything to update
+    currentContainer = [self.buoyDataContainers objectForKey:[self.defaults objectForKey:@"BuoyLocation"]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:BUOY_DATA_UPDATED_TAG
+         object:self];
+    });
+}
+
+- (BOOL) fetchBuoyData {
+    if (currentContainer.buoyData.count == 0) {
+        return [self parseBuoyData];
     } else {
         return YES;
     }
@@ -120,27 +149,27 @@
     
 }
 
-- (NSMutableArray *) getBuoyDataForLocation:(NSString*)location {
-    return [[self.buoyDataSets objectForKey:location] buoyData];
+- (NSMutableArray *) getBuoyData {
+    return currentContainer.buoyData;
 }
 
-- (NSMutableArray *) getWaveHeightForLocation:(NSString*)location ForMode:(NSString *)mode {
-    return [[[self.buoyDataSets objectForKey:location] waveHeights] objectForKey:mode];
+- (NSMutableArray *) getWaveHeightForMode:(NSString *)mode {
+    return [currentContainer.waveHeights objectForKey:mode];
 }
 
-- (NSURL*) getSpectraPlotURLForLocation:(NSString *)location {
+- (NSURL*) getSpectraPlotURL {
     // Craft the URL using the macro
-    int buoyID = [[[self.buoyDataSets objectForKey:location] buoyID] intValue];
+    int buoyID = [currentContainer.buoyID intValue];
     NSURL *spectraURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_SPECTRA_PLOT_URL, buoyID]];
     
     return spectraURL;
 }
 
-+ (Buoy*) getLatestBuoyDataOnlyForLocation:(NSString*)location {
++ (Buoy*) getLatestBuoyDataOnly {
     // Get the model instance
     BuoyModel *buoyModel = [[BuoyModel alloc] init];
     
-    NSArray *rawBuoyData = [buoyModel retrieveBuoyDataForLocation:location Detailed:NO];
+    NSArray *rawBuoyData = [buoyModel retrieveBuoyData:NO];
     if (rawBuoyData == nil) {
         return nil;
     }
@@ -151,42 +180,44 @@
     return latestBuoy;
 }
 
-- (BOOL) parseBuoyData:(NSString*)location {
-    // Get the raw data from ndbc
-    NSArray *rawSummaryBuoyData = [self retrieveBuoyDataForLocation:location Detailed:NO];
+- (BOOL) parseBuoyData {
+    // Get the raw data from ndbc for both detailed and summary mode
+    NSArray *rawSummaryBuoyData = [self retrieveBuoyData:NO];
     if (rawSummaryBuoyData == nil) {
         return NO;
     }
     
-    NSArray *rawDetailedBuoyData = [self retrieveBuoyDataForLocation:location Detailed:YES];
+    NSArray *rawDetailedBuoyData = [self retrieveBuoyData:YES];
     if (rawDetailedBuoyData == nil) {
         return NO;
     }
     
-    BuoyDataContainer *buoyContainer = [self.buoyDataSets objectForKey:location];
     int dataPointCount = 0;
     while (dataPointCount < BUOY_DATA_POINTS) {
         // Get the next buoy object
         Buoy *newBuoy = [[Buoy alloc] init];
+        
+        // Fill the buoys from the raw data
         [self getBuoySummaryForIndex:dataPointCount FromData:rawSummaryBuoyData FillBuoy:newBuoy];
         [self getBuoyDetailsForIndex:dataPointCount FromData:rawDetailedBuoyData FillBuoy:newBuoy];
-        
         dataPointCount++;
         
-        [buoyContainer.buoyData addObject:newBuoy];
+        // Add the buoy to the array
+        [currentContainer.buoyData addObject:newBuoy];
         
-        [[buoyContainer.waveHeights objectForKey:SUMMARY_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SignificantWaveHeight]];
-        [[buoyContainer.waveHeights objectForKey:SWELL_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SwellWaveHeight]];
-        [[buoyContainer.waveHeights objectForKey:WIND_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.WindWaveHeight]];
+        // Add all of the correct wave hieght objects
+        [[currentContainer.waveHeights objectForKey:SUMMARY_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SignificantWaveHeight]];
+        [[currentContainer.waveHeights objectForKey:SWELL_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SwellWaveHeight]];
+        [[currentContainer.waveHeights objectForKey:WIND_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.WindWaveHeight]];
     }
     return YES;
 }
 
-- (NSArray*) retrieveBuoyDataForLocation:(NSString*)location Detailed:(BOOL)isDetailed {
+- (NSArray*) retrieveBuoyData:(BOOL)isDetailed {
     // Get the buoy data
     NSError *err = nil;
     
-    int buoyID = [[[self.buoyDataSets objectForKey:location] buoyID] intValue];
+    int buoyID = [currentContainer.buoyID intValue];
     
     // Get the buoy data
     NSURL *dataURL = [[NSURL alloc] init];

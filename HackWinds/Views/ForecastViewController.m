@@ -48,10 +48,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     // Register listener for the data model update
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDataFromModel)
-                                                 name:@"ForecastModelDidUpdateDataNotification"
+                                                 name:FORECAST_DATA_UPDATED_TAG
                                                object:nil];
     // Update the data table using the loaded data
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
@@ -65,8 +67,9 @@
 - (void)viewWillDisappear:(BOOL)animated {
     // Remove the notifcation lsitener when the view is not in focus
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"ForecastModelDidUpdateDataNotification"
+                                                    name:FORECAST_DATA_UPDATED_TAG
                                                   object:nil];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,6 +81,7 @@
 - (void) updateDataFromModel {
     // Load the MSW Data
     dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
+        [self.forecastModel fetchForecastData];
         [self performSelectorOnMainThread:@selector(getForecastSettings) withObject:nil waitUntilDone:YES];
         [self.forecastTable performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil waitUntilDone:YES];
@@ -118,7 +122,7 @@
         // Tell everyone the data has updated
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"ForecastLocationChanged"
+             postNotificationName:FORECAST_LOCATION_CHANGED_TAG
              object:self];
         });
         

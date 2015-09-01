@@ -46,7 +46,7 @@
     if (networkStatus != NotReachable) {
         dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
             [self.tideModel fetchTideData];
-            [self.buoyModel fetchBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+            [self.buoyModel fetchBuoyData];
             [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
         });
     }
@@ -64,7 +64,7 @@
 - (void)reloadView {
     // If there are no tide items return early
     NSArray* tideData = [self.tideModel tides];
-    NSArray* buoyData = [self.buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION];
+    NSArray* buoyData = [self.buoyModel getBuoyData];
     
     if ([tideData count] == 0) {
         return;

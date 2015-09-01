@@ -62,10 +62,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     // Register the notification center listener when the view appears
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDataFromModel)
-                                                 name:@"ForecastModelDidUpdateDataNotification"
+                                                 name:FORECAST_DATA_UPDATED_TAG
                                                object:nil];
     
     // Update the data in the table using the forecast model
@@ -80,13 +82,15 @@
 - (void)viewWillDisappear:(BOOL)animated {
     // Remove the listener when the view goes out of focus
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"ForecastModelDidUpdateDataNotification"
+                                                    name:FORECAST_DATA_UPDATED_TAG
                                                   object:nil];
     
     // If the user is swithcing views then clean up the videoview
     if (!self.streamPlayer.fullscreen) {
         [self streamPlayBackDidFinish:nil];
     }
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -182,7 +186,7 @@
         // Tell everyone the data has updated
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"ForecastLocationChanged"
+             postNotificationName:FORECAST_LOCATION_CHANGED_TAG
              object:self];
         });
         

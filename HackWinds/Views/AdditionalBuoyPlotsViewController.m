@@ -36,7 +36,7 @@
     [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", buoyLocation]];
     
     // Fill the plots.. for now there is only the spectral density
-    NSURL *spectralPlotURL = [[BuoyModel sharedModel] getSpectraPlotURLForLocation:buoyLocation];
+    NSURL *spectralPlotURL = [[BuoyModel sharedModel] getSpectraPlotURL];
     [self.spectralPlotImageView setImageURL:spectralPlotURL];
 }
 

@@ -69,7 +69,7 @@
     // Get the current location and setup the settings listener
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(changeForecastLocation)
-                                                 name:@"ForecastLocationChanged"
+                                                 name:FORECAST_LOCATION_CHANGED_TAG
                                                object:nil];
     
     // Get the forecast location
@@ -113,7 +113,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter]
-              postNotificationName:@"ForecastModelDidUpdateDataNotification"
+              postNotificationName:FORECAST_DATA_UPDATED_TAG
                             object:self];
         });
     } else {

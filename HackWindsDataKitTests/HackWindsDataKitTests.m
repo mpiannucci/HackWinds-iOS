@@ -61,19 +61,19 @@
 
 - (void) testBuoyModelFetch {
     // Try fetching and parsing the block island buoy data
-    XCTAssert([self.buoyModel fetchBuoyDataForLocation:BLOCK_ISLAND_LOCATION]);
-    XCTAssert([[self.buoyModel getBuoyDataForLocation:BLOCK_ISLAND_LOCATION] count] == 20);
+    XCTAssert([self.buoyModel fetchBuoyData]);
+    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
     
     // Try getting and parsing the montauk data
-    XCTAssert([self.buoyModel fetchBuoyDataForLocation:MONTAUK_LOCATION]);
-    XCTAssert([[self.buoyModel getBuoyDataForLocation:MONTAUK_LOCATION] count] == 20);
+    XCTAssert([self.buoyModel fetchBuoyData]);
+    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
     
     // Try getting and parsing the nantucket data
-    XCTAssert([self.buoyModel fetchBuoyDataForLocation:NANTUCKET_LOCATION]);
-    XCTAssert([[self.buoyModel getBuoyDataForLocation:NANTUCKET_LOCATION] count] == 20);
+    XCTAssert([self.buoyModel fetchBuoyData]);
+    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
     
     // Try to get only the latest data point with the static method
-    XCTAssert([BuoyModel getLatestBuoyDataOnlyForLocation:BLOCK_ISLAND_LOCATION] != nil);
+    XCTAssert([BuoyModel getLatestBuoyDataOnly] != nil);
 }
 
 - (void) testTideModelFetch {

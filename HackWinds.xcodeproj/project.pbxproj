@@ -464,8 +464,8 @@
 			children = (
 				34E1BA5D1B62DD8600CDA01D /* Buoy.h */,
 				34E1BA5E1B62DD8600CDA01D /* Buoy.m */,
-				34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */,
 				34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */,
+				34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */,
 				34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */,
 				34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */,
 			);
