@@ -45,9 +45,35 @@
     
     if (networkStatus != NotReachable) {
         dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
+            // Make sure the buoy location is set to block island
+            NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+            [defaults synchronize];
+            NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
+            [defaults setObject:BLOCK_ISLAND_LOCATION forKey:@"BuoyLocation"];
+            [defaults synchronize];
+            
+            // Tell the buoy model the location has updated
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:BUOY_LOCATION_CHANGED_TAG
+                 object:self];
+            });
+            
+            // Fetch the data and update the views
             [self.tideModel fetchTideData];
             [self.buoyModel fetchBuoyData];
             [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
+            
+            // Set it back to its original value
+            [defaults setObject:originalLocation forKey:@"BuoyLocation"];
+            [defaults synchronize];
+            
+            // Tell the buoy model the location has updated
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:BUOY_LOCATION_CHANGED_TAG
+                 object:self];
+            });
         });
     }
 }
@@ -64,7 +90,7 @@
 - (void)reloadView {
     // If there are no tide items return early
     NSArray* tideData = [self.tideModel tides];
-    NSArray* buoyData = [self.buoyModel getBuoyData];
+    const NSArray* buoyData = [self.buoyModel getBuoyData];
     
     if ([tideData count] == 0) {
         return;
