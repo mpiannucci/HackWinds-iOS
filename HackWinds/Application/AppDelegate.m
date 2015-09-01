@@ -11,6 +11,7 @@
 #import "Reachability.h"
 #import "CameraModel.h"
 #import "ForecastModel.h"
+#import "BuoyModel.h"
 
 @implementation AppDelegate
 {
@@ -43,6 +44,9 @@
     NSString *defaultPrefsFile = [[NSBundle mainBundle] pathForResource:@"UISettings" ofType:@"plist"];
     NSUserDefaults *defaultPreferences = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     [defaultPreferences registerDefaults:[NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile]];
+    [defaultPreferences synchronize];
+    
+    [defaultPreferences setObject:[defaultPreferences objectForKey:@"DefaultBuoyLocation"] forKey:@"BuoyLocation"];
     [defaultPreferences synchronize];
    
     // Let the user know if anything went wrong
@@ -101,7 +105,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
 }
 
 #pragma mark - Allowing the movie players to rotate in fullscreen

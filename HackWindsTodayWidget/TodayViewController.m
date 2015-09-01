@@ -153,7 +153,7 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setTimeStyle:NSDateFormatterShortStyle];
         NSString *dateString = [formatter stringFromDate:self.latestRefreshTime];
-        [self.lastUpdatedLabel setText:[NSString stringWithFormat:@"last updated at %@", dateString]];
+        [self.lastUpdatedLabel setText:[NSString stringWithFormat:@"Block Island: Last updated at %@", dateString]];
     }
 }
 

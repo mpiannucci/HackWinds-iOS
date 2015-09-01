@@ -133,6 +133,16 @@
     });
 }
 
+- (void) forceChangeLocation:(NSString *)location {
+    // Get the correct container and send out the notification for everything to update
+    currentContainer = [self.buoyDataContainers objectForKey:location];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:BUOY_DATA_UPDATED_TAG
+         object:self];
+    });
+}
+
 - (BOOL) fetchBuoyData {
     if (currentContainer.buoyData.count == 0) {
         return [self parseBuoyData];
@@ -168,6 +178,9 @@
 + (Buoy*) getLatestBuoyDataOnly {
     // Get the model instance
     BuoyModel *buoyModel = [[BuoyModel alloc] init];
+    
+    // For now we are going to force the location to be BI.
+    [buoyModel forceChangeLocation:BLOCK_ISLAND_LOCATION];
     
     NSArray *rawBuoyData = [buoyModel retrieveBuoyData:NO];
     if (rawBuoyData == nil) {

@@ -49,31 +49,15 @@
             NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
             [defaults synchronize];
             NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
-            [defaults setObject:BLOCK_ISLAND_LOCATION forKey:@"BuoyLocation"];
-            [defaults synchronize];
-            
-            // Tell the buoy model the location has updated
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:BUOY_LOCATION_CHANGED_TAG
-                 object:self];
-            });
+            [self.buoyModel forceChangeLocation:BLOCK_ISLAND_LOCATION];
             
             // Fetch the data and update the views
             [self.tideModel fetchTideData];
             [self.buoyModel fetchBuoyData];
             [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
             
-            // Set it back to its original value
-            [defaults setObject:originalLocation forKey:@"BuoyLocation"];
-            [defaults synchronize];
-            
-            // Tell the buoy model the location has updated
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:BUOY_LOCATION_CHANGED_TAG
-                 object:self];
-            });
+            // Set it back to the original location
+            [self.buoyModel forceChangeLocation:originalLocation];
         });
     }
 }

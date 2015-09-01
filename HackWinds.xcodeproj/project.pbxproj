@@ -40,7 +40,6 @@
 		34C0AF601B730809001D2B04 /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
-		34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */; };
 		34E1BA2E1B62D84700CDA01D /* HackWindsDataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA2D1B62D84700CDA01D /* HackWindsDataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */; };
@@ -175,6 +174,7 @@
 		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		349D38321B95438300D553CD /* HackWindsTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsTodayWidget.entitlements; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -195,7 +195,6 @@
 		34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedForecastViewController.m; sourceTree = "<group>"; };
 		34CA15321A9D657000DAB1F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForecastLocations.plist; sourceTree = "<group>"; };
 		34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA2D1B62D84700CDA01D /* HackWindsDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HackWindsDataKit.h; path = HackWindsDataKit/HackWindsDataKit.h; sourceTree = SOURCE_ROOT; };
@@ -403,6 +402,7 @@
 		34C0AF4F1B7307E8001D2B04 /* HackWindsTodayWidget */ = {
 			isa = PBXGroup;
 			children = (
+				349D38321B95438300D553CD /* HackWindsTodayWidget.entitlements */,
 				34C0AF521B7307E8001D2B04 /* TodayViewController.h */,
 				34C0AF531B7307E8001D2B04 /* TodayViewController.m */,
 				34C0AF551B7307E8001D2B04 /* MainInterface.storyboard */,
@@ -513,7 +513,6 @@
 			isa = PBXGroup;
 			children = (
 				343083A719795D0F00655F15 /* Images.xcassets */,
-				34CA15421A9D7F4000DAB1F8 /* ForecastLocations.plist */,
 				340AFA201A9C320700DAD121 /* UISettings.plist */,
 			);
 			path = Resources;
@@ -642,6 +641,11 @@
 					34C0AF4B1B7307E8001D2B04 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 39L46PD99U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					34E1BA281B62D84700CDA01D = {
 						CreatedOnToolsVersion = 6.4;
@@ -701,7 +705,6 @@
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
 				34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */,
 				34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */,
-				34CA15431A9D7F4000DAB1F8 /* ForecastLocations.plist in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -985,6 +988,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsTodayWidget/HackWindsTodayWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1008,6 +1012,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsTodayWidget/HackWindsTodayWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;

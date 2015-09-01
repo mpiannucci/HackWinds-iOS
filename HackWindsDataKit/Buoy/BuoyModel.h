@@ -25,6 +25,7 @@
 @interface BuoyModel : NSObject
 
 - (void) changeBuoyLocation;
+- (void) forceChangeLocation:(NSString*)location;
 - (BOOL) fetchBuoyData;
 - (void) resetData;
 - (int) getTimeOffset;
