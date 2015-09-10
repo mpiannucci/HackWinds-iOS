@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -877,7 +877,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT">
-                        <barButtonItem key="leftBarButtonItem" image="PlotIcon" id="9DF-mE-Pjg">
+                        <barButtonItem key="leftBarButtonItem" image="TrendingUpIcon" id="9DF-mE-Pjg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="XRU-c5-Q0f" kind="modal" id="h2u-cl-fLX"/>
@@ -1395,9 +1395,9 @@
         <image name="ForecastIcon" width="30" height="30"/>
         <image name="LiveIcon" width="30" height="30"/>
         <image name="PlayButton" width="120" height="120"/>
-        <image name="PlotIcon" width="30" height="30"/>
         <image name="SettingsIcon" width="25" height="25"/>
         <image name="TideIcon" width="30" height="30"/>
+        <image name="TrendingUpIcon" width="36" height="36"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
