@@ -139,13 +139,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U">
-                        <barButtonItem key="leftBarButtonItem" image="CamRefreshIcon" id="3FX-Ef-fcT">
+                        <barButtonItem key="leftBarButtonItem" image="ic_camera_enhance_white" id="3FX-Ef-fcT">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="zvH-p6-z3E" kind="modal" id="mbW-lm-AUx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="hFX-9A-fnG">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="hFX-9A-fnG">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="n3n-Wz-yM1" kind="modal" id="rYr-bo-HPU"/>
@@ -219,7 +219,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Alternate Cameras" id="GAz-e9-i5R">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="kdc-L6-cnG">
+                        <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="kdc-L6-cnG">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="closeViewClicked:" destination="20K-pt-DuJ" id="82F-9N-cue"/>
@@ -350,7 +350,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Camera Location" id="HUD-ni-j6C">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="YL2-xh-o58">
+                        <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="YL2-xh-o58">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="exitButtonClick:" destination="orJ-Og-poC" id="4bF-PW-14S"/>
                             </connections>
@@ -635,7 +636,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="2g7-1n-mfa">
-                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="Kqz-Bk-Cpg">
+                        <barButtonItem key="leftBarButtonItem" image="ic_track_changes_white" id="6zB-Ub-sxL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="Kqz-Bk-Cpg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="n3n-Wz-yM1" kind="modal" id="l1V-PH-Aev"/>
@@ -735,7 +739,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Additional Plots" id="M1R-GV-eSb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="H6y-GZ-XX1">
+                        <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="H6y-GZ-XX1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeButtonClicked:" destination="sNp-B0-iT0" id="J7f-Iw-kdj"/>
@@ -877,13 +881,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT">
-                        <barButtonItem key="leftBarButtonItem" image="TrendingUpIcon" id="9DF-mE-Pjg">
+                        <barButtonItem key="leftBarButtonItem" image="ic_trending_up_white" id="9DF-mE-Pjg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="XRU-c5-Q0f" kind="modal" id="h2u-cl-fLX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="6ca-PQ-P5R">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="6ca-PQ-P5R">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="n3n-Wz-yM1" kind="modal" id="pa9-s7-zVu"/>
@@ -1112,7 +1116,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="HackWinds" id="DQn-p6-DmC">
-                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon" id="AXZ-Zg-BhP">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="AXZ-Zg-BhP">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="n3n-Wz-yM1" kind="modal" id="XkZ-iH-OSJ"/>
@@ -1371,7 +1375,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="q83-3Q-HzF">
-                        <barButtonItem key="rightBarButtonItem" image="CheckmarkIcon" id="Tsb-HO-Y8b">
+                        <barButtonItem key="rightBarButtonItem" image="ic_done_white" id="Tsb-HO-Y8b">
                             <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="acceptSettingsClick:" destination="kKd-33-s6C" id="dRt-Fp-4T9"/>
@@ -1389,15 +1393,17 @@
     </scenes>
     <resources>
         <image name="BuoyIcon" width="30" height="30"/>
-        <image name="CamRefreshIcon" width="28" height="21"/>
-        <image name="CheckmarkIcon" width="12" height="13"/>
         <image name="CloseIcon" width="50" height="50"/>
         <image name="ForecastIcon" width="30" height="30"/>
         <image name="LiveIcon" width="30" height="30"/>
         <image name="PlayButton" width="120" height="120"/>
-        <image name="SettingsIcon" width="25" height="25"/>
         <image name="TideIcon" width="30" height="30"/>
-        <image name="TrendingUpIcon" width="36" height="36"/>
+        <image name="ic_camera_enhance_white" width="24" height="24"/>
+        <image name="ic_clear_white" width="24" height="24"/>
+        <image name="ic_done_white" width="24" height="24"/>
+        <image name="ic_settings_white" width="24" height="24"/>
+        <image name="ic_track_changes_white" width="24" height="24"/>
+        <image name="ic_trending_up_white" width="24" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1405,6 +1411,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pa9-s7-zVu"/>
+        <segue reference="XkZ-iH-OSJ"/>
     </inferredMetricsTieBreakers>
 </document>
