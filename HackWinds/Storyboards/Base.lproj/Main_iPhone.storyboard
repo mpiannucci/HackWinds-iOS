@@ -400,7 +400,53 @@
                     <view key="view" contentMode="scaleToFill" id="beW-Wa-Cbd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-Wf-tDM">
+                                <rect key="frame" x="0.0" y="64" width="320" height="269"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx1-c1-gYu">
+                                <rect key="frame" x="0.0" y="64" width="320" height="269"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="t2h-aN-fLi"/>
+                                </constraints>
+                                <state key="normal" image="PlayButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chartPlayButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="x50-b2-sHX"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
+                                <rect key="frame" x="0.0" y="331" width="320" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-23-ESW">
+                                <rect key="frame" x="0.0" y="64" width="320" height="269"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chartPauseButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="71P-hF-JFs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tu9-P0-5rJ" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="-2" id="3FV-Hb-1gI"/>
+                            <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leadingMargin" constant="-16" id="3z2-Oh-vsR"/>
+                            <constraint firstItem="tu9-P0-5rJ" firstAttribute="trailing" secondItem="VRX-Wf-tDM" secondAttribute="trailing" id="5uE-Ru-vRr"/>
+                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" id="B5v-jL-dq0"/>
+                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="235" id="Gkk-5r-HVR"/>
+                            <constraint firstItem="Dx1-c1-gYu" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" id="LwL-NB-tDm"/>
+                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leadingMargin" constant="-16" id="MtW-RD-fgk"/>
+                            <constraint firstItem="tu9-P0-5rJ" firstAttribute="leading" secondItem="Dx1-c1-gYu" secondAttribute="leading" id="SAP-Qb-UtL"/>
+                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="bottom" constant="235" id="XZv-eS-Mr6"/>
+                            <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" id="YED-o7-adn"/>
+                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="bottom" constant="235" id="b20-I0-S6z"/>
+                            <constraint firstAttribute="centerX" secondItem="tu9-P0-5rJ" secondAttribute="centerX" id="nBB-dM-2qe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WG0-23-ESW" secondAttribute="trailing" constant="-16" id="pdi-BT-Ea3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VRX-Wf-tDM" secondAttribute="trailing" constant="-16" id="xU0-ZB-Eae"/>
+                            <constraint firstAttribute="centerX" secondItem="Dx1-c1-gYu" secondAttribute="centerX" id="zqp-pV-SBN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NOAA WaveWatch III" id="DGi-8I-vRL">
                         <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="CQN-dR-J4y">
@@ -410,6 +456,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartImageView" destination="VRX-Wf-tDM" id="gpi-Qb-eHn"/>
+                        <outlet property="chartPauseButton" destination="WG0-23-ESW" id="xtM-dL-CNV"/>
+                        <outlet property="chartPlayButton" destination="Dx1-c1-gYu" id="RUw-Qc-Ab2"/>
+                        <outlet property="chartProgressBar" destination="tu9-P0-5rJ" id="jRE-70-QIo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm2-4V-8IO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
