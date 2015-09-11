@@ -373,6 +373,48 @@
             </objects>
             <point key="canvasLocation" x="2153" y="-919"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a5b-nL-wKX">
+            <objects>
+                <navigationController id="ulq-Y0-oBi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NKJ-qO-ZSm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QUC-am-BN2" kind="relationship" relationship="rootViewController" id="DMv-2Y-xEb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cF-xC-9hO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1736" y="-174"/>
+        </scene>
+        <!--NOAA WaveWatch III-->
+        <scene sceneID="kme-Tb-7jx">
+            <objects>
+                <viewController id="QUC-am-BN2" customClass="WaveWatchChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hSd-nj-XeO"/>
+                        <viewControllerLayoutGuide type="bottom" id="mnD-jf-h7L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="beW-Wa-Cbd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NOAA WaveWatch III" id="DGi-8I-vRL">
+                        <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="CQN-dR-J4y">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="closeButtonClicked:" destination="QUC-am-BN2" id="Mwi-T9-R0q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fm2-4V-8IO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168" y="-174"/>
+        </scene>
         <!--DetailedForecast-->
         <scene sceneID="1jj-Jj-Ist">
             <objects>
@@ -638,6 +680,9 @@
                     <navigationItem key="navigationItem" title="HackWinds" id="2g7-1n-mfa">
                         <barButtonItem key="leftBarButtonItem" image="ic_track_changes_white" id="6zB-Ub-sxL">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="ulq-Y0-oBi" kind="modal" id="G8K-Z8-OYL"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="Kqz-Bk-Cpg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -652,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="430"/>
+            <point key="canvasLocation" x="487" y="424"/>
         </scene>
         <!--Settings Navigation Controller-->
         <scene sceneID="jXm-cI-FGF">
@@ -1411,6 +1456,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XkZ-iH-OSJ"/>
+        <segue reference="l1V-PH-Aev"/>
     </inferredMetricsTieBreakers>
 </document>

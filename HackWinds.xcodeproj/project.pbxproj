@@ -38,6 +38,7 @@
 		34C0AF561B7307E8001D2B04 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C0AF551B7307E8001D2B04 /* MainInterface.storyboard */; };
 		34C0AF591B7307E8001D2B04 /* HackWindsTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 34C0AF4C1B7307E8001D2B04 /* HackWindsTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		34C0AF601B730809001D2B04 /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
+		34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */; };
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34E1BA2E1B62D84700CDA01D /* HackWindsDataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA2D1B62D84700CDA01D /* HackWindsDataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -191,6 +192,8 @@
 		34C0AF521B7307E8001D2B04 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		34C0AF531B7307E8001D2B04 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		34C0AF551B7307E8001D2B04 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		34C389571BA27E3D0000EDC8 /* WaveWatchChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveWatchChartViewController.h; sourceTree = "<group>"; };
+		34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveWatchChartViewController.m; sourceTree = "<group>"; };
 		34C8E7201ACA43EB0038E895 /* DetailedForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedForecastViewController.h; sourceTree = "<group>"; };
 		34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedForecastViewController.m; sourceTree = "<group>"; };
 		34CA15321A9D657000DAB1F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				342A76211985E18100077F8C /* TideViewController.m */,
 				34EB97431B94AC8A00687615 /* AdditionalBuoyPlotsViewController.h */,
 				34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */,
+				34C389571BA27E3D0000EDC8 /* WaveWatchChartViewController.h */,
+				34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -738,6 +743,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */,
 				34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */,
 				34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */,
 				34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */,
