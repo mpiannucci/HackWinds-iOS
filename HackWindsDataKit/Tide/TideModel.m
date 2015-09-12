@@ -43,11 +43,13 @@
 }
 
 - (BOOL) fetchTideData {
-    if ([self.tides count] == 0) {
-        // If theres no data yet, load the Wunderground Data and parse it asynchronously
-        return [self parseTideData];
-    } else {
-        return YES;
+    @synchronized(self) {
+        if ([self.tides count] == 0) {
+            // If theres no data yet, load the Wunderground Data and parse it asynchronously
+            return [self parseTideData];
+        } else {
+            return YES;
+        }
     }
 }
 

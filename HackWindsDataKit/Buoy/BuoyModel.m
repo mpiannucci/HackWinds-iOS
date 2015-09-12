@@ -144,10 +144,12 @@
 }
 
 - (BOOL) fetchBuoyData {
-    if (currentContainer.buoyData.count == 0) {
-        return [self parseBuoyData];
-    } else {
-        return YES;
+    @synchronized(self) {
+        if (currentContainer.buoyData.count == 0) {
+            return [self parseBuoyData];
+        } else {
+            return YES;
+        }
     }
 }
 

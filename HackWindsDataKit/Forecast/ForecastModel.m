@@ -122,17 +122,19 @@
 }
 
 - (BOOL) fetchForecastData {
-    if (rawData.count == 0) {
-        // Theres no data yet so load form the url
-        [self loadRawData];
-    }
+    @synchronized(self) {
+        if (rawData.count == 0) {
+            // Theres no data yet so load form the url
+            [self loadRawData];
+        }
     
-    if ([currentContainer.conditions count] == 0) {
-        // There are no conditions so parse them out
-        return [self parseForecasts];
-    }
+        if ([currentContainer.conditions count] == 0) {
+            // There are no conditions so parse them out
+            return [self parseForecasts];
+        }
     
-    return YES;
+        return YES;
+    }
 }
 
 - (NSArray *) getConditionsForIndex:(int)index {

@@ -45,54 +45,55 @@
 }
 
 - (BOOL) fetchCameraURLs {
-    
-    if (!forceReload) {
-        return true;
-    }
-    
-    NSData *cameraResponse = [NSData dataWithContentsOfURL:HACKWINDS_API_URL];
-    NSError *error;
-    NSDictionary *settingsData = [NSJSONSerialization
-               JSONObjectWithData:cameraResponse
-               options:kNilOptions
-               error:&error];
-    
-    if (settingsData == nil) {
-        return false;
-    }
-
-    NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
-    NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-    
-    for (NSString* locationName in cameraDict) {
-        tempDict[locationName] = [[NSMutableDictionary alloc] init];
-        
-        for (NSString *cameraName in [cameraDict objectForKey:locationName]) {
-            
-            NSDictionary *thisCameraDict = [[cameraDict objectForKey:locationName] objectForKey:cameraName];
-            Camera *thisCamera = [[Camera alloc] init];
-            
-            if ([cameraName isEqualToString:@"Point Judith"]) {
-                thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
-            } else {
-                thisCamera.VideoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
-            }
-            
-            // For now, the image is common
-            thisCamera.ImageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
-            [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
-            [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
-            
-            tempDict[locationName][cameraName] = thisCamera;
+    @synchronized(self) {
+        if (!forceReload) {
+            return true;
         }
+    
+        NSData *cameraResponse = [NSData dataWithContentsOfURL:HACKWINDS_API_URL];
+        NSError *error;
+        NSDictionary *settingsData = [NSJSONSerialization
+                                      JSONObjectWithData:cameraResponse
+                                      options:kNilOptions
+                                      error:&error];
+    
+        if (settingsData == nil) {
+            return false;
+        }
+
+        NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
+        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+    
+        for (NSString* locationName in cameraDict) {
+            tempDict[locationName] = [[NSMutableDictionary alloc] init];
+        
+            for (NSString *cameraName in [cameraDict objectForKey:locationName]) {
+            
+                NSDictionary *thisCameraDict = [[cameraDict objectForKey:locationName] objectForKey:cameraName];
+                Camera *thisCamera = [[Camera alloc] init];
+            
+                if ([cameraName isEqualToString:@"Point Judith"]) {
+                    thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
+                } else {
+                    thisCamera.VideoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
+                }
+            
+                // For now, the image is common
+                thisCamera.ImageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
+                [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
+                [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
+            
+                tempDict[locationName][cameraName] = thisCamera;
+            }
+        }
+    
+        self.cameraURLS = tempDict;
+    
+        // Save the camera urls to defaults and set the reload state
+        forceReload = NO;
+    
+        return YES;
     }
-    
-    self.cameraURLS = tempDict;
-    
-    // Save the camera urls to defaults and set the reload state
-    forceReload = NO;
-    
-    return YES;
 }
 
 - (BOOL) forceFetchCameraURLs {
