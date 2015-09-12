@@ -10,8 +10,11 @@
 
 @interface WaveWatchChartViewController : UIViewController
 
-- (IBAction)chartPlayButtonClicked:(id)sender;
-- (IBAction)chartPauseButtonClicked:(id)sender;
-- (IBAction)closeButtonClicked:(id)sender;
+- (void) imageLoadSuccess:(id)sender;
+- (void) sendChartImageAnimationLoadForIndex:(int)index;
+
+- (IBAction) chartPlayButtonClicked:(id)sender;
+- (IBAction) chartPauseButtonClicked:(id)sender;
+- (IBAction) closeButtonClicked:(id)sender;
 
 @end

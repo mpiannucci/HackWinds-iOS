@@ -50,11 +50,13 @@
     // Get the forecast model instance
     self.forecastModel = [ForecastModel sharedModel];
     
-    // Initializew the aniimation image array
+    // Initialize the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     // Hide the play button
     [self.chartAnimationPlayButton setHidden:YES];
     
@@ -70,6 +72,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:self];
     [self.chartImageView stopAnimating];
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
