@@ -402,10 +402,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-Wf-tDM">
-                                <rect key="frame" x="0.0" y="64" width="320" height="269"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="269"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-23-ESW">
+                                <rect key="frame" x="0.0" y="108" width="320" height="269"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chartPauseButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="71P-hF-JFs"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx1-c1-gYu">
-                                <rect key="frame" x="0.0" y="64" width="320" height="269"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="269"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="t2h-aN-fLi"/>
                                 </constraints>
@@ -416,35 +425,43 @@
                                     <action selector="chartPlayButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="x50-b2-sHX"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
-                                <rect key="frame" x="0.0" y="331" width="320" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="2.7755575615628914e-17" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
+                                <rect key="frame" x="0.0" y="375" width="320" height="2"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-23-ESW">
-                                <rect key="frame" x="0.0" y="64" width="320" height="269"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-c3-Mcy">
+                                <rect key="frame" x="16" y="72" width="288" height="29"/>
+                                <segments>
+                                    <segment title="Waves"/>
+                                    <segment title="Swell"/>
+                                    <segment title="Period"/>
+                                    <segment title="Wind"/>
+                                </segments>
+                                <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
-                                    <action selector="chartPauseButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="71P-hF-JFs"/>
+                                    <action selector="chartTypeValueChanged:" destination="QUC-am-BN2" eventType="valueChanged" id="2sM-oK-1W8"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tu9-P0-5rJ" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="-2" id="3FV-Hb-1gI"/>
-                            <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leadingMargin" constant="-16" id="3z2-Oh-vsR"/>
+                            <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leading" id="3z2-Oh-vsR"/>
                             <constraint firstItem="tu9-P0-5rJ" firstAttribute="trailing" secondItem="VRX-Wf-tDM" secondAttribute="trailing" id="5uE-Ru-vRr"/>
-                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" id="B5v-jL-dq0"/>
-                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="235" id="Gkk-5r-HVR"/>
-                            <constraint firstItem="Dx1-c1-gYu" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" id="LwL-NB-tDm"/>
-                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leadingMargin" constant="-16" id="MtW-RD-fgk"/>
+                            <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="z5S-c3-Mcy" secondAttribute="bottom" constant="8" id="6kx-K8-6KS"/>
+                            <constraint firstItem="z5S-c3-Mcy" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leadingMargin" id="9gU-93-3Re"/>
+                            <constraint firstItem="z5S-c3-Mcy" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" constant="8" id="AGy-Me-RSp"/>
+                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" constant="44" id="B5v-jL-dq0"/>
+                            <constraint firstItem="z5S-c3-Mcy" firstAttribute="trailing" secondItem="beW-Wa-Cbd" secondAttribute="trailingMargin" id="G5d-Tb-5zU"/>
+                            <constraint firstItem="Dx1-c1-gYu" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" constant="44" id="LwL-NB-tDm"/>
+                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leading" id="MtW-RD-fgk"/>
+                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="191" id="PZJ-UA-Vhf"/>
+                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="bottom" constant="191" id="Pw7-Pp-bwJ"/>
                             <constraint firstItem="tu9-P0-5rJ" firstAttribute="leading" secondItem="Dx1-c1-gYu" secondAttribute="leading" id="SAP-Qb-UtL"/>
-                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="bottom" constant="235" id="XZv-eS-Mr6"/>
-                            <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" id="YED-o7-adn"/>
-                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="bottom" constant="235" id="b20-I0-S6z"/>
+                            <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" constant="44" id="VNQ-qi-jaT"/>
+                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="bottom" constant="191" id="lcy-Q0-cMp"/>
                             <constraint firstAttribute="centerX" secondItem="tu9-P0-5rJ" secondAttribute="centerX" id="nBB-dM-2qe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WG0-23-ESW" secondAttribute="trailing" constant="-16" id="pdi-BT-Ea3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VRX-Wf-tDM" secondAttribute="trailing" constant="-16" id="xU0-ZB-Eae"/>
+                            <constraint firstAttribute="trailing" secondItem="WG0-23-ESW" secondAttribute="trailing" id="pdi-BT-Ea3"/>
+                            <constraint firstItem="tu9-P0-5rJ" firstAttribute="bottom" secondItem="VRX-Wf-tDM" secondAttribute="bottom" id="tNY-UX-iLT"/>
+                            <constraint firstAttribute="trailing" secondItem="VRX-Wf-tDM" secondAttribute="trailing" id="xU0-ZB-Eae"/>
                             <constraint firstAttribute="centerX" secondItem="Dx1-c1-gYu" secondAttribute="centerX" id="zqp-pV-SBN"/>
                         </constraints>
                     </view>
@@ -461,6 +478,7 @@
                         <outlet property="chartPauseButton" destination="WG0-23-ESW" id="xtM-dL-CNV"/>
                         <outlet property="chartPlayButton" destination="Dx1-c1-gYu" id="RUw-Qc-Ab2"/>
                         <outlet property="chartProgressBar" destination="tu9-P0-5rJ" id="jRE-70-QIo"/>
+                        <outlet property="chartTypeSegmentControl" destination="z5S-c3-Mcy" id="Oyj-nb-cnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm2-4V-8IO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -35,7 +35,7 @@
 
 @implementation DetailedForecastViewController {
     NSArray *currentConditions;
-    Boolean needsReload[3];
+    BOOL needsReload[3];
 }
 
 - (void)viewDidLoad {
