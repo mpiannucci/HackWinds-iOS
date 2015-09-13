@@ -23,6 +23,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *chartPauseButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *chartProgressBar;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *chartTypeSegmentControl;
+@property (weak, nonatomic) IBOutlet UISwitch *manualControlSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *nextChartImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *previousChartImageButton;
+@property (weak, nonatomic) IBOutlet UITextField *currentDisplayedHourEdit;
 
 // View specifics
 @property (strong, nonatomic) NSMutableArray *animationImages;
@@ -70,8 +74,10 @@
         chartTimePrefix = FUTURE_HOUR_PREFIX;
     }
     
+    // Get the correct prefix so we can craft the correct url
     NSString *chartTypePrefix = [self getChartURLPrefixForType:chartType];
     
+    // Create the full url and send out the image load request
     NSURL *nextURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, chartTypePrefix, chartTimePrefix, index * 3]];
     [[AsyncImageLoader sharedLoader] loadImageWithURL:nextURL
                                                target:self
@@ -158,6 +164,18 @@
     // Reset the animation images and start lolading the new ones
     self.animationImages = [[NSMutableArray alloc] init];
     [self sendChartImageAnimationLoadForType:(int)[sender selectedSegmentIndex] forIndex:0];
+}
+
+- (IBAction)manualControlSwitchChanged:(id)sender {
+}
+
+- (IBAction)nextChartImageButtonClicked:(id)sender {
+}
+
+- (IBAction)previousChartImageButtonClicked:(id)sender {
+}
+
+- (IBAction)displayedHourEdited:(id)sender {
 }
 
 @end

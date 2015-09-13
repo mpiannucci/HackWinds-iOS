@@ -18,5 +18,10 @@
 - (IBAction) chartPauseButtonClicked:(id)sender;
 - (IBAction) closeButtonClicked:(id)sender;
 - (IBAction) chartTypeValueChanged:(id)sender;
+- (IBAction)manualControlSwitchChanged:(id)sender;
+- (IBAction)nextChartImageButtonClicked:(id)sender;
+- (IBAction)previousChartImageButtonClicked:(id)sender;
+- (IBAction)displayedHourEdited:(id)sender;
+
 
 @end
