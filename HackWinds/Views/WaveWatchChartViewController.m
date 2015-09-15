@@ -12,6 +12,10 @@
 #define WW_SWELL_HEIGHT_CHART 1
 #define WW_SWELL_PERIOD_CHART 2
 #define WW_WIND_CHART 3
+#define WW_HOUR_STEP 3
+#define WW_IMAGE_COUNT 56
+#define WW_MAX_HOUR 165
+#define WW_MIN_HOUR 0
 
 #import "WaveWatchChartViewController.h"
 #import "AsyncImageView.h"
@@ -28,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *previousChartImageButton;
 @property (weak, nonatomic) IBOutlet UITextField *currentDisplayedHourEdit;
 @property (weak, nonatomic) IBOutlet UISlider *animationSpeedSlider;
+@property (weak, nonatomic) IBOutlet UILabel *currentHourUnitLabel;
 
 // View specifics
 @property (strong, nonatomic) NSMutableArray *animationImages;
@@ -59,6 +64,7 @@
     [defaults synchronize];
     self.animationSpeedSlider.value = [[defaults objectForKey:@"ChartAnimationSpeed"] doubleValue];
     self.manualControlSwitch.on = [[defaults objectForKey:@"ManualChartControl"] boolValue];
+    [self manualControlSwitchChanged:self.manualControlSwitch];
     
     // Initialize the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
@@ -97,7 +103,7 @@
     NSString *chartTypePrefix = [self getChartURLPrefixForType:chartType];
     
     // Create the full url and send out the image load request
-    NSURL *nextURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, chartTypePrefix, chartTimePrefix, index * 3]];
+    NSURL *nextURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, chartTypePrefix, chartTimePrefix, index * WW_HOUR_STEP]];
     [[AsyncImageLoader sharedLoader] loadImageWithURL:nextURL
                                                target:self
                                                action:@selector(imageLoadSuccess:)];
@@ -115,10 +121,10 @@
     if ([self.animationImages count] < 2) {
         // If its the first image set it to the header as a holder
         [self.chartImageView setImage:sender];
-    } else if ([self.animationImages count] == 56) {
+    } else if ([self.animationImages count] == WW_IMAGE_COUNT) {
         // We have all of the images so animate!!!
         [self.chartImageView setAnimationImages:self.animationImages];
-        [self.chartImageView setAnimationDuration:(self.animationSpeedSlider.maximumValue - self.animationSpeedSlider.value) * 56];
+        [self.chartImageView setAnimationDuration:(self.animationSpeedSlider.maximumValue - self.animationSpeedSlider.value) * WW_IMAGE_COUNT];
         
         // Okay so this is really hacky... For some reasons the images are not loaded correctly on the first
         // pass through each of the views.
@@ -137,7 +143,7 @@
             [self.chartProgressBar setHidden:YES];
         }
     }
-    if (self.animationImages.count < 56) {
+    if (self.animationImages.count < WW_IMAGE_COUNT) {
         // If the animation array isnt full, get the next image on the stack
         [self sendChartImageAnimationLoadForType:(int)[self.chartTypeSegmentControl selectedSegmentIndex]
                                         forIndex:(int)self.animationImages.count];
@@ -201,30 +207,36 @@
     // Hide the play and pause buttons if necessary
     [self.chartPlayButton setHidden:[sender isOn]];
     [self.chartPauseButton setHidden:[sender isOn]];
+    
+    // Hide or show  the manual controls
+    [self.nextChartImageButton setHidden:![sender isOn]];
+    [self.previousChartImageButton setHidden:![sender isOn]];
+    [self.currentDisplayedHourEdit setHidden:![sender isOn]];
+    [self.currentHourUnitLabel setHidden:![sender isOn]];
 }
 
 - (IBAction)nextChartImageButtonClicked:(id)sender {
     int hour = [self.currentDisplayedHourEdit.text intValue];
-    if (hour == 165) {
+    if (hour == WW_MAX_HOUR) {
         return;
     }
     
     // Increase the hour count, display the correct image for the time
-    hour += 3;
+    hour += WW_HOUR_STEP;
     self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
-    self.chartImageView.image = [self.animationImages objectAtIndex:(hour/3)];
+    self.chartImageView.image = [self.animationImages objectAtIndex:hour/WW_HOUR_STEP];
 }
 
 - (IBAction)previousChartImageButtonClicked:(id)sender {
     int hour = [self.currentDisplayedHourEdit.text intValue];
-    if (hour == 0) {
+    if (hour == WW_MIN_HOUR) {
         return;
     }
     
     // Decrease the hour count, display the correct image for the time
-    hour -= 3;
+    hour -= WW_HOUR_STEP;
     self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
-    self.chartImageView.image = [self.animationImages objectAtIndex:(hour/3)];
+    self.chartImageView.image = [self.animationImages objectAtIndex:hour/WW_HOUR_STEP];
 }
 
 - (IBAction)animationSpeedSliderValueChanged:(id)sender {
@@ -242,7 +254,7 @@
     }
     
     // Set the new animation speed
-    self.chartImageView.animationDuration = (self.animationSpeedSlider.maximumValue - self.animationSpeedSlider.value) * 56;
+    self.chartImageView.animationDuration = (self.animationSpeedSlider.maximumValue - self.animationSpeedSlider.value) * WW_IMAGE_COUNT;
     
     // Restart the animation if they were animating when it changed
     if (wasAnimating) {
@@ -256,11 +268,17 @@
 - (IBAction)displayedHourEdited:(id)sender {
     // Round the hour to the nearest multiple of three to get a valid animating point
     double rawHour = [self.currentDisplayedHourEdit.text doubleValue];
-    int hour = ceil(rawHour / 3) * 3;
+    int hour = ceil(rawHour / WW_HOUR_STEP) * WW_HOUR_STEP;
+    
+    if (hour < WW_MIN_HOUR) {
+        hour = WW_MIN_HOUR;
+    } else if (hour >= WW_MAX_HOUR) {
+        hour = WW_MAX_HOUR;
+    }
     
     // Update the textedit and show the correct image
     self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
-    self.chartImageView.image = [self.animationImages objectAtIndex:(hour/3)];
+    self.chartImageView.image = [self.animationImages objectAtIndex:hour/WW_HOUR_STEP];
     
     [self animateTextField: sender up: NO];
 }
@@ -273,9 +291,9 @@
 {
     int movementDistance;
     if (self.view.frame.size.height < 660) {
-        movementDistance = 235;
+        movementDistance = 255;
     } else {
-        movementDistance = 135;
+        movementDistance = 155;
     }
     
     const float movementDuration = 0.3f; // tweak as needed
