@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WaveWatchChartViewController : UIViewController
+@interface WaveWatchChartViewController : UIViewController <UITextFieldDelegate>
 
 - (void) imageLoadSuccess:(id)sender;
 - (void) sendChartImageAnimationLoadForType:(int)chartType forIndex:(int)index;
@@ -22,6 +22,7 @@
 - (IBAction)nextChartImageButtonClicked:(id)sender;
 - (IBAction)previousChartImageButtonClicked:(id)sender;
 - (IBAction)displayedHourEdited:(id)sender;
+- (IBAction)displayedHourStartedEditing:(id)sender;
 
 
 @end

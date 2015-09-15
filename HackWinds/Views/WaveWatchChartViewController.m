@@ -31,6 +31,8 @@
 // View specifics
 @property (strong, nonatomic) NSMutableArray *animationImages;
 
+-(void) hourEditDoneClicked:(id)sender;
+
 @end
 
 @implementation WaveWatchChartViewController {
@@ -39,6 +41,17 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    // Set up the keyboard and the text edit for directly typing in an hour to go to
+    self.currentDisplayedHourEdit.delegate = self;
+    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    [keyboardDoneButtonView sizeToFit];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(hourEditDoneClicked:)];
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
+    self.currentDisplayedHourEdit.inputAccessoryView = keyboardDoneButtonView;
     
     // Initialize the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
@@ -175,7 +188,43 @@
 - (IBAction)previousChartImageButtonClicked:(id)sender {
 }
 
+#pragma mark - TextEdit
+
 - (IBAction)displayedHourEdited:(id)sender {
+    [self animateTextField: sender up: NO];
+}
+
+- (IBAction)displayedHourStartedEditing:(id)sender {
+    [self animateTextField: sender up: YES];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    int movementDistance;
+    if (self.view.frame.size.height < 660) {
+        movementDistance = 235;
+    } else {
+        movementDistance = 135;
+    }
+    
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+-(void) hourEditDoneClicked:(id)sender {
+    [self.view endEditing:YES];
 }
 
 @end

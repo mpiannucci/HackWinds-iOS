@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -377,7 +376,8 @@
         <!--Navigation Controller-->
         <scene sceneID="a5b-nL-wKX">
             <objects>
-                <navigationController id="ulq-Y0-oBi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ulq-Y0-oBi" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NKJ-qO-ZSm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -402,123 +402,153 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-Wf-tDM">
-                                <rect key="frame" x="0.0" y="108" width="320" height="269"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-23-ESW">
-                                <rect key="frame" x="0.0" y="108" width="320" height="269"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chartPauseButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="71P-hF-JFs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx1-c1-gYu">
-                                <rect key="frame" x="0.0" y="108" width="320" height="269"/>
-                                <state key="normal" image="PlayButton">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chartPlayButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="x50-b2-sHX"/>
-                                </connections>
-                            </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="2.7755575615628914e-17" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
-                                <rect key="frame" x="0.0" y="375" width="320" height="2"/>
-                            </progressView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-c3-Mcy">
-                                <rect key="frame" x="16" y="72" width="288" height="29"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veH-Nf-gsT">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-23-ESW">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="269"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chartPauseButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="71P-hF-JFs"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-Wf-tDM">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="269"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx1-c1-gYu">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="269"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="269" id="SDa-Fl-Oze"/>
+                                        </constraints>
+                                        <state key="normal" image="PlayButton">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chartPlayButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="x50-b2-sHX"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-c3-Mcy">
+                                        <rect key="frame" x="16" y="8" width="288" height="29"/>
+                                        <segments>
+                                            <segment title="Waves"/>
+                                            <segment title="Swell"/>
+                                            <segment title="Period"/>
+                                            <segment title="Wind"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="chartTypeValueChanged:" destination="QUC-am-BN2" eventType="valueChanged" id="2sM-oK-1W8"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jDy-ei-ue6">
+                                        <rect key="frame" x="247" y="398" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="manualControlSwitchChanged:" destination="QUC-am-BN2" eventType="valueChanged" id="xex-ow-Gej"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manual Control" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM7-c4-TJg">
+                                        <rect key="frame" x="16" y="403" width="231" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-Ri-D2b">
+                                        <rect key="frame" x="264" y="442" width="32" height="30"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="3xt-ri-ssR"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-Vb-TMQ">
+                                        <rect key="frame" x="112" y="442" width="97" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="displayedHourEdited:" destination="QUC-am-BN2" eventType="editingDidEnd" id="rLB-aa-1oX"/>
+                                            <action selector="displayedHourStartedEditing:" destination="QUC-am-BN2" eventType="editingDidBegin" id="vW6-P6-cHk"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqD-aH-lVY">
+                                        <rect key="frame" x="16" y="441" width="31" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="31" id="kgc-tQ-Hqm"/>
+                                        </constraints>
+                                        <state key="normal" title="Prev">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="previousChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="KfL-Kh-G9i"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-hF-GK6">
+                                        <rect key="frame" x="14" y="350" width="292" height="31"/>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzQ-rh-dNs">
+                                        <rect key="frame" x="16" y="321" width="288" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="qjc-DI-jmX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="2.7755575615628914e-17" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
+                                        <rect key="frame" x="0.0" y="311" width="320" height="2"/>
+                                    </progressView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="Mdc-74-WuL"/>
+                                    <constraint firstItem="jDy-ei-ue6" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="trailing" id="05N-8K-m7k"/>
+                                    <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="tu9-P0-5rJ" secondAttribute="bottom" constant="8" symbolic="YES" id="1Ie-8l-ygA"/>
+                                    <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="top" id="3jm-uE-nSO"/>
+                                    <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="top" id="81X-6c-c7r"/>
+                                    <constraint firstItem="bzQ-rh-dNs" firstAttribute="trailing" secondItem="u9B-hF-GK6" secondAttribute="trailing" id="9bt-f6-m5H"/>
+                                    <constraint firstItem="tu9-P0-5rJ" firstAttribute="centerX" secondItem="bzQ-rh-dNs" secondAttribute="centerX" id="Ae3-lo-7r8"/>
+                                    <constraint firstItem="z5S-c3-Mcy" firstAttribute="leading" secondItem="veH-Nf-gsT" secondAttribute="leading" constant="16" id="BVj-aN-L3d"/>
+                                    <constraint firstItem="cM7-c4-TJg" firstAttribute="leading" secondItem="u9B-hF-GK6" secondAttribute="leading" id="CY1-wB-8IP"/>
+                                    <constraint firstItem="bzQ-rh-dNs" firstAttribute="leading" secondItem="u9B-hF-GK6" secondAttribute="leading" id="K6S-8F-6H2"/>
+                                    <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="veH-Nf-gsT" secondAttribute="leading" id="KZC-tb-07z"/>
+                                    <constraint firstItem="tu9-P0-5rJ" firstAttribute="trailing" secondItem="WG0-23-ESW" secondAttribute="trailing" id="Kp3-1G-Dwe"/>
+                                    <constraint firstItem="u9B-hF-GK6" firstAttribute="top" secondItem="bzQ-rh-dNs" secondAttribute="bottom" constant="8" symbolic="YES" id="Lvt-RX-WZw"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="centerX" secondItem="u9B-hF-GK6" secondAttribute="centerX" id="NRk-vX-Y8q"/>
+                                    <constraint firstItem="Dx1-c1-gYu" firstAttribute="trailing" secondItem="VRX-Wf-tDM" secondAttribute="trailing" id="Quv-j9-8l5"/>
+                                    <constraint firstAttribute="trailing" secondItem="tu9-P0-5rJ" secondAttribute="trailing" id="R9R-9W-vXG"/>
+                                    <constraint firstItem="9n3-Ri-D2b" firstAttribute="top" secondItem="jDy-ei-ue6" secondAttribute="bottom" constant="13" id="Rtf-Hh-Lx3"/>
+                                    <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="tu9-P0-5rJ" secondAttribute="leading" id="So0-am-ViL"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="baseline" secondItem="cqD-aH-lVY" secondAttribute="baseline" id="T5J-BO-hjy"/>
+                                    <constraint firstItem="z5S-c3-Mcy" firstAttribute="trailing" secondItem="bzQ-rh-dNs" secondAttribute="trailing" id="TG9-3Q-CJ2"/>
+                                    <constraint firstItem="jDy-ei-ue6" firstAttribute="centerY" secondItem="cM7-c4-TJg" secondAttribute="centerY" id="UZC-Aq-6q9"/>
+                                    <constraint firstItem="Dx1-c1-gYu" firstAttribute="leading" secondItem="tu9-P0-5rJ" secondAttribute="leading" id="Ut9-GQ-Mp9"/>
+                                    <constraint firstItem="9n3-Ri-D2b" firstAttribute="trailing" secondItem="jDy-ei-ue6" secondAttribute="trailing" id="VDv-3l-x53"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="top" secondItem="9n3-Ri-D2b" secondAttribute="top" id="cn8-Ea-cQg"/>
+                                    <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="z5S-c3-Mcy" secondAttribute="bottom" constant="8" symbolic="YES" id="crS-Ky-98h"/>
+                                    <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="8" symbolic="YES" id="fiF-2M-st5"/>
+                                    <constraint firstItem="jDy-ei-ue6" firstAttribute="top" secondItem="u9B-hF-GK6" secondAttribute="bottom" constant="18" id="h8X-TG-zA3"/>
+                                    <constraint firstItem="tu9-P0-5rJ" firstAttribute="centerX" secondItem="veH-Nf-gsT" secondAttribute="centerX" id="kSX-iO-JBG"/>
+                                    <constraint firstItem="Dx1-c1-gYu" firstAttribute="trailing" secondItem="WG0-23-ESW" secondAttribute="trailing" id="kbt-gc-fzr"/>
+                                    <constraint firstItem="VRX-Wf-tDM" firstAttribute="leading" secondItem="WG0-23-ESW" secondAttribute="leading" id="liE-cY-6ks"/>
+                                    <constraint firstItem="z5S-c3-Mcy" firstAttribute="top" secondItem="veH-Nf-gsT" secondAttribute="topMargin" id="mgs-OV-Odu"/>
+                                    <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="bottom" constant="8" symbolic="YES" id="noa-h4-64G"/>
+                                    <constraint firstItem="bzQ-rh-dNs" firstAttribute="leading" secondItem="z5S-c3-Mcy" secondAttribute="leading" id="q3H-5n-8Xr"/>
+                                    <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="bottom" constant="8" symbolic="YES" id="qrg-uv-bWj"/>
+                                    <constraint firstAttribute="bottom" secondItem="h1e-Vb-TMQ" secondAttribute="bottom" constant="32" id="tq2-xw-SFL"/>
+                                    <constraint firstItem="cqD-aH-lVY" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="leading" id="tzW-AP-ldp"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="top" secondItem="cM7-c4-TJg" secondAttribute="bottom" constant="18" id="uZi-kc-woZ"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="leading" secondItem="cqD-aH-lVY" secondAttribute="trailing" constant="65" id="vWs-iJ-BgJ"/>
+                                    <constraint firstItem="9n3-Ri-D2b" firstAttribute="leading" secondItem="h1e-Vb-TMQ" secondAttribute="trailing" constant="55" id="xzi-VD-D84"/>
                                 </constraints>
-                                <segments>
-                                    <segment title="Waves"/>
-                                    <segment title="Swell"/>
-                                    <segment title="Period"/>
-                                    <segment title="Wind"/>
-                                </segments>
-                                <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <action selector="chartTypeValueChanged:" destination="QUC-am-BN2" eventType="valueChanged" id="2sM-oK-1W8"/>
-                                </connections>
-                            </segmentedControl>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jDy-ei-ue6">
-                                <rect key="frame" x="255" y="385" width="51" height="31"/>
-                                <connections>
-                                    <action selector="manualControlSwitchChanged:" destination="QUC-am-BN2" eventType="valueChanged" id="xex-ow-Gej"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manual Control" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM7-c4-TJg">
-                                <rect key="frame" x="16" y="390" width="231" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-Ri-D2b">
-                                <rect key="frame" x="258" y="424" width="32" height="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="3xt-ri-ssR"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-Vb-TMQ">
-                                <rect key="frame" x="112" y="424" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="displayedHourEdited:" destination="QUC-am-BN2" eventType="editingDidEnd" id="rLB-aa-1oX"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqD-aH-lVY">
-                                <rect key="frame" x="16" y="424" width="31" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="x4p-g1-dVN"/>
-                                </constraints>
-                                <state key="normal" title="Prev">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="previousChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="KfL-Kh-G9i"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="top" id="10o-fz-68y"/>
-                            <constraint firstItem="9n3-Ri-D2b" firstAttribute="top" secondItem="jDy-ei-ue6" secondAttribute="bottom" constant="8" symbolic="YES" id="1P6-wd-y6s"/>
-                            <constraint firstItem="tu9-P0-5rJ" firstAttribute="centerX" secondItem="h1e-Vb-TMQ" secondAttribute="centerX" id="4hk-EN-H1a"/>
-                            <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leading" id="4ma-h4-kzI"/>
-                            <constraint firstItem="jDy-ei-ue6" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="bottom" constant="8" symbolic="YES" id="5A7-5l-HpA"/>
-                            <constraint firstItem="Dx1-c1-gYu" firstAttribute="trailing" secondItem="WG0-23-ESW" secondAttribute="trailing" id="6Jh-b9-l3t"/>
-                            <constraint firstItem="jDy-ei-ue6" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="bottom" constant="8" symbolic="YES" id="7Ba-Y6-yR8"/>
-                            <constraint firstItem="9n3-Ri-D2b" firstAttribute="leading" secondItem="h1e-Vb-TMQ" secondAttribute="trailing" constant="49" id="9Y0-A2-Zjd"/>
-                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="trailing" secondItem="tu9-P0-5rJ" secondAttribute="trailing" id="9pW-Wq-k5D"/>
-                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="top" id="CCT-Ke-xgp"/>
-                            <constraint firstItem="h1e-Vb-TMQ" firstAttribute="leading" secondItem="cqD-aH-lVY" secondAttribute="trailing" constant="65" id="DHq-Ar-NR3"/>
-                            <constraint firstItem="jDy-ei-ue6" firstAttribute="centerY" secondItem="cM7-c4-TJg" secondAttribute="centerY" id="DwM-ly-cQ8"/>
-                            <constraint firstItem="cqD-aH-lVY" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="leading" id="EN8-5g-d65"/>
-                            <constraint firstItem="tu9-P0-5rJ" firstAttribute="leading" secondItem="VRX-Wf-tDM" secondAttribute="leading" id="EYV-lN-zZt"/>
-                            <constraint firstItem="WG0-23-ESW" firstAttribute="trailing" secondItem="tu9-P0-5rJ" secondAttribute="trailing" id="FEy-ko-1IV"/>
-                            <constraint firstItem="9n3-Ri-D2b" firstAttribute="baseline" secondItem="cqD-aH-lVY" secondAttribute="firstBaseline" id="G57-pH-PL8"/>
-                            <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="Dx1-c1-gYu" secondAttribute="leading" id="GWn-LE-fuE"/>
-                            <constraint firstItem="cM7-c4-TJg" firstAttribute="top" secondItem="tu9-P0-5rJ" secondAttribute="bottom" constant="13" id="Hnh-Ng-aRL"/>
-                            <constraint firstAttribute="trailing" secondItem="VRX-Wf-tDM" secondAttribute="trailing" id="IeE-hL-hrK"/>
-                            <constraint firstItem="VRX-Wf-tDM" firstAttribute="top" secondItem="z5S-c3-Mcy" secondAttribute="bottom" constant="8" symbolic="YES" id="Keh-Am-pUV"/>
-                            <constraint firstItem="jDy-ei-ue6" firstAttribute="trailing" secondItem="z5S-c3-Mcy" secondAttribute="trailing" id="LrE-vI-vcf"/>
-                            <constraint firstItem="cqD-aH-lVY" firstAttribute="baseline" secondItem="9n3-Ri-D2b" secondAttribute="firstBaseline" id="O0Z-q8-8Kz"/>
-                            <constraint firstItem="jDy-ei-ue6" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="8" symbolic="YES" id="RXe-UC-Cc7"/>
-                            <constraint firstItem="cM7-c4-TJg" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leadingMargin" id="TXV-ft-sXF"/>
-                            <constraint firstItem="mnD-jf-h7L" firstAttribute="top" secondItem="cqD-aH-lVY" secondAttribute="bottom" constant="114" id="Vnr-MF-WqP"/>
-                            <constraint firstItem="z5S-c3-Mcy" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="bottom" constant="8" symbolic="YES" id="axp-VT-M2t"/>
-                            <constraint firstItem="h1e-Vb-TMQ" firstAttribute="top" secondItem="cqD-aH-lVY" secondAttribute="top" id="gmp-tF-uRs"/>
-                            <constraint firstItem="Dx1-c1-gYu" firstAttribute="leading" secondItem="VRX-Wf-tDM" secondAttribute="leading" id="i4p-Zw-uMK"/>
-                            <constraint firstItem="jDy-ei-ue6" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="trailing" constant="8" symbolic="YES" id="iKR-u9-dpj"/>
-                            <constraint firstItem="z5S-c3-Mcy" firstAttribute="centerX" secondItem="tu9-P0-5rJ" secondAttribute="centerX" id="jWl-rV-Olf"/>
-                            <constraint firstItem="h1e-Vb-TMQ" firstAttribute="bottom" secondItem="9n3-Ri-D2b" secondAttribute="bottom" id="tlc-1v-mc1"/>
-                            <constraint firstItem="jDy-ei-ue6" firstAttribute="top" secondItem="tu9-P0-5rJ" secondAttribute="bottom" constant="8" symbolic="YES" id="vC7-OI-8c9"/>
-                            <constraint firstItem="z5S-c3-Mcy" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="leading" id="yAV-Lr-nuX"/>
+                            <constraint firstItem="veH-Nf-gsT" firstAttribute="bottom" secondItem="mnD-jf-h7L" secondAttribute="top" id="Rf5-KG-1fa"/>
+                            <constraint firstAttribute="trailing" secondItem="veH-Nf-gsT" secondAttribute="trailing" id="V0H-Zf-dtB"/>
+                            <constraint firstItem="veH-Nf-gsT" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leading" id="j49-49-gdw"/>
+                            <constraint firstItem="veH-Nf-gsT" firstAttribute="top" secondItem="hSd-nj-XeO" secondAttribute="top" id="qoU-cT-bV2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NOAA WaveWatch III" id="DGi-8I-vRL">
