@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextChartImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *previousChartImageButton;
 @property (weak, nonatomic) IBOutlet UITextField *currentDisplayedHourEdit;
+@property (weak, nonatomic) IBOutlet UISlider *animationSpeedSlider;
 
 // View specifics
 @property (strong, nonatomic) NSMutableArray *animationImages;
@@ -53,9 +54,14 @@
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
     self.currentDisplayedHourEdit.inputAccessoryView = keyboardDoneButtonView;
     
+    // Load the settings
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [defaults synchronize];
+    self.animationSpeedSlider.value = [[defaults objectForKey:@"ChartAnimationSpeed"] doubleValue];
+    self.manualControlSwitch.on = [[defaults objectForKey:@"ManualChartControl"] boolValue];
+    
     // Initialize the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
-    
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -112,7 +118,7 @@
     } else if ([self.animationImages count] == 56) {
         // We have all of the images so animate!!!
         [self.chartImageView setAnimationImages:self.animationImages];
-        [self.chartImageView setAnimationDuration:20];
+        [self.chartImageView setAnimationDuration:(self.animationSpeedSlider.maximumValue - self.animationSpeedSlider.value) * 56];
         
         // Okay so this is really hacky... For some reasons the images are not loaded correctly on the first
         // pass through each of the views.
@@ -120,9 +126,12 @@
             self.animationImages = [[NSMutableArray alloc] init];
             needsReload[self.chartTypeSegmentControl.selectedSegmentIndex] = NO;
         } else {
-            // Show the play button, Hide the stop Button
+            // Show the play button if manual control is off, Hide the stop button always
             [self.chartPauseButton setHidden:YES];
-            [self.chartPlayButton setHidden:NO];
+            [self.chartPlayButton setHidden:[self.manualControlSwitch isOn]];
+            
+            // Set the current hour to zero
+            [self.currentDisplayedHourEdit setText:@"0"];
             
             // Hide the progress bar becasue its loaded
             [self.chartProgressBar setHidden:YES];
@@ -180,17 +189,79 @@
 }
 
 - (IBAction)manualControlSwitchChanged:(id)sender {
+    if ([self.chartImageView isAnimating]) {
+        [self.chartImageView stopAnimating];
+    }
+    
+    // Save the state to the settings
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [defaults setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"ManualChartControl"];
+    [defaults synchronize];
+    
+    // Hide the play and pause buttons if necessary
+    [self.chartPlayButton setHidden:[sender isOn]];
+    [self.chartPauseButton setHidden:[sender isOn]];
 }
 
 - (IBAction)nextChartImageButtonClicked:(id)sender {
+    int hour = [self.currentDisplayedHourEdit.text intValue];
+    if (hour == 165) {
+        return;
+    }
+    
+    // Increase the hour count, display the correct image for the time
+    hour += 3;
+    self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
+    self.chartImageView.image = [self.animationImages objectAtIndex:(hour/3)];
 }
 
 - (IBAction)previousChartImageButtonClicked:(id)sender {
+    int hour = [self.currentDisplayedHourEdit.text intValue];
+    if (hour == 0) {
+        return;
+    }
+    
+    // Decrease the hour count, display the correct image for the time
+    hour -= 3;
+    self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
+    self.chartImageView.image = [self.animationImages objectAtIndex:(hour/3)];
+}
+
+- (IBAction)animationSpeedSliderValueChanged:(id)sender {
+    // Save the new value
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [defaults synchronize];
+    [defaults setObject:[NSNumber numberWithFloat:self.animationSpeedSlider.value] forKey:@"ChartAnimationSpeed"];
+    [defaults synchronize];
+    
+    // Stop the animation
+    BOOL wasAnimating = NO;
+    if ([self.chartImageView isAnimating]) {
+        [self.chartImageView stopAnimating];
+        wasAnimating = YES;
+    }
+    
+    // Set the new animation speed
+    self.chartImageView.animationDuration = (self.animationSpeedSlider.maximumValue - self.animationSpeedSlider.value) * 56;
+    
+    // Restart the animation if they were animating when it changed
+    if (wasAnimating) {
+        [self.chartImageView startAnimating];
+    }
+
 }
 
 #pragma mark - TextEdit
 
 - (IBAction)displayedHourEdited:(id)sender {
+    // Round the hour to the nearest multiple of three to get a valid animating point
+    double rawHour = [self.currentDisplayedHourEdit.text doubleValue];
+    int hour = ceil(rawHour / 3) * 3;
+    
+    // Update the textedit and show the correct image
+    self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
+    self.chartImageView.image = [self.animationImages objectAtIndex:(hour/3)];
+    
     [self animateTextField: sender up: NO];
 }
 

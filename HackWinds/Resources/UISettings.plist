@@ -12,5 +12,9 @@
 	<string>Block Island</string>
 	<key>NeedCameraLocationFetch</key>
 	<true/>
+	<key>ChartAnimationSpeed</key>
+	<real>1</real>
+	<key>ManualChartControl</key>
+	<false/>
 </dict>
 </plist>

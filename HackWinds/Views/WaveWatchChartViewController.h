@@ -23,6 +23,6 @@
 - (IBAction)previousChartImageButtonClicked:(id)sender;
 - (IBAction)displayedHourEdited:(id)sender;
 - (IBAction)displayedHourStartedEditing:(id)sender;
-
+- (IBAction)animationSpeedSliderValueChanged:(id)sender;
 
 @end

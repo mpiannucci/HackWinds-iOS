@@ -429,6 +429,9 @@
                                             <action selector="chartPlayButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="x50-b2-sHX"/>
                                         </connections>
                                     </button>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="2.7755575615628914e-17" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
+                                        <rect key="frame" x="0.0" y="311" width="320" height="2"/>
+                                    </progressView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-c3-Mcy">
                                         <rect key="frame" x="16" y="8" width="288" height="29"/>
                                         <segments>
@@ -463,8 +466,8 @@
                                             <action selector="nextChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="3xt-ri-ssR"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-Vb-TMQ">
-                                        <rect key="frame" x="112" y="442" width="97" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-Vb-TMQ">
+                                        <rect key="frame" x="100" y="442" width="63" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -485,8 +488,11 @@
                                             <action selector="previousChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="KfL-Kh-G9i"/>
                                         </connections>
                                     </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-hF-GK6">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.14999999999999999" maxValue="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-hF-GK6">
                                         <rect key="frame" x="14" y="350" width="292" height="31"/>
+                                        <connections>
+                                            <action selector="animationSpeedSliderValueChanged:" destination="QUC-am-BN2" eventType="valueChanged" id="j5V-70-pAr"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzQ-rh-dNs">
                                         <rect key="frame" x="16" y="321" width="288" height="21"/>
@@ -497,9 +503,12 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="2.7755575615628914e-17" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
-                                        <rect key="frame" x="0.0" y="311" width="320" height="2"/>
-                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCj-6s-G6h">
+                                        <rect key="frame" x="171" y="446" width="62" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jDy-ei-ue6" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="trailing" id="05N-8K-m7k"/>
@@ -514,7 +523,7 @@
                                     <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="veH-Nf-gsT" secondAttribute="leading" id="KZC-tb-07z"/>
                                     <constraint firstItem="tu9-P0-5rJ" firstAttribute="trailing" secondItem="WG0-23-ESW" secondAttribute="trailing" id="Kp3-1G-Dwe"/>
                                     <constraint firstItem="u9B-hF-GK6" firstAttribute="top" secondItem="bzQ-rh-dNs" secondAttribute="bottom" constant="8" symbolic="YES" id="Lvt-RX-WZw"/>
-                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="centerX" secondItem="u9B-hF-GK6" secondAttribute="centerX" id="NRk-vX-Y8q"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="centerX" secondItem="u9B-hF-GK6" secondAttribute="centerX" constant="-28.5" id="NRk-vX-Y8q"/>
                                     <constraint firstItem="Dx1-c1-gYu" firstAttribute="trailing" secondItem="VRX-Wf-tDM" secondAttribute="trailing" id="Quv-j9-8l5"/>
                                     <constraint firstAttribute="trailing" secondItem="tu9-P0-5rJ" secondAttribute="trailing" id="R9R-9W-vXG"/>
                                     <constraint firstItem="9n3-Ri-D2b" firstAttribute="top" secondItem="jDy-ei-ue6" secondAttribute="bottom" constant="13" id="Rtf-Hh-Lx3"/>
@@ -524,22 +533,26 @@
                                     <constraint firstItem="jDy-ei-ue6" firstAttribute="centerY" secondItem="cM7-c4-TJg" secondAttribute="centerY" id="UZC-Aq-6q9"/>
                                     <constraint firstItem="Dx1-c1-gYu" firstAttribute="leading" secondItem="tu9-P0-5rJ" secondAttribute="leading" id="Ut9-GQ-Mp9"/>
                                     <constraint firstItem="9n3-Ri-D2b" firstAttribute="trailing" secondItem="jDy-ei-ue6" secondAttribute="trailing" id="VDv-3l-x53"/>
+                                    <constraint firstAttribute="bottom" secondItem="PCj-6s-G6h" secondAttribute="bottom" constant="37" id="X9q-4u-fqV"/>
                                     <constraint firstItem="h1e-Vb-TMQ" firstAttribute="top" secondItem="9n3-Ri-D2b" secondAttribute="top" id="cn8-Ea-cQg"/>
                                     <constraint firstItem="WG0-23-ESW" firstAttribute="top" secondItem="z5S-c3-Mcy" secondAttribute="bottom" constant="8" symbolic="YES" id="crS-Ky-98h"/>
+                                    <constraint firstItem="PCj-6s-G6h" firstAttribute="leading" secondItem="h1e-Vb-TMQ" secondAttribute="trailing" constant="8" id="dgd-jW-PBL"/>
+                                    <constraint firstItem="PCj-6s-G6h" firstAttribute="top" secondItem="cM7-c4-TJg" secondAttribute="bottom" constant="22" id="fV7-Bq-mXr"/>
                                     <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="Dx1-c1-gYu" secondAttribute="bottom" constant="8" symbolic="YES" id="fiF-2M-st5"/>
                                     <constraint firstItem="jDy-ei-ue6" firstAttribute="top" secondItem="u9B-hF-GK6" secondAttribute="bottom" constant="18" id="h8X-TG-zA3"/>
                                     <constraint firstItem="tu9-P0-5rJ" firstAttribute="centerX" secondItem="veH-Nf-gsT" secondAttribute="centerX" id="kSX-iO-JBG"/>
                                     <constraint firstItem="Dx1-c1-gYu" firstAttribute="trailing" secondItem="WG0-23-ESW" secondAttribute="trailing" id="kbt-gc-fzr"/>
                                     <constraint firstItem="VRX-Wf-tDM" firstAttribute="leading" secondItem="WG0-23-ESW" secondAttribute="leading" id="liE-cY-6ks"/>
                                     <constraint firstItem="z5S-c3-Mcy" firstAttribute="top" secondItem="veH-Nf-gsT" secondAttribute="topMargin" id="mgs-OV-Odu"/>
+                                    <constraint firstItem="PCj-6s-G6h" firstAttribute="trailing" secondItem="cM7-c4-TJg" secondAttribute="trailing" constant="-14" id="mtA-Gv-bzB"/>
                                     <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="bottom" constant="8" symbolic="YES" id="noa-h4-64G"/>
                                     <constraint firstItem="bzQ-rh-dNs" firstAttribute="leading" secondItem="z5S-c3-Mcy" secondAttribute="leading" id="q3H-5n-8Xr"/>
                                     <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="bottom" constant="8" symbolic="YES" id="qrg-uv-bWj"/>
                                     <constraint firstAttribute="bottom" secondItem="h1e-Vb-TMQ" secondAttribute="bottom" constant="32" id="tq2-xw-SFL"/>
                                     <constraint firstItem="cqD-aH-lVY" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="leading" id="tzW-AP-ldp"/>
                                     <constraint firstItem="h1e-Vb-TMQ" firstAttribute="top" secondItem="cM7-c4-TJg" secondAttribute="bottom" constant="18" id="uZi-kc-woZ"/>
-                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="leading" secondItem="cqD-aH-lVY" secondAttribute="trailing" constant="65" id="vWs-iJ-BgJ"/>
-                                    <constraint firstItem="9n3-Ri-D2b" firstAttribute="leading" secondItem="h1e-Vb-TMQ" secondAttribute="trailing" constant="55" id="xzi-VD-D84"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="leading" secondItem="cqD-aH-lVY" secondAttribute="trailing" constant="53" id="vWs-iJ-BgJ"/>
+                                    <constraint firstItem="9n3-Ri-D2b" firstAttribute="leading" secondItem="h1e-Vb-TMQ" secondAttribute="trailing" constant="101" id="xzi-VD-D84"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -560,6 +573,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="animationSpeedSlider" destination="u9B-hF-GK6" id="XTM-Qi-QA9"/>
                         <outlet property="chartImageView" destination="VRX-Wf-tDM" id="gpi-Qb-eHn"/>
                         <outlet property="chartPauseButton" destination="WG0-23-ESW" id="xtM-dL-CNV"/>
                         <outlet property="chartPlayButton" destination="Dx1-c1-gYu" id="RUw-Qc-Ab2"/>
