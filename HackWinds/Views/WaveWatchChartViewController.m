@@ -293,7 +293,7 @@
     if (self.view.frame.size.height < 660) {
         movementDistance = 255;
     } else {
-        movementDistance = 155;
+        movementDistance = 195;
     }
     
     const float movementDuration = 0.3f; // tweak as needed
