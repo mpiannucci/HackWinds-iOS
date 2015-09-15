@@ -471,7 +471,10 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-Vb-TMQ">
-                                        <rect key="frame" x="111" y="463" width="44" height="30"/>
+                                        <rect key="frame" x="113" y="463" width="42" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="ees-aG-Fta"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -533,7 +536,7 @@
                                     <constraint firstItem="WG0-23-ESW" firstAttribute="leading" secondItem="veH-Nf-gsT" secondAttribute="leading" id="KZC-tb-07z"/>
                                     <constraint firstItem="tu9-P0-5rJ" firstAttribute="trailing" secondItem="WG0-23-ESW" secondAttribute="trailing" id="Kp3-1G-Dwe"/>
                                     <constraint firstItem="u9B-hF-GK6" firstAttribute="top" secondItem="bzQ-rh-dNs" secondAttribute="bottom" constant="8" symbolic="YES" id="Lvt-RX-WZw"/>
-                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="centerX" secondItem="u9B-hF-GK6" secondAttribute="centerX" constant="-27" id="NRk-vX-Y8q"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="centerX" secondItem="u9B-hF-GK6" secondAttribute="centerX" constant="-26" id="NRk-vX-Y8q"/>
                                     <constraint firstItem="Dx1-c1-gYu" firstAttribute="trailing" secondItem="VRX-Wf-tDM" secondAttribute="trailing" id="Quv-j9-8l5"/>
                                     <constraint firstAttribute="trailing" secondItem="tu9-P0-5rJ" secondAttribute="trailing" id="R9R-9W-vXG"/>
                                     <constraint firstItem="9n3-Ri-D2b" firstAttribute="top" secondItem="jDy-ei-ue6" secondAttribute="bottom" constant="12" id="Rtf-Hh-Lx3"/>
@@ -561,7 +564,7 @@
                                     <constraint firstAttribute="bottom" secondItem="h1e-Vb-TMQ" secondAttribute="bottom" constant="11" id="tq2-xw-SFL"/>
                                     <constraint firstItem="cqD-aH-lVY" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="leading" constant="39" id="tzW-AP-ldp"/>
                                     <constraint firstItem="h1e-Vb-TMQ" firstAttribute="top" secondItem="cM7-c4-TJg" secondAttribute="bottom" constant="20" id="uZi-kc-woZ"/>
-                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="leading" secondItem="cqD-aH-lVY" secondAttribute="trailing" constant="19" id="vWs-iJ-BgJ"/>
+                                    <constraint firstItem="h1e-Vb-TMQ" firstAttribute="leading" secondItem="cqD-aH-lVY" secondAttribute="trailing" constant="21" id="vWs-iJ-BgJ"/>
                                     <constraint firstItem="9n3-Ri-D2b" firstAttribute="leading" secondItem="h1e-Vb-TMQ" secondAttribute="trailing" constant="66" id="xzi-VD-D84"/>
                                 </constraints>
                             </scrollView>
