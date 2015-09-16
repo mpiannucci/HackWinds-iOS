@@ -122,7 +122,7 @@
 }
 
 // Sets the supported orientation based on whether or not the controller is full screen
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     if (_isFullScreen) {
         // Its full screen, so all rotation
