@@ -13,8 +13,8 @@
 #define WW_SWELL_PERIOD_CHART 2
 #define WW_WIND_CHART 3
 #define WW_HOUR_STEP 3
-#define WW_IMAGE_COUNT 56
-#define WW_MAX_HOUR 165
+#define WW_IMAGE_COUNT 61
+#define WW_MAX_HOUR 180
 #define WW_MIN_HOUR 0
 
 #import "WaveWatchChartViewController.h"
