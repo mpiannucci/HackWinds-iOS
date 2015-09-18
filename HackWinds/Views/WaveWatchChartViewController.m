@@ -37,6 +37,7 @@
 // View specifics
 @property (strong, nonatomic) NSMutableArray *animationImages;
 
+-(void) incrementChartStep:(int)hourStep;
 -(void) hourEditDoneClicked:(id)sender;
 
 @end
@@ -215,28 +216,41 @@
     [self.currentHourUnitLabel setHidden:![sender isOn]];
 }
 
-- (IBAction)nextChartImageButtonClicked:(id)sender {
+- (void)incrementChartStep:(int)hourStep {
     int hour = [self.currentDisplayedHourEdit.text intValue];
-    if (hour == WW_MAX_HOUR) {
+    if ((hour == WW_MAX_HOUR) && (hourStep > 0)) {
+        return;
+    } else if ((hour == WW_MIN_HOUR) && (hourStep < 0)) {
         return;
     }
     
     // Increase the hour count, display the correct image for the time
-    hour += WW_HOUR_STEP;
+    hour += hourStep;
+    
+    if (hour > WW_MAX_HOUR) {
+        hour = WW_MAX_HOUR;
+    } else if (hour < WW_MIN_HOUR) {
+        hour = WW_MIN_HOUR;
+    }
+    
     self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
     self.chartImageView.image = [self.animationImages objectAtIndex:hour/WW_HOUR_STEP];
 }
 
+- (IBAction)nextChartImageButtonClicked:(id)sender {
+    [self incrementChartStep:WW_HOUR_STEP];
+}
+
+- (IBAction)nextDayChartImageButtonClicked:(id)sender {
+    [self incrementChartStep:WW_HOUR_STEP * 8];
+}
+
 - (IBAction)previousChartImageButtonClicked:(id)sender {
-    int hour = [self.currentDisplayedHourEdit.text intValue];
-    if (hour == WW_MIN_HOUR) {
-        return;
-    }
-    
-    // Decrease the hour count, display the correct image for the time
-    hour -= WW_HOUR_STEP;
-    self.currentDisplayedHourEdit.text = [NSString stringWithFormat:@"%d", hour];
-    self.chartImageView.image = [self.animationImages objectAtIndex:hour/WW_HOUR_STEP];
+    [self incrementChartStep:-WW_HOUR_STEP];
+}
+
+- (IBAction)previousDayChartImageButtonClicked:(id)sender {
+    [self incrementChartStep:-WW_HOUR_STEP * 8];
 }
 
 - (IBAction)animationSpeedSliderValueChanged:(id)sender {

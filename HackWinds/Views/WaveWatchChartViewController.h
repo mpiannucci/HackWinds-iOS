@@ -18,11 +18,13 @@
 - (IBAction) chartPauseButtonClicked:(id)sender;
 - (IBAction) closeButtonClicked:(id)sender;
 - (IBAction) chartTypeValueChanged:(id)sender;
-- (IBAction)manualControlSwitchChanged:(id)sender;
-- (IBAction)nextChartImageButtonClicked:(id)sender;
-- (IBAction)previousChartImageButtonClicked:(id)sender;
-- (IBAction)displayedHourEdited:(id)sender;
-- (IBAction)displayedHourStartedEditing:(id)sender;
-- (IBAction)animationSpeedSliderValueChanged:(id)sender;
+- (IBAction) manualControlSwitchChanged:(id)sender;
+- (IBAction) nextChartImageButtonClicked:(id)sender;
+- (IBAction) nextDayChartImageButtonClicked:(id)sender;
+- (IBAction) previousChartImageButtonClicked:(id)sender;
+- (IBAction) previousDayChartImageButtonClicked:(id)sender;
+- (IBAction) displayedHourEdited:(id)sender;
+- (IBAction) displayedHourStartedEditing:(id)sender;
+- (IBAction) animationSpeedSliderValueChanged:(id)sender;
 
 @end
