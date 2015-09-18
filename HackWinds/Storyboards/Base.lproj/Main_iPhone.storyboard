@@ -433,7 +433,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veH-Nf-gsT">
-                                <rect key="frame" x="0.0" y="-29" width="320" height="597"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-23-ESW">
                                         <rect key="frame" x="0.0" y="44" width="320" height="310"/>
@@ -465,6 +465,7 @@
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="2.7755575615628914e-17" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P0-5rJ">
                                         <rect key="frame" x="0.0" y="352" width="320" height="2"/>
                                         <animations/>
+                                        <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                     </progressView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-c3-Mcy">
                                         <rect key="frame" x="16" y="8" width="288" height="29"/>
@@ -547,7 +548,7 @@
                                             <action selector="previousChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="QaD-mD-OPz"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-Vb-TMQ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-Vb-TMQ">
                                         <rect key="frame" x="111" y="500" width="103" height="30"/>
                                         <animations/>
                                         <constraints>
@@ -555,7 +556,7 @@
                                             <constraint firstAttribute="height" constant="30" id="DNi-EY-dTW"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="displayedHourEdited:" destination="QUC-am-BN2" eventType="editingDidEnd" id="rLB-aa-1oX"/>
@@ -575,11 +576,11 @@
                                             <action selector="nextDayChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="FS7-kS-CXM"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCj-6s-G6h">
-                                        <rect key="frame" x="170" y="505" width="39" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCj-6s-G6h">
+                                        <rect key="frame" x="170" y="500" width="39" height="30"/>
                                         <animations/>
                                         <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -589,9 +590,9 @@
                                     <constraint firstItem="tu9-P0-5rJ" firstAttribute="centerX" secondItem="bzQ-rh-dNs" secondAttribute="centerX" id="0Hk-GO-FDs"/>
                                     <constraint firstItem="u9B-hF-GK6" firstAttribute="leading" secondItem="cM7-c4-TJg" secondAttribute="leading" id="0ft-8Z-Xq9"/>
                                     <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="WG0-23-ESW" secondAttribute="bottom" constant="8" symbolic="YES" id="25m-KF-bQ6"/>
-                                    <constraint firstItem="PCj-6s-G6h" firstAttribute="top" secondItem="h1e-Vb-TMQ" secondAttribute="bottom" constant="-25" id="31N-fe-KB7"/>
+                                    <constraint firstItem="PCj-6s-G6h" firstAttribute="top" secondItem="h1e-Vb-TMQ" secondAttribute="bottom" constant="-30" id="31N-fe-KB7"/>
                                     <constraint firstItem="bzQ-rh-dNs" firstAttribute="trailing" secondItem="z5S-c3-Mcy" secondAttribute="trailing" id="3ra-JN-Mdk"/>
-                                    <constraint firstAttribute="bottom" secondItem="cqD-aH-lVY" secondAttribute="bottom" id="6BO-V9-v8Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="cqD-aH-lVY" secondAttribute="bottom" constant="35" id="6BO-V9-v8Y"/>
                                     <constraint firstItem="PCj-6s-G6h" firstAttribute="leading" secondItem="h1e-Vb-TMQ" secondAttribute="trailing" constant="-44" id="6h8-jZ-wxj"/>
                                     <constraint firstItem="z5S-c3-Mcy" firstAttribute="centerX" secondItem="veH-Nf-gsT" secondAttribute="centerX" id="6wc-oO-DhK"/>
                                     <constraint firstItem="bzQ-rh-dNs" firstAttribute="top" secondItem="VRX-Wf-tDM" secondAttribute="bottom" constant="8" symbolic="YES" id="7gM-7e-Jgn"/>
@@ -638,7 +639,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="veH-Nf-gsT" firstAttribute="top" secondItem="beW-Wa-Cbd" secondAttribute="topMargin" constant="-29" id="1yz-PU-Hm0"/>
+                            <constraint firstItem="veH-Nf-gsT" firstAttribute="top" secondItem="beW-Wa-Cbd" secondAttribute="top" id="1yz-PU-Hm0"/>
                             <constraint firstAttribute="trailing" secondItem="veH-Nf-gsT" secondAttribute="trailing" id="E3O-YN-ZH4"/>
                             <constraint firstItem="veH-Nf-gsT" firstAttribute="bottom" secondItem="mnD-jf-h7L" secondAttribute="top" id="GBp-wY-9JS"/>
                             <constraint firstItem="veH-Nf-gsT" firstAttribute="leading" secondItem="beW-Wa-Cbd" secondAttribute="leading" id="eQy-y8-fqM"/>
@@ -662,8 +663,10 @@
                         <outlet property="currentDisplayedHourEdit" destination="h1e-Vb-TMQ" id="bZT-vY-TQl"/>
                         <outlet property="currentHourUnitLabel" destination="PCj-6s-G6h" id="aTz-1I-vmb"/>
                         <outlet property="manualControlSwitch" destination="jDy-ei-ue6" id="apT-Yu-oxc"/>
-                        <outlet property="nextChartImageButton" destination="9n3-Ri-D2b" id="PWg-xn-CHk"/>
-                        <outlet property="previousChartImageButton" destination="cqD-aH-lVY" id="Quz-vH-Sjk"/>
+                        <outlet property="nextChartImageButton" destination="2Do-1A-0y6" id="7U7-7L-mpS"/>
+                        <outlet property="nextDayChartImageButton" destination="9n3-Ri-D2b" id="MhY-Xw-PIq"/>
+                        <outlet property="previousChartImageButton" destination="OIZ-vo-R2U" id="wSD-zT-2o5"/>
+                        <outlet property="previousDayChartImageButton" destination="cqD-aH-lVY" id="KaU-nU-fhL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm2-4V-8IO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -28,11 +28,13 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *chartProgressBar;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *chartTypeSegmentControl;
 @property (weak, nonatomic) IBOutlet UISwitch *manualControlSwitch;
-@property (weak, nonatomic) IBOutlet UIButton *nextChartImageButton;
-@property (weak, nonatomic) IBOutlet UIButton *previousChartImageButton;
 @property (weak, nonatomic) IBOutlet UITextField *currentDisplayedHourEdit;
 @property (weak, nonatomic) IBOutlet UISlider *animationSpeedSlider;
 @property (weak, nonatomic) IBOutlet UILabel *currentHourUnitLabel;
+@property (weak, nonatomic) IBOutlet UIButton *previousDayChartImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *previousChartImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextDayChartImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextChartImageButton;
 
 // View specifics
 @property (strong, nonatomic) NSMutableArray *animationImages;
@@ -210,10 +212,12 @@
     [self.chartPauseButton setHidden:[sender isOn]];
     
     // Hide or show  the manual controls
-    [self.nextChartImageButton setHidden:![sender isOn]];
-    [self.previousChartImageButton setHidden:![sender isOn]];
     [self.currentDisplayedHourEdit setHidden:![sender isOn]];
     [self.currentHourUnitLabel setHidden:![sender isOn]];
+    [self.nextDayChartImageButton setHidden:![sender isOn]];
+    [self.nextChartImageButton setHidden:![sender isOn]];
+    [self.previousDayChartImageButton setHidden:![sender isOn]];
+    [self.previousChartImageButton setHidden:![sender isOn]];
 }
 
 - (void)incrementChartStep:(int)hourStep {
@@ -305,9 +309,9 @@
 {
     int movementDistance;
     if (self.view.frame.size.height < 660) {
-        movementDistance = 255;
+        movementDistance = 230;
     } else {
-        movementDistance = 195;
+        movementDistance = 190;
     }
     
     const float movementDuration = 0.3f; // tweak as needed
