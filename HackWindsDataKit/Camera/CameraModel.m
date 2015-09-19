@@ -57,7 +57,7 @@
                                       options:kNilOptions
                                       error:&error];
     
-        if (settingsData == nil) {
+        if ((settingsData == nil) || (error != nil)) {
             return false;
         }
 
@@ -76,6 +76,10 @@
                     thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
                 } else {
                     thisCamera.VideoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
+                }
+                
+                if (thisCamera == nil) {
+                    continue;
                 }
             
                 // For now, the image is common
@@ -104,11 +108,16 @@
 - (Camera *) fetchPointJudithURLs:(NSString *)locationURL {
     NSURL *pointJudithURL = [NSURL URLWithString:locationURL];
     NSData *pointJudithResponse = [NSData dataWithContentsOfURL:pointJudithURL];
-    NSError *error;
+    NSError *error = nil;
     NSDictionary *pointJudithData = [NSJSONSerialization
                                     JSONObjectWithData:pointJudithResponse
                                     options:kNilOptions
                                     error:&error];
+    if (error != nil) {
+        // Nothing was read so give a null pointer back
+        return nil;
+    }
+    
     NSDictionary *pointJudithStreamData = [[[pointJudithData objectForKey:@"streamInfo"] objectForKey:@"stream"] objectAtIndex:0];
     
     Camera *thisCamera = [[Camera alloc] init];
