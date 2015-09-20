@@ -520,6 +520,7 @@
                                             <constraint firstAttribute="width" constant="36" id="2Iq-5q-EEG"/>
                                         </constraints>
                                         <state key="normal" image="ic_chevron_right_36pt"/>
+                                        <state key="highlighted" image="ic_chevron_right_white_36pt"/>
                                         <connections>
                                             <action selector="nextChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="NM5-YH-ybZ"/>
                                         </connections>
@@ -530,8 +531,14 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="uTk-yD-qY2"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                        <size key="titleShadowOffset" width="20" height="20"/>
                                         <state key="normal" image="ic_fast_rewind_36pt">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="ic_fast_rewind_36pt" backgroundImage="BuoyIcon"/>
+                                        <state key="highlighted" image="ic_fast_rewind_white_36pt">
+                                            <color key="titleShadowColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="previousDayChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="aUk-ur-MvQ"/>
@@ -544,6 +551,7 @@
                                             <constraint firstAttribute="width" constant="36" id="OfX-8y-ob7"/>
                                         </constraints>
                                         <state key="normal" image="ic_chevron_left_36pt"/>
+                                        <state key="highlighted" image="ic_chevron_left_white_36pt"/>
                                         <connections>
                                             <action selector="previousChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="QaD-mD-OPz"/>
                                         </connections>
@@ -572,6 +580,7 @@
                                         <state key="normal" image="ic_fast_forward_36pt">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="highlighted" image="ic_fast_forward_white_36pt"/>
                                         <connections>
                                             <action selector="nextDayChartImageButtonClicked:" destination="QUC-am-BN2" eventType="touchUpInside" id="FS7-kS-CXM"/>
                                         </connections>
@@ -1824,11 +1833,15 @@
         <image name="TideIcon" width="30" height="30"/>
         <image name="ic_camera_enhance_white" width="24" height="24"/>
         <image name="ic_chevron_left_36pt" width="36" height="36"/>
+        <image name="ic_chevron_left_white_36pt" width="36" height="36"/>
         <image name="ic_chevron_right_36pt" width="36" height="36"/>
+        <image name="ic_chevron_right_white_36pt" width="36" height="36"/>
         <image name="ic_clear_white" width="24" height="24"/>
         <image name="ic_done_white" width="24" height="24"/>
         <image name="ic_fast_forward_36pt" width="36" height="36"/>
+        <image name="ic_fast_forward_white_36pt" width="36" height="36"/>
         <image name="ic_fast_rewind_36pt" width="36" height="36"/>
+        <image name="ic_fast_rewind_white_36pt" width="36" height="36"/>
         <image name="ic_settings_white" width="24" height="24"/>
         <image name="ic_track_changes_white" width="24" height="24"/>
         <image name="ic_trending_up_white" width="24" height="24"/>
