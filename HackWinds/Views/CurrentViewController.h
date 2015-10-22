@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
-@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIScrollViewDelegate>
 
 - (void) updateDataFromModel;
+- (void) loadCameraPages;
+- (void) loadCameraPageForIndex:(int)index;
+- (void) removePageForIndex:(int)index;
 - (void) locationButtonClicked:(id)sender;
 - (void) getForecastSettings;
 

@@ -104,7 +104,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-N0-h95">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-N0-h95">
                                 <rect key="frame" x="0.0" y="64" width="320" height="193"/>
                                 <animations/>
                             </scrollView>
@@ -149,6 +149,8 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="camPaginator" destination="PUe-na-VOd" id="OkN-eY-Z0H"/>
+                        <outlet property="camScrollView" destination="sjN-N0-h95" id="zrh-6H-uQO"/>
                         <outlet property="dayHeader" destination="1rm-Eb-nhm" id="OOE-OZ-GBX"/>
                         <outlet property="mswTodayTable" destination="yMn-rE-WTZ" id="AV1-8L-jxc"/>
                     </connections>
@@ -1538,7 +1540,7 @@
         <scene sceneID="GfZ-n8-Cv3">
             <objects>
                 <navigationController title="LiveNav" automaticallyAdjustsScrollViewInsets="NO" id="8bO-FM-kiq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Live" image="LiveIcon" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Now" image="LiveIcon" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wTv-2z-bK8">

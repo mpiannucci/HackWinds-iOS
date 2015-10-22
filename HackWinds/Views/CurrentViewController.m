@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 #define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define CAMERA_IMAGE_COUNT 12
 
 #import <MediaPlayer/MediaPlayer.h>
 #import "CurrentViewController.h"
@@ -16,6 +17,8 @@
 @interface CurrentViewController ()
 
 // UI properties
+@property (weak, nonatomic) IBOutlet UIScrollView *camScrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *camPaginator;
 @property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
@@ -28,6 +31,7 @@
 
 @implementation CurrentViewController {
     NSArray *currentConditions;
+    AsyncImageView *currentCameraPages[CAMERA_IMAGE_COUNT];
     Camera *wwCamera;
 }
 
@@ -46,6 +50,10 @@
     // Set up the camera model
     CameraModel *cameraModel = [CameraModel sharedModel];
     wwCamera = [[cameraModel.cameraURLS objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
+    
+    // Set up the imageview scrolling
+    self.camScrollView.contentSize = CGSizeMake(self.camScrollView.frame.size.width * CAMERA_IMAGE_COUNT, self.camScrollView.frame.size.height);
+    self.camScrollView.delegate = self;
     
     // Load the imageview
     [self.holderImageButton setImageURL:wwCamera.ImageURL];
@@ -75,6 +83,7 @@
     
     if (networkStatus != NotReachable) {
         [self updateDataFromModel];
+            [self loadCameraPages];
     }
 }
 
@@ -107,6 +116,69 @@
     });
 }
 
+- (void) loadCameraPages {
+    // Set the page number
+    double pageWidth = self.camScrollView.frame.size.width;
+    int pageNumber = (int) floor((self.camScrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0));
+    self.camPaginator.currentPage = pageNumber;
+    
+    // Get the pages that we need to add to the queue
+    int firstPage = pageNumber - 1;
+    int lastPage = pageNumber + 1;
+    
+    // Remove existing pages before the first page
+    for (int index = 0; index < firstPage; index++) {
+        [self removePageForIndex:index];
+    }
+    
+    // Load all of the pages
+    for (int index = firstPage; index <= lastPage; index++) {
+        [self loadCameraPageForIndex:index];
+    }
+    
+    // Remove anything after the last page
+    for (int index = lastPage + 1; index < CAMERA_IMAGE_COUNT; index++) {
+        [self removePageForIndex:index];
+    }
+}
+
+- (void) loadCameraPageForIndex:(int)index {
+    if ((index < 0) || (index >= CAMERA_IMAGE_COUNT)) {
+        return;
+    }
+    
+    AsyncImageView *pageView = currentCameraPages[index];
+    if (pageView != nil) {
+        pageView = currentCameraPages[index];
+    } else {
+        CGRect frame = self.camScrollView.bounds;
+        frame.origin.x = frame.size.width * index;
+        frame.origin.y = 0.0;
+        //frame = CGRectInset(frame, 10.0, 0.0);
+        
+        pageView = [[AsyncImageView alloc] init];
+        pageView.contentMode = UIViewContentModeScaleAspectFit;
+        pageView.frame = frame;
+        pageView.imageURL = wwCamera.ImageURL;
+        
+        [self.camScrollView addSubview:pageView];
+        currentCameraPages[index] = pageView;
+    }
+    
+}
+
+- (void) removePageForIndex:(int)index {
+    if ((index < 0) || (index >= CAMERA_IMAGE_COUNT)) {
+        return;
+    }
+    
+    AsyncImageView *pageView = currentCameraPages[index];
+    if (pageView != nil) {
+        [pageView removeFromSuperview];
+        currentCameraPages[index] = nil;
+    }
+}
+
 - (void) locationButtonClicked:(id)sender {
     UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Forecast Location"
                                                                      delegate:self
@@ -126,6 +198,12 @@
     // Grab the last set or default location
     NSString *forecastLocation = [defaults objectForKey:@"ForecastLocation"];
     [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", forecastLocation]];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+-(void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self loadCameraPages];
 }
 
 #pragma mark - ActionSheet
