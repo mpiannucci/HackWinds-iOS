@@ -83,8 +83,11 @@
     
     if (networkStatus != NotReachable) {
         [self updateDataFromModel];
-            [self loadCameraPages];
     }
+}
+
+- (void)viewDidLayoutSubviews {
+    [self loadCameraPages];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -151,14 +154,13 @@
     if (pageView != nil) {
         pageView = currentCameraPages[index];
     } else {
-        CGRect frame = self.camScrollView.bounds;
+        CGRect frame = self.camScrollView.frame;
         frame.origin.x = frame.size.width * index;
         frame.origin.y = 0.0;
-        //frame = CGRectInset(frame, 10.0, 0.0);
         
         pageView = [[AsyncImageView alloc] init];
-        pageView.contentMode = UIViewContentModeScaleAspectFit;
         pageView.frame = frame;
+        pageView.contentMode = UIViewContentModeScaleToFill;
         pageView.imageURL = wwCamera.ImageURL;
         
         [self.camScrollView addSubview:pageView];
