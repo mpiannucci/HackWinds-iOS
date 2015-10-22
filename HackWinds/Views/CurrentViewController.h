@@ -11,8 +11,6 @@
 
 @interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
-- (IBAction)playButton:(id)sender;
-- (void) streamPlayBackDidFinish:(NSNotification*)notification;
 - (void) updateDataFromModel;
 - (void) locationButtonClicked:(id)sender;
 - (void) getForecastSettings;

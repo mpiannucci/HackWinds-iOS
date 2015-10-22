@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -26,7 +26,6 @@
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="2BL-CY-DuK"/>
                                     <constraint firstAttribute="height" constant="190" id="QTa-SU-Biv"/>
                                 </constraints>
                             </imageView>
@@ -39,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qix-Ye-HBT" id="5fr-TB-aLA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JA1-4v-THV">
@@ -105,20 +104,6 @@
                                     <outlet property="delegate" destination="CZ4-MO-1fc" id="Shf-WP-aF5"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDO-91-P06">
-                                <rect key="frame" x="0.0" y="65" width="320" height="190"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="8mh-Cr-EKs"/>
-                                    <constraint firstAttribute="height" priority="750" constant="190" id="GOx-QR-NyJ"/>
-                                </constraints>
-                                <state key="normal" image="PlayButton">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playButton:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="lJZ-r7-xVs"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rm-Eb-nhm">
                                 <rect key="frame" x="8" y="279" width="286" height="30"/>
                                 <animations/>
@@ -132,22 +117,16 @@
                         <constraints>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="2I9-KE-LiY"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="bottom" secondItem="dtj-EO-iXF" secondAttribute="top" constant="1" id="2Sp-u4-O8U"/>
-                            <constraint firstItem="yDO-91-P06" firstAttribute="top" secondItem="Yy3-HW-pDb" secondAttribute="top" id="4Js-eX-CHP"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="top" secondItem="1rm-Eb-nhm" secondAttribute="bottom" constant="7" id="8wS-pw-HJa"/>
-                            <constraint firstAttribute="centerX" secondItem="yDO-91-P06" secondAttribute="centerX" id="93x-wU-MYG"/>
+                            <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="Yy3-HW-pDb" secondAttribute="bottom" constant="24" id="BwN-na-Csv"/>
                             <constraint firstAttribute="centerX" secondItem="Yy3-HW-pDb" secondAttribute="centerX" id="F4l-eP-SOc"/>
                             <constraint firstAttribute="trailing" secondItem="yMn-rE-WTZ" secondAttribute="trailing" id="GqO-WI-k5I"/>
-                            <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="yDO-91-P06" secondAttribute="bottom" constant="24" id="IZm-8K-Sm4"/>
-                            <constraint firstItem="yDO-91-P06" firstAttribute="trailing" secondItem="Yy3-HW-pDb" secondAttribute="trailing" id="JOo-nK-9XE"/>
-                            <constraint firstItem="yDO-91-P06" firstAttribute="bottom" secondItem="Yy3-HW-pDb" secondAttribute="bottom" id="NXX-Mf-ftQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1rm-Eb-nhm" secondAttribute="trailing" constant="10" id="Otg-GI-pkE"/>
                             <constraint firstItem="Yy3-HW-pDb" firstAttribute="top" secondItem="s9W-kb-ARv" secondAttribute="bottom" constant="1" id="dH3-9n-Uyh"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="centerX" secondItem="Yy3-HW-pDb" secondAttribute="centerX" id="g5y-Tl-O37"/>
-                            <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="ho2-Ja-XZ6"/>
-                            <constraint firstAttribute="trailing" secondItem="yDO-91-P06" secondAttribute="trailing" id="irD-W7-LlD"/>
-                            <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="Yy3-HW-pDb" secondAttribute="leading" id="nfI-xe-egP"/>
+                            <constraint firstItem="Yy3-HW-pDb" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="s2S-UA-8Ny"/>
                             <constraint firstItem="1rm-Eb-nhm" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="8" id="tMX-7u-gmE"/>
-                            <constraint firstItem="yDO-91-P06" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="ytA-lV-0pK"/>
+                            <constraint firstAttribute="trailing" secondItem="Yy3-HW-pDb" secondAttribute="trailing" id="wZq-Sr-ne2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U">

@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
-@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 // Model Properties
@@ -85,11 +84,6 @@
                                                     name:FORECAST_DATA_UPDATED_TAG
                                                   object:nil];
     
-    // If the user is swithcing views then clean up the videoview
-    if (!self.streamPlayer.fullscreen) {
-        [self streamPlayBackDidFinish:nil];
-    }
-    
     [super viewWillDisappear:animated];
 }
 
@@ -97,45 +91,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)playButton:(id)sender {
-    // Handle play button click
-    NSLog(@"Video play button pressed");
-    
-    // Get the screen size
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    
-    // Create a new MoviePlayer with the Live Stream URL
-    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:wwCamera.VideoURL];
-    [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
-    [self.view addSubview:self.streamPlayer.view];
-    
-    // Set a listener for the video playback finishing
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                        selector:@selector(streamPlayBackDidFinish:)
-                                        name:MPMoviePlayerPlaybackDidFinishNotification
-                                        object:self.streamPlayer];
-    
-    // Load the stream and play it
-    [self.streamPlayer prepareToPlay];
-    [self.streamPlayer play];
-    
-    // Hide the async holder image
-    [self.holderImageButton setHidden:YES];
-}
-
-- (void) streamPlayBackDidFinish:(NSNotification*)notification {
-    // Remove the notification for the player
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                        name:MPMoviePlayerPlaybackDidFinishNotification
-                                        object:self.streamPlayer];
-    // Show the holder image again
-    [self.holderImageButton setHidden:NO];
-    
-    // Remove the player from the superview
-    [self.streamPlayer.view removeFromSuperview];
 }
 
 - (void) updateDataFromModel {
