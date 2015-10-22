@@ -10,7 +10,7 @@
         <!--Live-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
-                <viewController title="Live" id="CZ4-MO-1fc" customClass="CurrentViewController" sceneMemberID="viewController">
+                <viewController title="Live" automaticallyAdjustsScrollViewInsets="NO" id="CZ4-MO-1fc" customClass="CurrentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s9W-kb-ARv"/>
                         <viewControllerLayoutGuide type="bottom" id="dtj-EO-iXF"/>
@@ -19,20 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="liveHolder" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-HW-pDb" customClass="AsyncImageView">
-                                <rect key="frame" x="0.0" y="65" width="320" height="190"/>
-                                <animations/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="QTa-SU-Biv"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yMn-rE-WTZ">
                                 <rect key="frame" x="0.0" y="316" width="320" height="204"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="204" id="ODA-Po-FDY"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mswHourItem" id="Qix-Ye-HBT">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -105,28 +98,39 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rm-Eb-nhm">
-                                <rect key="frame" x="8" y="279" width="286" height="30"/>
+                                <rect key="frame" x="8" y="279" width="290" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-N0-h95">
+                                <rect key="frame" x="0.0" y="64" width="320" height="193"/>
+                                <animations/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="12" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-na-VOd">
+                                <rect key="frame" x="0.0" y="251" width="320" height="37"/>
+                                <animations/>
+                                <color key="pageIndicatorTintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </pageControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="2I9-KE-LiY"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="bottom" secondItem="dtj-EO-iXF" secondAttribute="top" constant="1" id="2Sp-u4-O8U"/>
+                            <constraint firstItem="sjN-N0-h95" firstAttribute="top" secondItem="s9W-kb-ARv" secondAttribute="bottom" id="541-NX-Tpl"/>
                             <constraint firstItem="yMn-rE-WTZ" firstAttribute="top" secondItem="1rm-Eb-nhm" secondAttribute="bottom" constant="7" id="8wS-pw-HJa"/>
-                            <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="Yy3-HW-pDb" secondAttribute="bottom" constant="24" id="BwN-na-Csv"/>
-                            <constraint firstAttribute="centerX" secondItem="Yy3-HW-pDb" secondAttribute="centerX" id="F4l-eP-SOc"/>
+                            <constraint firstItem="yMn-rE-WTZ" firstAttribute="centerX" secondItem="2VE-Yg-loa" secondAttribute="centerX" id="8wa-tT-7bK"/>
                             <constraint firstAttribute="trailing" secondItem="yMn-rE-WTZ" secondAttribute="trailing" id="GqO-WI-k5I"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1rm-Eb-nhm" secondAttribute="trailing" constant="10" id="Otg-GI-pkE"/>
-                            <constraint firstItem="Yy3-HW-pDb" firstAttribute="top" secondItem="s9W-kb-ARv" secondAttribute="bottom" constant="1" id="dH3-9n-Uyh"/>
-                            <constraint firstItem="yMn-rE-WTZ" firstAttribute="centerX" secondItem="Yy3-HW-pDb" secondAttribute="centerX" id="g5y-Tl-O37"/>
-                            <constraint firstItem="Yy3-HW-pDb" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="s2S-UA-8Ny"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1rm-Eb-nhm" secondAttribute="trailing" constant="6" id="Otg-GI-pkE"/>
+                            <constraint firstItem="yMn-rE-WTZ" firstAttribute="top" secondItem="PUe-na-VOd" secondAttribute="bottom" constant="28" id="SbQ-tl-lfq"/>
+                            <constraint firstItem="PUe-na-VOd" firstAttribute="leading" secondItem="sjN-N0-h95" secondAttribute="leading" id="XZR-Ww-7Ud"/>
+                            <constraint firstAttribute="trailing" secondItem="sjN-N0-h95" secondAttribute="trailing" id="pvU-d4-vym"/>
+                            <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="sjN-N0-h95" secondAttribute="bottom" constant="22" id="rSG-CA-tmt"/>
                             <constraint firstItem="1rm-Eb-nhm" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="8" id="tMX-7u-gmE"/>
-                            <constraint firstAttribute="trailing" secondItem="Yy3-HW-pDb" secondAttribute="trailing" id="wZq-Sr-ne2"/>
+                            <constraint firstItem="PUe-na-VOd" firstAttribute="trailing" secondItem="sjN-N0-h95" secondAttribute="trailing" id="u9N-Ul-U1K"/>
+                            <constraint firstItem="sjN-N0-h95" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="woV-lh-hu2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HackWinds" id="rzD-rL-r6U">
@@ -146,7 +150,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="dayHeader" destination="1rm-Eb-nhm" id="OOE-OZ-GBX"/>
-                        <outlet property="holderImageButton" destination="Yy3-HW-pDb" id="IzP-48-wZL"/>
                         <outlet property="mswTodayTable" destination="yMn-rE-WTZ" id="AV1-8L-jxc"/>
                     </connections>
                 </viewController>
@@ -1826,6 +1829,6 @@
         <image name="ic_trending_up_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l1V-PH-Aev"/>
+        <segue reference="rYr-bo-HPU"/>
     </inferredMetricsTieBreakers>
 </document>
