@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 #define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define CAMERA_IMAGE_COUNT 12
+#define CAMERA_IMAGE_COUNT 8
 
 #import <MediaPlayer/MediaPlayer.h>
 #import "CurrentViewController.h"
@@ -19,7 +19,6 @@
 // UI properties
 @property (weak, nonatomic) IBOutlet UIScrollView *camScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *camPaginator;
-@property (weak, nonatomic) IBOutlet AsyncImageView *holderImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
@@ -52,11 +51,7 @@
     wwCamera = [[cameraModel.cameraURLS objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
     
     // Set up the imageview scrolling
-    self.camScrollView.contentSize = CGSizeMake(self.camScrollView.frame.size.width * CAMERA_IMAGE_COUNT, self.camScrollView.frame.size.height);
     self.camScrollView.delegate = self;
-    
-    // Load the imageview
-    [self.holderImageButton setImageURL:wwCamera.ImageURL];
     
     // Get the date and set the weekday text
     NSDate *now = [[NSDate alloc] init];
@@ -87,6 +82,7 @@
 }
 
 - (void)viewDidLayoutSubviews {
+    self.camScrollView.contentSize = CGSizeMake(self.camScrollView.frame.size.width * CAMERA_IMAGE_COUNT, self.camScrollView.frame.size.height);
     [self loadCameraPages];
 }
 
@@ -154,14 +150,18 @@
     if (pageView != nil) {
         pageView = currentCameraPages[index];
     } else {
-        CGRect frame = self.camScrollView.frame;
+        CGRect frame = self.camScrollView.bounds;
         frame.origin.x = frame.size.width * index;
         frame.origin.y = 0.0;
         
         pageView = [[AsyncImageView alloc] init];
         pageView.frame = frame;
-        pageView.contentMode = UIViewContentModeScaleToFill;
-        pageView.imageURL = wwCamera.ImageURL;
+        if (frame.size.width > 321) {
+            pageView.contentMode = UIViewContentModeScaleAspectFit;
+        } else {
+            pageView.contentMode = UIViewContentModeScaleToFill;
+        }
+        pageView.imageURL = [self getCameraURLForIndex:index];
         
         [self.camScrollView addSubview:pageView];
         currentCameraPages[index] = pageView;
@@ -179,6 +179,12 @@
         [pageView removeFromSuperview];
         currentCameraPages[index] = nil;
     }
+}
+
+- (NSURL*) getCameraURLForIndex:(int)index {
+    NSString *baseURL = [wwCamera.ImageURL absoluteString];
+    return [NSURL URLWithString:[baseURL stringByReplacingOccurrencesOfString:@"1.jpg"
+                                                                   withString:[NSString stringWithFormat:@"%d.jpg", index+1]]];
 }
 
 - (void) locationButtonClicked:(id)sender {

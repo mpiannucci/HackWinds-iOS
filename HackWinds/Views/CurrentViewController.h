@@ -14,6 +14,7 @@
 - (void) updateDataFromModel;
 - (void) loadCameraPages;
 - (void) loadCameraPageForIndex:(int)index;
+- (NSURL*) getCameraURLForIndex:(int)index;
 - (void) removePageForIndex:(int)index;
 - (void) locationButtonClicked:(id)sender;
 - (void) getForecastSettings;
