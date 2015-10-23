@@ -435,10 +435,16 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-Wf-tDM">
                                         <rect key="frame" x="0.0" y="44" width="320" height="310"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VRX-Wf-tDM" secondAttribute="height" multiplier="32:31" id="E7q-OI-C35"/>
+                                        </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx1-c1-gYu">
                                         <rect key="frame" x="0.0" y="44" width="320" height="310"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Dx1-c1-gYu" secondAttribute="height" multiplier="32:31" id="KuJ-lD-HBM"/>
+                                        </constraints>
                                         <state key="normal" image="PlayButton">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1033,10 +1039,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gsp-pe-eCM" customClass="AsyncImageView">
-                                        <rect key="frame" x="0.0" y="37" width="320" height="234"/>
+                                        <rect key="frame" x="0.0" y="37" width="320" height="200"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="234" id="dJj-j4-Q2L"/>
+                                            <constraint firstAttribute="width" secondItem="Gsp-pe-eCM" secondAttribute="height" multiplier="8:5" priority="750" id="QbL-i5-0bl"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -1046,7 +1052,7 @@
                                     <constraint firstItem="Gsp-pe-eCM" firstAttribute="centerX" secondItem="uPa-rK-ciE" secondAttribute="centerX" id="NWP-Yo-ASa"/>
                                     <constraint firstItem="Gsp-pe-eCM" firstAttribute="top" secondItem="Gss-tg-UcB" secondAttribute="bottom" constant="8" symbolic="YES" id="Qny-8T-aFr"/>
                                     <constraint firstItem="Gss-tg-UcB" firstAttribute="top" secondItem="uPa-rK-ciE" secondAttribute="top" constant="8" id="aen-gC-Y4h"/>
-                                    <constraint firstAttribute="bottom" secondItem="Gsp-pe-eCM" secondAttribute="bottom" constant="233" id="anF-fT-SX5"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gsp-pe-eCM" secondAttribute="bottom" constant="203" id="cRJ-Xk-HqG"/>
                                     <constraint firstItem="Gss-tg-UcB" firstAttribute="centerX" secondItem="Gsp-pe-eCM" secondAttribute="centerX" id="d6y-Yj-6Zo"/>
                                     <constraint firstItem="Gsp-pe-eCM" firstAttribute="leading" secondItem="uPa-rK-ciE" secondAttribute="leading" id="ttG-ec-lae"/>
                                     <constraint firstAttribute="trailing" secondItem="Gsp-pe-eCM" secondAttribute="trailing" id="xKp-Wu-WNd"/>
