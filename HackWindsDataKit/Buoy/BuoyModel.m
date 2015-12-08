@@ -177,12 +177,12 @@
     return spectraURL;
 }
 
-+ (Buoy*) getLatestBuoyDataOnly {
++ (Buoy*) getOnlyLatestBuoyDataForLocation:(NSString *)location {
     // Get the model instance
     BuoyModel *buoyModel = [[BuoyModel alloc] init];
     
     // For now we are going to force the location to be BI.
-    [buoyModel forceChangeLocation:BLOCK_ISLAND_LOCATION];
+    [buoyModel forceChangeLocation:location];
     
     NSArray *rawBuoyData = [buoyModel retrieveBuoyData:NO];
     if (rawBuoyData == nil) {

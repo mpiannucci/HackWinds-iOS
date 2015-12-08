@@ -37,7 +37,9 @@
 
 @end
 
-@implementation TodayViewController
+@implementation TodayViewController {
+    NSString *buoyLocation;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,8 +85,11 @@
     // Check to see if the buoy data should be updated
     if (self.nextBuoyUpdateTime != nil) {
         if ([self.nextBuoyUpdateTime compare:currentDate] == NSOrderedAscending) {
+            NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+            buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+            
             // Update!
-            Buoy *newBuoy = [BuoyModel getLatestBuoyDataOnly];
+            Buoy *newBuoy = [BuoyModel getOnlyLatestBuoyDataForLocation:buoyLocation];
             
             // If the buoy isnt actually updatede yet don't act like it is
             if ([newBuoy.Time isEqualToString:self.latestBuoy.Time]) {
@@ -95,7 +100,9 @@
             }
         }
     } else {
-        self.latestBuoy = [BuoyModel getLatestBuoyDataOnly];
+        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+        buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+        self.latestBuoy = [BuoyModel getOnlyLatestBuoyDataForLocation:buoyLocation];
         buoyUpdated = YES;
     }
     
@@ -153,7 +160,7 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setTimeStyle:NSDateFormatterShortStyle];
         NSString *dateString = [formatter stringFromDate:self.latestRefreshTime];
-        [self.lastUpdatedLabel setText:[NSString stringWithFormat:@"Block Island: Last updated at %@", dateString]];
+        [self.lastUpdatedLabel setText:[NSString stringWithFormat:@"%@: Last updated at %@", buoyLocation, dateString]];
     }
 }
 

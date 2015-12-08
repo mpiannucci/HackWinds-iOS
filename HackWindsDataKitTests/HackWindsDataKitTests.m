@@ -73,7 +73,7 @@
     XCTAssert([[self.buoyModel getBuoyData] count] == 20);
     
     // Try to get only the latest data point with the static method
-    XCTAssert([BuoyModel getLatestBuoyDataOnly] != nil);
+    XCTAssert([BuoyModel getOnlyLatestBuoyDataForLocation:@"Montauk"] != nil);
 }
 
 - (void) testTideModelFetch {

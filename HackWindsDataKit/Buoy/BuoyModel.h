@@ -33,7 +33,7 @@
 - (NSMutableArray*) getWaveHeightForMode:(NSString*)mode;
 - (NSURL*) getSpectraPlotURL;
 
-+ (Buoy*) getLatestBuoyDataOnly;
++ (Buoy*) getOnlyLatestBuoyDataForLocation:(NSString*)location;
 + (instancetype) sharedModel;
 
 @end
