@@ -18,6 +18,7 @@
 // Notification tags
 #define BUOY_DATA_UPDATED_TAG @"BuoyModelDidUpdateDataNotification"
 #define BUOY_LOCATION_CHANGED_TAG @"BuoyLocationChangedNotification"
+#define DEFAULT_BUOY_LOCATION_CHANGED_TAG @"DefaultBuoyLocationChangedNotification"
 
 #import <Foundation/Foundation.h>
 #import "Buoy.h"

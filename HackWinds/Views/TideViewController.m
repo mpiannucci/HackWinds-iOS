@@ -26,8 +26,7 @@
     NSString *buoyLocation;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -46,31 +45,24 @@
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
     
     if (networkStatus != NotReachable) {
-        dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
-            // Make sure the buoy location is set to block island
-            NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
-            [defaults synchronize];
-            NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
-            buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
-            
-            [self.buoyModel forceChangeLocation:buoyLocation];
-            
-            // Fetch the data and update the views
-            [self.tideModel fetchTideData];
-            [self.buoyModel fetchBuoyData];
-            [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
-            
-            // Set it back to the original location
-            [self.buoyModel forceChangeLocation:originalLocation];
-        });
+        [self reloadDataFromModel];
     }
 }
 
 - (void)viewDidLayoutSubviews {
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self reloadDataFromModel];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -135,6 +127,26 @@
     [currentWaterTempLabel setAttributedText:[self makeTideViewDataString:waterTempStatus]];
     
     [self.tableView reloadData];
+}
+
+- (void)reloadDataFromModel {
+    dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
+        // Make sure the buoy location is set to block island
+        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+        [defaults synchronize];
+        NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
+        buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+    
+        [self.buoyModel forceChangeLocation:buoyLocation];
+    
+        // Fetch the data and update the views
+        [self.tideModel fetchTideData];
+        [self.buoyModel fetchBuoyData];
+        [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
+    
+        // Set it back to the original location
+        [self.buoyModel forceChangeLocation:originalLocation];
+    });
 }
 
 - (NSMutableAttributedString*)makeTideViewDataString:(NSString*)rawString {

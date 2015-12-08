@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
 
 // Cached objects
+@property (strong, nonatomic) NSString *buoyLocation;
 @property (strong, nonatomic) Buoy *latestBuoy;
 @property (strong, nonatomic) Tide *latestTide;
 @property (strong, nonatomic) NSDate *latestRefreshTime;
@@ -37,9 +38,7 @@
 
 @end
 
-@implementation TodayViewController {
-    NSString *buoyLocation;
-}
+@implementation TodayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,14 +81,19 @@
     BOOL buoyUpdated = false;
     BOOL tideUpdated = false;
     
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSString *newLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+    if (![self.buoyLocation isEqualToString:newLocation]) {
+        self.buoyLocation = newLocation;
+        self.nextBuoyUpdateTime = nil;
+    }
+    
     // Check to see if the buoy data should be updated
     if (self.nextBuoyUpdateTime != nil) {
         if ([self.nextBuoyUpdateTime compare:currentDate] == NSOrderedAscending) {
-            NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
-            buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
             
             // Update!
-            Buoy *newBuoy = [BuoyModel getOnlyLatestBuoyDataForLocation:buoyLocation];
+            Buoy *newBuoy = [BuoyModel getOnlyLatestBuoyDataForLocation:self.buoyLocation];
             
             // If the buoy isnt actually updatede yet don't act like it is
             if ([newBuoy.Time isEqualToString:self.latestBuoy.Time]) {
@@ -100,9 +104,7 @@
             }
         }
     } else {
-        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
-        buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
-        self.latestBuoy = [BuoyModel getOnlyLatestBuoyDataForLocation:buoyLocation];
+        self.latestBuoy = [BuoyModel getOnlyLatestBuoyDataForLocation:self.buoyLocation];
         buoyUpdated = YES;
     }
     
@@ -160,7 +162,7 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setTimeStyle:NSDateFormatterShortStyle];
         NSString *dateString = [formatter stringFromDate:self.latestRefreshTime];
-        [self.lastUpdatedLabel setText:[NSString stringWithFormat:@"%@: Last updated at %@", buoyLocation, dateString]];
+        [self.lastUpdatedLabel setText:[NSString stringWithFormat:@"%@: Last updated at %@", self.buoyLocation, dateString]];
     }
 }
 
@@ -205,6 +207,7 @@
 
 -(void) cacheData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.buoyLocation] forKey:@"buoyLocation"];
     [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.latestBuoy] forKey:@"latestBuoy"];
     [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.latestTide] forKey:@"latestTide"];
     [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.latestRefreshTime] forKey:@"latestRefreshTime"];
@@ -215,6 +218,7 @@
 
 -(void) restoreData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.buoyLocation = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"buoyLocation"]];
     self.latestBuoy = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"latestBuoy"]];
     self.latestTide = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"latestTide"]];
     self.latestRefreshTime = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"latestRefreshTime"]];

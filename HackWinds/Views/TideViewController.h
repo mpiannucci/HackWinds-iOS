@@ -11,6 +11,6 @@
 @interface TideViewController : UITableViewController
 
 - (void)reloadView;
-
+- (void)reloadDataFromModel;
 
 @end

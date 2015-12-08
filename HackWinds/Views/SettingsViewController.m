@@ -113,7 +113,7 @@
             // Tell everyone the data has updated
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter]
-                 postNotificationName:@"ForecastLocationChanged"
+                 postNotificationName:FORECAST_LOCATION_CHANGED_TAG
                  object:self];
             });
             
@@ -125,12 +125,20 @@
         if (buttonIndex != [actionSheet numberOfButtons] - 1) {
             // If the user selects a location, set the settings key to the new location
             [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"DefaultBuoyLocation"];
+            [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"BuoyLocation"];
             [defaults synchronize];
             
-            // Tell everyone the data has updated
+            // Tell everyone the default buoy location has updated
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter]
-                 postNotificationName:@"DefaultBuoyLocationChanged"
+                 postNotificationName:DEFAULT_BUOY_LOCATION_CHANGED_TAG
+                 object:self];
+            });
+            
+            // Tell everyone the buoy location has updated
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:BUOY_LOCATION_CHANGED_TAG
                  object:self];
             });
             
