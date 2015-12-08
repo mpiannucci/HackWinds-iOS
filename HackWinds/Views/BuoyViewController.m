@@ -122,13 +122,13 @@
     NSNumber *maxWV = [currentWaveHeights valueForKeyPath:@"@max.doubleValue"];
     double max = round([maxWV doubleValue]+2);
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat(max)]];
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:0] length:[NSNumber numberWithFloat:max]]];
     
     // Set the axis ticks to fit labels without squishing them
     if (max > 8) {
-        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(2)];
+        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:[NSNumber numberWithInt:2]];
     } else {
-        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:CPTDecimalFromInt(1)];
+        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:[NSNumber numberWithInt:1]];
     }
 }
 
@@ -303,8 +303,8 @@
     self.graphHolder.hostedGraph = graph;
     [graph setTitle:@"Wave Height (ft)"];
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 2 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 10 ) length:CPTDecimalFromFloat( -10 )]];
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:0] length:[NSNumber numberWithInt:2]]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:10] length:[NSNumber numberWithInt:-10]]];
     
     // Set the plot
     plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
@@ -330,27 +330,27 @@
     
     // x axis configs
     CPTXYAxis *xAxis = [axisSet xAxis];
-    [xAxis setMajorIntervalLength:CPTDecimalFromInt(2)];
+    [xAxis setMajorIntervalLength:[NSNumber numberWithInt:2]];
     [xAxis setMinorTickLineStyle:nil];
     [xAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
     [xAxis setLabelTextStyle:textStyle];
     [xAxis setLabelFormatter:axisFormatter];
     [xAxis setTitle:@"Hours Ago"];
-    xAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(0.0);
+    xAxis.orthogonalPosition = [NSNumber numberWithDouble:0.0];
     
     // y axis configs
     CPTXYAxis *yAxis = [axisSet yAxis];
-    [yAxis setMajorIntervalLength:CPTDecimalFromInt(1)];
+    [yAxis setMajorIntervalLength:[NSNumber numberWithInt:1]];
     [yAxis setMinorTickLineStyle:nil];
     [yAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
     [yAxis setLabelTextStyle:textStyle];
     [yAxis setLabelFormatter:axisFormatter];
-    yAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(10.0);
+    yAxis.orthogonalPosition = [NSNumber numberWithDouble:10.0];
     
     // animate the graph (only once)
     [CPTAnimation animate:plotSpace
                  property:@"xRange"
-                   period:[CPTAnimationPeriod periodWithStartPlotRange:nil
+                   period:[CPTAnimationPeriod periodWithStartPlotRange:[CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:0] length:[NSNumber numberWithInt:0]]
                                                           endPlotRange:plotSpace.xRange
                                                               duration:1.25
                                                              withDelay:0]

@@ -22,7 +22,9 @@
 
 @end
 
-@implementation TideViewController
+@implementation TideViewController {
+    NSString *buoyLocation;
+}
 
 - (void)viewDidLoad
 {
@@ -49,7 +51,9 @@
             NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
             [defaults synchronize];
             NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
-            [self.buoyModel forceChangeLocation:BLOCK_ISLAND_LOCATION];
+            buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+            
+            [self.buoyModel forceChangeLocation:buoyLocation];
             
             // Fetch the data and update the views
             [self.tideModel fetchTideData];
@@ -127,7 +131,7 @@
     
     UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
     NSString* waterTemp = [[buoyData objectAtIndex:0] WaterTemperature];
-    NSString* waterTempStatus = [NSString stringWithFormat:@"Block Island: %@ %@F", waterTemp, @"\u00B0"];
+    NSString* waterTempStatus = [NSString stringWithFormat:@"%@: %@ %@F", buoyLocation, waterTemp, @"\u00B0"];
     [currentWaterTempLabel setAttributedText:[self makeTideViewDataString:waterTempStatus]];
     
     [self.tableView reloadData];

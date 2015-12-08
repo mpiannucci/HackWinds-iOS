@@ -5,13 +5,17 @@
 //  Created by Matthew Iannucci on 2/24/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
+#define FORECAST_TAG 1
+#define BUOY_TAG 2
 
 #import "SettingsViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
 @interface SettingsViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *changeForecastLocationButton;
 @property (weak, nonatomic) IBOutlet UILabel *forecastLocationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *defaultBuoyLocationLabel;
 
 @end
 
@@ -22,6 +26,9 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Have to do this cuz storyboards suck and wont display the text as written
+    [self.changeForecastLocationButton setTitle:@"Change Forecast Location" forState:UIControlStateNormal];
 
     [self loadSettings];
 }
@@ -36,8 +43,9 @@
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     [defaults synchronize];
     
-    // Get the location and set the cell to reflect it
+    // Get the locations and set the cell to reflect it
     [self.forecastLocationLabel setText:[defaults objectForKey:@"ForecastLocation"]];
+    [self.defaultBuoyLocationLabel setText:[defaults objectForKey:@"DefaultBuoyLocation"]];
 }
 
 - (IBAction)acceptSettingsClick:(id)sender {
@@ -52,6 +60,19 @@
                                                        destructiveButtonTitle:nil
                                                             otherButtonTitles:FORECAST_LOCATIONS];
     // Show the action sheet
+    locationActionSheet.tag = FORECAST_TAG;
+    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
+    [locationActionSheet showInView:self.view];
+}
+
+- (IBAction)changeDefaultBuoyLocationClicked:(id)sender {
+    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Default Buoy Location"
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"Cancel"
+                                                       destructiveButtonTitle:nil
+                                                            otherButtonTitles:BUOY_LOCATIONS];
+    // Show the action sheet
+    locationActionSheet.tag = BUOY_TAG;
     [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
     [locationActionSheet showInView:self.view];
 }
@@ -83,22 +104,44 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
     
-    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
-        // If the user selects a location, set the settings key to the new location
-        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
-        [defaults synchronize];
-        
-        // Tell everyone the data has updated
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"ForecastLocationChanged"
-             object:self];
-        });
-        
-        [self loadSettings];
+    if (actionSheet.tag == FORECAST_TAG) {
+        if (buttonIndex != [actionSheet numberOfButtons] - 1) {
+            // If the user selects a location, set the settings key to the new location
+            [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
+            [defaults synchronize];
+            
+            // Tell everyone the data has updated
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"ForecastLocationChanged"
+                 object:self];
+            });
+            
+            [self loadSettings];
+        } else {
+            NSLog(@"Forecast location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
+        }
+    } else if (actionSheet.tag == BUOY_TAG) {
+        if (buttonIndex != [actionSheet numberOfButtons] - 1) {
+            // If the user selects a location, set the settings key to the new location
+            [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"DefaultBuoyLocation"];
+            [defaults synchronize];
+            
+            // Tell everyone the data has updated
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"DefaultBuoyLocationChanged"
+                 object:self];
+            });
+            
+            [self loadSettings];
+        } else {
+            NSLog(@"Buoy location change cancelled, keep location at %@", [defaults objectForKey:@"DefaultBuoyLocation"]);
+        }
     } else {
-        NSLog(@"Forecast location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
+        NSLog(@"Invalid action sheet somehow");
     }
+    
 }
 
 @end

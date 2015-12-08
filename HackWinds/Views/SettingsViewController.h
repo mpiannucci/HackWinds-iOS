@@ -14,6 +14,7 @@
 
 - (IBAction)acceptSettingsClick:(id)sender;
 - (IBAction)changeForecastLocationClicked:(id)sender;
+- (IBAction)changeDefaultBuoyLocationClicked:(id)sender;
 - (IBAction)contactDevClicked:(id)sender;
 - (IBAction)showDisclaimerClicked:(id)sender;
 - (IBAction)rateAppClicked:(id)sender;
