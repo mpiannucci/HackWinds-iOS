@@ -22,6 +22,20 @@
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
+		349076271C24A7E500EAD0CE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349076251C24A7E500EAD0CE /* Interface.storyboard */; };
+		349076291C24A7E500EAD0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349076281C24A7E500EAD0CE /* Assets.xcassets */; };
+		349076301C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349076341C24A7E500EAD0CE /* InterfaceController.swift */; };
+		349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */; };
+		349076391C24A7E500EAD0CE /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349076381C24A7E500EAD0CE /* GlanceController.swift */; };
+		3490763B1C24A7E500EAD0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3490763A1C24A7E500EAD0CE /* Assets.xcassets */; };
+		3490763F1C24A7E500EAD0CE /* HackWindsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */; };
+		349076541C24AA4700EAD0CE /* HackWindsDataKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 349076531C24AA4700EAD0CE /* HackWindsDataKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3490765B1C24AA4700EAD0CE /* HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; };
+		349076601C24AA4700EAD0CE /* HackWindsDataKitOSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3490765F1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.m */; };
+		349076701C24AA8800EAD0CE /* HackWindsDataKitWatchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3490766F1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; };
+		349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyViewController.m */; };
 		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
@@ -74,6 +88,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		349076311C24A7E500EAD0CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3490762E1C24A7E500EAD0CE;
+			remoteInfo = "HackWindsWatchApp Extension";
+		};
+		3490763D1C24A7E500EAD0CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 349076221C24A7E500EAD0CE;
+			remoteInfo = HackWindsWatchApp;
+		};
+		3490765C1C24AA4700EAD0CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 349076501C24AA4700EAD0CE;
+			remoteInfo = HackWindsDataKitOSX;
+		};
+		349076721C24AA8800EAD0CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3490766C1C24AA8800EAD0CE;
+			remoteInfo = HackWindsDataKitWatchOS;
+		};
 		349679DF19E63C810043A21B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
@@ -119,6 +161,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		349076471C24A7E600EAD0CE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				349076301C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076491C24A7E600EAD0CE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3490763F1C24A7E500EAD0CE /* HackWindsWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076791C24AA8900EAD0CE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34C0AF5F1B7307E8001D2B04 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,6 +245,26 @@
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
+		349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		349076261C24A7E500EAD0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		349076281C24A7E500EAD0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3490762A1C24A7E500EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HackWindsWatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		349076341C24A7E500EAD0CE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		349076381C24A7E500EAD0CE /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		3490763A1C24A7E500EAD0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3490763C1C24A7E500EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3490764B1C24A89600EAD0CE /* HackWindsWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsWatchApp.entitlements; sourceTree = "<group>"; };
+		349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		349076531C24AA4700EAD0CE /* HackWindsDataKitOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HackWindsDataKitOSX.h; sourceTree = "<group>"; };
+		349076551C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3490765A1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsDataKitOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3490765F1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitOSXTests.m; sourceTree = "<group>"; };
+		349076611C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3490766F1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HackWindsDataKitWatchOS.h; sourceTree = "<group>"; };
+		349076711C24AA8800EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3495C95319E7773100C8F4D7 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
 		3495C95419E7773100C8F4D7 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
 		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
@@ -249,6 +344,36 @@
 				34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
 				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
 				349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3490762C1C24A7E500EAD0CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3490764D1C24AA4700EAD0CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076571C24AA4700EAD0CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3490765B1C24AA4700EAD0CE /* HackWindsDataKitOSX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076691C24AA8800EAD0CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,9 +472,14 @@
 			isa = PBXGroup;
 			children = (
 				3430838F19795D0F00655F15 /* HackWinds */,
+				34C0AF4F1B7307E8001D2B04 /* HackWindsTodayWidget */,
+				349076241C24A7E500EAD0CE /* HackWindsWatchApp */,
+				349076331C24A7E500EAD0CE /* HackWindsWatchApp Extension */,
 				34E1BA2A1B62D84700CDA01D /* HackWindsDataKit */,
 				34E1BA391B62D84700CDA01D /* HackWindsDataKitTests */,
-				34C0AF4F1B7307E8001D2B04 /* HackWindsTodayWidget */,
+				349076521C24AA4700EAD0CE /* HackWindsDataKitOSX */,
+				3490765E1C24AA4700EAD0CE /* HackWindsDataKitOSXTests */,
+				3490766E1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
 				3430838819795D0F00655F15 /* Frameworks */,
 				3430838719795D0F00655F15 /* Products */,
 				349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */,
@@ -363,6 +493,11 @@
 				34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */,
 				34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */,
 				34C0AF4C1B7307E8001D2B04 /* HackWindsTodayWidget.appex */,
+				349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */,
+				3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */,
+				349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */,
+				3490765A1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.xctest */,
+				3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -396,6 +531,56 @@
 			path = HackWinds;
 			sourceTree = "<group>";
 		};
+		349076241C24A7E500EAD0CE /* HackWindsWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				3490764B1C24A89600EAD0CE /* HackWindsWatchApp.entitlements */,
+				349076251C24A7E500EAD0CE /* Interface.storyboard */,
+				349076281C24A7E500EAD0CE /* Assets.xcassets */,
+				3490762A1C24A7E500EAD0CE /* Info.plist */,
+			);
+			path = HackWindsWatchApp;
+			sourceTree = "<group>";
+		};
+		349076331C24A7E500EAD0CE /* HackWindsWatchApp Extension */ = {
+			isa = PBXGroup;
+			children = (
+				349076341C24A7E500EAD0CE /* InterfaceController.swift */,
+				349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */,
+				349076381C24A7E500EAD0CE /* GlanceController.swift */,
+				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
+				3490763C1C24A7E500EAD0CE /* Info.plist */,
+			);
+			path = "HackWindsWatchApp Extension";
+			sourceTree = "<group>";
+		};
+		349076521C24AA4700EAD0CE /* HackWindsDataKitOSX */ = {
+			isa = PBXGroup;
+			children = (
+				349076531C24AA4700EAD0CE /* HackWindsDataKitOSX.h */,
+				349076551C24AA4700EAD0CE /* Info.plist */,
+			);
+			path = HackWindsDataKitOSX;
+			sourceTree = "<group>";
+		};
+		3490765E1C24AA4700EAD0CE /* HackWindsDataKitOSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				3490765F1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.m */,
+				349076611C24AA4700EAD0CE /* Info.plist */,
+			);
+			path = HackWindsDataKitOSXTests;
+			sourceTree = "<group>";
+		};
+		3490766E1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */ = {
+			isa = PBXGroup;
+			children = (
+				3490766F1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.h */,
+				349076711C24AA8800EAD0CE /* Info.plist */,
+			);
+			path = HackWindsDataKitWatchOS;
+			sourceTree = "<group>";
+		};
 		349679DA19E63C800043A21B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,7 +599,7 @@
 				34C0AF501B7307E8001D2B04 /* Supporting Files */,
 			);
 			path = HackWindsTodayWidget;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		34C0AF501B7307E8001D2B04 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -526,6 +711,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3490764E1C24AA4700EAD0CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349076541C24AA4700EAD0CE /* HackWindsDataKitOSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3490766A1C24AA8800EAD0CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349076701C24AA8800EAD0CE /* HackWindsDataKitWatchOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34E1BA261B62D84700CDA01D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -559,6 +760,7 @@
 				3430838419795D0F00655F15 /* Resources */,
 				34E1BA411B62D84700CDA01D /* Embed Frameworks */,
 				34C0AF5F1B7307E8001D2B04 /* Embed App Extensions */,
+				349076491C24A7E600EAD0CE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -566,11 +768,102 @@
 				349679E219E63CBD0043A21B /* PBXTargetDependency */,
 				34E1BA3F1B62D84700CDA01D /* PBXTargetDependency */,
 				34C0AF581B7307E8001D2B04 /* PBXTargetDependency */,
+				3490763E1C24A7E500EAD0CE /* PBXTargetDependency */,
 			);
 			name = HackWinds;
 			productName = HackWinds;
 			productReference = 3430838619795D0F00655F15 /* HackWinds.app */;
 			productType = "com.apple.product-type.application";
+		};
+		349076221C24A7E500EAD0CE /* HackWindsWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349076481C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp" */;
+			buildPhases = (
+				349076211C24A7E500EAD0CE /* Resources */,
+				349076471C24A7E600EAD0CE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				349076321C24A7E500EAD0CE /* PBXTargetDependency */,
+			);
+			name = HackWindsWatchApp;
+			productName = HackWindsWatchApp;
+			productReference = 349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		3490762E1C24A7E500EAD0CE /* HackWindsWatchApp Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349076461C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp Extension" */;
+			buildPhases = (
+				3490762B1C24A7E500EAD0CE /* Sources */,
+				3490762C1C24A7E500EAD0CE /* Frameworks */,
+				3490762D1C24A7E500EAD0CE /* Resources */,
+				349076791C24AA8900EAD0CE /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				349076731C24AA8800EAD0CE /* PBXTargetDependency */,
+			);
+			name = "HackWindsWatchApp Extension";
+			productName = "HackWindsWatchApp Extension";
+			productReference = 3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		349076501C24AA4700EAD0CE /* HackWindsDataKitOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349076621C24AA4700EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitOSX" */;
+			buildPhases = (
+				3490764C1C24AA4700EAD0CE /* Sources */,
+				3490764D1C24AA4700EAD0CE /* Frameworks */,
+				3490764E1C24AA4700EAD0CE /* Headers */,
+				3490764F1C24AA4700EAD0CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackWindsDataKitOSX;
+			productName = HackWindsDataKitOSX;
+			productReference = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		349076591C24AA4700EAD0CE /* HackWindsDataKitOSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349076651C24AA4700EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitOSXTests" */;
+			buildPhases = (
+				349076561C24AA4700EAD0CE /* Sources */,
+				349076571C24AA4700EAD0CE /* Frameworks */,
+				349076581C24AA4700EAD0CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3490765D1C24AA4700EAD0CE /* PBXTargetDependency */,
+			);
+			name = HackWindsDataKitOSXTests;
+			productName = HackWindsDataKitOSXTests;
+			productReference = 3490765A1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349076761C24AA8900EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitWatchOS" */;
+			buildPhases = (
+				349076681C24AA8800EAD0CE /* Sources */,
+				349076691C24AA8800EAD0CE /* Frameworks */,
+				3490766A1C24AA8800EAD0CE /* Headers */,
+				3490766B1C24AA8800EAD0CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackWindsDataKitWatchOS;
+			productName = HackWindsDataKitWatchOS;
+			productReference = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		34C0AF4B1B7307E8001D2B04 /* HackWindsTodayWidget */ = {
 			isa = PBXNativeTarget;
@@ -632,6 +925,7 @@
 		3430837E19795D0F00655F15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Rhodysurf Development";
 				TargetAttributes = {
@@ -642,6 +936,29 @@
 								enabled = 1;
 							};
 						};
+					};
+					349076221C24A7E500EAD0CE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 39L46PD99U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					3490762E1C24A7E500EAD0CE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 39L46PD99U;
+					};
+					349076501C24AA4700EAD0CE = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					349076591C24AA4700EAD0CE = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					3490766C1C24AA8800EAD0CE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 39L46PD99U;
 					};
 					34C0AF4B1B7307E8001D2B04 = {
 						CreatedOnToolsVersion = 6.4;
@@ -682,9 +999,14 @@
 			projectRoot = "";
 			targets = (
 				3430838519795D0F00655F15 /* HackWinds */,
+				34C0AF4B1B7307E8001D2B04 /* HackWindsTodayWidget */,
+				349076221C24A7E500EAD0CE /* HackWindsWatchApp */,
+				3490762E1C24A7E500EAD0CE /* HackWindsWatchApp Extension */,
 				34E1BA281B62D84700CDA01D /* HackWindsDataKit */,
 				34E1BA321B62D84700CDA01D /* HackWindsDataKitTests */,
-				34C0AF4B1B7307E8001D2B04 /* HackWindsTodayWidget */,
+				349076501C24AA4700EAD0CE /* HackWindsDataKitOSX */,
+				349076591C24AA4700EAD0CE /* HackWindsDataKitOSXTests */,
+				3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -711,6 +1033,44 @@
 				34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */,
 				34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076211C24A7E500EAD0CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349076291C24A7E500EAD0CE /* Assets.xcassets in Resources */,
+				349076271C24A7E500EAD0CE /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3490762D1C24A7E500EAD0CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3490763B1C24A7E500EAD0CE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3490764F1C24AA4700EAD0CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076581C24AA4700EAD0CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3490766B1C24AA8800EAD0CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +1121,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3490762B1C24A7E500EAD0CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */,
+				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
+				349076391C24A7E500EAD0CE /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3490764C1C24AA4700EAD0CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076561C24AA4700EAD0CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349076601C24AA4700EAD0CE /* HackWindsDataKitOSXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349076681C24AA8800EAD0CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34C0AF481B7307E8001D2B04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -798,6 +1190,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		349076321C24A7E500EAD0CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3490762E1C24A7E500EAD0CE /* HackWindsWatchApp Extension */;
+			targetProxy = 349076311C24A7E500EAD0CE /* PBXContainerItemProxy */;
+		};
+		3490763E1C24A7E500EAD0CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 349076221C24A7E500EAD0CE /* HackWindsWatchApp */;
+			targetProxy = 3490763D1C24A7E500EAD0CE /* PBXContainerItemProxy */;
+		};
+		3490765D1C24AA4700EAD0CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 349076501C24AA4700EAD0CE /* HackWindsDataKitOSX */;
+			targetProxy = 3490765C1C24AA4700EAD0CE /* PBXContainerItemProxy */;
+		};
+		349076731C24AA8800EAD0CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */;
+			targetProxy = 349076721C24AA8800EAD0CE /* PBXContainerItemProxy */;
+		};
 		349679E219E63CBD0043A21B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CorePlot-CocoaTouch";
@@ -832,6 +1244,14 @@
 				3430839319795D0F00655F15 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		349076251C24A7E500EAD0CE /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				349076261C24A7E500EAD0CE /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		34F9338C1B3991B400AD23DF /* LaunchScreen.xib */ = {
@@ -992,6 +1412,259 @@
 			};
 			name = Release;
 		};
+		349076401C24A7E600EAD0CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsWatchApp/HackWindsWatchApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = HackWindsWatchApp_Extension;
+				INFOPLIST_FILE = HackWindsWatchApp/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		349076411C24A7E600EAD0CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsWatchApp/HackWindsWatchApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = HackWindsWatchApp_Extension;
+				INFOPLIST_FILE = HackWindsWatchApp/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		349076421C24A7E600EAD0CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "HackWindsWatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		349076431C24A7E600EAD0CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "HackWindsWatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		349076631C24AA4700EAD0CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKitOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		349076641C24AA4700EAD0CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKitOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		349076661C24AA4700EAD0CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKitOSXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitOSXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		349076671C24AA4700EAD0CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKitOSXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitOSXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		349076771C24AA8900EAD0CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKitWatchOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitWatchOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		349076781C24AA8900EAD0CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsDataKitWatchOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitWatchOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
 		34C0AF5A1B7307E8001D2B04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1063,9 +1736,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nucc.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nucc.HackWindsDataKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1092,9 +1766,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nucc.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nucc.HackWindsDataKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1161,6 +1836,46 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		349076461C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349076421C24A7E600EAD0CE /* Debug */,
+				349076431C24A7E600EAD0CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		349076481C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349076401C24A7E600EAD0CE /* Debug */,
+				349076411C24A7E600EAD0CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		349076621C24AA4700EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349076631C24AA4700EAD0CE /* Debug */,
+				349076641C24AA4700EAD0CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		349076651C24AA4700EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitOSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349076661C24AA4700EAD0CE /* Debug */,
+				349076671C24AA4700EAD0CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		349076761C24AA8900EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitWatchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349076771C24AA8900EAD0CE /* Debug */,
+				349076781C24AA8900EAD0CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		34C0AF5E1B7307E8001D2B04 /* Build configuration list for PBXNativeTarget "HackWindsTodayWidget" */ = {
 			isa = XCConfigurationList;

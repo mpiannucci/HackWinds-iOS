@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Glance - HackWindsWatchApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>HackWinds.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -14,10 +19,30 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>HackWindsDataKitOSX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>HackWindsDataKitTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
+		</dict>
+		<key>HackWindsDataKitWatchOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>HackWindsTodayWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>HackWindsWatchApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +53,26 @@
 			<true/>
 		</dict>
 		<key>343083AC19795D0F00655F15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>349076221C24A7E500EAD0CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>349076501C24AA4700EAD0CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>349076591C24AA4700EAD0CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3490766C1C24AA8800EAD0CE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
