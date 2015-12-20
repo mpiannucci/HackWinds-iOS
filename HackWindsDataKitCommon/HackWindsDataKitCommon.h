@@ -30,3 +30,5 @@
 #import "ForecastModel.h"
 #import "BuoyModel.h"
 #import "TideModel.h"
+#import "ForecastDataContainer.h"
+#import "BuoyDataContainer.h"

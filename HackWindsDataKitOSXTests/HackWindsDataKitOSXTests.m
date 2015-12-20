@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <HackWindsDataKit/HackWindsDataKit.h>
+#import <HackWindsDataKitOSX/HackWindsDataKitOSX.h>
 
 @interface HackWindsDataKitOSXTests : XCTestCase
 
