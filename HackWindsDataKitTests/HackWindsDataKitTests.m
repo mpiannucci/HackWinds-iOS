@@ -39,9 +39,8 @@
 - (void) testCameraModelFetch {
     XCTAssert([self.cameraModel fetchCameraURLs]);
     
-    Camera *newportCamera = [[[self.cameraModel cameraURLS] objectForKey:@"Newport"] objectForKey:@"First Beach East"];
-    XCTAssert([newportCamera getRefreshDuration] == 3);
-    XCTAssert(newportCamera.isRefreshable);
+    Camera *wwCamera = [[[self.cameraModel cameraURLS] objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
+    XCTAssert(wwCamera.isRefreshable == false);
 }
 
 - (void) testForecastModelFetch {
@@ -61,6 +60,7 @@
 
 - (void) testBuoyModelFetch {
     // Try fetching and parsing the block island buoy data
+    [self.buoyModel forceChangeLocation:MONTAUK_LOCATION];
     XCTAssert([self.buoyModel fetchBuoyData]);
     XCTAssert([[self.buoyModel getBuoyData] count] == 20);
     
