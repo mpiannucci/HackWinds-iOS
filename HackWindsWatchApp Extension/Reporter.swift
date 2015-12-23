@@ -13,7 +13,6 @@ class Reporter {
     // Variables to hold all of the data
     var buoyLocation: NSString? = nil
     var latestBuoy: Buoy? = nil
-    var latestTideStatus: NSString? = nil
     var nextTide: Tide? = nil
     var latestRefreshTime: NSDate? = nil
     var nextBuoyUpdateTime: NSDate? = nil
@@ -33,13 +32,15 @@ class Reporter {
         var tideUpdated = false
         
         // Get the latest buoy location from the shared settings
+        // TODO: This doesn't work yet, and needs to use watch connectivity. For now default to montauk
         let groupDefaults = NSUserDefaults.init(suiteName: "group.com.nucc.HackWinds")
         let newLocation = groupDefaults?.stringForKey("DefaultBuoyLocation")
-        if newLocation != self.buoyLocation {
-            self.buoyLocation = newLocation
-            self.nextBuoyUpdateTime = nil
-        } else if newLocation == nil {
+        if newLocation == nil {
             self.buoyLocation = MONTAUK_LOCATION
+            groupDefaults?.setObject(self.buoyLocation, forKey: "DefaultBuoyLocation")
+            self.nextBuoyUpdateTime = nil
+        } else if newLocation != self.buoyLocation {
+            self.buoyLocation = newLocation
             self.nextBuoyUpdateTime = nil
         }
         
@@ -71,15 +72,24 @@ class Reporter {
             tideUpdated = true
         }
         
-        /// Just a placeholder
+        // TODO: Get the next update times
+        
+        // Just a placeholder
         return buoyUpdated || tideUpdated
+    }
+    
+    func findNextUpdateTimes() {
+        if self.latestBuoy == nil || self.nextTide == nil {
+            return
+        }
+        
+        
     }
     
     func cacheData() {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.buoyLocation!), forKey: "buoyLocation")
         defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoy!), forKey: "latestBuoyReport")
-        defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestTideStatus!), forKey: "latestTideStatus")
         defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTide!), forKey: "nextTide")
         defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestRefreshTime!), forKey: "latestRefreshTime")
         defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextBuoyUpdateTime!), forKey: "nextBuoyUpdateTime")
