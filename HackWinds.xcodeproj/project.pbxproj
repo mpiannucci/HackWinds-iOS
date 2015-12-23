@@ -37,6 +37,7 @@
 		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
+		349E6A1A1C2A4F9D00CBDCBD /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E6A191C2A4F9D00CBDCBD /* Reporter.swift */; };
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
@@ -320,6 +321,7 @@
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D38321B95438300D553CD /* HackWindsTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsTodayWidget.entitlements; sourceTree = "<group>"; };
 		349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsWatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		349E6A191C2A4F9D00CBDCBD /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reporter.swift; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 				349076381C24A7E500EAD0CE /* GlanceController.swift */,
 				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
 				3490763C1C24A7E500EAD0CE /* Info.plist */,
+				349E6A191C2A4F9D00CBDCBD /* Reporter.swift */,
 			);
 			path = "HackWindsWatchApp Extension";
 			sourceTree = "<group>";
@@ -1186,6 +1189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349E6A1A1C2A4F9D00CBDCBD /* Reporter.swift in Sources */,
 				349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */,
 				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
 				349076391C24A7E500EAD0CE /* GlanceController.swift in Sources */,
