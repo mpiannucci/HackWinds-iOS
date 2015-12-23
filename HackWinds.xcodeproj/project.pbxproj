@@ -319,6 +319,7 @@
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D38321B95438300D553CD /* HackWindsTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsTodayWidget.entitlements; sourceTree = "<group>"; };
+		349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsWatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -599,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				349076341C24A7E500EAD0CE /* InterfaceController.swift */,
+				349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */,
 				349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */,
 				349076381C24A7E500EAD0CE /* GlanceController.swift */,
 				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
@@ -1562,6 +1564,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsWatchApp Extension/HackWindsWatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
@@ -1584,6 +1587,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsWatchApp Extension/HackWindsWatch-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
