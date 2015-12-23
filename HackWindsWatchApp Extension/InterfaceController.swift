@@ -11,7 +11,16 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
+    // Interface connections
+    @IBOutlet var latestBuoyReportLabel: WKInterfaceLabel!
+    @IBOutlet var buoyLocationLabel: WKInterfaceLabel!
+    @IBOutlet var nextTideLabel: WKInterfaceLabel!
+    @IBOutlet var latestTideStatusLabel: WKInterfaceLabel!
+    
+    // Buoy Property
+    
+    // Tide Property
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
