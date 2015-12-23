@@ -27,7 +27,6 @@ class InterfaceController: WKInterfaceController {
         // Configure interface objects here.
         reporter = Reporter()
         updateUIWithReporter()
-        reporter.cacheData()
     }
 
     override func willActivate() {
