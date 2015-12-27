@@ -25,8 +25,8 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
-        reporter = Reporter()
-        updateUIWithReporter()
+        //reporter = Reporter()
+        //updateUIWithReporter()
     }
 
     override func willActivate() {

@@ -1461,7 +1461,7 @@
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mpiannucci.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1488,7 +1488,7 @@
 					"$(SRCROOT)/../core-plot/framework/**",
 				);
 				INFOPLIST_FILE = "HackWinds/Application/HackWinds-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mpiannucci.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1514,6 +1514,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = HackWindsWatchApp_Extension;
 				INFOPLIST_FILE = HackWindsWatchApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1522,7 +1523,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1542,6 +1543,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = HackWindsWatchApp_Extension;
 				INFOPLIST_FILE = HackWindsWatchApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1549,7 +1551,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1562,6 +1564,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "HackWindsWatchApp Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
@@ -1571,7 +1574,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsWatchApp Extension/HackWindsWatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1585,6 +1588,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "HackWindsWatchApp Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
@@ -1593,7 +1597,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsWatchApp Extension/HackWindsWatch-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
