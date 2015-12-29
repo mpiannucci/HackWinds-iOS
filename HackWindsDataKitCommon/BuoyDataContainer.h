@@ -15,4 +15,9 @@
 @property (strong, nonatomic) NSMutableArray *buoyData;
 @property (strong, nonatomic) NSMutableDictionary *waveHeights;
 
+- (NSURL*) createStandardMeteorologicalDataURL;
+- (NSURL*) createDetailedWaveDataURL;
+- (NSURL*) createLatestReportOnlyURL;
+- (NSURL*) createSpectraPlotURL;
+
 @end

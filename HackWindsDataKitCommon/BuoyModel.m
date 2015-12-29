@@ -29,16 +29,13 @@
 #define DETAIL_WIND_WAVE_DIRECTION 11
 
 // URLs
-#define BASE_DATA_URL @"http://www.ndbc.noaa.gov/data/realtime2/%d%@"
-#define BASE_SPECTRA_PLOT_URL @"http://www.ndbc.noaa.gov/spec_plot.php?station=%d"
-#define BUOY_SUMMARY_SUFFIX @".txt"
-#define BUOY_DETAIL_SUFFIX @".spec"
 #define BI_BUOY_NUMBER 44097
 #define MTK_BUOY_NUMBER 44017
 #define ACK_BUOY_NUMBER 44008
 
 #import "BuoyModel.h"
 #import "BuoyDataContainer.h"
+#import "XMLReader.h"
 
 @interface BuoyModel ()
 
@@ -158,7 +155,7 @@
 }
 
 - (void) resetData {
-    
+    // TODO
 }
 
 - (NSMutableArray *) getBuoyData {
@@ -170,29 +167,16 @@
 }
 
 - (NSURL*) getSpectraPlotURL {
-    // Craft the URL using the macro
-    int buoyID = [currentContainer.buoyID intValue];
-    NSURL *spectraURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_SPECTRA_PLOT_URL, buoyID]];
-    
-    return spectraURL;
+    return [currentContainer createSpectraPlotURL];
 }
 
 + (Buoy*) getOnlyLatestBuoyDataForLocation:(NSString *)location {
     // Get the model instance
     BuoyModel *buoyModel = [[BuoyModel alloc] init];
     
-    // For now we are going to force the location to be BI.
+    // For now we are going to force the location to be what the user sets.
     [buoyModel forceChangeLocation:location];
-    
-    NSArray *rawBuoyData = [buoyModel retrieveBuoyData:NO];
-    if (rawBuoyData == nil) {
-        return nil;
-    }
-    
-    Buoy *latestBuoy = [[Buoy alloc] init];
-    [buoyModel getBuoySummaryForIndex:0 FromData:rawBuoyData FillBuoy:latestBuoy];
-    
-    return latestBuoy;
+    return [buoyModel fetchLatestBuoyReadingOnly];
 }
 
 - (BOOL) parseBuoyData {
@@ -232,14 +216,12 @@
     // Get the buoy data
     NSError *err = nil;
     
-    int buoyID = [currentContainer.buoyID intValue];
-    
     // Get the buoy data
     NSURL *dataURL = [[NSURL alloc] init];
     if (isDetailed) {
-        dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_DATA_URL, buoyID, BUOY_DETAIL_SUFFIX]];
+        dataURL = [currentContainer createDetailedWaveDataURL];
     } else {
-        dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_DATA_URL, buoyID, BUOY_SUMMARY_SUFFIX]];
+        dataURL = [currentContainer createStandardMeteorologicalDataURL];
     }
     NSString* buoyData = [NSString stringWithContentsOfURL:dataURL encoding:NSUTF8StringEncoding error:&err];
     
@@ -320,6 +302,44 @@
     buoy.WindWaveDirection = [rawData objectAtIndex:baseOffset+DETAIL_WIND_WAVE_DIRECTION];
     
     return YES;
+}
+
+- (Buoy *) fetchLatestBuoyReadingOnly {
+    // Ignoring errors YOLO
+    NSString *rawData = [NSString stringWithContentsOfURL:[currentContainer createLatestReportOnlyURL] encoding:NSUTF8StringEncoding error:nil];
+    
+    NSError *xmlError;
+    NSDictionary *rawBuoyDataDict = [XMLReader dictionaryForXMLString:rawData error:&xmlError];
+    if (xmlError != nil) {
+        return nil;
+    }
+    
+    NSDictionary *buoyDataDict = [rawBuoyDataDict objectForKey:@"observation"];
+    
+    // Cast the xml to the buoy item
+    Buoy *latestBuoy = [[Buoy alloc] init];
+    NSString *rawTime = [[buoyDataDict objectForKey:@"datetime"] objectForKey:@"text"];
+    latestBuoy.Time = [self getFormattedTimeFromXMLDateTime:rawTime];
+    latestBuoy.SignificantWaveHeight = [[buoyDataDict objectForKey:@"waveht"] objectForKey:@"text"];
+    latestBuoy.DominantPeriod = [[buoyDataDict objectForKey:@"domperiod"] objectForKey:@"text"];
+    latestBuoy.MeanDirection = [Buoy getCompassDirection:[[buoyDataDict objectForKey:@"meanwavedir"] objectForKey:@"text" ]];
+    return latestBuoy;
+}
+
+- (NSString *) getFormattedTimeFromXMLDateTime:(NSString*) datetime {
+    NSArray *timeComponents = [[[[[datetime componentsSeparatedByString:@"T"]
+                                                         objectAtIndex:1]
+                                           componentsSeparatedByString:@"U"]
+                                                         objectAtIndex:0]
+                                           componentsSeparatedByString:@":"];
+    
+    NSInteger rawHour = [[timeComponents objectAtIndex:0] integerValue];
+    NSInteger rawMinute = [[timeComponents objectAtIndex:1] integerValue];
+    
+    NSInteger adjustedHour = [self getCorrectedHourValue:rawHour + [self getTimeOffset]];
+    
+    return [NSString stringWithFormat:@"%ld:%ld", (long)adjustedHour, (long)rawMinute];
+    
 }
 
 - (NSInteger) getCorrectedHourValue:(NSInteger)rawHour {

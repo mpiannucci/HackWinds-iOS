@@ -25,8 +25,8 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
-        //reporter = Reporter()
-        //updateUIWithReporter()
+        reporter = Reporter()
+        updateUIWithReporter()
     }
 
     override func willActivate() {
@@ -45,13 +45,13 @@ class InterfaceController: WKInterfaceController {
         self.latestBuoyReportLabel.setText("\(buoy!.SignificantWaveHeight) ft @ \(buoy!.DominantPeriod)s \(meanDirection)")
         self.buoyLocationLabel.setText("\(reporter.buoyLocation!)")
         
-        let tide = reporter.nextTide
-        self.nextTideLabel.setText("\(tide!.EventType): \(tide!.Time)")
-        if tide!.EventType == LOW_TIDE_TAG {
-            self.latestTideStatusLabel.setText("Outgoing")
-        } else {
-            self.latestTideStatusLabel.setText("Incoming")
-        }
+//        let tide = reporter.nextTide
+//        self.nextTideLabel.setText("\(tide!.EventType): \(tide!.Time)")
+//        if tide!.EventType == LOW_TIDE_TAG {
+//            self.latestTideStatusLabel.setText("Outgoing")
+//        } else {
+//            self.latestTideStatusLabel.setText("Incoming")
+//        }
     }
 
 }

@@ -5,6 +5,11 @@
 //  Created by Matthew Iannucci on 8/23/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
+#define BASE_DATA_URL @"http://www.ndbc.noaa.gov/data/realtime2/%@%@"
+#define BASE_SPECTRA_PLOT_URL @"http://www.ndbc.noaa.gov/spec_plot.php?station=%@"
+#define BASE_LATEST_DATA_URL @"http://www.ndbc.noaa.gov/get_observation_as_xml.php?station=%@"
+#define BUOY_SUMMARY_SUFFIX @".txt"
+#define BUOY_DETAIL_SUFFIX @".spec"
 
 #import "BuoyDataContainer.h"
 #import "BuoyModel.h"
@@ -25,6 +30,22 @@
     [self.waveHeights setObject:windWaveHeights forKey:WIND_DATA_MODE];
     
     return self;
+}
+
+- (NSURL*) createStandardMeteorologicalDataURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_DATA_URL, self.buoyID, BUOY_SUMMARY_SUFFIX]];
+}
+
+- (NSURL*) createDetailedWaveDataURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_DATA_URL, self.buoyID, BUOY_DETAIL_SUFFIX]];
+}
+
+- (NSURL*) createLatestReportOnlyURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_LATEST_DATA_URL, self.buoyID]];
+}
+
+- (NSURL*) createSpectraPlotURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_SPECTRA_PLOT_URL, self.buoyID]];
 }
 
 @end
