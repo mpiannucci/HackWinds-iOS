@@ -22,7 +22,6 @@
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
-		347478271C32190E00FD4BA0 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
 		3485E1F41C320785004A8A70 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3485E1F31C320785004A8A70 /* XMLReader.m */; };
 		3485E1F51C320785004A8A70 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3485E1F31C320785004A8A70 /* XMLReader.m */; };
 		3485E1F61C320785004A8A70 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3485E1F31C320785004A8A70 /* XMLReader.m */; };
@@ -44,6 +43,15 @@
 		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
+		349D42471C384C69006F7B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D42461C384C69006F7B24 /* AppDelegate.swift */; };
+		349D42491C384C69006F7B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D42481C384C69006F7B24 /* ViewController.swift */; };
+		349D424B1C384C69006F7B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349D424A1C384C69006F7B24 /* Assets.xcassets */; };
+		349D424E1C384C69006F7B24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349D424C1C384C69006F7B24 /* Main.storyboard */; };
+		349D42581C384C96006F7B24 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
+		349D425D1C384C96006F7B24 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D425C1C384C96006F7B24 /* TodayViewController.swift */; };
+		349D42601C384C96006F7B24 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349D425E1C384C96006F7B24 /* TodayViewController.xib */; };
+		349D42641C384C96006F7B24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 349D42621C384C96006F7B24 /* InfoPlist.strings */; };
+		349D42671C384C96006F7B24 /* HackWindsTodayOSX.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		349E6A1A1C2A4F9D00CBDCBD /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E6A191C2A4F9D00CBDCBD /* Reporter.swift */; };
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
@@ -189,6 +197,13 @@
 			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
 			remoteInfo = "CorePlot-CocoaTouch";
 		};
+		349D42651C384C96006F7B24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 349D42561C384C95006F7B24;
+			remoteInfo = HackWindsTodayOSX;
+		};
 		34C0AF571B7307E8001D2B04 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
@@ -253,6 +268,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		349D426B1C384C96006F7B24 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				349D42671C384C96006F7B24 /* HackWindsTodayOSX.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34C0AF5F1B7307E8001D2B04 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,7 +330,6 @@
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
-		347478261C32190E00FD4BA0 /* HackWindsTodayOSXWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsTodayOSXWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3485E1F31C320785004A8A70 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = HackWindsDataKitCommon/XMLReader.m; sourceTree = SOURCE_ROOT; };
 		3485E1F91C3207A6004A8A70 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = HackWindsDataKitCommon/XMLReader.h; sourceTree = SOURCE_ROOT; };
 		349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,6 +355,18 @@
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D38321B95438300D553CD /* HackWindsTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsTodayWidget.entitlements; sourceTree = "<group>"; };
+		349D42441C384C69006F7B24 /* HackWindsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		349D42461C384C69006F7B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		349D42481C384C69006F7B24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		349D424A1C384C69006F7B24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		349D424D1C384C69006F7B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		349D424F1C384C69006F7B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsTodayOSX.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		349D425B1C384C96006F7B24 /* HackWindsTodayOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsTodayOSX.entitlements; sourceTree = "<group>"; };
+		349D425C1C384C96006F7B24 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		349D425F1C384C96006F7B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
+		349D42611C384C96006F7B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		349D42631C384C96006F7B24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsWatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		349E6A191C2A4F9D00CBDCBD /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reporter.swift; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -412,14 +449,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		347478231C32190E00FD4BA0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				347478271C32190E00FD4BA0 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3490762C1C24A7E500EAD0CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +476,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349D42411C384C69006F7B24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349D42541C384C95006F7B24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349D42581C384C96006F7B24 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +598,8 @@
 				349076521C24AA4700EAD0CE /* HackWindsDataKitOSX */,
 				3490765E1C24AA4700EAD0CE /* HackWindsDataKitOSXTests */,
 				3490766E1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
+				349D42451C384C69006F7B24 /* HackWindsOSX */,
+				349D42591C384C96006F7B24 /* HackWindsTodayOSX */,
 				3430838819795D0F00655F15 /* Frameworks */,
 				3430838719795D0F00655F15 /* Products */,
 				349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */,
@@ -572,7 +618,8 @@
 				349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */,
 				3490765A1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.xctest */,
 				3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */,
-				347478261C32190E00FD4BA0 /* HackWindsTodayOSXWidget.appex */,
+				349D42441C384C69006F7B24 /* HackWindsOSX.app */,
+				349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -664,6 +711,38 @@
 				349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		349D42451C384C69006F7B24 /* HackWindsOSX */ = {
+			isa = PBXGroup;
+			children = (
+				349D42461C384C69006F7B24 /* AppDelegate.swift */,
+				349D42481C384C69006F7B24 /* ViewController.swift */,
+				349D424A1C384C69006F7B24 /* Assets.xcassets */,
+				349D424C1C384C69006F7B24 /* Main.storyboard */,
+				349D424F1C384C69006F7B24 /* Info.plist */,
+			);
+			path = HackWindsOSX;
+			sourceTree = "<group>";
+		};
+		349D42591C384C96006F7B24 /* HackWindsTodayOSX */ = {
+			isa = PBXGroup;
+			children = (
+				349D425C1C384C96006F7B24 /* TodayViewController.swift */,
+				349D425E1C384C96006F7B24 /* TodayViewController.xib */,
+				349D42611C384C96006F7B24 /* Info.plist */,
+				349D42621C384C96006F7B24 /* InfoPlist.strings */,
+				349D425A1C384C96006F7B24 /* Supporting Files */,
+			);
+			path = HackWindsTodayOSX;
+			sourceTree = "<group>";
+		};
+		349D425A1C384C96006F7B24 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				349D425B1C384C96006F7B24 /* HackWindsTodayOSX.entitlements */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		34C07DF61C2749F9002D3DB8 /* HackWindsDataKitCommon */ = {
@@ -863,23 +942,6 @@
 			productReference = 3430838619795D0F00655F15 /* HackWinds.app */;
 			productType = "com.apple.product-type.application";
 		};
-		347478251C32190E00FD4BA0 /* HackWindsTodayOSXWidget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 347478341C32190E00FD4BA0 /* Build configuration list for PBXNativeTarget "HackWindsTodayOSXWidget" */;
-			buildPhases = (
-				347478221C32190E00FD4BA0 /* Sources */,
-				347478231C32190E00FD4BA0 /* Frameworks */,
-				347478241C32190E00FD4BA0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = HackWindsTodayOSXWidget;
-			productName = HackWindsTodayOSXWidget;
-			productReference = 347478261C32190E00FD4BA0 /* HackWindsTodayOSXWidget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		349076221C24A7E500EAD0CE /* HackWindsWatchApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 349076481C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp" */;
@@ -970,6 +1032,42 @@
 			productReference = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		349D42431C384C69006F7B24 /* HackWindsOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349D42501C384C69006F7B24 /* Build configuration list for PBXNativeTarget "HackWindsOSX" */;
+			buildPhases = (
+				349D42401C384C69006F7B24 /* Sources */,
+				349D42411C384C69006F7B24 /* Frameworks */,
+				349D42421C384C69006F7B24 /* Resources */,
+				349D426B1C384C96006F7B24 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				349D42661C384C96006F7B24 /* PBXTargetDependency */,
+			);
+			name = HackWindsOSX;
+			productName = HackWindsOSX;
+			productReference = 349D42441C384C69006F7B24 /* HackWindsOSX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		349D42561C384C95006F7B24 /* HackWindsTodayOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349D42681C384C96006F7B24 /* Build configuration list for PBXNativeTarget "HackWindsTodayOSX" */;
+			buildPhases = (
+				349D42531C384C95006F7B24 /* Sources */,
+				349D42541C384C95006F7B24 /* Frameworks */,
+				349D42551C384C95006F7B24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackWindsTodayOSX;
+			productName = HackWindsTodayOSX;
+			productReference = 349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		34C0AF4B1B7307E8001D2B04 /* HackWindsTodayWidget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34C0AF5E1B7307E8001D2B04 /* Build configuration list for PBXNativeTarget "HackWindsTodayWidget" */;
@@ -1042,10 +1140,6 @@
 							};
 						};
 					};
-					347478251C32190E00FD4BA0 = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 39L46PD99U;
-					};
 					349076221C24A7E500EAD0CE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
@@ -1066,6 +1160,14 @@
 						CreatedOnToolsVersion = 7.2;
 					};
 					3490766C1C24AA8800EAD0CE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 39L46PD99U;
+					};
+					349D42431C384C69006F7B24 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 39L46PD99U;
+					};
+					349D42561C384C95006F7B24 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
 					};
@@ -1116,7 +1218,8 @@
 				349076501C24AA4700EAD0CE /* HackWindsDataKitOSX */,
 				349076591C24AA4700EAD0CE /* HackWindsDataKitOSXTests */,
 				3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
-				347478251C32190E00FD4BA0 /* HackWindsTodayOSXWidget */,
+				349D42431C384C69006F7B24 /* HackWindsOSX */,
+				349D42561C384C95006F7B24 /* HackWindsTodayOSX */,
 			);
 		};
 /* End PBXProject section */
@@ -1143,13 +1246,6 @@
 				34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */,
 				34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */,
 				3430839419795D0F00655F15 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		347478241C32190E00FD4BA0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1188,6 +1284,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349D42421C384C69006F7B24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349D424B1C384C69006F7B24 /* Assets.xcassets in Resources */,
+				349D424E1C384C69006F7B24 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349D42551C384C95006F7B24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349D42601C384C96006F7B24 /* TodayViewController.xib in Resources */,
+				349D42641C384C96006F7B24 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1235,13 +1349,6 @@
 				34EB97451B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		347478221C32190E00FD4BA0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1299,6 +1406,23 @@
 				34C07E111C274AC2002D3DB8 /* Condition.m in Sources */,
 				3485E1F61C320785004A8A70 /* XMLReader.m in Sources */,
 				34C07E251C274AC2002D3DB8 /* BuoyDataContainer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349D42401C384C69006F7B24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349D42491C384C69006F7B24 /* ViewController.swift in Sources */,
+				349D42471C384C69006F7B24 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		349D42531C384C95006F7B24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349D425D1C384C96006F7B24 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1365,6 +1489,11 @@
 			name = "CorePlot-CocoaTouch";
 			targetProxy = 349679E119E63CBD0043A21B /* PBXContainerItemProxy */;
 		};
+		349D42661C384C96006F7B24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 349D42561C384C95006F7B24 /* HackWindsTodayOSX */;
+			targetProxy = 349D42651C384C96006F7B24 /* PBXContainerItemProxy */;
+		};
 		34C0AF581B7307E8001D2B04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 34C0AF4B1B7307E8001D2B04 /* HackWindsTodayWidget */;
@@ -1402,6 +1531,30 @@
 				349076261C24A7E500EAD0CE /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		349D424C1C384C69006F7B24 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				349D424D1C384C69006F7B24 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		349D425E1C384C96006F7B24 /* TodayViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				349D425F1C384C96006F7B24 /* Base */,
+			);
+			name = TodayViewController.xib;
+			sourceTree = "<group>";
+		};
+		349D42621C384C96006F7B24 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				349D42631C384C96006F7B24 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		34F9338C1B3991B400AD23DF /* LaunchScreen.xib */ = {
@@ -1559,50 +1712,6 @@
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		347478351C32190E00FD4BA0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = HackWindsTodayOSXWidget/HackWindsTodayOSXWidget.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = HackWindsTodayOSXWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsTodayOSXWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		347478361C32190E00FD4BA0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = HackWindsTodayOSXWidget/HackWindsTodayOSXWidget.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = HackWindsTodayOSXWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsTodayOSXWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1867,6 +1976,94 @@
 			};
 			name = Release;
 		};
+		349D42511C384C69006F7B24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		349D42521C384C69006F7B24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		349D42691C384C96006F7B24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsTodayOSX/HackWindsTodayOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsTodayOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX.HackWindsTodayOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		349D426A1C384C96006F7B24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsTodayOSX/HackWindsTodayOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HackWindsTodayOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX.HackWindsTodayOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		34C0AF5A1B7307E8001D2B04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2039,15 +2236,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		347478341C32190E00FD4BA0 /* Build configuration list for PBXNativeTarget "HackWindsTodayOSXWidget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				347478351C32190E00FD4BA0 /* Debug */,
-				347478361C32190E00FD4BA0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		349076461C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2092,6 +2280,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		349D42501C384C69006F7B24 /* Build configuration list for PBXNativeTarget "HackWindsOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349D42511C384C69006F7B24 /* Debug */,
+				349D42521C384C69006F7B24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		349D42681C384C96006F7B24 /* Build configuration list for PBXNativeTarget "HackWindsTodayOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349D42691C384C96006F7B24 /* Debug */,
+				349D426A1C384C96006F7B24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		34C0AF5E1B7307E8001D2B04 /* Build configuration list for PBXNativeTarget "HackWindsTodayWidget" */ = {
 			isa = XCConfigurationList;

@@ -34,6 +34,16 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>HackWindsOSX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>HackWindsTodayOSX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
 		<key>HackWindsTodayOSXWidget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -83,6 +93,16 @@
 			<true/>
 		</dict>
 		<key>3490766C1C24AA8800EAD0CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>349D42431C384C69006F7B24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>349D42561C384C95006F7B24</key>
 		<dict>
 			<key>primary</key>
 			<true/>
