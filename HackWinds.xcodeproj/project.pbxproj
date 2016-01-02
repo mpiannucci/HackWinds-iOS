@@ -1176,6 +1176,9 @@
 						DevelopmentTeam = 39L46PD99U;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
 								enabled = 1;
 							};
 						};
@@ -1185,7 +1188,7 @@
 						DevelopmentTeam = 39L46PD99U;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -2316,6 +2319,7 @@
 				349D42521C384C69006F7B24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		349D42681C384C96006F7B24 /* Build configuration list for PBXNativeTarget "HackWindsTodayOSX" */ = {
 			isa = XCConfigurationList;
@@ -2324,6 +2328,7 @@
 				349D426A1C384C96006F7B24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34C0AF5E1B7307E8001D2B04 /* Build configuration list for PBXNativeTarget "HackWindsTodayWidget" */ = {
 			isa = XCConfigurationList;
