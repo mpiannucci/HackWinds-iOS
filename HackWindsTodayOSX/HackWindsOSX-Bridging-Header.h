@@ -9,7 +9,7 @@
 //
 
 #ifndef HackWindsOSX_Bridging_Header_h
-#define HackWindsWatch_Bridging_Header_h
+#define HackWindsOSX_Bridging_Header_h
 
 #import "HackWindsDataKitOSX.h"
 

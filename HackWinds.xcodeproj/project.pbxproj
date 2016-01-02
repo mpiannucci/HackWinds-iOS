@@ -370,6 +370,7 @@
 		349D42611C384C96006F7B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349D42631C384C96006F7B24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		349D426E1C384E12006F7B24 /* HackWindsOSX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsOSX-Bridging-Header.h"; sourceTree = "<group>"; };
+		349D426F1C384F14006F7B24 /* HackWindsOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsOSX.entitlements; sourceTree = "<group>"; };
 		349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsWatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		349E6A191C2A4F9D00CBDCBD /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reporter.swift; path = ../HackWindsDataKitCommon/Reporter.swift; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -719,6 +720,7 @@
 		349D42451C384C69006F7B24 /* HackWindsOSX */ = {
 			isa = PBXGroup;
 			children = (
+				349D426F1C384F14006F7B24 /* HackWindsOSX.entitlements */,
 				349D42461C384C69006F7B24 /* AppDelegate.swift */,
 				349D42481C384C69006F7B24 /* ViewController.swift */,
 				349D424A1C384C69006F7B24 /* Assets.xcassets */,
@@ -1160,6 +1162,7 @@
 					};
 					349076501C24AA4700EAD0CE = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 39L46PD99U;
 					};
 					349076591C24AA4700EAD0CE = {
 						CreatedOnToolsVersion = 7.2;
@@ -1171,10 +1174,20 @@
 					349D42431C384C69006F7B24 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 					349D42561C384C95006F7B24 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 					34C0AF4B1B7307E8001D2B04 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1826,9 +1839,10 @@
 		349076631C24AA4700EAD0CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1856,9 +1870,10 @@
 		349076641C24AA4700EAD0CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1987,6 +2002,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsOSX/HackWindsOSX.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2009,6 +2025,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsOSX/HackWindsOSX.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
