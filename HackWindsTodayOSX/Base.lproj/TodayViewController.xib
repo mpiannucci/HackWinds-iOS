@@ -7,6 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TodayViewController" customModule="HackWindsTodayOSX" customModuleProvider="target">
             <connections>
+                <outlet property="buoyLocationLabel" destination="eSP-Wo-8Cv" id="kho-dn-HFW"/>
+                <outlet property="lastUpdatedLabel" destination="PHb-as-aCc" id="T1H-rs-GlW"/>
+                <outlet property="latestBuoyLabel" destination="NPo-EQ-tzZ" id="4mC-sD-b4C"/>
+                <outlet property="nextTideLabel" destination="Obt-PB-OJN" id="6Pi-Di-G1z"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>

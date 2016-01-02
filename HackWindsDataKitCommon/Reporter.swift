@@ -12,10 +12,6 @@ class Reporter {
     
     init () {
         self.restoreData()
-        
-        if self.nextBuoyUpdateTime == nil || self.latestBuoy == nil {
-            updateData()
-        }
     }
     
     func updateData() -> Bool {
@@ -53,16 +49,16 @@ class Reporter {
         }
         
         // Check if the tide should be updated and get the new data if it should
-//        if self.nextTideUpdateTime == nil || self.nextTide == nil {
-//            self.nextTide = TideModel.getLatestTidalEventOnly()
-//            tideUpdated = true
-//        } else {
-//            if self.nextTideUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
-//                // Update the tide data!
-//                self.nextTide = TideModel.getLatestTidalEventOnly()
-//                tideUpdated = true
-//            }
-//        }
+        if self.nextTideUpdateTime == nil || self.nextTide == nil {
+            self.nextTide = TideModel.getLatestTidalEventOnly()
+            tideUpdated = true
+        } else {
+            if self.nextTideUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
+                // Update the tide data!
+                self.nextTide = TideModel.getLatestTidalEventOnly()
+                tideUpdated = true
+            }
+        }
         
         // Get the next update times
         let updateHappened: Bool = buoyUpdated || tideUpdated
@@ -82,13 +78,13 @@ class Reporter {
         
         // Find the colon to find te correct hour and minute
         let buoySeperator = self.latestBuoy!.Time.rangeOfString(":")
-//        let tideSeperator = self.nextTide!.Time.rangeOfString(":")
+        let tideSeperator = self.nextTide!.Time.rangeOfString(":")
         
         // Parse the time from the latest object
         var buoyHour: Int = Int(self.latestBuoy!.Time.substringToIndex(buoySeperator!.startIndex))!
         let buoyMinute: Int = Int(self.latestBuoy!.Time.substringFromIndex(buoySeperator!.endIndex))!
-//        var tideHour: Int = Int(self.nextTide!.Time.substringToIndex(tideSeperator!.startIndex))!
-//        let tideMinute: Int = Int(self.nextTide!.Time.substringWithRange(Range<String.Index>(start: tideSeperator!.endIndex, end: tideSeperator!.endIndex.advancedBy(2))))!
+        var tideHour: Int = Int(self.nextTide!.Time.substringToIndex(tideSeperator!.startIndex))!
+        let tideMinute: Int = Int(self.nextTide!.Time.substringWithRange(Range<String.Index>(start: tideSeperator!.endIndex, end: tideSeperator!.endIndex.advancedBy(2))))!
         
         // Adjust for am and pm during 12 hour time
         if !check24HourClock() {
@@ -102,17 +98,17 @@ class Reporter {
             }
             
             // Correct the tide time
-//            let tideAMPMIndex = tideSeperator!.startIndex.advancedBy(4)
-//            let tideAMPM = self.nextTide!.Time.substringFromIndex(tideAMPMIndex)
-//            if tideAMPM == "pm" && tideHour != 12 {
-//                tideHour += 12
-//            }
+            let tideAMPMIndex = tideSeperator!.startIndex.advancedBy(4)
+            let tideAMPM = self.nextTide!.Time.substringFromIndex(tideAMPMIndex)
+            if tideAMPM == "pm" && tideHour != 12 {
+                tideHour += 12
+            }
         }
         
         // Set the times that updates are needed at
         self.nextBuoyUpdateTime = dateWithHour(buoyHour, minute: buoyMinute, second: 0)
         self.nextBuoyUpdateTime = self.nextBuoyUpdateTime?.dateByAddingTimeInterval(60 * 60)
-//        self.nextTideUpdateTime = dateWithHour(tideHour, minute: tideMinute, second: 0)
+        self.nextTideUpdateTime = dateWithHour(tideHour, minute: tideMinute, second: 0)
     }
     
     func cacheData() {
