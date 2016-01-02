@@ -52,6 +52,8 @@
 		349D42601C384C96006F7B24 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349D425E1C384C96006F7B24 /* TodayViewController.xib */; };
 		349D42641C384C96006F7B24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 349D42621C384C96006F7B24 /* InfoPlist.strings */; };
 		349D42671C384C96006F7B24 /* HackWindsTodayOSX.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		349D426C1C384DD8006F7B24 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E6A191C2A4F9D00CBDCBD /* Reporter.swift */; };
+		349D426D1C384DF4006F7B24 /* HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; };
 		349E6A1A1C2A4F9D00CBDCBD /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E6A191C2A4F9D00CBDCBD /* Reporter.swift */; };
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
@@ -367,8 +369,9 @@
 		349D425F1C384C96006F7B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
 		349D42611C384C96006F7B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349D42631C384C96006F7B24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		349D426E1C384E12006F7B24 /* HackWindsOSX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsOSX-Bridging-Header.h"; sourceTree = "<group>"; };
 		349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsWatch-Bridging-Header.h"; sourceTree = "<group>"; };
-		349E6A191C2A4F9D00CBDCBD /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reporter.swift; sourceTree = "<group>"; };
+		349E6A191C2A4F9D00CBDCBD /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reporter.swift; path = ../HackWindsDataKitCommon/Reporter.swift; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -490,6 +493,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349D426D1C384DF4006F7B24 /* HackWindsDataKitOSX.framework in Frameworks */,
 				349D42581C384C96006F7B24 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,7 +677,6 @@
 				349076381C24A7E500EAD0CE /* GlanceController.swift */,
 				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
 				3490763C1C24A7E500EAD0CE /* Info.plist */,
-				349E6A191C2A4F9D00CBDCBD /* Reporter.swift */,
 			);
 			path = "HackWindsWatchApp Extension";
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 		349D42591C384C96006F7B24 /* HackWindsTodayOSX */ = {
 			isa = PBXGroup;
 			children = (
+				349D426E1C384E12006F7B24 /* HackWindsOSX-Bridging-Header.h */,
 				349D425C1C384C96006F7B24 /* TodayViewController.swift */,
 				349D425E1C384C96006F7B24 /* TodayViewController.xib */,
 				349D42611C384C96006F7B24 /* Info.plist */,
@@ -748,6 +752,7 @@
 		34C07DF61C2749F9002D3DB8 /* HackWindsDataKitCommon */ = {
 			isa = PBXGroup;
 			children = (
+				349E6A191C2A4F9D00CBDCBD /* Reporter.swift */,
 				34E1BA631B62DD8600CDA01D /* Condition.h */,
 				34E1BA641B62DD8600CDA01D /* Condition.m */,
 				34E1BA661B62DD8600CDA01D /* Forecast.h */,
@@ -1422,6 +1427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349D426C1C384DD8006F7B24 /* Reporter.swift in Sources */,
 				349D425D1C384C96006F7B24 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2038,6 +2044,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsTodayOSX/HackWindsOSX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2061,6 +2068,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsTodayOSX/HackWindsOSX-Bridging-Header.h";
 			};
 			name = Release;
 		};

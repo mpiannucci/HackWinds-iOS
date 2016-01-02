@@ -1,11 +1,3 @@
-//
-//  Reporter.swift
-//  HackWinds
-//
-//  Created by Matthew Iannucci on 12/22/15.
-//  Copyright © 2015 Rhodysurf Development. All rights reserved.
-//
-
 import Foundation
 
 class Reporter {
