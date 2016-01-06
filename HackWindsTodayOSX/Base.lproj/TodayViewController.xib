@@ -17,18 +17,18 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView simulatedAppContext="notificationCenter" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mcv-t0-Oug">
-                    <rect key="frame" x="-2" y="106" width="306" height="16"/>
+                    <rect key="frame" x="-2" y="98" width="306" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Latest Buoy Reading" id="Oc7-CM-Nnm">
-                        <font key="font" metaFont="system" size="12"/>
+                        <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NPo-EQ-tzZ">
-                    <rect key="frame" x="-2" y="84" width="307" height="22"/>
+                    <rect key="frame" x="-2" y="76" width="306" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="Evv-fw-eJU"/>
                     </constraints>
@@ -39,7 +39,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Obt-PB-OJN">
-                    <rect key="frame" x="-2" y="27" width="307" height="22"/>
+                    <rect key="frame" x="-2" y="20" width="306" height="22"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="High Tide: 12:30 PM" id="TgC-Qp-GQ9">
                         <font key="font" metaFont="system" size="18"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -47,25 +47,25 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eSP-Wo-8Cv">
-                    <rect key="frame" x="-2" y="68" width="308" height="16"/>
+                    <rect key="frame" x="-2" y="60" width="306" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Montauk" id="Ynb-XZ-sgz">
-                        <font key="font" metaFont="system" size="12"/>
+                        <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PHb-as-aCc">
-                    <rect key="frame" x="-2" y="2" width="304" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Last Updated at 10:30 am " id="x5u-n2-voO">
-                        <font key="font" metaFont="system"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ego-c0-l21">
+                    <rect key="frame" x="-2" y="42" width="306" height="16"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Upcoming Tide" id="Jug-jY-Jdx">
+                        <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ego-c0-l21">
-                    <rect key="frame" x="-2" y="49" width="307" height="16"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Upcoming Tide" id="Jug-jY-Jdx">
-                        <font key="font" metaFont="system" size="12"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PHb-as-aCc">
+                    <rect key="frame" x="-2" y="0.0" width="304" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Last Updated at 10:30 am " id="x5u-n2-voO">
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -73,26 +73,26 @@
             </subviews>
             <constraints>
                 <constraint firstItem="NPo-EQ-tzZ" firstAttribute="top" secondItem="Mcv-t0-Oug" secondAttribute="bottom" id="4ea-yX-e5Z"/>
-                <constraint firstItem="ego-c0-l21" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" constant="6.5" id="9Yf-GX-aQW"/>
-                <constraint firstAttribute="bottom" secondItem="PHb-as-aCc" secondAttribute="bottom" constant="2" id="9vs-I6-gy7"/>
+                <constraint firstItem="ego-c0-l21" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" constant="7" id="9Yf-GX-aQW"/>
+                <constraint firstAttribute="bottom" secondItem="PHb-as-aCc" secondAttribute="bottom" id="9vs-I6-gy7"/>
                 <constraint firstAttribute="trailing" secondItem="Mcv-t0-Oug" secondAttribute="trailing" constant="18" id="EBB-nH-YZV"/>
-                <constraint firstItem="NPo-EQ-tzZ" firstAttribute="trailing" secondItem="Mcv-t0-Oug" secondAttribute="trailing" constant="1" id="J5b-dh-XwT"/>
+                <constraint firstItem="NPo-EQ-tzZ" firstAttribute="trailing" secondItem="Mcv-t0-Oug" secondAttribute="trailing" id="J5b-dh-XwT"/>
                 <constraint firstAttribute="trailing" secondItem="PHb-as-aCc" secondAttribute="trailing" constant="20" symbolic="YES" id="Qj8-kf-qkR"/>
                 <constraint firstItem="NPo-EQ-tzZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="TfZ-Sj-qai"/>
-                <constraint firstItem="ego-c0-l21" firstAttribute="trailing" secondItem="Mcv-t0-Oug" secondAttribute="trailing" constant="1" id="Tl7-yl-Q0e"/>
+                <constraint firstItem="ego-c0-l21" firstAttribute="trailing" secondItem="Mcv-t0-Oug" secondAttribute="trailing" id="Tl7-yl-Q0e"/>
                 <constraint firstItem="Obt-PB-OJN" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="VB3-8d-57W"/>
                 <constraint firstItem="eSP-Wo-8Cv" firstAttribute="top" secondItem="NPo-EQ-tzZ" secondAttribute="bottom" id="VrZ-N0-A96"/>
-                <constraint firstItem="eSP-Wo-8Cv" firstAttribute="trailing" secondItem="Obt-PB-OJN" secondAttribute="trailing" constant="1" id="XAB-Su-i9J"/>
-                <constraint firstItem="Mcv-t0-Oug" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="hgB-fO-8f5"/>
-                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="127" id="j3V-WS-dxj"/>
+                <constraint firstItem="eSP-Wo-8Cv" firstAttribute="trailing" secondItem="Obt-PB-OJN" secondAttribute="trailing" id="XAB-Su-i9J"/>
+                <constraint firstItem="Mcv-t0-Oug" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="hgB-fO-8f5"/>
+                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="114" id="j3V-WS-dxj"/>
                 <constraint firstItem="eSP-Wo-8Cv" firstAttribute="leading" secondItem="NPo-EQ-tzZ" secondAttribute="leading" id="moY-oQ-4cq"/>
                 <constraint firstItem="PHb-as-aCc" firstAttribute="leading" secondItem="ego-c0-l21" secondAttribute="leading" id="nuP-XW-bMl"/>
                 <constraint firstItem="Mcv-t0-Oug" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="sL8-rA-jDx"/>
                 <constraint firstItem="Obt-PB-OJN" firstAttribute="top" secondItem="ego-c0-l21" secondAttribute="bottom" id="sPR-R0-JSE"/>
-                <constraint firstItem="eSP-Wo-8Cv" firstAttribute="trailing" secondItem="NPo-EQ-tzZ" secondAttribute="trailing" constant="1" id="wlQ-gU-05b"/>
+                <constraint firstItem="eSP-Wo-8Cv" firstAttribute="trailing" secondItem="NPo-EQ-tzZ" secondAttribute="trailing" id="wlQ-gU-05b"/>
                 <constraint firstItem="ego-c0-l21" firstAttribute="leading" secondItem="Mcv-t0-Oug" secondAttribute="leading" id="yF6-De-H4u"/>
             </constraints>
-            <point key="canvasLocation" x="474" y="158.5"/>
+            <point key="canvasLocation" x="474" y="148"/>
         </customView>
     </objects>
 </document>
