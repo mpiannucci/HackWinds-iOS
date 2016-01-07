@@ -8,6 +8,12 @@
 
 #import "Tide.h"
 
+// Define Constants
+NSString * const LOW_TIDE_TAG = @"Low Tide";
+NSString * const HIGH_TIDE_TAG = @"High Tide";
+NSString * const SUNRISE_TAG = @"Sunrise";
+NSString * const SUNSET_TAG = @"Sunset";
+
 @implementation Tide
 
 - (id)initWithCoder:(NSCoder *)aDecoder

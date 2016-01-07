@@ -5,20 +5,21 @@
 //  Created by Matthew Iannucci on 9/10/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define BASE_WW_CHART_URL @"http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/US_eastcoast.%@.%@%03dh.png"
-#define PAST_HOUR_PREFIX @"h"
-#define FUTURE_HOUR_PREFIX @"f"
-#define WW_WAVE_HEIGHT_CHART 0
-#define WW_SWELL_HEIGHT_CHART 1
-#define WW_SWELL_PERIOD_CHART 2
-#define WW_WIND_CHART 3
-#define WW_HOUR_STEP 3
-#define WW_IMAGE_COUNT 61
-#define WW_MAX_HOUR 180
-#define WW_MIN_HOUR 0
 
 #import "WaveWatchChartViewController.h"
 #import "AsyncImageView.h"
+
+static NSString * const BASE_WW_CHART_URL = @"http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/US_eastcoast.%@.%@%03dh.png";
+static NSString * const PAST_HOUR_PREFIX = @"h";
+static NSString * const FUTURE_HOUR_PREFIX = @"f";
+static const int WW_WAVE_HEIGHT_CHART = 0;
+static const int WW_SWELL_HEIGHT_CHART = 1;
+static const int WW_SWELL_PERIOD_CHART = 2;
+static const int WW_WIND_CHART = 3;
+static const int WW_HOUR_STEP = 3;
+static const int WW_IMAGE_COUNT = 61;
+static const int WW_MAX_HOUR = 180;
+static const int WW_MIN_HOUR = 0;
 
 @interface WaveWatchChartViewController()
 

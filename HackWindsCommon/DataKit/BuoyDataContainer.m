@@ -5,14 +5,19 @@
 //  Created by Matthew Iannucci on 8/23/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define BASE_DATA_URL @"http://www.ndbc.noaa.gov/data/realtime2/%@%@"
-#define BASE_SPECTRA_PLOT_URL @"http://www.ndbc.noaa.gov/spec_plot.php?station=%@"
-#define BASE_LATEST_DATA_URL @"http://www.ndbc.noaa.gov/get_observation_as_xml.php?station=%@"
-#define BUOY_SUMMARY_SUFFIX @".txt"
-#define BUOY_DETAIL_SUFFIX @".spec"
 
 #import "BuoyDataContainer.h"
 #import "BuoyModel.h"
+
+// Global constant
+const int BUOY_DATA_POINTS = 20;
+
+// Local constants
+static NSString * const BASE_DATA_URL = @"http://www.ndbc.noaa.gov/data/realtime2/%@%@";
+static NSString * const BASE_SPECTRA_PLOT_URL = @"http://www.ndbc.noaa.gov/spec_plot.php?station=%@";
+static NSString * const BASE_LATEST_DATA_URL = @"http://www.ndbc.noaa.gov/get_observation_as_xml.php?station=%@";
+static NSString * const BUOY_SUMMARY_SUFFIX = @".txt";
+static NSString * const BUOY_DETAIL_SUFFIX = @".spec";
 
 @implementation BuoyDataContainer
 

@@ -5,9 +5,9 @@
 //  Created by Matthew Iannucci on 12/14/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
-#define WUNDERGROUND_URL [NSURL URLWithString:@"http://api.wunderground.com/api/2e5424aab8c91757/tide/q/RI/Point_Judith.json"]
-
 #import "TideModel.h"
+
+static NSString * const WUNDERGROUND_URL = @"http://api.wunderground.com/api/2e5424aab8c91757/tide/q/RI/Point_Judith.json";
 
 @interface TideModel ()
 
@@ -101,8 +101,9 @@
 }
 
 - (NSArray*) retrieveTideDataArray {
+    
     // Get the data from the wunderground api
-    NSData* data = [NSData dataWithContentsOfURL:WUNDERGROUND_URL];
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:WUNDERGROUND_URL]];
     
     // If theres no data return false
     if (data == nil) {

@@ -5,16 +5,26 @@
 //  Created by Matthew Iannucci on 12/14/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
-#define BASE_MSW_URL @"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=%@&fields=localTimestamp,swell.*,wind.*,charts.*"
-#define TOWN_BEACH_ID 1103
-#define POINT_JUDITH_ID 376
-#define MATUNUCK_ID 377
-#define SECOND_BEACH_ID 846
-
 #import "ForecastModel.h"
 #import "Forecast.h"
 #import "Condition.h"
 #import "ForecastDataContainer.h"
+
+NSString * const TOWN_BEACH_LOCATION = @"Narragansett Town Beach";
+NSString * const POINT_JUDITH_LOCATION = @"Point Judith Lighthouse";
+NSString * const MATUNUCK_LOCATION = @"Matunuck";
+NSString * const SECOND_BEACH_LOCATION = @"Second Beach";
+
+// Notification Constants
+NSString * const FORECAST_DATA_UPDATED_TAG = @"ForecastModelDidUpdateDataNotification";
+NSString * const FORECAST_LOCATION_CHANGED_TAG = @"ForecastLocationChangedNotification";
+
+// Local Constants
+static NSString * const BASE_MSW_URL = @"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=%@&fields=localTimestamp,swell.*,wind.*,charts.*";
+static const int TOWN_BEACH_ID = 1103;
+static const int POINT_JUDITH_ID = 376;
+static const int MATUNUCK_ID = 377;
+static const int SECOND_BEACH_ID = 846;
 
 @interface ForecastModel ()
 

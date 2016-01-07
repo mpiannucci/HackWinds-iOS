@@ -8,6 +8,9 @@
 
 #import "ForecastDataContainer.h"
 
+const int CONDITION_DATA_POINT_COUNT = 30;
+const int FORECAST_DATA_POINT_COUNT = 10;
+
 @implementation ForecastDataContainer
 
 - (id) init {

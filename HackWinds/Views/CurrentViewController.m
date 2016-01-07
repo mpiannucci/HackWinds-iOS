@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 #define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define CAMERA_IMAGE_COUNT 8
 
 #import <MediaPlayer/MediaPlayer.h>
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
 #import "Reachability.h"
 #import "NavigationBarTitleWithSubtitleView.h"
+
+static const int CAMERA_IMAGE_COUNT = 8;
 
 @interface CurrentViewController ()
 

@@ -5,10 +5,11 @@
 //  Created by Matthew Iannucci on 5/17/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define HACKWINDS_API_URL [NSURL URLWithString:@"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v3.json"]
 
 #import "CameraModel.h"
 #import "Camera.h"
+
+static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v3.json";
 
 @interface CameraModel()
 
@@ -49,8 +50,8 @@
         if (!forceReload) {
             return true;
         }
-    
-        NSData *cameraResponse = [NSData dataWithContentsOfURL:HACKWINDS_API_URL];
+        
+        NSData *cameraResponse = [NSData dataWithContentsOfURL:[NSURL URLWithString:HACKWINDS_API_URL]];
         NSError *error;
         NSDictionary *settingsData = [NSJSONSerialization
                                       JSONObjectWithData:cameraResponse

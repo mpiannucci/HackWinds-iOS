@@ -5,11 +5,12 @@
 //  Created by Matthew Iannucci on 2/24/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define FORECAST_TAG 1
-#define BUOY_TAG 2
 
 #import "SettingsViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
+
+static const int FORECAST_TAG = 1;
+static const int BUOY_TAG = 2;
 
 @interface SettingsViewController ()
 

@@ -6,13 +6,15 @@
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
 #define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define SWELL_CHART 0
-#define WIND_CHART 1
-#define PERIOD_CHART 2
 
 #import "DetailedForecastViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "AsyncImageView.h"
+
+// Constants
+static const int SWELL_CHART = 0;
+static const int WIND_CHART = 1;
+static const int PERIOD_CHART = 2;
 
 @interface DetailedForecastViewController ()
 

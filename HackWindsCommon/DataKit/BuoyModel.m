@@ -5,37 +5,49 @@
 //  Created by Matthew Iannucci on 12/14/14.
 //  Copyright (c) 2014 Rhodysurf Development. All rights reserved.
 //
-// Summary data locations
-#define SUMMARY_DATA_HEADER_LENGTH 38
-#define SUMMARY_DATA_LINE_LENGTH 19
-#define SUMMARY_HOUR_OFFSET 3
-#define SUMMARY_MINUTE_OFFSET 4
-#define SUMMARY_WVHT_OFFSET 8
-#define SUMMARY_DPD_OFFSET 9
-#define SUMMARY_DIRECTION_OFFSET 11
-#define SUMMARY_TEMPERATURE_OFFSET 14
-
-// Detail data locations
-#define DETAIL_DATA_HEADER_LENGTH 30
-#define DETAIL_DATA_LINE_LENGTH 15
-#define DETAIL_HOUR_OFFSET 3
-#define DETAIL_MINUTE_OFFSET 4
-#define DETAIL_WVHT_OFFSET 5
-#define DETAIL_SWELL_WAVE_HEIGHT_OFFSET 6
-#define DETAIL_SWELL_PERIOD_OFFSET 7
-#define DETAIL_WIND_WAVE_HEIGHT_OFFSET 8
-#define DETAIL_WIND_PERIOD_OFFSET 9
-#define DETAIL_SWELL_DIRECTION 10
-#define DETAIL_WIND_WAVE_DIRECTION 11
-
-// URLs
-#define BI_BUOY_NUMBER 44097
-#define MTK_BUOY_NUMBER 44017
-#define ACK_BUOY_NUMBER 44008
 
 #import "BuoyModel.h"
 #import "BuoyDataContainer.h"
 #import "XMLReader.h"
+
+// Global Constants
+NSString * const BLOCK_ISLAND_LOCATION = @"Block Island";
+NSString * const MONTAUK_LOCATION = @"Montauk";
+NSString * const NANTUCKET_LOCATION =  @"Nantucket";
+NSString * const SUMMARY_DATA_MODE = @"Summary";
+NSString * const SWELL_DATA_MODE = @"Swell";
+NSString * const WIND_DATA_MODE = @"Wind Wave";
+NSString * const BUOY_DATA_UPDATED_TAG = @"BuoyModelDidUpdateDataNotification";
+NSString * const BUOY_LOCATION_CHANGED_TAG = @"BuoyLocationChangedNotification";
+NSString * const DEFAULT_BUOY_LOCATION_CHANGED_TAG = @"DefaultBuoyLocationChangedNotification";
+
+// Local Constants
+static const int SUMMARY_DATA_HEADER_LENGTH = 38;
+static const int SUMMARY_DATA_LINE_LENGTH = 19;
+static const int SUMMARY_HOUR_OFFSET = 3;
+static const int SUMMARY_MINUTE_OFFSET = 4;
+static const int SUMMARY_WVHT_OFFSET = 8;
+static const int SUMMARY_DPD_OFFSET = 9;
+static const int SUMMARY_DIRECTION_OFFSET = 11;
+static const int SUMMARY_TEMPERATURE_OFFSET = 14;
+
+// Detail data locations
+static const int DETAIL_DATA_HEADER_LENGTH = 30;
+static const int DETAIL_DATA_LINE_LENGTH = 15;
+static const int DETAIL_HOUR_OFFSET = 3;
+static const int DETAIL_MINUTE_OFFSET = 4;
+static const int DETAIL_WVHT_OFFSET = 5;
+static const int DETAIL_SWELL_WAVE_HEIGHT_OFFSET = 6;
+static const int DETAIL_SWELL_PERIOD_OFFSET = 7;
+static const int DETAIL_WIND_WAVE_HEIGHT_OFFSET  = 8;
+static const int DETAIL_WIND_PERIOD_OFFSET = 9;
+static const int DETAIL_SWELL_DIRECTION = 10;
+static const int DETAIL_WIND_WAVE_DIRECTION = 11;
+
+// URLs
+static const int BI_BUOY_NUMBER = 44097;
+static const int MTK_BUOY_NUMBER = 44017;
+static const int ACK_BUOY_NUMBER = 44008;
 
 @interface BuoyModel ()
 
