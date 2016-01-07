@@ -16,19 +16,29 @@ Project Layout
 By folder, here is a description of the top level directories:
 `HackWinds`: The main iOS Application Target.
 `HackWindsCommon`: All shared code between targets. The internal folders specify what targets it is shared by (eg. The `DataKit` folder is shared by all the DataKit Framework targets, while the `Extensions` folder is shared by the Swift widgets and extensions. 
+
 `HackWindsTodayWidget`: "Today" notification center widget for iOS
+
 `HackWindsWatchApp`: The WatchOS 2 Bundle target
+
 `HackWindsWatchApp Extension`: The extension that the WatchOS APP launches. 
+
 `HackWindsTodayOSX`: OSX Notification center widget target
+
 `HackWindsDataKit`: iOS data kit target
+
 `HackWindsDataKitOSX`: OSX data kit target
+
 `HackWindsDataKitWatchO`S: WatchOS 2 data kit target
 
 Status
 ---------------
 Current status by platform
+
 `iOS`: In production, live on the App Store
+
 `WatchOS`: In alpha, not running correctly and needs a bit of work.
+
 `OSX`: In beta, runs well and works, but needs tweaks to data and assets (like icons)
 
 Disclaimer 
