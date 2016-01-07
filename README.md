@@ -29,7 +29,7 @@ By folder, here is a description of the top level directories:
 
 `HackWindsDataKitOSX`: OSX data kit target
 
-`HackWindsDataKitWatchO`S: WatchOS 2 data kit target
+`HackWindsDataKitWatchOS`: WatchOS 2 data kit target
 
 Status
 ---------------
