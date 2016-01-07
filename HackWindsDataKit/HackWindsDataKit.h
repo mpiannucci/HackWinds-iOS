@@ -16,4 +16,23 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <HackWindsDataKitOSX/PublicHeader.h>
 
-#import <HackWindsDataKit/HackWindsDataKitCommon.h>
+// Constants
+#import <HackWindsDataKit/Colors.h>
+#import <HackWindsDataKit/Constants.h>
+
+// Types
+#import <HackWindsDataKit/Camera.h>
+#import <HackWindsDataKit/Condition.h>
+#import <HackWindsDataKit/Forecast.h>
+#import <HackWindsDataKit/Buoy.h>
+#import <HackWindsDataKit/Tide.h>
+
+// Models
+#import <HackWindsDataKit/CameraModel.h>
+#import <HackWindsDataKit/ForecastModel.h>
+#import <HackWindsDataKit/BuoyModel.h>
+#import <HackWindsDataKit/TideModel.h>
+
+// Useful abstracted containers
+#import <HackWindsDataKit/ForecastDataContainer.h>
+#import <HackWindsDataKit/BuoyDataContainer.h>

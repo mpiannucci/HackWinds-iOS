@@ -22,12 +22,6 @@
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
-		3485E1F41C320785004A8A70 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3485E1F31C320785004A8A70 /* XMLReader.m */; };
-		3485E1F51C320785004A8A70 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3485E1F31C320785004A8A70 /* XMLReader.m */; };
-		3485E1F61C320785004A8A70 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3485E1F31C320785004A8A70 /* XMLReader.m */; };
-		3485E1FA1C3207A6004A8A70 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3485E1F91C3207A6004A8A70 /* XMLReader.h */; };
-		3485E1FB1C3207A6004A8A70 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3485E1F91C3207A6004A8A70 /* XMLReader.h */; };
-		3485E1FC1C3207A6004A8A70 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3485E1F91C3207A6004A8A70 /* XMLReader.h */; };
 		349076271C24A7E500EAD0CE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349076251C24A7E500EAD0CE /* Interface.storyboard */; };
 		349076291C24A7E500EAD0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349076281C24A7E500EAD0CE /* Assets.xcassets */; };
 		349076301C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -53,66 +47,10 @@
 		349D42601C384C96006F7B24 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349D425E1C384C96006F7B24 /* TodayViewController.xib */; };
 		349D42641C384C96006F7B24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 349D42621C384C96006F7B24 /* InfoPlist.strings */; };
 		349D42671C384C96006F7B24 /* HackWindsTodayOSX.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		349D426C1C384DD8006F7B24 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E6A191C2A4F9D00CBDCBD /* Reporter.swift */; };
 		349D426D1C384DF4006F7B24 /* HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; };
-		349E6A1A1C2A4F9D00CBDCBD /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E6A191C2A4F9D00CBDCBD /* Reporter.swift */; };
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
-		34BF63AA1B950EA100FE78A4 /* ForecastDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34BF63AB1B950EA100FE78A4 /* ForecastDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */; };
-		34BF8CF81B62E74B00287BC1 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF8CF61B62E74B00287BC1 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34BF8CF91B62E74B00287BC1 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF8CF71B62E74B00287BC1 /* Camera.m */; };
-		34C07DF31C2748FF002D3DB8 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA631B62DD8600CDA01D /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07DF41C274916002D3DB8 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA631B62DD8600CDA01D /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07DF91C274AC1002D3DB8 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA641B62DD8600CDA01D /* Condition.m */; };
-		34C07DFA1C274AC1002D3DB8 /* Forecast.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA661B62DD8600CDA01D /* Forecast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07DFB1C274AC1002D3DB8 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA671B62DD8600CDA01D /* Forecast.m */; };
-		34C07DFC1C274AC1002D3DB8 /* ForecastModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA681B62DD8600CDA01D /* ForecastModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07DFD1C274AC1002D3DB8 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA691B62DD8600CDA01D /* ForecastModel.m */; };
-		34C07DFE1C274AC1002D3DB8 /* ForecastDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07DFF1C274AC1002D3DB8 /* ForecastDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */; };
-		34C07E001C274AC1002D3DB8 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA601B62DD8600CDA01D /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E011C274AC1002D3DB8 /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA611B62DD8600CDA01D /* CameraModel.m */; };
-		34C07E021C274AC1002D3DB8 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF8CF61B62E74B00287BC1 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E031C274AC1002D3DB8 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF8CF71B62E74B00287BC1 /* Camera.m */; };
-		34C07E041C274AC1002D3DB8 /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6A1B62DD8600CDA01D /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E051C274AC1002D3DB8 /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6B1B62DD8600CDA01D /* Tide.m */; };
-		34C07E061C274AC1002D3DB8 /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6C1B62DD8600CDA01D /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E071C274AC1002D3DB8 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6D1B62DD8600CDA01D /* TideModel.m */; };
-		34C07E081C274AC1002D3DB8 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5D1B62DD8600CDA01D /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E091C274AC1002D3DB8 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5E1B62DD8600CDA01D /* Buoy.m */; };
-		34C07E0A1C274AC1002D3DB8 /* BuoyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E0B1C274AC1002D3DB8 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */; };
-		34C07E0C1C274AC1002D3DB8 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E0D1C274AC1002D3DB8 /* BuoyDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */; };
-		34C07E0E1C274AC1002D3DB8 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA621B62DD8600CDA01D /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E0F1C274AC1002D3DB8 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA651B62DD8600CDA01D /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E101C274AC1002D3DB8 /* HackWindsDataKitCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA2D1B62D84700CDA01D /* HackWindsDataKitCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E111C274AC2002D3DB8 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA641B62DD8600CDA01D /* Condition.m */; };
-		34C07E121C274AC2002D3DB8 /* Forecast.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA661B62DD8600CDA01D /* Forecast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E131C274AC2002D3DB8 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA671B62DD8600CDA01D /* Forecast.m */; };
-		34C07E141C274AC2002D3DB8 /* ForecastModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA681B62DD8600CDA01D /* ForecastModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E151C274AC2002D3DB8 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA691B62DD8600CDA01D /* ForecastModel.m */; };
-		34C07E161C274AC2002D3DB8 /* ForecastDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E171C274AC2002D3DB8 /* ForecastDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */; };
-		34C07E181C274AC2002D3DB8 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA601B62DD8600CDA01D /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E191C274AC2002D3DB8 /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA611B62DD8600CDA01D /* CameraModel.m */; };
-		34C07E1A1C274AC2002D3DB8 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BF8CF61B62E74B00287BC1 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E1B1C274AC2002D3DB8 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BF8CF71B62E74B00287BC1 /* Camera.m */; };
-		34C07E1C1C274AC2002D3DB8 /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6A1B62DD8600CDA01D /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E1D1C274AC2002D3DB8 /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6B1B62DD8600CDA01D /* Tide.m */; };
-		34C07E1E1C274AC2002D3DB8 /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6C1B62DD8600CDA01D /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E1F1C274AC2002D3DB8 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6D1B62DD8600CDA01D /* TideModel.m */; };
-		34C07E201C274AC2002D3DB8 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5D1B62DD8600CDA01D /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E211C274AC2002D3DB8 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5E1B62DD8600CDA01D /* Buoy.m */; };
-		34C07E221C274AC2002D3DB8 /* BuoyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E231C274AC2002D3DB8 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */; };
-		34C07E241C274AC2002D3DB8 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E251C274AC2002D3DB8 /* BuoyDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */; };
-		34C07E261C274AC2002D3DB8 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA621B62DD8600CDA01D /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E271C274AC2002D3DB8 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA651B62DD8600CDA01D /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C07E281C274AC2002D3DB8 /* HackWindsDataKitCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA2D1B62D84700CDA01D /* HackWindsDataKitCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C07E2C1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C07E2B1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m */; };
 		34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2D1C274D67002D3DB8 /* HackWindsDataKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2F1C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h */; };
@@ -125,32 +63,91 @@
 		34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */; };
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
-		34E1BA2E1B62D84700CDA01D /* HackWindsDataKitCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA2D1B62D84700CDA01D /* HackWindsDataKitCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */; };
 		34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		34E1BA5C1B62DD6600CDA01D /* BuoyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA6E1B62DD8600CDA01D /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA5D1B62DD8600CDA01D /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA6F1B62DD8600CDA01D /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5E1B62DD8600CDA01D /* Buoy.m */; };
-		34E1BA701B62DD8600CDA01D /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */; };
-		34E1BA711B62DD8600CDA01D /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA601B62DD8600CDA01D /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA721B62DD8600CDA01D /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA611B62DD8600CDA01D /* CameraModel.m */; };
-		34E1BA731B62DD8600CDA01D /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA621B62DD8600CDA01D /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA741B62DD8600CDA01D /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA631B62DD8600CDA01D /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA751B62DD8600CDA01D /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA641B62DD8600CDA01D /* Condition.m */; };
-		34E1BA761B62DD8600CDA01D /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA651B62DD8600CDA01D /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA771B62DD8600CDA01D /* Forecast.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA661B62DD8600CDA01D /* Forecast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA781B62DD8600CDA01D /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA671B62DD8600CDA01D /* Forecast.m */; };
-		34E1BA791B62DD8600CDA01D /* ForecastModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA681B62DD8600CDA01D /* ForecastModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA7A1B62DD8600CDA01D /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA691B62DD8600CDA01D /* ForecastModel.m */; };
-		34E1BA7B1B62DD8600CDA01D /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6A1B62DD8600CDA01D /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA7C1B62DD8600CDA01D /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6B1B62DD8600CDA01D /* Tide.m */; };
-		34E1BA7D1B62DD8600CDA01D /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1BA6C1B62DD8600CDA01D /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34E1BA7E1B62DD8600CDA01D /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA6D1B62DD8600CDA01D /* TideModel.m */; };
+		34EA41201C3E8D15008FF504 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41051C3E8D15008FF504 /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41211C3E8D15008FF504 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41051C3E8D15008FF504 /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41221C3E8D15008FF504 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41051C3E8D15008FF504 /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41231C3E8D15008FF504 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41061C3E8D15008FF504 /* Buoy.m */; };
+		34EA41241C3E8D15008FF504 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41061C3E8D15008FF504 /* Buoy.m */; };
+		34EA41251C3E8D15008FF504 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41061C3E8D15008FF504 /* Buoy.m */; };
+		34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41291C3E8D15008FF504 /* BuoyDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */; };
+		34EA412A1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */; };
+		34EA412B1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */; };
+		34EA412C1C3E8D15008FF504 /* BuoyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41091C3E8D15008FF504 /* BuoyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA412D1C3E8D15008FF504 /* BuoyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41091C3E8D15008FF504 /* BuoyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA412E1C3E8D15008FF504 /* BuoyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41091C3E8D15008FF504 /* BuoyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA412F1C3E8D15008FF504 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410A1C3E8D15008FF504 /* BuoyModel.m */; };
+		34EA41301C3E8D15008FF504 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410A1C3E8D15008FF504 /* BuoyModel.m */; };
+		34EA41311C3E8D15008FF504 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410A1C3E8D15008FF504 /* BuoyModel.m */; };
+		34EA41321C3E8D15008FF504 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410B1C3E8D15008FF504 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41331C3E8D15008FF504 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410B1C3E8D15008FF504 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41341C3E8D15008FF504 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410B1C3E8D15008FF504 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41351C3E8D15008FF504 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410C1C3E8D15008FF504 /* Camera.m */; };
+		34EA41361C3E8D15008FF504 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410C1C3E8D15008FF504 /* Camera.m */; };
+		34EA41371C3E8D15008FF504 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410C1C3E8D15008FF504 /* Camera.m */; };
+		34EA41381C3E8D15008FF504 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410D1C3E8D15008FF504 /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41391C3E8D15008FF504 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410D1C3E8D15008FF504 /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA413A1C3E8D15008FF504 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410D1C3E8D15008FF504 /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA413B1C3E8D15008FF504 /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410E1C3E8D15008FF504 /* CameraModel.m */; };
+		34EA413C1C3E8D15008FF504 /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410E1C3E8D15008FF504 /* CameraModel.m */; };
+		34EA413D1C3E8D15008FF504 /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410E1C3E8D15008FF504 /* CameraModel.m */; };
+		34EA413E1C3E8D15008FF504 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410F1C3E8D15008FF504 /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA413F1C3E8D15008FF504 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410F1C3E8D15008FF504 /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41401C3E8D15008FF504 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410F1C3E8D15008FF504 /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41411C3E8D15008FF504 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41101C3E8D15008FF504 /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41421C3E8D15008FF504 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41101C3E8D15008FF504 /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41431C3E8D15008FF504 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41101C3E8D15008FF504 /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41441C3E8D15008FF504 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41111C3E8D15008FF504 /* Condition.m */; };
+		34EA41451C3E8D15008FF504 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41111C3E8D15008FF504 /* Condition.m */; };
+		34EA41461C3E8D15008FF504 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41111C3E8D15008FF504 /* Condition.m */; };
+		34EA41471C3E8D15008FF504 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41121C3E8D15008FF504 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41481C3E8D15008FF504 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41121C3E8D15008FF504 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41491C3E8D15008FF504 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41121C3E8D15008FF504 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA414A1C3E8D15008FF504 /* Forecast.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41131C3E8D15008FF504 /* Forecast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA414B1C3E8D15008FF504 /* Forecast.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41131C3E8D15008FF504 /* Forecast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA414C1C3E8D15008FF504 /* Forecast.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41131C3E8D15008FF504 /* Forecast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA414D1C3E8D15008FF504 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41141C3E8D15008FF504 /* Forecast.m */; };
+		34EA414E1C3E8D15008FF504 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41141C3E8D15008FF504 /* Forecast.m */; };
+		34EA414F1C3E8D15008FF504 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41141C3E8D15008FF504 /* Forecast.m */; };
+		34EA41501C3E8D15008FF504 /* ForecastDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41151C3E8D15008FF504 /* ForecastDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41511C3E8D15008FF504 /* ForecastDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41151C3E8D15008FF504 /* ForecastDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41521C3E8D15008FF504 /* ForecastDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41151C3E8D15008FF504 /* ForecastDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41531C3E8D15008FF504 /* ForecastDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41161C3E8D15008FF504 /* ForecastDataContainer.m */; };
+		34EA41541C3E8D15008FF504 /* ForecastDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41161C3E8D15008FF504 /* ForecastDataContainer.m */; };
+		34EA41551C3E8D15008FF504 /* ForecastDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41161C3E8D15008FF504 /* ForecastDataContainer.m */; };
+		34EA41561C3E8D15008FF504 /* ForecastModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41171C3E8D15008FF504 /* ForecastModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41571C3E8D15008FF504 /* ForecastModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41171C3E8D15008FF504 /* ForecastModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41581C3E8D15008FF504 /* ForecastModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41171C3E8D15008FF504 /* ForecastModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41591C3E8D15008FF504 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41181C3E8D15008FF504 /* ForecastModel.m */; };
+		34EA415A1C3E8D15008FF504 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41181C3E8D15008FF504 /* ForecastModel.m */; };
+		34EA415B1C3E8D15008FF504 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41181C3E8D15008FF504 /* ForecastModel.m */; };
+		34EA415F1C3E8D15008FF504 /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411A1C3E8D15008FF504 /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41601C3E8D15008FF504 /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411A1C3E8D15008FF504 /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41611C3E8D15008FF504 /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411A1C3E8D15008FF504 /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41621C3E8D15008FF504 /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411B1C3E8D15008FF504 /* Tide.m */; };
+		34EA41631C3E8D15008FF504 /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411B1C3E8D15008FF504 /* Tide.m */; };
+		34EA41641C3E8D15008FF504 /* Tide.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411B1C3E8D15008FF504 /* Tide.m */; };
+		34EA41651C3E8D15008FF504 /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411C1C3E8D15008FF504 /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41661C3E8D15008FF504 /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411C1C3E8D15008FF504 /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41671C3E8D15008FF504 /* TideModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411C1C3E8D15008FF504 /* TideModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA41681C3E8D15008FF504 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411D1C3E8D15008FF504 /* TideModel.m */; };
+		34EA41691C3E8D15008FF504 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411D1C3E8D15008FF504 /* TideModel.m */; };
+		34EA416A1C3E8D15008FF504 /* TideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411D1C3E8D15008FF504 /* TideModel.m */; };
+		34EA416B1C3E8D15008FF504 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411E1C3E8D15008FF504 /* XMLReader.h */; };
+		34EA416C1C3E8D15008FF504 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411E1C3E8D15008FF504 /* XMLReader.h */; };
+		34EA416D1C3E8D15008FF504 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA411E1C3E8D15008FF504 /* XMLReader.h */; };
+		34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
+		34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
+		34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
+		34EA41751C3E8D4D008FF504 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
+		34EA41761C3E8D51008FF504 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
 		34EB97451B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */; };
-		34F4D4AC1B8A28DF0099E113 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34F4D4AD1B8A28DF0099E113 /* BuoyDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */; };
 		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
@@ -343,8 +340,6 @@
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
-		3485E1F31C320785004A8A70 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = HackWindsDataKitCommon/XMLReader.m; sourceTree = SOURCE_ROOT; };
-		3485E1F91C3207A6004A8A70 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = HackWindsDataKitCommon/XMLReader.h; sourceTree = SOURCE_ROOT; };
 		349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076261C24A7E500EAD0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		349076281C24A7E500EAD0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -383,17 +378,12 @@
 		349D426E1C384E12006F7B24 /* HackWindsOSX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsOSX-Bridging-Header.h"; sourceTree = "<group>"; };
 		349D426F1C384F14006F7B24 /* HackWindsOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsOSX.entitlements; sourceTree = "<group>"; };
 		349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsWatch-Bridging-Header.h"; sourceTree = "<group>"; };
-		349E6A191C2A4F9D00CBDCBD /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reporter.swift; path = ../HackWindsDataKitCommon/Reporter.swift; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
-		34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastDataContainer.h; path = ../HackWindsDataKitCommon/ForecastDataContainer.h; sourceTree = "<group>"; };
-		34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastDataContainer.m; path = ../HackWindsDataKitCommon/ForecastDataContainer.m; sourceTree = "<group>"; };
 		34BF8CF51B62E69B00287BC1 /* HackWinds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWinds.entitlements; sourceTree = "<group>"; };
-		34BF8CF61B62E74B00287BC1 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = ../HackWindsDataKitCommon/Camera.h; sourceTree = "<group>"; };
-		34BF8CF71B62E74B00287BC1 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = ../HackWindsDataKitCommon/Camera.m; sourceTree = "<group>"; };
 		34C07E2B1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitOSXTests.m; sourceTree = "<group>"; };
 		34C07E2D1C274D67002D3DB8 /* HackWindsDataKitOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HackWindsDataKitOSX.h; sourceTree = "<group>"; };
 		34C07E2F1C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HackWindsDataKitWatchOS.h; sourceTree = "<group>"; };
@@ -412,32 +402,38 @@
 		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34E1BA2D1B62D84700CDA01D /* HackWindsDataKitCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HackWindsDataKitCommon.h; path = HackWindsDataKitCommon/HackWindsDataKitCommon.h; sourceTree = SOURCE_ROOT; };
 		34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsDataKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1BA3B1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitTests.m; sourceTree = "<group>"; };
-		34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyModel.h; path = ../HackWindsDataKitCommon/BuoyModel.h; sourceTree = "<group>"; };
-		34E1BA5D1B62DD8600CDA01D /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Buoy.h; path = ../HackWindsDataKitCommon/Buoy.h; sourceTree = "<group>"; };
-		34E1BA5E1B62DD8600CDA01D /* Buoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Buoy.m; path = ../HackWindsDataKitCommon/Buoy.m; sourceTree = "<group>"; };
-		34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyModel.m; path = ../HackWindsDataKitCommon/BuoyModel.m; sourceTree = "<group>"; };
-		34E1BA601B62DD8600CDA01D /* CameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraModel.h; path = ../HackWindsDataKitCommon/CameraModel.h; sourceTree = "<group>"; };
-		34E1BA611B62DD8600CDA01D /* CameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraModel.m; path = ../HackWindsDataKitCommon/CameraModel.m; sourceTree = "<group>"; };
-		34E1BA621B62DD8600CDA01D /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Colors.h; path = ../HackWindsDataKitCommon/Colors.h; sourceTree = "<group>"; };
-		34E1BA631B62DD8600CDA01D /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Condition.h; path = ../HackWindsDataKitCommon/Condition.h; sourceTree = "<group>"; };
-		34E1BA641B62DD8600CDA01D /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Condition.m; path = ../HackWindsDataKitCommon/Condition.m; sourceTree = "<group>"; };
-		34E1BA651B62DD8600CDA01D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../HackWindsDataKitCommon/Constants.h; sourceTree = "<group>"; };
-		34E1BA661B62DD8600CDA01D /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Forecast.h; path = ../HackWindsDataKitCommon/Forecast.h; sourceTree = "<group>"; };
-		34E1BA671B62DD8600CDA01D /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Forecast.m; path = ../HackWindsDataKitCommon/Forecast.m; sourceTree = "<group>"; };
-		34E1BA681B62DD8600CDA01D /* ForecastModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastModel.h; path = ../HackWindsDataKitCommon/ForecastModel.h; sourceTree = "<group>"; };
-		34E1BA691B62DD8600CDA01D /* ForecastModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastModel.m; path = ../HackWindsDataKitCommon/ForecastModel.m; sourceTree = "<group>"; };
-		34E1BA6A1B62DD8600CDA01D /* Tide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tide.h; path = ../HackWindsDataKitCommon/Tide.h; sourceTree = "<group>"; };
-		34E1BA6B1B62DD8600CDA01D /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tide.m; path = ../HackWindsDataKitCommon/Tide.m; sourceTree = "<group>"; };
-		34E1BA6C1B62DD8600CDA01D /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TideModel.h; path = ../HackWindsDataKitCommon/TideModel.h; sourceTree = "<group>"; };
-		34E1BA6D1B62DD8600CDA01D /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TideModel.m; path = ../HackWindsDataKitCommon/TideModel.m; sourceTree = "<group>"; };
+		34EA41051C3E8D15008FF504 /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Buoy.h; path = HackWindsCommon/DataKit/Buoy.h; sourceTree = "<group>"; };
+		34EA41061C3E8D15008FF504 /* Buoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Buoy.m; path = HackWindsCommon/DataKit/Buoy.m; sourceTree = "<group>"; };
+		34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyDataContainer.h; path = HackWindsCommon/DataKit/BuoyDataContainer.h; sourceTree = "<group>"; };
+		34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyDataContainer.m; path = HackWindsCommon/DataKit/BuoyDataContainer.m; sourceTree = "<group>"; };
+		34EA41091C3E8D15008FF504 /* BuoyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyModel.h; path = HackWindsCommon/DataKit/BuoyModel.h; sourceTree = "<group>"; };
+		34EA410A1C3E8D15008FF504 /* BuoyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyModel.m; path = HackWindsCommon/DataKit/BuoyModel.m; sourceTree = "<group>"; };
+		34EA410B1C3E8D15008FF504 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = HackWindsCommon/DataKit/Camera.h; sourceTree = "<group>"; };
+		34EA410C1C3E8D15008FF504 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = HackWindsCommon/DataKit/Camera.m; sourceTree = "<group>"; };
+		34EA410D1C3E8D15008FF504 /* CameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraModel.h; path = HackWindsCommon/DataKit/CameraModel.h; sourceTree = "<group>"; };
+		34EA410E1C3E8D15008FF504 /* CameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraModel.m; path = HackWindsCommon/DataKit/CameraModel.m; sourceTree = "<group>"; };
+		34EA410F1C3E8D15008FF504 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Colors.h; path = HackWindsCommon/DataKit/Colors.h; sourceTree = "<group>"; };
+		34EA41101C3E8D15008FF504 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Condition.h; path = HackWindsCommon/DataKit/Condition.h; sourceTree = "<group>"; };
+		34EA41111C3E8D15008FF504 /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Condition.m; path = HackWindsCommon/DataKit/Condition.m; sourceTree = "<group>"; };
+		34EA41121C3E8D15008FF504 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = HackWindsCommon/DataKit/Constants.h; sourceTree = "<group>"; };
+		34EA41131C3E8D15008FF504 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Forecast.h; path = HackWindsCommon/DataKit/Forecast.h; sourceTree = "<group>"; };
+		34EA41141C3E8D15008FF504 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Forecast.m; path = HackWindsCommon/DataKit/Forecast.m; sourceTree = "<group>"; };
+		34EA41151C3E8D15008FF504 /* ForecastDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastDataContainer.h; path = HackWindsCommon/DataKit/ForecastDataContainer.h; sourceTree = "<group>"; };
+		34EA41161C3E8D15008FF504 /* ForecastDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastDataContainer.m; path = HackWindsCommon/DataKit/ForecastDataContainer.m; sourceTree = "<group>"; };
+		34EA41171C3E8D15008FF504 /* ForecastModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastModel.h; path = HackWindsCommon/DataKit/ForecastModel.h; sourceTree = "<group>"; };
+		34EA41181C3E8D15008FF504 /* ForecastModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastModel.m; path = HackWindsCommon/DataKit/ForecastModel.m; sourceTree = "<group>"; };
+		34EA411A1C3E8D15008FF504 /* Tide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tide.h; path = HackWindsCommon/DataKit/Tide.h; sourceTree = "<group>"; };
+		34EA411B1C3E8D15008FF504 /* Tide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tide.m; path = HackWindsCommon/DataKit/Tide.m; sourceTree = "<group>"; };
+		34EA411C1C3E8D15008FF504 /* TideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TideModel.h; path = HackWindsCommon/DataKit/TideModel.h; sourceTree = "<group>"; };
+		34EA411D1C3E8D15008FF504 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TideModel.m; path = HackWindsCommon/DataKit/TideModel.m; sourceTree = "<group>"; };
+		34EA411E1C3E8D15008FF504 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = HackWindsCommon/DataKit/XMLReader.h; sourceTree = "<group>"; };
+		34EA411F1C3E8D15008FF504 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = HackWindsCommon/DataKit/XMLReader.m; sourceTree = "<group>"; };
+		34EA41711C3E8D40008FF504 /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reporter.swift; path = HackWindsCommon/Extension/Reporter.swift; sourceTree = "<group>"; };
 		34EB97431B94AC8A00687615 /* AdditionalBuoyPlotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalBuoyPlotsViewController.h; sourceTree = "<group>"; };
 		34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalBuoyPlotsViewController.m; sourceTree = "<group>"; };
-		34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyDataContainer.h; path = ../HackWindsDataKitCommon/BuoyDataContainer.h; sourceTree = "<group>"; };
-		34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyDataContainer.m; path = ../HackWindsDataKitCommon/BuoyDataContainer.m; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		34F9338D1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34F9338F1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -610,7 +606,7 @@
 				349076331C24A7E500EAD0CE /* HackWindsWatchApp Extension */,
 				349D42451C384C69006F7B24 /* HackWindsOSX */,
 				349D42591C384C96006F7B24 /* HackWindsTodayOSX */,
-				34C07DF61C2749F9002D3DB8 /* HackWindsDataKitCommon */,
+				34EA40DB1C3E8C43008FF504 /* HackWindsCommon */,
 				34E1BA2A1B62D84700CDA01D /* HackWindsDataKit */,
 				34E1BA391B62D84700CDA01D /* HackWindsDataKitTests */,
 				349076521C24AA4700EAD0CE /* HackWindsDataKitOSX */,
@@ -762,42 +758,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		34C07DF61C2749F9002D3DB8 /* HackWindsDataKitCommon */ = {
-			isa = PBXGroup;
-			children = (
-				34E1BA631B62DD8600CDA01D /* Condition.h */,
-				34E1BA641B62DD8600CDA01D /* Condition.m */,
-				34E1BA661B62DD8600CDA01D /* Forecast.h */,
-				34E1BA671B62DD8600CDA01D /* Forecast.m */,
-				34E1BA681B62DD8600CDA01D /* ForecastModel.h */,
-				34E1BA691B62DD8600CDA01D /* ForecastModel.m */,
-				34BF63A81B950EA100FE78A4 /* ForecastDataContainer.h */,
-				34BF63A91B950EA100FE78A4 /* ForecastDataContainer.m */,
-				34E1BA601B62DD8600CDA01D /* CameraModel.h */,
-				34E1BA611B62DD8600CDA01D /* CameraModel.m */,
-				34BF8CF61B62E74B00287BC1 /* Camera.h */,
-				34BF8CF71B62E74B00287BC1 /* Camera.m */,
-				34E1BA6A1B62DD8600CDA01D /* Tide.h */,
-				34E1BA6B1B62DD8600CDA01D /* Tide.m */,
-				34E1BA6C1B62DD8600CDA01D /* TideModel.h */,
-				34E1BA6D1B62DD8600CDA01D /* TideModel.m */,
-				34E1BA5D1B62DD8600CDA01D /* Buoy.h */,
-				34E1BA5E1B62DD8600CDA01D /* Buoy.m */,
-				34E1BA5B1B62DD6600CDA01D /* BuoyModel.h */,
-				34E1BA5F1B62DD8600CDA01D /* BuoyModel.m */,
-				34F4D4AA1B8A28DF0099E113 /* BuoyDataContainer.h */,
-				34F4D4AB1B8A28DF0099E113 /* BuoyDataContainer.m */,
-				34E1BA621B62DD8600CDA01D /* Colors.h */,
-				34E1BA651B62DD8600CDA01D /* Constants.h */,
-				34E1BA2D1B62D84700CDA01D /* HackWindsDataKitCommon.h */,
-				3485E1F31C320785004A8A70 /* XMLReader.m */,
-				3485E1F91C3207A6004A8A70 /* XMLReader.h */,
-				349E6A191C2A4F9D00CBDCBD /* Reporter.swift */,
-			);
-			name = HackWindsDataKitCommon;
-			path = HackWindsDataKitOSX;
-			sourceTree = "<group>";
-		};
 		34C0AF4F1B7307E8001D2B04 /* HackWindsTodayWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +812,56 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		34EA40DB1C3E8C43008FF504 /* HackWindsCommon */ = {
+			isa = PBXGroup;
+			children = (
+				34EA40DD1C3E8CAD008FF504 /* Extension */,
+				34EA40DC1C3E8CA5008FF504 /* DataKit */,
+			);
+			name = HackWindsCommon;
+			sourceTree = "<group>";
+		};
+		34EA40DC1C3E8CA5008FF504 /* DataKit */ = {
+			isa = PBXGroup;
+			children = (
+				34EA41051C3E8D15008FF504 /* Buoy.h */,
+				34EA41061C3E8D15008FF504 /* Buoy.m */,
+				34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */,
+				34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */,
+				34EA41091C3E8D15008FF504 /* BuoyModel.h */,
+				34EA410A1C3E8D15008FF504 /* BuoyModel.m */,
+				34EA410B1C3E8D15008FF504 /* Camera.h */,
+				34EA410C1C3E8D15008FF504 /* Camera.m */,
+				34EA410D1C3E8D15008FF504 /* CameraModel.h */,
+				34EA410E1C3E8D15008FF504 /* CameraModel.m */,
+				34EA410F1C3E8D15008FF504 /* Colors.h */,
+				34EA41101C3E8D15008FF504 /* Condition.h */,
+				34EA41111C3E8D15008FF504 /* Condition.m */,
+				34EA41121C3E8D15008FF504 /* Constants.h */,
+				34EA41131C3E8D15008FF504 /* Forecast.h */,
+				34EA41141C3E8D15008FF504 /* Forecast.m */,
+				34EA41151C3E8D15008FF504 /* ForecastDataContainer.h */,
+				34EA41161C3E8D15008FF504 /* ForecastDataContainer.m */,
+				34EA41171C3E8D15008FF504 /* ForecastModel.h */,
+				34EA41181C3E8D15008FF504 /* ForecastModel.m */,
+				34EA411A1C3E8D15008FF504 /* Tide.h */,
+				34EA411B1C3E8D15008FF504 /* Tide.m */,
+				34EA411C1C3E8D15008FF504 /* TideModel.h */,
+				34EA411D1C3E8D15008FF504 /* TideModel.m */,
+				34EA411E1C3E8D15008FF504 /* XMLReader.h */,
+				34EA411F1C3E8D15008FF504 /* XMLReader.m */,
+			);
+			name = DataKit;
+			sourceTree = "<group>";
+		};
+		34EA40DD1C3E8CAD008FF504 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				34EA41711C3E8D40008FF504 /* Reporter.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,22 +878,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C07E0E1C274AC1002D3DB8 /* Colors.h in Headers */,
-				34C07E061C274AC1002D3DB8 /* TideModel.h in Headers */,
-				34C07E101C274AC1002D3DB8 /* HackWindsDataKitCommon.h in Headers */,
-				34C07E081C274AC1002D3DB8 /* Buoy.h in Headers */,
-				34C07DFC1C274AC1002D3DB8 /* ForecastModel.h in Headers */,
-				3485E1FB1C3207A6004A8A70 /* XMLReader.h in Headers */,
+				34EA41421C3E8D15008FF504 /* Condition.h in Headers */,
+				34EA41511C3E8D15008FF504 /* ForecastDataContainer.h in Headers */,
 				34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */,
-				34C07E0A1C274AC1002D3DB8 /* BuoyModel.h in Headers */,
-				34C07E001C274AC1002D3DB8 /* CameraModel.h in Headers */,
-				34C07E0F1C274AC1002D3DB8 /* Constants.h in Headers */,
-				34C07DFE1C274AC1002D3DB8 /* ForecastDataContainer.h in Headers */,
-				34C07E021C274AC1002D3DB8 /* Camera.h in Headers */,
-				34C07E041C274AC1002D3DB8 /* Tide.h in Headers */,
-				34C07E0C1C274AC1002D3DB8 /* BuoyDataContainer.h in Headers */,
-				34C07DF31C2748FF002D3DB8 /* Condition.h in Headers */,
-				34C07DFA1C274AC1002D3DB8 /* Forecast.h in Headers */,
+				34EA41601C3E8D15008FF504 /* Tide.h in Headers */,
+				34EA416C1C3E8D15008FF504 /* XMLReader.h in Headers */,
+				34EA41391C3E8D15008FF504 /* CameraModel.h in Headers */,
+				34EA41331C3E8D15008FF504 /* Camera.h in Headers */,
+				34EA41661C3E8D15008FF504 /* TideModel.h in Headers */,
+				34EA412D1C3E8D15008FF504 /* BuoyModel.h in Headers */,
+				34EA41481C3E8D15008FF504 /* Constants.h in Headers */,
+				34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34EA414B1C3E8D15008FF504 /* Forecast.h in Headers */,
+				34EA41571C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34EA413F1C3E8D15008FF504 /* Colors.h in Headers */,
+				34EA41211C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,22 +900,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34EA41431C3E8D15008FF504 /* Condition.h in Headers */,
+				34EA41521C3E8D15008FF504 /* ForecastDataContainer.h in Headers */,
 				34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */,
-				34C07E221C274AC2002D3DB8 /* BuoyModel.h in Headers */,
-				34C07E241C274AC2002D3DB8 /* BuoyDataContainer.h in Headers */,
-				34C07E261C274AC2002D3DB8 /* Colors.h in Headers */,
-				34C07DF41C274916002D3DB8 /* Condition.h in Headers */,
-				3485E1FC1C3207A6004A8A70 /* XMLReader.h in Headers */,
-				34C07E181C274AC2002D3DB8 /* CameraModel.h in Headers */,
-				34C07E281C274AC2002D3DB8 /* HackWindsDataKitCommon.h in Headers */,
-				34C07E1C1C274AC2002D3DB8 /* Tide.h in Headers */,
-				34C07E161C274AC2002D3DB8 /* ForecastDataContainer.h in Headers */,
-				34C07E1E1C274AC2002D3DB8 /* TideModel.h in Headers */,
-				34C07E271C274AC2002D3DB8 /* Constants.h in Headers */,
-				34C07E201C274AC2002D3DB8 /* Buoy.h in Headers */,
-				34C07E1A1C274AC2002D3DB8 /* Camera.h in Headers */,
-				34C07E141C274AC2002D3DB8 /* ForecastModel.h in Headers */,
-				34C07E121C274AC2002D3DB8 /* Forecast.h in Headers */,
+				34EA41611C3E8D15008FF504 /* Tide.h in Headers */,
+				34EA416D1C3E8D15008FF504 /* XMLReader.h in Headers */,
+				34EA413A1C3E8D15008FF504 /* CameraModel.h in Headers */,
+				34EA41341C3E8D15008FF504 /* Camera.h in Headers */,
+				34EA41671C3E8D15008FF504 /* TideModel.h in Headers */,
+				34EA412E1C3E8D15008FF504 /* BuoyModel.h in Headers */,
+				34EA41491C3E8D15008FF504 /* Constants.h in Headers */,
+				34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34EA414C1C3E8D15008FF504 /* Forecast.h in Headers */,
+				34EA41581C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34EA41401C3E8D15008FF504 /* Colors.h in Headers */,
+				34EA41221C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,22 +922,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E1BA7B1B62DD8600CDA01D /* Tide.h in Headers */,
-				34E1BA791B62DD8600CDA01D /* ForecastModel.h in Headers */,
-				34BF8CF81B62E74B00287BC1 /* Camera.h in Headers */,
-				34E1BA731B62DD8600CDA01D /* Colors.h in Headers */,
-				34F4D4AC1B8A28DF0099E113 /* BuoyDataContainer.h in Headers */,
-				3485E1FA1C3207A6004A8A70 /* XMLReader.h in Headers */,
+				34EA41411C3E8D15008FF504 /* Condition.h in Headers */,
+				34EA41501C3E8D15008FF504 /* ForecastDataContainer.h in Headers */,
 				34C07E321C274F42002D3DB8 /* HackWindsDataKit.h in Headers */,
-				34E1BA761B62DD8600CDA01D /* Constants.h in Headers */,
-				34E1BA2E1B62D84700CDA01D /* HackWindsDataKitCommon.h in Headers */,
-				34BF63AA1B950EA100FE78A4 /* ForecastDataContainer.h in Headers */,
-				34E1BA741B62DD8600CDA01D /* Condition.h in Headers */,
-				34E1BA711B62DD8600CDA01D /* CameraModel.h in Headers */,
-				34E1BA6E1B62DD8600CDA01D /* Buoy.h in Headers */,
-				34E1BA5C1B62DD6600CDA01D /* BuoyModel.h in Headers */,
-				34E1BA771B62DD8600CDA01D /* Forecast.h in Headers */,
-				34E1BA7D1B62DD8600CDA01D /* TideModel.h in Headers */,
+				34EA415F1C3E8D15008FF504 /* Tide.h in Headers */,
+				34EA416B1C3E8D15008FF504 /* XMLReader.h in Headers */,
+				34EA41381C3E8D15008FF504 /* CameraModel.h in Headers */,
+				34EA41321C3E8D15008FF504 /* Camera.h in Headers */,
+				34EA41651C3E8D15008FF504 /* TideModel.h in Headers */,
+				34EA412C1C3E8D15008FF504 /* BuoyModel.h in Headers */,
+				34EA41471C3E8D15008FF504 /* Constants.h in Headers */,
+				34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34EA414A1C3E8D15008FF504 /* Forecast.h in Headers */,
+				34EA41561C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34EA413E1C3E8D15008FF504 /* Colors.h in Headers */,
+				34EA41201C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1389,7 +1396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				349E6A1A1C2A4F9D00CBDCBD /* Reporter.swift in Sources */,
+				34EA41751C3E8D4D008FF504 /* Reporter.swift in Sources */,
 				349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */,
 				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
 				349076391C24A7E500EAD0CE /* GlanceController.swift in Sources */,
@@ -1400,18 +1407,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C07E051C274AC1002D3DB8 /* Tide.m in Sources */,
-				34C07DFD1C274AC1002D3DB8 /* ForecastModel.m in Sources */,
-				34C07E091C274AC1002D3DB8 /* Buoy.m in Sources */,
-				34C07E011C274AC1002D3DB8 /* CameraModel.m in Sources */,
-				34C07DFB1C274AC1002D3DB8 /* Forecast.m in Sources */,
-				34C07DFF1C274AC1002D3DB8 /* ForecastDataContainer.m in Sources */,
-				34C07E071C274AC1002D3DB8 /* TideModel.m in Sources */,
-				34C07E031C274AC1002D3DB8 /* Camera.m in Sources */,
-				34C07E0B1C274AC1002D3DB8 /* BuoyModel.m in Sources */,
-				34C07DF91C274AC1002D3DB8 /* Condition.m in Sources */,
-				3485E1F51C320785004A8A70 /* XMLReader.m in Sources */,
-				34C07E0D1C274AC1002D3DB8 /* BuoyDataContainer.m in Sources */,
+				34EA415A1C3E8D15008FF504 /* ForecastModel.m in Sources */,
+				34EA41361C3E8D15008FF504 /* Camera.m in Sources */,
+				34EA413C1C3E8D15008FF504 /* CameraModel.m in Sources */,
+				34EA41691C3E8D15008FF504 /* TideModel.m in Sources */,
+				34EA41301C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34EA414E1C3E8D15008FF504 /* Forecast.m in Sources */,
+				34EA41631C3E8D15008FF504 /* Tide.m in Sources */,
+				34EA412A1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34EA41241C3E8D15008FF504 /* Buoy.m in Sources */,
+				34EA41541C3E8D15008FF504 /* ForecastDataContainer.m in Sources */,
+				34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */,
+				34EA41451C3E8D15008FF504 /* Condition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1427,18 +1434,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C07E1D1C274AC2002D3DB8 /* Tide.m in Sources */,
-				34C07E151C274AC2002D3DB8 /* ForecastModel.m in Sources */,
-				34C07E211C274AC2002D3DB8 /* Buoy.m in Sources */,
-				34C07E191C274AC2002D3DB8 /* CameraModel.m in Sources */,
-				34C07E131C274AC2002D3DB8 /* Forecast.m in Sources */,
-				34C07E171C274AC2002D3DB8 /* ForecastDataContainer.m in Sources */,
-				34C07E1F1C274AC2002D3DB8 /* TideModel.m in Sources */,
-				34C07E1B1C274AC2002D3DB8 /* Camera.m in Sources */,
-				34C07E231C274AC2002D3DB8 /* BuoyModel.m in Sources */,
-				34C07E111C274AC2002D3DB8 /* Condition.m in Sources */,
-				3485E1F61C320785004A8A70 /* XMLReader.m in Sources */,
-				34C07E251C274AC2002D3DB8 /* BuoyDataContainer.m in Sources */,
+				34EA415B1C3E8D15008FF504 /* ForecastModel.m in Sources */,
+				34EA41371C3E8D15008FF504 /* Camera.m in Sources */,
+				34EA413D1C3E8D15008FF504 /* CameraModel.m in Sources */,
+				34EA416A1C3E8D15008FF504 /* TideModel.m in Sources */,
+				34EA41311C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34EA414F1C3E8D15008FF504 /* Forecast.m in Sources */,
+				34EA41641C3E8D15008FF504 /* Tide.m in Sources */,
+				34EA412B1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34EA41251C3E8D15008FF504 /* Buoy.m in Sources */,
+				34EA41551C3E8D15008FF504 /* ForecastDataContainer.m in Sources */,
+				34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */,
+				34EA41461C3E8D15008FF504 /* Condition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1455,7 +1462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				349D426C1C384DD8006F7B24 /* Reporter.swift in Sources */,
+				34EA41761C3E8D51008FF504 /* Reporter.swift in Sources */,
 				349D425D1C384C96006F7B24 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1472,18 +1479,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E1BA7C1B62DD8600CDA01D /* Tide.m in Sources */,
-				34E1BA7A1B62DD8600CDA01D /* ForecastModel.m in Sources */,
-				34BF63AB1B950EA100FE78A4 /* ForecastDataContainer.m in Sources */,
-				34F4D4AD1B8A28DF0099E113 /* BuoyDataContainer.m in Sources */,
-				34E1BA701B62DD8600CDA01D /* BuoyModel.m in Sources */,
-				34E1BA751B62DD8600CDA01D /* Condition.m in Sources */,
-				34BF8CF91B62E74B00287BC1 /* Camera.m in Sources */,
-				34E1BA781B62DD8600CDA01D /* Forecast.m in Sources */,
-				34E1BA7E1B62DD8600CDA01D /* TideModel.m in Sources */,
-				34E1BA721B62DD8600CDA01D /* CameraModel.m in Sources */,
-				3485E1F41C320785004A8A70 /* XMLReader.m in Sources */,
-				34E1BA6F1B62DD8600CDA01D /* Buoy.m in Sources */,
+				34EA41591C3E8D15008FF504 /* ForecastModel.m in Sources */,
+				34EA41351C3E8D15008FF504 /* Camera.m in Sources */,
+				34EA413B1C3E8D15008FF504 /* CameraModel.m in Sources */,
+				34EA41681C3E8D15008FF504 /* TideModel.m in Sources */,
+				34EA412F1C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34EA414D1C3E8D15008FF504 /* Forecast.m in Sources */,
+				34EA41621C3E8D15008FF504 /* Tide.m in Sources */,
+				34EA41291C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34EA41231C3E8D15008FF504 /* Buoy.m in Sources */,
+				34EA41531C3E8D15008FF504 /* ForecastDataContainer.m in Sources */,
+				34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */,
+				34EA41441C3E8D15008FF504 /* Condition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1859,6 +1866,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1880,6 +1888,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1890,6 +1899,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1960,6 +1970,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1978,6 +1989,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1989,6 +2001,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -2160,6 +2173,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2184,6 +2198,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2193,6 +2208,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

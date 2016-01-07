@@ -16,4 +16,23 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitWatchOSVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <HackWindsDataKitWatchOS/PublicHeader.h>
 
-#import <HackWindsDataKitWatchOS/HackWindsDataKitCommon.h>
+// Constants
+#import <HackWindsDataKitWatchOS/Colors.h>
+#import <HackWindsDataKitWatchOS/Constants.h>
+
+// Types
+#import <HackWindsDataKitWatchOS/Camera.h>
+#import <HackWindsDataKitWatchOS/Condition.h>
+#import <HackWindsDataKitWatchOS/Forecast.h>
+#import <HackWindsDataKitWatchOS/Buoy.h>
+#import <HackWindsDataKitWatchOS/Tide.h>
+
+// Models
+#import <HackWindsDataKitWatchOS/CameraModel.h>
+#import <HackWindsDataKitWatchOS/ForecastModel.h>
+#import <HackWindsDataKitWatchOS/BuoyModel.h>
+#import <HackWindsDataKitWatchOS/TideModel.h>
+
+// Useful abstracted containers
+#import <HackWindsDataKitWatchOS/ForecastDataContainer.h>
+#import <HackWindsDataKitWatchOS/BuoyDataContainer.h>
