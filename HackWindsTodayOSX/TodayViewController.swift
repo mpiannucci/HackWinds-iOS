@@ -14,7 +14,6 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     @IBOutlet weak var latestBuoyLabel: NSTextField!
     @IBOutlet weak var buoyLocationLabel: NSTextField!
     @IBOutlet weak var nextTideLabel: NSTextField!
-    @IBOutlet weak var lastUpdatedLabel: NSTextField!
     
     var reporter: Reporter!
 
@@ -52,11 +51,6 @@ class TodayViewController: NSViewController, NCWidgetProviding {
         
         let nextTide = reporter.nextTide!
         nextTideLabel.stringValue = "\(nextTide.EventType): \(nextTide.Time)"
-        
-        let updateTime = reporter.latestRefreshTime!
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        lastUpdatedLabel.stringValue = "Last updated at \(dateFormatter.stringFromDate(updateTime))"
     }
 
 }
