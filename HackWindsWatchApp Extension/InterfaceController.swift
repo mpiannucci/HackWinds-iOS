@@ -24,9 +24,19 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        // Configure interface objects here.
         reporter = Reporter()
-        updateUIWithReporter()
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            
+            let updated = self.reporter.updateData()
+            
+            if updated {
+                dispatch_async(dispatch_get_main_queue()) {
+                    // update some UI
+                    self.updateUI()
+                }
+            }
+        }
     }
 
     override func willActivate() {
@@ -39,19 +49,20 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    func updateUIWithReporter() {
-        let buoy = reporter.latestBuoy
-        let meanDirection = Buoy.getCompassDirection(buoy!.MeanDirection)
-        self.latestBuoyReportLabel.setText("\(buoy!.SignificantWaveHeight) ft @ \(buoy!.DominantPeriod)s \(meanDirection)")
-        self.buoyLocationLabel.setText("\(reporter.buoyLocation!)")
+    func updateUI() {
+        if let buoy = reporter.latestBuoy {
+            self.latestBuoyReportLabel.setText("\(buoy.SignificantWaveHeight) ft @ \(buoy.DominantPeriod)s \(buoy.MeanDirection)")
+            self.buoyLocationLabel.setText("\(reporter.buoyLocation!)")
+        }
         
-//        let tide = reporter.nextTide
-//        self.nextTideLabel.setText("\(tide!.EventType): \(tide!.Time)")
-//        if tide!.EventType == LOW_TIDE_TAG {
-//            self.latestTideStatusLabel.setText("Outgoing")
-//        } else {
-//            self.latestTideStatusLabel.setText("Incoming")
-//        }
+        if let tide = reporter.nextTide {
+            self.nextTideLabel.setText("\(tide.EventType): \(tide.Time)")
+            if tide.EventType == LOW_TIDE_TAG {
+                self.latestTideStatusLabel.setText("Outgoing")
+            } else {
+                self.latestTideStatusLabel.setText("Incoming")
+            }
+        }
     }
 
 }
