@@ -217,9 +217,9 @@ static const int ACK_BUOY_NUMBER = 44008;
         [currentContainer.buoyData addObject:newBuoy];
         
         // Add all of the correct wave hieght objects
-        [[currentContainer.waveHeights objectForKey:SUMMARY_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SignificantWaveHeight]];
-        [[currentContainer.waveHeights objectForKey:SWELL_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.SwellWaveHeight]];
-        [[currentContainer.waveHeights objectForKey:WIND_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.WindWaveHeight]];
+        [[currentContainer.waveHeights objectForKey:SUMMARY_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.significantWaveHeight]];
+        [[currentContainer.waveHeights objectForKey:SWELL_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.swellWaveHeight]];
+        [[currentContainer.waveHeights objectForKey:WIND_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.windWaveHeight]];
     }
     return YES;
 }
@@ -257,7 +257,7 @@ static const int ACK_BUOY_NUMBER = 44008;
         return NO;
     }
     
-    if (buoy.Time == nil) {
+    if (buoy.timestamp == nil) {
     
         // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
         NSInteger originalHour = [[rawData objectAtIndex:baseOffset+SUMMARY_HOUR_OFFSET] integerValue] + [self getTimeOffset];
@@ -265,20 +265,20 @@ static const int ACK_BUOY_NUMBER = 44008;
     
         // Set the time value for the object
         NSString *minute = [rawData objectAtIndex:baseOffset+SUMMARY_MINUTE_OFFSET];
-        buoy.Time = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
+        buoy.timestamp = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
     }
     
     // Period and wind direction values
-    buoy.DominantPeriod =[rawData objectAtIndex:baseOffset+SUMMARY_DPD_OFFSET];
-    buoy.MeanDirection = [rawData objectAtIndex:baseOffset+SUMMARY_DIRECTION_OFFSET];
+    buoy.dominantPeriod =[rawData objectAtIndex:baseOffset+SUMMARY_DPD_OFFSET];
+    buoy.meanDirection = [rawData objectAtIndex:baseOffset+SUMMARY_DIRECTION_OFFSET];
     
     // Water Temperature Values converted from celsius to fahrenheit
     double waterTemp = (([[rawData objectAtIndex:baseOffset+SUMMARY_TEMPERATURE_OFFSET] doubleValue] * (9.0 / 5.0) +32.0 ) / 0.05) * 0.05;
-    buoy.WaterTemperature = [NSString stringWithFormat:@"%4.2f", waterTemp];
+    buoy.waterTemperature = [NSString stringWithFormat:@"%4.2f", waterTemp];
     
     // Change the wave height to feet and set it
     NSString *wv = [rawData objectAtIndex:baseOffset+SUMMARY_WVHT_OFFSET];
-    buoy.SignificantWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[wv doubleValue]]];
+    buoy.significantWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[wv doubleValue]]];
     
     return YES;
 }
@@ -289,29 +289,29 @@ static const int ACK_BUOY_NUMBER = 44008;
         return NO;
     }
     
-    if (buoy.Time == nil) {
+    if (buoy.timestamp == nil) {
         // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
         NSInteger originalHour = [[rawData objectAtIndex:baseOffset+DETAIL_HOUR_OFFSET] integerValue] + [self getTimeOffset];
         NSInteger convertedHour = [self getCorrectedHourValue:originalHour];
         
         // Set the time value for the object
         NSString *minute = [rawData objectAtIndex:baseOffset+DETAIL_MINUTE_OFFSET];
-        buoy.Time = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
+        buoy.timestamp = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
     }
     
     // Wave heights
     NSString *swellHeight = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_WAVE_HEIGHT_OFFSET];
     NSString *windHeight = [rawData objectAtIndex:baseOffset+DETAIL_WIND_WAVE_HEIGHT_OFFSET];
-    buoy.SwellWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[swellHeight doubleValue]]];
-    buoy.WindWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[windHeight doubleValue]]];
+    buoy.swellWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[swellHeight doubleValue]]];
+    buoy.windWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[windHeight doubleValue]]];
     
     // Periods
-    buoy.SwellPeriod = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET];
-    buoy.WindWavePeriod = [rawData objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET];
+    buoy.swellPeriod = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET];
+    buoy.windWavePeriod = [rawData objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET];
     
     // Directions
-    buoy.SwellDirection = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_DIRECTION];
-    buoy.WindWaveDirection = [rawData objectAtIndex:baseOffset+DETAIL_WIND_WAVE_DIRECTION];
+    buoy.swellDirection = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_DIRECTION];
+    buoy.windWaveDirection = [rawData objectAtIndex:baseOffset+DETAIL_WIND_WAVE_DIRECTION];
     
     return YES;
 }
@@ -331,10 +331,10 @@ static const int ACK_BUOY_NUMBER = 44008;
     // Cast the xml to the buoy item
     Buoy *latestBuoy = [[Buoy alloc] init];
     NSString *rawTime = [[buoyDataDict objectForKey:@"datetime"] objectForKey:@"text"];
-    latestBuoy.Time = [self getFormattedTimeFromXMLDateTime:rawTime];
-    latestBuoy.SignificantWaveHeight = [[buoyDataDict objectForKey:@"waveht"] objectForKey:@"text"];
-    latestBuoy.DominantPeriod = [[buoyDataDict objectForKey:@"domperiod"] objectForKey:@"text"];
-    latestBuoy.MeanDirection = [Buoy getCompassDirection:[[buoyDataDict objectForKey:@"meanwavedir"] objectForKey:@"text" ]];
+    latestBuoy.timestamp = [self getFormattedTimeFromXMLDateTime:rawTime];
+    latestBuoy.significantWaveHeight = [[buoyDataDict objectForKey:@"waveht"] objectForKey:@"text"];
+    latestBuoy.dominantPeriod = [[buoyDataDict objectForKey:@"domperiod"] objectForKey:@"text"];
+    latestBuoy.meanDirection = [Buoy getCompassDirection:[[buoyDataDict objectForKey:@"meanwavedir"] objectForKey:@"text" ]];
     return latestBuoy;
 }
 

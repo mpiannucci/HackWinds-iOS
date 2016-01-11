@@ -19,29 +19,29 @@ NSString * const SUNSET_TAG = @"Sunset";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.Time = [aDecoder decodeObjectForKey:@"time"];
-        self.EventType = [aDecoder decodeObjectForKey:@"eventType"];
-        self.Height = [aDecoder decodeObjectForKey:@"height"];
+        self.timestamp = [aDecoder decodeObjectForKey:@"time"];
+        self.eventType = [aDecoder decodeObjectForKey:@"eventType"];
+        self.height = [aDecoder decodeObjectForKey:@"height"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.Time forKey:@"time"];
-    [aCoder encodeObject:self.EventType forKey:@"eventType"];
-    [aCoder encodeObject:self.Height forKey:@"height"];
+    [aCoder encodeObject:self.timestamp forKey:@"time"];
+    [aCoder encodeObject:self.eventType forKey:@"eventType"];
+    [aCoder encodeObject:self.height forKey:@"height"];
 }
 
 - (BOOL) isSunrise {
-    if ([self.EventType isEqualToString:SUNRISE_TAG]) {
+    if ([self.eventType isEqualToString:SUNRISE_TAG]) {
         return YES;
     }
     return NO;
 }
 
 - (BOOL) isSunset {
-    if ([self.EventType isEqualToString:SUNSET_TAG]) {
+    if ([self.eventType isEqualToString:SUNSET_TAG]) {
         return YES;
     }
     return NO;
@@ -52,14 +52,14 @@ NSString * const SUNSET_TAG = @"Sunset";
 }
 
 - (BOOL) isHighTide {
-    if ([self.EventType isEqualToString:HIGH_TIDE_TAG]) {
+    if ([self.eventType isEqualToString:HIGH_TIDE_TAG]) {
         return YES;
     }
     return NO;
 }
 
 - (BOOL) isLowTide {
-    if ([self.EventType isEqualToString:LOW_TIDE_TAG]) {
+    if ([self.eventType isEqualToString:LOW_TIDE_TAG]) {
         return YES;
     }
     return NO;

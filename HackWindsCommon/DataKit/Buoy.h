@@ -11,24 +11,24 @@
 @interface Buoy : NSObject
 
 // Define data for the buoy data model
-@property (strong, nonatomic) NSString *Time;
+@property (strong, nonatomic) NSString *timestamp;
 
 // Wave Heights
-@property (strong, nonatomic) NSString *SignificantWaveHeight;
-@property (strong, nonatomic) NSString *SwellWaveHeight;
-@property (strong, nonatomic) NSString *WindWaveHeight;
+@property (strong, nonatomic) NSString *significantWaveHeight;
+@property (strong, nonatomic) NSString *swellWaveHeight;
+@property (strong, nonatomic) NSString *windWaveHeight;
 
 // Period
-@property (strong, nonatomic) NSString *DominantPeriod;
-@property (strong, nonatomic) NSString *SwellPeriod;
-@property (strong, nonatomic) NSString *WindWavePeriod;
+@property (strong, nonatomic) NSString *dominantPeriod;
+@property (strong, nonatomic) NSString *swellPeriod;
+@property (strong, nonatomic) NSString *windWavePeriod;
 
 // Direction
-@property (strong, nonatomic) NSString *MeanDirection;
-@property (strong, nonatomic) NSString *SwellDirection;
-@property (strong, nonatomic) NSString *WindWaveDirection;
+@property (strong, nonatomic) NSString *meanDirection;
+@property (strong, nonatomic) NSString *swellDirection;
+@property (strong, nonatomic) NSString *windWaveDirection;
 
-@property (strong, nonatomic) NSString *WaterTemperature;
+@property (strong, nonatomic) NSString *waterTemperature;
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;
 

@@ -96,7 +96,7 @@
             Buoy *newBuoy = [BuoyModel getOnlyLatestBuoyDataForLocation:self.buoyLocation];
             
             // If the buoy isnt actually updatede yet don't act like it is
-            if ([newBuoy.Time isEqualToString:self.latestBuoy.Time]) {
+            if ([newBuoy.timestamp isEqualToString:self.latestBuoy.timestamp]) {
                 buoyUpdated = NO;
             } else {
                 self.latestBuoy = newBuoy;
@@ -143,7 +143,7 @@
     }
     
     // Load the buoy UI from the buoy point collected
-    NSString *buoyStatus = [NSString stringWithFormat:@"%@ ft @ %@s %@", self.latestBuoy.SignificantWaveHeight, self.latestBuoy.DominantPeriod, [Buoy getCompassDirection:self.latestBuoy.MeanDirection]];
+    NSString *buoyStatus = [NSString stringWithFormat:@"%@ ft @ %@s %@", self.latestBuoy.significantWaveHeight, self.latestBuoy.dominantPeriod, [Buoy getCompassDirection:self.latestBuoy.meanDirection]];
     [self.buoyStatusLabel setText:buoyStatus];
     
     // Load the tide UI from the latest tide point collected
@@ -153,7 +153,7 @@
     } else {
         tideCurrentStatus = @"Outgoing";
     }
-    NSString *nextTideEvent = [NSString stringWithFormat:@"%@ - %@", self.latestTide.EventType, self.latestTide.Time];
+    NSString *nextTideEvent = [NSString stringWithFormat:@"%@ - %@", self.latestTide.eventType, self.latestTide.timestamp];
     [self.tideCurrentStatusLabel setText:tideCurrentStatus];
     [self.nextTideEventLabel setText:nextTideEvent];
     
@@ -172,19 +172,19 @@
     }
     
     // Find the colon to find the correct hour and minute
-    NSRange buoySeperatorRange = [self.latestBuoy.Time rangeOfString:@":"];
-    NSRange tideSeperatorRange = [self.latestTide.Time rangeOfString:@":"];
+    NSRange buoySeperatorRange = [self.latestBuoy.timestamp rangeOfString:@":"];
+    NSRange tideSeperatorRange = [self.latestTide.timestamp rangeOfString:@":"];
     
     // Parse the time from the latest objects
-    NSInteger buoyHour = [[self.latestBuoy.Time substringToIndex:buoySeperatorRange.location] integerValue];
-    NSInteger buoyMinute = [[self.latestBuoy.Time substringFromIndex:buoySeperatorRange.location+1] integerValue];
-    NSInteger tideHour = [[self.latestTide.Time substringToIndex:tideSeperatorRange.location] integerValue];
-    NSInteger tideMinute = [[self.latestTide.Time substringWithRange:NSMakeRange(tideSeperatorRange.location+1, 2)] integerValue];
+    NSInteger buoyHour = [[self.latestBuoy.timestamp substringToIndex:buoySeperatorRange.location] integerValue];
+    NSInteger buoyMinute = [[self.latestBuoy.timestamp substringFromIndex:buoySeperatorRange.location+1] integerValue];
+    NSInteger tideHour = [[self.latestTide.timestamp substringToIndex:tideSeperatorRange.location] integerValue];
+    NSInteger tideMinute = [[self.latestTide.timestamp substringWithRange:NSMakeRange(tideSeperatorRange.location+1, 2)] integerValue];
     
     // Adjust time for am and pm during 24 hour time
     if (![self check24HourClock]) {
         // Handle the tide being in the afternoon or night
-        NSString *tideAMPM = [self.latestTide.Time substringFromIndex:tideSeperatorRange.location+4];
+        NSString *tideAMPM = [self.latestTide.timestamp substringFromIndex:tideSeperatorRange.location+4];
         if ([tideAMPM isEqualToString:@"pm"] && (tideHour != 12)) {
             tideHour += 12;
         }

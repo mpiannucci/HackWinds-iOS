@@ -84,20 +84,20 @@ static const int TIDE_DATA_FONT_SIZE = 25;
         if ([thisTide isSunrise]) {
             // Get the first row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
-            NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.Time];
+            NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.timestamp];
             [sunriseLabel setAttributedText:[self makeTideViewDataString:sunrisetext]];
             
         } else if ([thisTide isSunset]) {
             // Get the second row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]] viewWithTag:61];
-            NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.Time];
+            NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.timestamp];
             [sunsetLabel setAttributedText:[self makeTideViewDataString:sunsetText]];
             
-        } else if ([[thisTide EventType] isEqualToString:HIGH_TIDE_TAG] ||
-                   [[thisTide EventType] isEqualToString:LOW_TIDE_TAG] ) {
+        } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG] ||
+                   [[thisTide eventType] isEqualToString:LOW_TIDE_TAG] ) {
             // Get the next cell and its label so we can update it
             UILabel* tideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
-            NSString* tideText = [NSString stringWithFormat:@"%@: %@ at %@", thisTide.EventType, thisTide.Height, thisTide.Time];
+            NSString* tideText = [NSString stringWithFormat:@"%@: %@ at %@", thisTide.eventType, thisTide.height, thisTide.timestamp];
             
             [tideLabel setAttributedText:[self makeTideViewDataString:tideText]];
             
@@ -123,7 +123,7 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     }
     
     UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
-    NSString* waterTemp = [[buoyData objectAtIndex:0] WaterTemperature];
+    NSString* waterTemp = [[buoyData objectAtIndex:0] waterTemperature];
     NSString* waterTempStatus = [NSString stringWithFormat:@"%@: %@ %@F", buoyLocation, waterTemp, @"\u00B0"];
     [currentWaterTempLabel setAttributedText:[self makeTideViewDataString:waterTempStatus]];
     

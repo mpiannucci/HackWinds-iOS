@@ -76,7 +76,7 @@ static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/sta
                 if ([cameraName isEqualToString:@"Point Judith"]) {
                     thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
                 } else {
-                    thisCamera.VideoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
+                    thisCamera.videoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
                 }
                 
                 if (thisCamera == nil) {
@@ -84,7 +84,7 @@ static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/sta
                 }
             
                 // For now, the image is common
-                thisCamera.ImageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
+                thisCamera.imageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
                 [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
                 [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
             
@@ -122,8 +122,8 @@ static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/sta
     NSDictionary *pointJudithStreamData = [[[pointJudithData objectForKey:@"streamInfo"] objectForKey:@"stream"] objectAtIndex:0];
     
     Camera *thisCamera = [[Camera alloc] init];
-    thisCamera.VideoURL = [NSURL URLWithString:[pointJudithStreamData objectForKey:@"file"]];
-    thisCamera.Info = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, the camera may be down. It is a daily upload during the summer and it becomes unavailable each evening.", [pointJudithStreamData objectForKey:@"camStatus"],
+    thisCamera.videoURL = [NSURL URLWithString:[pointJudithStreamData objectForKey:@"file"]];
+    thisCamera.info = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, the camera may be down. It is a daily upload during the summer and it becomes unavailable each evening.", [pointJudithStreamData objectForKey:@"camStatus"],
                        [pointJudithStreamData objectForKey:@"reportDate"], [pointJudithStreamData objectForKey:@"reportTime"]];
     
     return thisCamera;

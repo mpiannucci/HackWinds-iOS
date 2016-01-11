@@ -46,12 +46,12 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     func updateUI() {
         // Update the UI using reporter
         if let latestBuoy = reporter.latestBuoy {
-            latestBuoyLabel.stringValue = "\(latestBuoy.SignificantWaveHeight) ft @ \(latestBuoy.DominantPeriod) s \(latestBuoy.MeanDirection)"
+            latestBuoyLabel.stringValue = "\(latestBuoy.significantWaveHeight) ft @ \(latestBuoy.dominantPeriod) s \(latestBuoy.meanDirection)"
             buoyLocationLabel.stringValue = "\(reporter.buoyLocation!)"
         }
         
         if let nextTide = reporter.nextTide {
-            nextTideLabel.stringValue = "\(nextTide.EventType): \(nextTide.Time)"
+            nextTideLabel.stringValue = "\(nextTide.eventType): \(nextTide.timestamp)"
         }
     }
 

@@ -183,7 +183,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (NSURL*) getCameraURLForIndex:(int)index {
-    NSString *baseURL = [wwCamera.ImageURL absoluteString];
+    NSString *baseURL = [wwCamera.imageURL absoluteString];
     return [NSURL URLWithString:[baseURL stringByReplacingOccurrencesOfString:@"1.jpg"
                                                                    withString:[NSString stringWithFormat:@"%d.jpg", index+1]]];
 }
@@ -285,10 +285,10 @@ static const int CAMERA_IMAGE_COUNT = 8;
         Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        [hourLabel setText:thisCondition.Date];
-        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.MinBreakHeight, thisCondition.MaxBreakHeight]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.WindDirection, thisCondition.WindSpeed]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.SwellDirection, thisCondition.SwellHeight, thisCondition.SwellPeriod]];
+        [hourLabel setText:thisCondition.timestamp];
+        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight]];
+        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed]];
+        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod]];
         
         // Make sure that the text is black
         [hourLabel setTextColor:[UIColor blackColor]];

@@ -13,22 +13,22 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.Date = [aDecoder decodeObjectForKey:@"date"];
-        self.MinBreakHeight = [aDecoder decodeObjectForKey:@"minBreakHeight"];
-        self.MaxBreakHeight = [aDecoder decodeObjectForKey:@"maxBreakHeight"];
-        self.WindSpeed = [aDecoder decodeObjectForKey:@"windSpeed"];
-        self.WindDir = [aDecoder decodeObjectForKey:@"windDir"];
+        self.timestamp = [aDecoder decodeObjectForKey:@"date"];
+        self.minBreakHeight = [aDecoder decodeObjectForKey:@"minBreakHeight"];
+        self.maxBreakHeight = [aDecoder decodeObjectForKey:@"maxBreakHeight"];
+        self.windSpeed = [aDecoder decodeObjectForKey:@"windSpeed"];
+        self.windDirection = [aDecoder decodeObjectForKey:@"windDir"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.Date forKey:@"date"];
-    [aCoder encodeObject:self.MinBreakHeight forKey:@"minBreakHeight"];
-    [aCoder encodeObject:self.MaxBreakHeight forKey:@"maxBreakHeight"];
-    [aCoder encodeObject:self.WindSpeed forKey:@"windSpeed"];
-    [aCoder encodeObject:self.WindDir forKey:@"windDir"];
+    [aCoder encodeObject:self.timestamp forKey:@"date"];
+    [aCoder encodeObject:self.minBreakHeight forKey:@"minBreakHeight"];
+    [aCoder encodeObject:self.maxBreakHeight forKey:@"maxBreakHeight"];
+    [aCoder encodeObject:self.windSpeed forKey:@"windSpeed"];
+    [aCoder encodeObject:self.windDirection forKey:@"windDir"];
 }
 
 @end

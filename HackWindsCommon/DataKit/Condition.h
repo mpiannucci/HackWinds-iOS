@@ -11,17 +11,17 @@
 @interface Condition : NSObject
 
 // Define the data for the condition model
-@property (strong, nonatomic) NSString *Date;
-@property (strong, nonatomic) NSString *MinBreakHeight;
-@property (strong, nonatomic) NSString *MaxBreakHeight;
-@property (strong, nonatomic) NSString *WindSpeed;
-@property (strong, nonatomic) NSString *WindDeg;
-@property (strong, nonatomic) NSString *WindDirection;
-@property (strong, nonatomic) NSString *SwellHeight;
-@property (strong, nonatomic) NSString *SwellPeriod;
-@property (strong, nonatomic) NSString *SwellDirection;
-@property (strong, nonatomic) NSString *SwellChartURL;
-@property (strong, nonatomic) NSString *WindChartURL;
-@property (strong, nonatomic) NSString *PeriodChartURL;
+@property (strong, nonatomic) NSString *timestamp;
+@property (strong, nonatomic) NSString *minBreakHeight;
+@property (strong, nonatomic) NSString *maxBreakHeight;
+@property (strong, nonatomic) NSString *windSpeed;
+@property (strong, nonatomic) NSString *windDeg;
+@property (strong, nonatomic) NSString *windDirection;
+@property (strong, nonatomic) NSString *swellHeight;
+@property (strong, nonatomic) NSString *swellPeriod;
+@property (strong, nonatomic) NSString *swellDirection;
+@property (strong, nonatomic) NSString *swellChartURL;
+@property (strong, nonatomic) NSString *windChartURL;
+@property (strong, nonatomic) NSString *periodChartURL;
 
 @end

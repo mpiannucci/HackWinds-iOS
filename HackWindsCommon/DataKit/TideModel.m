@@ -160,7 +160,7 @@ static NSString * const WUNDERGROUND_URL = @"http://api.wunderground.com/api/2e5
         
         // Create the new tide object
         [tide setEventType:dataType];
-        [tide setTime:time];
+        [tide setTimestamp:time];
         [tide setHeight:height];
     } else {
         [tide setEventType:@"Invalid"];

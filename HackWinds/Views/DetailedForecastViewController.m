@@ -112,17 +112,17 @@ static const int PERIOD_CHART = 2;
     switch (type) {
         case SWELL_CHART:
             // Swell
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] SwellChartURL]]
+            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] swellChartURL]]
                                                                        target:self action:@selector(imageLoadSuccess:)];
             break;
         case WIND_CHART:
             // Wind
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] WindChartURL]]
+            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] windChartURL]]
                                                                        target:self action:@selector(imageLoadSuccess:)];
             break;
         case PERIOD_CHART:
             // Period
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] PeriodChartURL]]
+            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] periodChartURL]]
                                                                        target:self action:@selector(imageLoadSuccess:)];
             break;
         default:
@@ -225,10 +225,10 @@ static const int PERIOD_CHART = 2;
         Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        [hourLabel setText:thisCondition.Date];
-        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.MinBreakHeight, thisCondition.MaxBreakHeight]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.WindDirection, thisCondition.WindSpeed]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.SwellDirection, thisCondition.SwellHeight, thisCondition.SwellPeriod]];
+        [hourLabel setText:thisCondition.timestamp];
+        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight]];
+        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed]];
+        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod]];
         
         // Make sure that the text is black
         [hourLabel setTextColor:[UIColor blackColor]];

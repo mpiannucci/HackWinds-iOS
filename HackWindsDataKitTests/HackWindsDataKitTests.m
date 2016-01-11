@@ -54,8 +54,10 @@
     // Check the condition splitting
     NSArray *firstConditions = [self.forecastModel getConditionsForIndex:0];
     XCTAssert(firstConditions.count == 6);
-    XCTAssert([[[firstConditions objectAtIndex:0] Date] isEqualToString:@"6 AM"]);
-    XCTAssert([[[firstConditions objectAtIndex:5] Date] isEqualToString:@"9 PM"]);
+    Condition *startCondition = [firstConditions objectAtIndex:0];
+    Condition *endCondition = [firstConditions objectAtIndex:5];
+    XCTAssert([startCondition.timestamp isEqualToString:@"6 AM"]);
+    XCTAssert([endCondition.timestamp isEqualToString:@"9 PM"]);
 }
 
 - (void) testBuoyModelFetch {

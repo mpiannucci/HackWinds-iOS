@@ -41,7 +41,7 @@ class Reporter {
                 // Update the buoy data!
                 let newBuoy = BuoyModel.getOnlyLatestBuoyDataForLocation(self.buoyLocation! as String)
             
-                if newBuoy.Time != self.latestBuoy!.Time {
+                if newBuoy.timestamp != self.latestBuoy!.timestamp {
                     self.latestBuoy = newBuoy
                     buoyUpdated = true
                 }
@@ -77,14 +77,14 @@ class Reporter {
         }
         
         // Find the colon to find te correct hour and minute
-        let buoySeperator = self.latestBuoy!.Time.rangeOfString(":")
-        let tideSeperator = self.nextTide!.Time.rangeOfString(":")
+        let buoySeperator = self.latestBuoy!.timestamp.rangeOfString(":")
+        let tideSeperator = self.nextTide!.timestamp.rangeOfString(":")
         
         // Parse the time from the latest object
-        var buoyHour: Int = Int(self.latestBuoy!.Time.substringToIndex(buoySeperator!.startIndex))!
-        let buoyMinute: Int = Int(self.latestBuoy!.Time.substringFromIndex(buoySeperator!.endIndex))!
-        var tideHour: Int = Int(self.nextTide!.Time.substringToIndex(tideSeperator!.startIndex))!
-        let tideMinute: Int = Int(self.nextTide!.Time.substringWithRange(Range<String.Index>(start: tideSeperator!.endIndex, end: tideSeperator!.endIndex.advancedBy(2))))!
+        var buoyHour: Int = Int(self.latestBuoy!.timestamp.substringToIndex(buoySeperator!.startIndex))!
+        let buoyMinute: Int = Int(self.latestBuoy!.timestamp.substringFromIndex(buoySeperator!.endIndex))!
+        var tideHour: Int = Int(self.nextTide!.timestamp.substringToIndex(tideSeperator!.startIndex))!
+        let tideMinute: Int = Int(self.nextTide!.timestamp.substringWithRange(Range<String.Index>(start: tideSeperator!.endIndex, end: tideSeperator!.endIndex.advancedBy(2))))!
         
         // Adjust for am and pm during 12 hour time
         if !check24HourClock() {
@@ -99,7 +99,7 @@ class Reporter {
             
             // Correct the tide time
             let tideAMPMIndex = tideSeperator!.startIndex.advancedBy(4)
-            let tideAMPM = self.nextTide!.Time.substringFromIndex(tideAMPMIndex)
+            let tideAMPM = self.nextTide!.timestamp.substringFromIndex(tideAMPMIndex)
             if tideAMPM == "pm" && tideHour != 12 {
                 tideHour += 12
             }

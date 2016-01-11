@@ -14,34 +14,34 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.Time = [aDecoder decodeObjectForKey:@"time"];
-        self.SignificantWaveHeight = [aDecoder decodeObjectForKey:@"significantWaveHeight"];
-        self.SwellWaveHeight = [aDecoder decodeObjectForKey:@"swellWaveHeight"];
-        self.WindWaveHeight = [aDecoder decodeObjectForKey:@"windWaveHeight"];
-        self.DominantPeriod = [aDecoder decodeObjectForKey:@"dominantPeriod"];
-        self.SwellPeriod = [aDecoder decodeObjectForKey:@"swellPeriod"];
-        self.WindWavePeriod = [aDecoder decodeObjectForKey:@"windWavePeriod"];
-        self.MeanDirection = [aDecoder decodeObjectForKey:@"meanDirection"];
-        self.SwellDirection = [aDecoder decodeObjectForKey:@"swellDirection"];
-        self.WindWaveDirection = [aDecoder decodeObjectForKey:@"windWaveDirection"];
-        self.WaterTemperature = [aDecoder decodeObjectForKey:@"waterTemperature"];
+        self.timestamp = [aDecoder decodeObjectForKey:@"time"];
+        self.significantWaveHeight = [aDecoder decodeObjectForKey:@"significantWaveHeight"];
+        self.swellWaveHeight = [aDecoder decodeObjectForKey:@"swellWaveHeight"];
+        self.windWaveHeight = [aDecoder decodeObjectForKey:@"windWaveHeight"];
+        self.dominantPeriod = [aDecoder decodeObjectForKey:@"dominantPeriod"];
+        self.swellPeriod = [aDecoder decodeObjectForKey:@"swellPeriod"];
+        self.windWavePeriod = [aDecoder decodeObjectForKey:@"windWavePeriod"];
+        self.meanDirection = [aDecoder decodeObjectForKey:@"meanDirection"];
+        self.swellDirection = [aDecoder decodeObjectForKey:@"swellDirection"];
+        self.windWaveDirection = [aDecoder decodeObjectForKey:@"windWaveDirection"];
+        self.waterTemperature = [aDecoder decodeObjectForKey:@"waterTemperature"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.Time forKey:@"time"];
-    [aCoder encodeObject:self.SignificantWaveHeight forKey:@"significantWaveHeight"];
-    [aCoder encodeObject:self.SwellWaveHeight forKey:@"swellWaveHeight"];
-    [aCoder encodeObject:self.WindWaveHeight forKey:@"windWaveHeight"];
-    [aCoder encodeObject:self.DominantPeriod forKey:@"dominantPeriod"];
-    [aCoder encodeObject:self.SwellPeriod forKey:@"swellPeriod"];
-    [aCoder encodeObject:self.WindWavePeriod forKey:@"windWavePeriod"];
-    [aCoder encodeObject:self.MeanDirection forKey:@"meanDirection"];
-    [aCoder encodeObject:self.SwellDirection forKey:@"swellDirection"];
-    [aCoder encodeObject:self.WindWaveDirection forKey:@"windWaveDirection"];
-    [aCoder encodeObject:self.WaterTemperature forKey:@"waterTemperature"];
+    [aCoder encodeObject:self.timestamp forKey:@"time"];
+    [aCoder encodeObject:self.significantWaveHeight forKey:@"significantWaveHeight"];
+    [aCoder encodeObject:self.swellWaveHeight forKey:@"swellWaveHeight"];
+    [aCoder encodeObject:self.windWaveHeight forKey:@"windWaveHeight"];
+    [aCoder encodeObject:self.dominantPeriod forKey:@"dominantPeriod"];
+    [aCoder encodeObject:self.swellPeriod forKey:@"swellPeriod"];
+    [aCoder encodeObject:self.windWavePeriod forKey:@"windWavePeriod"];
+    [aCoder encodeObject:self.meanDirection forKey:@"meanDirection"];
+    [aCoder encodeObject:self.swellDirection forKey:@"swellDirection"];
+    [aCoder encodeObject:self.windWaveDirection forKey:@"windWaveDirection"];
+    [aCoder encodeObject:self.waterTemperature forKey:@"waterTemperature"];
 }
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {

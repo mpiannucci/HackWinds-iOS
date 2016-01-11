@@ -232,20 +232,20 @@
         Buoy *thisBuoy = [currentBuoyData objectAtIndex:indexPath.row-1];
         
         // Set the labels to the data
-        [timeLabel setText:thisBuoy.Time];
+        [timeLabel setText:thisBuoy.timestamp];
         
         if ([dataMode isEqualToString:SUMMARY_DATA_MODE]) {
-            [wvhtLabel setText:thisBuoy.SignificantWaveHeight];
-            [dpdLabel setText:thisBuoy.DominantPeriod];
-            [directionLabel setText:[Buoy getCompassDirection:thisBuoy.MeanDirection]];
+            [wvhtLabel setText:thisBuoy.significantWaveHeight];
+            [dpdLabel setText:thisBuoy.dominantPeriod];
+            [directionLabel setText:[Buoy getCompassDirection:thisBuoy.meanDirection]];
         } else if ([dataMode isEqualToString:SWELL_DATA_MODE]) {
-            [wvhtLabel setText:thisBuoy.SwellWaveHeight];
-            [dpdLabel setText:thisBuoy.SwellPeriod];
-            [directionLabel setText:thisBuoy.SwellDirection];
+            [wvhtLabel setText:thisBuoy.swellWaveHeight];
+            [dpdLabel setText:thisBuoy.swellPeriod];
+            [directionLabel setText:thisBuoy.swellDirection];
         } else if ([dataMode isEqualToString:WIND_DATA_MODE]) {
-            [wvhtLabel setText:thisBuoy.WindWaveHeight];
-            [dpdLabel setText:thisBuoy.WindWavePeriod];
-            [directionLabel setText:thisBuoy.WindWaveDirection];
+            [wvhtLabel setText:thisBuoy.windWaveHeight];
+            [dpdLabel setText:thisBuoy.windWavePeriod];
+            [directionLabel setText:thisBuoy.windWaveDirection];
         }
         
         // Make sure the text is black

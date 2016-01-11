@@ -10,9 +10,9 @@
 
 @interface Camera : NSObject
 
-@property (strong, nonatomic) NSURL *ImageURL;
-@property (strong, nonatomic) NSURL *VideoURL;
-@property (strong, nonatomic) NSString *Info;
+@property (strong, nonatomic) NSURL *imageURL;
+@property (strong, nonatomic) NSURL *videoURL;
+@property (strong, nonatomic) NSString *info;
 
 - (void) setIsRefreshable:(BOOL)refresh;
 - (BOOL) isRefreshable;

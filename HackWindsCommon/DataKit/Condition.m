@@ -13,36 +13,36 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.Date = [aDecoder decodeObjectForKey:@"date"];
-        self.MinBreakHeight = [aDecoder decodeObjectForKey:@"minBreakHeight"];
-        self.MaxBreakHeight = [aDecoder decodeObjectForKey:@"maxBreakHeight"];
-        self.WindSpeed = [aDecoder decodeObjectForKey:@"windSpeed"];
-        self.WindDeg = [aDecoder decodeObjectForKey:@"windDeg"];
-        self.WindDirection = [aDecoder decodeObjectForKey:@"windDirection"];
-        self.SwellHeight = [aDecoder decodeObjectForKey:@"swellHeight"];
-        self.SwellPeriod = [aDecoder decodeObjectForKey:@"swellPeriod"];
-        self.SwellDirection = [aDecoder decodeObjectForKey:@"swellDirection"];
-        self.SwellChartURL = [aDecoder decodeObjectForKey:@"swellChartURL"];
-        self.WindChartURL = [aDecoder decodeObjectForKey:@"windChartURL"];
-        self.PeriodChartURL = [aDecoder decodeObjectForKey:@"periodChartURL"];
+        self.timestamp = [aDecoder decodeObjectForKey:@"date"];
+        self.minBreakHeight = [aDecoder decodeObjectForKey:@"minBreakHeight"];
+        self.maxBreakHeight = [aDecoder decodeObjectForKey:@"maxBreakHeight"];
+        self.windSpeed = [aDecoder decodeObjectForKey:@"windSpeed"];
+        self.windDeg = [aDecoder decodeObjectForKey:@"windDeg"];
+        self.windDirection = [aDecoder decodeObjectForKey:@"windDirection"];
+        self.swellHeight = [aDecoder decodeObjectForKey:@"swellHeight"];
+        self.swellPeriod = [aDecoder decodeObjectForKey:@"swellPeriod"];
+        self.swellDirection = [aDecoder decodeObjectForKey:@"swellDirection"];
+        self.swellChartURL = [aDecoder decodeObjectForKey:@"swellChartURL"];
+        self.windChartURL = [aDecoder decodeObjectForKey:@"windChartURL"];
+        self.periodChartURL = [aDecoder decodeObjectForKey:@"periodChartURL"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.Date forKey:@"date"];
-    [aCoder encodeObject:self.MinBreakHeight forKey:@"minBreakHeight"];
-    [aCoder encodeObject:self.MaxBreakHeight forKey:@"maxBreakHeight"];
-    [aCoder encodeObject:self.WindSpeed forKey:@"windSpeed"];
-    [aCoder encodeObject:self.WindDeg forKey:@"windDeg"];
-    [aCoder encodeObject:self.WindDirection forKey:@"windDirection"];
-    [aCoder encodeObject:self.SwellHeight forKey:@"swellHeight"];
-    [aCoder encodeObject:self.SwellPeriod forKey:@"swellperiod"];
-    [aCoder encodeObject:self.SwellDirection forKey:@"swellDirection"];
-    [aCoder encodeObject:self.SwellChartURL forKey:@"swellChartURL"];
-    [aCoder encodeObject:self.WindChartURL forKey:@"windChartURL"];
-    [aCoder encodeObject:self.PeriodChartURL forKey:@"periodChartURL"];
+    [aCoder encodeObject:self.timestamp forKey:@"date"];
+    [aCoder encodeObject:self.minBreakHeight forKey:@"minBreakHeight"];
+    [aCoder encodeObject:self.maxBreakHeight forKey:@"maxBreakHeight"];
+    [aCoder encodeObject:self.windSpeed forKey:@"windSpeed"];
+    [aCoder encodeObject:self.windDeg forKey:@"windDeg"];
+    [aCoder encodeObject:self.windDirection forKey:@"windDirection"];
+    [aCoder encodeObject:self.swellHeight forKey:@"swellHeight"];
+    [aCoder encodeObject:self.swellPeriod forKey:@"swellperiod"];
+    [aCoder encodeObject:self.swellDirection forKey:@"swellDirection"];
+    [aCoder encodeObject:self.swellChartURL forKey:@"swellChartURL"];
+    [aCoder encodeObject:self.windChartURL forKey:@"windChartURL"];
+    [aCoder encodeObject:self.periodChartURL forKey:@"periodChartURL"];
 }
 
 @end

@@ -51,13 +51,13 @@ class InterfaceController: WKInterfaceController {
     
     func updateUI() {
         if let buoy = reporter.latestBuoy {
-            self.latestBuoyReportLabel.setText("\(buoy.SignificantWaveHeight) ft @ \(buoy.DominantPeriod)s \(buoy.MeanDirection)")
+            self.latestBuoyReportLabel.setText("\(buoy.significantWaveHeight) ft @ \(buoy.dominantPeriod)s \(buoy.meanDirection)")
             self.buoyLocationLabel.setText("\(reporter.buoyLocation!)")
         }
         
         if let tide = reporter.nextTide {
-            self.nextTideLabel.setText("\(tide.EventType): \(tide.Time)")
-            if tide.EventType == LOW_TIDE_TAG {
+            self.nextTideLabel.setText("\(tide.eventType): \(tide.timestamp)")
+            if tide.eventType == LOW_TIDE_TAG {
                 self.latestTideStatusLabel.setText("Outgoing")
             } else {
                 self.latestTideStatusLabel.setText("Incoming")

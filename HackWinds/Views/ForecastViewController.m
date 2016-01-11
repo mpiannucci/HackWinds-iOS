@@ -163,21 +163,21 @@
     [dayLabel setText:[WEEKDAYS objectAtIndex:(((currentday-1) + index)%7)]];
     
     [morningLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
-                           morningForecast.MinBreakHeight, morningForecast.MaxBreakHeight, morningForecast.WindDir, morningForecast.WindSpeed]];
+                           morningForecast.minBreakHeight, morningForecast.maxBreakHeight, morningForecast.windDirection, morningForecast.windDirection]];
     
     [afternoonLabel setText:[NSString stringWithFormat:@"%@ - %@ feet, Wind %@ %@ mph",
-                           afternoonForecast.MinBreakHeight, afternoonForecast.MaxBreakHeight, afternoonForecast.WindDir, afternoonForecast.WindSpeed]];
+                           afternoonForecast.minBreakHeight, afternoonForecast.maxBreakHeight, afternoonForecast.windDirection, afternoonForecast.windSpeed]];
     
     // Set the color of the morning label based on whether it has size or not
-    if ([morningForecast.MinBreakHeight doubleValue] > 1.9) {
-        if ([morningForecast.WindDir isEqualToString:@"WSW"] ||
-            [morningForecast.WindDir isEqualToString:@"W"] ||
-            [morningForecast.WindDir isEqualToString:@"WNW"] ||
-            [morningForecast.WindDir isEqualToString:@"NW"] ||
-            [morningForecast.WindDir isEqualToString:@"NNW"] ||
-            [morningForecast.WindDir isEqualToString:@"N"]) {
+    if ([morningForecast.minBreakHeight doubleValue] > 1.9) {
+        if ([morningForecast.windDirection isEqualToString:@"WSW"] ||
+            [morningForecast.windDirection isEqualToString:@"W"] ||
+            [morningForecast.windDirection isEqualToString:@"WNW"] ||
+            [morningForecast.windDirection isEqualToString:@"NW"] ||
+            [morningForecast.windDirection isEqualToString:@"NNW"] ||
+            [morningForecast.windDirection isEqualToString:@"N"]) {
             [morningHeaderLabel setTextColor:GREEN_COLOR];
-        } else if ([morningForecast.WindSpeed doubleValue] < 8.0){
+        } else if ([morningForecast.windSpeed doubleValue] < 8.0){
             [morningHeaderLabel setTextColor:GREEN_COLOR];
         } else {
             [morningHeaderLabel setTextColor:YELLOW_COLOR];
@@ -187,15 +187,15 @@
     }
     
     // Set the color of the afternoon label based on whether it has size or not
-    if ([afternoonForecast.MinBreakHeight doubleValue] > 1.9) {
-        if ([afternoonForecast.WindDir isEqualToString:@"WSW"] ||
-            [afternoonForecast.WindDir isEqualToString:@"W"] ||
-            [afternoonForecast.WindDir isEqualToString:@"WNW"] ||
-            [afternoonForecast.WindDir isEqualToString:@"NW"] ||
-            [afternoonForecast.WindDir isEqualToString:@"NNW"] ||
-            [afternoonForecast.WindDir isEqualToString:@"N"]) {
+    if ([afternoonForecast.minBreakHeight doubleValue] > 1.9) {
+        if ([afternoonForecast.windDirection isEqualToString:@"WSW"] ||
+            [afternoonForecast.windDirection isEqualToString:@"W"] ||
+            [afternoonForecast.windDirection isEqualToString:@"WNW"] ||
+            [afternoonForecast.windDirection isEqualToString:@"NW"] ||
+            [afternoonForecast.windDirection isEqualToString:@"NNW"] ||
+            [afternoonForecast.windDirection isEqualToString:@"N"]) {
             [afternoonHeaderLabel setTextColor:GREEN_COLOR];
-        } else if ([afternoonForecast.WindSpeed doubleValue] < 8.0){
+        } else if ([afternoonForecast.windSpeed doubleValue] < 8.0){
             [afternoonHeaderLabel setTextColor:GREEN_COLOR];
         } else {
             [afternoonHeaderLabel setTextColor:YELLOW_COLOR];

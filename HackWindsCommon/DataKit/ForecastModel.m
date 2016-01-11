@@ -208,7 +208,7 @@ static const int SECOND_BEACH_ID = 846;
         if (conditionCheck && conditionCount < CONDITION_DATA_POINT_COUNT) {
             // Get a new condition object
             Condition *thisCondition = [[Condition alloc] init];
-            [thisCondition setDate:date];
+            [thisCondition setTimestamp:date];
             
             // Get the minumum and maximum wave heights
             [thisCondition setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
@@ -239,7 +239,7 @@ static const int SECOND_BEACH_ID = 846;
             Forecast *thisForecast = [[Forecast alloc] init];
             
             // Set the date
-            [thisForecast setDate:date];
+            [thisForecast setTimestamp:date];
             
             // Get the minimum and maximumm breaking heights
             [thisForecast setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
@@ -247,7 +247,7 @@ static const int SECOND_BEACH_ID = 846;
             
             // Get the wind speed and direction
             [thisForecast setWindSpeed:[windDict objectForKey:@"speed"]];
-            [thisForecast setWindDir:[windDict objectForKey:@"compassDirection"]];
+            [thisForecast setWindDirection:[windDict objectForKey:@"compassDirection"]];
             
             // Append the forecast to the list
             [currentContainer.forecasts addObject:thisForecast];

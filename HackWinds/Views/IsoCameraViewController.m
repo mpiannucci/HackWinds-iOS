@@ -105,9 +105,9 @@
 }
 
 - (void)loadCamImage {
-    [self.camImage setImageURL:camera.ImageURL];
+    [self.camImage setImageURL:camera.imageURL];
     
-    if (![[camera.VideoURL absoluteString] isEqualToString:@""]) {
+    if (![[camera.videoURL absoluteString] isEqualToString:@""]) {
         [self.autoReloadSwitch setOn:NO];
         [self.autoReloadSwitch setHidden:YES];
         [self.autoReloadLabel setHidden:YES];
@@ -116,7 +116,7 @@
         [self.videoPlayButton setHidden:NO];
         [self.extraCameraInfo setHidden:NO];
         [self.extraCameraInfo setNumberOfLines:0];
-        [self.extraCameraInfo setText:camera.Info];
+        [self.extraCameraInfo setText:camera.info];
         [self.extraCameraInfo sizeToFit];
     }
     
@@ -205,7 +205,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     
-    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:camera.VideoURL];
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:camera.videoURL];
     [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
     [self.view addSubview:self.streamPlayer.view];
     

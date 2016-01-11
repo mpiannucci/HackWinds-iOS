@@ -17,9 +17,9 @@ extern NSString * const SUNSET_TAG;
 @interface Tide : NSObject
 
 // Define the data for the tide model
-@property (strong, nonatomic) NSString *Time;
-@property (strong, nonatomic) NSString *EventType;
-@property (strong, nonatomic) NSString *Height;
+@property (strong, nonatomic) NSString *timestamp;
+@property (strong, nonatomic) NSString *eventType;
+@property (strong, nonatomic) NSString *height;
 
 // Conveinence methods
 - (BOOL) isSunrise;
