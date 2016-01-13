@@ -10,6 +10,10 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    
+    @IBOutlet weak var latestBuoyLabel: UILabel!
+    @IBOutlet weak var nextTideLabel: UILabel!
+    @IBOutlet weak var lastUpdatedButton: UIButton!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
 
         completionHandler(NCUpdateResult.NewData)
+    }
+    
+    @IBAction func updateDataClicked(sender: AnyObject) {
+
     }
     
 }

@@ -2294,6 +2294,7 @@
 				3457CBFE1C4488D400A4BCD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		349076461C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp Extension" */ = {
 			isa = XCConfigurationList;

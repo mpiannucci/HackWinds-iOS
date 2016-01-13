@@ -24,6 +24,8 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
         // Update your data and prepare for a snapshot. Call completion handler when you are done
         // with NoData if nothing has changed or NewData if there is new data since the last
+        @IBAction func updateDataClicked(sender: AnyObject) {
+        }
         // time we called you
         self.reporter = Reporter()
         
