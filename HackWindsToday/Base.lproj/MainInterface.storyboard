@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Today View Controller-->
@@ -14,35 +15,49 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latest Buoy Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-NS-Lzi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Buoy Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-NS-Lzi">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="2ym-3A-3fu"/>
+                                    <constraint firstAttribute="height" constant="14" id="N24-ew-Cad"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--.-- ft @ -- s ---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHo-hI-Oa0">
-                                <rect key="frame" x="0.0" y="14" width="160" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--.-- ft @ -- s ---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RHo-hI-Oa0">
+                                <rect key="frame" x="0.0" y="14" width="300" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="5rg-wB-umf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upcoming Tide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXv-96-1Ye">
-                                <rect key="frame" x="168" y="0.0" width="132" height="15.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Tide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXv-96-1Ye">
+                                <rect key="frame" x="0.0" y="37" width="132" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="MEM-3r-biA"/>
+                                    <constraint firstAttribute="height" constant="16" id="PXv-1y-d4K"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="---- ----: --:-- --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-uz-jhG">
-                                <rect key="frame" x="163" y="14" width="137" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---- ----: --:-- --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-uz-jhG">
+                                <rect key="frame" x="0.0" y="53" width="300" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIS-Mt-Joo">
-                                <rect key="frame" x="0.0" y="43" width="300" height="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIS-Mt-Joo">
+                                <rect key="frame" x="0.0" y="80" width="300" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="iDD-JB-FUr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Montauk: Last updated --:-- --">
                                     <color key="titleColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -52,13 +67,29 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="XIS-Mt-Joo" firstAttribute="leading" secondItem="pgU-uz-jhG" secondAttribute="leading" id="4VY-p8-8z4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RHo-hI-Oa0" secondAttribute="trailing" constant="4" id="6Ur-eO-qVs"/>
+                            <constraint firstItem="pgU-uz-jhG" firstAttribute="trailing" secondItem="RHo-hI-Oa0" secondAttribute="trailing" id="8A1-uu-Fjw"/>
+                            <constraint firstItem="pgU-uz-jhG" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="S3a-ha-0dR"/>
+                            <constraint firstItem="YXv-96-1Ye" firstAttribute="leading" secondItem="RHo-hI-Oa0" secondAttribute="leading" id="WAi-ce-wI4"/>
+                            <constraint firstItem="XIS-Mt-Joo" firstAttribute="top" secondItem="pgU-uz-jhG" secondAttribute="bottom" constant="3" id="ZEj-wg-WC3"/>
+                            <constraint firstItem="pgU-uz-jhG" firstAttribute="top" secondItem="RHo-hI-Oa0" secondAttribute="bottom" constant="16" id="bxP-Tu-iWD"/>
+                            <constraint firstItem="RHo-hI-Oa0" firstAttribute="leading" secondItem="gAb-NS-Lzi" secondAttribute="leading" id="cde-bY-SGp"/>
+                            <constraint firstItem="pgU-uz-jhG" firstAttribute="leading" secondItem="YXv-96-1Ye" secondAttribute="leading" id="hZE-lp-sMq"/>
+                            <constraint firstItem="YXv-96-1Ye" firstAttribute="top" secondItem="RHo-hI-Oa0" secondAttribute="bottom" id="ic7-g0-zym"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="XIS-Mt-Joo" secondAttribute="bottom" id="nJo-7Z-s4Z"/>
+                            <constraint firstItem="gAb-NS-Lzi" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="riP-N1-lfu"/>
+                            <constraint firstItem="RHo-hI-Oa0" firstAttribute="top" secondItem="gAb-NS-Lzi" secondAttribute="bottom" id="uaK-ZD-Yjp"/>
+                            <constraint firstItem="XIS-Mt-Joo" firstAttribute="trailing" secondItem="pgU-uz-jhG" secondAttribute="trailing" id="yke-0F-3XK"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="58"/>
+                    <size key="freeformSize" width="320" height="95"/>
                     <connections>
                         <outlet property="lastUpdatedButton" destination="XIS-Mt-Joo" id="jn2-Xo-zzP"/>
                         <outlet property="latestBuoyLabel" destination="RHo-hI-Oa0" id="qh8-CO-7Fj"/>
