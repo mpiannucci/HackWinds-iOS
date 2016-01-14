@@ -55,6 +55,7 @@ class TodayViewController: NSViewController, NCWidgetProviding {
         if let nextTide = reporter.nextTide {
             nextTideLabel.stringValue = "\(nextTide.eventType): \(nextTide.timestamp)"
         }
+        
     }
 
 }

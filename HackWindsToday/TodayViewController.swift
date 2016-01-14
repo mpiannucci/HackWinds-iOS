@@ -14,10 +14,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var latestBuoyLabel: UILabel!
     @IBOutlet weak var nextTideLabel: UILabel!
     @IBOutlet weak var lastUpdatedButton: UIButton!
+    
+    var reporter: Reporter!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
+        
+        reporter = Reporter()
+        updateViewAsync()
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,16 +31,45 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
-
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-
-        completionHandler(NCUpdateResult.NewData)
+        updateViewAsync()
+        
+        completionHandler(.NewData)
     }
     
     @IBAction func updateDataClicked(sender: AnyObject) {
-
+        updateViewAsync()
+    }
+    
+    func updateViewAsync() {
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            
+            let updated = self.reporter.updateData()
+            
+            if updated {
+                dispatch_async(dispatch_get_main_queue()) {
+                    // update some UI
+                    self.updateUI()
+                }
+            }
+        }
+    }
+    
+    func updateUI() {
+        // Update the UI using reporter
+        if let latestBuoy = reporter.latestBuoy {
+            latestBuoyLabel.text = "\(latestBuoy.significantWaveHeight) ft @ \(latestBuoy.dominantPeriod) s \(latestBuoy.meanDirection)"
+        }
+        
+        if let nextTide = reporter.nextTide {
+            nextTideLabel.text = "\(nextTide.eventType): \(nextTide.timestamp)"
+        }
+        
+        if let lastUpdateTime = reporter.latestRefreshTime {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            lastUpdatedButton.titleLabel!.text = "\(reporter.buoyLocation!): Last updated \(dateFormatter.stringFromDate(lastUpdateTime))"
+        }
     }
     
 }

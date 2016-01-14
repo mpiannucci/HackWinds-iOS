@@ -22,13 +22,22 @@ class Reporter {
         // Get the latest buoy location from the shared settings
         // TODO: This doesn't work yet, and needs to use watch connectivity. For now default to montauk
         let groupDefaults = NSUserDefaults.init(suiteName: "group.com.nucc.HackWinds")
-        let newLocation = groupDefaults?.stringForKey("DefaultBuoyLocation")
-        if newLocation == nil {
+        if let newLocation = groupDefaults?.stringForKey("DefaultBuoyLocation") {
+            if let buoyLocation = self.buoyLocation {
+                if buoyLocation != newLocation {
+                    // The location has been changed since the last spin so force a refresh
+                    self.buoyLocation = newLocation
+                    self.nextBuoyUpdateTime = nil
+                }
+            } else {
+                // A location has not been set yet so force a refresh
+                self.buoyLocation = newLocation
+                self.nextBuoyUpdateTime = nil
+            }
+        } else {
+            // Just default to montauk if possible
             self.buoyLocation = MONTAUK_LOCATION
             groupDefaults?.setObject(self.buoyLocation, forKey: "DefaultBuoyLocation")
-            self.nextBuoyUpdateTime = nil
-        } else if newLocation != self.buoyLocation {
-            self.buoyLocation = newLocation
             self.nextBuoyUpdateTime = nil
         }
         
