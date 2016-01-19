@@ -21,7 +21,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         
         reporter = Reporter()
-        updateViewAsync()
+        self.updateUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,8 +67,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         if let lastUpdateTime = reporter.latestRefreshTime {
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-            lastUpdatedButton.titleLabel!.text = "\(reporter.buoyLocation!): Last updated \(dateFormatter.stringFromDate(lastUpdateTime))"
+            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            let updatedString = dateFormatter.stringFromDate(lastUpdateTime)
+            lastUpdatedButton.setTitle("\(reporter.buoyLocation!): Last updated \(updatedString)", forState: .Normal)
         }
     }
     

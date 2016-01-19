@@ -27,6 +27,7 @@
 		3457CBF81C4488D400A4BCD2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3457CBF61C4488D400A4BCD2 /* MainInterface.storyboard */; };
 		3457CBFC1C4488D400A4BCD2 /* HackWindsToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3457CC021C44896B00A4BCD2 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
+		3475B2381C4EB16500C35196 /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		349076271C24A7E500EAD0CE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349076251C24A7E500EAD0CE /* Interface.storyboard */; };
 		349076291C24A7E500EAD0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349076281C24A7E500EAD0CE /* Assets.xcassets */; };
 		349076301C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -463,6 +464,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3475B2381C4EB16500C35196 /* HackWindsDataKit.framework in Frameworks */,
 				3457CBF21C4488D400A4BCD2 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

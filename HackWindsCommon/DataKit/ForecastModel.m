@@ -179,6 +179,8 @@ static const int SECOND_BEACH_ID = 846;
         return NO;
     } else if (rawData.count < 1) {
         return NO;
+    } else if ([rawData isKindOfClass:[NSArray class]]) {
+        return NO;
     }
     
     // Loop through the objects, create new condition objects, and append to the array
