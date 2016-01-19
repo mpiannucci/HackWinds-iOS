@@ -124,7 +124,7 @@ class Reporter {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.buoyLocation!), forKey: "buoyLocation")
         if self.latestBuoy != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoy!), forKey: "latestBuoyReport")
+            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoy!), forKey: "latestBuoy")
         }
         if self.nextTide != nil {
             defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTide!), forKey: "nextTide")
