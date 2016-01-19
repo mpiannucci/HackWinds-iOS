@@ -63,17 +63,10 @@
 
     // Load the camera URLs
     CameraModel *cameraModel = [CameraModel sharedModel];
-    BOOL locationsLoaded = [cameraModel forceFetchCameraURLs];
+    [cameraModel forceFetchCameraURLs];
     
-    if (locationsLoaded == NO) {
-        NSLog(@"Can't reach Camera API server");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't reach Camera API server"
-                                                        message:@"Can't reach the camera servers. Please try again soon."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
+    // Load the forecasts
+    [[ForecastModel sharedModel] fetchForecastData];
     
     return YES;
 }

@@ -23,12 +23,17 @@
 @property (strong, nonatomic) NSString *swellPeriod;
 @property (strong, nonatomic) NSString *windWavePeriod;
 
+// Steepness
+@property (strong, nonatomic) NSString *steepness;
+
 // Direction
 @property (strong, nonatomic) NSString *meanDirection;
 @property (strong, nonatomic) NSString *swellDirection;
 @property (strong, nonatomic) NSString *windWaveDirection;
 
 @property (strong, nonatomic) NSString *waterTemperature;
+
+- (void) getDominantPeriodFromSteepness;
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;
 

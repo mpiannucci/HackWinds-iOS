@@ -44,6 +44,9 @@
     [aCoder encodeObject:self.waterTemperature forKey:@"waterTemperature"];
 }
 
+- (void) getDominantPeriodFromSteepness {
+}
+
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {
     // Set the direction to its letter value on a compass
     int windIndex = (int)[degreeDirection doubleValue]/(360/[WIND_DIRS count]);

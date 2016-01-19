@@ -10,9 +10,11 @@
 #import "Camera.h"
 
 static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v3.json";
+NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification";
 
 @interface CameraModel()
 
+- (BOOL) parseCamerasFromData:(NSData*)rawData;
 - (Camera *) fetchPointJudithURLs:(NSString *)locationURL;
 
 @end
@@ -45,65 +47,94 @@ static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/sta
     return self;
 }
 
-- (BOOL) fetchCameraURLs {
+- (void) fetchCameraURLs {
     @synchronized(self) {
         if (!forceReload) {
-            return true;
+            // Tell everything you have camera data
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:CAMERA_DATA_UPDATED_TAG
+                 object:self];
+            });
         }
         
-        NSData *cameraResponse = [NSData dataWithContentsOfURL:[NSURL URLWithString:HACKWINDS_API_URL]];
-        NSError *error;
-        NSDictionary *settingsData = [NSJSONSerialization
-                                      JSONObjectWithData:cameraResponse
-                                      options:kNilOptions
-                                      error:&error];
-    
-        if ((settingsData == nil) || (error != nil)) {
-            return false;
-        }
-
-        NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
-        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-    
-        for (NSString* locationName in cameraDict) {
-            tempDict[locationName] = [[NSMutableDictionary alloc] init];
-        
-            for (NSString *cameraName in [cameraDict objectForKey:locationName]) {
+        NSURLSessionTask *cameraTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:HACKWINDS_API_URL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
-                NSDictionary *thisCameraDict = [[cameraDict objectForKey:locationName] objectForKey:cameraName];
-                Camera *thisCamera = [[Camera alloc] init];
-            
-                if ([cameraName isEqualToString:@"Point Judith"]) {
-                    thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
-                } else {
-                    thisCamera.videoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
-                }
-                
-                if (thisCamera == nil) {
-                    continue;
-                }
-            
-                // For now, the image is common
-                thisCamera.imageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
-                [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
-                [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
-            
-                tempDict[locationName][cameraName] = thisCamera;
+            if (error != nil) {
+                NSLog(@"Failed to fetch camera data from API");
+                return;
             }
-        }
-    
-        self.cameraURLS = tempDict;
-    
-        // Save the camera urls to defaults and set the reload state
-        forceReload = NO;
-    
-        return YES;
+            
+            BOOL parsedCameras = [self parseCamerasFromData:data];
+            if (parsedCameras) {
+                // Tell everything you have camera data
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:CAMERA_DATA_UPDATED_TAG
+                     object:self];
+                });
+            }
+        }];
+        
+        [cameraTask resume];
     }
 }
 
-- (BOOL) forceFetchCameraURLs {
+- (void) forceFetchCameraURLs {
     forceReload = YES;
     return [self fetchCameraURLs];
+}
+
+- (BOOL) parseCamerasFromData:(NSData *)rawData {
+    NSError *error;
+    NSDictionary *settingsData = [NSJSONSerialization
+                                  JSONObjectWithData:rawData
+                                  options:kNilOptions
+                                  error:&error];
+    
+    if ((settingsData == nil) || (error != nil)) {
+        return false;
+    }
+    
+    NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
+    NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+    
+    for (NSString* locationName in cameraDict) {
+        tempDict[locationName] = [[NSMutableDictionary alloc] init];
+        
+        for (NSString *cameraName in [cameraDict objectForKey:locationName]) {
+            
+            NSDictionary *thisCameraDict = [[cameraDict objectForKey:locationName] objectForKey:cameraName];
+            Camera *thisCamera = [[Camera alloc] init];
+            
+            if ([cameraName isEqualToString:@"Point Judith"]) {
+                // Skip this for now!!!
+                // TODO: Refactor to support more cameras and better supplimentary fetching
+                continue;
+                //thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
+            } else {
+                thisCamera.videoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
+            }
+            
+            if (thisCamera == nil) {
+                continue;
+            }
+            
+            // For now, the image is common
+            thisCamera.imageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
+            [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
+            [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
+            
+            tempDict[locationName][cameraName] = thisCamera;
+        }
+    }
+    
+    self.cameraURLS = tempDict;
+    
+    // Save the camera urls to defaults and set the reload state
+    forceReload = NO;
+    
+    return YES;
 }
 
 - (Camera *) fetchPointJudithURLs:(NSString *)locationURL {

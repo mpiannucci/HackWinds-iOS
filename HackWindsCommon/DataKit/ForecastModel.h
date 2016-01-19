@@ -21,7 +21,7 @@ extern NSString * const FORECAST_LOCATION_CHANGED_TAG;
 @interface ForecastModel : NSObject
 
 - (void) changeForecastLocation;
-- (BOOL) fetchForecastData;
+- (void) fetchForecastData;
 - (NSArray *) getConditionsForIndex:(int)index;
 - (NSMutableArray *) getConditions;
 - (NSMutableArray *) getForecasts;

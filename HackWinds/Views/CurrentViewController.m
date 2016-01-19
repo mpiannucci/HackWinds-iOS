@@ -47,10 +47,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
     [self.navigationBarTitle setTitleText:@"HackWinds"];
     [self.navigationBarTitle.detailButton addTarget:self action:@selector(locationButtonClicked:)  forControlEvents:UIControlEventTouchDown];
     
-    // Set up the camera model
-    CameraModel *cameraModel = [CameraModel sharedModel];
-    wwCamera = [[cameraModel.cameraURLS objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
-    
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
     
@@ -69,8 +65,13 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     // Register the notification center listener when the view appears
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateDataFromModel)
+                                             selector:@selector(updateUI)
                                                  name:FORECAST_DATA_UPDATED_TAG
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setupCamera)
+                                                 name:CAMERA_DATA_UPDATED_TAG
                                                object:nil];
     
     // Update the data in the table using the forecast model
@@ -78,19 +79,21 @@ static const int CAMERA_IMAGE_COUNT = 8;
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
     
     if (networkStatus != NotReachable) {
-        [self updateDataFromModel];
+        [self updateUI];
     }
 }
 
 - (void)viewDidLayoutSubviews {
     self.camScrollView.contentSize = CGSizeMake(self.camScrollView.frame.size.width * CAMERA_IMAGE_COUNT, self.camScrollView.frame.size.height);
-    [self loadCameraPages];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     // Remove the listener when the view goes out of focus
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:FORECAST_DATA_UPDATED_TAG
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:CAMERA_DATA_UPDATED_TAG
                                                   object:nil];
     
     [super viewWillDisappear:animated];
@@ -102,21 +105,27 @@ static const int CAMERA_IMAGE_COUNT = 8;
     // Dispose of any resources that can be recreated.
 }
 
-- (void) updateDataFromModel {
-    // Load the MSW Data
-    dispatch_async(forecastFetchBgQueue, ^{
-        BOOL success = [self.forecastModel fetchForecastData];
-        
-        if (success) {
-            currentConditions = [self.forecastModel getConditionsForIndex:0];
-            [self performSelectorOnMainThread:@selector(getForecastSettings) withObject:nil waitUntilDone:YES];
-            [self.mswTodayTable performSelectorOnMainThread:@selector(reloadData)
-                                         withObject:nil waitUntilDone:YES];
-        }
-    });
+- (void) updateUI {
+    [self getForecastSettings];
+    
+    currentConditions = [self.forecastModel getConditionsForIndex:0];
+    [self.mswTodayTable reloadData];
+}
+
+#pragma mark - Camera setup and scrolling
+
+- (void) setupCamera {
+    CameraModel *cameraModel = [CameraModel sharedModel];
+    wwCamera = [[cameraModel.cameraURLS objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
+    [self loadCameraPages];
 }
 
 - (void) loadCameraPages {
+    // Make sure the cameras have been loaded
+    if (wwCamera == nil) {
+        return;
+    }
+    
     // Set the page number
     double pageWidth = self.camScrollView.frame.size.width;
     int pageNumber = (int) floor((self.camScrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0));
@@ -188,6 +197,8 @@ static const int CAMERA_IMAGE_COUNT = 8;
                                                                    withString:[NSString stringWithFormat:@"%d.jpg", index+1]]];
 }
 
+#pragma mark - Forecast location
+
 - (void) locationButtonClicked:(id)sender {
     UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Forecast Location"
                                                                      delegate:self
@@ -246,7 +257,11 @@ static const int CAMERA_IMAGE_COUNT = 8;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows + the header row
-    return ([[self.forecastModel getConditions] count] / 5) + 1;
+    if (currentConditions == nil) {
+        return 1;
+    }
+    
+    return currentConditions.count + 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

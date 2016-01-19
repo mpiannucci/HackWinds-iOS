@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+// Notification Constants
+extern NSString * const CAMERA_DATA_UPDATED_TAG;
+
 @interface CameraModel : NSObject
 
 @property (strong, nonatomic) NSDictionary *cameraURLS;
 
-- (BOOL) forceFetchCameraURLs;
-- (BOOL) fetchCameraURLs;
+- (void) forceFetchCameraURLs;
+- (void) fetchCameraURLs;
 + (instancetype) sharedModel;
 
 @end

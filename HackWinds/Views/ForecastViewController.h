@@ -11,7 +11,7 @@
 
 @interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
-- (void) updateDataFromModel;
+- (void) updateUI;
 - (void) locationButtonClicked:(id)sender;
 - (void) getForecastSettings;
 

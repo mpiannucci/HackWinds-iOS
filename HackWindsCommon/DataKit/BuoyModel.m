@@ -21,16 +21,6 @@ NSString * const BUOY_DATA_UPDATED_TAG = @"BuoyModelDidUpdateDataNotification";
 NSString * const BUOY_LOCATION_CHANGED_TAG = @"BuoyLocationChangedNotification";
 NSString * const DEFAULT_BUOY_LOCATION_CHANGED_TAG = @"DefaultBuoyLocationChangedNotification";
 
-// Local Constants
-static const int SUMMARY_DATA_HEADER_LENGTH = 38;
-static const int SUMMARY_DATA_LINE_LENGTH = 19;
-static const int SUMMARY_HOUR_OFFSET = 3;
-static const int SUMMARY_MINUTE_OFFSET = 4;
-static const int SUMMARY_WVHT_OFFSET = 8;
-static const int SUMMARY_DPD_OFFSET = 9;
-static const int SUMMARY_DIRECTION_OFFSET = 11;
-static const int SUMMARY_TEMPERATURE_OFFSET = 14;
-
 // Detail data locations
 static const int DETAIL_DATA_HEADER_LENGTH = 30;
 static const int DETAIL_DATA_LINE_LENGTH = 15;
@@ -41,8 +31,10 @@ static const int DETAIL_SWELL_WAVE_HEIGHT_OFFSET = 6;
 static const int DETAIL_SWELL_PERIOD_OFFSET = 7;
 static const int DETAIL_WIND_WAVE_HEIGHT_OFFSET  = 8;
 static const int DETAIL_WIND_PERIOD_OFFSET = 9;
-static const int DETAIL_SWELL_DIRECTION = 10;
-static const int DETAIL_WIND_WAVE_DIRECTION = 11;
+static const int DETAIL_SWELL_DIRECTION_OFFSET = 10;
+static const int DETAIL_WIND_WAVE_DIRECTION_OFFSET = 11;
+static const int DETAIL_STEEPNESS_OFFSET = 13;
+static const int DETAIL_MEAN_WAVE_DIRECTION_OFFSET = 14;
 
 // URLs
 static const int BI_BUOY_NUMBER = 44097;
@@ -53,10 +45,10 @@ static const int ACK_BUOY_NUMBER = 44008;
 
 // Private methods
 - (void) initBuoyContainers;
-- (BOOL) parseBuoyData;
-- (NSArray*) retrieveBuoyData:(BOOL)isDetailed;
-- (BOOL) getBuoySummaryForIndex:(int)index FromData:(NSArray*)rawData FillBuoy:(Buoy*)buoy;
-- (BOOL) getBuoyDetailsForIndex:(int)index FromData:(NSArray*)rawData FillBuoy:(Buoy*)buoy;
+- (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler;
+- (BOOL) parseBuoyData:(NSData*)rawBuoyData;
+- (Buoy*) parseLatestBuoyData:(NSData*)rawBuoyData;
+- (NSURL *) getCurrentLatestBuoyDataURL;
 - (NSInteger) getCorrectedHourValue:(NSInteger)rawHour;
 - (double) getFootConvertedFromMetric:(double)metricValue;
 - (BOOL) check24HourClock;
@@ -130,6 +122,29 @@ static const int ACK_BUOY_NUMBER = 44008;
     
 }
 
+- (int) getTimeOffset {
+    return timeOffset;
+}
+
+- (void) resetData {
+    // TODO
+}
+
+- (NSMutableArray *) getBuoyData {
+    return currentContainer.buoyData;
+}
+
+- (NSMutableArray *) getWaveHeightForMode:(NSString *)mode {
+    return [currentContainer.waveHeights objectForKey:mode];
+}
+- (NSURL *) getCurrentLatestBuoyDataURL {
+    return [currentContainer createLatestReportOnlyURL];
+}
+
+- (NSURL*) getSpectraPlotURL {
+    return [currentContainer createSpectraPlotURL];
+}
+
 - (void) changeBuoyLocation {
     [self.defaults synchronize];
     
@@ -152,54 +167,103 @@ static const int ACK_BUOY_NUMBER = 44008;
     });
 }
 
-- (BOOL) fetchBuoyData {
-    @synchronized(self) {
-        if (currentContainer.buoyData.count == 0) {
-            return [self parseBuoyData];
-        } else {
-            return YES;
+- (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler {
+    NSURLSessionTask *tideTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error != nil) {
+            NSLog(@"Failed to retreive tide data from API");
+            return;
         }
+        
+        completionHandler(data);
+    }];
+    
+    [tideTask resume];
+}
+
+- (void) fetchBuoyData {
+    @synchronized(self) {
+        if (currentContainer.buoyData.count != 0) {
+            // Tell everything you have buoy data
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:BUOY_DATA_UPDATED_TAG
+                 object:self];
+            });
+            return;
+        }
+        
+        [self fetchRawBuoyDataFromURL:[currentContainer createDetailedWaveDataURL] withCompletionHandler:^(NSData *data) {
+            BOOL parsedBuoys = [self parseBuoyData:data];
+            
+            if (parsedBuoys) {
+                // Tell everything you have buoy data
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:BUOY_DATA_UPDATED_TAG
+                     object:self];
+                });
+            }
+        }];
+        
     }
 }
 
-- (int) getTimeOffset {
-    return timeOffset;
+- (void) fetchLatestBuoyReading {
+    BuoyModel *buoyModel = [BuoyModel sharedModel];
+    [buoyModel fetchRawBuoyDataFromURL:[buoyModel getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
+        Buoy *latestBuoy = [buoyModel parseLatestBuoyData:rawData];
+        
+        if (latestBuoy == nil) {
+            return;
+        }
+        
+        // Only add the buoy to the list if there are no other buoys read in yet
+        if (currentContainer.buoyData.count == 0) {
+            [currentContainer.buoyData addObject:latestBuoy];
+        } else {
+            Buoy *firstBuoy = [currentContainer.buoyData objectAtIndex:0];
+            
+            // Merge the latest buoy props that werent read in with the detailed wave read.
+            firstBuoy.dominantPeriod = latestBuoy.dominantPeriod;
+            firstBuoy.waterTemperature = latestBuoy.waterTemperature;
+        }
+        
+        // Tell everything you have buoy data
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:BUOY_DATA_UPDATED_TAG
+             object:self];
+        });
+        
+    }];
 }
 
-- (void) resetData {
-    // TODO
-}
-
-- (NSMutableArray *) getBuoyData {
-    return currentContainer.buoyData;
-}
-
-- (NSMutableArray *) getWaveHeightForMode:(NSString *)mode {
-    return [currentContainer.waveHeights objectForKey:mode];
-}
-
-- (NSURL*) getSpectraPlotURL {
-    return [currentContainer createSpectraPlotURL];
-}
-
-+ (Buoy*) getOnlyLatestBuoyDataForLocation:(NSString *)location {
-    // Get the model instance
-    BuoyModel *buoyModel = [[BuoyModel alloc] init];
-    
-    // For now we are going to force the location to be what the user sets.
+- (void) fetchLatestBuoyReadingForLocation:(NSString *)location withCompletionHandler:(void (^)(Buoy *))completionHandler {
+    BuoyModel *buoyModel = [BuoyModel sharedModel];
     [buoyModel forceChangeLocation:location];
-    return [buoyModel fetchLatestBuoyReadingOnly];
+    
+    [buoyModel fetchRawBuoyDataFromURL:[buoyModel getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
+        Buoy *latestBuoy = [buoyModel parseLatestBuoyData:rawData];
+        
+        // Pass the buoy down to the completion handler
+        completionHandler(latestBuoy);
+    }];
 }
 
-- (BOOL) parseBuoyData {
-    // Get the raw data from ndbc for both detailed and summary mode
-    NSArray *rawSummaryBuoyData = [self retrieveBuoyData:NO];
-    if (rawSummaryBuoyData == nil) {
-        return NO;
-    }
+- (BOOL) parseBuoyData:(NSData*)rawBuoyData {
+    // Parse the data
+    NSString *rawData = [[NSString alloc] initWithData:rawBuoyData encoding:NSUTF8StringEncoding];
     
-    NSArray *rawDetailedBuoyData = [self retrieveBuoyData:YES];
-    if (rawDetailedBuoyData == nil) {
+    // Strip everything thats not relevant
+    NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
+    NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
+    NSArray *parts = [rawData componentsSeparatedByCharactersInSet:whitespaces];
+    NSArray *filteredArray = [parts filteredArrayUsingPredicate:noEmptyStrings];
+    rawData = [filteredArray componentsJoinedByString:@" "];
+    NSArray *rawBuoyArray = [rawData componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if (rawBuoyArray == nil) {
         return NO;
     }
     
@@ -208,118 +272,57 @@ static const int ACK_BUOY_NUMBER = 44008;
         // Get the next buoy object
         Buoy *newBuoy = [[Buoy alloc] init];
         
-        // Fill the buoys from the raw data
-        [self getBuoySummaryForIndex:dataPointCount FromData:rawSummaryBuoyData FillBuoy:newBuoy];
-        [self getBuoyDetailsForIndex:dataPointCount FromData:rawDetailedBuoyData FillBuoy:newBuoy];
+        // Get the line index to parse this buoy from
+        int baseOffset = DETAIL_DATA_HEADER_LENGTH + (DETAIL_DATA_LINE_LENGTH * dataPointCount);
+        if (baseOffset >= (DETAIL_DATA_HEADER_LENGTH+(DETAIL_DATA_LINE_LENGTH*BUOY_DATA_POINTS))) {
+            return NO;
+        }
+        
+        // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
+        NSInteger originalHour = [[rawBuoyArray objectAtIndex:baseOffset+DETAIL_HOUR_OFFSET] integerValue] + [self getTimeOffset];
+        NSInteger convertedHour = [self getCorrectedHourValue:originalHour];
+        
+        // Set the time value for the object
+        NSString *minute = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MINUTE_OFFSET];
+        newBuoy.timestamp = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
+        
+        // Wave heights
+        NSString *significantHeight = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WVHT_OFFSET];
+        NSString *swellHeight = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_WAVE_HEIGHT_OFFSET];
+        NSString *windHeight = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_WAVE_HEIGHT_OFFSET];
+        newBuoy.significantWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[significantHeight doubleValue]]];
+        newBuoy.swellWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[swellHeight doubleValue]]];
+        newBuoy.windWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[windHeight doubleValue]]];
+        
+        // Steepness
+        newBuoy.steepness = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_STEEPNESS_OFFSET];
+        
+        // Periods
+        newBuoy.swellPeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET];
+        newBuoy.windWavePeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET];
+        
+        // Directions
+        newBuoy.meanDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MEAN_WAVE_DIRECTION_OFFSET];
+        newBuoy.swellDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_DIRECTION_OFFSET];
+        newBuoy.windWaveDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_WAVE_DIRECTION_OFFSET];
+        
+        // Bump the count
         dataPointCount++;
         
         // Add the buoy to the array
         [currentContainer.buoyData addObject:newBuoy];
         
-        // Add all of the correct wave hieght objects
+        // Add all of the correct wave height objects
         [[currentContainer.waveHeights objectForKey:SUMMARY_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.significantWaveHeight]];
         [[currentContainer.waveHeights objectForKey:SWELL_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.swellWaveHeight]];
         [[currentContainer.waveHeights objectForKey:WIND_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.windWaveHeight]];
     }
-    return YES;
-}
-
-- (NSArray*) retrieveBuoyData:(BOOL)isDetailed {
-    // Get the buoy data
-    NSError *err = nil;
-    
-    // Get the buoy data
-    NSURL *dataURL = [[NSURL alloc] init];
-    if (isDetailed) {
-        dataURL = [currentContainer createDetailedWaveDataURL];
-    } else {
-        dataURL = [currentContainer createStandardMeteorologicalDataURL];
-    }
-    NSString* buoyData = [NSString stringWithContentsOfURL:dataURL encoding:NSUTF8StringEncoding error:&err];
-    
-    // If it was unsuccessful, return false
-    if (err != nil) {
-        return nil;
-    }
-    
-    // Strip everything thats not relevant
-    NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
-    NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
-    NSArray *parts = [buoyData componentsSeparatedByCharactersInSet:whitespaces];
-    NSArray *filteredArray = [parts filteredArrayUsingPredicate:noEmptyStrings];
-    buoyData = [filteredArray componentsJoinedByString:@" "];
-    return [buoyData componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-}
-
-- (BOOL) getBuoySummaryForIndex:(int)index FromData:(NSArray *)rawData FillBuoy:(Buoy *)buoy {
-    int baseOffset = SUMMARY_DATA_HEADER_LENGTH + (SUMMARY_DATA_LINE_LENGTH * index);
-    if (baseOffset >= (SUMMARY_DATA_HEADER_LENGTH+(SUMMARY_DATA_LINE_LENGTH*BUOY_DATA_POINTS))) {
-        return NO;
-    }
-    
-    if (buoy.timestamp == nil) {
-    
-        // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
-        NSInteger originalHour = [[rawData objectAtIndex:baseOffset+SUMMARY_HOUR_OFFSET] integerValue] + [self getTimeOffset];
-        NSInteger convertedHour = [self getCorrectedHourValue:originalHour];
-    
-        // Set the time value for the object
-        NSString *minute = [rawData objectAtIndex:baseOffset+SUMMARY_MINUTE_OFFSET];
-        buoy.timestamp = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
-    }
-    
-    // Period and wind direction values
-    buoy.dominantPeriod =[rawData objectAtIndex:baseOffset+SUMMARY_DPD_OFFSET];
-    buoy.meanDirection = [rawData objectAtIndex:baseOffset+SUMMARY_DIRECTION_OFFSET];
-    
-    // Water Temperature Values converted from celsius to fahrenheit
-    double waterTemp = (([[rawData objectAtIndex:baseOffset+SUMMARY_TEMPERATURE_OFFSET] doubleValue] * (9.0 / 5.0) +32.0 ) / 0.05) * 0.05;
-    buoy.waterTemperature = [NSString stringWithFormat:@"%4.2f", waterTemp];
-    
-    // Change the wave height to feet and set it
-    NSString *wv = [rawData objectAtIndex:baseOffset+SUMMARY_WVHT_OFFSET];
-    buoy.significantWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[wv doubleValue]]];
     
     return YES;
 }
 
-- (BOOL) getBuoyDetailsForIndex:(int)index FromData:(NSArray *)rawData FillBuoy:(Buoy *)buoy {
-    int baseOffset = DETAIL_DATA_HEADER_LENGTH + (DETAIL_DATA_LINE_LENGTH * index);
-    if (baseOffset >= (DETAIL_DATA_HEADER_LENGTH+(DETAIL_DATA_LINE_LENGTH*BUOY_DATA_POINTS))) {
-        return NO;
-    }
-    
-    if (buoy.timestamp == nil) {
-        // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
-        NSInteger originalHour = [[rawData objectAtIndex:baseOffset+DETAIL_HOUR_OFFSET] integerValue] + [self getTimeOffset];
-        NSInteger convertedHour = [self getCorrectedHourValue:originalHour];
-        
-        // Set the time value for the object
-        NSString *minute = [rawData objectAtIndex:baseOffset+DETAIL_MINUTE_OFFSET];
-        buoy.timestamp = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
-    }
-    
-    // Wave heights
-    NSString *swellHeight = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_WAVE_HEIGHT_OFFSET];
-    NSString *windHeight = [rawData objectAtIndex:baseOffset+DETAIL_WIND_WAVE_HEIGHT_OFFSET];
-    buoy.swellWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[swellHeight doubleValue]]];
-    buoy.windWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[windHeight doubleValue]]];
-    
-    // Periods
-    buoy.swellPeriod = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET];
-    buoy.windWavePeriod = [rawData objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET];
-    
-    // Directions
-    buoy.swellDirection = [rawData objectAtIndex:baseOffset+DETAIL_SWELL_DIRECTION];
-    buoy.windWaveDirection = [rawData objectAtIndex:baseOffset+DETAIL_WIND_WAVE_DIRECTION];
-    
-    return YES;
-}
-
-- (Buoy *) fetchLatestBuoyReadingOnly {
-    // Ignoring errors YOLO
-    NSString *rawData = [NSString stringWithContentsOfURL:[currentContainer createLatestReportOnlyURL] encoding:NSUTF8StringEncoding error:nil];
-    
+- (Buoy*) parseLatestBuoyData:(NSData *)rawBuoyData {
+    NSString *rawData = [[NSString alloc] initWithData:rawBuoyData encoding:NSUTF8StringEncoding];
     NSError *xmlError;
     NSDictionary *rawBuoyDataDict = [XMLReader dictionaryForXMLString:rawData error:&xmlError];
     if (xmlError != nil) {
@@ -335,6 +338,7 @@ static const int ACK_BUOY_NUMBER = 44008;
     latestBuoy.significantWaveHeight = [[buoyDataDict objectForKey:@"waveht"] objectForKey:@"text"];
     latestBuoy.dominantPeriod = [[buoyDataDict objectForKey:@"domperiod"] objectForKey:@"text"];
     latestBuoy.meanDirection = [Buoy getCompassDirection:[[buoyDataDict objectForKey:@"meanwavedir"] objectForKey:@"text" ]];
+    latestBuoy.waterTemperature = [[buoyDataDict objectForKey:@"watertemp"] objectForKey:@"text"];
     return latestBuoy;
 }
 

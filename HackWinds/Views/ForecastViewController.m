@@ -52,7 +52,7 @@
     
     // Register listener for the data model update
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateDataFromModel)
+                                             selector:@selector(updateUI)
                                                  name:FORECAST_DATA_UPDATED_TAG
                                                object:nil];
     // Update the data table using the loaded data
@@ -60,7 +60,7 @@
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
     
     if (networkStatus != NotReachable) {
-        [self updateDataFromModel];
+        [self updateUI];
     }
 }
 
@@ -78,14 +78,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) updateDataFromModel {
-    // Load the MSW Data
-    dispatch_async(FORECAST_FETCH_BG_QUEUE, ^{
-        [self.forecastModel fetchForecastData];
-        [self performSelectorOnMainThread:@selector(getForecastSettings) withObject:nil waitUntilDone:YES];
-        [self.forecastTable performSelectorOnMainThread:@selector(reloadData)
-                                         withObject:nil waitUntilDone:YES];
-    });
+- (void) updateUI {
+    [self getForecastSettings];
+    [self.forecastTable reloadData];
 }
 
 - (void) locationButtonClicked:(id)sender {

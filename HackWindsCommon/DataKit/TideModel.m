@@ -8,13 +8,14 @@
 #import "TideModel.h"
 
 static NSString * const WUNDERGROUND_URL = @"http://api.wunderground.com/api/2e5424aab8c91757/tide/q/RI/Point_Judith.json";
+NSString * const TIDE_DATA_UPDATED_TAG = @"TideDataUpdatedNotification";
 
 @interface TideModel ()
 
 // Private methods
-- (NSArray*) retrieveTideDataArray;
+- (void) fetchRawTideData:(void(^)(NSData*))completionHandler;
 - (Tide*) getTideObjectAtIndex:(int)index fromData:(NSArray*)rawTideData;
-- (BOOL) parseTideData;
+- (BOOL) parseTideDataFromData:(NSData*)rawData;
 - (BOOL) check24HourClock;
 
 @end
@@ -42,23 +43,102 @@ static NSString * const WUNDERGROUND_URL = @"http://api.wunderground.com/api/2e5
     return self;
 }
 
-- (BOOL) fetchTideData {
-    @synchronized(self) {
-        if ([self.tides count] == 0) {
-            // If theres no data yet, load the Wunderground Data and parse it asynchronously
-            return [self parseTideData];
-        } else {
-            return YES;
+- (void) fetchRawTideData:(void(^)(NSData*))completionHandler {
+    NSURLSessionTask *tideTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:WUNDERGROUND_URL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error != nil) {
+            NSLog(@"Failed to retreive tide data from API");
+            return;
         }
+        
+        completionHandler(data);
+    }];
+    
+    [tideTask resume];
+}
+
+- (void) fetchTideData {
+    @synchronized(self) {
+        if (self.tides.count != 0) {
+            // Tell everything you have tide data
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:TIDE_DATA_UPDATED_TAG
+                 object:self];
+            });
+            return;
+        }
+        
+        [self fetchRawTideData:^(NSData *data) {
+            // Parse the data
+            BOOL parsedTides = [self parseTideDataFromData:data];
+            
+            // Tell all the listeners to update
+            if (parsedTides) {
+                // Tell everything you have tide data
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:TIDE_DATA_UPDATED_TAG
+                     object:self];
+                });
+            }
+        }];
     }
+}
+
++ (void) fetchLatestTidalEventOnly:(void(^)(Tide*))completionHandler {
+    TideModel *tideModel = [TideModel sharedModel];
+    
+    // Check if data already exist and we can skip the parse and network request
+    if (tideModel.tides.count != 0) {
+        completionHandler([tideModel.tides objectAtIndex:0]);
+        return;
+    }
+    
+    [tideModel fetchRawTideData:^(NSData* data) {
+        // Parse out the Wunderground json data
+        NSError* error;
+        NSDictionary* json = [NSJSONSerialization
+                              JSONObjectWithData:data
+                              options:kNilOptions
+                              error:&error];
+        if (error != nil) {
+            return;
+        }
+        NSArray* tideSummary = [[json objectForKey:@"tide"] objectForKey:@"tideSummary"];
+        if (tideSummary == nil) {
+            return;
+        }
+        
+        // Loop through and parse the tide data until a tidal event is found
+        Tide *latestTide = [[Tide alloc] init];
+        int tideCount = 0;
+        while(![latestTide isTidalEvent]) {
+            latestTide = [tideModel getTideObjectAtIndex:tideCount fromData:tideSummary];
+            tideCount++;
+        }
+        
+        // Trigger the callback
+        completionHandler(latestTide);
+    }];
 }
 
 - (void) resetData {
     [self.tides removeAllObjects];
 }
 
-- (BOOL) parseTideData {
-    NSArray *tideSummary = [self retrieveTideDataArray];
+- (BOOL) parseTideDataFromData:(NSData *)rawData {
+    //parse out the Wunderground json data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:rawData
+                          options:kNilOptions
+                          error:&error];
+    if (error != nil) {
+        return NO;
+    }
+    
+    NSArray* tideSummary = [[json objectForKey:@"tide"] objectForKey:@"tideSummary"];
     if (tideSummary == nil) {
         return NO;
     }
@@ -80,44 +160,6 @@ static NSString * const WUNDERGROUND_URL = @"http://api.wunderground.com/api/2e5
         i++;
     }
     return YES;
-}
-
-+ (Tide*) getLatestTidalEventOnly {
-    // Create the model instance
-    TideModel *tideModel = [[TideModel alloc] init];
-    
-    // Fetch the raw tide json summary
-    NSArray *tideSummary = [tideModel retrieveTideDataArray];
-    
-    // Loop through and parse the tide data until a tidal event is found
-    Tide *latestTide = [[Tide alloc] init];
-    int tideCount = 0;
-    while(![latestTide isTidalEvent]) {
-        latestTide = [tideModel getTideObjectAtIndex:tideCount fromData:tideSummary];
-        tideCount++;
-    }
-    
-    return latestTide;
-}
-
-- (NSArray*) retrieveTideDataArray {
-    
-    // Get the data from the wunderground api
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:WUNDERGROUND_URL]];
-    
-    // If theres no data return false
-    if (data == nil) {
-        return NULL;
-    }
-    
-    //parse out the Wunderground json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:data
-                          options:kNilOptions
-                          error:&error];
-    NSArray* tideSummary = [[json objectForKey:@"tide"] objectForKey:@"tideSummary"];
-    return tideSummary;
 }
 
 - (Tide*) getTideObjectAtIndex:(int)index fromData:(NSArray*)rawtideData {

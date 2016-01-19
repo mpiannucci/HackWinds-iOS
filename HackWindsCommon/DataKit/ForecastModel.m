@@ -30,8 +30,7 @@ static const int SECOND_BEACH_ID = 846;
 
 // Private methods
 - (void) initForecastContainers;
-- (void) loadRawData;
-- (BOOL) parseForecasts;
+- (BOOL) parseForecastsFromData:(NSData*) unserializedData;
 - (NSString *) formatDate:(NSUInteger)epoch;
 - (BOOL) checkConditionDate:(NSString *)dateString;
 - (BOOL) checkForecastDate:(NSString *)dateString;
@@ -45,7 +44,6 @@ static const int SECOND_BEACH_ID = 846;
 
 @implementation ForecastModel
 {
-    NSArray *rawData;
     ForecastDataContainer *currentContainer;
     BOOL is24HourClock;
     BOOL initialForecastChange;
@@ -114,45 +112,13 @@ static const int SECOND_BEACH_ID = 846;
     currentContainer = [self.forecastDataContainers objectForKey:[self.userDefaults objectForKey:@"ForecastLocation"]];
     
     if (!initialForecastChange) {
-        // Tell everyone the data has updated
-        // Callback for the forecast location settings changing
-        // First clear all of the old data so that everything reloads
-        if (rawData.count > 0) {
-            rawData = [[NSArray alloc] init];
-        }
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]
-              postNotificationName:FORECAST_DATA_UPDATED_TAG
-                            object:self];
-        });
+        // Download the data for the new location!
+        [self fetchForecastData];
+    
     } else {
         initialForecastChange = NO;
     }
-}
-
-- (BOOL) fetchForecastData {
-    @synchronized(self) {
-        if (rawData.count == 0) {
-            // Theres no data yet so load form the url
-            [self loadRawData];
-        }
-    
-        if ([currentContainer.conditions count] == 0) {
-            // There are no conditions so parse them out
-            return [self parseForecasts];
-        }
-    
-        return YES;
-    }
-}
-
-- (NSArray *) getConditionsForIndex:(int)index {
-    if (currentContainer.conditions.count == CONDITION_DATA_POINT_COUNT) {
-        NSArray *currentConditions = [currentContainer.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
-        return currentConditions;
-    }
-    return NULL;
 }
 
 - (NSMutableArray*) getConditions {
@@ -163,23 +129,66 @@ static const int SECOND_BEACH_ID = 846;
     return currentContainer.forecasts;
 }
 
-- (void)loadRawData {
-    NSURL *dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_MSW_URL, currentContainer.forecastID]];
-    NSData *mswResponse = [NSData dataWithContentsOfURL:dataURL];
-    NSError *error;
-    rawData = [NSJSONSerialization
-               JSONObjectWithData:mswResponse
-               options:kNilOptions
-               error:&error];
+- (NSArray *) getConditionsForIndex:(int)index {
+    if (currentContainer.conditions.count == CONDITION_DATA_POINT_COUNT) {
+        NSArray *currentConditions = [currentContainer.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
+        return currentConditions;
+    }
+    return NULL;
 }
 
-- (BOOL) parseForecasts {
+- (void) fetchForecastData {
+    @synchronized(self) {
+        
+        if (currentContainer.conditions.count != 0) {
+            // Tell any listeners that the data has been loaded.
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:FORECAST_DATA_UPDATED_TAG
+                 object:self];
+            });
+            
+            return;
+        }
+        
+        NSURL *dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_MSW_URL, currentContainer.forecastID]];
+        NSURLSessionTask *urlSession = [[NSURLSession sharedSession] dataTaskWithURL:dataURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            if (error != nil) {
+                NSLog(@"Failed to download forecast data");
+                return;
+            }
+            
+            // Parse the data
+            BOOL parsed = [self parseForecastsFromData:data];
+            
+            // Tell any listeners that the data has been loaded.
+            if (parsed) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                    postNotificationName:FORECAST_DATA_UPDATED_TAG
+                    object:self];
+                });
+            }
+        }];
+        
+        [urlSession resume];
+    }
+}
+
+- (BOOL) parseForecastsFromData:(NSData *)unserializedData {
+    NSError *error;
+    NSArray *rawData = [NSJSONSerialization
+               JSONObjectWithData:unserializedData
+               options:kNilOptions
+               error:&error];
+    
     // If there's no data, return nothing
     if (rawData == nil) {
         return NO;
     } else if (rawData.count < 1) {
         return NO;
-    } else if ([rawData isKindOfClass:[NSArray class]]) {
+    } else if ([rawData isKindOfClass:[NSDictionary class]]) {
         return NO;
     }
     
@@ -335,11 +344,9 @@ static const int SECOND_BEACH_ID = 846;
 }
 
 - (BOOL)check24HourClock {
-    if (rawData == nil) {
-        NSLocale *locale = [NSLocale currentLocale];
-        NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
-        is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
-    }
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
+    is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
     return is24HourClock;
 }
 

@@ -8,14 +8,17 @@
 #import <Foundation/Foundation.h>
 #import "Tide.h"
 
+// Notification Constants
+extern NSString * const TIDE_DATA_UPDATED_TAG;
+
 @interface TideModel : NSObject
 
 @property (strong, nonatomic) NSMutableArray *tides;
 
-- (BOOL) fetchTideData;
+- (void) fetchTideData;
+- (void) fetchLatestTidalEventOnly:(void(^)(Tide*))completionHandler;
 - (void) resetData;
 
-+ (Tide*) getLatestTidalEventOnly;
 + (instancetype) sharedModel;
 
 @end

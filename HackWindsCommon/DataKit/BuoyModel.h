@@ -26,17 +26,16 @@ extern NSString * const DEFAULT_BUOY_LOCATION_CHANGED_TAG;
 
 @interface BuoyModel : NSObject
 
-- (void) changeBuoyLocation;
-- (void) forceChangeLocation:(NSString*)location;
-- (BOOL) fetchBuoyData;
-- (void) resetData;
 - (int) getTimeOffset;
+- (void) resetData;
 - (NSMutableArray*) getBuoyData;
 - (NSMutableArray*) getWaveHeightForMode:(NSString*)mode;
 - (NSURL*) getSpectraPlotURL;
-- (Buoy *) fetchLatestBuoyReadingOnly;
+- (void) changeBuoyLocation;
+- (void) forceChangeLocation:(NSString*)location;
+- (void) fetchBuoyData;
+- (void) fetchLatestBuoyReadingForLocation:(NSString*)location withCompletionHandler:(void(^)(Buoy*))completionHandler;
 
-+ (Buoy*) getOnlyLatestBuoyDataForLocation:(NSString*)location;
 + (instancetype) sharedModel;
 
 @end
