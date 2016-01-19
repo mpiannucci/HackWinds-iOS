@@ -33,7 +33,7 @@
 
 @property (strong, nonatomic) NSString *waterTemperature;
 
-- (void) getDominantPeriodFromSteepness;
+- (void) interpolateDominantPeriod;
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;
 

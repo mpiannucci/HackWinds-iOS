@@ -86,16 +86,15 @@ NSString * const TIDE_DATA_UPDATED_TAG = @"TideDataUpdatedNotification";
     }
 }
 
-+ (void) fetchLatestTidalEventOnly:(void(^)(Tide*))completionHandler {
-    TideModel *tideModel = [TideModel sharedModel];
+- (void) fetchLatestTidalEventOnly:(void(^)(Tide*))completionHandler {
     
     // Check if data already exist and we can skip the parse and network request
-    if (tideModel.tides.count != 0) {
-        completionHandler([tideModel.tides objectAtIndex:0]);
+    if (self.tides.count != 0) {
+        completionHandler([self.tides objectAtIndex:0]);
         return;
     }
     
-    [tideModel fetchRawTideData:^(NSData* data) {
+    [self fetchRawTideData:^(NSData* data) {
         // Parse out the Wunderground json data
         NSError* error;
         NSDictionary* json = [NSJSONSerialization
@@ -114,7 +113,7 @@ NSString * const TIDE_DATA_UPDATED_TAG = @"TideDataUpdatedNotification";
         Tide *latestTide = [[Tide alloc] init];
         int tideCount = 0;
         while(![latestTide isTidalEvent]) {
-            latestTide = [tideModel getTideObjectAtIndex:tideCount fromData:tideSummary];
+            latestTide = [self getTideObjectAtIndex:tideCount fromData:tideSummary];
             tideCount++;
         }
         

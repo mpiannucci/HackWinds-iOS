@@ -44,7 +44,16 @@
     [aCoder encodeObject:self.waterTemperature forKey:@"waterTemperature"];
 }
 
-- (void) getDominantPeriodFromSteepness {
+- (void) interpolateDominantPeriod {
+    if (self.steepness == nil) {
+        return;
+    }
+    
+    if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
+        self.dominantPeriod = self.swellPeriod;
+    } else {
+        self.dominantPeriod = self.windWavePeriod;
+    }
 }
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {

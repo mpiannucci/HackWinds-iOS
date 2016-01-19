@@ -150,21 +150,15 @@ static const int ACK_BUOY_NUMBER = 44008;
     
     // Get the correct container and send out the notification for everything to update
     currentContainer = [self.buoyDataContainers objectForKey:[self.defaults objectForKey:@"BuoyLocation"]];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:BUOY_DATA_UPDATED_TAG
-         object:self];
-    });
+    
+    [self fetchBuoyData];
 }
 
 - (void) forceChangeLocation:(NSString *)location {
     // Get the correct container and send out the notification for everything to update
     currentContainer = [self.buoyDataContainers objectForKey:location];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:BUOY_DATA_UPDATED_TAG
-         object:self];
-    });
+    
+    // NOTE: For the force we dont automatically refetch
 }
 
 - (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler {
@@ -300,6 +294,7 @@ static const int ACK_BUOY_NUMBER = 44008;
         // Periods
         newBuoy.swellPeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET];
         newBuoy.windWavePeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET];
+        [newBuoy interpolateDominantPeriod];
         
         // Directions
         newBuoy.meanDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MEAN_WAVE_DIRECTION_OFFSET];
