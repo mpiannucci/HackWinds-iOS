@@ -148,7 +148,6 @@
 		34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
 		34EA41751C3E8D4D008FF504 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
 		34EA41761C3E8D51008FF504 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
-		34EB97451B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */; };
 		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
@@ -419,8 +418,6 @@
 		34EA411E1C3E8D15008FF504 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = HackWindsCommon/DataKit/XMLReader.h; sourceTree = "<group>"; };
 		34EA411F1C3E8D15008FF504 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = HackWindsCommon/DataKit/XMLReader.m; sourceTree = "<group>"; };
 		34EA41711C3E8D40008FF504 /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reporter.swift; path = HackWindsCommon/Extension/Reporter.swift; sourceTree = "<group>"; };
-		34EB97431B94AC8A00687615 /* AdditionalBuoyPlotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalBuoyPlotsViewController.h; sourceTree = "<group>"; };
-		34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalBuoyPlotsViewController.m; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		34F9338D1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34F9338F1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -540,8 +537,6 @@
 				34CA15331A9D657000DAB1F8 /* SettingsViewController.m */,
 				342A76201985E18100077F8C /* TideViewController.h */,
 				342A76211985E18100077F8C /* TideViewController.m */,
-				34EB97431B94AC8A00687615 /* AdditionalBuoyPlotsViewController.h */,
-				34EB97441B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m */,
 				34C389571BA27E3D0000EDC8 /* WaveWatchChartViewController.h */,
 				34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */,
 			);
@@ -1334,7 +1329,6 @@
 				34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
-				34EB97451B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m in Sources */,
 				3479E1321C510659009B8C22 /* BuoyViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
