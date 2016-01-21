@@ -116,13 +116,13 @@ static const int TIDE_DATA_FONT_SIZE = 25;
                 
                 if ([thisTide isHighTide]) {
                     // Show that the tide is incoming, using green because typically surf increases with incoming tides
-                    [currentTideLabel setText:@"Incoming"];
-                    [currentTideLabel setTextColor:GREEN_COLOR];
+                    currentTideLabel.text = @"Incoming";
+                    currentTideLabel.textColor = GREEN_COLOR;
                     
                 } else if ([thisTide isLowTide]) {
                     // Show that the tide is outgoing, use red because the surf typically decreases with an outgoing tide
-                    [currentTideLabel setText:@"Outgoing"];
-                    [currentTideLabel setTextColor:RED_COLOR];
+                    currentTideLabel.text = @"Outgoing";
+                    currentTideLabel.textColor = RED_COLOR;
                 }
             }
             // Only increment the tide count for a tide event and not a sunrise or sunset
