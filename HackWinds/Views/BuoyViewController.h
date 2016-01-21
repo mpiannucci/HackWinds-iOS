@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BuoyViewController : UIViewController <UIActionSheetDelegate>
+@interface BuoyViewController : UITableViewController <UIActionSheetDelegate>
 
 - (void)loadBuoySettings;
 - (void)locationButtonClicked:(id)sender;
