@@ -41,7 +41,6 @@
 		349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		349264541C3D52E3000D3FEF /* HackWindsDataKitOSX.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyViewController.m */; };
-		349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
 		349D42471C384C69006F7B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D42461C384C69006F7B24 /* AppDelegate.swift */; };
@@ -190,20 +189,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3490766C1C24AA8800EAD0CE;
 			remoteInfo = HackWindsDataKitWatchOS;
-		};
-		349679DF19E63C810043A21B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
-			remoteInfo = "CorePlot-CocoaTouch";
-		};
-		349679E119E63CBD0043A21B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
-			remoteInfo = "CorePlot-CocoaTouch";
 		};
 		349D42651C384C96006F7B24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -365,7 +350,6 @@
 		349076711C24AA8800EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3495C95319E7773100C8F4D7 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
 		3495C95419E7773100C8F4D7 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
-		349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D42441C384C69006F7B24 /* HackWindsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -456,7 +440,6 @@
 				3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */,
 				34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
 				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
-				349679E319E63CEE0043A21B /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +597,6 @@
 				3490766E1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
 				3430838819795D0F00655F15 /* Frameworks */,
 				3430838719795D0F00655F15 /* Products */,
-				349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -725,14 +707,6 @@
 				349076711C24AA8800EAD0CE /* Info.plist */,
 			);
 			path = HackWindsDataKitWatchOS;
-			sourceTree = "<group>";
-		};
-		349679DA19E63C800043A21B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		349D42451C384C69006F7B24 /* HackWindsOSX */ = {
@@ -948,7 +922,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				349679E219E63CBD0043A21B /* PBXTargetDependency */,
 				34E1BA3F1B62D84700CDA01D /* PBXTargetDependency */,
 				3490763E1C24A7E500EAD0CE /* PBXTargetDependency */,
 				3457CBFB1C4488D400A4BCD2 /* PBXTargetDependency */,
@@ -1227,12 +1200,6 @@
 			mainGroup = 3430837D19795D0F00655F15;
 			productRefGroup = 3430838719795D0F00655F15 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 349679DA19E63C800043A21B /* Products */;
-					ProjectRef = 349679D919E63C800043A21B /* CorePlot-CocoaTouch.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				3430838519795D0F00655F15 /* HackWinds */,
@@ -1249,16 +1216,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		349679E019E63C810043A21B /* libCorePlot-CocoaTouch.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libCorePlot-CocoaTouch.a";
-			remoteRef = 349679DF19E63C810043A21B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3430838419795D0F00655F15 /* Resources */ = {
@@ -1516,11 +1473,6 @@
 			isa = PBXTargetDependency;
 			target = 3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */;
 			targetProxy = 349076721C24AA8800EAD0CE /* PBXContainerItemProxy */;
-		};
-		349679E219E63CBD0043A21B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CorePlot-CocoaTouch";
-			targetProxy = 349679E119E63CBD0043A21B /* PBXContainerItemProxy */;
 		};
 		349D42661C384C96006F7B24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

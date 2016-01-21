@@ -10,7 +10,7 @@
 #import "CorePlot-CocoaTouch.h"
 
 @interface BuoyViewController : UIViewController <UITableViewDataSource,
-    UITableViewDelegate, UIActionSheetDelegate, CPTPlotDataSource, CPTPlotDelegate>
+    UITableViewDelegate, UIActionSheetDelegate>
 
 - (void)loadBuoySettings;
 - (void)updateUI;

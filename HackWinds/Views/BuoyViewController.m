@@ -16,13 +16,10 @@
 
 @interface BuoyViewController ()
 
-@property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHolder;
 @property (weak, nonatomic) IBOutlet UITableView *buoyTable;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) BuoyModel *buoyModel;
-
-- (void) reloadDataFromModel;
 
 @end
 
@@ -30,9 +27,6 @@
 {
     // Initilize some things we want available over the entire view controller
     NSMutableArray *currentBuoyData;
-    NSMutableArray *currentWaveHeights;
-    CPTScatterPlot *plot;
-    CPTGraph *graph;
     NSString *buoyLocation;
     NSString *dataMode;
 }
@@ -55,10 +49,6 @@
     
     // Initialize the current buoy data
     currentBuoyData = [[NSMutableArray alloc] init];
-    currentWaveHeights = [[NSMutableArray alloc] init];
-    
-    // Setup the graph view
-    [self setupGraphView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,30 +79,11 @@
 }
 
 - (void)updateUI {
-    [self loadBuoySettings];
-    
     // Grab the correct wave heights
-    currentWaveHeights = [self.buoyModel getWaveHeightForMode:dataMode];
     currentBuoyData = [self.buoyModel getBuoyData];
     
     // Update the table
     [self.buoyTable reloadData];
-    
-    // Update the plot data sets
-    [plot reloadData];
-    
-    // Scale the y axis to fit the data
-    NSNumber *maxWV = [currentWaveHeights valueForKeyPath:@"@max.doubleValue"];
-    double max = round([maxWV doubleValue]+2);
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:0] length:[NSNumber numberWithFloat:max]]];
-    
-    // Set the axis ticks to fit labels without squishing them
-    if (max > 8) {
-        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:[NSNumber numberWithInt:2]];
-    } else {
-        [[(CPTXYAxisSet *)[graph axisSet] yAxis] setMajorIntervalLength:[NSNumber numberWithInt:1]];
-    }
 }
 
 - (void)loadBuoySettings {
@@ -156,6 +127,7 @@
         // If the user selects a location, set the settings key to the new location
         [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"BuoyLocation"];
         [defaults synchronize];
+        [self loadBuoySettings];
         
         // Tell everyone the data has updated
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -247,98 +219,6 @@
     
     // Return the cell view
     return cell;
-}
-
-#pragma mark - Plotting
-
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
-    // The time scales are different time deltas, make sure they both show 9 hours of data
-    if ([buoyLocation isEqual:BLOCK_ISLAND_LOCATION])
-        return currentWaveHeights.count;
-    else
-        return currentWaveHeights.count/2;
-}
-
--(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
-{
-    // Depending on the buoy location set the axis scaling
-    double x;
-    if ([buoyLocation isEqual:BLOCK_ISLAND_LOCATION])
-        x = (double) index/2;
-    else
-        x = (double) index;
-    
-    // We need to provide an X or Y (this method will be called for each) value for every index
-    // This method is actually called twice per point in the plot, one for the X and one for the Y value
-    if(fieldEnum == CPTScatterPlotFieldX)
-    {
-        // Return x value
-        return [NSNumber numberWithDouble:x];
-    } else {
-        // Return y value, for this example we'll be plotting y = mx
-        return [NSNumber numberWithDouble:[[currentWaveHeights objectAtIndex:index] doubleValue]];
-    }
-}
-
-- (void)setupGraphView {
-    // Create the graph view and format it
-    graph = [[CPTXYGraph alloc] initWithFrame:self.graphHolder.bounds];
-    self.graphHolder.hostedGraph = graph;
-    [graph setTitle:@"Wave Height (ft)"];
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:0] length:[NSNumber numberWithInt:2]]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:10] length:[NSNumber numberWithInt:-10]]];
-    
-    // Set the plot
-    plot = [[CPTScatterPlot alloc] initWithFrame:CGRectZero];
-    plot.dataSource = self;
-    [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
-    NSNumberFormatter *axisFormatter = [[NSNumberFormatter alloc] init];
-    [axisFormatter setMinimumIntegerDigits:1];
-    [axisFormatter setMaximumFractionDigits:0];
-    
-    // Set the text style
-    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-    [textStyle setFontSize:12.0f];
-    
-    // Set the padding
-    [[graph plotAreaFrame] setPaddingLeft:20.0f];
-    [[graph plotAreaFrame] setPaddingTop:5.0f];
-    [[graph plotAreaFrame] setPaddingBottom:50.0f];
-    [[graph plotAreaFrame] setPaddingRight:10.0f];
-    [[graph plotAreaFrame] setBorderLineStyle:nil];
-    
-    // Setup the axiss
-    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)[graph axisSet];
-    
-    // x axis configs
-    CPTXYAxis *xAxis = [axisSet xAxis];
-    [xAxis setMajorIntervalLength:[NSNumber numberWithInt:2]];
-    [xAxis setMinorTickLineStyle:nil];
-    [xAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
-    [xAxis setLabelTextStyle:textStyle];
-    [xAxis setLabelFormatter:axisFormatter];
-    [xAxis setTitle:@"Hours Ago"];
-    xAxis.orthogonalPosition = [NSNumber numberWithDouble:0.0];
-    
-    // y axis configs
-    CPTXYAxis *yAxis = [axisSet yAxis];
-    [yAxis setMajorIntervalLength:[NSNumber numberWithInt:1]];
-    [yAxis setMinorTickLineStyle:nil];
-    [yAxis setLabelingPolicy:CPTAxisLabelingPolicyFixedInterval];
-    [yAxis setLabelTextStyle:textStyle];
-    [yAxis setLabelFormatter:axisFormatter];
-    yAxis.orthogonalPosition = [NSNumber numberWithDouble:10.0];
-    
-    // animate the graph (only once)
-    [CPTAnimation animate:plotSpace
-                 property:@"xRange"
-                   period:[CPTAnimationPeriod periodWithStartPlotRange:[CPTPlotRange plotRangeWithLocation:[NSNumber numberWithInt:0] length:[NSNumber numberWithInt:0]]
-                                                          endPlotRange:plotSpace.xRange
-                                                              duration:1.25
-                                                             withDelay:0]
-           animationCurve:CPTAnimationCurveCubicInOut
-                 delegate:nil];
 }
 
 #pragma mark - Navigation
