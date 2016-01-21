@@ -69,13 +69,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    // Reload the UI in case we missed a notification
+    [self updateUI];
+    
     // Register the notification center listener when the view appears
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadDataFromModel)
+                                             selector:@selector(updateUI)
                                                  name:BUOY_DATA_UPDATED_TAG
                                                object:nil];
-
-    [self reloadDataFromModel];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -87,12 +88,9 @@
     [super viewDidDisappear:animated];
 }
 
-- (void)reloadDataFromModel {
-    [self loadBuoySettings];
-    [self updateUI];
-}
-
 - (void)updateUI {
+    [self loadBuoySettings];
+    
     // Grab the correct wave heights
     currentWaveHeights = [self.buoyModel getWaveHeightForMode:dataMode];
     currentBuoyData = [self.buoyModel getBuoyData];

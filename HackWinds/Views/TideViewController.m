@@ -53,12 +53,14 @@ static const int TIDE_DATA_FONT_SIZE = 25;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    // Update the tide view in case we missed a notification
+    [self updateTideView];
+    
     // Register listener for the data model update
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateTideView)
                                                  name:TIDE_DATA_UPDATED_TAG
                                                object:nil];
-    [self updateTideView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -138,26 +140,6 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     
     [self.tableView reloadData];
 }
-
-//- (void)reloadDataFromModel {
-//    dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
-//        // Make sure the buoy location is set to block island
-//        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
-//        [defaults synchronize];
-//        NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
-//        buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
-//    
-//        [self.buoyModel forceChangeLocation:buoyLocation];
-//    
-//        // Fetch the data and update the views
-//        [self.tideModel fetchTideData];
-//        [self.buoyModel fetchBuoyData];
-//        [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
-//    
-//        // Set it back to the original location
-//        [self.buoyModel forceChangeLocation:originalLocation];
-//    });
-//}
 
 - (NSMutableAttributedString*)makeTideViewDataString:(NSString*)rawString {
     NSDictionary *subAttrs = @{

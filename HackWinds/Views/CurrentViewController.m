@@ -62,6 +62,9 @@ static const int CAMERA_IMAGE_COUNT = 8;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // Update the UI in case we missed a notification
+    [self updateUI];
+    
     // Register the notification center listener when the view appears
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUI)
@@ -72,14 +75,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
                                              selector:@selector(setupCamera)
                                                  name:CAMERA_DATA_UPDATED_TAG
                                                object:nil];
-    
-    // Update the data in the table using the forecast model
-    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    
-    if (networkStatus != NotReachable) {
-        [self updateUI];
-    }
 }
 
 - (void)viewDidLayoutSubviews {

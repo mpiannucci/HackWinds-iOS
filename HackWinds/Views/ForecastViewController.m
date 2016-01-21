@@ -49,18 +49,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // Update the UI in case we missed a notification
+    [self updateUI];
+    
     // Register listener for the data model update
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUI)
                                                  name:FORECAST_DATA_UPDATED_TAG
                                                object:nil];
-    // Update the data table using the loaded data
-    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    
-    if (networkStatus != NotReachable) {
-        [self updateUI];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
