@@ -13,7 +13,7 @@
     UITableViewDelegate, UIActionSheetDelegate, CPTPlotDataSource, CPTPlotDelegate>
 
 - (void)loadBuoySettings;
-- (void)reloadView;
+- (void)updateUI;
 - (void)locationButtonClicked:(id)sender;
 - (IBAction)dataViewModeChanged:(id)sender;
 

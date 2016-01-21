@@ -41,33 +41,33 @@ class Reporter {
             self.nextBuoyUpdateTime = nil
         }
         
-        // Check if the buoy should be updated and get the new data if it should
-        if self.nextBuoyUpdateTime == nil || self.latestBuoy == nil {
-            self.latestBuoy = BuoyModel.getOnlyLatestBuoyDataForLocation(MONTAUK_LOCATION)
-            buoyUpdated = true
-        } else {
-            if self.nextBuoyUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
-                // Update the buoy data!
-                let newBuoy = BuoyModel.getOnlyLatestBuoyDataForLocation(self.buoyLocation! as String)
-            
-                if newBuoy.timestamp != self.latestBuoy!.timestamp {
-                    self.latestBuoy = newBuoy
-                    buoyUpdated = true
-                }
-            }
-        }
-        
-        // Check if the tide should be updated and get the new data if it should
-        if self.nextTideUpdateTime == nil || self.nextTide == nil {
-            self.nextTide = TideModel.getLatestTidalEventOnly()
-            tideUpdated = true
-        } else {
-            if self.nextTideUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
-                // Update the tide data!
-                self.nextTide = TideModel.getLatestTidalEventOnly()
-                tideUpdated = true
-            }
-        }
+//        // Check if the buoy should be updated and get the new data if it should
+//        if self.nextBuoyUpdateTime == nil || self.latestBuoy == nil {
+//            self.latestBuoy = BuoyModel.getOnlyLatestBuoyDataForLocation(MONTAUK_LOCATION)
+//            buoyUpdated = true
+//        } else {
+//            if self.nextBuoyUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
+//                // Update the buoy data!
+//                let newBuoy = BuoyModel.getOnlyLatestBuoyDataForLocation(self.buoyLocation! as String)
+//            
+//                if newBuoy.timestamp != self.latestBuoy!.timestamp {
+//                    self.latestBuoy = newBuoy
+//                    buoyUpdated = true
+//                }
+//            }
+//        }
+//        
+//        // Check if the tide should be updated and get the new data if it should
+//        if self.nextTideUpdateTime == nil || self.nextTide == nil {
+//            self.nextTide = TideModel.getLatestTidalEventOnly()
+//            tideUpdated = true
+//        } else {
+//            if self.nextTideUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
+//                // Update the tide data!
+//                self.nextTide = TideModel.getLatestTidalEventOnly()
+//                tideUpdated = true
+//            }
+//        }
         
         // Get the next update times
         let updateHappened: Bool = buoyUpdated || tideUpdated

@@ -61,57 +61,57 @@
 }
 
 - (void) testBuoyModelFetch {
-    // Try fetching and parsing the block island buoy data
-    [self.buoyModel forceChangeLocation:MONTAUK_LOCATION];
-    XCTAssert([self.buoyModel fetchBuoyData]);
-    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
-    
-    // Try getting and parsing the montauk data
-    XCTAssert([self.buoyModel fetchBuoyData]);
-    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
-    
-    // Try getting and parsing the nantucket data
-    XCTAssert([self.buoyModel fetchBuoyData]);
-    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
-    
-    // Try to get only the latest data point with the static method
-    XCTAssert([BuoyModel getOnlyLatestBuoyDataForLocation:@"Montauk"] != nil);
+//    // Try fetching and parsing the block island buoy data
+//    [self.buoyModel forceChangeLocation:MONTAUK_LOCATION];
+//    XCTAssert([self.buoyModel fetchBuoyData]);
+//    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
+//    
+//    // Try getting and parsing the montauk data
+//    XCTAssert([self.buoyModel fetchBuoyData]);
+//    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
+//    
+//    // Try getting and parsing the nantucket data
+//    XCTAssert([self.buoyModel fetchBuoyData]);
+//    XCTAssert([[self.buoyModel getBuoyData] count] == 20);
+//    
+//    // Try to get only the latest data point with the static method
+//    XCTAssert([BuoyModel getOnlyLatestBuoyDataForLocation:@"Montauk"] != nil);
 }
 
 - (void) testTideModelFetch {
-    XCTAssert([self.tideModel fetchTideData]);
-    
-    // Check for the correct amount of data points
-    XCTAssert(self.tideModel.tides.count == 6);
-    
-    // Check for each data type there should be
-    int sunriseCount = 0;
-    int sunsetCount = 0;
-    int highTideCount = 0;
-    int lowTideCount = 0;
-    
-    for (Tide *tide in self.tideModel.tides) {
-        if ([tide isSunrise]) {
-            sunriseCount++;
-        } else if ([tide isSunset]) {
-            sunsetCount++;
-        } else if ([tide isHighTide]) {
-            highTideCount++;
-        } else if ([tide isLowTide]) {
-            lowTideCount++;
-        }
-    }
-    
-    // Make sure there are the correct amount of each event
-    XCTAssert(sunriseCount == 1);
-    XCTAssert(sunsetCount == 1);
-    XCTAssert(highTideCount == 2);
-    XCTAssert(lowTideCount == 2);
-    
-    // Try the static getter
-    Tide *newestTidalEvent = [TideModel getLatestTidalEventOnly];
-    XCTAssert(newestTidalEvent != nil);
-    XCTAssert([newestTidalEvent isTidalEvent]);
+//    XCTAssert([self.tideModel fetchTideData]);
+//    
+//    // Check for the correct amount of data points
+//    XCTAssert(self.tideModel.tides.count == 6);
+//    
+//    // Check for each data type there should be
+//    int sunriseCount = 0;
+//    int sunsetCount = 0;
+//    int highTideCount = 0;
+//    int lowTideCount = 0;
+//    
+//    for (Tide *tide in self.tideModel.tides) {
+//        if ([tide isSunrise]) {
+//            sunriseCount++;
+//        } else if ([tide isSunset]) {
+//            sunsetCount++;
+//        } else if ([tide isHighTide]) {
+//            highTideCount++;
+//        } else if ([tide isLowTide]) {
+//            lowTideCount++;
+//        }
+//    }
+//    
+//    // Make sure there are the correct amount of each event
+//    XCTAssert(sunriseCount == 1);
+//    XCTAssert(sunsetCount == 1);
+//    XCTAssert(highTideCount == 2);
+//    XCTAssert(lowTideCount == 2);
+//    
+//    // Try the static getter
+//    Tide *newestTidalEvent = [TideModel getLatestTidalEventOnly];
+//    XCTAssert(newestTidalEvent != nil);
+//    XCTAssert([newestTidalEvent isTidalEvent]);
 }
 
 @end

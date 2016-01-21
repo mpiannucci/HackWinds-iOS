@@ -5,7 +5,6 @@
 //  Created by Matthew Iannucci on 7/27/14.
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
-#define TIDE_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 #import "TideViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
@@ -37,48 +36,55 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     [self.navigationBarTitle setTitleText:@"HackWinds"];
     [self.navigationBarTitle setDetailText:@"Location: Point Judith Harbor"];
     
-    // Get the tide model and buoy model
     self.tideModel = [TideModel sharedModel];
     self.buoyModel = [BuoyModel sharedModel];
     
-    // Get the buoy data and reload the views
-    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    
-    if (networkStatus != NotReachable) {
-        [self reloadDataFromModel];
-    }
-}
-
-- (void)viewDidLayoutSubviews {
+    // Load the buoy data for the defualt location so we can get the water temp
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    [defaults synchronize];
+    buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+    [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateBuoyView:buoy];
+        });
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self reloadDataFromModel];
+    // Register listener for the data model update
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateTideView)
+                                                 name:TIDE_DATA_UPDATED_TAG
+                                               object:nil];
+    [self updateTideView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    // Remove the notifcation lsitener when the view is not in focus
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:TIDE_DATA_UPDATED_TAG
+                                                  object:nil];
+    
     [super viewDidDisappear:animated];
 }
 
-- (void)didReceiveMemoryWarning{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)reloadView {
+- (void)updateTideView {
     // If there are no tide items return early
-    NSArray* tideData = [self.tideModel tides];
-    const NSArray* buoyData = [self.buoyModel getBuoyData];
+    NSArray* tideData = self.tideModel.tides;
     
-    if ([tideData count] == 0) {
+    if (tideData.count == 0) {
         return;
     }
     
     int tideCount = 0;
-    for (int i = 0; i < [tideData count]; i++) {
+    for (int i = 0; i < tideData.count; i++) {
         // Then check what is is again, and set correct text box
         Tide* thisTide = [tideData objectAtIndex:i];
         if ([thisTide isSunrise]) {
@@ -122,33 +128,36 @@ static const int TIDE_DATA_FONT_SIZE = 25;
         }
     }
     
+    [self.tableView reloadData];
+}
+
+- (void)updateBuoyView:(Buoy*)buoy {
     UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
-    NSString* waterTemp = [[buoyData objectAtIndex:0] waterTemperature];
-    NSString* waterTempStatus = [NSString stringWithFormat:@"%@: %@ %@F", buoyLocation, waterTemp, @"\u00B0"];
+    NSString* waterTempStatus = [NSString stringWithFormat:@"%@: %@ %@F", buoyLocation, buoy.waterTemperature, @"\u00B0"];
     [currentWaterTempLabel setAttributedText:[self makeTideViewDataString:waterTempStatus]];
     
     [self.tableView reloadData];
 }
 
-- (void)reloadDataFromModel {
-    dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
-        // Make sure the buoy location is set to block island
-        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
-        [defaults synchronize];
-        NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
-        buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
-    
-        [self.buoyModel forceChangeLocation:buoyLocation];
-    
-        // Fetch the data and update the views
-        [self.tideModel fetchTideData];
-        [self.buoyModel fetchBuoyData];
-        [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
-    
-        // Set it back to the original location
-        [self.buoyModel forceChangeLocation:originalLocation];
-    });
-}
+//- (void)reloadDataFromModel {
+//    dispatch_async(TIDE_FETCH_BG_QUEUE, ^{
+//        // Make sure the buoy location is set to block island
+//        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+//        [defaults synchronize];
+//        NSString *originalLocation = [defaults objectForKey:@"BuoyLocation"];
+//        buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+//    
+//        [self.buoyModel forceChangeLocation:buoyLocation];
+//    
+//        // Fetch the data and update the views
+//        [self.tideModel fetchTideData];
+//        [self.buoyModel fetchBuoyData];
+//        [self performSelectorOnMainThread:@selector(reloadView) withObject:nil waitUntilDone:YES];
+//    
+//        // Set it back to the original location
+//        [self.buoyModel forceChangeLocation:originalLocation];
+//    });
+//}
 
 - (NSMutableAttributedString*)makeTideViewDataString:(NSString*)rawString {
     NSDictionary *subAttrs = @{

@@ -9,8 +9,6 @@
 // Montauk ID: Station 44017
 //
 
-#define BUOY_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 #import "BuoyViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
@@ -61,15 +59,6 @@
     
     // Setup the graph view
     [self setupGraphView];
-    
-    // Check for the network
-    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    
-    // Get the buoy data for the defualt location and reload the view
-    if (networkStatus != NotReachable) {
-        [self reloadDataFromModel];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,18 +88,14 @@
 }
 
 - (void)reloadDataFromModel {
-    dispatch_async(BUOY_FETCH_BG_QUEUE, ^{
-        [self.buoyModel fetchBuoyData];
-        currentBuoyData = [self.buoyModel getBuoyData];
-        [self performSelectorOnMainThread:@selector(loadBuoySettings) withObject:nil waitUntilDone:YES];
-        [self performSelectorOnMainThread:@selector(reloadView)
-                               withObject:nil waitUntilDone:YES];
-    });
+    [self loadBuoySettings];
+    [self updateUI];
 }
 
-- (void)reloadView {
+- (void)updateUI {
     // Grab the correct wave heights
     currentWaveHeights = [self.buoyModel getWaveHeightForMode:dataMode];
+    currentBuoyData = [self.buoyModel getBuoyData];
     
     // Update the table
     [self.buoyTable reloadData];
@@ -161,7 +146,7 @@
     dataMode = [segmentSender titleForSegmentAtIndex:segmentSender.selectedSegmentIndex];
     
     // Reload all of the data
-    [self reloadView];
+    [self updateUI];
 }
 
 #pragma mark - ActionSheet
@@ -195,7 +180,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 20 rows, plus an extra dor the column headers
-    return [currentBuoyData count]+1;
+    return currentBuoyData.count + 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -271,9 +256,9 @@
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plotnumberOfRecords {
     // The time scales are different time deltas, make sure they both show 9 hours of data
     if ([buoyLocation isEqual:BLOCK_ISLAND_LOCATION])
-        return [currentWaveHeights count];
+        return currentWaveHeights.count;
     else
-        return [currentWaveHeights count]/2;
+        return currentWaveHeights.count/2;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index

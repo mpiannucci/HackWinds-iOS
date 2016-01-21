@@ -5,7 +5,6 @@
 //  Created by Matthew Iannucci on 7/18/14.
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
-#define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 #import <MediaPlayer/MediaPlayer.h>
 #import "CurrentViewController.h"

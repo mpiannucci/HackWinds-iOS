@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Buoy.h"
 
 @interface TideViewController : UITableViewController
 
-- (void)reloadView;
-- (void)reloadDataFromModel;
+- (void)updateTideView;
+- (void)updateBuoyView:(Buoy*)buoy;
 
 @end

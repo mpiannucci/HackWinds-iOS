@@ -5,7 +5,6 @@
 //  Created by Matthew Iannucci on 7/18/14.
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
-#define FORECAST_FETCH_BG_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define WEEKDAYS [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
 #import "ForecastViewController.h"

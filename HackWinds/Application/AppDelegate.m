@@ -12,6 +12,7 @@
 #import "CameraModel.h"
 #import "ForecastModel.h"
 #import "BuoyModel.h"
+#import "TideModel.h"
 
 @implementation AppDelegate
 {
@@ -65,8 +66,10 @@
     CameraModel *cameraModel = [CameraModel sharedModel];
     [cameraModel forceFetchCameraURLs];
     
-    // Load the forecasts
+    // Load the of the models!!
     [[ForecastModel sharedModel] fetchForecastData];
+    [[BuoyModel sharedModel] fetchBuoyData];
+    [[TideModel sharedModel] fetchTideData];
     
     return YES;
 }
