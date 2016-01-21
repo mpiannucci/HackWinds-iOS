@@ -135,7 +135,7 @@ static const int SECOND_BEACH_ID = 846;
         NSArray *currentConditions = [currentContainer.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
         return currentConditions;
     }
-    return NULL;
+    return nil;
 }
 
 - (void) fetchForecastData {

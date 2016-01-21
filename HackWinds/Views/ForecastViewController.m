@@ -24,6 +24,7 @@
 @implementation ForecastViewController
 {
     NSInteger currentday;
+    BOOL lastFetchFailure;
 }
 
 - (void)viewDidLoad
@@ -44,6 +45,12 @@
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
     currentday = [comps weekday];
+    
+    // Initialize the forecast location
+    [self getForecastSettings];
+    
+    // Initialize failure to false
+    lastFetchFailure = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,12 +64,19 @@
                                              selector:@selector(updateUI)
                                                  name:FORECAST_DATA_UPDATED_TAG
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(forecastUpdateFailed)
+                                                 name:FORECAST_DATA_UPDATE_FAILED_TAG
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     // Remove the notifcation lsitener when the view is not in focus
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:FORECAST_DATA_UPDATED_TAG
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:FORECAST_DATA_UPDATE_FAILED_TAG
                                                   object:nil];
     [super viewWillDisappear:animated];
 }
@@ -74,7 +88,14 @@
 }
 
 - (void) updateUI {
-    [self getForecastSettings];
+    lastFetchFailure = NO;
+    
+    [self.forecastTable reloadData];
+}
+
+- (void) forecastUpdateFailed {
+    lastFetchFailure = YES;
+    
     [self.forecastTable reloadData];
 }
 
@@ -108,6 +129,7 @@
         // If the user selects a location, set the settings key to the new location
         [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
         [defaults synchronize];
+        [self getForecastSettings];
         
         // Tell everyone the data has updated
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -144,6 +166,16 @@
     UILabel *afternoonHeaderLabel = (UILabel *)[cell viewWithTag:25];
     NSUInteger index = indexPath.row;
     
+    if (lastFetchFailure) {
+        dayLabel.text = @"";
+        morningLabel.text = @"";
+        afternoonLabel.text = @"";
+        morningHeaderLabel.text = @"";
+        afternoonHeaderLabel.text = @"";
+        
+        return cell;
+    }
+    
     // Get the forecast object
     // Algorithm: i*2==morning, i*2+1==afternoon
     Forecast *morningForecast = [[self.forecastModel getForecasts] objectAtIndex:index*2];
@@ -166,14 +198,14 @@
             [morningForecast.windDirection isEqualToString:@"NW"] ||
             [morningForecast.windDirection isEqualToString:@"NNW"] ||
             [morningForecast.windDirection isEqualToString:@"N"]) {
-            [morningHeaderLabel setTextColor:GREEN_COLOR];
+            morningHeaderLabel.textColor = GREEN_COLOR;
         } else if ([morningForecast.windSpeed doubleValue] < 8.0){
-            [morningHeaderLabel setTextColor:GREEN_COLOR];
+            morningHeaderLabel.textColor = GREEN_COLOR;
         } else {
-            [morningHeaderLabel setTextColor:YELLOW_COLOR];
+            morningHeaderLabel.textColor = YELLOW_COLOR;
         }
     } else {
-        [morningHeaderLabel setTextColor:RED_COLOR];
+        morningHeaderLabel.textColor = RED_COLOR;
     }
     
     // Set the color of the afternoon label based on whether it has size or not
@@ -184,14 +216,14 @@
             [afternoonForecast.windDirection isEqualToString:@"NW"] ||
             [afternoonForecast.windDirection isEqualToString:@"NNW"] ||
             [afternoonForecast.windDirection isEqualToString:@"N"]) {
-            [afternoonHeaderLabel setTextColor:GREEN_COLOR];
+            afternoonHeaderLabel.textColor = GREEN_COLOR;
         } else if ([afternoonForecast.windSpeed doubleValue] < 8.0){
-            [afternoonHeaderLabel setTextColor:GREEN_COLOR];
+            afternoonHeaderLabel.textColor = GREEN_COLOR;
         } else {
-            [afternoonHeaderLabel setTextColor:YELLOW_COLOR];
+            afternoonHeaderLabel.textColor = YELLOW_COLOR;
         }
     } else {
-        [afternoonHeaderLabel setTextColor:RED_COLOR];
+        afternoonHeaderLabel.textColor = RED_COLOR;
     }
     
     // Return the cell view

@@ -12,6 +12,7 @@
 @interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
 - (void) updateUI;
+- (void) forecastUpdateFailed;
 - (void) locationButtonClicked:(id)sender;
 - (void) getForecastSettings;
 

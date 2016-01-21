@@ -12,6 +12,7 @@
 @interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIScrollViewDelegate>
 
 - (void) updateUI;
+- (void) forecastUpdateFailed;
 - (void) setupCamera;
 - (void) loadCameraPages;
 - (void) loadCameraPageForIndex:(int)index;

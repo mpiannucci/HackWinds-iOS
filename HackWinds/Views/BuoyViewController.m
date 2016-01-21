@@ -21,7 +21,7 @@
 
 @implementation BuoyViewController {
     NSString *buoyLocation;
-    BOOL lastFetchFailed;
+    BOOL lastFetchFailure;
 }
 
 - (void) viewDidLoad {
@@ -37,7 +37,7 @@
     [self loadBuoySettings];
     
     // Initialize the failure flag to NO
-    lastFetchFailed = NO;
+    lastFetchFailure = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +57,7 @@
                                                  name:BUOY_DATA_UPDATED_TAG
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showFailureUI)
+                                             selector:@selector(buoyUpdateFailed)
                                                  name:BUOY_UPDATE_FAILED_TAG
                                                object:nil];
 }
@@ -79,7 +79,7 @@
     NSMutableArray *buoys = [[BuoyModel sharedModel] getBuoyData];
     
     if (buoys.count < 1) {
-        lastFetchFailed = YES;
+        lastFetchFailure = YES;
         return;
     }
     
@@ -88,13 +88,13 @@
     self.waveSpectraURL = [[BuoyModel sharedModel] getSpectraPlotURL];
     
     // The fetch succeeded!
-    lastFetchFailed = NO;
+    lastFetchFailure = NO;
     
     [self.tableView reloadData];
 }
 
-- (void)showFailureUI {
-    lastFetchFailed = YES;
+- (void)buoyUpdateFailed {
+    lastFetchFailure = YES;
     
     [self.tableView reloadData];
 }
@@ -147,7 +147,7 @@
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    if (lastFetchFailed) {
+    if (lastFetchFailure) {
         if ([cell.reuseIdentifier isEqualToString:@"buoyStatusCell"]) {
             UILabel *currentBuoyStatusLabel = (UILabel*)[cell viewWithTag:41];
             UILabel *currentDominantSpectraLabel = (UILabel*)[cell viewWithTag:42];

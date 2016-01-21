@@ -32,6 +32,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
     NSArray *currentConditions;
     AsyncImageView *currentCameraPages[CAMERA_IMAGE_COUNT];
     Camera *wwCamera;
+    BOOL lastFetchFailure;
 }
 
 - (void)viewDidLoad
@@ -57,6 +58,12 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     // Initialize the forecast model
     self.forecastModel = [ForecastModel sharedModel];
+    
+    // Setup the location settings title
+    [self getForecastSettings];
+    
+    // Initialize the failures to false
+    lastFetchFailure = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,6 +76,10 @@ static const int CAMERA_IMAGE_COUNT = 8;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUI)
                                                  name:FORECAST_DATA_UPDATED_TAG
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(forecastUpdateFailed)
+                                                 name:FORECAST_DATA_UPDATE_FAILED_TAG
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -87,6 +98,9 @@ static const int CAMERA_IMAGE_COUNT = 8;
                                                     name:FORECAST_DATA_UPDATED_TAG
                                                   object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:FORECAST_DATA_UPDATE_FAILED_TAG
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:CAMERA_DATA_UPDATED_TAG
                                                   object:nil];
     
@@ -100,9 +114,20 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (void) updateUI {
-    [self getForecastSettings];
-    
     currentConditions = [self.forecastModel getConditionsForIndex:0];
+    
+    if (currentConditions == nil) {
+        lastFetchFailure = YES;
+    } else {
+        lastFetchFailure = NO;
+    }
+    
+    [self.mswTodayTable reloadData];
+}
+
+- (void) forecastUpdateFailed {
+    lastFetchFailure = YES;
+    
     [self.mswTodayTable reloadData];
 }
 
@@ -229,6 +254,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
         // If the user selects a location, set the settings key to the new location
         [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
         [defaults synchronize];
+        [self getForecastSettings];
         
         // Tell everyone the data has updated
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -269,47 +295,57 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     if ([indexPath row] < 1) {
         // Set the heder text cuz its the first row
-        [hourLabel setText:@"Time"];
-        [waveLabel setText:@"Surf"];
-        [windLabel setText:@"Wind"];
-        [swellLabel setText:@"Swell"];
+        hourLabel.text = @"Time";
+        waveLabel.text = @"Surf";
+        windLabel.text = @"Wind";
+        swellLabel.text = @"Swell";
         
         // Set the header label to be hackwinds color blue
-        [hourLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [waveLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [windLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [swellLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        hourLabel.textColor = HACKWINDS_BLUE_COLOR;
+        waveLabel.textColor = HACKWINDS_BLUE_COLOR;
+        windLabel.textColor = HACKWINDS_BLUE_COLOR;
+        swellLabel.textColor = HACKWINDS_BLUE_COLOR;
         
         // Set the text to be bold
-        [hourLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [waveLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [windLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [swellLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        hourLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        waveLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        windLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        swellLabel.font = [UIFont boldSystemFontOfSize:17.0];
         
     } else {
         // Get the condition object
+        if (lastFetchFailure) {
+            hourLabel.text = @"";
+            waveLabel.text = @"";
+            windLabel.text = @"";
+            swellLabel.text = @"";
+            
+            return cell;
+        }
+        
         if (currentConditions.count == 0) {
             return cell;
         }
+        
         Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        [hourLabel setText:thisCondition.timestamp];
-        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod]];
+        hourLabel.text = thisCondition.timestamp;
+        waveLabel.text = [NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight];
+        windLabel.text = [NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed];
+        swellLabel.text = [NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod];
         
         // Make sure that the text is black
-        [hourLabel setTextColor:[UIColor blackColor]];
-        [waveLabel setTextColor:[UIColor blackColor]];
-        [windLabel setTextColor:[UIColor blackColor]];
-        [swellLabel setTextColor:[UIColor blackColor]];
+        hourLabel.textColor = [UIColor blackColor];
+        waveLabel.textColor = [UIColor blackColor];
+        windLabel.textColor = [UIColor blackColor];
+        swellLabel.textColor = [UIColor blackColor];
         
-        // Make sure the text isnt bold
-        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
+        // Set the text to be bold
+        hourLabel.font = [UIFont systemFontOfSize:17.0];
+        waveLabel.font = [UIFont systemFontOfSize:17.0];
+        windLabel.font = [UIFont systemFontOfSize:17.0];
+        swellLabel.font = [UIFont systemFontOfSize:17.0];
     }
     return cell;
 }
