@@ -34,6 +34,9 @@
 @property (strong, nonatomic) NSString *waterTemperature;
 
 - (void) interpolateDominantPeriod;
+- (NSString*) getWaveSummaryStatusText;
+- (NSString*) getDominantSwellText;
+- (NSString*) getSecondarySwellText;
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;
 

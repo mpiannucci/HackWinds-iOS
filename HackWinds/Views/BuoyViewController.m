@@ -8,11 +8,14 @@
 
 #import "BuoyViewController.h"
 #import "NavigationBarTitleWithSubtitleView.h"
+#import "AsyncImageView.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
 @interface BuoyViewController ()
 
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
+@property (strong, nonatomic) Buoy *latestBuoy;
+@property (strong, nonatomic) NSURL *waveSpectraURL;
 
 @end
 
@@ -31,7 +34,6 @@
     
     // Load the buoy settings
     [self loadBuoySettings];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +64,17 @@
 }
 
 - (void)updateUI {
+    NSMutableArray *buoys = [[BuoyModel sharedModel] getBuoyData];
     
+    if (buoys.count < 1) {
+        return;
+    }
+    
+    // Save the latest buoy reading and the spectra plot url
+    self.latestBuoy = [buoys objectAtIndex:0];
+    self.waveSpectraURL = [[BuoyModel sharedModel] getSpectraPlotURL];
+    
+    [self.tableView reloadData];
 }
 
 - (void)loadBuoySettings {
@@ -106,6 +118,31 @@
     } else {
         NSLog(@"Buoy Location change cancelled, keep location at %@", [defaults objectForKey:@"BuoyLocation"]);
     }
+}
+
+#pragma mark - TableView
+
+- (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath {
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([cell.reuseIdentifier isEqualToString:@"buoyStatusCell"]) {
+        UILabel *currentBuoyStatusLabel = (UILabel*)[cell viewWithTag:41];
+        UILabel *currentDominantSpectraLabel = (UILabel*)[cell viewWithTag:42];
+        UILabel *currentSecondarySpectraLabel = (UILabel*)[cell viewWithTag:43];
+        UILabel *lastUpdatedLabel = (UILabel*)[cell viewWithTag:44];
+        
+        currentBuoyStatusLabel.text = [self.latestBuoy getWaveSummaryStatusText];
+        currentDominantSpectraLabel.text = [self.latestBuoy getDominantSwellText];
+        currentSecondarySpectraLabel.text = [self.latestBuoy getSecondarySwellText];
+        
+        lastUpdatedLabel.text = [NSString stringWithFormat:@"Last updated at %@", self.latestBuoy.timestamp];
+        
+    } else if ([cell.reuseIdentifier isEqualToString:@"waveSpectraCell"]) {
+        AsyncImageView *spectraPlotImage = (AsyncImageView*)[cell viewWithTag:51];
+        [spectraPlotImage setImageURL:self.waveSpectraURL];
+    }
+    
+    return cell;
 }
 
 @end

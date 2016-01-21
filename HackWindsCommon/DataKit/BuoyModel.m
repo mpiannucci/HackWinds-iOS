@@ -297,7 +297,8 @@ static const int ACK_BUOY_NUMBER = 44008;
         [newBuoy interpolateDominantPeriod];
         
         // Directions
-        newBuoy.meanDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MEAN_WAVE_DIRECTION_OFFSET];
+        NSString *rawMeanDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MEAN_WAVE_DIRECTION_OFFSET];
+        newBuoy.meanDirection = [Buoy getCompassDirection:rawMeanDirection];
         newBuoy.swellDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_DIRECTION_OFFSET];
         newBuoy.windWaveDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_WAVE_DIRECTION_OFFSET];
         

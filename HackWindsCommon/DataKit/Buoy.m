@@ -56,6 +56,26 @@
     }
 }
 
+- (NSString*) getWaveSummaryStatusText {
+    return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.significantWaveHeight, self.dominantPeriod, self.meanDirection];
+}
+
+- (NSString*) getDominantSwellText {
+    if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
+        return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.swellWaveHeight, self.swellPeriod, self.swellDirection];
+    } else {
+        return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.windWaveHeight, self.windWavePeriod, self.windWaveDirection];
+    }
+}
+
+- (NSString*) getSecondarySwellText {
+    if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
+        return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.windWaveHeight, self.windWavePeriod, self.windWaveDirection];
+    } else {
+        return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.swellWaveHeight, self.swellPeriod, self.swellDirection];
+    }
+}
+
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {
     // Set the direction to its letter value on a compass
     int windIndex = (int)[degreeDirection doubleValue]/(360/[WIND_DIRS count]);
