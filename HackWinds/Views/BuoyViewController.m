@@ -135,7 +135,7 @@
         currentDominantSpectraLabel.text = [self.latestBuoy getDominantSwellText];
         currentSecondarySpectraLabel.text = [self.latestBuoy getSecondarySwellText];
         
-        lastUpdatedLabel.text = [NSString stringWithFormat:@"Last updated at %@", self.latestBuoy.timestamp];
+        lastUpdatedLabel.text = [NSString stringWithFormat:@"Buoy reported at %@", self.latestBuoy.timestamp];
         
     } else if ([cell.reuseIdentifier isEqualToString:@"waveSpectraCell"]) {
         AsyncImageView *spectraPlotImage = (AsyncImageView*)[cell viewWithTag:51];

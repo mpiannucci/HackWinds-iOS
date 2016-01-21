@@ -1022,22 +1022,24 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Wave Spectra" id="wlb-Xk-NDs">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="waveSpectraCell" rowHeight="200" id="N0v-NB-DxJ">
-                                        <rect key="frame" x="0.0" y="296" width="320" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="waveSpectraCell" rowHeight="300" id="N0v-NB-DxJ">
+                                        <rect key="frame" x="0.0" y="296" width="320" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N0v-NB-DxJ" id="XSp-KN-mPK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57E-73-bkD" customClass="AsyncImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57E-73-bkD" customClass="AsyncImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="57E-73-bkD" secondAttribute="height" multiplier="4:3" id="TbY-a9-pig"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="57E-73-bkD" firstAttribute="centerY" secondItem="XSp-KN-mPK" secondAttribute="centerY" id="2p0-8p-n9X"/>
                                                 <constraint firstItem="57E-73-bkD" firstAttribute="top" secondItem="XSp-KN-mPK" secondAttribute="top" id="4SC-nZ-Da5"/>
-                                                <constraint firstItem="57E-73-bkD" firstAttribute="leading" secondItem="XSp-KN-mPK" secondAttribute="leading" id="atY-b4-4hq"/>
-                                                <constraint firstAttribute="trailing" secondItem="57E-73-bkD" secondAttribute="trailing" id="nkd-dl-dpW"/>
+                                                <constraint firstAttribute="trailing" secondItem="57E-73-bkD" secondAttribute="trailing" id="8Ca-wY-uQw"/>
+                                                <constraint firstItem="57E-73-bkD" firstAttribute="leading" secondItem="XSp-KN-mPK" secondAttribute="leading" id="c5U-0e-QDR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
