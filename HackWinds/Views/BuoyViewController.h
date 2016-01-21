@@ -13,5 +13,6 @@
 - (void)loadBuoySettings;
 - (void)locationButtonClicked:(id)sender;
 - (void)updateUI;
+- (void)showFailureUI;
 
 @end

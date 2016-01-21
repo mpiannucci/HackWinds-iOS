@@ -21,6 +21,7 @@
 
 @implementation BuoyViewController {
     NSString *buoyLocation;
+    BOOL lastFetchFailed;
 }
 
 - (void) viewDidLoad {
@@ -34,6 +35,9 @@
     
     // Load the buoy settings
     [self loadBuoySettings];
+    
+    // Initialize the failure flag to NO
+    lastFetchFailed = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,12 +56,20 @@
                                              selector:@selector(updateUI)
                                                  name:BUOY_DATA_UPDATED_TAG
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showFailureUI)
+                                                 name:BUOY_UPDATE_FAILED_TAG
+                                               object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     // Remove the listener when the view goes out of focus
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:BUOY_DATA_UPDATED_TAG
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:BUOY_UPDATE_FAILED_TAG
                                                   object:nil];
     
     [super viewDidDisappear:animated];
@@ -67,12 +79,22 @@
     NSMutableArray *buoys = [[BuoyModel sharedModel] getBuoyData];
     
     if (buoys.count < 1) {
+        lastFetchFailed = YES;
         return;
     }
     
     // Save the latest buoy reading and the spectra plot url
     self.latestBuoy = [buoys objectAtIndex:0];
     self.waveSpectraURL = [[BuoyModel sharedModel] getSpectraPlotURL];
+    
+    // The fetch succeeded!
+    lastFetchFailed = NO;
+    
+    [self.tableView reloadData];
+}
+
+- (void)showFailureUI {
+    lastFetchFailed = YES;
     
     [self.tableView reloadData];
 }
@@ -125,6 +147,26 @@
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
+    if (lastFetchFailed) {
+        if ([cell.reuseIdentifier isEqualToString:@"buoyStatusCell"]) {
+            UILabel *currentBuoyStatusLabel = (UILabel*)[cell viewWithTag:41];
+            UILabel *currentDominantSpectraLabel = (UILabel*)[cell viewWithTag:42];
+            UILabel *currentSecondarySpectraLabel = (UILabel*)[cell viewWithTag:43];
+            UILabel *lastUpdatedLabel = (UILabel*)[cell viewWithTag:44];
+            
+            currentBuoyStatusLabel.text = @"No Data received for this Buoy";
+            currentDominantSpectraLabel.text = @"";
+            currentSecondarySpectraLabel.text = @"";
+            lastUpdatedLabel.text = @"";
+            
+        } else if ([cell.reuseIdentifier isEqualToString:@"waveSpectraCell"]) {
+            AsyncImageView *spectraPlotImage = (AsyncImageView*)[cell viewWithTag:51];
+            [spectraPlotImage setImageURL:nil];
+        }
+        
+        return cell;
+    }
+        
     if ([cell.reuseIdentifier isEqualToString:@"buoyStatusCell"]) {
         UILabel *currentBuoyStatusLabel = (UILabel*)[cell viewWithTag:41];
         UILabel *currentDominantSpectraLabel = (UILabel*)[cell viewWithTag:42];

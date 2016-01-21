@@ -39,7 +39,7 @@
     buoyLocation = [defaults objectForKey:@"BuoyLocation"];
     
     // Set up the custom nav bar with the buoy location
-    [self.navigationController setTitle:buoyLocation];
+    self.navigationItem.title = buoyLocation;
     
     // Initialize the buoy model
     self.buoyModel = [BuoyModel sharedModel];
