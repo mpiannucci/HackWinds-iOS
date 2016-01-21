@@ -923,90 +923,6 @@
             </objects>
             <point key="canvasLocation" x="1257" y="724"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4T4-Hf-Xcq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XRU-c5-Q0f" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EfC-pC-vvm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="sNp-B0-iT0" kind="relationship" relationship="rootViewController" id="GSP-g0-qHh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ha-DK-49X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1257" y="1457"/>
-        </scene>
-        <!--Additional Plots-->
-        <scene sceneID="E8r-Wr-UHm">
-            <objects>
-                <viewController id="sNp-B0-iT0" customClass="AdditionalBuoyPlotsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Svm-gY-7Xn"/>
-                        <viewControllerLayoutGuide type="bottom" id="rBh-hC-uqV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uZJ-6E-UaW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPa-rK-ciE">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spectral Density" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gss-tg-UcB">
-                                        <rect key="frame" x="8" y="8" width="304" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="d7v-A1-RyC"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gsp-pe-eCM" customClass="AsyncImageView">
-                                        <rect key="frame" x="0.0" y="37" width="320" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Gsp-pe-eCM" secondAttribute="height" multiplier="8:5" priority="750" id="QbL-i5-0bl"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Gss-tg-UcB" firstAttribute="leading" secondItem="uPa-rK-ciE" secondAttribute="leadingMargin" id="0Sd-2b-yC7"/>
-                                    <constraint firstItem="Gsp-pe-eCM" firstAttribute="centerX" secondItem="uPa-rK-ciE" secondAttribute="centerX" id="NWP-Yo-ASa"/>
-                                    <constraint firstItem="Gsp-pe-eCM" firstAttribute="top" secondItem="Gss-tg-UcB" secondAttribute="bottom" constant="8" symbolic="YES" id="Qny-8T-aFr"/>
-                                    <constraint firstItem="Gss-tg-UcB" firstAttribute="top" secondItem="uPa-rK-ciE" secondAttribute="top" constant="8" id="aen-gC-Y4h"/>
-                                    <constraint firstAttribute="bottom" secondItem="Gsp-pe-eCM" secondAttribute="bottom" constant="203" id="cRJ-Xk-HqG"/>
-                                    <constraint firstItem="Gss-tg-UcB" firstAttribute="centerX" secondItem="Gsp-pe-eCM" secondAttribute="centerX" id="d6y-Yj-6Zo"/>
-                                    <constraint firstItem="Gsp-pe-eCM" firstAttribute="leading" secondItem="uPa-rK-ciE" secondAttribute="leading" id="ttG-ec-lae"/>
-                                    <constraint firstAttribute="trailing" secondItem="Gsp-pe-eCM" secondAttribute="trailing" id="xKp-Wu-WNd"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="uPa-rK-ciE" firstAttribute="leading" secondItem="uZJ-6E-UaW" secondAttribute="leading" id="FTU-Q5-hoe"/>
-                            <constraint firstAttribute="trailing" secondItem="uPa-rK-ciE" secondAttribute="trailing" id="LW8-Kp-CxW"/>
-                            <constraint firstItem="uPa-rK-ciE" firstAttribute="bottom" secondItem="rBh-hC-uqV" secondAttribute="top" id="P6R-Rd-stO"/>
-                            <constraint firstItem="uPa-rK-ciE" firstAttribute="top" secondItem="Svm-gY-7Xn" secondAttribute="top" id="gD4-UO-1en"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Additional Plots" id="M1R-GV-eSb">
-                        <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="H6y-GZ-XX1">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="closeButtonClicked:" destination="sNp-B0-iT0" id="J7f-Iw-kdj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="spectralPlotImageView" destination="Gsp-pe-eCM" id="ziR-eB-T9I"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zFa-4O-qso" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1742" y="1457"/>
-        </scene>
         <!--BuoysNav-->
         <scene sceneID="A4J-ge-FDf">
             <objects>
@@ -1017,17 +933,65 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="avJ-rZ-EzA" kind="relationship" relationship="rootViewController" id="ez2-mg-VDu"/>
+                        <segue destination="bS5-oi-m5J" kind="relationship" relationship="rootViewController" id="jOX-cV-Aph"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDx-JE-S9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-39" y="1173"/>
         </scene>
+        <!--HackWinds-->
+        <scene sceneID="y0w-4K-6os">
+            <objects>
+                <viewController id="bS5-oi-m5J" customClass="BuoyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mbt-Ih-7tm"/>
+                        <viewControllerLayoutGuide type="bottom" id="xhv-dd-jQh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rsg-QK-fNX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HackWinds" id="ePQ-26-4gd">
+                        <barButtonItem key="leftBarButtonItem" image="ic_history_white" id="hxW-LR-E2f">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Ff6-O1-P09" kind="modal" id="2Ps-q2-Zj5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="msM-Zt-GTL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="n3n-Wz-yM1" kind="modal" id="5dg-RL-GGB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNF-WX-dYR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="491" y="1170"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uma-JP-OGd">
+            <objects>
+                <navigationController id="Ff6-O1-P09" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wGt-o1-mgJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="avJ-rZ-EzA" kind="relationship" relationship="rootViewController" id="zxF-FS-tOF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KdP-5y-shJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342" y="1528"/>
+        </scene>
         <!--Buoys-->
         <scene sceneID="rsP-b4-j7Q">
             <objects>
-                <viewController title="Buoys" automaticallyAdjustsScrollViewInsets="NO" id="avJ-rZ-EzA" customClass="BuoyViewController" sceneMemberID="viewController">
+                <viewController title="Buoys" automaticallyAdjustsScrollViewInsets="NO" id="avJ-rZ-EzA" customClass="BuoyHistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BM7-Og-0qb"/>
                         <viewControllerLayoutGuide type="bottom" id="dzs-Pb-Jae"/>
@@ -1036,7 +1000,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0CD-y8-6s2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0CD-y8-6s2">
                                 <rect key="frame" x="0.0" y="108" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1122,17 +1086,11 @@
                             <constraint firstAttribute="trailing" secondItem="0CD-y8-6s2" secondAttribute="trailing" id="wjJ-7K-qDM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="HackWinds" id="Cdi-Ct-GYT">
-                        <barButtonItem key="leftBarButtonItem" image="ic_trending_up_white" id="9DF-mE-Pjg">
+                    <navigationItem key="navigationItem" title="Location" id="Cdi-Ct-GYT">
+                        <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="yR8-Hz-fOC">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="XRU-c5-Q0f" kind="modal" id="h2u-cl-fLX"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="6ca-PQ-P5R">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="n3n-Wz-yM1" kind="modal" id="pa9-s7-zVu"/>
+                                <action selector="closeButtonClicked:" destination="avJ-rZ-EzA" id="Yuh-hA-3By"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1142,7 +1100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRE-al-kA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="1173"/>
+            <point key="canvasLocation" x="1791" y="1528"/>
         </scene>
         <!--HackWinds-->
         <scene sceneID="3O8-LN-fGy">
@@ -1734,11 +1692,11 @@
         <image name="ic_fast_forward_white_36pt" width="36" height="36"/>
         <image name="ic_fast_rewind_36pt" width="36" height="36"/>
         <image name="ic_fast_rewind_white_36pt" width="36" height="36"/>
+        <image name="ic_history_white" width="24" height="24"/>
         <image name="ic_settings_white" width="24" height="24"/>
         <image name="ic_track_changes_white" width="24" height="24"/>
-        <image name="ic_trending_up_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pa9-s7-zVu"/>
+        <segue reference="5dg-RL-GGB"/>
     </inferredMetricsTieBreakers>
 </document>

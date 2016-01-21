@@ -28,6 +28,7 @@
 		3457CBFC1C4488D400A4BCD2 /* HackWindsToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3457CC021C44896B00A4BCD2 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
 		3475B2381C4EB16500C35196 /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
+		3479E1321C510659009B8C22 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3479E1311C510659009B8C22 /* BuoyViewController.m */; };
 		349076271C24A7E500EAD0CE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349076251C24A7E500EAD0CE /* Interface.storyboard */; };
 		349076291C24A7E500EAD0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349076281C24A7E500EAD0CE /* Assets.xcassets */; };
 		349076301C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -40,7 +41,7 @@
 		349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; };
 		349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		349264541C3D52E3000D3FEF /* HackWindsDataKitOSX.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyViewController.m */; };
+		3495C95519E7773100C8F4D7 /* BuoyHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyHistoryViewController.m */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
 		349D42471C384C69006F7B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D42461C384C69006F7B24 /* AppDelegate.swift */; };
@@ -331,6 +332,8 @@
 		3457CBF71C4488D400A4BCD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		3457CBF91C4488D400A4BCD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3457CC031C4489D900A4BCD2 /* HackWinds-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWinds-Bridging-Header.h"; sourceTree = "<group>"; };
+		3479E1301C510659009B8C22 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
+		3479E1311C510659009B8C22 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
 		349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076261C24A7E500EAD0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		349076281C24A7E500EAD0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -348,8 +351,8 @@
 		349076611C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076711C24AA8800EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3495C95319E7773100C8F4D7 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
-		3495C95419E7773100C8F4D7 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
+		3495C95319E7773100C8F4D7 /* BuoyHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyHistoryViewController.h; sourceTree = "<group>"; };
+		3495C95419E7773100C8F4D7 /* BuoyHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyHistoryViewController.m; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D42441C384C69006F7B24 /* HackWindsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -521,8 +524,10 @@
 			children = (
 				34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */,
 				34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */,
-				3495C95319E7773100C8F4D7 /* BuoyViewController.h */,
-				3495C95419E7773100C8F4D7 /* BuoyViewController.m */,
+				3479E1301C510659009B8C22 /* BuoyViewController.h */,
+				3479E1311C510659009B8C22 /* BuoyViewController.m */,
+				3495C95319E7773100C8F4D7 /* BuoyHistoryViewController.h */,
+				3495C95419E7773100C8F4D7 /* BuoyHistoryViewController.m */,
 				343083A119795D0F00655F15 /* CurrentViewController.h */,
 				343083A219795D0F00655F15 /* CurrentViewController.m */,
 				34C8E7201ACA43EB0038E895 /* DetailedForecastViewController.h */,
@@ -1322,7 +1327,7 @@
 				34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */,
 				34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */,
 				34AA865E1A41382F00AD09CF /* Reachability.m in Sources */,
-				3495C95519E7773100C8F4D7 /* BuoyViewController.m in Sources */,
+				3495C95519E7773100C8F4D7 /* BuoyHistoryViewController.m in Sources */,
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
 				340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */,
 				342A76221985E18100077F8C /* TideViewController.m in Sources */,
@@ -1330,6 +1335,7 @@
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,
 				34EB97451B94AC8A00687615 /* AdditionalBuoyPlotsViewController.m in Sources */,
+				3479E1321C510659009B8C22 /* BuoyViewController.m in Sources */,
 				3430839619795D0F00655F15 /* main.m in Sources */,
 				34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */,
 			);
