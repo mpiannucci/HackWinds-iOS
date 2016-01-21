@@ -20,6 +20,7 @@ NSString * const WIND_DATA_MODE = @"Wind Wave";
 NSString * const BUOY_DATA_UPDATED_TAG = @"BuoyModelDidUpdateDataNotification";
 NSString * const BUOY_LOCATION_CHANGED_TAG = @"BuoyLocationChangedNotification";
 NSString * const DEFAULT_BUOY_LOCATION_CHANGED_TAG = @"DefaultBuoyLocationChangedNotification";
+NSString * const BUOY_UPDATE_FAILED_TAG = @"BuoyModelUpdatedFailedNotification";
 
 // Detail data locations
 static const int DETAIL_DATA_HEADER_LENGTH = 30;
@@ -166,6 +167,28 @@ static const int ACK_BUOY_NUMBER = 44008;
         
         if (error != nil) {
             NSLog(@"Failed to retreive tide data from API");
+            
+            // Send failure notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:BUOY_UPDATE_FAILED_TAG
+                 object:self];
+            });
+            
+            return;
+        }
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+        if (httpResponse.statusCode != 200) {
+            NSLog(@"HTTP Error receiving buoy data");
+            
+            // Send failure notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:BUOY_UPDATE_FAILED_TAG
+                 object:self];
+            });
+            
             return;
         }
         

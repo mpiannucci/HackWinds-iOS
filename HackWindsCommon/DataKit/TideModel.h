@@ -10,6 +10,7 @@
 
 // Notification Constants
 extern NSString * const TIDE_DATA_UPDATED_TAG;
+extern NSString * const TIDE_DATA_UPDATE_FAILED_TAG;
 
 @interface TideModel : NSObject
 

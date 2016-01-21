@@ -23,6 +23,7 @@ extern NSString * const WIND_DATA_MODE;
 extern NSString * const BUOY_DATA_UPDATED_TAG;
 extern NSString * const BUOY_LOCATION_CHANGED_TAG;
 extern NSString * const DEFAULT_BUOY_LOCATION_CHANGED_TAG;
+extern NSString * const BUOY_UPDATE_FAILED_TAG;
 
 @interface BuoyModel : NSObject
 

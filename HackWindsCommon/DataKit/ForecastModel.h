@@ -17,6 +17,7 @@ extern NSString * const SECOND_BEACH_LOCATION;
 // Notification Constants
 extern NSString * const FORECAST_DATA_UPDATED_TAG;
 extern NSString * const FORECAST_LOCATION_CHANGED_TAG;
+extern NSString * const FORECAST_DATA_UPDATE_FAILED_TAG;
 
 @interface ForecastModel : NSObject
 

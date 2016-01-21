@@ -11,6 +11,7 @@
 
 static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v3.json";
 NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification";
+NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNotification";
 
 @interface CameraModel()
 
@@ -62,6 +63,28 @@ NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification"
             
             if (error != nil) {
                 NSLog(@"Failed to fetch camera data from API");
+                
+                // Send failure notification
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:CAMERA_DATA_UPDATE_FAILED_TAG
+                     object:self];
+                });
+                
+                return;
+            }
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+            if (httpResponse.statusCode != 200) {
+                NSLog(@"HTTP Error receiving camera data");
+                
+                // Send failure notification
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:CAMERA_DATA_UPDATE_FAILED_TAG
+                     object:self];
+                });
+                
                 return;
             }
             

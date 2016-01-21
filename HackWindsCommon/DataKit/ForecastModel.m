@@ -18,6 +18,7 @@ NSString * const SECOND_BEACH_LOCATION = @"Second Beach";
 // Notification Constants
 NSString * const FORECAST_DATA_UPDATED_TAG = @"ForecastModelDidUpdateDataNotification";
 NSString * const FORECAST_LOCATION_CHANGED_TAG = @"ForecastLocationChangedNotification";
+NSString * const FORECAST_DATA_UPDATE_FAILED_TAG = @"ForecastModelUpdateFailedNotification";
 
 // Local Constants
 static NSString * const BASE_MSW_URL = @"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=%@&fields=localTimestamp,swell.*,wind.*,charts.*";
@@ -156,6 +157,28 @@ static const int SECOND_BEACH_ID = 846;
             
             if (error != nil) {
                 NSLog(@"Failed to download forecast data");
+                
+                // Send failure notification
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:FORECAST_DATA_UPDATE_FAILED_TAG
+                     object:self];
+                });
+                
+                return;
+            }
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+            if (httpResponse.statusCode != 200) {
+                NSLog(@"HTTP Error receiving forecast data");
+                
+                // Send failure notification
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:FORECAST_DATA_UPDATE_FAILED_TAG
+                     object:self];
+                });
+                
                 return;
             }
             

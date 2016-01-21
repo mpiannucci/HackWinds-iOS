@@ -8,7 +8,8 @@
 #import "TideModel.h"
 
 static NSString * const WUNDERGROUND_URL = @"http://api.wunderground.com/api/2e5424aab8c91757/tide/q/RI/Point_Judith.json";
-NSString * const TIDE_DATA_UPDATED_TAG = @"TideDataUpdatedNotification";
+NSString * const TIDE_DATA_UPDATED_TAG = @"TideModelDataUpdatedNotification";
+NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotification";
 
 @interface TideModel ()
 
@@ -48,6 +49,28 @@ NSString * const TIDE_DATA_UPDATED_TAG = @"TideDataUpdatedNotification";
         
         if (error != nil) {
             NSLog(@"Failed to retreive tide data from API");
+            
+            // Send failure notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:TIDE_DATA_UPDATE_FAILED_TAG
+                 object:self];
+            });
+            
+            return;
+        }
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+        if (httpResponse.statusCode != 200) {
+            NSLog(@"HTTP Error receiving forecast data");
+            
+            // Send failure notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:TIDE_DATA_UPDATE_FAILED_TAG
+                 object:self];
+            });
+            
             return;
         }
         
