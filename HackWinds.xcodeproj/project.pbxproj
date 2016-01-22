@@ -20,13 +20,15 @@
 		343083A319795D0F00655F15 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* CurrentViewController.m */; };
 		343083A619795D0F00655F15 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* ForecastViewController.m */; };
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
+		343D41AB1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D41AA1C52B0AF002D74E3 /* WidgetUpdateManager.swift */; };
+		343D41AC1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D41AA1C52B0AF002D74E3 /* WidgetUpdateManager.swift */; };
+		343D41AD1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D41AA1C52B0AF002D74E3 /* WidgetUpdateManager.swift */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
 		3457CBF21C4488D400A4BCD2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
 		3457CBF51C4488D400A4BCD2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */; };
 		3457CBF81C4488D400A4BCD2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3457CBF61C4488D400A4BCD2 /* MainInterface.storyboard */; };
 		3457CBFC1C4488D400A4BCD2 /* HackWindsToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3457CC021C44896B00A4BCD2 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
 		3475B2381C4EB16500C35196 /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		3479E1321C510659009B8C22 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3479E1311C510659009B8C22 /* BuoyViewController.m */; };
 		349076271C24A7E500EAD0CE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349076251C24A7E500EAD0CE /* Interface.storyboard */; };
@@ -146,8 +148,6 @@
 		34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
 		34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
 		34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
-		34EA41751C3E8D4D008FF504 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
-		34EA41761C3E8D51008FF504 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41711C3E8D40008FF504 /* Reporter.swift */; };
 		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
@@ -322,6 +322,7 @@
 		343083A519795D0F00655F15 /* ForecastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		343083A719795D0F00655F15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		343083AE19795D0F00655F15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		343D41AA1C52B0AF002D74E3 /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetUpdateManager.swift; sourceTree = "<group>"; };
 		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
@@ -417,7 +418,6 @@
 		34EA411D1C3E8D15008FF504 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TideModel.m; path = HackWindsCommon/DataKit/TideModel.m; sourceTree = "<group>"; };
 		34EA411E1C3E8D15008FF504 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = HackWindsCommon/DataKit/XMLReader.h; sourceTree = "<group>"; };
 		34EA411F1C3E8D15008FF504 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = HackWindsCommon/DataKit/XMLReader.m; sourceTree = "<group>"; };
-		34EA41711C3E8D40008FF504 /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reporter.swift; path = HackWindsCommon/Extension/Reporter.swift; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		34F9338D1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34F9338F1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -647,6 +647,14 @@
 			path = HackWinds;
 			sourceTree = "<group>";
 		};
+		343D41A41C52AA42002D74E3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				343D41AA1C52B0AF002D74E3 /* WidgetUpdateManager.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		3457CBF31C4488D400A4BCD2 /* HackWindsToday */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,7 +788,7 @@
 		34EA40DB1C3E8C43008FF504 /* HackWindsCommon */ = {
 			isa = PBXGroup;
 			children = (
-				34EA40DD1C3E8CAD008FF504 /* Extension */,
+				343D41A41C52AA42002D74E3 /* Extension */,
 				34EA40DC1C3E8CA5008FF504 /* DataKit */,
 			);
 			name = HackWindsCommon;
@@ -817,14 +825,6 @@
 				34EA411F1C3E8D15008FF504 /* XMLReader.m */,
 			);
 			name = DataKit;
-			sourceTree = "<group>";
-		};
-		34EA40DD1C3E8CAD008FF504 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				34EA41711C3E8D40008FF504 /* Reporter.swift */,
-			);
-			name = Extension;
 			sourceTree = "<group>";
 		};
 		34FD036A198F0A4F00BA0FB0 /* Resources */ = {
@@ -1339,7 +1339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3457CC021C44896B00A4BCD2 /* Reporter.swift in Sources */,
+				343D41AB1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */,
 				3457CBF51C4488D400A4BCD2 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1348,7 +1348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34EA41751C3E8D4D008FF504 /* Reporter.swift in Sources */,
+				343D41AC1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */,
 				349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */,
 				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
 				349076391C24A7E500EAD0CE /* GlanceController.swift in Sources */,
@@ -1414,7 +1414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34EA41761C3E8D51008FF504 /* Reporter.swift in Sources */,
+				343D41AD1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */,
 				349D425D1C384C96006F7B24 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,6 +33,10 @@ NSString * const SUNSET_TAG = @"Sunset";
     [aCoder encodeObject:self.height forKey:@"height"];
 }
 
+- (NSString*)getTideEventSummary {
+    return [NSString stringWithFormat:@"%@: %@", self.eventType, self.timestamp];
+}
+
 - (BOOL) isSunrise {
     if ([self.eventType isEqualToString:SUNRISE_TAG]) {
         return YES;

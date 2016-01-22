@@ -15,13 +15,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var nextTideLabel: UILabel!
     @IBOutlet weak var lastUpdatedButton: UIButton!
     
-    var reporter: Reporter!
-        
+    // Variables to hold all of the data
+    let updateManager = WidgetUpdateManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reporter = Reporter()
-        self.updateUI()
+        // Make sure the UI is up to date on loading
+        updateBuoyUI()
+        updateTideUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,45 +33,51 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
-        updateViewAsync()
+        
+        fetchUpdates()
         
         completionHandler(.NewData)
     }
     
     @IBAction func updateDataClicked(sender: AnyObject) {
-        updateViewAsync()
+        // Force an update
+        updateManager.resetUpdateTimes()
+        fetchUpdates()
     }
     
-    func updateViewAsync() {
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            
-            let updated = self.reporter.updateData()
-            
-            if updated {
-                dispatch_async(dispatch_get_main_queue()) {
-                    // update some UI
-                    self.updateUI()
-                }
+    func fetchUpdates() {
+        updateManager.fetchBuoyUpdate { (Void) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateBuoyUI()
+            })
+        }
+        
+        updateManager.fetchTideUpdate { (Void) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateTideUI()
+            })
+        }
+    }
+    
+    func updateBuoyUI() {
+        if let buoy = updateManager.latestBuoy {
+            self.latestBuoyLabel.text = buoy.getWaveSummaryStatusText()
+        }
+        
+        if let location = updateManager.buoyLocation as? String {
+            if let updateTime = updateManager.latestRefreshTime() {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                
+                self.lastUpdatedButton.setTitle("\(location): Last updated at \(dateFormatter.stringFromDate(updateTime))", forState: UIControlState.Normal)
             }
         }
+        
     }
     
-    func updateUI() {
-        // Update the UI using reporter
-        if let latestBuoy = reporter.latestBuoy {
-            latestBuoyLabel.text = "\(latestBuoy.significantWaveHeight) ft @ \(latestBuoy.dominantPeriod) s \(latestBuoy.meanDirection)"
-        }
-        
-        if let nextTide = reporter.nextTide {
-            nextTideLabel.text = "\(nextTide.eventType): \(nextTide.timestamp)"
-        }
-        
-        if let lastUpdateTime = reporter.latestRefreshTime {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            let updatedString = dateFormatter.stringFromDate(lastUpdateTime)
-            lastUpdatedButton.setTitle("\(reporter.buoyLocation!): Last updated \(updatedString)", forState: .Normal)
+    func updateTideUI() {
+        if let tide = updateManager.nextTide {
+            self.nextTideLabel.text = tide.getTideEventSummary()
         }
     }
     

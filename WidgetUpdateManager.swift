@@ -1,26 +1,79 @@
+//
+//  WidgetUpdateManager.swift
+//  HackWinds
+//
+//  Created by Matthew Iannucci on 1/22/16.
+//  Copyright © 2016 Rhodysurf Development. All rights reserved.
+//
+
 import Foundation
 
-class Reporter {
+class WidgetUpdateManager {
     
     // Variables to hold all of the data
     var buoyLocation: NSString? = nil
     var latestBuoy: Buoy? = nil
     var nextTide: Tide? = nil
-    var latestRefreshTime: NSDate? = nil
+    var latestBuoyRefreshTime: NSDate? = nil
+    var latestTideRefreshTime: NSDate? = nil
     var nextBuoyUpdateTime: NSDate? = nil
     var nextTideUpdateTime: NSDate? = nil
     
-    init () {
+    init() {
         self.restoreData()
     }
     
-    func updateData() -> Bool {
-        let currentDate = NSDate()
-        var buoyUpdated = false
-        var tideUpdated = false
+    func latestRefreshTime() -> NSDate? {
+        if (self.latestBuoyRefreshTime == nil) && (self.latestTideRefreshTime == nil) {
+            return nil
+        } else if (self.latestBuoyRefreshTime == nil) {
+            return self.latestTideRefreshTime
+        } else if (self.latestTideRefreshTime == nil) {
+            return self.latestBuoyRefreshTime
+        }
         
-        // Get the latest buoy location from the shared settings
-        // TODO: This doesn't work yet, and needs to use watch connectivity. For now default to montauk
+        if self.latestBuoyRefreshTime!.compare(self.latestTideRefreshTime!) == NSComparisonResult.OrderedAscending {
+            return self.latestTideRefreshTime
+        } else {
+            return self.latestBuoyRefreshTime
+        }
+    }
+    
+    func resetUpdateTimes() {
+        self.nextBuoyUpdateTime = nil
+        self.nextTideUpdateTime = nil
+    }
+    
+    func fetchBuoyUpdate(completionHandler: ((Void) -> Void)!) {
+        if (doesBuoyNeedUpdate()) {
+            BuoyModel.sharedModel().fetchLatestBuoyReadingForLocation(self.buoyLocation as! String, withCompletionHandler: { (newBuoy: Buoy!) -> Void in
+                self.latestBuoy = newBuoy
+                self.latestBuoyRefreshTime = NSDate()
+                self.findNextUpdateTimes()
+                self.cacheData()
+                
+                // Trigger the callback
+                completionHandler()
+            })
+        }
+    }
+    
+    func fetchTideUpdate(completionHandler: ((Void) -> Void)!) {
+        if (doesTideNeedUpdate()) {
+            TideModel.sharedModel().fetchLatestTidalEventOnly({ (newTide: Tide!) -> Void in
+                self.nextTide = newTide
+                self.latestTideRefreshTime = NSDate()
+                self.findNextUpdateTimes()
+                self.cacheData()
+                
+                // Trigger the callback
+                completionHandler()
+            })
+        }
+    }
+    
+    func doesBuoyNeedUpdate() -> Bool {
+        // Get the latest buoy location from the shared settings. Defaults to Montauk
         let groupDefaults = NSUserDefaults.init(suiteName: "group.com.nucc.HackWinds")
         if let newLocation = groupDefaults?.stringForKey("DefaultBuoyLocation") {
             if let buoyLocation = self.buoyLocation {
@@ -41,43 +94,32 @@ class Reporter {
             self.nextBuoyUpdateTime = nil
         }
         
-//        // Check if the buoy should be updated and get the new data if it should
-//        if self.nextBuoyUpdateTime == nil || self.latestBuoy == nil {
-//            self.latestBuoy = BuoyModel.getOnlyLatestBuoyDataForLocation(MONTAUK_LOCATION)
-//            buoyUpdated = true
-//        } else {
-//            if self.nextBuoyUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
-//                // Update the buoy data!
-//                let newBuoy = BuoyModel.getOnlyLatestBuoyDataForLocation(self.buoyLocation! as String)
-//            
-//                if newBuoy.timestamp != self.latestBuoy!.timestamp {
-//                    self.latestBuoy = newBuoy
-//                    buoyUpdated = true
-//                }
-//            }
-//        }
-//        
-//        // Check if the tide should be updated and get the new data if it should
-//        if self.nextTideUpdateTime == nil || self.nextTide == nil {
-//            self.nextTide = TideModel.getLatestTidalEventOnly()
-//            tideUpdated = true
-//        } else {
-//            if self.nextTideUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
-//                // Update the tide data!
-//                self.nextTide = TideModel.getLatestTidalEventOnly()
-//                tideUpdated = true
-//            }
-//        }
-        
-        // Get the next update times
-        let updateHappened: Bool = buoyUpdated || tideUpdated
-        if updateHappened {
-            findNextUpdateTimes()
-            self.latestRefreshTime = NSDate()
-            cacheData()
+        // Check if the buoy should be updated and get the new data if it should
+        let currentDate = NSDate()
+        var needUpdate = false
+        if self.nextBuoyUpdateTime == nil || self.latestBuoy == nil {
+            needUpdate = true
+        } else {
+            if self.nextBuoyUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
+                needUpdate = true
+            }
         }
         
-        return updateHappened
+        return needUpdate
+    }
+    
+    func doesTideNeedUpdate() -> Bool {
+        // Check if the tide should be updated and get the new data if it should
+        let currentDate = NSDate()
+        var needUpdate = false
+        if self.nextTideUpdateTime == nil || self.nextTide == nil {
+            needUpdate = true
+        } else {
+            if self.nextTideUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
+                needUpdate = true
+            }
+        }
+        return needUpdate
     }
     
     func findNextUpdateTimes() {
@@ -129,8 +171,11 @@ class Reporter {
         if self.nextTide != nil {
             defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTide!), forKey: "nextTide")
         }
-        if self.latestRefreshTime != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestRefreshTime!), forKey: "latestRefreshTime")
+        if self.latestBuoyRefreshTime != nil {
+            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoyRefreshTime!), forKey: "latestBuoyRefreshTime")
+        }
+        if self.latestTideRefreshTime != nil {
+            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestTideRefreshTime!), forKey: "latestTideRefreshTime")
         }
         if self.nextBuoyUpdateTime != nil {
             defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextBuoyUpdateTime!), forKey: "nextBuoyUpdateTime")
@@ -152,8 +197,11 @@ class Reporter {
         if let rawNextTide = defaults.objectForKey("nextTide") {
             self.nextTide = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextTide as! NSData) as? Tide
         }
-        if let rawLatestRefreshTime = defaults.objectForKey("latestRefreshTime") {
-            self.latestRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestRefreshTime as! NSData) as? NSDate
+        if let rawLatestBuoyRefreshTime = defaults.objectForKey("latestBuoyRefreshTime") {
+            self.latestBuoyRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestBuoyRefreshTime as! NSData) as? NSDate
+        }
+        if let rawLatestTideRefreshTime = defaults.objectForKey("latestTideRefreshTime") {
+            self.latestTideRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestTideRefreshTime as! NSData) as? NSDate
         }
         if let rawNextBuoyUpdateTime = defaults.objectForKey("nextBuoyUpdateTime") {
             self.nextBuoyUpdateTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextBuoyUpdateTime as! NSData) as? NSDate

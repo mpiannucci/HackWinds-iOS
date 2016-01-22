@@ -15,7 +15,7 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     @IBOutlet weak var buoyLocationLabel: NSTextField!
     @IBOutlet weak var nextTideLabel: NSTextField!
     
-    var reporter: Reporter!
+    let updateManager: WidgetUpdateManager = WidgetUpdateManager()
 
     override var nibName: String? {
         return "TodayViewController"
@@ -25,36 +25,41 @@ class TodayViewController: NSViewController, NCWidgetProviding {
         // Update your data and prepare for a snapshot. Call completion handler when you are done
         // with NoData if nothing has changed or NewData if there is new data since the last
         // time we called you
-        self.reporter = Reporter()
-        self.updateUI()
         
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            
-            let updated = self.reporter.updateData()
-            
-            if updated {
-                dispatch_async(dispatch_get_main_queue()) {
-                    // update some UI
-                    self.updateUI()
-                }
-            }
+        // Load the UI before fetching to make everything look seamless
+        self.updateBuoyUI()
+        self.updateTideUI()
+        
+        updateManager.fetchBuoyUpdate { (Void) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateBuoyUI()
+            })
+        }
+        
+        updateManager.fetchTideUpdate { (Void) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateTideUI()
+            })
         }
         
         completionHandler(.NewData)
     }
     
-    func updateUI() {
-        // Update the UI using reporter
-        if let latestBuoy = reporter.latestBuoy {
-            latestBuoyLabel.stringValue = "\(latestBuoy.significantWaveHeight) ft @ \(latestBuoy.dominantPeriod) s \(latestBuoy.meanDirection)"
-            buoyLocationLabel.stringValue = "\(reporter.buoyLocation!)"
+    func updateBuoyUI() {
+        if let buoy = self.updateManager.latestBuoy {
+            self.latestBuoyLabel.stringValue = buoy.getWaveSummaryStatusText()
         }
         
-        if let nextTide = reporter.nextTide {
-            nextTideLabel.stringValue = "\(nextTide.eventType): \(nextTide.timestamp)"
+        if let location = self.updateManager.buoyLocation {
+            self.buoyLocationLabel.stringValue = location as String
         }
-        
+    }
+    
+    func updateTideUI () {
+        if let tide = self.updateManager.nextTide {
+            self.nextTideLabel.stringValue = tide.getTideEventSummary()
+        }
     }
 
 }
+
