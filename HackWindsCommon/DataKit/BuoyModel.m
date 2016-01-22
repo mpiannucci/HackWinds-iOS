@@ -34,7 +34,7 @@ static const int DETAIL_WIND_WAVE_HEIGHT_OFFSET  = 8;
 static const int DETAIL_WIND_PERIOD_OFFSET = 9;
 static const int DETAIL_SWELL_DIRECTION_OFFSET = 10;
 static const int DETAIL_WIND_WAVE_DIRECTION_OFFSET = 11;
-static const int DETAIL_STEEPNESS_OFFSET = 13;
+static const int DETAIL_STEEPNESS_OFFSET = 12;
 static const int DETAIL_MEAN_WAVE_DIRECTION_OFFSET = 14;
 
 // URLs
@@ -242,7 +242,6 @@ static const int ACK_BUOY_NUMBER = 44008;
             Buoy *firstBuoy = [currentContainer.buoyData objectAtIndex:0];
             
             // Merge the latest buoy props that werent read in with the detailed wave read.
-            firstBuoy.dominantPeriod = latestBuoy.dominantPeriod;
             firstBuoy.waterTemperature = latestBuoy.waterTemperature;
         }
         
