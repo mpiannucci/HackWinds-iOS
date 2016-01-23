@@ -18,9 +18,27 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var nextTideLabel: WKInterfaceLabel!
     @IBOutlet var latestTideStatusLabel: WKInterfaceLabel!
     
+    let updateManager: WidgetUpdateManager = WidgetUpdateManager()
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        // Update the interface right away
+        updateBuoyUI()
+        updateTideUI()
+        
+        // Fetch new data and update if successful
+        updateManager.fetchBuoyUpdate { (Void) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateBuoyUI()
+            })
+        }
+        
+        updateManager.fetchTideUpdate { (Void) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateTideUI()
+            })
+        }
     }
 
     override func willActivate() {
@@ -33,8 +51,16 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    func updateUI() {
-
+    func updateBuoyUI() {
+        if let buoy = updateManager.latestBuoy {
+            self.latestBuoyReportLabel.setText(buoy.getWaveSummaryStatusText())
+        }
+    }
+    
+    func updateTideUI() {
+        if let tide = updateManager.nextTide {
+            self.nextTideLabel.setText(tide.getTideEventSummary())
+        }
     }
 
 }

@@ -11,23 +11,21 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HackWindsWatchApp" customModuleProvider="target">
                     <items>
                         <label width="136" height="19.5" alignment="left" text="Buoy" textAlignment="left" id="Tjq-fK-V83">
+                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
-                        <label width="136" height="20.5" alignment="left" text="54 ft @ 12s SSW" textAlignment="left" minimumScaleFactor="0.10000000000000001" id="6II-fS-30b">
+                        <label width="136" height="20.5" alignment="left" text="-- ft @ -- s ---" textAlignment="left" minimumScaleFactor="0.10000000000000001" id="6II-fS-30b">
                             <color key="textColor" red="0.062112289213793109" green="0.99174069165862055" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <label width="136" alignment="left" text="Montauk" textAlignment="left" id="sgS-p4-zlk">
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
-                        <label width="136" height="19.5" alignment="right" verticalAlignment="bottom" text="Tide" textAlignment="right" id="sza-x7-3Xy">
+                        <label width="136" height="19.5" alignment="left" text="Tide" textAlignment="left" id="sza-x7-3Xy">
+                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
-                        <label width="136" height="20.5" alignment="right" verticalAlignment="bottom" text="Outgoing" textAlignment="right" id="5Ub-2a-3mb">
-                            <color key="textColor" red="0.062112289213793109" green="0.99174069165862055" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                        </label>
-                        <label height="24.5" alignment="right" verticalAlignment="bottom" text="Low Tide: 10:50 AM" textAlignment="right" minimumScaleFactor="0.10000000000000001" id="0B2-Tk-hrI">
+                        <label width="136" height="24.5" alignment="left" text="---- ----: --:-- --" textAlignment="left" minimumScaleFactor="0.10000000000000001" id="0B2-Tk-hrI">
                             <color key="textColor" red="0.062112289213793109" green="0.99174069165862055" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
@@ -35,7 +33,6 @@
                     <connections>
                         <outlet property="buoyLocationLabel" destination="sgS-p4-zlk" id="GXj-aX-5D5"/>
                         <outlet property="latestBuoyReportLabel" destination="6II-fS-30b" id="TBI-jy-sYl"/>
-                        <outlet property="latestTideStatusLabel" destination="5Ub-2a-3mb" id="dth-fS-TaR"/>
                         <outlet property="nextTideLabel" destination="0B2-Tk-hrI" id="ELa-ZB-gDI"/>
                     </connections>
                 </controller>
