@@ -43,7 +43,7 @@
     
     // Set the settings plist
     NSString *defaultPrefsFile = [[NSBundle mainBundle] pathForResource:@"UISettings" ofType:@"plist"];
-    NSUserDefaults *defaultPreferences = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaultPreferences = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaultPreferences registerDefaults:[NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile]];
     [defaultPreferences synchronize];
     
@@ -106,27 +106,27 @@
 // These next three methods are hacks to make the landscpae orientation work when playing full screen
 // video.
 // Handles the media player requesting full screen
-- (void)willEnterFullScreen:(NSNotification *)notification
-{
-    _isFullScreen = YES;
-}
-
-// Handles the media player leaving full screen.
-- (void)willExitFullScreen:(NSNotification *)notification
-{
-    _isFullScreen = NO;
-}
-
-// Sets the supported orientation based on whether or not the controller is full screen
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
-    if (_isFullScreen) {
-        // Its full screen, so all rotation
-        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-    } else {
-        // Its not full screen so dont allow it to rotate
-        return UIInterfaceOrientationMaskPortrait;
-    }
-}
+//- (void)willEnterFullScreen:(NSNotification *)notification
+//{
+//    _isFullScreen = YES;
+//}
+//
+//// Handles the media player leaving full screen.
+//- (void)willExitFullScreen:(NSNotification *)notification
+//{
+//    _isFullScreen = NO;
+//}
+//
+//// Sets the supported orientation based on whether or not the controller is full screen
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+//{
+//    if (_isFullScreen) {
+//        // Its full screen, so all rotation
+//        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+//    } else {
+//        // Its not full screen so dont allow it to rotate
+//        return UIInterfaceOrientationMaskPortrait;
+//    }
+//}
 
 @end

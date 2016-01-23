@@ -25,6 +25,7 @@
 		343D41AD1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D41AA1C52B0AF002D74E3 /* WidgetUpdateManager.swift */; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
+		34444D1D1C5304EC00FCDA6A /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34444D1C1C5304EC00FCDA6A /* GlanceController.swift */; };
 		3457CBF21C4488D400A4BCD2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
 		3457CBF51C4488D400A4BCD2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */; };
 		3457CBF81C4488D400A4BCD2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3457CBF61C4488D400A4BCD2 /* MainInterface.storyboard */; };
@@ -36,7 +37,6 @@
 		349076301C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349076341C24A7E500EAD0CE /* InterfaceController.swift */; };
 		349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */; };
-		349076391C24A7E500EAD0CE /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349076381C24A7E500EAD0CE /* GlanceController.swift */; };
 		3490763B1C24A7E500EAD0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3490763A1C24A7E500EAD0CE /* Assets.xcassets */; };
 		3490763F1C24A7E500EAD0CE /* HackWindsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */; };
 		3490765B1C24AA4700EAD0CE /* HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; };
@@ -327,6 +327,9 @@
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
+		34444D1C1C5304EC00FCDA6A /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		34444D1E1C5305B300FCDA6A /* HackWindsWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HackWindsWatchApp Extension.entitlements"; sourceTree = "<group>"; };
+		34444D1F1C5305C800FCDA6A /* HackWindsToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsToday.entitlements; sourceTree = "<group>"; };
 		3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		3457CBF71C4488D400A4BCD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -341,7 +344,6 @@
 		3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HackWindsWatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076341C24A7E500EAD0CE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		349076381C24A7E500EAD0CE /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		3490763A1C24A7E500EAD0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3490763C1C24A7E500EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3490764B1C24A89600EAD0CE /* HackWindsWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsWatchApp.entitlements; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 		3457CBF31C4488D400A4BCD2 /* HackWindsToday */ = {
 			isa = PBXGroup;
 			children = (
+				34444D1F1C5305C800FCDA6A /* HackWindsToday.entitlements */,
 				3457CC031C4489D900A4BCD2 /* HackWinds-Bridging-Header.h */,
 				3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */,
 				3457CBF61C4488D400A4BCD2 /* MainInterface.storyboard */,
@@ -680,10 +683,11 @@
 		349076331C24A7E500EAD0CE /* HackWindsWatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				34444D1E1C5305B300FCDA6A /* HackWindsWatchApp Extension.entitlements */,
+				34444D1C1C5304EC00FCDA6A /* GlanceController.swift */,
 				349076341C24A7E500EAD0CE /* InterfaceController.swift */,
 				349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */,
 				349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */,
-				349076381C24A7E500EAD0CE /* GlanceController.swift */,
 				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
 				3490763C1C24A7E500EAD0CE /* Info.plist */,
 			);
@@ -1133,6 +1137,11 @@
 					3457CBF01C4488D400A4BCD2 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					349076221C24A7E500EAD0CE = {
 						CreatedOnToolsVersion = 7.2;
@@ -1146,6 +1155,11 @@
 					3490762E1C24A7E500EAD0CE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					349076501C24AA4700EAD0CE = {
 						CreatedOnToolsVersion = 7.2;
@@ -1163,7 +1177,7 @@
 						DevelopmentTeam = 39L46PD99U;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -1175,7 +1189,7 @@
 						DevelopmentTeam = 39L46PD99U;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1351,7 +1365,7 @@
 				343D41AC1C52B0AF002D74E3 /* WidgetUpdateManager.swift in Sources */,
 				349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */,
 				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
-				349076391C24A7E500EAD0CE /* GlanceController.swift in Sources */,
+				34444D1D1C5304EC00FCDA6A /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1712,6 +1726,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsToday/HackWindsToday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1723,6 +1738,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsToday/HackWinds-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1733,6 +1749,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HackWindsToday/HackWindsToday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1745,6 +1762,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsToday/HackWinds-Bridging-Header.h";
 			};
@@ -1810,7 +1828,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "HackWindsWatchApp Extension/HackWindsWatchApp Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1820,6 +1840,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsWatchApp Extension/HackWindsWatch-Bridging-Header.h";
@@ -1833,7 +1854,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "HackWindsWatchApp Extension/HackWindsWatchApp Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1844,6 +1867,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsWatchApp Extension/HackWindsWatch-Bridging-Header.h";

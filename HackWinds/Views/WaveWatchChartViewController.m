@@ -64,7 +64,7 @@ static const int WW_MIN_HOUR = 0;
     self.currentDisplayedHourEdit.inputAccessoryView = keyboardDoneButtonView;
     
     // Load the settings
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     self.animationSpeedSlider.value = [[defaults objectForKey:@"ChartAnimationSpeed"] doubleValue];
     self.manualControlSwitch.on = [[defaults objectForKey:@"ManualChartControl"] boolValue];
@@ -204,7 +204,7 @@ static const int WW_MIN_HOUR = 0;
     }
     
     // Save the state to the settings
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"ManualChartControl"];
     [defaults synchronize];
     
@@ -260,7 +260,7 @@ static const int WW_MIN_HOUR = 0;
 
 - (IBAction)animationSpeedSliderValueChanged:(id)sender {
     // Save the new value
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     [defaults setObject:[NSNumber numberWithFloat:self.animationSpeedSlider.value] forKey:@"ChartAnimationSpeed"];
     [defaults synchronize];

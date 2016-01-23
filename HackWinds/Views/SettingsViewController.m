@@ -41,7 +41,7 @@ static const int BUOY_TAG = 2;
 
 - (void) loadSettings {
     // Get the settings object
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     
     // Get the locations and set the cell to reflect it
@@ -103,7 +103,7 @@ static const int BUOY_TAG = 2;
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     
     if (actionSheet.tag == FORECAST_TAG) {
         if (buttonIndex != [actionSheet numberOfButtons] - 1) {

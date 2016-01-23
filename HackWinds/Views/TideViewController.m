@@ -40,7 +40,7 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     self.buoyModel = [BuoyModel sharedModel];
     
     // Load the buoy data for the defualt location so we can get the water temp
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
     [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {

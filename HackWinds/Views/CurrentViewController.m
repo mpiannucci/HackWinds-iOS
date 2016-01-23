@@ -231,7 +231,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 
 - (void) getForecastSettings {
     // Get the forecast location from the settings
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     
     // Grab the last set or default location
@@ -248,7 +248,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 #pragma mark - ActionSheet
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     
     if (buttonIndex != [actionSheet numberOfButtons] - 1) {
         // If the user selects a location, set the settings key to the new location

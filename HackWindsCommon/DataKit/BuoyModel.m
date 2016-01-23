@@ -88,7 +88,7 @@ static const int ACK_BUOY_NUMBER = 44008;
     timeOffset = -5 + daylightoff;
     
     // Grab the latest user defaults
-    self.defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    self.defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [self.defaults synchronize];
     
     // Register to listen for the location being changed

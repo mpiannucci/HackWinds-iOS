@@ -72,7 +72,7 @@ static const int SECOND_BEACH_ID = 846;
     // Load the containers wiht the data
     [self initForecastContainers];
     
-    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [self.userDefaults synchronize];
     
     // Get the current location and setup the settings listener

@@ -34,7 +34,7 @@
     // Do any additional setup after loading the view.
     
     // Get the buoy location
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.nucc.HackWinds"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     buoyLocation = [defaults objectForKey:@"BuoyLocation"];
     

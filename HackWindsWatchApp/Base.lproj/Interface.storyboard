@@ -10,7 +10,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HackWindsWatchApp" customModuleProvider="target">
                     <items>
-                        <label width="136" height="19.5" alignment="left" text="Buoy" textAlignment="left" id="Tjq-fK-V83">
+                        <label width="136" height="19.5" alignment="left" text="Latest Buoy Data" textAlignment="left" id="Tjq-fK-V83">
                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
@@ -21,13 +21,16 @@
                         <label width="136" alignment="left" text="Montauk" textAlignment="left" id="sgS-p4-zlk">
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
-                        <label width="136" height="19.5" alignment="left" text="Tide" textAlignment="left" id="sza-x7-3Xy">
+                        <label width="136" height="19.5" alignment="left" text="Upcoming Tide" textAlignment="left" id="sza-x7-3Xy">
                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
                         <label width="136" height="24.5" alignment="left" text="---- ----: --:-- --" textAlignment="left" minimumScaleFactor="0.10000000000000001" id="0B2-Tk-hrI">
                             <color key="textColor" red="0.062112289213793109" green="0.99174069165862055" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label width="127.5" alignment="left" verticalAlignment="bottom" text="Last updated at --:--" textAlignment="left" minimumScaleFactor="0.5" id="89n-fR-CDZ">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                         </label>
                     </items>
                     <connections>
@@ -42,10 +45,23 @@
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="HackWindsWatchApp" customModuleProvider="target">
+                <glanceController spacing="0.0" topTemplateType="body1Medium" bottomTemplateType="body1Body1LargeLargeFooter" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="HackWindsWatchApp" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="gv7-I2-MZq"/>
-                        <group alignment="left" id="eew-Gs-W6Y"/>
+                        <label alignment="left" text="Latest Buoy Data" minimumScaleFactor="0.5" id="VhU-9a-Ql0">
+                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                        </label>
+                        <label alignment="left" text="-- ft @ -- s ---" minimumScaleFactor="0.5" id="QvX-gd-FFc">
+                            <color key="textColor" red="0.062112289209999998" green="0.99174069170000001" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        </label>
+                        <label alignment="left" id="In8-dm-WDP"/>
+                        <label alignment="left" text="Upcoming Tide" id="i7I-xy-145">
+                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                        </label>
+                        <label alignment="left" text="---- ----: --:-- --" minimumScaleFactor="0.20000000000000001" id="1Y6-5k-uFv">
+                            <color key="textColor" red="0.062112289209999998" green="0.99174069170000001" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        </label>
+                        <label alignment="left" id="M3J-m5-wPH"/>
+                        <label alignment="left" text="Last Updated at --:--" id="iGJ-2f-TLv"/>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>

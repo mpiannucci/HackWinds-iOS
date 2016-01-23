@@ -74,7 +74,7 @@ class WidgetUpdateManager {
     
     func doesBuoyNeedUpdate() -> Bool {
         // Get the latest buoy location from the shared settings. Defaults to Montauk
-        let groupDefaults = NSUserDefaults.init(suiteName: "group.com.nucc.HackWinds")
+        let groupDefaults = NSUserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
         if let newLocation = groupDefaults?.stringForKey("DefaultBuoyLocation") {
             if let buoyLocation = self.buoyLocation {
                 if buoyLocation != newLocation {
@@ -163,51 +163,56 @@ class WidgetUpdateManager {
     }
     
     func cacheData() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.buoyLocation!), forKey: "buoyLocation")
-        if self.latestBuoy != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoy!), forKey: "latestBuoy")
-        }
-        if self.nextTide != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTide!), forKey: "nextTide")
-        }
-        if self.latestBuoyRefreshTime != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoyRefreshTime!), forKey: "latestBuoyRefreshTime")
-        }
-        if self.latestTideRefreshTime != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestTideRefreshTime!), forKey: "latestTideRefreshTime")
-        }
-        if self.nextBuoyUpdateTime != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextBuoyUpdateTime!), forKey: "nextBuoyUpdateTime")
-        }
-        if self.nextTideUpdateTime != nil {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTideUpdateTime!), forKey: "nextTideUpdateTime")
+        let groupDefaults = NSUserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
+        
+        if let defaults = groupDefaults {
+            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.buoyLocation!), forKey: "buoyLocation")
+            if self.latestBuoy != nil {
+                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoy!), forKey: "latestBuoy")
+            }
+            if self.nextTide != nil {
+                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTide!), forKey: "nextTide")
+            }
+            if self.latestBuoyRefreshTime != nil {
+                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoyRefreshTime!), forKey: "latestBuoyRefreshTime")
+            }
+            if self.latestTideRefreshTime != nil {
+                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestTideRefreshTime!), forKey: "latestTideRefreshTime")
+            }
+            if self.nextBuoyUpdateTime != nil {
+                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextBuoyUpdateTime!), forKey: "nextBuoyUpdateTime")
+            }
+            if self.nextTideUpdateTime != nil {
+                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTideUpdateTime!), forKey: "nextTideUpdateTime")
+            }
         }
     }
     
     func restoreData() {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let groupDefaults = NSUserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
         
-        if let rawBuoyLocation = defaults.objectForKey("buoyLocation") {
-            self.buoyLocation = NSKeyedUnarchiver.unarchiveObjectWithData(rawBuoyLocation as! NSData) as? NSString
-        }
-        if let rawLatestBuoy = defaults.objectForKey("latestBuoy") {
-            self.latestBuoy = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestBuoy as! NSData) as? Buoy
-        }
-        if let rawNextTide = defaults.objectForKey("nextTide") {
-            self.nextTide = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextTide as! NSData) as? Tide
-        }
-        if let rawLatestBuoyRefreshTime = defaults.objectForKey("latestBuoyRefreshTime") {
-            self.latestBuoyRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestBuoyRefreshTime as! NSData) as? NSDate
-        }
-        if let rawLatestTideRefreshTime = defaults.objectForKey("latestTideRefreshTime") {
-            self.latestTideRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestTideRefreshTime as! NSData) as? NSDate
-        }
-        if let rawNextBuoyUpdateTime = defaults.objectForKey("nextBuoyUpdateTime") {
-            self.nextBuoyUpdateTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextBuoyUpdateTime as! NSData) as? NSDate
-        }
-        if let rawNextTideUpdateTime = defaults.objectForKey("nextTideUpdateTime") {
-            self.nextTideUpdateTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextTideUpdateTime as! NSData) as? NSDate
+        if let defaults = groupDefaults {
+            if let rawBuoyLocation = defaults.objectForKey("buoyLocation") {
+                self.buoyLocation = NSKeyedUnarchiver.unarchiveObjectWithData(rawBuoyLocation as! NSData) as? NSString
+            }
+            if let rawLatestBuoy = defaults.objectForKey("latestBuoy") {
+                self.latestBuoy = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestBuoy as! NSData) as? Buoy
+            }
+            if let rawNextTide = defaults.objectForKey("nextTide") {
+                self.nextTide = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextTide as! NSData) as? Tide
+            }
+            if let rawLatestBuoyRefreshTime = defaults.objectForKey("latestBuoyRefreshTime") {
+                self.latestBuoyRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestBuoyRefreshTime as! NSData) as? NSDate
+            }
+            if let rawLatestTideRefreshTime = defaults.objectForKey("latestTideRefreshTime") {
+                self.latestTideRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestTideRefreshTime as! NSData) as? NSDate
+            }
+            if let rawNextBuoyUpdateTime = defaults.objectForKey("nextBuoyUpdateTime") {
+                self.nextBuoyUpdateTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextBuoyUpdateTime as! NSData) as? NSDate
+            }
+            if let rawNextTideUpdateTime = defaults.objectForKey("nextTideUpdateTime") {
+                self.nextTideUpdateTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextTideUpdateTime as! NSData) as? NSDate
+            }
         }
     }
     
