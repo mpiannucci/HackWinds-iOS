@@ -35,6 +35,7 @@
                     </items>
                     <connections>
                         <outlet property="buoyLocationLabel" destination="sgS-p4-zlk" id="GXj-aX-5D5"/>
+                        <outlet property="lastUpdateTimeLabel" destination="89n-fR-CDZ" id="i55-wu-pAC"/>
                         <outlet property="latestBuoyReportLabel" destination="6II-fS-30b" id="TBI-jy-sYl"/>
                         <outlet property="nextTideLabel" destination="0B2-Tk-hrI" id="ELa-ZB-gDI"/>
                     </connections>
@@ -64,6 +65,11 @@
                         <label alignment="left" text="Last Updated at --:--" id="iGJ-2f-TLv"/>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="lastUpdateTimeLabel" destination="iGJ-2f-TLv" id="4B8-fj-7EY"/>
+                        <outlet property="latestBuoyStatusLabel" destination="QvX-gd-FFc" id="OYD-fK-XgQ"/>
+                        <outlet property="nextTideStatusLabel" destination="1Y6-5k-uFv" id="xr6-FR-wmJ"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="164" y="514"/>

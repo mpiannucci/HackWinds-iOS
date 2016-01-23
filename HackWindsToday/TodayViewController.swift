@@ -24,6 +24,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Make sure the UI is up to date on loading
         updateBuoyUI()
         updateTideUI()
+        updateTimeUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,12 +50,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         updateManager.fetchBuoyUpdate { (Void) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 self.updateBuoyUI()
+                self.updateTimeUI()
             })
         }
         
         updateManager.fetchTideUpdate { (Void) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 self.updateTideUI()
+                self.updateTimeUI()
             })
         }
     }
@@ -64,6 +67,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             self.latestBuoyLabel.text = buoy.getWaveSummaryStatusText()
         }
         
+    }
+    
+    func updateTideUI() {
+        if let tide = updateManager.nextTide {
+            self.nextTideLabel.text = tide.getTideEventSummary()
+        }
+    }
+    
+    func updateTimeUI() {
         if let location = updateManager.buoyLocation as? String {
             if let updateTime = updateManager.latestRefreshTime() {
                 let dateFormatter = NSDateFormatter()
@@ -71,13 +83,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 
                 self.lastUpdatedButton.setTitle("\(location): Last updated at \(dateFormatter.stringFromDate(updateTime))", forState: UIControlState.Normal)
             }
-        }
-        
-    }
-    
-    func updateTideUI() {
-        if let tide = updateManager.nextTide {
-            self.nextTideLabel.text = tide.getTideEventSummary()
         }
     }
     

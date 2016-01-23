@@ -16,7 +16,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var latestBuoyReportLabel: WKInterfaceLabel!
     @IBOutlet var buoyLocationLabel: WKInterfaceLabel!
     @IBOutlet var nextTideLabel: WKInterfaceLabel!
-    @IBOutlet var latestTideStatusLabel: WKInterfaceLabel!
+    @IBOutlet var lastUpdateTimeLabel: WKInterfaceLabel!
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
     
@@ -26,17 +26,20 @@ class InterfaceController: WKInterfaceController {
         // Update the interface right away
         updateBuoyUI()
         updateTideUI()
+        updateTimeUI()
         
         // Fetch new data and update if successful
         updateManager.fetchBuoyUpdate { (Void) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 self.updateBuoyUI()
+                self.updateTimeUI()
             })
         }
         
         updateManager.fetchTideUpdate { (Void) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 self.updateTideUI()
+                self.updateTimeUI()
             })
         }
     }
@@ -55,11 +58,24 @@ class InterfaceController: WKInterfaceController {
         if let buoy = updateManager.latestBuoy {
             self.latestBuoyReportLabel.setText(buoy.getWaveSummaryStatusText())
         }
+        
+        if let location = updateManager.buoyLocation {
+            self.buoyLocationLabel.setText(location as String)
+        }
     }
     
     func updateTideUI() {
         if let tide = updateManager.nextTide {
             self.nextTideLabel.setText(tide.getTideEventSummary())
+        }
+    
+    }
+    
+    func updateTimeUI() {
+        if let lastUpdateTime = updateManager.latestRefreshTime() {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            self.lastUpdateTimeLabel.setText("Last updated at \(dateFormatter.stringFromDate(lastUpdateTime))")
         }
     }
 
