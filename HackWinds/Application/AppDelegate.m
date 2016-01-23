@@ -29,14 +29,14 @@
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.278 green:0.639 blue:1.0 alpha:1.0]];
     
     // We register ourselves to be notified when the movie player enters or exits full screen
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(willEnterFullScreen:)
-                                                 name:MPMoviePlayerWillEnterFullscreenNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(willExitFullScreen:)
-                                                 name:MPMoviePlayerWillExitFullscreenNotification
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(willEnterFullScreen:)
+//                                                 name:MPMoviePlayerWillEnterFullscreenNotification
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(willExitFullScreen:)
+//                                                 name:MPMoviePlayerWillExitFullscreenNotification
+//                                               object:nil];
     // Check for network connectivity. If theres no network, show a dialog.
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];

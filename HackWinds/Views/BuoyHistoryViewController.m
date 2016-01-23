@@ -126,7 +126,7 @@
         if ([dataMode isEqualToString:SUMMARY_DATA_MODE]) {
             [wvhtLabel setText:thisBuoy.significantWaveHeight];
             [dpdLabel setText:thisBuoy.dominantPeriod];
-            [directionLabel setText:[Buoy getCompassDirection:thisBuoy.meanDirection]];
+            [directionLabel setText:thisBuoy.meanDirection];
         } else if ([dataMode isEqualToString:SWELL_DATA_MODE]) {
             [wvhtLabel setText:thisBuoy.swellWaveHeight];
             [dpdLabel setText:thisBuoy.swellPeriod];
