@@ -1,7 +1,7 @@
 HackWinds-iOS
 =====================
 
-![icon](https://raw.githubusercontent.com/mpiannucci/HackWinds-iOS/master/HackWinds/Resources/Images.xcassets/AppIcon.appiconset/Icon-60@3x.png)
+![icon](https://raw.githubusercontent.com/mpiannucci/HackWinds-iOS/master/HackWindsWatchApp/Assets.xcassets/CircleWatchLogo.imageset/88x88.png)
 
 [Download from the App Store now!](https://itunes.apple.com/us/app/hackwinds/id945847570?ls=1&mt=8)
 
@@ -37,9 +37,9 @@ Current status by platform
 
 `iOS`: In production, live on the App Store
 
-`WatchOS`: In alpha, not running correctly and needs a bit of work.
+`WatchOS`: In beta, testing with test flight. 
 
-`OSX`: In beta, runs well and works, but needs tweaks to data and assets (like icons)
+`OSX`: In beta, just needs icons and stuff.
 
 Disclaimer 
 ----------------
