@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "web_hi_res_512.png"
+      "filename" : "TransparentIcon.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "web_hi_res_512-1.png"
+      "filename" : "TransparentIcon-1.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
