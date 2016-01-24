@@ -37,9 +37,9 @@ Current status by platform
 
 `iOS`: In production, live on the App Store
 
-`WatchOS`: In alpha, not running correctly and needs a bit of work.
+`WatchOS`: In beta, testing with test flight. 
 
-`OSX`: In beta, runs well and works, but needs tweaks to data and assets (like icons)
+`OSX`: In beta, just needs icons and stuff.
 
 Disclaimer 
 ----------------
