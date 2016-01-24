@@ -1,7 +1,7 @@
 HackWinds-iOS
 =====================
 
-![icon](https://raw.githubusercontent.com/mpiannucci/HackWinds-iOS/master/HackWinds/Resources/Images.xcassets/AppIcon.appiconset/Icon-60@3x.png)
+![icon](https://raw.githubusercontent.com/mpiannucci/HackWinds-iOS/master/HackWindsWatchApp/Assets.xcassets/CircleWatchLogo.imageset/88x88.png)
 
 [Download from the App Store now!](https://itunes.apple.com/us/app/hackwinds/id945847570?ls=1&mt=8)
 
