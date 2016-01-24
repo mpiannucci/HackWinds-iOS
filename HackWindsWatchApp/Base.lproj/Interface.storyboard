@@ -30,7 +30,7 @@
                         <label alignment="left" text="---- ----: --:-- --" minimumScaleFactor="0.10000000000000001" id="eQx-ni-5LX">
                             <color key="textColor" red="0.39233858230000002" green="0.72109957849999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         </label>
-                        <label alignment="left" text="Last updated at --:--" minimumScaleFactor="0.10000000000000001" id="sMh-2p-aE5"/>
+                        <label alignment="left" verticalAlignment="bottom" text="Last updated at --:--" minimumScaleFactor="0.10000000000000001" id="sMh-2p-aE5"/>
                     </items>
                     <connections>
                         <outlet property="lastUpdatedTimeLabel" destination="sMh-2p-aE5" id="lLp-Sb-HpH"/>

@@ -26,6 +26,11 @@ class GlanceController: WKInterfaceController {
         updateBuoyUI()
         updateTideUI()
         updateTimeUI()
+    }
+
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
         
         // Fetch new data and update if successful
         updateManager.fetchBuoyUpdate { (Void) -> Void in
@@ -41,11 +46,6 @@ class GlanceController: WKInterfaceController {
                 self.updateTimeUI()
             })
         }
-    }
-
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
     }
 
     override func didDeactivate() {
