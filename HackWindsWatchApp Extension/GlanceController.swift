@@ -12,9 +12,10 @@ import Foundation
 
 class GlanceController: WKInterfaceController {
 
-    @IBOutlet var latestBuoyStatusLabel: WKInterfaceLabel!
+    // Interface Connections
+    @IBOutlet var latestBuoyReportLabel: WKInterfaceLabel!
     @IBOutlet var nextTideStatusLabel: WKInterfaceLabel!
-    @IBOutlet var lastUpdateTimeLabel: WKInterfaceLabel!
+    @IBOutlet var lastUpdatedTimeLabel: WKInterfaceLabel!
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
     
@@ -54,13 +55,7 @@ class GlanceController: WKInterfaceController {
     
     func updateBuoyUI() {
         if let buoy = updateManager.latestBuoy {
-            self.latestBuoyStatusLabel.setText(buoy.getWaveSummaryStatusText())
-        }
-        
-        if let lastUpdateTime = updateManager.latestRefreshTime() {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            self.lastUpdateTimeLabel.setText(dateFormatter.stringFromDate(lastUpdateTime))
+            self.latestBuoyReportLabel.setText(buoy.getWaveSummaryStatusText())
         }
     }
     
@@ -68,19 +63,13 @@ class GlanceController: WKInterfaceController {
         if let tide = updateManager.nextTide {
             self.nextTideStatusLabel.setText(tide.getTideEventSummary())
         }
-        
-        if let lastUpdateTime = updateManager.latestRefreshTime() {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            self.lastUpdateTimeLabel.setText(dateFormatter.stringFromDate(lastUpdateTime))
-        }
     }
 
     func updateTimeUI() {
         if let lastUpdateTime = updateManager.latestRefreshTime() {
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            self.lastUpdateTimeLabel.setText("Last updated at \(dateFormatter.stringFromDate(lastUpdateTime))")
+            self.lastUpdatedTimeLabel.setText("Last updated at \(dateFormatter.stringFromDate(lastUpdateTime))")
         }
     }
 }
