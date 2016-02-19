@@ -25,6 +25,8 @@ const int FORECAST_DATA_POINT_COUNT = 61;
 
 @implementation ForecastModel
 {
+    int dayIndices[8];
+    int dayCount;
     BOOL is24HourClock;
 }
 
@@ -49,15 +51,37 @@ const int FORECAST_DATA_POINT_COUNT = 61;
     // Set up the data container with emoty values
     self.forecasts = [[NSMutableArray alloc] initWithCapacity:FORECAST_DATA_POINT_COUNT];
     
+    // Initialize the day indices
+    for (int i = 0; i < 7; i++) {
+        dayIndices[i] = -1;
+    }
+    
     return self;
 }
 
-- (NSArray *) getConditionsForIndex:(int)index {
-    if (self.forecasts.count == FORECAST_DATA_POINT_COUNT) {
-        NSArray *conditions = [self.forecasts subarrayWithRange:NSMakeRange(index * 6, 6)];
-        return conditions;
+- (int) getDayCount {
+    return dayCount;
+}
+
+- (NSArray *) getForecastsForDay:(int)day {
+    if (self.forecasts.count != FORECAST_DATA_POINT_COUNT) {
+        return nil;
     }
-    return nil;
+    
+    int startIndex = 0;
+    int endIndex = 0;
+    if (day > 0) {
+        startIndex = dayIndices[day - 1];
+    }
+    
+    if (dayIndices[day] < 0) {
+        endIndex = (int)self.forecasts.count;
+    } else {
+        endIndex = dayIndices[day];
+    }
+        
+    NSArray *dayForecasts = [self.forecasts subarrayWithRange:NSMakeRange(startIndex, endIndex - startIndex)];
+    return dayForecasts;
 }
 
 - (void) fetchForecastData {
@@ -142,6 +166,7 @@ const int FORECAST_DATA_POINT_COUNT = 61;
     
     // Loop through the objects, create new condition objects, and append to the array
     NSArray *rawForecastData = [rawData objectForKey:@"ForecastData"];
+    dayCount = 0;
     for (int i = 0; i < FORECAST_DATA_POINT_COUNT; i++) {
         Forecast *newForecast = [[Forecast alloc] init];
         
@@ -175,6 +200,12 @@ const int FORECAST_DATA_POINT_COUNT = 61;
         tertiarySwell.direction = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"Direction"];
         tertiarySwell.compassDirection = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"CompassDirection"];
         newForecast.tertiarySwellComponent = tertiarySwell;
+        
+        if ([newForecast.timeString isEqualToString:@"01 AM"] ||
+            [newForecast.timeString isEqualToString:@"02 AM"]) {
+            dayIndices[dayCount] = i;
+            dayCount++;
+        }
         
         [self.forecasts addObject:newForecast];
     }

@@ -25,7 +25,8 @@ extern const int FORECAST_DATA_POINT_COUNT;
 @property (strong, nonatomic) NSMutableArray *forecasts;
 
 - (void) fetchForecastData;
-- (NSArray *) getConditionsForIndex:(int)index;
+- (int) getDayCount;
+- (NSArray *) getForecastsForDay:(int)day;
 + (instancetype) sharedModel;
 
 @end

@@ -104,7 +104,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (void) updateUI {
-    currentConditions = [self.forecastModel getConditionsForIndex:0];
+    currentConditions = [self.forecastModel getForecastsForDay:0];
     
     if (currentConditions == nil) {
         lastFetchFailure = YES;

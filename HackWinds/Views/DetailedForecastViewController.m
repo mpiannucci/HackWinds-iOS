@@ -86,7 +86,7 @@ static const int PERIOD_CHART = 2;
 - (void)getModelData {
     // Load the MSW Data
     dispatch_async(forecastFetchBgQueue, ^{
-        currentConditions = [self.forecastModel getConditionsForIndex:(int)self.dayIndex];
+        //currentConditions = [self.forecastModel getConditionsForIndex:(int)self.dayIndex];
         [self.mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
         [self sendChartImageAnimationWithType:SWELL_CHART forIndex:0];
