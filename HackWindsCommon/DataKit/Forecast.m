@@ -13,22 +13,32 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
-        self.timestamp = [aDecoder decodeObjectForKey:@"date"];
-        self.minBreakHeight = [aDecoder decodeObjectForKey:@"minBreakHeight"];
-        self.maxBreakHeight = [aDecoder decodeObjectForKey:@"maxBreakHeight"];
+        self.dateString = [aDecoder decodeObjectForKey:@"dateString"];
+        self.timeString = [aDecoder decodeObjectForKey:@"timeString"];
+        self.minimumBreakingHeight = [aDecoder decodeObjectForKey:@"minimumBreakingHeight"];
+        self.maximumBreakingHeight = [aDecoder decodeObjectForKey:@"maximumBreakingHeight"];
         self.windSpeed = [aDecoder decodeObjectForKey:@"windSpeed"];
         self.windDirection = [aDecoder decodeObjectForKey:@"windDir"];
+        self.windCompassDirection = [aDecoder decodeObjectForKey:@"windCompassDirection"];
+        self.primarySwellComponent = [aDecoder decodeObjectForKey:@"primarySwellComponent"];
+        self.secondarySwellComponent = [aDecoder decodeObjectForKey:@"secondarySwellComponent"];
+        self.tertiarySwellComponent = [aDecoder decodeObjectForKey:@"tertiarySwellComponent"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.timestamp forKey:@"date"];
-    [aCoder encodeObject:self.minBreakHeight forKey:@"minBreakHeight"];
-    [aCoder encodeObject:self.maxBreakHeight forKey:@"maxBreakHeight"];
+    [aCoder encodeObject:self.dateString forKey:@"dateString"];
+    [aCoder encodeObject:self.timeString forKey:@"timeString"];
+    [aCoder encodeObject:self.minimumBreakingHeight forKey:@"minimumBreakingHeight"];
+    [aCoder encodeObject:self.maximumBreakingHeight forKey:@"maximumBreakingHeight"];
     [aCoder encodeObject:self.windSpeed forKey:@"windSpeed"];
-    [aCoder encodeObject:self.windDirection forKey:@"windDir"];
+    [aCoder encodeObject:self.windDirection forKey:@"windDirection"];
+    [aCoder encodeObject:self.windCompassDirection forKey:@"windCompassDirection"];
+    [aCoder encodeObject:self.primarySwellComponent forKey:@"primarySwellComponent"];
+    [aCoder encodeObject:self.secondarySwellComponent forKey:@"secondarySwellComponent"];
+    [aCoder encodeObject:self.tertiarySwellComponent forKey:@"tertiarySwellComponent"];
 }
 
 @end

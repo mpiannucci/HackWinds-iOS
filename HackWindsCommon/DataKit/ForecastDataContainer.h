@@ -11,13 +11,10 @@
 #import <Foundation/Foundation.h>
 
 // Constants
-extern const int CONDITION_DATA_POINT_COUNT;
 extern const int FORECAST_DATA_POINT_COUNT;
 
 @interface ForecastDataContainer : NSObject
 
-@property (strong, nonatomic) NSNumber *forecastID;
-@property (strong, nonatomic) NSMutableArray *conditions;
-@property (strong, nonatomic) NSMutableArray *forecasts;
+
 
 @end

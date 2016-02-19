@@ -23,6 +23,14 @@
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
 		34444D1D1C5304EC00FCDA6A /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34444D1C1C5304EC00FCDA6A /* GlanceController.swift */; };
+		34469F5E1C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; };
+		34469F5F1C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; };
+		34469F601C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; };
+		34469F611C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
+		34469F621C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
+		34469F631C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
+		34469F641C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
+		34469F651C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
 		34472BE11C5BFB5100984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		34472BE21C5BFB5300984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		34472BE31C5BFB5400984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
@@ -103,12 +111,6 @@
 		34EA413E1C3E8D15008FF504 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410F1C3E8D15008FF504 /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA413F1C3E8D15008FF504 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410F1C3E8D15008FF504 /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41401C3E8D15008FF504 /* Colors.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410F1C3E8D15008FF504 /* Colors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41411C3E8D15008FF504 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41101C3E8D15008FF504 /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41421C3E8D15008FF504 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41101C3E8D15008FF504 /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41431C3E8D15008FF504 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41101C3E8D15008FF504 /* Condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41441C3E8D15008FF504 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41111C3E8D15008FF504 /* Condition.m */; };
-		34EA41451C3E8D15008FF504 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41111C3E8D15008FF504 /* Condition.m */; };
-		34EA41461C3E8D15008FF504 /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41111C3E8D15008FF504 /* Condition.m */; };
 		34EA41471C3E8D15008FF504 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41121C3E8D15008FF504 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41481C3E8D15008FF504 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41121C3E8D15008FF504 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41491C3E8D15008FF504 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41121C3E8D15008FF504 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -329,6 +331,8 @@
 		34444D1C1C5304EC00FCDA6A /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		34444D1E1C5305B300FCDA6A /* HackWindsWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HackWindsWatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		34444D1F1C5305C800FCDA6A /* HackWindsToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsToday.entitlements; sourceTree = "<group>"; };
+		34469F5C1C779799000499CD /* Swell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Swell.h; path = HackWindsCommon/DataKit/Swell.h; sourceTree = "<group>"; };
+		34469F5D1C779799000499CD /* Swell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swell.m; path = HackWindsCommon/DataKit/Swell.m; sourceTree = "<group>"; };
 		34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WidgetUpdateManager.swift; path = HackWindsCommon/Extension/WidgetUpdateManager.swift; sourceTree = "<group>"; };
 		3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -405,8 +409,6 @@
 		34EA410D1C3E8D15008FF504 /* CameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraModel.h; path = HackWindsCommon/DataKit/CameraModel.h; sourceTree = "<group>"; };
 		34EA410E1C3E8D15008FF504 /* CameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraModel.m; path = HackWindsCommon/DataKit/CameraModel.m; sourceTree = "<group>"; };
 		34EA410F1C3E8D15008FF504 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Colors.h; path = HackWindsCommon/DataKit/Colors.h; sourceTree = "<group>"; };
-		34EA41101C3E8D15008FF504 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Condition.h; path = HackWindsCommon/DataKit/Condition.h; sourceTree = "<group>"; };
-		34EA41111C3E8D15008FF504 /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Condition.m; path = HackWindsCommon/DataKit/Condition.m; sourceTree = "<group>"; };
 		34EA41121C3E8D15008FF504 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = HackWindsCommon/DataKit/Constants.h; sourceTree = "<group>"; };
 		34EA41131C3E8D15008FF504 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Forecast.h; path = HackWindsCommon/DataKit/Forecast.h; sourceTree = "<group>"; };
 		34EA41141C3E8D15008FF504 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Forecast.m; path = HackWindsCommon/DataKit/Forecast.m; sourceTree = "<group>"; };
@@ -812,8 +814,6 @@
 				34EA410D1C3E8D15008FF504 /* CameraModel.h */,
 				34EA410E1C3E8D15008FF504 /* CameraModel.m */,
 				34EA410F1C3E8D15008FF504 /* Colors.h */,
-				34EA41101C3E8D15008FF504 /* Condition.h */,
-				34EA41111C3E8D15008FF504 /* Condition.m */,
 				34EA41121C3E8D15008FF504 /* Constants.h */,
 				34EA41131C3E8D15008FF504 /* Forecast.h */,
 				34EA41141C3E8D15008FF504 /* Forecast.m */,
@@ -827,6 +827,8 @@
 				34EA411D1C3E8D15008FF504 /* TideModel.m */,
 				34EA411E1C3E8D15008FF504 /* XMLReader.h */,
 				34EA411F1C3E8D15008FF504 /* XMLReader.m */,
+				34469F5C1C779799000499CD /* Swell.h */,
+				34469F5D1C779799000499CD /* Swell.m */,
 			);
 			name = DataKit;
 			sourceTree = "<group>";
@@ -847,7 +849,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34EA41421C3E8D15008FF504 /* Condition.h in Headers */,
 				34EA41511C3E8D15008FF504 /* ForecastDataContainer.h in Headers */,
 				34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */,
 				34EA41601C3E8D15008FF504 /* Tide.h in Headers */,
@@ -860,6 +861,7 @@
 				34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
 				34EA414B1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41571C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34469F5F1C779799000499CD /* Swell.h in Headers */,
 				34EA413F1C3E8D15008FF504 /* Colors.h in Headers */,
 				34EA41211C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
@@ -869,7 +871,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34EA41431C3E8D15008FF504 /* Condition.h in Headers */,
 				34EA41521C3E8D15008FF504 /* ForecastDataContainer.h in Headers */,
 				34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */,
 				34EA41611C3E8D15008FF504 /* Tide.h in Headers */,
@@ -882,6 +883,7 @@
 				34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
 				34EA414C1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41581C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34469F601C779799000499CD /* Swell.h in Headers */,
 				34EA41401C3E8D15008FF504 /* Colors.h in Headers */,
 				34EA41221C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
@@ -891,7 +893,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34EA41411C3E8D15008FF504 /* Condition.h in Headers */,
 				34EA41501C3E8D15008FF504 /* ForecastDataContainer.h in Headers */,
 				34C07E321C274F42002D3DB8 /* HackWindsDataKit.h in Headers */,
 				34EA415F1C3E8D15008FF504 /* Tide.h in Headers */,
@@ -904,6 +905,7 @@
 				34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
 				34EA414A1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41561C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34469F5E1C779799000499CD /* Swell.h in Headers */,
 				34EA413E1C3E8D15008FF504 /* Colors.h in Headers */,
 				34EA41201C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
@@ -1382,9 +1384,9 @@
 				34EA41631C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412A1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
 				34EA41241C3E8D15008FF504 /* Buoy.m in Sources */,
+				34469F631C779799000499CD /* Swell.m in Sources */,
 				34EA41541C3E8D15008FF504 /* ForecastDataContainer.m in Sources */,
 				34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */,
-				34EA41451C3E8D15008FF504 /* Condition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1393,6 +1395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C07E2C1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m in Sources */,
+				34469F641C779799000499CD /* Swell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1409,9 +1412,9 @@
 				34EA41641C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412B1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
 				34EA41251C3E8D15008FF504 /* Buoy.m in Sources */,
+				34469F651C779799000499CD /* Swell.m in Sources */,
 				34EA41551C3E8D15008FF504 /* ForecastDataContainer.m in Sources */,
 				34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */,
-				34EA41461C3E8D15008FF504 /* Condition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1446,9 +1449,9 @@
 				34EA41621C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA41291C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
 				34EA41231C3E8D15008FF504 /* Buoy.m in Sources */,
+				34469F611C779799000499CD /* Swell.m in Sources */,
 				34EA41531C3E8D15008FF504 /* ForecastDataContainer.m in Sources */,
 				34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */,
-				34EA41441C3E8D15008FF504 /* Condition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1457,6 +1460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */,
+				34469F621C779799000499CD /* Swell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

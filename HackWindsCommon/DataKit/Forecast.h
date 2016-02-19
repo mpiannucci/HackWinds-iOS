@@ -7,14 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Swell.h"
 
 @interface Forecast : NSObject
 
 // Define a simplified model for the forecast data
-@property (strong, nonatomic) NSString *timestamp;
-@property (strong, nonatomic) NSString *minBreakHeight;
-@property (strong, nonatomic) NSString *maxBreakHeight;
-@property (strong, nonatomic) NSString *windSpeed;
-@property (strong, nonatomic) NSString *windDirection;
+@property (strong, nonatomic) NSString *dateString;
+@property (strong, nonatomic) NSString *timeString;
+@property (strong, nonatomic) NSNumber *minimumBreakingHeight;
+@property (strong, nonatomic) NSNumber *maximumBreakingHeight;
+@property (strong, nonatomic) NSNumber *windSpeed;
+@property (strong, nonatomic) NSNumber *windDirection;
+@property (strong, nonatomic) NSString *windCompassDirection;
+@property (strong, nonatomic) Swell *primarySwellComponent;
+@property (strong, nonatomic) Swell *secondarySwellComponent;
+@property (strong, nonatomic) Swell *tertiarySwellComponent;
 
 @end
