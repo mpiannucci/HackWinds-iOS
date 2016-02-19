@@ -31,6 +31,14 @@
 		34469F631C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
 		34469F641C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
 		34469F651C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
+		34469F681C77C8D0000499CD /* ForecastDailySummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F661C77C8D0000499CD /* ForecastDailySummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34469F691C77C8D0000499CD /* ForecastDailySummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F661C77C8D0000499CD /* ForecastDailySummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34469F6A1C77C8D0000499CD /* ForecastDailySummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F661C77C8D0000499CD /* ForecastDailySummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34469F6B1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
+		34469F6C1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
+		34469F6D1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
+		34469F6E1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
+		34469F6F1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
 		34472BE11C5BFB5100984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		34472BE21C5BFB5300984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		34472BE31C5BFB5400984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
@@ -327,6 +335,8 @@
 		34444D1F1C5305C800FCDA6A /* HackWindsToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsToday.entitlements; sourceTree = "<group>"; };
 		34469F5C1C779799000499CD /* Swell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Swell.h; path = HackWindsCommon/DataKit/Swell.h; sourceTree = "<group>"; };
 		34469F5D1C779799000499CD /* Swell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swell.m; path = HackWindsCommon/DataKit/Swell.m; sourceTree = "<group>"; };
+		34469F661C77C8D0000499CD /* ForecastDailySummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastDailySummary.h; path = HackWindsCommon/DataKit/ForecastDailySummary.h; sourceTree = "<group>"; };
+		34469F671C77C8D0000499CD /* ForecastDailySummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastDailySummary.m; path = HackWindsCommon/DataKit/ForecastDailySummary.m; sourceTree = "<group>"; };
 		34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WidgetUpdateManager.swift; path = HackWindsCommon/Extension/WidgetUpdateManager.swift; sourceTree = "<group>"; };
 		3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -809,16 +819,18 @@
 				34EA41121C3E8D15008FF504 /* Constants.h */,
 				34EA41131C3E8D15008FF504 /* Forecast.h */,
 				34EA41141C3E8D15008FF504 /* Forecast.m */,
+				34469F661C77C8D0000499CD /* ForecastDailySummary.h */,
+				34469F671C77C8D0000499CD /* ForecastDailySummary.m */,
 				34EA41171C3E8D15008FF504 /* ForecastModel.h */,
 				34EA41181C3E8D15008FF504 /* ForecastModel.m */,
+				34469F5C1C779799000499CD /* Swell.h */,
+				34469F5D1C779799000499CD /* Swell.m */,
 				34EA411A1C3E8D15008FF504 /* Tide.h */,
 				34EA411B1C3E8D15008FF504 /* Tide.m */,
 				34EA411C1C3E8D15008FF504 /* TideModel.h */,
 				34EA411D1C3E8D15008FF504 /* TideModel.m */,
 				34EA411E1C3E8D15008FF504 /* XMLReader.h */,
 				34EA411F1C3E8D15008FF504 /* XMLReader.m */,
-				34469F5C1C779799000499CD /* Swell.h */,
-				34469F5D1C779799000499CD /* Swell.m */,
 			);
 			name = DataKit;
 			sourceTree = "<group>";
@@ -846,6 +858,7 @@
 				34EA41331C3E8D15008FF504 /* Camera.h in Headers */,
 				34EA41661C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412D1C3E8D15008FF504 /* BuoyModel.h in Headers */,
+				34469F691C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34EA41481C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
 				34EA414B1C3E8D15008FF504 /* Forecast.h in Headers */,
@@ -867,6 +880,7 @@
 				34EA41341C3E8D15008FF504 /* Camera.h in Headers */,
 				34EA41671C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412E1C3E8D15008FF504 /* BuoyModel.h in Headers */,
+				34469F6A1C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34EA41491C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
 				34EA414C1C3E8D15008FF504 /* Forecast.h in Headers */,
@@ -888,6 +902,7 @@
 				34EA41321C3E8D15008FF504 /* Camera.h in Headers */,
 				34EA41651C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412C1C3E8D15008FF504 /* BuoyModel.h in Headers */,
+				34469F681C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34EA41471C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
 				34EA414A1C3E8D15008FF504 /* Forecast.h in Headers */,
@@ -1367,6 +1382,7 @@
 				34EA413C1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41691C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA41301C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34469F6D1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414E1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41631C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412A1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
@@ -1382,6 +1398,7 @@
 			files = (
 				34C07E2C1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m in Sources */,
 				34469F641C779799000499CD /* Swell.m in Sources */,
+				34469F6E1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1394,6 +1411,7 @@
 				34EA413D1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA416A1C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA41311C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34469F6F1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414F1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41641C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412B1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
@@ -1430,6 +1448,7 @@
 				34EA413B1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41681C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA412F1C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34469F6B1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414D1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41621C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA41291C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
@@ -1445,6 +1464,7 @@
 			files = (
 				34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */,
 				34469F621C779799000499CD /* Swell.m in Sources */,
+				34469F6C1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

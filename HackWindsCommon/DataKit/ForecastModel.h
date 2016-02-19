@@ -23,6 +23,7 @@ extern const int FORECAST_DATA_POINT_COUNT;
 @property (strong, nonatomic) NSString *windModelName;
 @property (strong, nonatomic) NSString *windModelRun;
 @property (strong, nonatomic) NSMutableArray *forecasts;
+@property (strong, nonatomic) NSMutableArray *dailyForecasts;
 
 - (void) fetchForecastData;
 - (int) getDayCount;

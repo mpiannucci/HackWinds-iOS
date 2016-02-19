@@ -122,49 +122,27 @@
     }
     
     // Get the forecast object
-    NSArray *dailyForecastData = [self.forecastModel getForecastsForDay:(int)index];
-    int morningMinimumSurfHeight = 0;
-    int morningMaximumSurfHeight = 0;
-    int morningWindSpeed = 0;
-    NSString *morningWindDirection = @"";
-    int afternoonMinimumSurfHeight = 0;
-    int afternoonMaximumSurfHeight = 0;
-    int afternoonWindSpeed = 0;
-    NSString *afternoonWindDirection = @"";
-    
-    if (dailyForecastData.count < 8) {
-        // Handle cases where the full day isnt reported
-    } else {
-        morningMinimumSurfHeight += (int)([[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] minimumBreakingHeight] intValue]) / 3;
-        morningMaximumSurfHeight += (int)([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] maximumBreakingHeight] intValue]) / 3;
-        morningWindSpeed = [[[dailyForecastData objectAtIndex:2] windSpeed] intValue];
-        morningWindDirection = [[dailyForecastData objectAtIndex:2] windCompassDirection];
-        
-        afternoonMinimumSurfHeight += (int)([[[dailyForecastData objectAtIndex:4] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:6] minimumBreakingHeight] intValue]) / 3;
-        afternoonMaximumSurfHeight += (int)([[[dailyForecastData objectAtIndex:4] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:6] maximumBreakingHeight] intValue]) / 3;
-        afternoonWindSpeed = [[[dailyForecastData objectAtIndex:5] windSpeed] intValue];
-        afternoonWindDirection = [[dailyForecastData objectAtIndex:5] windCompassDirection];
-    }
+    ForecastDailySummary *summary = [self.forecastModel.dailyForecasts objectAtIndex:index];
     
     // Construct the strings and display them
     [dayLabel setText:[WEEKDAYS objectAtIndex:(((currentday-1) + index)%7)]];
     
     [morningLabel setText:[NSString stringWithFormat:@"%d - %d feet, Wind %@ %d mph",
-                           morningMinimumSurfHeight, morningMaximumSurfHeight, morningWindDirection, morningWindSpeed]];
+                           summary.morningMinimumBreakingHeight.intValue, summary.morningMaximumBreakingHeight.intValue, summary.morningWindCompassDirection, summary.morningWindSpeed.intValue]];
     
     [afternoonLabel setText:[NSString stringWithFormat:@"%d - %d feet, Wind %@ %d mph",
-                           afternoonMinimumSurfHeight, afternoonMaximumSurfHeight, afternoonWindDirection, afternoonWindSpeed]];
+                           summary.afternoonMinimumBreakingHeight.intValue, summary.afternoonMaximumBreakingHeight.intValue, summary.afternoonWindCompassDirection, summary.afternoonWindSpeed.intValue]];
     
     // Set the color of the morning label based on whether it has size or not
-    if (morningMinimumSurfHeight > 1) {
-        if ([morningWindDirection isEqualToString:@"WSW"] ||
-            [morningWindDirection isEqualToString:@"W"] ||
-            [morningWindDirection isEqualToString:@"WNW"] ||
-            [morningWindDirection isEqualToString:@"NW"] ||
-            [morningWindDirection isEqualToString:@"NNW"] ||
-            [morningWindDirection isEqualToString:@"N"]) {
+    if (summary.morningMinimumBreakingHeight.intValue > 1) {
+        if ([summary.morningWindCompassDirection isEqualToString:@"WSW"] ||
+            [summary.morningWindCompassDirection isEqualToString:@"W"] ||
+            [summary.morningWindCompassDirection isEqualToString:@"WNW"] ||
+            [summary.morningWindCompassDirection isEqualToString:@"NW"] ||
+            [summary.morningWindCompassDirection isEqualToString:@"NNW"] ||
+            [summary.morningWindCompassDirection isEqualToString:@"N"]) {
             morningHeaderLabel.textColor = GREEN_COLOR;
-        } else if (morningWindSpeed < 8) {
+        } else if (summary.morningWindSpeed.intValue < 8) {
             morningHeaderLabel.textColor = GREEN_COLOR;
         } else {
             morningHeaderLabel.textColor = YELLOW_COLOR;
@@ -174,15 +152,15 @@
     }
     
     // Set the color of the afternoon label based on whether it has size or not
-    if (afternoonMinimumSurfHeight > 1) {
-        if ([afternoonWindDirection isEqualToString:@"WSW"] ||
-            [afternoonWindDirection isEqualToString:@"W"] ||
-            [afternoonWindDirection isEqualToString:@"WNW"] ||
-            [afternoonWindDirection isEqualToString:@"NW"] ||
-            [afternoonWindDirection isEqualToString:@"NNW"] ||
-            [afternoonWindDirection isEqualToString:@"N"]) {
+    if (summary.afternoonMinimumBreakingHeight.intValue > 1) {
+        if ([summary.afternoonWindCompassDirection isEqualToString:@"WSW"] ||
+            [summary.afternoonWindCompassDirection isEqualToString:@"W"] ||
+            [summary.afternoonWindCompassDirection isEqualToString:@"WNW"] ||
+            [summary.afternoonWindCompassDirection isEqualToString:@"NW"] ||
+            [summary.afternoonWindCompassDirection isEqualToString:@"NNW"] ||
+            [summary.afternoonWindCompassDirection isEqualToString:@"N"]) {
             afternoonHeaderLabel.textColor = GREEN_COLOR;
-        } else if (afternoonWindSpeed < 8){
+        } else if (summary.afternoonWindSpeed.intValue < 8){
             afternoonHeaderLabel.textColor = GREEN_COLOR;
         } else {
             afternoonHeaderLabel.textColor = YELLOW_COLOR;

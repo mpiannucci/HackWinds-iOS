@@ -7,6 +7,7 @@
 //
 #import "ForecastModel.h"
 #import "Forecast.h"
+#import "ForecastDailySummary.h"
 
 // Notification Constants
 NSString * const FORECAST_DATA_UPDATED_TAG = @"ForecastModelDidUpdateDataNotification";
@@ -18,6 +19,7 @@ const int FORECAST_DATA_POINT_COUNT = 61;
 @interface ForecastModel ()
 
 // Private methods
+- (void) createDailyForecasts;
 - (BOOL) parseForecastsFromData:(NSData*) unserializedData;
 - (BOOL) check24HourClock;
 
@@ -133,6 +135,8 @@ const int FORECAST_DATA_POINT_COUNT = 61;
             
             // Tell any listeners that the data has been loaded.
             if (parsed) {
+                [self createDailyForecasts];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
                     postNotificationName:FORECAST_DATA_UPDATED_TAG
@@ -211,6 +215,39 @@ const int FORECAST_DATA_POINT_COUNT = 61;
     }
     
     return self.forecasts.count == FORECAST_DATA_POINT_COUNT;
+}
+
+- (void) createDailyForecasts {
+    for (int i = 0; i < dayCount; i++) {
+        ForecastDailySummary *summary = [[ForecastDailySummary alloc] init];
+        
+        NSArray* dailyForecastData = [self getForecastsForDay:i];
+    
+        if (dailyForecastData.count < 8) {
+            // Handle cases where the full day isnt reported
+            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.morningWindSpeed = [NSNumber numberWithInt:0];
+            summary.morningWindCompassDirection = @"";
+            
+            summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.afternoonWindSpeed = [NSNumber numberWithInt:0];
+            summary.afternoonWindCompassDirection = @"";
+        } else {
+            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] minimumBreakingHeight] intValue]) / 3];
+            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] maximumBreakingHeight] intValue]) / 3];
+            summary.morningWindSpeed = [[dailyForecastData objectAtIndex:2] windSpeed];
+            summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:2] windCompassDirection];
+        
+            summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:4] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:6] minimumBreakingHeight] intValue]) / 3];
+            summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:4] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:6] maximumBreakingHeight] intValue]) / 3];
+            summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:5] windSpeed];
+            summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:5] windCompassDirection];
+        }
+        
+        [self.dailyForecasts addObject:summary];
+    }
 }
 
 - (BOOL)check24HourClock {
