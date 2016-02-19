@@ -21,7 +21,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
 @property (weak, nonatomic) IBOutlet UIPageControl *camPaginator;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
-@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -41,12 +40,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    // Set up the custom nav bar with the forecast location
-    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
-    [self.navigationItem setTitleView: self.navigationBarTitle];
-    [self.navigationBarTitle setTitleText:@"HackWinds"];
-    [self.navigationBarTitle.detailButton addTarget:self action:@selector(locationButtonClicked:)  forControlEvents:UIControlEventTouchDown];
-    
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
     
@@ -58,9 +51,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     // Initialize the forecast model
     self.forecastModel = [ForecastModel sharedModel];
-    
-    // Setup the location settings title
-    [self getForecastSettings];
     
     // Initialize the failures to false
     lastFetchFailure = NO;
@@ -216,56 +206,10 @@ static const int CAMERA_IMAGE_COUNT = 8;
                                                                    withString:[NSString stringWithFormat:@"%d.jpg", index+1]]];
 }
 
-#pragma mark - Forecast location
-
-- (void) locationButtonClicked:(id)sender {
-    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Forecast Location"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Cancel"
-                                                       destructiveButtonTitle:nil
-                                                            otherButtonTitles:FORECAST_LOCATIONS];
-    // Show the action sheet
-    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
-    [locationActionSheet showInView:self.view];
-}
-
-- (void) getForecastSettings {
-    // Get the forecast location from the settings
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    [defaults synchronize];
-    
-    // Grab the last set or default location
-    NSString *forecastLocation = [defaults objectForKey:@"ForecastLocation"];
-    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", forecastLocation]];
-}
-
 #pragma mark - UIScrollViewDelegate
 
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView {
     [self loadCameraPages];
-}
-
-#pragma mark - ActionSheet
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    
-    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
-        // If the user selects a location, set the settings key to the new location
-        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
-        [defaults synchronize];
-        [self getForecastSettings];
-        
-        // Tell everyone the data has updated
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:FORECAST_LOCATION_CHANGED_TAG
-             object:self];
-        });
-        
-    } else {
-        NSLog(@"Forecast Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
-    }
 }
 
 #pragma mark - TableView

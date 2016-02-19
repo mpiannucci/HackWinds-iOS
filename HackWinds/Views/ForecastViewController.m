@@ -10,12 +10,10 @@
 #import "ForecastViewController.h"
 #import "DetailedForecastViewController.h"
 #import "Reachability.h"
-#import "NavigationBarTitleWithSubtitleView.h"
 
 @interface ForecastViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *forecastTable;
-@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) ForecastModel *forecastModel;
 
@@ -32,12 +30,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view
     
-    // Set up the custom nav bar with the forecast location
-    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
-    [self.navigationItem setTitleView: self.navigationBarTitle];
-    [self.navigationBarTitle setTitleText:@"HackWinds"];
-    [self.navigationBarTitle.detailButton addTarget:self action:@selector(locationButtonClicked:)  forControlEvents:UIControlEventTouchDown];
-    
     // Get the shared forecast model
     self.forecastModel = [ForecastModel sharedModel];
     
@@ -45,9 +37,6 @@
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
     currentday = [comps weekday];
-    
-    // Initialize the forecast location
-    [self getForecastSettings];
     
     // Initialize failure to false
     lastFetchFailure = NO;
@@ -97,50 +86,6 @@
     lastFetchFailure = YES;
     
     [self.forecastTable reloadData];
-}
-
-- (void) locationButtonClicked:(id)sender {
-    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Forecast Location"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Cancel"
-                                                       destructiveButtonTitle:nil
-                                                            otherButtonTitles:FORECAST_LOCATIONS];
-    // Show the action sheet
-    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
-    [locationActionSheet showInView:self.view];
-}
-
-- (void) getForecastSettings {
-    // Get the forecast location from the settings
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    [defaults synchronize];
-    
-    // Grab the last set or default location
-    NSString *forecastLocation = [defaults objectForKey:@"ForecastLocation"];
-    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", forecastLocation]];
-}
-
-#pragma mark - ActionSheet
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    
-    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
-        // If the user selects a location, set the settings key to the new location
-        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
-        [defaults synchronize];
-        [self getForecastSettings];
-        
-        // Tell everyone the data has updated
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:FORECAST_LOCATION_CHANGED_TAG
-             object:self];
-        });
-        
-    } else {
-        NSLog(@"Forecast Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
-    }
 }
 
 #pragma mark - TableView
