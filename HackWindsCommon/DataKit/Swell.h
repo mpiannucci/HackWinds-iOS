@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSNumber *direction;
 @property (strong, nonatomic) NSNumber *compassDirection;
 
+- (NSString *) getSwellSummmary;
+
 @end

@@ -28,4 +28,8 @@
     [aCoder encodeObject:self.compassDirection forKey:@"compassDirection"];
 }
 
+- (NSString *) getSwellSummmary {
+    return [NSString stringWithFormat:@"%3.2f ft @ %3.2f s %@", self.waveHeight.floatValue, self.period.floatValue, self.compassDirection];
+}
+
 @end

@@ -109,26 +109,26 @@ static const int PERIOD_CHART = 2;
 }
 
 - (void)sendChartImageAnimationWithType:(int)type forIndex:(int)index {
-    switch (type) {
-        case SWELL_CHART:
-            // Swell
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] swellChartURL]]
-                                                                       target:self action:@selector(imageLoadSuccess:)];
-            break;
-        case WIND_CHART:
-            // Wind
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] windChartURL]]
-                                                                       target:self action:@selector(imageLoadSuccess:)];
-            break;
-        case PERIOD_CHART:
-            // Period
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] periodChartURL]]
-                                                                       target:self action:@selector(imageLoadSuccess:)];
-            break;
-        default:
-            // Do Nothing
-            break;
-    }
+//    switch (type) {
+//        case SWELL_CHART:
+//            // Swell
+//            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] swellChartURL]]
+//                                                                       target:self action:@selector(imageLoadSuccess:)];
+//            break;
+//        case WIND_CHART:
+//            // Wind
+//            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] windChartURL]]
+//                                                                       target:self action:@selector(imageLoadSuccess:)];
+//            break;
+//        case PERIOD_CHART:
+//            // Period
+//            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] periodChartURL]]
+//                                                                       target:self action:@selector(imageLoadSuccess:)];
+//            break;
+//        default:
+//            // Do Nothing
+//            break;
+//    }
 }
 
 - (IBAction)playButtonClicked:(id)sender {
@@ -189,7 +189,7 @@ static const int PERIOD_CHART = 2;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
-    return [[self.forecastModel getConditions] count]/5+1;
+    return 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -221,26 +221,26 @@ static const int PERIOD_CHART = 2;
         [swellLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
         
     } else {
-        // Get the condition object
-        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
-        
-        // Set the data to show in the labels
-        [hourLabel setText:thisCondition.timestamp];
-        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod]];
-        
-        // Make sure that the text is black
-        [hourLabel setTextColor:[UIColor blackColor]];
-        [waveLabel setTextColor:[UIColor blackColor]];
-        [windLabel setTextColor:[UIColor blackColor]];
-        [swellLabel setTextColor:[UIColor blackColor]];
-        
-        // Make sure the text isnt bold
-        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
+//        // Get the condition object
+//        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
+//        
+//        // Set the data to show in the labels
+//        [hourLabel setText:thisCondition.timestamp];
+//        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight]];
+//        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed]];
+//        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod]];
+//        
+//        // Make sure that the text is black
+//        [hourLabel setTextColor:[UIColor blackColor]];
+//        [waveLabel setTextColor:[UIColor blackColor]];
+//        [windLabel setTextColor:[UIColor blackColor]];
+//        [swellLabel setTextColor:[UIColor blackColor]];
+//        
+//        // Make sure the text isnt bold
+//        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
+//        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
+//        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
+//        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
     }
     
     return cell;

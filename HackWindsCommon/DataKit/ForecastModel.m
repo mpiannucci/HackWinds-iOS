@@ -7,7 +7,6 @@
 //
 #import "ForecastModel.h"
 #import "Forecast.h"
-#import "ForecastDataContainer.h"
 
 // Notification Constants
 NSString * const FORECAST_DATA_UPDATED_TAG = @"ForecastModelDidUpdateDataNotification";
@@ -152,9 +151,9 @@ const int FORECAST_DATA_POINT_COUNT = 61;
         newForecast.timeString = [rawForecast objectForKey:@"Time"];
         newForecast.minimumBreakingHeight = [rawForecast objectForKey:@"MinimumBreakingHeight"];
         newForecast.maximumBreakingHeight = [rawForecast objectForKey:@"MaximumBreakingHeight"];
-        newForecast.windSpeed = [rawForecast objectForKey:@"windSpeed"];
-        newForecast.windDirection = [rawForecast objectForKey:@"windDirection"];
-        newForecast.windCompassDirection = [rawForecast objectForKey:@"windCompassDirection"];
+        newForecast.windSpeed = [rawForecast objectForKey:@"WindSpeed"];
+        newForecast.windDirection = [rawForecast objectForKey:@"WindDirection"];
+        newForecast.windCompassDirection = [rawForecast objectForKey:@"WindCompassDirection"];
         
         Swell *primarySwell = [[Swell alloc] init];
         primarySwell.waveHeight = [[rawForecast objectForKey:@"PrimarySwellComponent"] objectForKey:@"WaveHeight"];
@@ -168,14 +167,14 @@ const int FORECAST_DATA_POINT_COUNT = 61;
         secondarySwell.period = [[rawForecast objectForKey:@"SecondarySwellComponent"] objectForKey:@"Period"];
         secondarySwell.direction = [[rawForecast objectForKey:@"SecondarySwellComponent"] objectForKey:@"Direction"];
         secondarySwell.compassDirection = [[rawForecast objectForKey:@"SecondarySwellComponent"] objectForKey:@"CompassDirection"];
-        newForecast.primarySwellComponent = secondarySwell;
+        newForecast.secondarySwellComponent = secondarySwell;
         
         Swell *tertiarySwell = [[Swell alloc] init];
         tertiarySwell.waveHeight = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"WaveHeight"];
         tertiarySwell.period = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"Period"];
         tertiarySwell.direction = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"Direction"];
         tertiarySwell.compassDirection = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"CompassDirection"];
-        newForecast.primarySwellComponent = tertiarySwell;
+        newForecast.tertiarySwellComponent = tertiarySwell;
         
         [self.forecasts addObject:newForecast];
     }

@@ -10,7 +10,7 @@
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
 #import "Reachability.h"
-#import "NavigationBarTitleWithSubtitleView.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 
 static const int CAMERA_IMAGE_COUNT = 8;
 
@@ -271,13 +271,13 @@ static const int CAMERA_IMAGE_COUNT = 8;
             return cell;
         }
         
-        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
+        Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        hourLabel.text = thisCondition.timestamp;
-        waveLabel.text = [NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight];
-        windLabel.text = [NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed];
-        swellLabel.text = [NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod];
+        hourLabel.text = thisCondition.timeString;
+        waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
+        windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
+        swellLabel.text = [NSString stringWithFormat:@"%@ %2.2f @ %2.1fs", thisCondition.primarySwellComponent.compassDirection, thisCondition.primarySwellComponent.waveHeight.floatValue, thisCondition.primarySwellComponent.period.floatValue];
         
         // Make sure that the text is black
         hourLabel.textColor = [UIColor blackColor];

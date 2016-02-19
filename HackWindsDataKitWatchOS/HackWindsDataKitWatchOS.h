@@ -22,7 +22,7 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitWatchOSVersionString[];
 
 // Types
 #import <HackWindsDataKitWatchOS/Camera.h>
-#import <HackWindsDataKitWatchOS/Condition.h>
+#import <HackWindsDataKitWatchOS/Swell.h>
 #import <HackWindsDataKitWatchOS/Forecast.h>
 #import <HackWindsDataKitWatchOS/Buoy.h>
 #import <HackWindsDataKitWatchOS/Tide.h>
@@ -34,5 +34,4 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitWatchOSVersionString[];
 #import <HackWindsDataKitWatchOS/TideModel.h>
 
 // Useful abstracted containers
-#import <HackWindsDataKitWatchOS/ForecastDataContainer.h>
 #import <HackWindsDataKitWatchOS/BuoyDataContainer.h>
