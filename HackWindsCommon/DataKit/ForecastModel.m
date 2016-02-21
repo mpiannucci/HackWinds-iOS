@@ -52,6 +52,7 @@ const int FORECAST_DATA_POINT_COUNT = 61;
     
     // Set up the data container with emoty values
     self.forecasts = [[NSMutableArray alloc] initWithCapacity:FORECAST_DATA_POINT_COUNT];
+    self.dailyForecasts = [[NSMutableArray alloc] initWithCapacity:8];
     
     // Initialize the day indices
     for (int i = 0; i < 7; i++) {
@@ -226,7 +227,7 @@ const int FORECAST_DATA_POINT_COUNT = 61;
         if (dailyForecastData.count < 8) {
             // Handle cases where the full day isnt reported
             summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:0];
-            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:0];
             summary.morningWindSpeed = [NSNumber numberWithInt:0];
             summary.morningWindCompassDirection = @"";
             
@@ -236,7 +237,7 @@ const int FORECAST_DATA_POINT_COUNT = 61;
             summary.afternoonWindCompassDirection = @"";
         } else {
             summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] minimumBreakingHeight] intValue]) / 3];
-            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] maximumBreakingHeight] intValue]) / 3];
+            summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] maximumBreakingHeight] intValue]) / 3];
             summary.morningWindSpeed = [[dailyForecastData objectAtIndex:2] windSpeed];
             summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:2] windCompassDirection];
         

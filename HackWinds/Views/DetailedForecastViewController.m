@@ -5,16 +5,19 @@
 //  Created by Matthew Iannucci on 3/30/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 #import "DetailedForecastViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "AsyncImageView.h"
 
 // Constants
-static const int SWELL_CHART = 0;
-static const int WIND_CHART = 1;
-static const int PERIOD_CHART = 2;
+static NSString * const BASE_WW_CHART_URL = @"http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/US_eastcoast.%@.%@%03dh.png";
+static NSString * const PAST_HOUR_PREFIX = @"h";
+static NSString * const FUTURE_HOUR_PREFIX = @"f";
+static const int WAVE_HEIGHT_CHART = 0;
+static const int SWELL_HEIGHT_CHART = 1;
+static const int SWELL_PERIOD_CHART = 2;
+static const int WIND_CHART = 3;
+static const int WW_HOUR_STEP = 3;
 
 @interface DetailedForecastViewController ()
 
@@ -85,12 +88,10 @@ static const int PERIOD_CHART = 2;
 
 - (void)getModelData {
     // Load the MSW Data
-    dispatch_async(forecastFetchBgQueue, ^{
-        //currentConditions = [self.forecastModel getConditionsForIndex:(int)self.dayIndex];
-        [self.mswTable performSelectorOnMainThread:@selector(reloadData)
+    currentConditions = [self.forecastModel getForecastsForDay:(int)self.dayIndex];
+    [self.mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
-        [self sendChartImageAnimationWithType:SWELL_CHART forIndex:0];
-    });
+    [self sendChartImageAnimationWithType:SWELL_HEIGHT_CHART forIndex:0];
 }
 
 - (IBAction)chartTypeChanged:(id)sender {
@@ -189,7 +190,7 @@ static const int PERIOD_CHART = 2;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be 6 rows
-    return 1;
+    return currentConditions.count;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -221,26 +222,26 @@ static const int PERIOD_CHART = 2;
         [swellLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
         
     } else {
-//        // Get the condition object
-//        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
-//        
-//        // Set the data to show in the labels
-//        [hourLabel setText:thisCondition.timestamp];
-//        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight]];
-//        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed]];
-//        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod]];
-//        
-//        // Make sure that the text is black
-//        [hourLabel setTextColor:[UIColor blackColor]];
-//        [waveLabel setTextColor:[UIColor blackColor]];
-//        [windLabel setTextColor:[UIColor blackColor]];
-//        [swellLabel setTextColor:[UIColor blackColor]];
-//        
-//        // Make sure the text isnt bold
-//        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
-//        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
-//        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
-//        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
+        // Get the condition object
+        Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
+        
+        // Set the data to show in the labels
+        [hourLabel setText:thisCondition.timeString];
+        [waveLabel setText:[NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue]];
+        [windLabel setText:[NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue]];
+        [swellLabel setText:[NSString stringWithFormat:@"%@ %2.2f @ %2.1fs", thisCondition.primarySwellComponent.compassDirection, thisCondition.primarySwellComponent.waveHeight.doubleValue, thisCondition.primarySwellComponent.period.doubleValue]];
+        
+        // Make sure that the text is black
+        [hourLabel setTextColor:[UIColor blackColor]];
+        [waveLabel setTextColor:[UIColor blackColor]];
+        [windLabel setTextColor:[UIColor blackColor]];
+        [swellLabel setTextColor:[UIColor blackColor]];
+        
+        // Make sure the text isnt bold
+        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
     }
     
     return cell;
