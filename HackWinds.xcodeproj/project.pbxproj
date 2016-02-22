@@ -46,6 +46,7 @@
 		3457CBF51C4488D400A4BCD2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */; };
 		3457CBF81C4488D400A4BCD2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3457CBF61C4488D400A4BCD2 /* MainInterface.storyboard */; };
 		3457CBFC1C4488D400A4BCD2 /* HackWindsToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		347339B71C7A976A00E39266 /* UIImage+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = 347339B61C7A976A00E39266 /* UIImage+Crop.m */; };
 		3475B2381C4EB16500C35196 /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		3479E1321C510659009B8C22 /* BuoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3479E1311C510659009B8C22 /* BuoyViewController.m */; };
 		349076271C24A7E500EAD0CE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349076251C24A7E500EAD0CE /* Interface.storyboard */; };
@@ -343,6 +344,8 @@
 		3457CBF71C4488D400A4BCD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		3457CBF91C4488D400A4BCD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3457CC031C4489D900A4BCD2 /* HackWinds-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWinds-Bridging-Header.h"; sourceTree = "<group>"; };
+		347339B51C7A976A00E39266 /* UIImage+Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Crop.h"; sourceTree = "<group>"; };
+		347339B61C7A976A00E39266 /* UIImage+Crop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Crop.m"; sourceTree = "<group>"; };
 		3479E1301C510659009B8C22 /* BuoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyViewController.h; sourceTree = "<group>"; };
 		3479E1311C510659009B8C22 /* BuoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyViewController.m; sourceTree = "<group>"; };
 		349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -558,6 +561,8 @@
 				34AE272419C679E7000DAB81 /* AsyncImageView.m */,
 				340B5C991B938CB400E7203C /* NavigationBarTitleWithSubtitleView.h */,
 				340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */,
+				347339B51C7A976A00E39266 /* UIImage+Crop.h */,
+				347339B61C7A976A00E39266 /* UIImage+Crop.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1344,6 +1349,7 @@
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
 				340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */,
 				342A76221985E18100077F8C /* TideViewController.m in Sources */,
+				347339B71C7A976A00E39266 /* UIImage+Crop.m in Sources */,
 				34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */,
 				3430839A19795D0F00655F15 /* AppDelegate.m in Sources */,
 				343083A319795D0F00655F15 /* CurrentViewController.m in Sources */,

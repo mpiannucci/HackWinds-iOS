@@ -8,6 +8,7 @@
 #import "DetailedForecastViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "AsyncImageView.h"
+#import "UIImage+Crop.h"
 
 // Constants
 static NSString * const BASE_WW_CHART_URL = @"http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/US_eastcoast.%@.%@%03dh.png";
@@ -109,27 +110,15 @@ static const int WW_HOUR_STEP = 3;
     [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex] forIndex:0];
 }
 
-- (void)sendChartImageAnimationWithType:(int)type forIndex:(int)index {
-//    switch (type) {
-//        case SWELL_CHART:
-//            // Swell
-//            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] swellChartURL]]
-//                                                                       target:self action:@selector(imageLoadSuccess:)];
-//            break;
-//        case WIND_CHART:
-//            // Wind
-//            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] windChartURL]]
-//                                                                       target:self action:@selector(imageLoadSuccess:)];
-//            break;
-//        case PERIOD_CHART:
-//            // Period
-//            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] periodChartURL]]
-//                                                                       target:self action:@selector(imageLoadSuccess:)];
-//            break;
-//        default:
-//            // Do Nothing
-//            break;
-//    }
+- (void)sendChartImageAnimationWithType:(int)chartType forIndex:(int)index {
+    NSString *timePrefix = FUTURE_HOUR_PREFIX;
+    if ((self.dayIndex == 0) && (index == 0)) {
+        timePrefix = PAST_HOUR_PREFIX;
+    }
+    
+    int hour = WW_HOUR_STEP * ([self.forecastModel getDayForecastStartingIndex:(int)self.dayIndex] + index);
+    NSURL *wwChartURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, [self getChartURLPrefixForType:chartType], timePrefix, hour]];
+    [[AsyncImageLoader sharedLoader] loadImageWithURL:wwChartURL target:self action:@selector(imageLoadSuccess:)];
 }
 
 - (IBAction)playButtonClicked:(id)sender {
@@ -145,8 +134,12 @@ static const int WW_HOUR_STEP = 3;
 }
 
 - (void)imageLoadSuccess:(id)sender {
-    // Add the image to the array for animation
-    [self.animationImages addObject:sender];
+    
+    // Crop the image
+    UIImage *croppedChart = [sender crop:CGRectMake(50, 50, 500, 200)];
+    
+    // Add the cropped image to the array for animation
+    [self.animationImages addObject:croppedChart];
     
     if (needsReload[self.chartTypeSegmentControl.selectedSegmentIndex]) {
         [self.chartLoadProgressIndicator setProgress:self.animationImages.count/6.0f animated:YES];
@@ -154,7 +147,7 @@ static const int WW_HOUR_STEP = 3;
     
     if ([self.animationImages count] < 2) {
         // If its the first image set it to the header as a holder
-        [self.chartImageView setImage:sender];
+        [self.chartImageView setImage:croppedChart];
     } else if ([self.animationImages count] == 6) {
         // We have all of the images so animate!!!
         [self.chartImageView setAnimationImages:self.animationImages];
@@ -178,6 +171,21 @@ static const int WW_HOUR_STEP = 3;
         // If the animation array isnt full, get the next image on the stack
         [self sendChartImageAnimationWithType:(int)self.chartTypeSegmentControl.selectedSegmentIndex
                                      forIndex:(int)self.animationImages.count];
+    }
+}
+
+- (NSString*) getChartURLPrefixForType:(int)chartType {
+    switch (chartType) {
+        case WAVE_HEIGHT_CHART:
+            return @"hs";
+        case SWELL_HEIGHT_CHART:
+            return @"hs_sw1";
+        case SWELL_PERIOD_CHART:
+            return @"tp_sw1";
+        case WIND_CHART:
+            return @"u10";
+        default:
+            return @"";
     }
 }
 

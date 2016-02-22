@@ -66,6 +66,14 @@ const int FORECAST_DATA_POINT_COUNT = 61;
     return dayCount;
 }
 
+- (int) getDayForecastStartingIndex:(int)day {
+    if (day > 0) {
+        return dayIndices[day];
+    } else {
+        return 0;
+    }
+}
+
 - (NSArray *) getForecastsForDay:(int)day {
     if (self.forecasts.count != FORECAST_DATA_POINT_COUNT) {
         return nil;

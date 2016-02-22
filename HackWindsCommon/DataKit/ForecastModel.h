@@ -27,6 +27,7 @@ extern const int FORECAST_DATA_POINT_COUNT;
 
 - (void) fetchForecastData;
 - (int) getDayCount;
+- (int) getDayForecastStartingIndex:(int)day;
 - (NSArray *) getForecastsForDay:(int)day;
 + (instancetype) sharedModel;
 
