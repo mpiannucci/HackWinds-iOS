@@ -15,9 +15,8 @@ static NSString * const BASE_WW_CHART_URL = @"http://polar.ncep.noaa.gov/waves/W
 static NSString * const PAST_HOUR_PREFIX = @"h";
 static NSString * const FUTURE_HOUR_PREFIX = @"f";
 static const int WAVE_HEIGHT_CHART = 0;
-static const int SWELL_HEIGHT_CHART = 1;
-static const int SWELL_PERIOD_CHART = 2;
-static const int WIND_CHART = 3;
+static const int SWELL_PERIOD_CHART = 1;
+static const int WIND_CHART = 2;
 static const int WW_HOUR_STEP = 3;
 
 @interface DetailedForecastViewController ()
@@ -92,7 +91,7 @@ static const int WW_HOUR_STEP = 3;
     currentConditions = [self.forecastModel getForecastsForDay:(int)self.dayIndex];
     [self.mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
-    [self sendChartImageAnimationWithType:SWELL_HEIGHT_CHART forIndex:0];
+    [self sendChartImageAnimationWithType:WAVE_HEIGHT_CHART forIndex:0];
 }
 
 - (IBAction)chartTypeChanged:(id)sender {
@@ -178,8 +177,6 @@ static const int WW_HOUR_STEP = 3;
     switch (chartType) {
         case WAVE_HEIGHT_CHART:
             return @"hs";
-        case SWELL_HEIGHT_CHART:
-            return @"hs_sw1";
         case SWELL_PERIOD_CHART:
             return @"tp_sw1";
         case WIND_CHART:

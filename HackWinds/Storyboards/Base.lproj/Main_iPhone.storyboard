@@ -639,7 +639,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GYc-zm-LQY">
                                 <rect key="frame" x="16" y="72" width="288" height="29"/>
                                 <segments>
-                                    <segment title="Swell"/>
+                                    <segment title="Waves"/>
                                     <segment title="Wind"/>
                                     <segment title="Period"/>
                                 </segments>
