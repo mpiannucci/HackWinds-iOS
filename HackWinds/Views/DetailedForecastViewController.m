@@ -147,7 +147,7 @@ static const int WW_HOUR_STEP = 3;
     if ([self.animationImages count] < 2) {
         // If its the first image set it to the header as a holder
         [self.chartImageView setImage:croppedChart];
-    } else if ([self.animationImages count] == 6) {
+    } else if ([self.animationImages count] == currentConditions.count) {
         // We have all of the images so animate!!!
         [self.chartImageView setAnimationImages:self.animationImages];
         [self.chartImageView setAnimationDuration:5];
@@ -166,7 +166,7 @@ static const int WW_HOUR_STEP = 3;
             [self.chartLoadProgressIndicator setHidden:YES];
         }
     }
-    if (self.animationImages.count < 6) {
+    if (self.animationImages.count < currentConditions.count) {
         // If the animation array isnt full, get the next image on the stack
         [self sendChartImageAnimationWithType:(int)self.chartTypeSegmentControl.selectedSegmentIndex
                                      forIndex:(int)self.animationImages.count];
@@ -194,8 +194,12 @@ static const int WW_HOUR_STEP = 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 6 rows
-    return currentConditions.count;
+    // Return so there will always be currentconditions.count rows + the header row
+    if (currentConditions == nil) {
+        return 1;
+    }
+    
+    return currentConditions.count + 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath

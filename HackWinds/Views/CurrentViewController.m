@@ -220,7 +220,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 6 rows + the header row
+    // Return so there will always be currentconditions.count rows + the header row
     if (currentConditions == nil) {
         return 1;
     }
