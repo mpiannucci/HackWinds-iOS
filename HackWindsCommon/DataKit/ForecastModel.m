@@ -254,7 +254,7 @@ const int FORECAST_DATA_POINT_COUNT = 61;
             if (self.dailyForecasts.count == 0) {
                 if (dailyForecastData.count >= 6) {
                     summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue]) / 2];
-                    summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue])  / 2];
+                    summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue])  / 2];
                     summary.morningWindSpeed = [[dailyForecastData objectAtIndex:1] windSpeed];
                     summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:1] windCompassDirection];
                     
@@ -272,7 +272,7 @@ const int FORECAST_DATA_POINT_COUNT = 61;
             } else {
                 if (dailyForecastData.count >= 4) {
                     summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] minimumBreakingHeight] intValue]) / 3];
-                    summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue])  / 3];
+                    summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] maximumBreakingHeight] intValue]) / 3];
                     summary.morningWindSpeed = [[dailyForecastData objectAtIndex:2] windSpeed];
                     summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:2] windCompassDirection];
                     
