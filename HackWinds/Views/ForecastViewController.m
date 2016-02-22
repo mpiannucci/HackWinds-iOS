@@ -102,75 +102,112 @@
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
+    // Get the forecast object
+    ForecastDailySummary *summary = [self.forecastModel.dailyForecasts objectAtIndex:indexPath.row];
+    
     // Get the interface items
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"forecastItem"];
-    UILabel *dayLabel = (UILabel *)[cell viewWithTag:21];
-    UILabel *morningLabel = (UILabel*)[cell viewWithTag:22];
-    UILabel *afternoonLabel = (UILabel *)[cell viewWithTag:23];
-    UILabel *morningHeaderLabel = (UILabel *)[cell viewWithTag:24];
-    UILabel *afternoonHeaderLabel = (UILabel *)[cell viewWithTag:25];
-    NSUInteger index = indexPath.row;
+    UITableViewCell *cell = nil;
+    UILabel *dayLabel = nil;
+    UILabel *morningLabel = nil;
+    UILabel *afternoonLabel = nil;
+    UILabel *morningHeaderLabel = nil;
+    UILabel *afternoonHeaderLabel = nil;
+    
+    if (indexPath.row == 0 && [summary.morningWindCompassDirection isEqualToString:@""]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"afternoonForecastItem"];
+        dayLabel = (UILabel *)[cell viewWithTag:21];
+        afternoonLabel = (UILabel *)[cell viewWithTag:23];
+        afternoonHeaderLabel = (UILabel *)[cell viewWithTag:25];
+    } else if (indexPath.row == ([self.forecastModel getDayCount] - 1) && [summary.afternoonWindCompassDirection isEqualToString:@""]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"morningForecastItem"];
+        dayLabel = (UILabel *)[cell viewWithTag:21];
+        morningLabel = (UILabel*)[cell viewWithTag:22];
+        morningHeaderLabel = (UILabel *)[cell viewWithTag:24];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"fullForecastItem"];
+        dayLabel = (UILabel *)[cell viewWithTag:21];
+        morningLabel = (UILabel*)[cell viewWithTag:22];
+        afternoonLabel = (UILabel *)[cell viewWithTag:23];
+        morningHeaderLabel = (UILabel *)[cell viewWithTag:24];
+        afternoonHeaderLabel = (UILabel *)[cell viewWithTag:25];
+    }
+
     
     if (lastFetchFailure) {
         dayLabel.text = @"";
-        morningLabel.text = @"";
-        afternoonLabel.text = @"";
-        morningHeaderLabel.text = @"";
-        afternoonHeaderLabel.text = @"";
-        
+        if (morningLabel != nil) {
+            morningLabel.text = @"";
+            morningHeaderLabel.text = @"";
+        }
+        if (afternoonLabel != nil) {
+            afternoonLabel.text = @"";
+            afternoonHeaderLabel.text = @"";
+        }
         return cell;
     }
     
-    // Get the forecast object
-    ForecastDailySummary *summary = [self.forecastModel.dailyForecasts objectAtIndex:index];
-    
     // Construct the strings and display them
-    [dayLabel setText:[WEEKDAYS objectAtIndex:(((currentday-1) + index)%7)]];
+    [dayLabel setText:[WEEKDAYS objectAtIndex:(((currentday-1) + indexPath.row)%7)]];
     
-    [morningLabel setText:[NSString stringWithFormat:@"%d - %d feet, Wind %@ %d mph",
-                           summary.morningMinimumBreakingHeight.intValue, summary.morningMaximumBreakingHeight.intValue, summary.morningWindCompassDirection, summary.morningWindSpeed.intValue]];
-    
-    [afternoonLabel setText:[NSString stringWithFormat:@"%d - %d feet, Wind %@ %d mph",
-                           summary.afternoonMinimumBreakingHeight.intValue, summary.afternoonMaximumBreakingHeight.intValue, summary.afternoonWindCompassDirection, summary.afternoonWindSpeed.intValue]];
-    
-    // Set the color of the morning label based on whether it has size or not
-    if (summary.morningMinimumBreakingHeight.intValue > 1) {
-        if ([summary.morningWindCompassDirection isEqualToString:@"WSW"] ||
-            [summary.morningWindCompassDirection isEqualToString:@"W"] ||
-            [summary.morningWindCompassDirection isEqualToString:@"WNW"] ||
-            [summary.morningWindCompassDirection isEqualToString:@"NW"] ||
-            [summary.morningWindCompassDirection isEqualToString:@"NNW"] ||
-            [summary.morningWindCompassDirection isEqualToString:@"N"]) {
-            morningHeaderLabel.textColor = GREEN_COLOR;
-        } else if (summary.morningWindSpeed.intValue < 8) {
-            morningHeaderLabel.textColor = GREEN_COLOR;
+    if (morningLabel != nil) {
+        [morningLabel setText:[NSString stringWithFormat:@"%d - %d feet, Wind %@ %d mph", summary.morningMinimumBreakingHeight.intValue, summary.morningMaximumBreakingHeight.intValue, summary.morningWindCompassDirection, summary.morningWindSpeed.intValue]];
+        
+        // Set the color of the morning label based on whether it has size or not
+        if (summary.morningMinimumBreakingHeight.intValue > 1) {
+            if ([summary.morningWindCompassDirection isEqualToString:@"WSW"] ||
+                [summary.morningWindCompassDirection isEqualToString:@"W"] ||
+                [summary.morningWindCompassDirection isEqualToString:@"WNW"] ||
+                [summary.morningWindCompassDirection isEqualToString:@"NW"] ||
+                [summary.morningWindCompassDirection isEqualToString:@"NNW"] ||
+                [summary.morningWindCompassDirection isEqualToString:@"N"]) {
+                morningHeaderLabel.textColor = GREEN_COLOR;
+            } else if (summary.morningWindSpeed.intValue < 8) {
+                morningHeaderLabel.textColor = GREEN_COLOR;
+            } else {
+                morningHeaderLabel.textColor = YELLOW_COLOR;
+            }
         } else {
-            morningHeaderLabel.textColor = YELLOW_COLOR;
+            morningHeaderLabel.textColor = RED_COLOR;
         }
-    } else {
-        morningHeaderLabel.textColor = RED_COLOR;
     }
     
-    // Set the color of the afternoon label based on whether it has size or not
-    if (summary.afternoonMinimumBreakingHeight.intValue > 1) {
-        if ([summary.afternoonWindCompassDirection isEqualToString:@"WSW"] ||
-            [summary.afternoonWindCompassDirection isEqualToString:@"W"] ||
-            [summary.afternoonWindCompassDirection isEqualToString:@"WNW"] ||
-            [summary.afternoonWindCompassDirection isEqualToString:@"NW"] ||
-            [summary.afternoonWindCompassDirection isEqualToString:@"NNW"] ||
-            [summary.afternoonWindCompassDirection isEqualToString:@"N"]) {
-            afternoonHeaderLabel.textColor = GREEN_COLOR;
-        } else if (summary.afternoonWindSpeed.intValue < 8){
-            afternoonHeaderLabel.textColor = GREEN_COLOR;
+    if (afternoonLabel != nil) {
+    
+        [afternoonLabel setText:[NSString stringWithFormat:@"%d - %d feet, Wind %@ %d mph", summary.afternoonMinimumBreakingHeight.intValue, summary.afternoonMaximumBreakingHeight.intValue, summary.afternoonWindCompassDirection, summary.afternoonWindSpeed.intValue]];
+    
+        // Set the color of the afternoon label based on whether it has size or not
+        if (summary.afternoonMinimumBreakingHeight.intValue > 1) {
+            if ([summary.afternoonWindCompassDirection isEqualToString:@"WSW"] ||
+                [summary.afternoonWindCompassDirection isEqualToString:@"W"] ||
+                [summary.afternoonWindCompassDirection isEqualToString:@"WNW"] ||
+                [summary.afternoonWindCompassDirection isEqualToString:@"NW"] ||
+                [summary.afternoonWindCompassDirection isEqualToString:@"NNW"] ||
+                [summary.afternoonWindCompassDirection isEqualToString:@"N"]) {
+                afternoonHeaderLabel.textColor = GREEN_COLOR;
+            } else if (summary.afternoonWindSpeed.intValue < 8){
+                afternoonHeaderLabel.textColor = GREEN_COLOR;
+            } else {
+                afternoonHeaderLabel.textColor = YELLOW_COLOR;
+            }
         } else {
-            afternoonHeaderLabel.textColor = YELLOW_COLOR;
-        }
-    } else {
         afternoonHeaderLabel.textColor = RED_COLOR;
+        }
     }
     
     // Return the cell view
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ForecastDailySummary *summary = [self.forecastModel.dailyForecasts objectAtIndex:indexPath.row];
+    if (indexPath.row == 0 && [summary.morningWindCompassDirection isEqualToString:@""]) {
+        return 120.0f;
+    } else if (indexPath.row == ([self.forecastModel getDayCount] - 1) && [summary.afternoonWindCompassDirection isEqualToString:@""]) {
+        return 120.0f;
+    } else {
+        return 190.0f;
+    }
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
