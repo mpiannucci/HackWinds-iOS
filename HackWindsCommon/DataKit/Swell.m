@@ -29,7 +29,7 @@
 }
 
 - (NSString *) getSwellSummmary {
-    return [NSString stringWithFormat:@"%3.2f ft @ %3.2f s %@", self.waveHeight.floatValue, self.period.floatValue, self.compassDirection];
+    return [NSString stringWithFormat:@"%@ %2.2f ft @ %2.1fs", self.compassDirection, self.waveHeight.floatValue, self.period.floatValue];
 }
 
 @end

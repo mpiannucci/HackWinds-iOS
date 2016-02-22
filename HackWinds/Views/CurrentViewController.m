@@ -277,7 +277,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
         hourLabel.text = thisCondition.timeString;
         waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
         windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
-        swellLabel.text = [NSString stringWithFormat:@"%@ %2.2f @ %2.1fs", thisCondition.primarySwellComponent.compassDirection, thisCondition.primarySwellComponent.waveHeight.doubleValue, thisCondition.primarySwellComponent.period.doubleValue];
+        swellLabel.text = [thisCondition.primarySwellComponent getSwellSummmary];
         
         // Make sure that the text is black
         hourLabel.textColor = [UIColor blackColor];

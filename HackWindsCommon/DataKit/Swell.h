@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSNumber *waveHeight;
 @property (strong, nonatomic) NSNumber *period;
 @property (strong, nonatomic) NSNumber *direction;
-@property (strong, nonatomic) NSNumber *compassDirection;
+@property (strong, nonatomic) NSString *compassDirection;
 
 - (NSString *) getSwellSummmary;
 

@@ -138,7 +138,7 @@ static const int WW_HOUR_STEP = 3;
 - (void)imageLoadSuccess:(id)sender {
     
     // Crop the image
-    UIImage *croppedChart = [sender crop:CGRectMake(100, 50, 350, 175)];
+    UIImage *croppedChart = [sender crop:CGRectMake(100, 50, 350, 200)];
     
     // Add the cropped image to the array for animation
     [self.animationImages addObject:croppedChart];
@@ -241,7 +241,7 @@ static const int WW_HOUR_STEP = 3;
         [hourLabel setText:thisCondition.timeString];
         [waveLabel setText:[NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue]];
         [windLabel setText:[NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %2.2f @ %2.1fs", thisCondition.primarySwellComponent.compassDirection, thisCondition.primarySwellComponent.waveHeight.doubleValue, thisCondition.primarySwellComponent.period.doubleValue]];
+        [swellLabel setText:[thisCondition.primarySwellComponent getSwellSummmary]];
         
         // Make sure that the text is black
         [hourLabel setTextColor:[UIColor blackColor]];
