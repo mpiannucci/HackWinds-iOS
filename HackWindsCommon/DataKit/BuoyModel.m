@@ -227,9 +227,8 @@ static const int ACK_BUOY_NUMBER = 44008;
 }
 
 - (void) fetchLatestBuoyReading {
-    BuoyModel *buoyModel = [BuoyModel sharedModel];
-    [buoyModel fetchRawBuoyDataFromURL:[buoyModel getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
-        Buoy *latestBuoy = [buoyModel parseLatestBuoyData:rawData];
+    [self fetchRawBuoyDataFromURL:[self getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
+        Buoy *latestBuoy = [self parseLatestBuoyData:rawData];
         
         if (latestBuoy == nil) {
             return;
@@ -256,15 +255,17 @@ static const int ACK_BUOY_NUMBER = 44008;
 }
 
 - (void) fetchLatestBuoyReadingForLocation:(NSString *)location withCompletionHandler:(void (^)(Buoy *))completionHandler {
-    BuoyModel *buoyModel = [BuoyModel sharedModel];
-    [buoyModel forceChangeLocation:location];
+    NSString *originalLocation = [self.defaults objectForKey:@"BuoyLocation"];
+    [self forceChangeLocation:location];
     
-    [buoyModel fetchRawBuoyDataFromURL:[buoyModel getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
-        Buoy *latestBuoy = [buoyModel parseLatestBuoyData:rawData];
+    [self fetchRawBuoyDataFromURL:[self getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
+        Buoy *latestBuoy = [self parseLatestBuoyData:rawData];
         
         // Pass the buoy down to the completion handler
         completionHandler(latestBuoy);
     }];
+    
+    [self forceChangeLocation:originalLocation];
 }
 
 - (BOOL) parseBuoyData:(NSData*)rawBuoyData {

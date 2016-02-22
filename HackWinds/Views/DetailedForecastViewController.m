@@ -57,6 +57,9 @@ static const int WW_HOUR_STEP = 3;
     
     // Initialize the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
+    
+    // Setup the segment titles cu of the weird storyboard bug
+    [self.chartTypeSegmentControl setTitle:@"Waves" forSegmentAtIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -135,7 +138,7 @@ static const int WW_HOUR_STEP = 3;
 - (void)imageLoadSuccess:(id)sender {
     
     // Crop the image
-    UIImage *croppedChart = [sender crop:CGRectMake(50, 50, 500, 200)];
+    UIImage *croppedChart = [sender crop:CGRectMake(100, 50, 350, 175)];
     
     // Add the cropped image to the array for animation
     [self.animationImages addObject:croppedChart];

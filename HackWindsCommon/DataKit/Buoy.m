@@ -21,6 +21,7 @@
         self.dominantPeriod = [aDecoder decodeObjectForKey:@"dominantPeriod"];
         self.swellPeriod = [aDecoder decodeObjectForKey:@"swellPeriod"];
         self.windWavePeriod = [aDecoder decodeObjectForKey:@"windWavePeriod"];
+        self.steepness = [aDecoder decodeObjectForKey:@"steepness"];
         self.meanDirection = [aDecoder decodeObjectForKey:@"meanDirection"];
         self.swellDirection = [aDecoder decodeObjectForKey:@"swellDirection"];
         self.windWaveDirection = [aDecoder decodeObjectForKey:@"windWaveDirection"];
@@ -38,6 +39,7 @@
     [aCoder encodeObject:self.dominantPeriod forKey:@"dominantPeriod"];
     [aCoder encodeObject:self.swellPeriod forKey:@"swellPeriod"];
     [aCoder encodeObject:self.windWavePeriod forKey:@"windWavePeriod"];
+    [aCoder encodeObject:self.steepness forKey:@"steepness"];
     [aCoder encodeObject:self.meanDirection forKey:@"meanDirection"];
     [aCoder encodeObject:self.swellDirection forKey:@"swellDirection"];
     [aCoder encodeObject:self.windWaveDirection forKey:@"windWaveDirection"];
