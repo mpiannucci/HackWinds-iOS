@@ -14,7 +14,7 @@ NSString * const FORECAST_DATA_UPDATED_TAG = @"ForecastModelDidUpdateDataNotific
 NSString * const FORECAST_DATA_UPDATE_FAILED_TAG = @"ForecastModelUpdateFailedNotification";
 
 // Data count constant
-const int FORECAST_DATA_POINT_COUNT = 61;
+const int FORECAST_DATA_POINT_COUNT = 60;
 
 @interface ForecastModel ()
 
