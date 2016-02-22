@@ -649,7 +649,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ogB-9u-1iM">
-                                <rect key="frame" x="0.0" y="319" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="276" width="320" height="243"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mswHourItem" id="RNj-Ta-EGv">
@@ -716,17 +716,17 @@
                                 </connections>
                             </tableView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eQy-nC-XGB">
-                                <rect key="frame" x="0.0" y="311" width="320" height="2"/>
+                                <rect key="frame" x="0.0" y="268" width="320" height="2"/>
                                 <color key="progressTintColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             </progressView>
                             <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKf-fk-iZP">
-                                <rect key="frame" x="0.0" y="108" width="320" height="203"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="xKf-fk-iZP" secondAttribute="height" multiplier="320:203" id="2ks-Vx-ZT8"/>
+                                    <constraint firstAttribute="width" secondItem="xKf-fk-iZP" secondAttribute="height" multiplier="2:1" id="8su-kw-jCq"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Me-Ua-kv7">
-                                <rect key="frame" x="0.0" y="108" width="320" height="203"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="160"/>
                                 <state key="normal" image="PlayButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -735,7 +735,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQo-xS-Dkd">
-                                <rect key="frame" x="0.0" y="108" width="320" height="203"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="160"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
