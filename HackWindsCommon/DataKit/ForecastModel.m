@@ -7,47 +7,29 @@
 //
 #import "ForecastModel.h"
 #import "Forecast.h"
-#import "Condition.h"
-#import "ForecastDataContainer.h"
-
-NSString * const TOWN_BEACH_LOCATION = @"Narragansett Town Beach";
-NSString * const POINT_JUDITH_LOCATION = @"Point Judith Lighthouse";
-NSString * const MATUNUCK_LOCATION = @"Matunuck";
-NSString * const SECOND_BEACH_LOCATION = @"Second Beach";
+#import "ForecastDailySummary.h"
 
 // Notification Constants
 NSString * const FORECAST_DATA_UPDATED_TAG = @"ForecastModelDidUpdateDataNotification";
-NSString * const FORECAST_LOCATION_CHANGED_TAG = @"ForecastLocationChangedNotification";
 NSString * const FORECAST_DATA_UPDATE_FAILED_TAG = @"ForecastModelUpdateFailedNotification";
 
-// Local Constants
-static NSString * const BASE_MSW_URL = @"http://magicseaweed.com/api/nFSL2f845QOAf1Tuv7Pf5Pd9PXa5sVTS/forecast/?spot_id=%@&fields=localTimestamp,swell.*,wind.*,charts.*";
-static const int TOWN_BEACH_ID = 1103;
-static const int POINT_JUDITH_ID = 376;
-static const int MATUNUCK_ID = 377;
-static const int SECOND_BEACH_ID = 846;
+// Data count constant
+const int FORECAST_DATA_POINT_COUNT = 61;
 
 @interface ForecastModel ()
 
 // Private methods
-- (void) initForecastContainers;
+- (void) createDailyForecasts;
 - (BOOL) parseForecastsFromData:(NSData*) unserializedData;
-- (NSString *) formatDate:(NSUInteger)epoch;
-- (BOOL) checkConditionDate:(NSString *)dateString;
-- (BOOL) checkForecastDate:(NSString *)dateString;
 - (BOOL) check24HourClock;
-
-// Private members
-@property (strong, nonatomic) NSUserDefaults *userDefaults;
-@property (strong, nonatomic) NSMutableDictionary *forecastDataContainers;
 
 @end
 
 @implementation ForecastModel
 {
-    ForecastDataContainer *currentContainer;
+    int dayIndices[8];
+    int dayCount;
     BOOL is24HourClock;
-    BOOL initialForecastChange;
 }
 
 + (instancetype) sharedModel {
@@ -67,81 +49,60 @@ static const int SECOND_BEACH_ID = 846;
     
     // Check the format of the clock
     [self check24HourClock];
-    initialForecastChange = YES;
     
-    // Load the containers wiht the data
-    [self initForecastContainers];
+    // Set up the data container with emoty values
+    self.forecasts = [[NSMutableArray alloc] initWithCapacity:FORECAST_DATA_POINT_COUNT];
+    self.dailyForecasts = [[NSMutableArray alloc] initWithCapacity:8];
     
-    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    [self.userDefaults synchronize];
-    
-    // Get the current location and setup the settings listener
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(changeForecastLocation)
-                                                 name:FORECAST_LOCATION_CHANGED_TAG
-                                               object:nil];
-    
-    // Get the forecast location
-    [self changeForecastLocation];
+    // Initialize the day indices
+    for (int i = 0; i < 7; i++) {
+        dayIndices[i] = -1;
+    }
     
     return self;
 }
 
-- (void) initForecastContainers {
-    self.forecastDataContainers = [[NSMutableDictionary alloc] init];
-    
-    ForecastDataContainer *townBeachData = [[ForecastDataContainer alloc] init];
-    townBeachData.forecastID = [NSNumber numberWithInt:TOWN_BEACH_ID];
-    [self.forecastDataContainers setObject:townBeachData forKey:TOWN_BEACH_LOCATION];
-    
-    ForecastDataContainer *pointJudithData = [[ForecastDataContainer alloc] init];
-    pointJudithData.forecastID = [NSNumber numberWithInt:POINT_JUDITH_ID];
-    [self.forecastDataContainers setObject:pointJudithData forKey:POINT_JUDITH_LOCATION];
-    
-    ForecastDataContainer *matunuckData = [[ForecastDataContainer alloc] init];
-    matunuckData.forecastID = [NSNumber numberWithInt:MATUNUCK_ID];
-    [self.forecastDataContainers setObject:matunuckData forKey:MATUNUCK_LOCATION];
-    
-    ForecastDataContainer *secondBeachData = [[ForecastDataContainer alloc] init];
-    secondBeachData.forecastID = [NSNumber numberWithInt:SECOND_BEACH_ID];
-    [self.forecastDataContainers setObject:secondBeachData forKey:SECOND_BEACH_LOCATION];
+- (int) getDayCount {
+    return dayCount;
 }
 
-- (void) changeForecastLocation {
-    [self.userDefaults synchronize];
-    
-    currentContainer = [self.forecastDataContainers objectForKey:[self.userDefaults objectForKey:@"ForecastLocation"]];
-    
-    if (!initialForecastChange) {
-        
-        // Download the data for the new location!
-        [self fetchForecastData];
-    
+- (int) getDayForecastStartingIndex:(int)day {
+    if (day > 0) {
+        return dayIndices[day];
     } else {
-        initialForecastChange = NO;
+        return 0;
     }
 }
 
-- (NSMutableArray*) getConditions {
-    return currentContainer.conditions;
-}
-
-- (NSMutableArray *) getForecasts {
-    return currentContainer.forecasts;
-}
-
-- (NSArray *) getConditionsForIndex:(int)index {
-    if (currentContainer.conditions.count == CONDITION_DATA_POINT_COUNT) {
-        NSArray *currentConditions = [currentContainer.conditions subarrayWithRange:NSMakeRange(index*6, 6)];
-        return currentConditions;
+- (NSArray *) getForecastsForDay:(int)day {
+    if (self.forecasts.count != FORECAST_DATA_POINT_COUNT) {
+        return nil;
     }
-    return nil;
+    
+    int startIndex = 0;
+    int endIndex = 0;
+    
+    if (day < 8) {
+        startIndex = dayIndices[day];
+    }
+    
+    if (day < 7) {
+        endIndex = dayIndices[day + 1];
+        if (endIndex < 0) {
+            endIndex = (int)self.forecasts.count;
+        }
+    } else {
+        endIndex = (int)self.forecasts.count;
+    }
+        
+    NSArray *dayForecasts = [self.forecasts subarrayWithRange:NSMakeRange(startIndex, endIndex - startIndex)];
+    return dayForecasts;
 }
 
 - (void) fetchForecastData {
     @synchronized(self) {
         
-        if (currentContainer.conditions.count != 0) {
+        if (self.forecasts.count != 0) {
             // Tell any listeners that the data has been loaded.
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter]
@@ -152,7 +113,7 @@ static const int SECOND_BEACH_ID = 846;
             return;
         }
         
-        NSURL *dataURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_MSW_URL, currentContainer.forecastID]];
+        NSURL *dataURL = [NSURL URLWithString:@"https://rhodycast.appspot.com/forecast_as_json"];
         NSURLSessionTask *urlSession = [[NSURLSession sharedSession] dataTaskWithURL:dataURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
             if (error != nil) {
@@ -187,6 +148,8 @@ static const int SECOND_BEACH_ID = 846;
             
             // Tell any listeners that the data has been loaded.
             if (parsed) {
+                [self createDailyForecasts];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
                     postNotificationName:FORECAST_DATA_UPDATED_TAG
@@ -201,7 +164,7 @@ static const int SECOND_BEACH_ID = 846;
 
 - (BOOL) parseForecastsFromData:(NSData *)unserializedData {
     NSError *error;
-    NSArray *rawData = [NSJSONSerialization
+    NSDictionary *rawData = [NSJSONSerialization
                JSONObjectWithData:unserializedData
                options:kNilOptions
                error:&error];
@@ -209,160 +172,131 @@ static const int SECOND_BEACH_ID = 846;
     // If there's no data, return nothing
     if (rawData == nil) {
         return NO;
-    } else if (rawData.count < 1) {
-        return NO;
-    } else if ([rawData isKindOfClass:[NSDictionary class]]) {
-        return NO;
     }
+    
+    // Get the metadata about the forecast object
+    self.locationName = [rawData objectForKey:@"LocationName"];
+    self.waveModelName = [[rawData objectForKey:@"WaveModel"] objectForKey:@"Description"];
+    self.waveModelRun = [[rawData objectForKey:@"WaveModel"] objectForKey:@"ModelRun"];
+    self.windModelName = [[rawData objectForKey:@"WindModel"] objectForKey:@"Description"];
+    self.windModelRun = [[rawData objectForKey:@"WindModel"] objectForKey:@"ModelRun"];
     
     // Loop through the objects, create new condition objects, and append to the array
-    int conditionCount = 0;
-    int forecastCount = 0;
-    int dataIndex = 0;
-    while (((conditionCount < CONDITION_DATA_POINT_COUNT) || (forecastCount < FORECAST_DATA_POINT_COUNT)) && (dataIndex < rawData.count)) {
-        // Get the next json object and increment the count
-        NSDictionary *thisDict = [rawData objectAtIndex:dataIndex];
-        dataIndex++;
+    NSArray *rawForecastData = [rawData objectForKey:@"ForecastData"];
+    dayCount = 0;
+    for (int i = 0; i < FORECAST_DATA_POINT_COUNT; i++) {
+        Forecast *newForecast = [[Forecast alloc] init];
         
-        // Get the hour and make sure it is valid for a condition object
-        NSNumber *rawDate = [thisDict objectForKey:@"localTimestamp"];
-        NSString *date = [self formatDate:[rawDate unsignedIntegerValue]];
-        Boolean conditionCheck = [self checkConditionDate:date];
-        Boolean forecastCheck = [self checkForecastDate:date];
-        if (!conditionCheck && !forecastCheck)
-        {
-            continue;
+        // Grab the raw data from the next item in the list
+        NSDictionary *rawForecast = [rawForecastData objectAtIndex:i];
+        newForecast.dateString = [rawForecast objectForKey:@"Date"];
+        newForecast.timeString = [rawForecast objectForKey:@"Time"];
+        newForecast.minimumBreakingHeight = [rawForecast objectForKey:@"MinimumBreakingHeight"];
+        newForecast.maximumBreakingHeight = [rawForecast objectForKey:@"MaximumBreakingHeight"];
+        newForecast.windSpeed = [rawForecast objectForKey:@"WindSpeed"];
+        newForecast.windDirection = [rawForecast objectForKey:@"WindDirection"];
+        newForecast.windCompassDirection = [rawForecast objectForKey:@"WindCompassDirection"];
+        
+        Swell *primarySwell = [[Swell alloc] init];
+        primarySwell.waveHeight = [[rawForecast objectForKey:@"PrimarySwellComponent"] objectForKey:@"WaveHeight"];
+        primarySwell.period = [[rawForecast objectForKey:@"PrimarySwellComponent"] objectForKey:@"Period"];
+        primarySwell.direction = [[rawForecast objectForKey:@"PrimarySwellComponent"] objectForKey:@"Direction"];
+        primarySwell.compassDirection = [[rawForecast objectForKey:@"PrimarySwellComponent"] objectForKey:@"CompassDirection"];
+        newForecast.primarySwellComponent = primarySwell;
+        
+        Swell *secondarySwell = [[Swell alloc] init];
+        secondarySwell.waveHeight = [[rawForecast objectForKey:@"SecondarySwellComponent"] objectForKey:@"WaveHeight"];
+        secondarySwell.period = [[rawForecast objectForKey:@"SecondarySwellComponent"] objectForKey:@"Period"];
+        secondarySwell.direction = [[rawForecast objectForKey:@"SecondarySwellComponent"] objectForKey:@"Direction"];
+        secondarySwell.compassDirection = [[rawForecast objectForKey:@"SecondarySwellComponent"] objectForKey:@"CompassDirection"];
+        newForecast.secondarySwellComponent = secondarySwell;
+        
+        Swell *tertiarySwell = [[Swell alloc] init];
+        tertiarySwell.waveHeight = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"WaveHeight"];
+        tertiarySwell.period = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"Period"];
+        tertiarySwell.direction = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"Direction"];
+        tertiarySwell.compassDirection = [[rawForecast objectForKey:@"TertiarySwellComponent"] objectForKey:@"CompassDirection"];
+        newForecast.tertiarySwellComponent = tertiarySwell;
+        
+        if ([newForecast.timeString isEqualToString:@"01 AM"] ||
+            [newForecast.timeString isEqualToString:@"02 AM"]) {
+            dayIndices[dayCount] = i;
+            dayCount++;
+        } else if (self.forecasts.count == 0) {
+            dayIndices[dayCount] = i;
+            dayCount++;
         }
         
-        // Get the dictionaries from the json array
-        NSDictionary *swellDict = [thisDict objectForKey:@"swell"];
-        NSDictionary *windDict = [thisDict objectForKey:@"wind"];
-        NSDictionary *chartDict = [thisDict objectForKey:@"charts"];
-        
-        if (conditionCheck && conditionCount < CONDITION_DATA_POINT_COUNT) {
-            // Get a new condition object
-            Condition *thisCondition = [[Condition alloc] init];
-            [thisCondition setTimestamp:date];
-            
-            // Get the minumum and maximum wave heights
-            [thisCondition setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
-            [thisCondition setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
-            
-            // Get the wind direction and speed
-            [thisCondition setWindSpeed:[windDict objectForKey:@"speed"]];
-            [thisCondition setWindDeg:[windDict objectForKey:@"direction"]];
-            [thisCondition setWindDirection:[windDict objectForKey:@"compassDirection"]];
-            
-            // Get the swell height, period, and direction
-            [thisCondition setSwellHeight:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"height"]];
-            [thisCondition setSwellPeriod:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"period"]];
-            [thisCondition setSwellDirection:[[[swellDict objectForKey:@"components"] objectForKey:@"primary"] objectForKey:@"compassDirection"]];
-            
-            // Get the Chart URLS
-            [thisCondition setSwellChartURL:[chartDict objectForKey:@"swell"]];
-            [thisCondition setWindChartURL:[chartDict objectForKey:@"wind"]];
-            [thisCondition setPeriodChartURL:[chartDict objectForKey:@"period"]];
-            
-            // Append the condition
-            [currentContainer.conditions addObject:thisCondition];
-            conditionCount++;
-        }
-        
-        if (forecastCheck && (forecastCount < FORECAST_DATA_POINT_COUNT)) {
-            // Get a new Forecast object
-            Forecast *thisForecast = [[Forecast alloc] init];
-            
-            // Set the date
-            [thisForecast setTimestamp:date];
-            
-            // Get the minimum and maximumm breaking heights
-            [thisForecast setMinBreakHeight:[swellDict objectForKey:@"minBreakingHeight"]];
-            [thisForecast setMaxBreakHeight:[swellDict objectForKey:@"maxBreakingHeight"]];
-            
-            // Get the wind speed and direction
-            [thisForecast setWindSpeed:[windDict objectForKey:@"speed"]];
-            [thisForecast setWindDirection:[windDict objectForKey:@"compassDirection"]];
-            
-            // Append the forecast to the list
-            [currentContainer.forecasts addObject:thisForecast];
-            forecastCount++;
-        }
+        [self.forecasts addObject:newForecast];
     }
-    return (currentContainer.forecasts.count == FORECAST_DATA_POINT_COUNT) && (currentContainer.conditions.count == CONDITION_DATA_POINT_COUNT);
-}
-
-- (NSString *)formatDate:(NSUInteger)epoch {
-    // Return the formatted date string so it has the form "12:38 am"
-    NSDate *forcTime = [NSDate dateWithTimeIntervalSince1970:epoch];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-    NSString *formatted = @"";
     
-    if ([self check24HourClock]) {
-        [format setDateFormat:@"HH"];
-        formatted = [NSString stringWithFormat:@"%@:00", [format stringFromDate:forcTime]];
-    } else {
-        [format setDateFormat:@"K a"];
-        formatted = [format stringFromDate:forcTime];
-        if ([formatted hasPrefix:@"0"]) {
-            [format setDateFormat:@"HH a"];
-            [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-            formatted = [format stringFromDate:forcTime];
-        }
-    }
-    return formatted;
+    return self.forecasts.count == FORECAST_DATA_POINT_COUNT;
 }
 
-- (BOOL)checkConditionDate:(NSString *)dateString {
-    // Check if the date is for a valid time, we dont care about midnight nor 3 am
-    if ([self check24HourClock]) {
-        NSRange zeroRange = [dateString rangeOfString:@"00:"];
-        NSRange threeRange = [dateString rangeOfString:@"03:"];
-        if ((zeroRange.location != NSNotFound) || (threeRange.location != NSNotFound)) {
-            // We dont care about them
-            return NO;
+- (void) createDailyForecasts {
+    for (int i = 0; i < dayCount; i++) {
+        ForecastDailySummary *summary = [[ForecastDailySummary alloc] init];
+        
+        NSArray* dailyForecastData = [self getForecastsForDay:i];
+    
+        if (dailyForecastData.count < 8) {
+            // Handle cases where the full day isnt reported
+            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.morningWindSpeed = [NSNumber numberWithInt:0];
+            summary.morningWindCompassDirection = @"";
+            
+            summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:0];
+            summary.afternoonWindSpeed = [NSNumber numberWithInt:0];
+            summary.afternoonWindCompassDirection = @"";
+            
+            if (self.dailyForecasts.count == 0) {
+                if (dailyForecastData.count >= 6) {
+                    summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue]) / 2];
+                    summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue])  / 2];
+                    summary.morningWindSpeed = [[dailyForecastData objectAtIndex:1] windSpeed];
+                    summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:1] windCompassDirection];
+                    
+                    summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:4] minimumBreakingHeight] intValue]) / 3];
+                    summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:4] maximumBreakingHeight] intValue]) / 3];
+                    summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:3] windSpeed];
+                    summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:3] windCompassDirection];
+                    
+                } else {
+                    summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue]) / 3];
+                    summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue]) / 3];
+                    summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:1] windSpeed];
+                    summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:1] windCompassDirection];
+                }
+            } else {
+                if (dailyForecastData.count >= 4) {
+                    summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] minimumBreakingHeight] intValue]) / 3];
+                    summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue])  / 3];
+                    summary.morningWindSpeed = [[dailyForecastData objectAtIndex:2] windSpeed];
+                    summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:2] windCompassDirection];
+                    
+                    if (dailyForecastData.count >= 6) {
+                        summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:4] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] minimumBreakingHeight] intValue]) / 2];
+                        summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:4] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] maximumBreakingHeight] intValue]) / 2];
+                        summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:5] windSpeed];
+                        summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:5] windCompassDirection];
+                    }
+                }
+            }
+        } else {
+            summary.morningMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] minimumBreakingHeight] intValue]) / 3];
+            summary.morningMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:3] maximumBreakingHeight] intValue]) / 3];
+            summary.morningWindSpeed = [[dailyForecastData objectAtIndex:2] windSpeed];
+            summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:2] windCompassDirection];
+        
+            summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:4] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:6] minimumBreakingHeight] intValue]) / 3];
+            summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:4] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:5] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:6] maximumBreakingHeight] intValue]) / 3];
+            summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:5] windSpeed];
+            summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:5] windCompassDirection];
         }
-        return YES;
-    } else {
-        NSRange amRange = [dateString rangeOfString:@"AM"];
-        NSRange zeroRange = [dateString rangeOfString:@"0"];
-        NSRange threeRange = [dateString rangeOfString:@"3"];
-        if (((amRange.location != NSNotFound) && (zeroRange.location != NSNotFound)) ||
-            ((amRange.location != NSNotFound) && (threeRange.location != NSNotFound)))
-        {
-            // We dont care, return false
-            return NO;
-        }
-        // Valid time
-        return YES;
-    }
-}
-
-- (BOOL)checkForecastDate:(NSString *)dateString
-{
-    // Check if the date is for a valid time, if its not return false (We only want very specific times for this
-    if ([self check24HourClock]) {
-        NSRange nineRange = [dateString rangeOfString:@"9"];
-        NSRange fifteenRange = [dateString rangeOfString:@"15"];
-        if ((nineRange.location != NSNotFound) ||
-            (fifteenRange.location != NSNotFound))
-        {
-            // We care!!
-            return YES;
-        }
-        return NO;
-    } else {
-        NSRange amRange = [dateString rangeOfString:@"AM"];
-        NSRange pmRange = [dateString rangeOfString:@"PM"];
-        NSRange threeRange = [dateString rangeOfString:@"3"];
-        NSRange nineRange = [dateString rangeOfString:@"9"];
-        if (((amRange.location != NSNotFound) && (nineRange.location != NSNotFound)) ||
-            ((pmRange.location != NSNotFound) && (threeRange.location != NSNotFound)))
-        {
-            // We care!!
-            return YES;
-        }
-        return NO;
+        
+        [self.dailyForecasts addObject:summary];
     }
 }
 

@@ -8,24 +8,27 @@
 //
 #import <Foundation/Foundation.h>
 
-// Location Constants
-extern NSString * const TOWN_BEACH_LOCATION;
-extern NSString * const POINT_JUDITH_LOCATION;
-extern NSString * const MATUNUCK_LOCATION;
-extern NSString * const SECOND_BEACH_LOCATION;
-
 // Notification Constants
 extern NSString * const FORECAST_DATA_UPDATED_TAG;
-extern NSString * const FORECAST_LOCATION_CHANGED_TAG;
 extern NSString * const FORECAST_DATA_UPDATE_FAILED_TAG;
+
+// Data constants
+extern const int FORECAST_DATA_POINT_COUNT;
 
 @interface ForecastModel : NSObject
 
-- (void) changeForecastLocation;
+@property (strong, nonatomic) NSString *locationName;
+@property (strong, nonatomic) NSString *waveModelName;
+@property (strong, nonatomic) NSString *waveModelRun;
+@property (strong, nonatomic) NSString *windModelName;
+@property (strong, nonatomic) NSString *windModelRun;
+@property (strong, nonatomic) NSMutableArray *forecasts;
+@property (strong, nonatomic) NSMutableArray *dailyForecasts;
+
 - (void) fetchForecastData;
-- (NSArray *) getConditionsForIndex:(int)index;
-- (NSMutableArray *) getConditions;
-- (NSMutableArray *) getForecasts;
+- (int) getDayCount;
+- (int) getDayForecastStartingIndex:(int)day;
+- (NSArray *) getForecastsForDay:(int)day;
 + (instancetype) sharedModel;
 
 @end

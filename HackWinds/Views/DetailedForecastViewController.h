@@ -15,6 +15,7 @@
 - (void) getModelData;
 - (IBAction)chartTypeChanged:(id)sender;
 - (void) imageLoadSuccess:(id)sender;
+- (NSString*) getChartURLPrefixForType:(int)chartType;
 - (void)sendChartImageAnimationWithType:(int)type forIndex:(int)index;
 - (IBAction)playButtonClicked:(id)sender;
 - (IBAction)pauseButtonClicked:(id)sender;

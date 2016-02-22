@@ -10,7 +10,7 @@
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
 #import "Reachability.h"
-#import "NavigationBarTitleWithSubtitleView.h"
+#import <HackWindsDataKit/HackWindsDataKit.h>
 
 static const int CAMERA_IMAGE_COUNT = 8;
 
@@ -21,7 +21,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
 @property (weak, nonatomic) IBOutlet UIPageControl *camPaginator;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
-@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -41,12 +40,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    // Set up the custom nav bar with the forecast location
-    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
-    [self.navigationItem setTitleView: self.navigationBarTitle];
-    [self.navigationBarTitle setTitleText:@"HackWinds"];
-    [self.navigationBarTitle.detailButton addTarget:self action:@selector(locationButtonClicked:)  forControlEvents:UIControlEventTouchDown];
-    
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
     
@@ -58,9 +51,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     // Initialize the forecast model
     self.forecastModel = [ForecastModel sharedModel];
-    
-    // Setup the location settings title
-    [self getForecastSettings];
     
     // Initialize the failures to false
     lastFetchFailure = NO;
@@ -114,7 +104,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (void) updateUI {
-    currentConditions = [self.forecastModel getConditionsForIndex:0];
+    currentConditions = [self.forecastModel getForecastsForDay:0];
     
     if (currentConditions == nil) {
         lastFetchFailure = YES;
@@ -216,56 +206,10 @@ static const int CAMERA_IMAGE_COUNT = 8;
                                                                    withString:[NSString stringWithFormat:@"%d.jpg", index+1]]];
 }
 
-#pragma mark - Forecast location
-
-- (void) locationButtonClicked:(id)sender {
-    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Forecast Location"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Cancel"
-                                                       destructiveButtonTitle:nil
-                                                            otherButtonTitles:FORECAST_LOCATIONS];
-    // Show the action sheet
-    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
-    [locationActionSheet showInView:self.view];
-}
-
-- (void) getForecastSettings {
-    // Get the forecast location from the settings
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    [defaults synchronize];
-    
-    // Grab the last set or default location
-    NSString *forecastLocation = [defaults objectForKey:@"ForecastLocation"];
-    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", forecastLocation]];
-}
-
 #pragma mark - UIScrollViewDelegate
 
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView {
     [self loadCameraPages];
-}
-
-#pragma mark - ActionSheet
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    
-    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
-        // If the user selects a location, set the settings key to the new location
-        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"ForecastLocation"];
-        [defaults synchronize];
-        [self getForecastSettings];
-        
-        // Tell everyone the data has updated
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:FORECAST_LOCATION_CHANGED_TAG
-             object:self];
-        });
-        
-    } else {
-        NSLog(@"Forecast Location change cancelled, keep location at %@", [defaults objectForKey:@"ForecastLocation"]);
-    }
 }
 
 #pragma mark - TableView
@@ -276,7 +220,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 6 rows + the header row
+    // Return so there will always be currentconditions.count rows + the header row
     if (currentConditions == nil) {
         return 1;
     }
@@ -327,13 +271,13 @@ static const int CAMERA_IMAGE_COUNT = 8;
             return cell;
         }
         
-        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
+        Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        hourLabel.text = thisCondition.timestamp;
-        waveLabel.text = [NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight];
-        windLabel.text = [NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed];
-        swellLabel.text = [NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod];
+        hourLabel.text = thisCondition.timeString;
+        waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
+        windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
+        swellLabel.text = [NSString stringWithFormat:@"%@ %2.2f @ %2.1fs", thisCondition.primarySwellComponent.compassDirection, thisCondition.primarySwellComponent.waveHeight.doubleValue, thisCondition.primarySwellComponent.period.doubleValue];
         
         // Make sure that the text is black
         hourLabel.textColor = [UIColor blackColor];

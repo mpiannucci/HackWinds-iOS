@@ -22,8 +22,9 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitVersionString[];
 
 // Types
 #import <HackWindsDataKit/Camera.h>
-#import <HackWindsDataKit/Condition.h>
+#import <HackWindsDataKit/Swell.h>
 #import <HackWindsDataKit/Forecast.h>
+#import <HackWindsDataKit/ForecastDailySummary.h>
 #import <HackWindsDataKit/Buoy.h>
 #import <HackWindsDataKit/Tide.h>
 
@@ -34,5 +35,4 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitVersionString[];
 #import <HackWindsDataKit/TideModel.h>
 
 // Useful abstracted containers
-#import <HackWindsDataKit/ForecastDataContainer.h>
 #import <HackWindsDataKit/BuoyDataContainer.h>

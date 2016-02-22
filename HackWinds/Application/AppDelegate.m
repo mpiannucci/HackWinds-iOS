@@ -98,6 +98,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
 }
 
+@end
+
 #pragma mark - Allowing the movie players to rotate in fullscreen
 
 // These next three methods are hacks to make the landscpae orientation work when playing full screen
@@ -125,5 +127,3 @@
 //        return UIInterfaceOrientationMaskPortrait;
 //    }
 //}
-
-@end

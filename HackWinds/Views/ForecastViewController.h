@@ -13,7 +13,5 @@
 
 - (void) updateUI;
 - (void) forecastUpdateFailed;
-- (void) locationButtonClicked:(id)sender;
-- (void) getForecastSettings;
 
 @end

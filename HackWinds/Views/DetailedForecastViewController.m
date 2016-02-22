@@ -5,16 +5,19 @@
 //  Created by Matthew Iannucci on 3/30/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define forecastFetchBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 #import "DetailedForecastViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "AsyncImageView.h"
+#import "UIImage+Crop.h"
 
 // Constants
-static const int SWELL_CHART = 0;
-static const int WIND_CHART = 1;
-static const int PERIOD_CHART = 2;
+static NSString * const BASE_WW_CHART_URL = @"http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/US_eastcoast.%@.%@%03dh.png";
+static NSString * const PAST_HOUR_PREFIX = @"h";
+static NSString * const FUTURE_HOUR_PREFIX = @"f";
+static const int WAVE_HEIGHT_CHART = 0;
+static const int SWELL_PERIOD_CHART = 1;
+static const int WIND_CHART = 2;
+static const int WW_HOUR_STEP = 3;
 
 @interface DetailedForecastViewController ()
 
@@ -85,12 +88,10 @@ static const int PERIOD_CHART = 2;
 
 - (void)getModelData {
     // Load the MSW Data
-    dispatch_async(forecastFetchBgQueue, ^{
-        currentConditions = [self.forecastModel getConditionsForIndex:(int)self.dayIndex];
-        [self.mswTable performSelectorOnMainThread:@selector(reloadData)
+    currentConditions = [self.forecastModel getForecastsForDay:(int)self.dayIndex];
+    [self.mswTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
-        [self sendChartImageAnimationWithType:SWELL_CHART forIndex:0];
-    });
+    [self sendChartImageAnimationWithType:WAVE_HEIGHT_CHART forIndex:0];
 }
 
 - (IBAction)chartTypeChanged:(id)sender {
@@ -108,27 +109,15 @@ static const int PERIOD_CHART = 2;
     [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex] forIndex:0];
 }
 
-- (void)sendChartImageAnimationWithType:(int)type forIndex:(int)index {
-    switch (type) {
-        case SWELL_CHART:
-            // Swell
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] swellChartURL]]
-                                                                       target:self action:@selector(imageLoadSuccess:)];
-            break;
-        case WIND_CHART:
-            // Wind
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] windChartURL]]
-                                                                       target:self action:@selector(imageLoadSuccess:)];
-            break;
-        case PERIOD_CHART:
-            // Period
-            [[AsyncImageLoader sharedLoader] loadImageWithURL:[NSURL URLWithString:[[currentConditions objectAtIndex:index] periodChartURL]]
-                                                                       target:self action:@selector(imageLoadSuccess:)];
-            break;
-        default:
-            // Do Nothing
-            break;
+- (void)sendChartImageAnimationWithType:(int)chartType forIndex:(int)index {
+    NSString *timePrefix = FUTURE_HOUR_PREFIX;
+    if ((self.dayIndex == 0) && (index == 0)) {
+        timePrefix = PAST_HOUR_PREFIX;
     }
+    
+    int hour = WW_HOUR_STEP * ([self.forecastModel getDayForecastStartingIndex:(int)self.dayIndex] + index);
+    NSURL *wwChartURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, [self getChartURLPrefixForType:chartType], timePrefix, hour]];
+    [[AsyncImageLoader sharedLoader] loadImageWithURL:wwChartURL target:self action:@selector(imageLoadSuccess:)];
 }
 
 - (IBAction)playButtonClicked:(id)sender {
@@ -144,8 +133,12 @@ static const int PERIOD_CHART = 2;
 }
 
 - (void)imageLoadSuccess:(id)sender {
-    // Add the image to the array for animation
-    [self.animationImages addObject:sender];
+    
+    // Crop the image
+    UIImage *croppedChart = [sender crop:CGRectMake(50, 50, 500, 200)];
+    
+    // Add the cropped image to the array for animation
+    [self.animationImages addObject:croppedChart];
     
     if (needsReload[self.chartTypeSegmentControl.selectedSegmentIndex]) {
         [self.chartLoadProgressIndicator setProgress:self.animationImages.count/6.0f animated:YES];
@@ -153,8 +146,8 @@ static const int PERIOD_CHART = 2;
     
     if ([self.animationImages count] < 2) {
         // If its the first image set it to the header as a holder
-        [self.chartImageView setImage:sender];
-    } else if ([self.animationImages count] == 6) {
+        [self.chartImageView setImage:croppedChart];
+    } else if ([self.animationImages count] == currentConditions.count) {
         // We have all of the images so animate!!!
         [self.chartImageView setAnimationImages:self.animationImages];
         [self.chartImageView setAnimationDuration:5];
@@ -173,10 +166,23 @@ static const int PERIOD_CHART = 2;
             [self.chartLoadProgressIndicator setHidden:YES];
         }
     }
-    if (self.animationImages.count < 6) {
+    if (self.animationImages.count < currentConditions.count) {
         // If the animation array isnt full, get the next image on the stack
         [self sendChartImageAnimationWithType:(int)self.chartTypeSegmentControl.selectedSegmentIndex
                                      forIndex:(int)self.animationImages.count];
+    }
+}
+
+- (NSString*) getChartURLPrefixForType:(int)chartType {
+    switch (chartType) {
+        case WAVE_HEIGHT_CHART:
+            return @"hs";
+        case SWELL_PERIOD_CHART:
+            return @"tp_sw1";
+        case WIND_CHART:
+            return @"u10";
+        default:
+            return @"";
     }
 }
 
@@ -188,8 +194,12 @@ static const int PERIOD_CHART = 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return so there will always be 6 rows
-    return [[self.forecastModel getConditions] count]/5+1;
+    // Return so there will always be currentconditions.count rows + the header row
+    if (currentConditions == nil) {
+        return 1;
+    }
+    
+    return currentConditions.count + 1;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -222,13 +232,13 @@ static const int PERIOD_CHART = 2;
         
     } else {
         // Get the condition object
-        Condition *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
+        Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        [hourLabel setText:thisCondition.timestamp];
-        [waveLabel setText:[NSString stringWithFormat:@"%@ - %@", thisCondition.minBreakHeight, thisCondition.maxBreakHeight]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %@", thisCondition.windDirection, thisCondition.windSpeed]];
-        [swellLabel setText:[NSString stringWithFormat:@"%@ %@ @ %@s", thisCondition.swellDirection, thisCondition.swellHeight, thisCondition.swellPeriod]];
+        [hourLabel setText:thisCondition.timeString];
+        [waveLabel setText:[NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue]];
+        [windLabel setText:[NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue]];
+        [swellLabel setText:[NSString stringWithFormat:@"%@ %2.2f @ %2.1fs", thisCondition.primarySwellComponent.compassDirection, thisCondition.primarySwellComponent.waveHeight.doubleValue, thisCondition.primarySwellComponent.period.doubleValue]];
         
         // Make sure that the text is black
         [hourLabel setTextColor:[UIColor blackColor]];
