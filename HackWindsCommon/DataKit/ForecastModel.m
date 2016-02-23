@@ -67,7 +67,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 }
 
 - (int) getDayForecastStartingIndex:(int)day {
-    if (day > 0) {
+    if (day < 8) {
         return dayIndices[day];
     } else {
         return 0;
