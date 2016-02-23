@@ -41,4 +41,19 @@
     [aCoder encodeObject:self.tertiarySwellComponent forKey:@"tertiarySwellComponent"];
 }
 
+- (NSString*) timeToTwentyFourHourClock {
+    int hour = [[self.timeString substringToIndex:2] doubleValue];
+    NSString *ampm = [self.timeString substringFromIndex:3];
+    
+    if (hour == 12) {
+        if ([ampm isEqualToString:@"am"]) {
+            hour = 0;
+        }
+    } else if ([ampm isEqualToString:@"PM"]) {
+        hour += 12;
+    }
+    
+    return [NSString stringWithFormat:@"%d:00", hour];
+}
+
 @end

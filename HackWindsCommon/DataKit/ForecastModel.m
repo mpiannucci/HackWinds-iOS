@@ -21,7 +21,6 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 // Private methods
 - (void) createDailyForecasts;
 - (BOOL) parseForecastsFromData:(NSData*) unserializedData;
-- (BOOL) check24HourClock;
 
 @end
 
@@ -29,7 +28,6 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 {
     int dayIndices[8];
     int dayCount;
-    BOOL is24HourClock;
 }
 
 + (instancetype) sharedModel {
@@ -46,9 +44,6 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 - (id)init
 {
     self = [super init];
-    
-    // Check the format of the clock
-    [self check24HourClock];
     
     // Set up the data container with emoty values
     self.forecasts = [[NSMutableArray alloc] initWithCapacity:FORECAST_DATA_POINT_COUNT];
@@ -75,7 +70,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 }
 
 - (NSArray *) getForecastsForDay:(int)day {
-    if (self.forecasts.count != FORECAST_DATA_POINT_COUNT) {
+    if (self.forecasts.count == 0) {
         return nil;
     }
     
@@ -84,6 +79,10 @@ const int FORECAST_DATA_POINT_COUNT = 60;
     
     if (day < 8) {
         startIndex = dayIndices[day];
+    }
+    
+    if (startIndex == -1) {
+        return nil;
     }
     
     if (day < 7) {
@@ -191,6 +190,13 @@ const int FORECAST_DATA_POINT_COUNT = 60;
         NSDictionary *rawForecast = [rawForecastData objectAtIndex:i];
         newForecast.dateString = [rawForecast objectForKey:@"Date"];
         newForecast.timeString = [rawForecast objectForKey:@"Time"];
+        if ((i == 0) &&
+            ([newForecast.timeString isEqualToString:@"07 PM"] ||
+             [newForecast.timeString isEqualToString:@"08 PM"])) {
+            i += 1;
+            continue;
+        }
+        
         newForecast.minimumBreakingHeight = [rawForecast objectForKey:@"MinimumBreakingHeight"];
         newForecast.maximumBreakingHeight = [rawForecast objectForKey:@"MaximumBreakingHeight"];
         newForecast.windSpeed = [rawForecast objectForKey:@"WindSpeed"];
@@ -230,7 +236,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
         [self.forecasts addObject:newForecast];
     }
     
-    return self.forecasts.count == FORECAST_DATA_POINT_COUNT;
+    return self.forecasts.count > 0;
 }
 
 - (void) createDailyForecasts {
@@ -238,6 +244,10 @@ const int FORECAST_DATA_POINT_COUNT = 60;
         ForecastDailySummary *summary = [[ForecastDailySummary alloc] init];
         
         NSArray* dailyForecastData = [self getForecastsForDay:i];
+        if (dailyForecastData == nil) {
+            [self.dailyForecasts addObject:summary];
+            continue;
+        }
     
         if (dailyForecastData.count < 8) {
             // Handle cases where the full day isnt reported
@@ -263,7 +273,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
                     summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:3] windSpeed];
                     summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:3] windCompassDirection];
                     
-                } else {
+                } else if (dailyForecastData.count >= 4) {
                     summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] minimumBreakingHeight] intValue]) / 3];
                     summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue]) / 3];
                     summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:1] windSpeed];
@@ -298,13 +308,6 @@ const int FORECAST_DATA_POINT_COUNT = 60;
         
         [self.dailyForecasts addObject:summary];
     }
-}
-
-- (BOOL)check24HourClock {
-    NSLocale *locale = [NSLocale currentLocale];
-    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
-    is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
-    return is24HourClock;
 }
 
 @end

@@ -23,4 +23,6 @@
 @property (strong, nonatomic) Swell *secondarySwellComponent;
 @property (strong, nonatomic) Swell *tertiarySwellComponent;
 
+- (NSString*) timeToTwentyFourHourClock;
+
 @end

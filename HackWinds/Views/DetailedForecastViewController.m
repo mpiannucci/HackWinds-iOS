@@ -41,6 +41,7 @@ static const int WW_HOUR_STEP = 3;
 @implementation DetailedForecastViewController {
     NSArray *currentConditions;
     BOOL needsReload[3];
+    BOOL is24HourClock;
 }
 
 - (void)viewDidLoad {
@@ -51,6 +52,8 @@ static const int WW_HOUR_STEP = 3;
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
     barButton.title = @"Back";
     self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
+    
+    [self check24HourClock];
     
     // Get the forecast model instance
     self.forecastModel = [ForecastModel sharedModel];
@@ -97,6 +100,13 @@ static const int WW_HOUR_STEP = 3;
     [self sendChartImageAnimationWithType:WAVE_HEIGHT_CHART forIndex:0];
 }
 
+- (BOOL)check24HourClock {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
+    is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
+    return is24HourClock;
+}
+
 - (IBAction)chartTypeChanged:(id)sender {
     // Clear out the old animation images
     // Reset the image buttons and animation
@@ -138,7 +148,7 @@ static const int WW_HOUR_STEP = 3;
 - (void)imageLoadSuccess:(id)sender {
     
     // Crop the image
-    UIImage *croppedChart = [sender crop:CGRectMake(100, 50, 350, 200)];
+    UIImage *croppedChart = [sender crop:CGRectMake(60, 0, 400, 300)];
     
     // Add the cropped image to the array for animation
     [self.animationImages addObject:croppedChart];
@@ -216,44 +226,48 @@ static const int WW_HOUR_STEP = 3;
     
     if ([indexPath row] < 1) {
         // Set the heder text cuz its the first row
-        [hourLabel setText:@"Time"];
-        [waveLabel setText:@"Surf"];
-        [windLabel setText:@"Wind"];
-        [swellLabel setText:@"Swell"];
+        hourLabel.text = @"Time";
+        waveLabel.text = @"Surf";
+        windLabel.text = @"Wind";
+        swellLabel.text = @"Swell";
         
         // Set the header label to be hackwinds color blue
-        [hourLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [waveLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [windLabel setTextColor:HACKWINDS_BLUE_COLOR];
-        [swellLabel setTextColor:HACKWINDS_BLUE_COLOR];
+        hourLabel.textColor = HACKWINDS_BLUE_COLOR;
+        waveLabel.textColor = HACKWINDS_BLUE_COLOR;
+        windLabel.textColor = HACKWINDS_BLUE_COLOR;
+        swellLabel.textColor = HACKWINDS_BLUE_COLOR;
         
         // Set the text to be bold
-        [hourLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [waveLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [windLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [swellLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        hourLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        waveLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        windLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        swellLabel.font = [UIFont boldSystemFontOfSize:17.0];
         
     } else {
         // Get the condition object
         Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        [hourLabel setText:thisCondition.timeString];
-        [waveLabel setText:[NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue]];
-        [windLabel setText:[NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue]];
-        [swellLabel setText:[thisCondition.primarySwellComponent getSwellSummmary]];
+        if (is24HourClock) {
+            hourLabel.text = [thisCondition timeToTwentyFourHourClock];
+        } else {
+            hourLabel.text = thisCondition.timeString;
+        }
+        waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
+        windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
+        swellLabel.text = [thisCondition.primarySwellComponent getSwellSummmary];
         
         // Make sure that the text is black
-        [hourLabel setTextColor:[UIColor blackColor]];
-        [waveLabel setTextColor:[UIColor blackColor]];
-        [windLabel setTextColor:[UIColor blackColor]];
-        [swellLabel setTextColor:[UIColor blackColor]];
+        hourLabel.textColor = [UIColor blackColor];
+        waveLabel.textColor = [UIColor blackColor];
+        windLabel.textColor = [UIColor blackColor];
+        swellLabel.textColor = [UIColor blackColor];
         
         // Make sure the text isnt bold
-        [hourLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [waveLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [windLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [swellLabel setFont:[UIFont systemFontOfSize:17.0]];
+        hourLabel.font = [UIFont systemFontOfSize:17.0];
+        waveLabel.font = [UIFont systemFontOfSize:17.0];
+        windLabel.font = [UIFont systemFontOfSize:17.0];
+        swellLabel.font = [UIFont systemFontOfSize:17.0];
     }
     
     return cell;

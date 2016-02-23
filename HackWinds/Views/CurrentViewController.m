@@ -32,6 +32,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
     AsyncImageView *currentCameraPages[CAMERA_IMAGE_COUNT];
     Camera *wwCamera;
     BOOL lastFetchFailure;
+    BOOL is24HourClock;
 }
 
 - (void)viewDidLoad
@@ -48,6 +49,9 @@ static const int CAMERA_IMAGE_COUNT = 8;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     [self.dayHeader setText:[dateFormatter stringFromDate:now]];
+    
+    // Check for 24 hour time
+    [self check24HourClock];
     
     // Initialize the forecast model
     self.forecastModel = [ForecastModel sharedModel];
@@ -119,6 +123,13 @@ static const int CAMERA_IMAGE_COUNT = 8;
     lastFetchFailure = YES;
     
     [self.mswTodayTable reloadData];
+}
+
+- (BOOL)check24HourClock {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
+    is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
+    return is24HourClock;
 }
 
 #pragma mark - Camera setup and scrolling
@@ -274,7 +285,11 @@ static const int CAMERA_IMAGE_COUNT = 8;
         Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
         
         // Set the data to show in the labels
-        hourLabel.text = thisCondition.timeString;
+        if (is24HourClock) {
+            hourLabel.text = [thisCondition timeToTwentyFourHourClock];
+        } else {
+            hourLabel.text = thisCondition.timeString;
+        }
         waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
         windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
         swellLabel.text = [thisCondition.primarySwellComponent getSwellSummmary];
