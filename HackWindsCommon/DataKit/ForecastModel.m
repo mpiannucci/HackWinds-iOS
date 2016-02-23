@@ -183,6 +183,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
     // Loop through the objects, create new condition objects, and append to the array
     NSArray *rawForecastData = [rawData objectForKey:@"ForecastData"];
     dayCount = 0;
+    int forecastOffset = 0;
     for (int i = 0; i < FORECAST_DATA_POINT_COUNT; i++) {
         Forecast *newForecast = [[Forecast alloc] init];
         
@@ -194,6 +195,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
             ([newForecast.timeString isEqualToString:@"07 PM"] ||
              [newForecast.timeString isEqualToString:@"08 PM"])) {
             i += 1;
+            forecastOffset = 2;
             continue;
         }
         
@@ -226,10 +228,10 @@ const int FORECAST_DATA_POINT_COUNT = 60;
         
         if ([newForecast.timeString isEqualToString:@"01 AM"] ||
             [newForecast.timeString isEqualToString:@"02 AM"]) {
-            dayIndices[dayCount] = i;
+            dayIndices[dayCount] = i - forecastOffset;
             dayCount++;
         } else if (self.forecasts.count == 0) {
-            dayIndices[dayCount] = i;
+            dayIndices[dayCount] = i - forecastOffset;
             dayCount++;
         }
         
