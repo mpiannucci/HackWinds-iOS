@@ -294,6 +294,11 @@ const int FORECAST_DATA_POINT_COUNT = 60;
                         summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:5] windSpeed];
                         summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:5] windCompassDirection];
                     }
+                } else if (dailyForecastData.count >= 2) {
+                    summary.morningMinimumBreakingHeight = [[dailyForecastData objectAtIndex:1] minimumBreakingHeight];
+                    summary.morningMaximumBreakingHeight = [[dailyForecastData objectAtIndex:1] maximumBreakingHeight];
+                    summary.morningWindSpeed = [[dailyForecastData objectAtIndex:1] windSpeed];
+                    summary.morningWindCompassDirection = [[dailyForecastData objectAtIndex:1] windCompassDirection];
                 }
             }
         } else {
