@@ -11,6 +11,7 @@
 @interface WaveWatchChartViewController : UIViewController <UITextFieldDelegate>
 
 - (void) imageLoadSuccess:(id)sender;
+- (void) imageLoadFailure:(id)sender;
 - (void) sendChartImageAnimationLoadForType:(int)chartType forIndex:(int)index;
 - (NSString*) getChartURLPrefixForType:(int)chartType;
 

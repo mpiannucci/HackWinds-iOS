@@ -130,7 +130,7 @@ static const int WW_HOUR_STEP = 3;
     
     int hour = WW_HOUR_STEP * ([self.forecastModel getDayForecastStartingIndex:(int)self.dayIndex] + index);
     NSURL *wwChartURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, [self getChartURLPrefixForType:chartType], timePrefix, hour]];
-    [[AsyncImageLoader sharedLoader] loadImageWithURL:wwChartURL target:self action:@selector(imageLoadSuccess:)];
+    [[AsyncImageLoader sharedLoader] loadImageWithURL:wwChartURL target:self success:@selector(imageLoadSuccess:) failure:@selector(imageLoadFailure:)];
 }
 
 - (IBAction)playButtonClicked:(id)sender {
@@ -143,6 +143,11 @@ static const int WW_HOUR_STEP = 3;
     [self.chartImageView stopAnimating];
     [self.chartAnimationPauseButton setHidden:YES];
     [self.chartAnimationPlayButton setHidden:NO];
+}
+
+- (void) imageLoadFailure:(id)sender {
+    [self.chartImageView setImage:[UIImage imageNamed:@"ErrorLoading"]];
+    [self.chartLoadProgressIndicator setHidden:YES];
 }
 
 - (void)imageLoadSuccess:(id)sender {

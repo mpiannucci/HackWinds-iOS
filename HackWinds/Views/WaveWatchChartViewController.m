@@ -110,7 +110,12 @@ static const int WW_MIN_HOUR = 0;
     NSURL *nextURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, chartTypePrefix, chartTimePrefix, index * WW_HOUR_STEP]];
     [[AsyncImageLoader sharedLoader] loadImageWithURL:nextURL
                                                target:self
-                                               action:@selector(imageLoadSuccess:)];
+                                               success:@selector(imageLoadSuccess:) failure:@selector(imageLoadFailure:)];
+}
+
+- (void) imageLoadFailure:(id)sender {
+    [self.chartImageView setImage:[UIImage imageNamed:@"ErrorLoading"]];
+    [self.chartProgressBar setHidden:YES];
 }
 
 - (void) imageLoadSuccess:(id)sender {
