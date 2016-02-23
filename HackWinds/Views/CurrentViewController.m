@@ -288,7 +288,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
         if (is24HourClock) {
             hourLabel.text = [thisCondition timeToTwentyFourHourClock];
         } else {
-            hourLabel.text = thisCondition.timeString;
+            hourLabel.text = [thisCondition timeStringNoZero];
         }
         waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
         windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];

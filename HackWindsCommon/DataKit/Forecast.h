@@ -24,5 +24,6 @@
 @property (strong, nonatomic) Swell *tertiarySwellComponent;
 
 - (NSString*) timeToTwentyFourHourClock;
+- (NSString*) timeStringNoZero;
 
 @end

@@ -56,4 +56,12 @@
     return [NSString stringWithFormat:@"%d:00", hour];
 }
 
+- (NSString*) timeStringNoZero {
+    if ([self.timeString hasPrefix:@"0"]) {
+        return [self.timeString substringFromIndex:1];
+    }
+    
+    return self.timeString;
+}
+
 @end
