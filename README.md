@@ -5,11 +5,7 @@ HackWinds-iOS
 
 [Download from the App Store now!](https://itunes.apple.com/us/app/hackwinds/id945847570?ls=1&mt=8)
 
-Displays the live HD feed and the live still images from the surf camera at [Narragansett Town Beach](http://www.warmwinds.com/surf-cam/) in Rhode Island. Also scrapes wave forecast information from [SwellInfo](http://www.swellinfo.com/surf-forecast/newport-rhode-island), [MagicSeaweed](http://magicseaweed.com/Narragansett-Beach-Surf-Report/1103/), and [Wunderground](http://www.wunderground.com/?apiref=b80661e4fc362f50).
-
-Dependencies
-----------------
-This project depends on [CorePlot](https://github.com/core-plot/core-plot). I have not switched to Cocoapods yet so for now you need to clone coreplot in the same directory as hackwinds and make sure the coreplot project is included. 
+Displays the live HD feed and the live still images from the surf camera at [Narragansett Town Beach](http://www.warmwinds.com/surf-cam/) in Rhode Island. Also scrapes wave forecast information from [RhodyCast](http://forecast.mpiannucci.com), [NOAA](http://www.ndbc.noaa.gov) and [Wunderground](http://www.wunderground.com/?apiref=b80661e4fc362f50).
 
 Project Layout
 ----------------
@@ -37,7 +33,7 @@ Current status by platform
 
 `iOS`: In production, live on the App Store
 
-`WatchOS`: In beta, testing with test flight. 
+`WatchOS`: In production! 
 
 `OSX`: In beta, just needs icons and stuff.
 
