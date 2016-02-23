@@ -46,7 +46,7 @@
     NSString *ampm = [self.timeString substringFromIndex:3];
     
     if (hour == 12) {
-        if ([ampm isEqualToString:@"am"]) {
+        if ([ampm isEqualToString:@"AM"]) {
             hour = 0;
         }
     } else if ([ampm isEqualToString:@"PM"]) {
