@@ -1181,6 +1181,62 @@
             </objects>
             <point key="canvasLocation" x="1342" y="1528"/>
         </scene>
+        <!--Tide Tables-->
+        <scene sceneID="FYA-Gp-6OX">
+            <objects>
+                <tableViewController title="Tide Tables" id="LCZ-mQ-OKe" customClass="TideScheduleViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bbd-N4-2hd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XUX-bd-8f5">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XUX-bd-8f5" id="dqB-vX-2xG">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LCZ-mQ-OKe" id="YOm-1e-ZRV"/>
+                            <outlet property="delegate" destination="LCZ-mQ-OKe" id="MJl-cR-BTV"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="TFS-77-7y1"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Tide Schedule" id="jlE-ng-nOK">
+                        <barButtonItem key="rightBarButtonItem" image="ic_clear_white" id="fps-WL-L3R">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="closeView:" destination="LCZ-mQ-OKe" id="O96-YD-1PX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qiw-96-ReH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="2273"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k7Y-L7-0JR">
+            <objects>
+                <navigationController id="Ed6-X1-wOn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b6t-kz-WN4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LCZ-mQ-OKe" kind="relationship" relationship="rootViewController" id="C8E-Df-bwH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mt8-gV-4f5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="2273"/>
+        </scene>
         <!--Buoys-->
         <scene sceneID="rsP-b4-j7Q">
             <objects>
@@ -1526,6 +1582,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="HackWinds" id="DQn-p6-DmC">
+                        <barButtonItem key="leftBarButtonItem" image="ic_schedule_white" id="BaZ-2u-ImT">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="Ed6-X1-wOn" kind="modal" id="NqM-YX-9gl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="AXZ-Zg-BhP">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -1830,11 +1892,12 @@
         <image name="ic_fast_rewind_36pt" width="36" height="36"/>
         <image name="ic_fast_rewind_white_36pt" width="36" height="36"/>
         <image name="ic_history_white" width="24" height="24"/>
+        <image name="ic_schedule_white" width="24" height="24"/>
         <image name="ic_settings_white" width="24" height="24"/>
         <image name="ic_track_changes_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="XkZ-iH-OSJ"/>
         <segue reference="iVD-UU-BBq"/>
-        <segue reference="l1V-PH-Aev"/>
     </inferredMetricsTieBreakers>
 </document>

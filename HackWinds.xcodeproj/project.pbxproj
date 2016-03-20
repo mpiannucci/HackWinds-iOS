@@ -73,6 +73,7 @@
 		349D42641C384C96006F7B24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 349D42621C384C96006F7B24 /* InfoPlist.strings */; };
 		349D42671C384C96006F7B24 /* HackWindsTodayOSX.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		349D426D1C384DF4006F7B24 /* HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; };
+		349F83791C9F614C00994826 /* TideScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349F83781C9F614C00994826 /* TideScheduleViewController.m */; };
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
@@ -383,6 +384,8 @@
 		349D426E1C384E12006F7B24 /* HackWindsOSX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsOSX-Bridging-Header.h"; sourceTree = "<group>"; };
 		349D426F1C384F14006F7B24 /* HackWindsOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsOSX.entitlements; sourceTree = "<group>"; };
 		349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackWindsWatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		349F83771C9F614C00994826 /* TideScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideScheduleViewController.h; sourceTree = "<group>"; };
+		349F83781C9F614C00994826 /* TideScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideScheduleViewController.m; sourceTree = "<group>"; };
 		34AA86571A41357300AD09CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34AA865C1A41382F00AD09CF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 				342A76211985E18100077F8C /* TideViewController.m */,
 				34C389571BA27E3D0000EDC8 /* WaveWatchChartViewController.h */,
 				34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */,
+				349F83771C9F614C00994826 /* TideScheduleViewController.h */,
+				349F83781C9F614C00994826 /* TideScheduleViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1340,6 +1345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349F83791C9F614C00994826 /* TideScheduleViewController.m in Sources */,
 				34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */,
 				34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */,
 				34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */,
