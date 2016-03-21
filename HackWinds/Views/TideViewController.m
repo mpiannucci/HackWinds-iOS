@@ -24,6 +24,7 @@ static const int TIDE_DATA_FONT_SIZE = 25;
 
 @implementation TideViewController {
     NSString *buoyLocation;
+    Buoy* currentBuoy;
 }
 
 - (void)viewDidLoad {
@@ -44,8 +45,9 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     [defaults synchronize];
     buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
     [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
+        currentBuoy = buoy;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self updateBuoyView:buoy];
+            [self.tableView reloadData];
         });
     }];
 }
@@ -54,11 +56,11 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     [super viewDidAppear:animated];
     
     // Update the tide view in case we missed a notification
-    [self updateTideView];
+    [self.tableView reloadData];
     
     // Register listener for the data model update
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateTideView)
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView
+                                             selector:@selector(reloadData)
                                                  name:TIDE_DATA_UPDATED_TAG
                                                object:nil];
 }
@@ -77,94 +79,87 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)updateTideView {
-    // If there are no tide items return early
-    NSArray* tideData = self.tideModel.tides;
-    
-    if (tideData.count == 0) {
-        return;
+#pragma mark - TableView
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 1;
+        case 1:
+            return 6;
+        case 2:
+            return 1;
+        default:
+            return 0;
     }
+}
+
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Right Now";
+        case 1:
+            return @"Upcoming";
+        case 2:
+            return @"Water Temperature";
+        default:
+            return nil;
+    }
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell * cell;
     
-    int tideCount = 0;
-    int sunCount = 0;
-    for (int i = 0; i < tideData.count; i++) {
-        // Then check what is is again, and set correct text box
-        Tide* thisTide = [tideData objectAtIndex:i];
-        if ([thisTide isSunrise]) {
-            // Get the first row in the sunrise and sunset section and set the text of the label to the time
-            UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
-            NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.timestamp];
-            [sunriseLabel setAttributedText:[self makeTideViewDataString:sunrisetext]];
-            sunCount++;
-            
-        } else if ([thisTide isSunset]) {
-            // Get the second row in the sunrise and sunset section and set the text of the label to the time
-            UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]] viewWithTag:61];
-            NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.timestamp];
-            [sunsetLabel setAttributedText:[self makeTideViewDataString:sunsetText]];
-            sunCount++;
-            
-        } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG] ||
-                   [[thisTide eventType] isEqualToString:LOW_TIDE_TAG] ) {
-            // Get the next cell and its label so we can update it
-            UILabel* tideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tideCount inSection:1]] viewWithTag:51];
-            NSString* tideText = [NSString stringWithFormat:@"%@: %@ at %@", thisTide.eventType, thisTide.height, thisTide.timestamp];
-            
-            [tideLabel setAttributedText:[self makeTideViewDataString:tideText]];
-            
-            // If its the first object, set it to the current status
-            if (tideCount == 0) {
-                // Get the current tide label
-                UILabel* currentTideLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:41];
-                
-                if ([thisTide isHighTide]) {
-                    // Show that the tide is incoming, using green because typically surf increases with incoming tides
-                    currentTideLabel.text = @"Incoming";
-                    currentTideLabel.textColor = GREEN_COLOR;
-                    
-                } else if ([thisTide isLowTide]) {
-                    // Show that the tide is outgoing, use red because the surf typically decreases with an outgoing tide
-                    currentTideLabel.text = @"Outgoing";
-                    currentTideLabel.textColor = RED_COLOR;
-                }
-            }
-            // Only increment the tide count for a tide event and not a sunrise or sunset
-            tideCount++;
+    if (indexPath.section == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"currentStatusItem"];
+        cell.textLabel.text = self.tideModel.currentTideStatus;
+        if ([self.tideModel.currentTideStatus isEqualToString:@"Incoming"]) {
+            cell.textLabel.textColor = GREEN_COLOR;
+        } else if ([self.tideModel.currentTideStatus isEqualToString:@"Outgoing"]) {
+            cell.textLabel.textColor = RED_COLOR;
         }
+    } else if (indexPath.section == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
         
-        if ((tideCount == 4) && (sunCount == 2)) {
-            break;
+        Tide* thisTide = [self.tideModel.tides objectAtIndex:indexPath.row];
+        if (thisTide != nil) {
+            cell.textLabel.text = thisTide.eventType;
+            cell.detailTextLabel.text = thisTide.timestamp;
+            
+            if ([thisTide isHighTide]) {
+                cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+            } else if ([thisTide isLowTide]) {
+                cell.imageView.image = [[UIImage imageNamed:@"ic_trending_down_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+            } else if ([thisTide isSunrise]) {
+                cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_high_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                cell.imageView.tintColor = [UIColor orangeColor];
+            } else if ([thisTide isSunset]) {
+                cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_low_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                cell.imageView.tintColor = [UIColor orangeColor];
+            }
+        }
+    } else if (indexPath.section == 2) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"waterTempItem"];
+        cell.textLabel.text = buoyLocation;
+        
+        if (currentBuoy != nil) {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@F", currentBuoy.waterTemperature, @"\u00B0"];
         }
     }
     
-    [self.tableView reloadData];
-}
-
-- (void)updateBuoyView:(Buoy*)buoy {
-    UILabel* currentWaterTempLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] viewWithTag:71];
-    NSString* waterTempStatus = [NSString stringWithFormat:@"%@: %@ %@F", buoyLocation, buoy.waterTemperature, @"\u00B0"];
-    [currentWaterTempLabel setAttributedText:[self makeTideViewDataString:waterTempStatus]];
-    
-    [self.tableView reloadData];
-}
-
-- (NSMutableAttributedString*)makeTideViewDataString:(NSString*)rawString {
-    NSDictionary *subAttrs = @{
-                               NSFontAttributeName:[UIFont boldSystemFontOfSize:TIDE_DATA_FONT_SIZE],
-                               };
-    NSDictionary *baseAttrs = @{
-                                NSFontAttributeName:[UIFont systemFontOfSize:TIDE_DATA_FONT_SIZE]
-                                };
-    
-    const NSRange seperatorRange = [rawString rangeOfString:@":"];
-    const NSRange range = NSMakeRange(0, seperatorRange.location);
-    
-    // Create the attributed string (text + attributes)
-    NSMutableAttributedString *attributedText =
-    [[NSMutableAttributedString alloc] initWithString:rawString
-                                           attributes:baseAttrs];
-    [attributedText setAttributes:subAttrs range:range];
-    return attributedText;
+    cell.clipsToBounds = YES;
+    return cell;
 }
 
 @end

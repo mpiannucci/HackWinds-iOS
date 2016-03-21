@@ -46,6 +46,7 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     self.dayIds = [[NSMutableArray alloc] initWithCapacity:4];
     self.dayDataCounts = [[NSMutableArray alloc] initWithCapacity:4];
     self.dayCount = 0;
+    self.currentTideStatus = @"";
     
     return self;
 }
@@ -207,6 +208,15 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
                     currentDayDataCount = 0;
                 }
             }
+            
+            if ([self.currentTideStatus isEqualToString:@""]) {
+                if ([thisTide isHighTide]) {
+                    self.currentTideStatus = @"Incoming";
+                } else if ([thisTide isLowTide]) {
+                    self.currentTideStatus = @"Outgoing";
+                }
+            }
+            
             [self.tides addObject:thisTide];
             currentDayDataCount++;
         }

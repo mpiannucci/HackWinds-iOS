@@ -11,7 +11,5 @@
 
 @interface TideViewController : UITableViewController
 
-- (void)updateTideView;
-- (void)updateBuoyView:(Buoy*)buoy;
 
 @end

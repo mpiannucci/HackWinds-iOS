@@ -549,10 +549,10 @@
 				34CA15331A9D657000DAB1F8 /* SettingsViewController.m */,
 				342A76201985E18100077F8C /* TideViewController.h */,
 				342A76211985E18100077F8C /* TideViewController.m */,
-				34C389571BA27E3D0000EDC8 /* WaveWatchChartViewController.h */,
-				34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */,
 				349F83771C9F614C00994826 /* TideScheduleViewController.h */,
 				349F83781C9F614C00994826 /* TideScheduleViewController.m */,
+				34C389571BA27E3D0000EDC8 /* WaveWatchChartViewController.h */,
+				34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
