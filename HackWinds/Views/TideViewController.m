@@ -11,8 +11,6 @@
 #import "Reachability.h"
 #import "NavigationBarTitleWithSubtitleView.h"
 
-static const int TIDE_DATA_FONT_SIZE = 25;
-
 @interface TideViewController ()
 
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
