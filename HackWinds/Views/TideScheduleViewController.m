@@ -57,6 +57,24 @@
     cell.textLabel.text = thisTide.eventType;
     cell.detailTextLabel.text = thisTide.timestamp;
     
+    if ([thisTide isHighTide]) {
+        cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]
+                             imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+    } else if ([thisTide isLowTide]) {
+        cell.imageView.image = [[UIImage imageNamed:@"ic_trending_down_white"]
+                                imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+    } else if ([thisTide isSunrise]) {
+        cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_high_white"]
+                                imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        cell.imageView.tintColor = [UIColor orangeColor];
+    } else if ([thisTide isSunset]) {
+        cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_low_white"]
+                                imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        cell.imageView.tintColor = [UIColor orangeColor];
+    }
+    
     return cell;
 }
 
