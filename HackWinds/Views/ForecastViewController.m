@@ -5,7 +5,6 @@
 //  Created by Matthew Iannucci on 7/18/14.
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
-#define WEEKDAYS [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
 #import "ForecastViewController.h"
 #import "DetailedForecastViewController.h"
@@ -33,7 +32,7 @@
     // Get the shared forecast model
     self.forecastModel = [ForecastModel sharedModel];
     
-    // get the day of the week
+    // Get the day of the week
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
     currentday = [comps weekday];

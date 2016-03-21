@@ -11,4 +11,5 @@
 @interface TideScheduleViewController : UITableViewController
 
 - (IBAction)closeView:(id)sender;
+
 @end

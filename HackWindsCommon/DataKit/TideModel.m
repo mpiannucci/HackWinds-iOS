@@ -45,7 +45,7 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     self.tides = [[NSMutableArray alloc] init];
     self.dayIds = [[NSMutableArray alloc] initWithCapacity:4];
     self.dayDataCounts = [[NSMutableArray alloc] initWithCapacity:4];
-    self.dayCount = [NSNumber numberWithInt:0];
+    self.dayCount = 0;
     
     return self;
 }
@@ -153,16 +153,16 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
 
 - (void) resetData {
     [self.tides removeAllObjects];
-    self.dayCount = [NSNumber numberWithInt:0];
+    self.dayCount = 0;
     [self.dayDataCounts removeAllObjects];
     [self.dayIds removeAllObjects];
 }
 
-- (int) dataCountForIndex:(int)index {
+- (NSInteger) dataCountForIndex:(NSInteger)index {
     return [[self.dayDataCounts objectAtIndex:index] intValue];
 }
 
-- (Tide*) tideDataAtIndex:(int)index forDay:(int)dayIndex {
+- (Tide*) tideDataAtIndex:(NSInteger)index forDay:(NSInteger)dayIndex {
     int totalIndex = 0;
     for (int day = 0; day < dayIndex; day++) {
         totalIndex += [[self.dayDataCounts objectAtIndex:day] intValue];
@@ -189,7 +189,7 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     
     // Loop through the data and sort it into Tide objects
     int dayCount = 0;
-    int currentDataDataCount = 0;
+    int currentDayDataCount = 0;
     NSString *currentDay = @"";
     for (int i = 0; i < tideSummary.count; i++) {
         // Get the tide object for the index
@@ -203,16 +203,17 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
                 [self.dayIds addObject:currentDay];
                 
                 if (dayCount != 1) {
-                    [self.dayDataCounts addObject:[NSNumber numberWithInt:currentDataDataCount]];
-                    currentDataDataCount = 0;
+                    [self.dayDataCounts addObject:[NSNumber numberWithInt:currentDayDataCount]];
+                    currentDayDataCount = 0;
                 }
             }
             [self.tides addObject:thisTide];
-            currentDataDataCount++;
+            currentDayDataCount++;
         }
-        [self.dayDataCounts addObject:[NSNumber numberWithInt:currentDataDataCount]];
-        self.dayCount = [NSNumber numberWithInt:dayCount];
     }
+    [self.dayDataCounts addObject:[NSNumber numberWithInt:currentDayDataCount]];
+    self.dayCount = dayCount;
+    
     return YES;
 }
 

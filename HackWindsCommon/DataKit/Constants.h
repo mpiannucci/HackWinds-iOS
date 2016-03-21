@@ -15,4 +15,7 @@
 // Buoy Locations
 #define BUOY_LOCATIONS @"Block Island", @"Montauk", @"Nantucket", nil
 
+// Weekdays
+#define WEEKDAYS [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
+
 #endif

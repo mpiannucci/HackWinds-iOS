@@ -15,13 +15,13 @@ extern NSString * const TIDE_DATA_UPDATE_FAILED_TAG;
 @interface TideModel : NSObject
 
 @property (strong, nonatomic) NSMutableArray *tides;
-@property (strong, nonatomic) NSNumber *dayCount;
+@property NSInteger dayCount;
 
 - (void) fetchTideData;
 - (void) fetchLatestTidalEventOnly:(void(^)(Tide*))completionHandler;
 - (void) resetData;
-- (int) dataCountForIndex:(int)index;
-- (Tide*) tideDataAtIndex:(int)index forDay:(int)dayIndex;
+- (NSInteger) dataCountForIndex:(NSInteger)index;
+- (Tide*) tideDataAtIndex:(NSInteger)index forDay:(NSInteger)dayIndex;
 
 + (instancetype) sharedModel;
 
