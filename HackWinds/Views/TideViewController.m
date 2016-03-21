@@ -155,6 +155,19 @@ static const int TIDE_DATA_FONT_SIZE = 25;
         
         if (currentBuoy != nil) {
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@F", currentBuoy.waterTemperature, @"\u00B0"];
+            cell.imageView.image = [[UIImage imageNamed:@"ic_whatshot_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            int tempRaw = [currentBuoy.waterTemperature intValue];
+            if (tempRaw < 43) {
+                cell.imageView.tintColor = [UIColor magentaColor];
+            } else if (tempRaw < 50) {
+                cell.imageView.tintColor = [UIColor blueColor];
+            } else if (tempRaw < 60) {
+                cell.imageView.tintColor = YELLOW_COLOR;
+            } else if (tempRaw < 70) {
+                cell.tintColor = [UIColor orangeColor];
+            } else {
+                cell.tintColor = RED_COLOR;
+            }
         }
     }
     
