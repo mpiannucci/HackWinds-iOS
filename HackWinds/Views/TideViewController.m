@@ -86,6 +86,7 @@ static const int TIDE_DATA_FONT_SIZE = 25;
     }
     
     int tideCount = 0;
+    int sunCount = 0;
     for (int i = 0; i < tideData.count; i++) {
         // Then check what is is again, and set correct text box
         Tide* thisTide = [tideData objectAtIndex:i];
@@ -94,12 +95,14 @@ static const int TIDE_DATA_FONT_SIZE = 25;
             UILabel* sunriseLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]] viewWithTag:61];
             NSString* sunrisetext = [NSString stringWithFormat:@"Sunrise: %@", thisTide.timestamp];
             [sunriseLabel setAttributedText:[self makeTideViewDataString:sunrisetext]];
+            sunCount++;
             
         } else if ([thisTide isSunset]) {
             // Get the second row in the sunrise and sunset section and set the text of the label to the time
             UILabel* sunsetLabel = (UILabel*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]] viewWithTag:61];
             NSString* sunsetText = [NSString stringWithFormat:@"Sunset: %@", thisTide.timestamp];
             [sunsetLabel setAttributedText:[self makeTideViewDataString:sunsetText]];
+            sunCount++;
             
         } else if ([[thisTide eventType] isEqualToString:HIGH_TIDE_TAG] ||
                    [[thisTide eventType] isEqualToString:LOW_TIDE_TAG] ) {
@@ -127,6 +130,10 @@ static const int TIDE_DATA_FONT_SIZE = 25;
             }
             // Only increment the tide count for a tide event and not a sunrise or sunset
             tideCount++;
+        }
+        
+        if ((tideCount == 4) && (sunCount == 2)) {
+            break;
         }
     }
     

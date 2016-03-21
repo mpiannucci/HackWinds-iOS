@@ -10,6 +10,10 @@
 
 @implementation TideScheduleViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (IBAction)closeView:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -13,6 +13,9 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
 
 @interface TideModel ()
 
+@property (strong, nonatomic) NSMutableArray *dayIds;
+@property (strong, nonatomic) NSMutableArray *dayDataCounts;
+
 // Private methods
 - (void) fetchRawTideData:(void(^)(NSData*))completionHandler;
 - (Tide*) getTideObjectAtIndex:(int)index fromData:(NSArray*)rawTideData;
@@ -39,7 +42,10 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     self = [super init];
     
     // Array to load the data into
-    self.tides = [NSMutableArray arrayWithCapacity:6];
+    self.tides = [[NSMutableArray alloc] init];
+    self.dayIds = [[NSMutableArray alloc] initWithCapacity:4];
+    self.dayDataCounts = [[NSMutableArray alloc] initWithCapacity:4];
+    self.dayCount = [NSNumber numberWithInt:0];
     
     return self;
 }
@@ -147,6 +153,22 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
 
 - (void) resetData {
     [self.tides removeAllObjects];
+    self.dayCount = [NSNumber numberWithInt:0];
+    [self.dayDataCounts removeAllObjects];
+    [self.dayIds removeAllObjects];
+}
+
+- (int) dataCountForIndex:(int)index {
+    return [[self.dayDataCounts objectAtIndex:index] intValue];
+}
+
+- (Tide*) tideDataAtIndex:(int)index forDay:(int)dayIndex {
+    int totalIndex = 0;
+    for (int day = 0; day < dayIndex; day++) {
+        totalIndex += [[self.dayDataCounts objectAtIndex:day] intValue];
+    }
+    totalIndex += index;
+    return [self.tides objectAtIndex:totalIndex];
 }
 
 - (BOOL) parseTideDataFromData:(NSData *)rawData {
@@ -166,20 +188,30 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     }
     
     // Loop through the data and sort it into Tide objects
-    int count = 0;
-    int i = 0;
-    while (count < 6) {
+    int dayCount = 0;
+    int currentDataDataCount = 0;
+    NSString *currentDay = @"";
+    for (int i = 0; i < tideSummary.count; i++) {
         // Get the tide object for the index
         Tide *thisTide = [self getTideObjectAtIndex:i fromData:tideSummary];
         
         if ([thisTide isTidalEvent] || [thisTide isSolarEvent]) {
             // Add the tide object to the array
+            if (![currentDay isEqualToString:thisTide.day]) {
+                dayCount++;
+                currentDay = thisTide.day;
+                [self.dayIds addObject:currentDay];
+                
+                if (dayCount != 1) {
+                    [self.dayDataCounts addObject:[NSNumber numberWithInt:currentDataDataCount]];
+                    currentDataDataCount = 0;
+                }
+            }
             [self.tides addObject:thisTide];
-            
-            // Increment the count of the tide objects
-            count++;
+            currentDataDataCount++;
         }
-        i++;
+        [self.dayDataCounts addObject:[NSNumber numberWithInt:currentDataDataCount]];
+        self.dayCount = [NSNumber numberWithInt:dayCount];
     }
     return YES;
 }
@@ -189,6 +221,7 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     NSDictionary* thisTide = [rawtideData objectAtIndex:index];
     NSString* dataType = [[thisTide objectForKey:@"data"] objectForKey:@"type"];
     NSString* height = [[thisTide objectForKey:@"data"] objectForKey:@"height"];
+    NSString* day = [[thisTide objectForKey:@"date"] objectForKey:@"mday"];
     NSString* hour = [[thisTide objectForKey:@"date"] objectForKey:@"hour"];
     NSString* minute = [[thisTide objectForKey:@"date"] objectForKey:@"min"];
     NSString *ampm = @"";
@@ -224,6 +257,7 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
         
         // Create the new tide object
         [tide setEventType:dataType];
+        [tide setDay:day];
         [tide setTimestamp:time];
         [tide setHeight:height];
     } else {
