@@ -156,7 +156,7 @@
             cell.imageView.image = [[UIImage imageNamed:@"ic_whatshot_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             int tempRaw = [currentBuoy.waterTemperature intValue];
             if (tempRaw < 43) {
-                cell.imageView.tintColor = [UIColor magentaColor];
+                cell.imageView.tintColor = [UIColor purpleColor];
             } else if (tempRaw < 50) {
                 cell.imageView.tintColor = [UIColor blueColor];
             } else if (tempRaw < 60) {
