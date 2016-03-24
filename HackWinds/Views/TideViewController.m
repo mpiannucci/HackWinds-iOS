@@ -91,8 +91,24 @@
 #pragma mark - Chart View
 
 - (void) setupTideChart {
-    // TODO: All the setup work for the chart
+    // All the setup work for the chart
+    [self.tideChartView setDrawBordersEnabled:NO];
+    [self.tideChartView setDescriptionText:@""];
     
+    // xAxis
+    [self.tideChartView.xAxis setDrawGridLinesEnabled:NO];
+    [self.tideChartView.xAxis setDrawAxisLineEnabled:NO];
+    
+    // yAxis
+    [self.tideChartView.leftAxis setDrawAxisLineEnabled:NO];
+    [self.tideChartView.leftAxis setDrawGridLinesEnabled:NO];
+    [self.tideChartView.leftAxis setDrawLabelsEnabled:NO];
+    [self.tideChartView.rightAxis setDrawAxisLineEnabled:NO];
+    [self.tideChartView.rightAxis setDrawGridLinesEnabled:NO];
+    [self.tideChartView.rightAxis setDrawLabelsEnabled:NO];
+    
+    // Legend
+    [self.tideChartView.legend setEnabled:NO];
 }
 
 - (void) loadTideChartData {
@@ -102,6 +118,7 @@
     
     NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:4];
     
+    double min, max, firstTimeStep = 0;
     int tideCount = 0;
     int index = 0;
     while (tideCount < 4) {
@@ -112,12 +129,32 @@
             continue;
         }
         
-        if ([thisTide isTidalEvent]) {
-            ChartDataEntry *chartEntry = [[ChartDataEntry alloc] initWithValue:[thisTide heightValue] xIndex:tideCount];
-            [dataEntries addObject:chartEntry];
-            tideCount++;
+        if (![thisTide isTidalEvent]) {
+            continue;
         }
+        
+        if (tideCount == 0) {
+            NSDate *now = [NSDate date];
+            NSTimeInterval interval = [now timeIntervalSinceDate:thisTide.timestamp];
+            firstTimeStep = (int)fabs(interval / (60 * 60));
+        }
+        
+        if ([thisTide isHighTide]) {
+            max += [thisTide heightValue];
+        } else {
+            min += [thisTide heightValue];
+        }
+        
+//        if ([thisTide isTidalEvent]) {
+//            ChartDataEntry *chartEntry = [[ChartDataEntry alloc] initWithValue:[thisTide heightValue] xIndex:tideCount];
+//            [dataEntries addObject:chartEntry];
+//            tideCount++;
+//        }
     }
+    
+    // Take the average
+    min = min / 2;
+    max = max / 2;
     
     LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
     NSArray *xVals = [[NSArray alloc] initWithObjects:@"Test", @"Test2", @"test3", @"test4", nil];
