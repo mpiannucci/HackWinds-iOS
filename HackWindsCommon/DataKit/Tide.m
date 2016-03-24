@@ -73,4 +73,15 @@ NSString * const SUNSET_TAG = @"Sunset";
     return ([self isHighTide] || [self isLowTide]);
 }
 
+- (double) heightValue {
+    if (![self isTidalEvent]) {
+        return -5000;
+    }
+    
+    double height;
+    NSScanner *heightScanner = [[NSScanner alloc] initWithString:self.height];
+    [heightScanner scanDouble:&height];
+    return height;
+}
+
 @end

@@ -30,5 +30,6 @@ extern NSString * const SUNSET_TAG;
 - (BOOL) isHighTide;
 - (BOOL) isLowTide;
 - (BOOL) isTidalEvent;
+- (double) heightValue;
 
 @end

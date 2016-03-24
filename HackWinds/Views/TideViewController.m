@@ -126,7 +126,11 @@
         
         Tide* thisTide = [self.tideModel.tides objectAtIndex:indexPath.row];
         if (thisTide != nil) {
-            cell.textLabel.text = thisTide.eventType;
+            if ([thisTide isTidalEvent]) {
+                cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
+            } else {
+                cell.textLabel.text = thisTide.eventType;
+            }
             cell.detailTextLabel.text = thisTide.timestamp;
             
             if ([thisTide isHighTide]) {

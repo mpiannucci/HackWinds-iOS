@@ -54,7 +54,11 @@
     Tide *thisTide = [self.tideModel tideDataAtIndex:indexPath.row forDay:indexPath.section];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tideItem"];
-    cell.textLabel.text = thisTide.eventType;
+    if ([thisTide isTidalEvent]) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
+    } else {
+        cell.textLabel.text = thisTide.eventType;
+    }
     cell.detailTextLabel.text = thisTide.timestamp;
     
     if ([thisTide isHighTide]) {
