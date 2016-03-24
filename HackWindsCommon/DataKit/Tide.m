@@ -84,4 +84,11 @@ NSString * const SUNSET_TAG = @"Sunset";
     return height;
 }
 
+- (NSString*) timeString {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    formatter.locale = [NSLocale currentLocale];
+    return [formatter stringFromDate:self.timestamp];
+}
+
 @end

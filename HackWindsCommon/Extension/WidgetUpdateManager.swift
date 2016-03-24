@@ -129,13 +129,10 @@ class WidgetUpdateManager {
         
         // Find the colon to find te correct hour and minute
         let buoySeperator = self.latestBuoy!.timestamp.rangeOfString(":")
-        let tideSeperator = self.nextTide!.timestamp.rangeOfString(":")
         
         // Parse the time from the latest object
         var buoyHour: Int = Int(self.latestBuoy!.timestamp.substringToIndex(buoySeperator!.startIndex))!
         let buoyMinute: Int = Int(self.latestBuoy!.timestamp.substringFromIndex(buoySeperator!.endIndex))!
-        var tideHour: Int = Int(self.nextTide!.timestamp.substringToIndex(tideSeperator!.startIndex))!
-        let tideMinute: Int = Int(self.nextTide!.timestamp.substringWithRange(Range<String.Index>(start: tideSeperator!.endIndex, end: tideSeperator!.endIndex.advancedBy(2))))!
         
         // Adjust for am and pm during 12 hour time
         if !check24HourClock() {
@@ -147,19 +144,14 @@ class WidgetUpdateManager {
             if buoyAMPM == "pm" && buoyHour != 12 {
                 buoyHour += 12
             }
-            
-            // Correct the tide time
-            let tideAMPMIndex = tideSeperator!.startIndex.advancedBy(4)
-            let tideAMPM = self.nextTide!.timestamp.substringFromIndex(tideAMPMIndex)
-            if tideAMPM == "pm" && tideHour != 12 {
-                tideHour += 12
-            }
         }
         
         // Set the times that updates are needed at
         self.nextBuoyUpdateTime = dateWithHour(buoyHour, minute: buoyMinute, second: 0)
         self.nextBuoyUpdateTime = self.nextBuoyUpdateTime?.dateByAddingTimeInterval(60 * 60)
-        self.nextTideUpdateTime = dateWithHour(tideHour, minute: tideMinute, second: 0)
+        
+        // Tide is easy, its just the next tide
+        self.nextTideUpdateTime = self.nextTide?.timestamp
     }
     
     func cacheData() {

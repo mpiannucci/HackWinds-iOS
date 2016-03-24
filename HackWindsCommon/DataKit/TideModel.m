@@ -20,7 +20,6 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
 - (void) fetchRawTideData:(void(^)(NSData*))completionHandler;
 - (Tide*) getTideObjectAtIndex:(int)index fromData:(NSArray*)rawTideData;
 - (BOOL) parseTideDataFromData:(NSData*)rawData;
-- (BOOL) check24HourClock;
 
 @end
 
@@ -233,31 +232,7 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     NSString* dataType = [[thisTide objectForKey:@"data"] objectForKey:@"type"];
     NSString* height = [[thisTide objectForKey:@"data"] objectForKey:@"height"];
     NSString* day = [[thisTide objectForKey:@"date"] objectForKey:@"mday"];
-    NSString* hour = [[thisTide objectForKey:@"date"] objectForKey:@"hour"];
-    NSString* minute = [[thisTide objectForKey:@"date"] objectForKey:@"min"];
-    NSString *ampm = @"";
-    
-    if (![self check24HourClock]) {
-        long hourValue = [hour integerValue];
-        
-        // Check am, pm
-        if (hourValue < 12) {
-            ampm = @"am";
-        } else {
-            ampm = @"pm";
-        }
-        
-        NSInteger convertedHour = hourValue % 12;
-        if (convertedHour == 0) {
-            convertedHour = 12;
-        }
-        
-        // Convert to twelve hour
-        hour = [NSString stringWithFormat:@"%ld", (long)convertedHour];
-    }
-    
-    // Create the tide string
-    NSString* time = [NSString stringWithFormat:@"%@:%@ %@", hour, minute, ampm];
+    double epoch = [[[thisTide objectForKey:@"date"] objectForKey:@"epoch"] doubleValue];
     
     // Check for the type and set it to the object. We dont care about anything but these tidal events
     Tide* tide = [[Tide alloc] init];
@@ -269,19 +244,13 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
         // Create the new tide object
         [tide setEventType:dataType];
         [tide setDay:day];
-        [tide setTimestamp:time];
+        NSDate* date = [NSDate dateWithTimeIntervalSince1970:epoch];
+        [tide setTimestamp:date];
         [tide setHeight:height];
     } else {
         [tide setEventType:@"Invalid"];
     }
     return tide;
-}
-
-- (BOOL)check24HourClock {
-    // Slightly different than the ofrecast model check.. not caching the value at all
-    NSLocale *locale = [NSLocale currentLocale];
-    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
-    return ([dateCheck rangeOfString:@"a"].location == NSNotFound);
 }
 
 @end

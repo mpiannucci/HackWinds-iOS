@@ -18,7 +18,7 @@ extern NSString * const SUNSET_TAG;
 
 // Define the data for the tide model
 @property (strong, nonatomic) NSString *day;
-@property (strong, nonatomic) NSString *timestamp;
+@property (strong, nonatomic) NSDate *timestamp;
 @property (strong, nonatomic) NSString *eventType;
 @property (strong, nonatomic) NSString *height;
 
@@ -31,5 +31,6 @@ extern NSString * const SUNSET_TAG;
 - (BOOL) isLowTide;
 - (BOOL) isTidalEvent;
 - (double) heightValue;
+- (NSString*) timeString;
 
 @end

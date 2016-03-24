@@ -140,7 +140,7 @@
             } else {
                 cell.textLabel.text = thisTide.eventType;
             }
-            cell.detailTextLabel.text = thisTide.timestamp;
+            cell.detailTextLabel.text = [thisTide timeString];
             
             if ([thisTide isHighTide]) {
                 cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]
