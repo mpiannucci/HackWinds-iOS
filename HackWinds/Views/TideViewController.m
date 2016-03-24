@@ -39,6 +39,10 @@
     [self.navigationBarTitle setTitleText:@"HackWinds"];
     [self.navigationBarTitle setDetailText:@"Location: Point Judith Harbor"];
     
+    // Setup the chart view
+    [self setupTideChart];
+    
+    // Grab the models
     self.tideModel = [TideModel sharedModel];
     self.buoyModel = [BuoyModel sharedModel];
     
@@ -59,7 +63,7 @@
     [self.tableView reloadData];
     
     // Register listener for the data model update
-    [[NSNotificationCenter defaultCenter] addObserver:self.tableView
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadData)
                                                  name:TIDE_DATA_UPDATED_TAG
                                                object:nil];
@@ -79,7 +83,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - TableView
+- (void) reloadData {
+    [self.tableView reloadData];
+    [self loadTideChartData];
+}
+
+#pragma mark - Chart View
+
+- (void) setupTideChart {
+    // TODO: All the setup work for the chart
+}
+
+- (void) loadTideChartData {
+    // TODO: Get the sine fit for the points and shwo the data
+}
+
+#pragma mark - Table View
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;

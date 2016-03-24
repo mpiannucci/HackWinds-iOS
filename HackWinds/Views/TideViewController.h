@@ -11,5 +11,8 @@
 
 @interface TideViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+- (void) setupTideChart;
+- (void) reloadData;
+- (void) loadTideChartData;
 
 @end
