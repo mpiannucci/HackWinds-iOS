@@ -60,7 +60,7 @@
     [super viewDidAppear:animated];
     
     // Update the tide view in case we missed a notification
-    [self.tableView reloadData];
+    [self reloadData];
     
     // Register listener for the data model update
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -92,10 +92,37 @@
 
 - (void) setupTideChart {
     // TODO: All the setup work for the chart
+    
 }
 
 - (void) loadTideChartData {
-    // TODO: Get the sine fit for the points and shwo the data
+    if (self.tideModel.tides.count < 5) {
+        return;
+    }
+    
+    NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:4];
+    
+    int tideCount = 0;
+    int index = 0;
+    while (tideCount < 4) {
+        Tide *thisTide = [self.tideModel.tides objectAtIndex:index];
+        index++;
+        
+        if (thisTide == nil) {
+            continue;
+        }
+        
+        if ([thisTide isTidalEvent]) {
+            ChartDataEntry *chartEntry = [[ChartDataEntry alloc] initWithValue:[thisTide heightValue] xIndex:tideCount];
+            [dataEntries addObject:chartEntry];
+            tideCount++;
+        }
+    }
+    
+    LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
+    NSArray *xVals = [[NSArray alloc] initWithObjects:@"Test", @"Test2", @"test3", @"test4", nil];
+    LineChartData *chartData = [[LineChartData alloc] initWithXVals:xVals dataSet:dataSet];
+    self.tideChartView.data = chartData;
 }
 
 #pragma mark - Table View
