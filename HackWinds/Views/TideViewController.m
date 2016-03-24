@@ -39,9 +39,7 @@
     self.buoyModel = [BuoyModel sharedModel];
     
     // Load the buoy data for the defualt location so we can get the water temp
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    [defaults synchronize];
-    buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+    buoyLocation = NEWPORT_LOCATION;
     [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
         currentBuoy = buoy;
         dispatch_async(dispatch_get_main_queue(), ^{

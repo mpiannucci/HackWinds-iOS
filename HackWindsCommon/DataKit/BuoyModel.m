@@ -14,6 +14,7 @@
 NSString * const BLOCK_ISLAND_LOCATION = @"Block Island";
 NSString * const MONTAUK_LOCATION = @"Montauk";
 NSString * const NANTUCKET_LOCATION =  @"Nantucket";
+NSString * const NEWPORT_LOCATION = @"Newport";
 NSString * const SUMMARY_DATA_MODE = @"Summary";
 NSString * const SWELL_DATA_MODE = @"Swell";
 NSString * const WIND_DATA_MODE = @"Wind Wave";
@@ -38,9 +39,10 @@ static const int DETAIL_STEEPNESS_OFFSET = 12;
 static const int DETAIL_MEAN_WAVE_DIRECTION_OFFSET = 14;
 
 // URLs
-static const int BI_BUOY_NUMBER = 44097;
-static const int MTK_BUOY_NUMBER = 44017;
-static const int ACK_BUOY_NUMBER = 44008;
+static NSString * const BI_BUOY_ID = @"44097";
+static NSString * const MTK_BUOY_ID = @"44017";
+static NSString * const ACK_BUOY_ID = @"44008";
+static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
 
 @interface BuoyModel ()
 
@@ -108,19 +110,23 @@ static const int ACK_BUOY_NUMBER = 44008;
     
     // Block Island
     BuoyDataContainer *biContainer = [[BuoyDataContainer alloc] init];
-    biContainer.buoyID = [NSNumber numberWithInt:BI_BUOY_NUMBER];
+    biContainer.buoyID = BI_BUOY_ID;
     [self.buoyDataContainers setValue:biContainer forKey:BLOCK_ISLAND_LOCATION];
     
     // Montauk
     BuoyDataContainer *mtkContainer = [[BuoyDataContainer alloc] init];
-    mtkContainer.buoyID = [NSNumber numberWithInt:MTK_BUOY_NUMBER];
+    mtkContainer.buoyID = MTK_BUOY_ID;
     [self.buoyDataContainers setValue:mtkContainer forKey:MONTAUK_LOCATION];
     
     // Nantucket
     BuoyDataContainer *ackContainer = [[BuoyDataContainer alloc] init];
-    ackContainer.buoyID = [NSNumber numberWithInt:ACK_BUOY_NUMBER];
+    ackContainer.buoyID = ACK_BUOY_ID;
     [self.buoyDataContainers setValue:ackContainer forKey:NANTUCKET_LOCATION];
     
+    // Newport
+    BuoyDataContainer *newportContainer = [[BuoyDataContainer alloc] init];
+    newportContainer.buoyID = NEWPORT_BUOY_ID;
+    [self.buoyDataContainers setValue:newportContainer forKey:NEWPORT_LOCATION];
 }
 
 - (int) getTimeOffset {

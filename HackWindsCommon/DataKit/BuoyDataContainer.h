@@ -12,7 +12,7 @@ extern const int BUOY_DATA_POINTS;
 
 @interface BuoyDataContainer : NSObject
 
-@property (strong, nonatomic) NSNumber *buoyID;
+@property (strong, nonatomic) NSString *buoyID;
 @property (strong, nonatomic) NSMutableArray *buoyData;
 @property (strong, nonatomic) NSMutableDictionary *waveHeights;
 
