@@ -20,6 +20,8 @@
 		343083A319795D0F00655F15 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* CurrentViewController.m */; };
 		343083A619795D0F00655F15 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* ForecastViewController.m */; };
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
+		3438ACC71CA43D4500963234 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3438ACC61CA43D4500963234 /* Charts.framework */; };
+		3438ACC81CA43D4600963234 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3438ACC61CA43D4500963234 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
 		34444D1D1C5304EC00FCDA6A /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34444D1C1C5304EC00FCDA6A /* GlanceController.swift */; };
@@ -299,6 +301,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */,
+				3438ACC81CA43D4600963234 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +331,7 @@
 		343083A519795D0F00655F15 /* ForecastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		343083A719795D0F00655F15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		343083AE19795D0F00655F15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3438ACC61CA43D4500963234 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
@@ -447,6 +451,7 @@
 				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
 				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
 				349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */,
+				3438ACC71CA43D4500963234 /* Charts.framework in Frameworks */,
 				342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */,
 				3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */,
 				3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */,
@@ -599,6 +604,7 @@
 		3430837D19795D0F00655F15 = {
 			isa = PBXGroup;
 			children = (
+				3438ACC61CA43D4500963234 /* Charts.framework */,
 				3430838F19795D0F00655F15 /* HackWinds */,
 				3457CBF31C4488D400A4BCD2 /* HackWindsToday */,
 				349076241C24A7E500EAD0CE /* HackWindsWatchApp */,
@@ -1692,6 +1698,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1721,6 +1731,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
