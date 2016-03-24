@@ -13,6 +13,8 @@
 
 @interface TideViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) TideModel *tideModel;

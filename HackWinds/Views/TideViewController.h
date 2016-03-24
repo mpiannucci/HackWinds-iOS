@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Buoy.h"
 
-@interface TideViewController : UITableViewController
+@interface TideViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 
 @end
