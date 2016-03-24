@@ -10,11 +10,13 @@
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
 #import "NavigationBarTitleWithSubtitleView.h"
+#import <Charts/Charts.h>
 
 @interface TideViewController ()
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet LineChartView *tideChartView;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) TideModel *tideModel;
@@ -86,10 +88,8 @@
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return 1;
-        case 1:
             return 6;
-        case 2:
+        case 1:
             return 1;
         default:
             return 0;
@@ -99,10 +99,8 @@
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"Right Now";
-        case 1:
             return @"Upcoming";
-        case 2:
+        case 1:
             return @"Water Temperature";
         default:
             return nil;
@@ -114,14 +112,6 @@
     UITableViewCell * cell;
     
     if (indexPath.section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"currentStatusItem"];
-        cell.textLabel.text = self.tideModel.currentTideStatus;
-        if ([self.tideModel.currentTideStatus isEqualToString:@"Incoming"]) {
-            cell.textLabel.textColor = GREEN_COLOR;
-        } else if ([self.tideModel.currentTideStatus isEqualToString:@"Outgoing"]) {
-            cell.textLabel.textColor = RED_COLOR;
-        }
-    } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
         
         Tide* thisTide = [self.tideModel.tides objectAtIndex:indexPath.row];
@@ -151,7 +141,7 @@
                 cell.imageView.tintColor = [UIColor orangeColor];
             }
         }
-    } else if (indexPath.section == 2) {
+    } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"waterTempItem"];
         cell.textLabel.text = buoyLocation;
         

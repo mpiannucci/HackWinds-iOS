@@ -4,6 +4,7 @@
 
 # Carthage
 Carthage/Build
+Carthage/Checkouts
 
 # DS_Store File
 *.DS_Store

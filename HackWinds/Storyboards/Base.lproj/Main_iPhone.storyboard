@@ -1387,25 +1387,8 @@
                                 <rect key="frame" x="0.0" y="232.5" width="320" height="286.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell tag="180" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="currentStatusItem" textLabel="8yY-pb-3Qs" rowHeight="90" style="IBUITableViewCellStyleDefault" id="HKr-UG-Wne">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="90"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKr-UG-Wne" id="M2N-KW-cIX">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8yY-pb-3Qs">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="89.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell tag="180" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tideDataItem" textLabel="OH6-8Q-kDx" detailTextLabel="rmD-Hb-J6Q" rowHeight="86" style="IBUITableViewCellStyleSubtitle" id="Y6X-iI-ZpD">
-                                        <rect key="frame" x="0.0" y="118" width="320" height="86"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y6X-iI-ZpD" id="ts6-sF-DXG">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
@@ -1429,7 +1412,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell tag="180" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="waterTempItem" textLabel="NVf-tz-Ld1" detailTextLabel="G2r-mm-RVt" rowHeight="90" style="IBUITableViewCellStyleSubtitle" id="Cuo-A3-Z5c">
-                                        <rect key="frame" x="0.0" y="204" width="320" height="90"/>
+                                        <rect key="frame" x="0.0" y="114" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cuo-A3-Z5c" id="bbU-oQ-Hzi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
@@ -1458,7 +1441,7 @@
                                     <outlet property="delegate" destination="1Oo-o4-xAh" id="kpu-Dm-edA"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwT-XP-Iek">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwT-XP-Iek" customClass="LineChartView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="168.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1493,6 +1476,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="YC2-oj-F78" id="eJL-gK-lmW"/>
+                        <outlet property="tideChartView" destination="BwT-XP-Iek" id="5pX-Tz-zsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9t-BP-Vz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
