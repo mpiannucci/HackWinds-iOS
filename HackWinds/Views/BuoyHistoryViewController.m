@@ -121,7 +121,7 @@
         Buoy *thisBuoy = [currentBuoyData objectAtIndex:indexPath.row-1];
         
         // Set the labels to the data
-        [timeLabel setText:thisBuoy.timestamp];
+        [timeLabel setText:[thisBuoy timeString]];
         
         if ([dataMode isEqualToString:SUMMARY_DATA_MODE]) {
             [wvhtLabel setText:thisBuoy.significantWaveHeight];

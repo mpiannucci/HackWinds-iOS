@@ -11,6 +11,11 @@
 
 @implementation Buoy
 
+- (id)init {
+    self = [super init];
+    return self;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init]) {
@@ -44,6 +49,20 @@
     [aCoder encodeObject:self.swellDirection forKey:@"swellDirection"];
     [aCoder encodeObject:self.windWaveDirection forKey:@"windWaveDirection"];
     [aCoder encodeObject:self.waterTemperature forKey:@"waterTemperature"];
+}
+
+- (NSString *) timeString {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    formatter.locale = [NSLocale currentLocale];
+    return [formatter stringFromDate:self.timestamp];
+}
+
+- (NSString *) dateString {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.locale = [NSLocale currentLocale];
+    return [formatter stringFromDate:self.timestamp];
 }
 
 - (void) interpolateDominantPeriod {

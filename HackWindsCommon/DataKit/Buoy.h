@@ -11,7 +11,7 @@
 @interface Buoy : NSObject
 
 // Define data for the buoy data model
-@property (strong, nonatomic) NSString *timestamp;
+@property (strong, nonatomic) NSDate *timestamp;
 
 // Wave Heights
 @property (strong, nonatomic) NSString *significantWaveHeight;
@@ -33,6 +33,8 @@
 
 @property (strong, nonatomic) NSString *waterTemperature;
 
+- (NSString *) timeString;
+- (NSString *) dateString;
 - (void) interpolateDominantPeriod;
 - (NSString*) getWaveSummaryStatusText;
 - (NSString*) getDominantSwellText;

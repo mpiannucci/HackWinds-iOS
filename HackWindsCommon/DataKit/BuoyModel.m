@@ -26,6 +26,9 @@ NSString * const BUOY_UPDATE_FAILED_TAG = @"BuoyModelUpdatedFailedNotification";
 // Detail data locations
 static const int DETAIL_DATA_HEADER_LENGTH = 30;
 static const int DETAIL_DATA_LINE_LENGTH = 15;
+static const int DETAIL_YEAR_OFFSET = 0;
+static const int DETAIL_MONTH_OFFSET = 1;
+static const int DETAIL_DAY_OFFSET = 2;
 static const int DETAIL_HOUR_OFFSET = 3;
 static const int DETAIL_MINUTE_OFFSET = 4;
 static const int DETAIL_WVHT_OFFSET = 5;
@@ -301,13 +304,23 @@ static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
             return NO;
         }
         
-        // Get the time value from the file, make sure that the hour offset is correct for the regions daylight savings
-        NSInteger originalHour = [[rawBuoyArray objectAtIndex:baseOffset+DETAIL_HOUR_OFFSET] integerValue] + [self getTimeOffset];
-        NSInteger convertedHour = [self getCorrectedHourValue:originalHour];
+        // Get the raw date values from the data
+        NSInteger year = [[rawBuoyArray objectAtIndex:baseOffset+DETAIL_YEAR_OFFSET] integerValue];
+        NSInteger month = [[rawBuoyArray objectAtIndex:baseOffset+DETAIL_MONTH_OFFSET] integerValue];
+        NSInteger day = [[rawBuoyArray objectAtIndex:baseOffset+DETAIL_DAY_OFFSET] integerValue];
+        NSInteger hour = [[rawBuoyArray objectAtIndex:baseOffset+DETAIL_HOUR_OFFSET] integerValue];
+        NSInteger minute = [[rawBuoyArray objectAtIndex:baseOffset+DETAIL_MINUTE_OFFSET] integerValue];
         
-        // Set the time value for the object
-        NSString *minute = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MINUTE_OFFSET];
-        newBuoy.timestamp = [NSString stringWithFormat:@"%ld:%@", (long)convertedHour, minute];
+        // Create and the set the timestamp NSDate object
+        NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+        dateComps.year = year;
+        dateComps.month = month;
+        dateComps.day = day;
+        dateComps.hour = hour;
+        dateComps.minute = minute;
+        dateComps.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        newBuoy.timestamp = [calendar dateFromComponents:dateComps];
         
         // Wave heights
         NSString *significantHeight = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WVHT_OFFSET];
@@ -359,7 +372,7 @@ static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
     // Cast the xml to the buoy item
     Buoy *latestBuoy = [[Buoy alloc] init];
     NSString *rawTime = [[buoyDataDict objectForKey:@"datetime"] objectForKey:@"text"];
-    latestBuoy.timestamp = [self getFormattedTimeFromXMLDateTime:rawTime];
+    latestBuoy.timestamp = [self getTimeFromXMLDateTime:rawTime];
     latestBuoy.significantWaveHeight = [[buoyDataDict objectForKey:@"waveht"] objectForKey:@"text"];
     latestBuoy.dominantPeriod = [[buoyDataDict objectForKey:@"domperiod"] objectForKey:@"text"];
     latestBuoy.meanDirection = [Buoy getCompassDirection:[[buoyDataDict objectForKey:@"meanwavedir"] objectForKey:@"text" ]];
@@ -367,52 +380,16 @@ static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
     return latestBuoy;
 }
 
-- (NSString *) getFormattedTimeFromXMLDateTime:(NSString*) datetime {
-    NSArray *timeComponents = [[[[[datetime componentsSeparatedByString:@"T"]
-                                                         objectAtIndex:1]
-                                           componentsSeparatedByString:@"U"]
-                                                         objectAtIndex:0]
-                                           componentsSeparatedByString:@":"];
+- (NSDate *) getTimeFromXMLDateTime:(NSString*) datetime {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
+    NSDate *date = [dateFormatter dateFromString:datetime];
+    return date;
     
-    NSInteger rawHour = [[timeComponents objectAtIndex:0] integerValue];
-    NSInteger rawMinute = [[timeComponents objectAtIndex:1] integerValue];
-    
-    NSInteger adjustedHour = [self getCorrectedHourValue:rawHour + [self getTimeOffset]];
-    
-    return [NSString stringWithFormat:@"%ld:%ld", (long)adjustedHour, (long)rawMinute];
-    
-}
-
-- (NSInteger) getCorrectedHourValue:(NSInteger)rawHour {
-    NSInteger convertedHour = 0;
-    
-    // Formate the hour correctly if the user has 24 hour time enabled
-    if ([self check24HourClock]) {
-        convertedHour = (rawHour + 24) % 24;
-        if (convertedHour == 0) {
-            if ((rawHour + [self getTimeOffset]) > 0) {
-                convertedHour = 12;
-            }
-        }
-    } else {
-        convertedHour = (rawHour + 12) % 12;
-        if (convertedHour == 0) {
-            convertedHour = 12;
-        }
-    }
-    
-    return convertedHour;
 }
 
 - (double) getFootConvertedFromMetric:(double)metricValue {
     return metricValue * 3.28;
-}
-
-- (BOOL) check24HourClock {
-    // Slightly different than the ofrecast model check.. not caching the value at all
-    NSLocale *locale = [NSLocale currentLocale];
-    NSString *dateCheck = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
-    return ([dateCheck rangeOfString:@"a"].location == NSNotFound);
 }
 
 @end

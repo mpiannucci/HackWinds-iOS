@@ -34,7 +34,7 @@ NSString * const SUNSET_TAG = @"Sunset";
 }
 
 - (NSString*)getTideEventSummary {
-    return [NSString stringWithFormat:@"%@: %@", self.eventType, self.timestamp];
+    return [NSString stringWithFormat:@"%@: %@", self.eventType, [self timeString]];
 }
 
 - (BOOL) isSunrise {

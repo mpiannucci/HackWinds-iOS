@@ -127,30 +127,7 @@ class WidgetUpdateManager {
             return
         }
         
-        // Find the colon to find te correct hour and minute
-        let buoySeperator = self.latestBuoy!.timestamp.rangeOfString(":")
-        
-        // Parse the time from the latest object
-        var buoyHour: Int = Int(self.latestBuoy!.timestamp.substringToIndex(buoySeperator!.startIndex))!
-        let buoyMinute: Int = Int(self.latestBuoy!.timestamp.substringFromIndex(buoySeperator!.endIndex))!
-        
-        // Adjust for am and pm during 12 hour time
-        if !check24HourClock() {
-            // Correct the buoy time
-            let currentDate = NSDate()
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "a"
-            let buoyAMPM = dateFormatter.stringFromDate(currentDate).lowercaseString
-            if buoyAMPM == "pm" && buoyHour != 12 {
-                buoyHour += 12
-            }
-        }
-        
-        // Set the times that updates are needed at
-        self.nextBuoyUpdateTime = dateWithHour(buoyHour, minute: buoyMinute, second: 0)
-        self.nextBuoyUpdateTime = self.nextBuoyUpdateTime?.dateByAddingTimeInterval(60 * 60)
-        
-        // Tide is easy, its just the next tide
+        self.nextBuoyUpdateTime = self.latestBuoy?.timestamp.dateByAddingTimeInterval(60*60);
         self.nextTideUpdateTime = self.nextTide?.timestamp
     }
     
