@@ -124,9 +124,10 @@
         return;
     }
     
-    int min = 0;
-    int max = 0;
+    double min = 0;
+    double max = 0;
     int firstIndex = 0;
+    BOOL highFirst = NO;
     int prevIndex = 0;
     int tideCount = 0;
     int index = 0;
@@ -137,7 +138,10 @@
     
     NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:10];
     
-    while (tideCount < 8) {
+    ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:0.0 xIndex:0];
+    [dataEntries addObject:firstEntry];
+    
+    while (tideCount < 6) {
         Tide *thisTide = [self.tideModel.tides objectAtIndex:index];
         index++;
         
@@ -152,8 +156,14 @@
         int xIndex = 0;
         if (tideCount == 0) {
             NSTimeInterval interval = [thisTide.timestamp timeIntervalSinceDate:now];
-            xIndex = (int)fabs(interval / (60 * 60));
-            firstIndex = xIndex;
+            firstIndex = (int)fabs(interval / (60 * 60));
+            xIndex = firstIndex - 1;
+            
+            if ([thisTide isHighTide]) {
+                highFirst = YES;
+            } else {
+                highFirst = NO;
+            }
         } else {
             xIndex = prevIndex + 6;
         }
@@ -166,10 +176,14 @@
             }
         }
         
-        ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:[thisTide heightValue] xIndex:xIndex];
-        [dataEntries addObject:thisEntry];
+        if (xIndex != 0) {
+            ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:[thisTide heightValue] xIndex:xIndex];
+            [dataEntries addObject:thisEntry];
+        } else {
+            firstEntry.value = [thisTide heightValue];
+        }
         
-        if (xIndex < 23) {
+        if (xIndex < 25) {
             ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:xIndex];
             tideLimit.label = [thisTide timeString];
             tideLimit.lineColor = [UIColor orangeColor];
@@ -185,12 +199,18 @@
         tideCount++;
     }
     
-    int amplitude = (max - min) / 2;
+    double amplitude = (max - min) / 2;
     
     if (firstIndex != 0) {
-        double approxHeight = ((double)amplitude * 2) * ((double)firstIndex / 6) + min;
-        ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:approxHeight xIndex:0];
-        [dataEntries addObject:firstEntry];
+        if (firstIndex == 6) {
+            if (highFirst) {
+                firstEntry.value = min;
+            } else {
+                firstEntry.value = max;
+            }
+        } else {
+            firstEntry.value = amplitude * ((double)(firstIndex / 6.0));
+        }
     }
     
     NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:24];
@@ -216,8 +236,8 @@
     nowLine.lineColor = [UIColor blueColor];
     [nowLine setLineWidth:4.0];
     [self.tideChartView.xAxis addLimitLine:nowLine];
-    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*4.2];
-    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*4.2];
+    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*2.5];
+    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*2.5];
     [self.tideChartView.leftAxis setCustomAxisMin:min - 1.2];
     [self.tideChartView.rightAxis setCustomAxisMin:min - 1.2];
     
