@@ -10,7 +10,6 @@
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
 #import "NavigationBarTitleWithSubtitleView.h"
-#import <Charts/Charts.h>
 
 @interface TideViewController ()
 
@@ -92,8 +91,14 @@
 
 - (void) setupTideChart {
     // All the setup work for the chart
+    self.tideChartView.delegate = self;
     [self.tideChartView setDrawBordersEnabled:NO];
     [self.tideChartView setDescriptionText:@""];
+    [self.tideChartView setPinchZoomEnabled:NO];
+    [self.tideChartView setDoubleTapToZoomEnabled:NO];
+    [self.tideChartView setDrawMarkers:NO];
+    [self.tideChartView setMultipleTouchEnabled:NO];
+    [self.tideChartView setUserInteractionEnabled:NO];
     
     // xAxis
     [self.tideChartView.xAxis setDrawGridLinesEnabled:NO];
@@ -126,6 +131,12 @@
     int minCount = 0;
     int tideCount = 0;
     int index = 0;
+    int prevInterval = 0;
+    
+    // Set the second to 0
+    NSTimeInterval time = floor([[NSDate date] timeIntervalSinceReferenceDate] / 3600.0) * 3600.0;
+    NSDate *now = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
+    
     while (tideCount < 4) {
         Tide *thisTide = [self.tideModel.tides objectAtIndex:index];
         index++;
@@ -138,13 +149,14 @@
             continue;
         }
         
+        NSTimeInterval interval = [thisTide.timestamp timeIntervalSinceDate:now];
+        int intIntverval = (int)fabs(interval / (60 * 60));
+        
         if ([thisTide isHighTide]) {
             max += [thisTide heightValue];
             
             if (maxCount == 0) {
-                NSDate *now = [NSDate date];
-                NSTimeInterval interval = [thisTide.timestamp timeIntervalSinceDate:now];
-                firstMaxTimeStep = (int)fabs(interval / (60 * 60));
+                firstMaxTimeStep = intIntverval;
             }
             
             maxCount++;
@@ -154,6 +166,28 @@
         }
         
         tideCount++;
+        
+        int limitInterval = 0;
+        if (prevInterval == 0) {
+            limitInterval = intIntverval;
+        } else {
+            limitInterval = prevInterval + 7;
+        }
+        prevInterval = limitInterval;
+        
+        if (limitInterval > 22) {
+            continue;
+        }
+    
+        ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:limitInterval];
+        tideLimit.label = [thisTide timeString];
+        tideLimit.lineColor = [UIColor orangeColor];
+        if (limitInterval > 16) {
+            tideLimit.labelPosition = ChartLimitLabelPositionLeftTop;
+        } else {
+            tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
+        }
+        [self.tideChartView.xAxis addLimitLine:tideLimit];
     }
     
     // Take the average
@@ -165,7 +199,7 @@
     NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:24];
     
     for (int i = 0; i < 24; i++) {
-        double yVal = amplitude * cos(((double)i/3) + (double)firstMaxTimeStep) + (amplitude + min);
+        double yVal = amplitude * cos(((double)i / 2.3) - firstMaxTimeStep) + (amplitude + min);
         ChartDataEntry *chartEntry = [[ChartDataEntry alloc] initWithValue:yVal xIndex:i];
         [dataEntries addObject:chartEntry];
         [xVals addObject:[NSString stringWithFormat:@"%d", i]];
@@ -177,9 +211,31 @@
     [dataSet setFillColor:HACKWINDS_BLUE_COLOR];
     [dataSet setFillAlpha:255];
     [dataSet setDrawFilledEnabled:YES];
+    [dataSet setLineWidth:3.0];
+    
     LineChartData *chartData = [[LineChartData alloc] initWithXVals:xVals dataSet:dataSet];
     [chartData setDrawValues:NO];
+    
+    // Draw a limit line at now
+    ChartLimitLine *nowLine = [[ChartLimitLine alloc] initWithLimit:0];
+    nowLine.label = @"Now";
+    nowLine.lineColor = [UIColor blueColor];
+    [nowLine setLineWidth:4.0];
+    [self.tideChartView.xAxis addLimitLine:nowLine];
+    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*2.5];
+    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*2.5];
+    [self.tideChartView.leftAxis setCustomAxisMin:min - 1];
+    [self.tideChartView.rightAxis setCustomAxisMin:min - 1];
+    
     self.tideChartView.data = chartData;
+}
+
+- (void) chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry dataSetIndex:(NSInteger)dataSetIndex highlight:(ChartHighlight *)highlight {
+    
+}
+
+- (void) chartValueNothingSelected:(ChartViewBase *)chartView {
+    
 }
 
 #pragma mark - Table View
@@ -269,5 +325,7 @@
     cell.clipsToBounds = YES;
     return cell;
 }
+
+
 
 @end

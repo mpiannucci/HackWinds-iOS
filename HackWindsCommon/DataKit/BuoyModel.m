@@ -55,9 +55,7 @@ static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
 - (BOOL) parseBuoyData:(NSData*)rawBuoyData;
 - (Buoy*) parseLatestBuoyData:(NSData*)rawBuoyData;
 - (NSURL *) getCurrentLatestBuoyDataURL;
-- (NSInteger) getCorrectedHourValue:(NSInteger)rawHour;
 - (double) getFootConvertedFromMetric:(double)metricValue;
-- (BOOL) check24HourClock;
 
 // Private members
 @property (strong, nonatomic) NSUserDefaults *defaults;
