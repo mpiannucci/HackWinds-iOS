@@ -98,14 +98,17 @@
     // xAxis
     [self.tideChartView.xAxis setDrawGridLinesEnabled:NO];
     [self.tideChartView.xAxis setDrawAxisLineEnabled:NO];
+    [self.tideChartView.xAxis setDrawLabelsEnabled:NO];
     
     // yAxis
     [self.tideChartView.leftAxis setDrawAxisLineEnabled:NO];
     [self.tideChartView.leftAxis setDrawGridLinesEnabled:NO];
     [self.tideChartView.leftAxis setDrawLabelsEnabled:NO];
+    [self.tideChartView.leftAxis setDrawZeroLineEnabled:NO];
     [self.tideChartView.rightAxis setDrawAxisLineEnabled:NO];
     [self.tideChartView.rightAxis setDrawGridLinesEnabled:NO];
     [self.tideChartView.rightAxis setDrawLabelsEnabled:NO];
+    [self.tideChartView.rightAxis setDrawZeroLineEnabled:NO];
     
     // Legend
     [self.tideChartView.legend setEnabled:NO];
@@ -115,8 +118,6 @@
     if (self.tideModel.tides.count < 5) {
         return;
     }
-    
-    NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:4];
     
     double min = 0;
     double max = 0;
@@ -158,17 +159,27 @@
     // Take the average
     min = min / minCount;
     max = max / maxCount;
+    double amplitude = (max - min) / 2;
     
-    //        if ([thisTide isTidalEvent]) {
-    //            ChartDataEntry *chartEntry = [[ChartDataEntry alloc] initWithValue:[thisTide heightValue] xIndex:tideCount];
-    //            [dataEntries addObject:chartEntry];
-    //            tideCount++;
-    //        }
+    NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:24];
+    NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:24];
     
-//    LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
-//    NSArray *xVals = [[NSArray alloc] initWithObjects:@"Test", @"Test2", @"test3", @"test4", nil];
-//    LineChartData *chartData = [[LineChartData alloc] initWithXVals:xVals dataSet:dataSet];
-//    self.tideChartView.data = chartData;
+    for (int i = 0; i < 24; i++) {
+        double yVal = amplitude * cos(((double)i/3) + (double)firstMaxTimeStep) + (amplitude + min);
+        ChartDataEntry *chartEntry = [[ChartDataEntry alloc] initWithValue:yVal xIndex:i];
+        [dataEntries addObject:chartEntry];
+        [xVals addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    
+    LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
+    [dataSet setDrawCirclesEnabled:NO];
+    [dataSet setColor:HACKWINDS_BLUE_COLOR];
+    [dataSet setFillColor:HACKWINDS_BLUE_COLOR];
+    [dataSet setFillAlpha:255];
+    [dataSet setDrawFilledEnabled:YES];
+    LineChartData *chartData = [[LineChartData alloc] initWithXVals:xVals dataSet:dataSet];
+    [chartData setDrawValues:NO];
+    self.tideChartView.data = chartData;
 }
 
 #pragma mark - Table View
