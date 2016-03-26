@@ -126,7 +126,8 @@
     
     double min = 0;
     double max = 0;
-    double firstMaxTimeStep = 0.0;
+    double firstTimeStep = 0.0;
+    bool highFirst = YES;
     int maxCount = 0;
     int minCount = 0;
     int tideCount = 0;
@@ -150,18 +151,25 @@
         }
         
         NSTimeInterval interval = [thisTide.timestamp timeIntervalSinceDate:now];
-        int intIntverval = (int)fabs(interval / (60 * 60));
+        int intIntverval = (int)fabs(interval / (60 * 60)) + 1;
         
         if ([thisTide isHighTide]) {
             max += [thisTide heightValue];
             
-            if (maxCount == 0) {
-                firstMaxTimeStep = intIntverval;
+            if (tideCount == 0) {
+                firstTimeStep = intIntverval;
+                highFirst = YES;
             }
             
             maxCount++;
         } else {
             min += [thisTide heightValue];
+            
+            if (tideCount == 0) {
+                firstTimeStep = intIntverval;
+                highFirst = NO;
+            }
+            
             minCount++;
         }
         
@@ -171,7 +179,7 @@
         if (prevInterval == 0) {
             limitInterval = intIntverval;
         } else {
-            limitInterval = prevInterval + 7;
+            limitInterval = prevInterval + 6;
         }
         prevInterval = limitInterval;
         
@@ -199,7 +207,13 @@
     NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:24];
     
     for (int i = 0; i < 24; i++) {
-        double yVal = amplitude * cos(((double)i / 2.3) - firstMaxTimeStep) + (amplitude + min);
+        double yVal;
+        if (highFirst) {
+            yVal = amplitude * cos(((double)i / 1.91) - firstTimeStep) + (amplitude + min);
+        } else {
+            yVal = amplitude * sin(((double)i / 1.91) - firstTimeStep) + (amplitude + min);
+        }
+        
         ChartDataEntry *chartEntry = [[ChartDataEntry alloc] initWithValue:yVal xIndex:i];
         [dataEntries addObject:chartEntry];
         [xVals addObject:[NSString stringWithFormat:@"%d", i]];
