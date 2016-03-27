@@ -141,7 +141,7 @@
     ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:0.0 xIndex:0];
     [dataEntries addObject:firstEntry];
     
-    while (tideCount < 6) {
+    while (tideCount < 5) {
         Tide *thisTide = [self.tideModel.tides objectAtIndex:index];
         index++;
         
@@ -157,7 +157,7 @@
         if (tideCount == 0) {
             NSTimeInterval interval = [thisTide.timestamp timeIntervalSinceDate:now];
             firstIndex = (int)fabs(interval / (60 * 60));
-            xIndex = firstIndex - 1;
+            xIndex = firstIndex;
             
             if ([thisTide isHighTide]) {
                 highFirst = YES;
@@ -183,7 +183,7 @@
             firstEntry.value = [thisTide heightValue];
         }
         
-        if (xIndex < 25) {
+        if (xIndex < 24) {
             ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:xIndex];
             tideLimit.label = [thisTide timeString];
             tideLimit.lineColor = [UIColor orangeColor];
@@ -213,8 +213,8 @@
         }
     }
     
-    NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:24];
-    for (int i = 0; i < 24; i++) {
+    NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:prevIndex];
+    for (int i = 0; i < prevIndex; i++) {
         [xVals addObject:[NSNumber numberWithInt:i]];
     }
     
@@ -236,10 +236,10 @@
     nowLine.lineColor = [UIColor blueColor];
     [nowLine setLineWidth:4.0];
     [self.tideChartView.xAxis addLimitLine:nowLine];
-    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*2.5];
-    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*2.5];
-    [self.tideChartView.leftAxis setCustomAxisMin:min - 1.2];
-    [self.tideChartView.rightAxis setCustomAxisMin:min - 1.2];
+    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*3];
+    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*3];
+    [self.tideChartView.leftAxis setCustomAxisMin:min - 1.5];
+    [self.tideChartView.rightAxis setCustomAxisMin:min - 1.5];
     
     self.tideChartView.data = chartData;
 }
