@@ -15,6 +15,7 @@ extern NSString * const TIDE_DATA_UPDATE_FAILED_TAG;
 @interface TideModel : NSObject
 
 @property (strong, nonatomic) NSMutableArray *tides;
+@property (strong, nonatomic) NSMutableArray *otherEvents;
 @property NSInteger dayCount;
 
 - (void) fetchTideData;

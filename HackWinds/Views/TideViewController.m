@@ -265,7 +265,7 @@
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return 6;
+            return 2;
         case 1:
             return 1;
         default:
@@ -276,7 +276,7 @@
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"Upcoming";
+            return @"Other Upcoming Events";
         case 1:
             return @"Water Temperature";
         default:
@@ -291,28 +291,16 @@
     if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
         
-        Tide* thisTide = [self.tideModel.tides objectAtIndex:indexPath.row];
-        if (thisTide != nil) {
-            if ([thisTide isTidalEvent]) {
-                cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
-            } else {
-                cell.textLabel.text = thisTide.eventType;
-            }
-            cell.detailTextLabel.text = [thisTide timeString];
+        Tide* thisEvent = [self.tideModel.otherEvents objectAtIndex:indexPath.row];
+        if (thisEvent != nil) {
+            cell.textLabel.text = thisEvent.eventType;
+            cell.detailTextLabel.text = [thisEvent timeString];
             
-            if ([thisTide isHighTide]) {
-                cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]
-                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-                cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
-            } else if ([thisTide isLowTide]) {
-                cell.imageView.image = [[UIImage imageNamed:@"ic_trending_down_white"]
-                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-                cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
-            } else if ([thisTide isSunrise]) {
+            if ([thisEvent isSunrise]) {
                 cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_high_white"]
                                         imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 cell.imageView.tintColor = [UIColor orangeColor];
-            } else if ([thisTide isSunset]) {
+            } else if ([thisEvent isSunset]) {
                 cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_low_white"]
                                         imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 cell.imageView.tintColor = [UIColor orangeColor];

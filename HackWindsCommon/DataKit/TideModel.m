@@ -42,6 +42,7 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     
     // Array to load the data into
     self.tides = [[NSMutableArray alloc] init];
+    self.otherEvents = [[NSMutableArray alloc] init];
     self.dayIds = [[NSMutableArray alloc] initWithCapacity:4];
     self.dayDataCounts = [[NSMutableArray alloc] initWithCapacity:4];
     self.dayCount = 0;
@@ -208,6 +209,11 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
             }
             
             [self.tides addObject:thisTide];
+            
+            if (![thisTide isTidalEvent]) {
+                [self.otherEvents addObject:thisTide];
+            }
+            
             currentDayDataCount++;
         }
     }
