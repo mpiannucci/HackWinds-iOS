@@ -209,7 +209,11 @@
                 firstEntry.value = max;
             }
         } else {
-            firstEntry.value = amplitude * ((double)(firstIndex / 6.0));
+            if (highFirst) {
+                firstEntry.value = amplitude * ((double)((6 - firstIndex) / 6.0));
+            } else {
+                firstEntry.value = amplitude * ((double)(firstIndex / 6.0));
+            }
         }
     }
     
