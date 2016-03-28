@@ -176,20 +176,26 @@
             }
         }
         
+        double value = [thisTide heightValue];
+        if (value < 0) {
+            value = 0.01;
+        }
         if (xIndex != 0) {
-            ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:[thisTide heightValue] xIndex:xIndex];
+            ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:value xIndex:xIndex];
             [dataEntries addObject:thisEntry];
         } else {
-            firstEntry.value = [thisTide heightValue];
+            firstEntry.value = value;
         }
         
         if (xIndex < 24) {
             ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:xIndex];
             tideLimit.label = [thisTide timeString];
-            tideLimit.lineColor = [UIColor orangeColor];
             if (xIndex > 16) {
+                tideLimit.lineColor = HACKWINDS_BLUE_COLOR;
                 tideLimit.labelPosition = ChartLimitLabelPositionLeftTop;
             } else {
+                tideLimit.lineColor = [UIColor whiteColor];
+                tideLimit.valueTextColor = [UIColor whiteColor];
                 tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
             }
             [self.tideChartView.xAxis addLimitLine:tideLimit];
@@ -223,7 +229,8 @@
     }
     
     LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
-    [dataSet setDrawCirclesEnabled:NO];
+    [dataSet setDrawCirclesEnabled:YES];
+    [dataSet setCircleColor:[UIColor orangeColor]];
     [dataSet setColor:HACKWINDS_BLUE_COLOR];
     [dataSet setFillColor:HACKWINDS_BLUE_COLOR];
     [dataSet setFillAlpha:255];
@@ -242,8 +249,8 @@
     [self.tideChartView.xAxis addLimitLine:nowLine];
     [self.tideChartView.leftAxis setCustomAxisMax:amplitude*3];
     [self.tideChartView.rightAxis setCustomAxisMax:amplitude*3];
-    [self.tideChartView.leftAxis setCustomAxisMin:min - 1.5];
-    [self.tideChartView.rightAxis setCustomAxisMin:min - 1.5];
+    [self.tideChartView.leftAxis setCustomAxisMin:min - 1.0];
+    [self.tideChartView.rightAxis setCustomAxisMin:min - 1.0];
     
     self.tideChartView.data = chartData;
 }

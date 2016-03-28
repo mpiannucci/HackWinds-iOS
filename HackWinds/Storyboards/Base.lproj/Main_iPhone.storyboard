@@ -1384,7 +1384,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YC2-oj-F78">
-                                <rect key="frame" x="0.0" y="201" width="320" height="318"/>
+                                <rect key="frame" x="0.0" y="224" width="320" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell tag="180" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tideDataItem" textLabel="OH6-8Q-kDx" detailTextLabel="rmD-Hb-J6Q" rowHeight="86" style="IBUITableViewCellStyleSubtitle" id="Y6X-iI-ZpD">
@@ -1442,10 +1442,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwT-XP-Iek" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="64" width="320" height="137"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="BwT-XP-Iek" secondAttribute="height" multiplier="7:3" id="Mff-jt-xqu"/>
+                                    <constraint firstAttribute="width" secondItem="BwT-XP-Iek" secondAttribute="height" multiplier="2:1" id="Mff-jt-xqu"/>
                                 </constraints>
                             </view>
                         </subviews>
