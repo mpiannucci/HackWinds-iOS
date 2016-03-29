@@ -216,9 +216,9 @@
             }
         } else {
             if (highFirst) {
-                firstEntry.value = (amplitude * ((double)((6 - firstIndex) / 6.0))) + min;
+                firstEntry.value = (amplitude * (((double)(6 - firstIndex)) / 6.0)) + min;
             } else {
-                firstEntry.value = (amplitude * ((double)(firstIndex / 6.0))) + min;
+                firstEntry.value = (amplitude * (((double)firstIndex) / 6.0)) + min;
             }
         }
     }
