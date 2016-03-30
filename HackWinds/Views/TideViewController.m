@@ -205,7 +205,7 @@
         tideCount++;
     }
     
-    double amplitude = (max - min) / 2;
+    double amplitude = max - min;
     
     if (firstIndex != 0) {
         if (firstIndex == 6) {
@@ -216,7 +216,7 @@
             }
         } else {
             if (highFirst) {
-                firstEntry.value = (amplitude * (((double)(6 - firstIndex)) / 6.0)) + min;
+                firstEntry.value = max - (amplitude * ((double)firstIndex / 6.0));
             } else {
                 firstEntry.value = (amplitude * (((double)firstIndex) / 6.0)) + min;
             }
@@ -247,8 +247,8 @@
     nowLine.lineColor = [UIColor blueColor];
     [nowLine setLineWidth:4.0];
     [self.tideChartView.xAxis addLimitLine:nowLine];
-    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*3];
-    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*3];
+    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*1.6];
+    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*1.6];
     [self.tideChartView.leftAxis setCustomAxisMin:min - 1.0];
     [self.tideChartView.rightAxis setCustomAxisMin:min - 1.0];
     
