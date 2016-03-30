@@ -182,6 +182,10 @@ const int FORECAST_DATA_POINT_COUNT = 60;
     
     // Loop through the objects, create new condition objects, and append to the array
     NSArray *rawForecastData = [rawData objectForKey:@"ForecastData"];
+    if ((id)rawForecastData == [NSNull null]) {
+        return NO;
+    }
+    
     dayCount = 0;
     int forecastOffset = 0;
     for (int i = 0; i < FORECAST_DATA_POINT_COUNT; i++) {
