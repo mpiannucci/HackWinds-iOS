@@ -77,6 +77,22 @@
     }
 }
 
+- (void) interpolateMeanDirection {
+    if (self.swellDirection == nil || self.windWaveDirection == nil) {
+        return;
+    }
+    
+    double period = [self.dominantPeriod doubleValue];
+    double swellPeriod = [self.swellPeriod doubleValue];
+    double windPeriod = [self.windWavePeriod doubleValue];
+    
+    if (fabs(period - windPeriod) > fabs(period - swellPeriod)) {
+        self.meanDirection = self.swellDirection;
+    } else {
+        self.meanDirection = self.windWaveDirection;
+    }
+}
+
 - (NSString*) getWaveSummaryStatusText {
     return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.significantWaveHeight, self.dominantPeriod, self.meanDirection];
 }

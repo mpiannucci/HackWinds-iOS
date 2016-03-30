@@ -45,7 +45,7 @@ static const int DETAIL_MEAN_WAVE_DIRECTION_OFFSET = 14;
 static NSString * const BI_BUOY_ID = @"44097";
 static NSString * const MTK_BUOY_ID = @"44017";
 static NSString * const ACK_BUOY_ID = @"44008";
-static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
+static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 
 @interface BuoyModel ()
 
@@ -170,7 +170,7 @@ static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
 }
 
 - (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler {
-    NSURLSessionTask *tideTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *buoyTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (error != nil) {
             NSLog(@"Failed to retreive tide data from API");
@@ -202,7 +202,7 @@ static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
         completionHandler(data);
     }];
     
-    [tideTask resume];
+    [buoyTask resume];
 }
 
 - (void) fetchBuoyData {
@@ -358,32 +358,84 @@ static NSString * const NEWPORT_BUOY_ID = @"NWPR1";
 }
 
 - (Buoy*) parseLatestBuoyData:(NSData *)rawBuoyData {
-    NSString *rawData = [[NSString alloc] initWithData:rawBuoyData encoding:NSUTF8StringEncoding];
-    NSError *xmlError;
-    NSDictionary *rawBuoyDataDict = [XMLReader dictionaryForXMLString:rawData error:&xmlError];
-    if (xmlError != nil) {
+    NSString *rawData = [[NSString alloc] initWithData:rawBuoyData encoding:NSASCIIStringEncoding];
+    NSArray *rawBuoyArray = [rawData componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    
+    if (rawBuoyArray == nil) {
+        return nil;
+    } else if (rawBuoyArray.count < 6) {
         return nil;
     }
     
-    NSDictionary *buoyDataDict = [rawBuoyDataDict objectForKey:@"observation"];
-    
-    // Cast the xml to the buoy item
     Buoy *latestBuoy = [[Buoy alloc] init];
-    NSString *rawTime = [[buoyDataDict objectForKey:@"datetime"] objectForKey:@"text"];
-    latestBuoy.timestamp = [self getTimeFromXMLDateTime:rawTime];
-    latestBuoy.significantWaveHeight = [[buoyDataDict objectForKey:@"waveht"] objectForKey:@"text"];
-    latestBuoy.dominantPeriod = [[buoyDataDict objectForKey:@"domperiod"] objectForKey:@"text"];
-    latestBuoy.meanDirection = [Buoy getCompassDirection:[[buoyDataDict objectForKey:@"meanwavedir"] objectForKey:@"text" ]];
-    latestBuoy.waterTemperature = [[buoyDataDict objectForKey:@"watertemp"] objectForKey:@"text"];
-    return latestBuoy;
-}
-
-- (NSDate *) getTimeFromXMLDateTime:(NSString*) datetime {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
-    NSDate *date = [dateFormatter dateFromString:datetime];
-    return date;
     
+    // Start with the time
+    NSString *rawDateTime = [rawBuoyArray objectAtIndex:4];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HHmm ZZZ MM/dd/yy"];
+    latestBuoy.timestamp = [dateFormatter dateFromString:rawDateTime];
+    
+    BOOL swellPeriodParsed = NO;
+    BOOL swellDirectionParsed = NO;
+    for (int i = 5; i < rawBuoyArray.count; i++) {
+        NSArray *components = [[rawBuoyArray objectAtIndex:i] componentsSeparatedByString:@":"];
+        if (components == nil) {
+            continue;
+        } else if (components.count < 2) {
+            continue;
+        }
+        
+        NSString *var = [components objectAtIndex:0];
+        NSString *value = [components objectAtIndex:1];
+        if ([var isEqualToString:@"Water Temp"]) {
+            NSScanner *doubleScanner = [NSScanner scannerWithString:value];
+            double value;
+            [doubleScanner scanDouble:&value];
+            latestBuoy.waterTemperature = [[NSNumber numberWithDouble:value] stringValue];
+        } else if ([var isEqualToString:@"Seas"]) {
+            NSScanner *doubleScanner = [NSScanner scannerWithString:value];
+            double value;
+            [doubleScanner scanDouble:&value];
+            latestBuoy.significantWaveHeight = [[NSNumber numberWithDouble:value] stringValue];
+        } else if ([var isEqualToString:@"Peak Period"]) {
+            NSScanner *doubleScanner = [NSScanner scannerWithString:value];
+            double value;
+            [doubleScanner scanDouble:&value];
+            latestBuoy.dominantPeriod = [[NSNumber numberWithDouble:value] stringValue];
+        } else if ([var isEqualToString:@"Swell"]) {
+            NSScanner *doubleScanner = [NSScanner scannerWithString:value];
+            double value;
+            [doubleScanner scanDouble:&value];
+            latestBuoy.dominantPeriod = [[NSNumber numberWithDouble:value] stringValue];
+        } else if ([var isEqualToString:@"Wind Wave"]) {
+            NSScanner *doubleScanner = [NSScanner scannerWithString:value];
+            double value;
+            [doubleScanner scanDouble:&value];
+            latestBuoy.dominantPeriod = [[NSNumber numberWithDouble:value] stringValue];
+        } else if ([var isEqualToString:@"Period"]) {
+            NSScanner *doubleScanner = [NSScanner scannerWithString:value];
+            double value;
+            [doubleScanner scanDouble:&value];
+            if (!swellPeriodParsed) {
+                latestBuoy.swellPeriod = [[NSNumber numberWithDouble:value] stringValue];
+                swellPeriodParsed = YES;
+            } else {
+                latestBuoy.windWavePeriod = [[NSNumber numberWithDouble:value] stringValue];
+            }
+        } else if ([var isEqualToString:@"Direction"]) {
+            if (!swellDirectionParsed) {
+                latestBuoy.swellDirection = value;
+                swellDirectionParsed = YES;
+            } else {
+                latestBuoy.windWaveDirection = value;
+            }
+        }
+    }
+    
+    // Find the wave direction
+    [latestBuoy interpolateMeanDirection];
+    
+    return latestBuoy;
 }
 
 - (double) getFootConvertedFromMetric:(double)metricValue {

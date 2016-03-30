@@ -15,7 +15,7 @@ const int BUOY_DATA_POINTS = 20;
 // Local constants
 static NSString * const BASE_DATA_URL = @"http://www.ndbc.noaa.gov/data/realtime2/%@%@";
 static NSString * const BASE_SPECTRA_PLOT_URL = @"http://www.ndbc.noaa.gov/spec_plot.php?station=%@";
-static NSString * const BASE_LATEST_DATA_URL = @"http://www.ndbc.noaa.gov/get_observation_as_xml.php?station=%@";
+static NSString * const BASE_LATEST_DATA_URL = @"http://www.ndbc.noaa.gov/data/latest_obs/%@.txt";
 static NSString * const BUOY_DETAIL_SUFFIX = @".spec";
 
 @implementation BuoyDataContainer
