@@ -45,6 +45,48 @@
     self.tideModel = [TideModel sharedModel];
     self.buoyModel = [BuoyModel sharedModel];
     
+    [self loadBuoyData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Update the tide view in case we missed a notification
+    [self reloadData];
+    
+    // Register listener for the tide data model update
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadData)
+                                                 name:TIDE_DATA_UPDATED_TAG
+                                               object:nil];
+    
+    // Register listener for the buoy data model failure
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadDefaultLocationBuoyData)
+                                                 name:BUOY_UPDATE_FAILED_TAG
+                                               object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    // Remove the notifcation lsitener when the view is not in focus
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:TIDE_DATA_UPDATED_TAG
+                                                  object:nil];
+    // Register listener for the data model update
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadData)
+                                                 name:BUOY_UPDATE_FAILED_TAG
+                                               object:nil];
+    
+    [super viewDidDisappear:animated];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) loadBuoyData {
     // Load the buoy data for the defualt location so we can get the water temp
     buoyLocation = NEWPORT_LOCATION;
     [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
@@ -55,31 +97,17 @@
     }];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void) loadDefaultLocationBuoyData {
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    [defaults synchronize];
     
-    // Update the tide view in case we missed a notification
-    [self reloadData];
-    
-    // Register listener for the data model update
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadData)
-                                                 name:TIDE_DATA_UPDATED_TAG
-                                               object:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    // Remove the notifcation lsitener when the view is not in focus
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:TIDE_DATA_UPDATED_TAG
-                                                  object:nil];
-    
-    [super viewDidDisappear:animated];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
+    [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
+        currentBuoy = buoy;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
 }
 
 - (void) reloadData {
@@ -332,6 +360,10 @@
             } else {
                 cell.tintColor = RED_COLOR;
             }
+        } else {
+            cell.detailTextLabel.text = @"No Recent Data";
+            cell.imageView.image = [[UIImage imageNamed:@"ic_whatshot_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            cell.imageView.tintColor = [UIColor grayColor];
         }
     }
     
