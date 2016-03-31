@@ -435,6 +435,11 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     // Find the wave direction
     [latestBuoy interpolateMeanDirection];
     
+    // At a bare minimum water temp needs to be there 
+    if (latestBuoy.waterTemperature == nil) {
+        return nil;
+    }
+    
     return latestBuoy;
 }
 

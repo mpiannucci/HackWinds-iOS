@@ -95,6 +95,11 @@
     buoyLocation = NEWPORT_LOCATION;
     [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
         currentBuoy = buoy;
+        if (currentBuoy == nil) {
+            [self loadDefaultLocationBuoyData];
+            return;
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
@@ -112,6 +117,7 @@
     buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
     [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
         currentBuoy = buoy;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
@@ -176,7 +182,7 @@
     
     NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:10];
     
-    ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:0.0 xIndex:0];
+    ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:0.0 xIndex:-1];
     [dataEntries addObject:firstEntry];
     
     while (tideCount < 5) {
@@ -248,17 +254,23 @@
     if (firstIndex != 0) {
         if (firstIndex == 6) {
             if (highFirst) {
+                firstEntry.xIndex = 0;
                 firstEntry.value = min;
             } else {
+                firstEntry.xIndex = 0;
                 firstEntry.value = max;
             }
         } else {
             if (highFirst) {
-                firstEntry.value = max - (amplitude * ((double)firstIndex / 6.0));
+                double approxMax = max - (amplitude * ((double)(firstIndex + 1) / 6.0));
+                firstEntry.value = approxMax;
             } else {
-                firstEntry.value = (amplitude * (((double)firstIndex) / 6.0)) + min;
+                double approxMin = (amplitude * (((double)firstIndex + 1) / 6.0)) + min;
+                firstEntry.value = approxMin;
             }
         }
+    } else {
+        firstEntry.xIndex = 0;
     }
     
     NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:prevIndex];
