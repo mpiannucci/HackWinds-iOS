@@ -26,6 +26,7 @@
 @implementation TideViewController {
     NSString *buoyLocation;
     Buoy* currentBuoy;
+    int failedOnce;
 }
 
 - (void)viewDidLoad {
@@ -44,6 +45,9 @@
     // Grab the models
     self.tideModel = [TideModel sharedModel];
     self.buoyModel = [BuoyModel sharedModel];
+    
+    // Initialize the failure counter
+    failedOnce = NO;
     
     [self loadBuoyData];
 }
@@ -98,6 +102,10 @@
 }
 
 - (void) loadDefaultLocationBuoyData {
+    if (failedOnce) {
+        return;
+    }
+    
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     
@@ -108,6 +116,8 @@
             [self.tableView reloadData];
         });
     }];
+    
+    failedOnce = YES;
 }
 
 - (void) reloadData {
@@ -361,7 +371,7 @@
                 cell.tintColor = RED_COLOR;
             }
         } else {
-            cell.detailTextLabel.text = @"No Recent Data";
+            cell.detailTextLabel.text = @"";
             cell.imageView.image = [[UIImage imageNamed:@"ic_whatshot_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imageView.tintColor = [UIColor grayColor];
         }
