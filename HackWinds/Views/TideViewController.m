@@ -254,13 +254,17 @@
     
     if (firstIndex != 0) {
         if (firstIndex == 6) {
+            ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:0];
             if (highFirst) {
                 firstEntry.xIndex = 0;
                 firstEntry.value = min;
+                tideLimit.label = @"Low Tide";
             } else {
                 firstEntry.xIndex = 0;
                 firstEntry.value = max;
+                tideLimit.label = @"High Tide";
             }
+            [self.tideChartView.xAxis addLimitLine:tideLimit];
         } else {
             if (highFirst) {
                 double approxMax = max - (amplitude * ((double)(firstIndex + 1) / 6.0));

@@ -391,36 +391,36 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.waterTemperature = [[NSNumber numberWithDouble:value] stringValue];
+            latestBuoy.waterTemperature = [NSString stringWithFormat:@"%2.2f", value];
         } else if ([var isEqualToString:@"Seas"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.significantWaveHeight = [[NSNumber numberWithDouble:value] stringValue];
+            latestBuoy.significantWaveHeight = [NSString stringWithFormat:@"%2.2f", value];
         } else if ([var isEqualToString:@"Peak Period"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.dominantPeriod = [[NSNumber numberWithDouble:value] stringValue];
+            latestBuoy.dominantPeriod = [NSString stringWithFormat:@"%2.2f", value];
         } else if ([var isEqualToString:@"Swell"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.dominantPeriod = [[NSNumber numberWithDouble:value] stringValue];
+            latestBuoy.dominantPeriod = [NSString stringWithFormat:@"%2.2f", value];
         } else if ([var isEqualToString:@"Wind Wave"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.dominantPeriod = [[NSNumber numberWithDouble:value] stringValue];
+            latestBuoy.dominantPeriod = [NSString stringWithFormat:@"%2.2f", value];
         } else if ([var isEqualToString:@"Period"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
             if (!swellPeriodParsed) {
-                latestBuoy.swellPeriod = [[NSNumber numberWithDouble:value] stringValue];
+                latestBuoy.swellPeriod = [NSString stringWithFormat:@"%2.2f", value];
                 swellPeriodParsed = YES;
             } else {
-                latestBuoy.windWavePeriod = [[NSNumber numberWithDouble:value] stringValue];
+                latestBuoy.windWavePeriod = [NSString stringWithFormat:@"%2.2f", value];
             }
         } else if ([var isEqualToString:@"Direction"]) {
             if (!swellDirectionParsed) {
