@@ -212,18 +212,19 @@
             xIndex = prevIndex + 6;
         }
         
-        if (tideCount < 2) {
-            if ([thisTide isHighTide]) {
-                max = [thisTide heightValue];
-            } else {
-                min = [thisTide heightValue];
-            }
-        }
-        
         double value = [thisTide heightValue];
         if (value < 0) {
             value = 0.01;
         }
+        
+        if (tideCount < 2) {
+            if ([thisTide isHighTide]) {
+                max = value;
+            } else {
+                min = value;
+            }
+        }
+        
         if (xIndex != 0) {
             ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:value xIndex:xIndex];
             [dataEntries addObject:thisEntry];
