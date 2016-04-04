@@ -271,9 +271,15 @@
         } else {
             if (highFirst) {
                 double approxMax = max - (amplitude * ((double)(firstIndex + 1) / 6.0));
+                if (approxMax < 0) {
+                    approxMax = 0.01;
+                }
                 firstEntry.value = approxMax;
             } else {
                 double approxMin = (amplitude * (((double)firstIndex + 1) / 6.0)) + min;
+                if (approxMin < 0) {
+                    approxMin = 0.01;
+                }
                 firstEntry.value = approxMin;
             }
         }
