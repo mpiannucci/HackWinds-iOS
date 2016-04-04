@@ -406,12 +406,12 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.dominantPeriod = [NSString stringWithFormat:@"%2.2f", value];
+            latestBuoy.swellWaveHeight = [NSString stringWithFormat:@"%2.2f", value];
         } else if ([var isEqualToString:@"Wind Wave"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.dominantPeriod = [NSString stringWithFormat:@"%2.2f", value];
+            latestBuoy.windWaveHeight = [NSString stringWithFormat:@"%2.2f", value];
         } else if ([var isEqualToString:@"Period"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;

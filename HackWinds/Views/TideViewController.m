@@ -232,7 +232,7 @@
             firstEntry.value = value;
         }
         
-        if (xIndex < 24) {
+        if (xIndex < 24 || tideCount < 4) {
             ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:xIndex];
             tideLimit.label = [thisTide timeString];
             if (xIndex > 16) {
