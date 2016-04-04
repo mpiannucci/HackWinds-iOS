@@ -255,6 +255,9 @@
     if (firstIndex != 0) {
         if (firstIndex == 6) {
             ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:0];
+            tideLimit.lineColor = [UIColor whiteColor];
+            tideLimit.valueTextColor = [UIColor whiteColor];
+            tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
             if (highFirst) {
                 firstEntry.xIndex = 0;
                 firstEntry.value = min;
