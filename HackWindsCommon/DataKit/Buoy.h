@@ -36,6 +36,7 @@
 - (NSString *) timeString;
 - (NSString *) dateString;
 - (void) interpolateDominantPeriod;
+- (void) interpolateDominantPeriodWithSteepness;
 - (void) interpolateMeanDirection;
 - (NSString*) getWaveSummaryStatusText;
 - (NSString*) getDominantSwellText;

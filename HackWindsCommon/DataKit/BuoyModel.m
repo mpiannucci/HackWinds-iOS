@@ -334,13 +334,15 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         // Periods
         newBuoy.swellPeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET];
         newBuoy.windWavePeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET];
-        [newBuoy interpolateDominantPeriod];
         
         // Directions
         NSString *rawMeanDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MEAN_WAVE_DIRECTION_OFFSET];
         newBuoy.meanDirection = [Buoy getCompassDirection:rawMeanDirection];
         newBuoy.swellDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_DIRECTION_OFFSET];
         newBuoy.windWaveDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_WAVE_DIRECTION_OFFSET];
+        
+        // Get the dominant period
+        [newBuoy interpolateDominantPeriod];
         
         // Bump the count
         dataPointCount++;

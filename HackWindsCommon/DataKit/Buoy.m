@@ -60,12 +60,24 @@
 
 - (NSString *) dateString {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.dateStyle = NSDateFormatterMediumStyle;
     formatter.locale = [NSLocale currentLocale];
     return [formatter stringFromDate:self.timestamp];
 }
 
 - (void) interpolateDominantPeriod {
+    if (self.swellDirection == nil || self.windWaveDirection == nil) {
+        return;
+    }
+    
+    if ([self.swellDirection isEqualToString:self.meanDirection]) {
+        self.dominantPeriod = self.swellPeriod;
+    } else {
+        self.dominantPeriod = self.windWavePeriod;
+    }
+}
+
+- (void) interpolateDominantPeriodWithSteepness {
     if (self.steepness == nil) {
         return;
     }
