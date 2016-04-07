@@ -69,7 +69,8 @@ class GlanceController: WKInterfaceController {
         if let lastUpdateTime = updateManager.latestRefreshTime() {
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            self.lastUpdatedTimeLabel.setText("Last updated at \(dateFormatter.stringFromDate(lastUpdateTime))")
+            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            self.lastUpdatedTimeLabel.setText("Updated \(dateFormatter.stringFromDate(lastUpdateTime))")
         }
     }
 }

@@ -80,8 +80,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if let updateTime = updateManager.latestRefreshTime() {
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
                 
-                self.lastUpdatedButton.setTitle("\(location): Last updated at \(dateFormatter.stringFromDate(updateTime))", forState: UIControlState.Normal)
+                self.lastUpdatedButton.setTitle("\(location): Updated \(dateFormatter.stringFromDate(updateTime))", forState: UIControlState.Normal)
             }
         }
     }

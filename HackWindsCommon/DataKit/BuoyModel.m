@@ -418,14 +418,14 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            if (!swellPeriodParsed) {
+            if (!swellPeriodParsed && ![latestBuoy.swellWaveHeight isEqualToString:@"0.0"]) {
                 latestBuoy.swellPeriod = [NSString stringWithFormat:@"%2.2f", value];
                 swellPeriodParsed = YES;
             } else {
                 latestBuoy.windWavePeriod = [NSString stringWithFormat:@"%2.2f", value];
             }
         } else if ([var isEqualToString:@"Direction"]) {
-            if (!swellDirectionParsed) {
+            if (!swellDirectionParsed && ![latestBuoy.swellWaveHeight isEqualToString:@"0.0"]) {
                 latestBuoy.swellDirection = value;
                 swellDirectionParsed = YES;
             } else {
