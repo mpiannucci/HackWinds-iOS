@@ -11,6 +11,7 @@
 #import "AsyncImageView.h"
 #import "Reachability.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
+#import "NavigationBarTitleWithSubtitleView.h"
 
 static const int CAMERA_IMAGE_COUNT = 8;
 
@@ -21,6 +22,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 @property (weak, nonatomic) IBOutlet UIPageControl *camPaginator;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
+@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -40,6 +42,12 @@ static const int CAMERA_IMAGE_COUNT = 8;
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    // Set up the custom nav bar with the forecast location
+    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
+    [self.navigationItem setTitleView: self.navigationBarTitle];
+    [self.navigationBarTitle setTitleText:@"HackWinds"];
+    [self.navigationBarTitle setDetailText:@"Location: Narragansett"];
     
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;

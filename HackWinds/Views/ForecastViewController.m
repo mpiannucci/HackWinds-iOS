@@ -9,10 +9,12 @@
 #import "ForecastViewController.h"
 #import "DetailedForecastViewController.h"
 #import "Reachability.h"
+#import "NavigationBarTitleWithSubtitleView.h"
 
 @interface ForecastViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *forecastTable;
+@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) ForecastModel *forecastModel;
 
@@ -28,6 +30,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view
+    
+    // Set up the custom nav bar with the forecast location
+    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
+    [self.navigationItem setTitleView: self.navigationBarTitle];
+    [self.navigationBarTitle setTitleText:@"HackWinds"];
+    [self.navigationBarTitle setDetailText:@"Location: Narragansett"];
     
     // Get the shared forecast model
     self.forecastModel = [ForecastModel sharedModel];
