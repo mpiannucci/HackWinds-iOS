@@ -293,7 +293,7 @@
     }
     
     LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
-    [dataSet setDrawCirclesEnabled:YES];
+    [dataSet setDrawCirclesEnabled:NO];
     [dataSet setCircleColor:[UIColor orangeColor]];
     [dataSet setColor:HACKWINDS_BLUE_COLOR];
     [dataSet setFillColor:HACKWINDS_BLUE_COLOR];
@@ -390,7 +390,7 @@
             } else if (tempRaw < 50) {
                 cell.imageView.tintColor = [UIColor blueColor];
             } else if (tempRaw < 60) {
-                cell.imageView.tintColor = YELLOW_COLOR;
+                cell.imageView.tintColor = GREEN_COLOR;
             } else if (tempRaw < 70) {
                 cell.tintColor = [UIColor orangeColor];
             } else {

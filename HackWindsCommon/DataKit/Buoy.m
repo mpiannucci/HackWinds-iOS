@@ -66,7 +66,17 @@
 }
 
 - (void) interpolateDominantPeriod {
-    if (self.swellDirection == nil || self.windWaveDirection == nil) {
+    if (self.swellDirection == nil && self.windWaveDirection == nil) {
+        return;
+    }
+    
+    if (self.swellDirection == nil) {
+        self.dominantPeriod = self.windWavePeriod;
+        return;
+    }
+    
+    if (self.windWaveDirection == nil) {
+        self.dominantPeriod = self.swellPeriod;
         return;
     }
     
@@ -90,7 +100,19 @@
 }
 
 - (void) interpolateMeanDirection {
-    if (self.swellDirection == nil || self.windWaveDirection == nil) {
+    if (self.swellDirection == nil && self.windWaveDirection == nil) {
+        return;
+    } else if (self.dominantPeriod == nil) {
+        return;
+    }
+    
+    if (self.swellPeriod == nil) {
+        self.meanDirection = self.windWaveDirection;
+        return;
+    }
+    
+    if (self.windWavePeriod == nil) {
+        self.meanDirection = self.swellDirection;
         return;
     }
     
