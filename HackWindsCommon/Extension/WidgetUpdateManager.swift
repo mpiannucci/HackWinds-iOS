@@ -89,7 +89,7 @@ class WidgetUpdateManager {
             }
         } else {
             // Just default to montauk if possible
-            self.buoyLocation = MONTAUK_LOCATION
+            self.buoyLocation = BLOCK_ISLAND_LOCATION
             groupDefaults?.setObject(self.buoyLocation, forKey: "DefaultBuoyLocation")
             self.nextBuoyUpdateTime = nil
         }
