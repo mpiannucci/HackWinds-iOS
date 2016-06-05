@@ -392,9 +392,9 @@
             } else if (tempRaw < 60) {
                 cell.imageView.tintColor = GREEN_COLOR;
             } else if (tempRaw < 70) {
-                cell.tintColor = [UIColor orangeColor];
+                cell.imageView.tintColor = [UIColor orangeColor];
             } else {
-                cell.tintColor = RED_COLOR;
+                cell.imageView.tintColor = RED_COLOR;
             }
         } else {
             cell.detailTextLabel.text = @"";
