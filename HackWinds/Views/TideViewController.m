@@ -311,10 +311,10 @@
     nowLine.lineColor = [UIColor blueColor];
     [nowLine setLineWidth:4.0];
     [self.tideChartView.xAxis addLimitLine:nowLine];
-    [self.tideChartView.leftAxis setCustomAxisMax:amplitude*1.6];
-    [self.tideChartView.rightAxis setCustomAxisMax:amplitude*1.6];
-    [self.tideChartView.leftAxis setCustomAxisMin:min - 1.0];
-    [self.tideChartView.rightAxis setCustomAxisMin:min - 1.0];
+    [self.tideChartView.leftAxis setAxisMaxValue:amplitude*1.6];
+    [self.tideChartView.rightAxis setAxisMaxValue:amplitude*1.6];
+    [self.tideChartView.leftAxis setAxisMinValue:min - 1.0];
+    [self.tideChartView.rightAxis setAxisMinValue:min - 1.0];
     
     self.tideChartView.data = chartData;
 }
