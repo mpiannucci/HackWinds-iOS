@@ -22,6 +22,8 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 - (void) createDailyForecasts;
 - (BOOL) parseForecastsFromData:(NSData*) unserializedData;
 
+@property (strong, nonatomic) NSDate *lastFetchDate;
+
 @end
 
 @implementation ForecastModel
@@ -55,6 +57,31 @@ const int FORECAST_DATA_POINT_COUNT = 60;
     }
     
     return self;
+}
+
+- (void) resetData {
+    [self.forecasts removeAllObjects];
+    [self.dailyForecasts removeAllObjects];
+}
+
+- (void) checkForUpdate {
+    if (self.lastFetchDate == nil) {
+        return;
+    }
+    
+    if (self.forecasts == nil) {
+        return;
+    }
+    
+    if ([self.forecasts count] < 1) {
+        return;
+    }
+    
+    NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:self.lastFetchDate];
+    NSInteger hourTimeDiff = rawTimeDiff / 3600;
+    if (hourTimeDiff >= 6) {
+        [self resetData];
+    }
 }
 
 - (int) getDayCount {
@@ -100,6 +127,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 
 - (void) fetchForecastData {
     @synchronized(self) {
+        [self checkForUpdate];
         
         if (self.forecasts.count != 0) {
             // Tell any listeners that the data has been loaded.
@@ -185,6 +213,11 @@ const int FORECAST_DATA_POINT_COUNT = 60;
     if ((id)rawForecastData == [NSNull null]) {
         return NO;
     }
+    
+    // Get and save the date of the latest model run
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE MMMM dd, yyyy HHZ"];
+    self.lastFetchDate = [dateFormatter dateFromString:self.waveModelRun];
     
     dayCount = 0;
     int forecastOffset = 0;

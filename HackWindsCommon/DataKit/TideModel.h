@@ -18,9 +18,10 @@ extern NSString * const TIDE_DATA_UPDATE_FAILED_TAG;
 @property (strong, nonatomic) NSMutableArray *otherEvents;
 @property NSInteger dayCount;
 
+- (void) resetData;
+- (void) checkForUpdate;
 - (void) fetchTideData;
 - (void) fetchLatestTidalEventOnly:(void(^)(Tide*))completionHandler;
-- (void) resetData;
 - (NSInteger) dataCountForIndex:(NSInteger)index;
 - (Tide*) tideDataAtIndex:(NSInteger)index forDay:(NSInteger)dayIndex;
 

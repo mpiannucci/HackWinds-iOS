@@ -25,6 +25,8 @@ extern const int FORECAST_DATA_POINT_COUNT;
 @property (strong, nonatomic) NSMutableArray *forecasts;
 @property (strong, nonatomic) NSMutableArray *dailyForecasts;
 
+- (void) resetData;
+- (void) checkForUpdate;
 - (void) fetchForecastData;
 - (int) getDayCount;
 - (int) getDayForecastStartingIndex:(int)day;

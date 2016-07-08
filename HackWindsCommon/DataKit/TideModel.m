@@ -50,6 +50,34 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     return self;
 }
 
+- (void) resetData {
+    self.dayCount = 0;
+    [self.tides removeAllObjects];
+    [self.otherEvents removeAllObjects];
+    [self.dayIds removeAllObjects];
+    [self.dayDataCounts removeAllObjects];
+}
+
+- (void) checkForUpdate {
+    if (self.tides == nil) {
+        return;
+    }
+    
+    if ([self.tides count] < 1) {
+        return;
+    }
+    
+    if ([[self.tides objectAtIndex:0] timestamp] == nil) {
+        return;
+    }
+    
+    NSDate *nextDate = [[self.tides objectAtIndex:0] timestamp];
+    NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:nextDate];
+    if (rawTimeDiff > 0) {
+        [self resetData];
+    }
+}
+
 - (void) fetchRawTideData:(void(^)(NSData*))completionHandler {
     NSURLSessionTask *tideTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:WUNDERGROUND_URL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -88,6 +116,8 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
 
 - (void) fetchTideData {
     @synchronized(self) {
+        [self checkForUpdate];
+        
         if (self.tides.count != 0) {
             // Tell everything you have tide data
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -149,13 +179,6 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
         // Trigger the callback
         completionHandler(latestTide);
     }];
-}
-
-- (void) resetData {
-    [self.tides removeAllObjects];
-    self.dayCount = 0;
-    [self.dayDataCounts removeAllObjects];
-    [self.dayIds removeAllObjects];
 }
 
 - (NSInteger) dataCountForIndex:(NSInteger)index {

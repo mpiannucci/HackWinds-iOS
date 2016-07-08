@@ -135,7 +135,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 }
 
 - (void) resetData {
-    // TODO
+    [currentContainer.buoyData removeAllObjects];
 }
 
 - (NSMutableArray *) getBuoyData {
@@ -176,7 +176,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     }
     
     NSDate *previousDate = [[currentContainer.buoyData objectAtIndex:0] timestamp];
-    NSTimeInterval rawTimeDiff = [previousDate timeIntervalSinceDate:[NSDate date]];
+    NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:previousDate];
     NSInteger minuteDiff = rawTimeDiff / 60;
     
     if (minuteDiff > [[currentContainer.buoyData objectAtIndex:0] updateInterval]) {
