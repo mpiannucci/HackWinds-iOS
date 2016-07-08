@@ -142,9 +142,6 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     return currentContainer.buoyData;
 }
 
-- (NSMutableArray *) getWaveHeightForMode:(NSString *)mode {
-    return [currentContainer.waveHeights objectForKey:mode];
-}
 - (NSURL *) getCurrentLatestBuoyDataURL {
     return [currentContainer createLatestReportOnlyURL];
 }
@@ -167,6 +164,24 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     currentContainer = [self.buoyDataContainers objectForKey:location];
     
     // NOTE: For the force we dont automatically refetch
+}
+
+- (void) checkForUpdate {
+    if ([currentContainer.buoyData count] < 1) {
+        return;
+    }
+    
+    if ([[currentContainer.buoyData objectAtIndex:0] timestamp] == nil) {
+        return;
+    }
+    
+    NSDate *previousDate = [[currentContainer.buoyData objectAtIndex:0] timestamp];
+    NSTimeInterval rawTimeDiff = [previousDate timeIntervalSinceDate:[NSDate date]];
+    NSInteger minuteDiff = rawTimeDiff / 60;
+    
+    if (minuteDiff > [[currentContainer.buoyData objectAtIndex:0] updateInterval]) {
+        [self resetData];
+    }
 }
 
 - (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler {
@@ -207,6 +222,8 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 
 - (void) fetchBuoyData {
     @synchronized(self) {
+        [self checkForUpdate];
+        
         if (currentContainer.buoyData.count != 0) {
             // Tell everything you have buoy data
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -234,31 +251,35 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 }
 
 - (void) fetchLatestBuoyReading {
-    [self fetchRawBuoyDataFromURL:[self getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
-        Buoy *latestBuoy = [self parseLatestBuoyData:rawData];
+    @synchronized (self) {
+        [self checkForUpdate];
+    
+        [self fetchRawBuoyDataFromURL:[self getCurrentLatestBuoyDataURL] withCompletionHandler:^(NSData *rawData) {
+            Buoy *latestBuoy = [self parseLatestBuoyData:rawData];
         
-        if (latestBuoy == nil) {
-            return;
-        }
+            if (latestBuoy == nil) {
+                return;
+            }
         
-        // Only add the buoy to the list if there are no other buoys read in yet
-        if (currentContainer.buoyData.count == 0) {
-            [currentContainer.buoyData addObject:latestBuoy];
-        } else {
-            Buoy *firstBuoy = [currentContainer.buoyData objectAtIndex:0];
+            // Only add the buoy to the list if there are no other buoys read in yet
+            if (currentContainer.buoyData.count == 0) {
+                [currentContainer.buoyData addObject:latestBuoy];
+            } else {
+                Buoy *firstBuoy = [currentContainer.buoyData objectAtIndex:0];
             
-            // Merge the latest buoy props that werent read in with the detailed wave read.
-            firstBuoy.waterTemperature = latestBuoy.waterTemperature;
-        }
+                // Merge the latest buoy props that werent read in with the detailed wave read.
+                firstBuoy.waterTemperature = latestBuoy.waterTemperature;
+            }
         
-        // Tell everything you have buoy data
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:BUOY_DATA_UPDATED_TAG
-             object:self];
-        });
+            // Tell everything you have buoy data
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:BUOY_DATA_UPDATED_TAG
+                 object:self];
+            });
         
-    }];
+        }];
+    }
 }
 
 - (void) fetchLatestBuoyReadingForLocation:(NSString *)location withCompletionHandler:(void (^)(Buoy *))completionHandler {
@@ -349,11 +370,6 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         
         // Add the buoy to the array
         [currentContainer.buoyData addObject:newBuoy];
-        
-        // Add all of the correct wave height objects
-        [[currentContainer.waveHeights objectForKey:SUMMARY_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.significantWaveHeight]];
-        [[currentContainer.waveHeights objectForKey:SWELL_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.swellWaveHeight]];
-        [[currentContainer.waveHeights objectForKey:WIND_DATA_MODE] addObject:[NSString stringWithFormat:@"%@", newBuoy.windWaveHeight]];
     }
     
     return YES;

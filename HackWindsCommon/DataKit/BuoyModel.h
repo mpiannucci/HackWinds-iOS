@@ -31,10 +31,10 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 - (int) getTimeOffset;
 - (void) resetData;
 - (NSMutableArray*) getBuoyData;
-- (NSMutableArray*) getWaveHeightForMode:(NSString*)mode;
 - (NSURL*) getSpectraPlotURL;
 - (void) changeBuoyLocation;
 - (void) forceChangeLocation:(NSString*)location;
+- (void) checkForUpdate;
 - (void) fetchBuoyData;
 - (void) fetchLatestBuoyReadingForLocation:(NSString*)location withCompletionHandler:(void(^)(Buoy*))completionHandler;
 

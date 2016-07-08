@@ -14,7 +14,7 @@ extern const int BUOY_DATA_POINTS;
 
 @property (strong, nonatomic) NSString *buoyID;
 @property (strong, nonatomic) NSMutableArray *buoyData;
-@property (strong, nonatomic) NSMutableDictionary *waveHeights;
+@property NSInteger updateInterval;
 
 - (NSURL*) createDetailedWaveDataURL;
 - (NSURL*) createLatestReportOnlyURL;
