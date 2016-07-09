@@ -55,8 +55,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // Update the tide view in case we missed a notification
-    [self reloadData];
+    [self.tideModel fetchTideData];
     
     // Register listener for the tide data model update
     [[NSNotificationCenter defaultCenter] addObserver:self

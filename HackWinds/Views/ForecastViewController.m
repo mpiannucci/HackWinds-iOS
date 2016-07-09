@@ -52,8 +52,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // Update the UI in case we missed a notification
-    [self updateUI];
+    [self.forecastModel fetchForecastData];
     
     // Register listener for the data model update
     [[NSNotificationCenter defaultCenter] addObserver:self

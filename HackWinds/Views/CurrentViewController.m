@@ -71,8 +71,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // Update the UI in case we missed a notification
-    [self updateUI];
+    [self.forecastModel fetchForecastData];
     
     // Register the notification center listener when the view appears
     [[NSNotificationCenter defaultCenter] addObserver:self

@@ -48,8 +48,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // Reload the UI in case we missed a notification
-    [self updateUI];
+    [[BuoyModel sharedModel] fetchBuoyData];
     
     // Register the notification center listener when the view appears
     [[NSNotificationCenter defaultCenter] addObserver:self
