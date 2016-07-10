@@ -87,6 +87,12 @@ static const int CAMERA_IMAGE_COUNT = 8;
                                              selector:@selector(setupCamera)
                                                  name:CAMERA_DATA_UPDATED_TAG
                                                object:nil];
+    
+    // Register the notification center listener for the app becoming active
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateUI)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -103,6 +109,9 @@ static const int CAMERA_IMAGE_COUNT = 8;
                                                   object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:CAMERA_DATA_UPDATED_TAG
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillEnterForegroundNotification
                                                   object:nil];
     
     [super viewWillDisappear:animated];

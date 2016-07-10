@@ -68,18 +68,26 @@
                                              selector:@selector(loadDefaultLocationBuoyData)
                                                  name:BUOY_UPDATE_FAILED_TAG
                                                object:nil];
+    
+    // Register the notification center listener for the app becoming active
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadData)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    // Remove the notifcation lsitener when the view is not in focus
+    // Remove the notifcation listeners when the view is not in focus
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:TIDE_DATA_UPDATED_TAG
                                                   object:nil];
-    // Register listener for the data model update
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadData)
                                                  name:BUOY_UPDATE_FAILED_TAG
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillEnterForegroundNotification
+                                                  object:nil];
     
     [super viewDidDisappear:animated];
 }

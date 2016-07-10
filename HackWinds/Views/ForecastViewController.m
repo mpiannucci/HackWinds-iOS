@@ -63,6 +63,12 @@
                                              selector:@selector(forecastUpdateFailed)
                                                  name:FORECAST_DATA_UPDATE_FAILED_TAG
                                                object:nil];
+    
+    // Register the notification center listener for the app becoming active
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateUI)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -73,6 +79,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:FORECAST_DATA_UPDATE_FAILED_TAG
                                                   object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillEnterForegroundNotification
+                                                  object:nil];
+    
     [super viewWillDisappear:animated];
 }
 

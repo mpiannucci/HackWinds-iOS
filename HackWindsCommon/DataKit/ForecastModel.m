@@ -62,6 +62,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
 - (void) resetData {
     [self.forecasts removeAllObjects];
     [self.dailyForecasts removeAllObjects];
+    dayCount = 0;
 }
 
 - (void) checkForUpdate {
