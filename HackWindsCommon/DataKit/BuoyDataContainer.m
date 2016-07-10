@@ -25,6 +25,9 @@ static NSString * const BUOY_DETAIL_SUFFIX = @".spec";
     
     self.buoyData = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
     
+    // Default the update interval to 50 minutes
+    self.updateInterval = 50;
+    
     return self;
 }
 

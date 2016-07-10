@@ -78,7 +78,7 @@ const int FORECAST_DATA_POINT_COUNT = 60;
     }
     
     NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:self.lastFetchDate];
-    NSInteger hourTimeDiff = rawTimeDiff / 3600;
+    NSInteger hourTimeDiff = (rawTimeDiff / 3600) - 5;
     if (hourTimeDiff >= 6) {
         [self resetData];
     }

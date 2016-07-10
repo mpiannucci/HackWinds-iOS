@@ -179,7 +179,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:previousDate];
     NSInteger minuteDiff = rawTimeDiff / 60;
     
-    if (minuteDiff > [[currentContainer.buoyData objectAtIndex:0] updateInterval]) {
+    if (minuteDiff > currentContainer.updateInterval) {
         [self resetData];
     }
 }

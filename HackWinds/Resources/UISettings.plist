@@ -7,9 +7,9 @@
 	<key>ForecastLocation</key>
 	<string>Narragansett Town Beach</string>
 	<key>BuoyLocation</key>
-	<string>Montauk</string>
+	<string>Block Island</string>
 	<key>DefaultBuoyLocation</key>
-	<string>Montauk</string>
+	<string>Block Island</string>
 	<key>NeedCameraLocationFetch</key>
 	<true/>
 	<key>ChartAnimationSpeed</key>
