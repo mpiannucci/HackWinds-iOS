@@ -166,6 +166,10 @@
         return;
     }
     
+    if (self.tideChartView != nil) {
+        [self.tideChartView clear];
+    }
+    
     double min = 0;
     double max = 0;
     int firstIndex = 0;
@@ -309,8 +313,8 @@
     nowLine.lineColor = [UIColor blueColor];
     [nowLine setLineWidth:4.0];
     [self.tideChartView.xAxis addLimitLine:nowLine];
-    [self.tideChartView.leftAxis setAxisMaxValue:amplitude*1.6];
-    [self.tideChartView.rightAxis setAxisMaxValue:amplitude*1.6];
+    [self.tideChartView.leftAxis setAxisMaxValue:max + 1.0];
+    [self.tideChartView.rightAxis setAxisMaxValue:max + 1.0];
     [self.tideChartView.leftAxis setAxisMinValue:min - 1.0];
     [self.tideChartView.rightAxis setAxisMinValue:min - 1.0];
     
