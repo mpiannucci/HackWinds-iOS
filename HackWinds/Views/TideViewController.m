@@ -168,6 +168,7 @@
     
     if (self.tideChartView != nil) {
         [self.tideChartView clear];
+        [self.tideChartView.xAxis removeAllLimitLines];
     }
     
     double min = 0;
