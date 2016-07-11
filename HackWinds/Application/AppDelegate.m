@@ -63,7 +63,7 @@
     CameraModel *cameraModel = [CameraModel sharedModel];
     [cameraModel forceFetchCameraURLs];
     
-    // Load the of the models!!
+    // Load all the of the models!!
     [[ForecastModel sharedModel] fetchForecastData];
     [[BuoyModel sharedModel] fetchBuoyData];
     [[TideModel sharedModel] fetchTideData];
@@ -86,6 +86,10 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    // Reload all of the models!!
+    [[ForecastModel sharedModel] fetchForecastData];
+    [[BuoyModel sharedModel] fetchBuoyData];
+    [[TideModel sharedModel] fetchTideData];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

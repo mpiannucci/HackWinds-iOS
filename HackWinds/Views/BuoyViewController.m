@@ -48,7 +48,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [[BuoyModel sharedModel] fetchBuoyData];
+    [self updateUI];
     
     // Register the notification center listener for when the buoy data is updated
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -58,12 +58,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(buoyUpdateFailed)
                                                  name:BUOY_UPDATE_FAILED_TAG
-                                               object:nil];
-    
-    // Register the notification center listener for the app becoming active
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateUI)
-                                                 name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
 }
 
@@ -75,9 +69,6 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:BUOY_UPDATE_FAILED_TAG
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationWillEnterForegroundNotification
                                                   object:nil];
     
     [super viewDidDisappear:animated];

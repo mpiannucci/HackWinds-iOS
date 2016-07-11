@@ -55,7 +55,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self.tideModel fetchTideData];
+    [self reloadData];
     
     // Register listener for the tide data model update
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -68,12 +68,6 @@
                                              selector:@selector(loadDefaultLocationBuoyData)
                                                  name:BUOY_UPDATE_FAILED_TAG
                                                object:nil];
-    
-    // Register the notification center listener for the app becoming active
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadData)
-                                                 name:UIApplicationWillEnterForegroundNotification
-                                               object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -85,9 +79,6 @@
                                              selector:@selector(reloadData)
                                                  name:BUOY_UPDATE_FAILED_TAG
                                                object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationWillEnterForegroundNotification
-                                                  object:nil];
     
     [super viewDidDisappear:animated];
 }
