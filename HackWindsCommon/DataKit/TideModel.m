@@ -75,6 +75,18 @@ NSString * const TIDE_DATA_UPDATE_FAILED_TAG = @"TideModelDataUpdateFailedNotifi
     NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:nextDate];
     if (rawTimeDiff > 0) {
         [self resetData];
+        return;
+    }
+    
+    if (self.otherEvents == nil) {
+        return;
+    }
+    
+    if ([self.otherEvents count] > 0) {
+        NSTimeInterval rawOtherTimeDiff = [[NSDate date] timeIntervalSinceDate:[[self.otherEvents objectAtIndex:0] timestamp]];
+        if (rawOtherTimeDiff > 0) {
+            [self resetData];
+        }
     }
 }
 

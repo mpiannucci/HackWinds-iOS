@@ -52,12 +52,6 @@ static const int CAMERA_IMAGE_COUNT = 8;
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
     
-    // Get the date and set the weekday text
-    NSDate *now = [[NSDate alloc] init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE"];
-    [self.dayHeader setText:[dateFormatter stringFromDate:now]];
-    
     // Check for 24 hour time
     [self check24HourClock];
     
@@ -115,6 +109,12 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (void) updateUI {
+    // Get the date and set the weekday text
+    NSDate *now = [[NSDate alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE"];
+    [self.dayHeader setText:[dateFormatter stringFromDate:now]];
+    
     currentConditions = [self.forecastModel getForecastsForDay:0];
     
     if (currentConditions == nil) {

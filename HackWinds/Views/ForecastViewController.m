@@ -40,11 +40,6 @@
     // Get the shared forecast model
     self.forecastModel = [ForecastModel sharedModel];
     
-    // Get the day of the week
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
-    currentday = [comps weekday];
-    
     // Initialize failure to false
     lastFetchFailure = NO;
 }
@@ -84,6 +79,11 @@
 }
 
 - (void) updateUI {
+    // Get the day of the week
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
+    currentday = [comps weekday];
+    
     lastFetchFailure = NO;
     
     [self.forecastTable reloadData];
