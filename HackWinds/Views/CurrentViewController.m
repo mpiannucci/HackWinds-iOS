@@ -13,7 +13,7 @@
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "NavigationBarTitleWithSubtitleView.h"
 
-static const int CAMERA_IMAGE_COUNT = 8;
+static const int CAMERA_IMAGE_COUNT = 11;
 
 @interface CurrentViewController ()
 
@@ -51,6 +51,7 @@ static const int CAMERA_IMAGE_COUNT = 8;
     
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
+    self.camPaginator.numberOfPages = CAMERA_IMAGE_COUNT;
     
     // Check for 24 hour time
     [self check24HourClock];
@@ -219,9 +220,14 @@ static const int CAMERA_IMAGE_COUNT = 8;
 }
 
 - (NSURL*) getCameraURLForIndex:(int)index {
+    // Because image 5 doesn't load for some reason hack around it
+    if (index > 3) {
+        index++;
+    }
+    
     NSString *baseURL = [wwCamera.imageURL absoluteString];
-    return [NSURL URLWithString:[baseURL stringByReplacingOccurrencesOfString:@"1.jpg"
-                                                                   withString:[NSString stringWithFormat:@"%d.jpg", index+1]]];
+    return [NSURL URLWithString:[baseURL stringByReplacingOccurrencesOfString:@"01.jpg"
+                                                                   withString:[NSString stringWithFormat:@"%02d.jpg", index+1]]];
 }
 
 #pragma mark - UIScrollViewDelegate
