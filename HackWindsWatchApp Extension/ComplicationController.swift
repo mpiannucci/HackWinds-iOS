@@ -1,6 +1,6 @@
 //
 //  ComplicationController.swift
-//  temp Extension
+//  HackWinds Watch Extension
 //
 //  Created by Matthew Iannucci on 7/17/16.
 //  Copyright © 2016 Rhodysurf Development. All rights reserved.
