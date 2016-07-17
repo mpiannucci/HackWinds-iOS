@@ -86,6 +86,9 @@
 		34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */; };
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
+		34D3DF0A1D3BD05E003304E8 /* temp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 34D3DF091D3BD05E003304E8 /* temp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		34D3DF191D3BD05E003304E8 /* temp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 34D3DEFD1D3BD05E003304E8 /* temp.app */; };
+		34D3DF211D3BD07E003304E8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D3DF121D3BD05E003304E8 /* ComplicationController.swift */; };
 		34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */; };
 		34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
@@ -205,6 +208,20 @@
 			remoteGlobalIDString = 349D42561C384C95006F7B24;
 			remoteInfo = HackWindsTodayOSX;
 		};
+		34D3DF0B1D3BD05E003304E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34D3DF081D3BD05E003304E8;
+			remoteInfo = "temp Extension";
+		};
+		34D3DF171D3BD05E003304E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34D3DEFC1D3BD05E003304E8;
+			remoteInfo = temp;
+		};
 		34E1BA351B62D84700CDA01D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
@@ -247,6 +264,7 @@
 			dstSubfolderSpec = 16;
 			files = (
 				3490763F1C24A7E500EAD0CE /* HackWindsWatchApp.app in Embed Watch Content */,
+				34D3DF191D3BD05E003304E8 /* temp.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +308,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				3457CBFC1C4488D400A4BCD2 /* HackWindsToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34D3DF1D1D3BD05E003304E8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				34D3DF0A1D3BD05E003304E8 /* temp Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +436,9 @@
 		34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedForecastViewController.m; sourceTree = "<group>"; };
 		34CA15321A9D657000DAB1F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		34CA15331A9D657000DAB1F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		34D3DEFD1D3BD05E003304E8 /* temp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = temp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34D3DF091D3BD05E003304E8 /* temp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "temp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34D3DF121D3BD05E003304E8 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsDataKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -512,6 +544,13 @@
 			files = (
 				349D426D1C384DF4006F7B24 /* HackWindsDataKitOSX.framework in Frameworks */,
 				349D42581C384C96006F7B24 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34D3DF061D3BD05E003304E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +674,8 @@
 				349D42441C384C69006F7B24 /* HackWindsOSX.app */,
 				349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */,
 				3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */,
+				34D3DEFD1D3BD05E003304E8 /* temp.app */,
+				34D3DF091D3BD05E003304E8 /* temp Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -707,6 +748,7 @@
 				34444D1C1C5304EC00FCDA6A /* GlanceController.swift */,
 				349076341C24A7E500EAD0CE /* InterfaceController.swift */,
 				349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */,
+				34D3DF121D3BD05E003304E8 /* ComplicationController.swift */,
 				349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */,
 				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
 				3490763C1C24A7E500EAD0CE /* Info.plist */,
@@ -950,6 +992,7 @@
 				34E1BA3F1B62D84700CDA01D /* PBXTargetDependency */,
 				3490763E1C24A7E500EAD0CE /* PBXTargetDependency */,
 				3457CBFB1C4488D400A4BCD2 /* PBXTargetDependency */,
+				34D3DF181D3BD05E003304E8 /* PBXTargetDependency */,
 			);
 			name = HackWinds;
 			productName = HackWinds;
@@ -1100,6 +1143,40 @@
 			productReference = 349D42571C384C95006F7B24 /* HackWindsTodayOSX.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		34D3DEFC1D3BD05E003304E8 /* temp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34D3DF1E1D3BD05E003304E8 /* Build configuration list for PBXNativeTarget "temp" */;
+			buildPhases = (
+				34D3DEFB1D3BD05E003304E8 /* Resources */,
+				34D3DF1D1D3BD05E003304E8 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34D3DF0C1D3BD05E003304E8 /* PBXTargetDependency */,
+			);
+			name = temp;
+			productName = temp;
+			productReference = 34D3DEFD1D3BD05E003304E8 /* temp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		34D3DF081D3BD05E003304E8 /* temp Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34D3DF1A1D3BD05E003304E8 /* Build configuration list for PBXNativeTarget "temp Extension" */;
+			buildPhases = (
+				34D3DF051D3BD05E003304E8 /* Sources */,
+				34D3DF061D3BD05E003304E8 /* Frameworks */,
+				34D3DF071D3BD05E003304E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "temp Extension";
+			productName = "temp Extension";
+			productReference = 34D3DF091D3BD05E003304E8 /* temp Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		34E1BA281B62D84700CDA01D /* HackWindsDataKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34E1BA491B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKit" */;
@@ -1214,6 +1291,13 @@
 							};
 						};
 					};
+					34D3DEFC1D3BD05E003304E8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 39L46PD99U;
+					};
+					34D3DF081D3BD05E003304E8 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					34E1BA281B62D84700CDA01D = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 39L46PD99U;
@@ -1248,6 +1332,8 @@
 				349076501C24AA4700EAD0CE /* HackWindsDataKitOSX */,
 				349076591C24AA4700EAD0CE /* HackWindsDataKitOSXTests */,
 				3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
+				34D3DEFC1D3BD05E003304E8 /* temp */,
+				34D3DF081D3BD05E003304E8 /* temp Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1331,6 +1417,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		34D3DEFB1D3BD05E003304E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34D3DF071D3BD05E003304E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34E1BA271B62D84700CDA01D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1404,6 +1504,7 @@
 			files = (
 				349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */,
 				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
+				34D3DF211D3BD07E003304E8 /* ComplicationController.swift in Sources */,
 				34472BE21C5BFB5300984B4D /* WidgetUpdateManager.swift in Sources */,
 				34444D1D1C5304EC00FCDA6A /* GlanceController.swift in Sources */,
 			);
@@ -1475,6 +1576,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		34D3DF051D3BD05E003304E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34E1BA241B62D84700CDA01D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1536,6 +1644,16 @@
 			isa = PBXTargetDependency;
 			target = 349D42561C384C95006F7B24 /* HackWindsTodayOSX */;
 			targetProxy = 349D42651C384C96006F7B24 /* PBXContainerItemProxy */;
+		};
+		34D3DF0C1D3BD05E003304E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34D3DF081D3BD05E003304E8 /* temp Extension */;
+			targetProxy = 34D3DF0B1D3BD05E003304E8 /* PBXContainerItemProxy */;
+		};
+		34D3DF181D3BD05E003304E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34D3DEFC1D3BD05E003304E8 /* temp */;
+			targetProxy = 34D3DF171D3BD05E003304E8 /* PBXContainerItemProxy */;
 		};
 		34E1BA361B62D84700CDA01D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2193,6 +2311,98 @@
 			};
 			name = Release;
 		};
+		34D3DF1B1D3BD05E003304E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "temp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		34D3DF1C1D3BD05E003304E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "temp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		34D3DF1F1D3BD05E003304E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = temp_Extension;
+				INFOPLIST_FILE = temp/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		34D3DF201D3BD05E003304E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = temp_Extension;
+				INFOPLIST_FILE = temp/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 		34E1BA431B62D84700CDA01D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2392,6 +2602,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		34D3DF1A1D3BD05E003304E8 /* Build configuration list for PBXNativeTarget "temp Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34D3DF1B1D3BD05E003304E8 /* Debug */,
+				34D3DF1C1D3BD05E003304E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		34D3DF1E1D3BD05E003304E8 /* Build configuration list for PBXNativeTarget "temp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34D3DF1F1D3BD05E003304E8 /* Debug */,
+				34D3DF201D3BD05E003304E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		34E1BA491B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKit" */ = {
 			isa = XCConfigurationList;
