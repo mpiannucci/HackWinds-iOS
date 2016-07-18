@@ -48,6 +48,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
     [self.navigationItem setTitleView: self.navigationBarTitle];
     [self.navigationBarTitle setTitleText:@"HackWinds"];
     [self.navigationBarTitle setDetailText:@"Location: Narragansett"];
+    [self.navigationBarTitle.detailButton addTarget:self action:@selector(showModelInformationPopup) forControlEvents:UIControlEventTouchUpInside];
     
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
@@ -139,6 +140,19 @@ static const int CAMERA_IMAGE_COUNT = 11;
     is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
     return is24HourClock;
 }
+- (void) showModelInformationPopup {
+    UIAlertController* forecastInfoAlert = [UIAlertController alertControllerWithTitle:@"Narragansett Surf Forecast"
+                                                                               message:[NSString stringWithFormat:@"NOAA WaveWatch III\nUpdated %@", self.forecastModel.waveModelRun]
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    [forecastInfoAlert addAction:defaultAction];
+    
+    
+    [self presentViewController:forecastInfoAlert animated:YES completion:nil];
+    
+}
+
 
 #pragma mark - Camera setup and scrolling
 
@@ -321,6 +335,5 @@ static const int CAMERA_IMAGE_COUNT = 11;
     }
     return cell;
 }
-
 
 @end

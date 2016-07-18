@@ -36,6 +36,7 @@
     [self.navigationItem setTitleView: self.navigationBarTitle];
     [self.navigationBarTitle setTitleText:@"HackWinds"];
     [self.navigationBarTitle setDetailText:@"Location: Narragansett"];
+    [self.navigationBarTitle.detailButton addTarget:self action:@selector(showModelInformationPopup) forControlEvents:UIControlEventTouchUpInside];
     
     // Get the shared forecast model
     self.forecastModel = [ForecastModel sharedModel];
@@ -93,6 +94,19 @@
     lastFetchFailure = YES;
     
     [self.forecastTable reloadData];
+}
+
+- (void) showModelInformationPopup {
+    UIAlertController* forecastInfoAlert = [UIAlertController alertControllerWithTitle:@"Narragansett Surf Forecast"
+                                                                               message:[NSString stringWithFormat:@"NOAA WaveWatch III\nUpdated %@", self.forecastModel.waveModelRun]
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    [forecastInfoAlert addAction:defaultAction];
+    
+    
+    [self presentViewController:forecastInfoAlert animated:YES completion:nil];
+    
 }
 
 #pragma mark - TableView

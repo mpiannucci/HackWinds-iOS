@@ -18,5 +18,6 @@
 - (void) loadCameraPageForIndex:(int)index;
 - (NSURL*) getCameraURLForIndex:(int)index;
 - (void) removePageForIndex:(int)index;
+- (void) showModelInformationPopup;
 
 @end

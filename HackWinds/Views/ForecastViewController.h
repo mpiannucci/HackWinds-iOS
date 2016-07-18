@@ -13,5 +13,6 @@
 
 - (void) updateUI;
 - (void) forecastUpdateFailed;
+- (void) showModelInformationPopup;
 
 @end
