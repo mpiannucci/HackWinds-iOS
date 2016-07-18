@@ -140,17 +140,16 @@ static const int CAMERA_IMAGE_COUNT = 11;
     is24HourClock = ([dateCheck rangeOfString:@"a"].location == NSNotFound);
     return is24HourClock;
 }
+
 - (void) showModelInformationPopup {
     UIAlertController* forecastInfoAlert = [UIAlertController alertControllerWithTitle:@"Narragansett Surf Forecast"
-                                                                               message:[NSString stringWithFormat:@"NOAA WaveWatch III\nUpdated %@", self.forecastModel.waveModelRun]
+                                                                               message:[NSString stringWithFormat:@"%@\n\nWind Model: %@\n\nUpdated %@", self.forecastModel.waveModelName, self.forecastModel.windModelName, self.forecastModel.waveModelRun]
                                                                         preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {}];
     [forecastInfoAlert addAction:defaultAction];
     
-    
     [self presentViewController:forecastInfoAlert animated:YES completion:nil];
-    
 }
 
 
