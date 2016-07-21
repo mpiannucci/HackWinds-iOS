@@ -59,6 +59,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>HackWindsWatchApp Complication.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>HackWindsWatchApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
