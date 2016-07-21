@@ -11,6 +11,20 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    // MARK: - Data handling 
+    
+    func requestedUpdateDidBegin() {
+        // TODO
+    }
+    
+    func requestedUpdateBudgetExhausted() {
+
+    }
+    
+    func reloadTimelineForComplication(complication: CLKComplication!) {
+
+    }
+    
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
