@@ -128,35 +128,35 @@
 }
 
 - (NSString*) getWaveSummaryStatusText {
-    return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.significantWaveHeight, self.dominantPeriod, self.meanDirection];
+    return [NSString stringWithFormat:@"%.2f ft @ %@ s %@", self.significantWaveHeight.doubleValue, self.dominantPeriod, self.meanDirection];
 }
 
 - (NSString*) getDominantSwellText {
     if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
-        return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.swellWaveHeight, self.swellPeriod, self.swellDirection];
+        return [NSString stringWithFormat:@"%.2f ft @ %@ s %@", self.swellWaveHeight.doubleValue, self.swellPeriod, self.swellDirection];
     } else {
-        return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.windWaveHeight, self.windWavePeriod, self.windWaveDirection];
+        return [NSString stringWithFormat:@"%.2f ft @ %@ s %@", self.windWaveHeight.doubleValue, self.windWavePeriod, self.windWaveDirection];
     }
 }
 
 - (NSString*) getSecondarySwellText {
     if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
-        return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.windWaveHeight, self.windWavePeriod, self.windWaveDirection];
+        return [NSString stringWithFormat:@"%.2f ft @ %@ s %@", self.windWaveHeight.doubleValue, self.windWavePeriod, self.windWaveDirection];
     } else {
         if (self.swellPeriod.intValue < 1) {
             return @"";
         } else {
-            return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.swellWaveHeight, self.swellPeriod, self.swellDirection];
+            return [NSString stringWithFormat:@"%.2f ft @ %@ s %@", self.swellWaveHeight.doubleValue, self.swellPeriod, self.swellDirection];
         }
     }
 }
 
 - (NSString*) getSimpleSwellText {
-    return [NSString stringWithFormat:@"%@ ft @ %@ s", self.significantWaveHeight, self.dominantPeriod];
+    return [NSString stringWithFormat:@"%.1f ft @ %@ s", self.significantWaveHeight.doubleValue, self.dominantPeriod];
 }
 
 - (NSString*) getWaveHeightText {
-    return [NSString stringWithFormat:@"%@ ft", self.significantWaveHeight];
+    return [NSString stringWithFormat:@"%.1f ft", self.significantWaveHeight.doubleValue];
 }
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {
