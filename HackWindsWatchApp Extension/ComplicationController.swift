@@ -80,6 +80,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var longBuoyText = "-- ft @ -- s ---"
         var shorterBuoyText = "-- ft @ -- s"
         var waveHeightBuoyText = "-- ft"
+        var buoyLocationText = "-------"
         var longTideText = "---- ----: --:-- --"
         var shortTideEventText = "----"
         var tideTime  = NSDate()
@@ -88,6 +89,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             longBuoyText = buoy.getWaveSummaryStatusText()
             shorterBuoyText = buoy.getSimpleSwellText()
             waveHeightBuoyText = buoy.getWaveHeightText()
+        }
+        
+        if let buoyLocation = updateManager.buoyLocation {
+            buoyLocationText = buoyLocation as String
         }
         
         if let tide = updateManager.nextTide {
@@ -100,14 +105,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .ModularLarge:
             let template = CLKComplicationTemplateModularLargeStandardBody()
             template.headerTextProvider = CLKSimpleTextProvider(text: longBuoyText, shortText: shorterBuoyText)
-            template.body1TextProvider = CLKSimpleTextProvider(text: longTideText)
-            template.body2TextProvider = CLKSimpleTextProvider(text: "")
+            template.headerTextProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
+            template.body1TextProvider = CLKSimpleTextProvider(text: buoyLocationText)
+            template.body2TextProvider = CLKSimpleTextProvider(text: longTideText)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
             handler(timelineEntry)
         case .ModularSmall:
             let template = CLKComplicationTemplateModularSmallStackText()
             template.line1TextProvider = CLKSimpleTextProvider(text: shortTideEventText)
+            template.line1TextProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
             template.line2TextProvider = CLKTimeTextProvider(date: tideTime)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
