@@ -14,14 +14,14 @@
 @property (strong, nonatomic) NSDate *timestamp;
 
 // Wave Heights
-@property (strong, nonatomic) NSString *significantWaveHeight;
-@property (strong, nonatomic) NSString *swellWaveHeight;
-@property (strong, nonatomic) NSString *windWaveHeight;
+@property (strong, nonatomic) NSNumber *significantWaveHeight;
+@property (strong, nonatomic) NSNumber *swellWaveHeight;
+@property (strong, nonatomic) NSNumber *windWaveHeight;
 
 // Period
-@property (strong, nonatomic) NSString *dominantPeriod;
-@property (strong, nonatomic) NSString *swellPeriod;
-@property (strong, nonatomic) NSString *windWavePeriod;
+@property (strong, nonatomic) NSNumber *dominantPeriod;
+@property (strong, nonatomic) NSNumber *swellPeriod;
+@property (strong, nonatomic) NSNumber *windWavePeriod;
 
 // Steepness
 @property (strong, nonatomic) NSString *steepness;
@@ -31,7 +31,7 @@
 @property (strong, nonatomic) NSString *swellDirection;
 @property (strong, nonatomic) NSString *windWaveDirection;
 
-@property (strong, nonatomic) NSString *waterTemperature;
+@property (strong, nonatomic) NSNumber *waterTemperature;
 
 - (NSString *) timeString;
 - (NSString *) dateString;
@@ -41,6 +41,8 @@
 - (NSString*) getWaveSummaryStatusText;
 - (NSString*) getDominantSwellText;
 - (NSString*) getSecondarySwellText;
+- (NSString*) getSimpleSwellText;
+- (NSString*) getWaveHeightText;
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;
 

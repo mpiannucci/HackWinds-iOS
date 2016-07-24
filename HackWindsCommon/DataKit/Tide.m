@@ -33,8 +33,24 @@ NSString * const SUNSET_TAG = @"Sunset";
     [aCoder encodeObject:self.height forKey:@"height"];
 }
 
-- (NSString*)getTideEventSummary {
+- (NSString *) getTideEventSummary {
     return [NSString stringWithFormat:@"%@: %@", self.eventType, [self timeString]];
+}
+
+- (NSString *) getTideEventAbbreviation {
+    NSString *event = @"";
+    
+    if ([self isLowTide]) {
+        event = @"Low";
+    } else if ([self isHighTide]) {
+        event = @"High";
+    }
+    
+    return event;
+}
+
+- (NSString *) getTideEventShortSummary {
+    return [NSString stringWithFormat:@"%@ %@", [self getTideEventAbbreviation], [self timeString]];
 }
 
 - (BOOL) isSunrise {

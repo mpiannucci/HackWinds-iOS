@@ -143,12 +143,20 @@
     if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
         return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.windWaveHeight, self.windWavePeriod, self.windWaveDirection];
     } else {
-        if ([self.swellPeriod isEqualToString:@"MM"]) {
+        if (self.swellPeriod.intValue < 1) {
             return @"";
         } else {
             return [NSString stringWithFormat:@"%@ ft @ %@ s %@", self.swellWaveHeight, self.swellPeriod, self.swellDirection];
         }
     }
+}
+
+- (NSString*) getSimpleSwellText {
+    return [NSString stringWithFormat:@"%@ ft @ %@ s", self.significantWaveHeight, self.dominantPeriod];
+}
+
+- (NSString*) getWaveHeightText {
+    return [NSString stringWithFormat:@"%@ ft", self.significantWaveHeight];
 }
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {

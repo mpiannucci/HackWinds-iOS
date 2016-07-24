@@ -124,16 +124,16 @@
         [timeLabel setText:[thisBuoy timeString]];
         
         if ([dataMode isEqualToString:SUMMARY_DATA_MODE]) {
-            [wvhtLabel setText:thisBuoy.significantWaveHeight];
-            [dpdLabel setText:thisBuoy.dominantPeriod];
+            [wvhtLabel setText:[thisBuoy.significantWaveHeight stringValue]];
+            [dpdLabel setText:[thisBuoy.dominantPeriod stringValue]];
             [directionLabel setText:thisBuoy.meanDirection];
         } else if ([dataMode isEqualToString:SWELL_DATA_MODE]) {
-            [wvhtLabel setText:thisBuoy.swellWaveHeight];
-            [dpdLabel setText:thisBuoy.swellPeriod];
+            [wvhtLabel setText:[thisBuoy.swellWaveHeight stringValue]];
+            [dpdLabel setText:[thisBuoy.swellPeriod stringValue]];
             [directionLabel setText:thisBuoy.swellDirection];
         } else if ([dataMode isEqualToString:WIND_DATA_MODE]) {
-            [wvhtLabel setText:thisBuoy.windWaveHeight];
-            [dpdLabel setText:thisBuoy.windWavePeriod];
+            [wvhtLabel setText:[thisBuoy.windWaveHeight stringValue]];
+            [dpdLabel setText:[thisBuoy.windWavePeriod stringValue]];
             [directionLabel setText:thisBuoy.windWaveDirection];
         }
         

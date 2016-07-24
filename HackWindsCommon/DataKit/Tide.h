@@ -23,7 +23,9 @@ extern NSString * const SUNSET_TAG;
 @property (strong, nonatomic) NSString *height;
 
 // Conveinence methods
-- (NSString*)getTideEventSummary;
+- (NSString *) getTideEventSummary;
+- (NSString *) getTideEventAbbreviation;
+- (NSString *) getTideEventShortSummary;
 - (BOOL) isSunrise;
 - (BOOL) isSunset;
 - (BOOL) isSolarEvent;

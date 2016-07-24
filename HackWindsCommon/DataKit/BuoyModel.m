@@ -345,16 +345,16 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         NSString *significantHeight = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WVHT_OFFSET];
         NSString *swellHeight = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_WAVE_HEIGHT_OFFSET];
         NSString *windHeight = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_WAVE_HEIGHT_OFFSET];
-        newBuoy.significantWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[significantHeight doubleValue]]];
-        newBuoy.swellWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[swellHeight doubleValue]]];
-        newBuoy.windWaveHeight = [NSString stringWithFormat:@"%2.2f", [self getFootConvertedFromMetric:[windHeight doubleValue]]];
-        
+        newBuoy.significantWaveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:[significantHeight doubleValue]]];
+        newBuoy.swellWaveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:[swellHeight doubleValue]]];
+        newBuoy.windWaveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:[windHeight doubleValue]]];
+    
         // Steepness
         newBuoy.steepness = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_STEEPNESS_OFFSET];
         
         // Periods
-        newBuoy.swellPeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET];
-        newBuoy.windWavePeriod = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET];
+        newBuoy.swellPeriod = [NSNumber numberWithDouble:[[rawBuoyArray objectAtIndex:baseOffset+DETAIL_SWELL_PERIOD_OFFSET] doubleValue]];
+        newBuoy.windWavePeriod = [NSNumber numberWithDouble:[[rawBuoyArray objectAtIndex:baseOffset+DETAIL_WIND_PERIOD_OFFSET] doubleValue]];
         
         // Directions
         NSString *rawMeanDirection = [rawBuoyArray objectAtIndex:baseOffset+DETAIL_MEAN_WAVE_DIRECTION_OFFSET];
@@ -409,22 +409,22 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.waterTemperature = [NSString stringWithFormat:@"%2.2f", value];
+            latestBuoy.waterTemperature = [NSNumber numberWithDouble:value];
         } else if ([var isEqualToString:@"Seas"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.significantWaveHeight = [NSString stringWithFormat:@"%2.2f", value];
+            latestBuoy.significantWaveHeight = [NSNumber numberWithDouble:value];
         } else if ([var isEqualToString:@"Peak Period"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.dominantPeriod = [NSString stringWithFormat:@"%2.2f", value];
+            latestBuoy.dominantPeriod = [NSNumber numberWithDouble:value];
         } else if ([var isEqualToString:@"Swell"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.swellWaveHeight = [NSString stringWithFormat:@"%2.2f", value];
+            latestBuoy.swellWaveHeight = [NSNumber numberWithDouble:value];
             if (fabs(value - 0) < 0.00001) {
                 swellPeriodParsed = YES;
                 swellDirectionParsed = YES;
@@ -433,16 +433,16 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
-            latestBuoy.windWaveHeight = [NSString stringWithFormat:@"%2.2f", value];
+            latestBuoy.windWaveHeight = [NSNumber numberWithDouble:value];
         } else if ([var isEqualToString:@"Period"]) {
             NSScanner *doubleScanner = [NSScanner scannerWithString:value];
             double value;
             [doubleScanner scanDouble:&value];
             if (!swellPeriodParsed) {
-                latestBuoy.swellPeriod = [NSString stringWithFormat:@"%2.2f", value];
+                latestBuoy.swellPeriod = [NSNumber numberWithDouble:value];
                 swellPeriodParsed = YES;
             } else {
-                latestBuoy.windWavePeriod = [NSString stringWithFormat:@"%2.2f", value];
+                latestBuoy.windWavePeriod = [NSNumber numberWithDouble:value];
             }
         } else if ([var isEqualToString:@"Direction"]) {
             if (!swellDirectionParsed) {
