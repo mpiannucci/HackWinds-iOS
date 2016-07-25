@@ -124,16 +124,16 @@
         [timeLabel setText:[thisBuoy timeString]];
         
         if ([dataMode isEqualToString:SUMMARY_DATA_MODE]) {
-            [wvhtLabel setText:[thisBuoy.significantWaveHeight stringValue]];
-            [dpdLabel setText:[thisBuoy.dominantPeriod stringValue]];
+            [wvhtLabel setText:[NSString stringWithFormat:@"%.2f", thisBuoy.significantWaveHeight.doubleValue]];
+            [dpdLabel setText:[NSString stringWithFormat:@"%.2f", thisBuoy.dominantPeriod.doubleValue]];
             [directionLabel setText:thisBuoy.meanDirection];
         } else if ([dataMode isEqualToString:SWELL_DATA_MODE]) {
-            [wvhtLabel setText:[thisBuoy.swellWaveHeight stringValue]];
-            [dpdLabel setText:[thisBuoy.swellPeriod stringValue]];
+            [wvhtLabel setText:[NSString stringWithFormat:@"%.2f", thisBuoy.swellWaveHeight.doubleValue]];
+            [dpdLabel setText:[NSString stringWithFormat:@"%.2f", thisBuoy.swellPeriod.doubleValue]];
             [directionLabel setText:thisBuoy.swellDirection];
         } else if ([dataMode isEqualToString:WIND_DATA_MODE]) {
-            [wvhtLabel setText:[thisBuoy.windWaveHeight stringValue]];
-            [dpdLabel setText:[thisBuoy.windWavePeriod stringValue]];
+            [wvhtLabel setText:[NSString stringWithFormat:@"%.2f", thisBuoy.windWaveHeight.doubleValue]];
+            [dpdLabel setText:[NSString stringWithFormat:@"%.2f", thisBuoy.windWavePeriod.doubleValue]];
             [directionLabel setText:thisBuoy.windWaveDirection];
         }
         
