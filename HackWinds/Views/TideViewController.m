@@ -385,7 +385,7 @@
         cell.textLabel.text = buoyLocation;
         
         if (currentBuoy != nil) {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@F", currentBuoy.waterTemperature, @"\u00B0"];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f %@F", currentBuoy.waterTemperature.doubleValue, @"\u00B0"];
             cell.imageView.image = [[UIImage imageNamed:@"ic_whatshot_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             int tempRaw = [currentBuoy.waterTemperature intValue];
             if (tempRaw < 43) {
