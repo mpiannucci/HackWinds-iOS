@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UITableViewController <UIActionSheetDelegate>
+@interface SettingsViewController : UITableViewController
 
 - (void) loadSettings;
 

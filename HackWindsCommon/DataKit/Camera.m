@@ -11,6 +11,7 @@
 @implementation Camera {
     bool refreshable;
     int refreshDuration;
+    bool premium;
 }
 
 - (id) init {
@@ -22,8 +23,8 @@
     return self;
 }
 
-- (void) setIsRefreshable:(BOOL)refresh {
-    refreshable = refresh;
+- (void) setIsRefreshable:(BOOL)isRefreshable {
+    refreshable = isRefreshable;
 }
 
 - (BOOL) isRefreshable {
@@ -36,6 +37,14 @@
 
 - (int) getRefreshDuration {
     return refreshDuration;
+}
+
+- (void) setPremium:(BOOL)isPremium {
+    premium = isPremium;
+}
+
+- (BOOL) isPremium {
+    return premium;
 }
 
 @end

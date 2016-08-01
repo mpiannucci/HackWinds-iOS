@@ -9,9 +9,10 @@
 #import "SettingsViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
-static const int BUOY_TAG = 2;
-
 @interface SettingsViewController ()
+
+- (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation;
+- (void) activatePremiumContentSetting;
 
 @property (weak, nonatomic) IBOutlet UILabel *defaultBuoyLocationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *activatePremiumContentButton;
@@ -42,7 +43,7 @@ static const int BUOY_TAG = 2;
     // Get the locations and set the cell to reflect it
     [self.defaultBuoyLocationLabel setText:[defaults objectForKey:@"DefaultBuoyLocation"]];
     
-    BOOL premiumEnabled = [defaults objectForKey:@"ShowPremiumContent"];
+    BOOL premiumEnabled = [defaults boolForKey:@"ShowPremiumContent"];
     if (premiumEnabled) {
         [self.activatePremiumContentButton setEnabled:NO];
         [self.activatePremiumContentButton setTitle:@"Premium Content Enabled" forState:UIControlStateDisabled];
@@ -55,20 +56,71 @@ static const int BUOY_TAG = 2;
 }
 
 - (IBAction)changeDefaultBuoyLocationClicked:(id)sender {
-    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Default Buoy Location"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Cancel"
-                                                       destructiveButtonTitle:nil
-                                                            otherButtonTitles:BUOY_LOCATIONS];
+    UIAlertController *locationActionSheet = [UIAlertController alertControllerWithTitle:@"Default Buoy Location"
+                                                                          message:@"Choose the buoy location to show by default"
+                                                                          preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *biLocationAction = [UIAlertAction actionWithTitle:@"Block Island"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                 [self changeDefaultBuoyLocationSetting:action.title];
+                                                             }];
+    UIAlertAction *mtkLocationAction = [UIAlertAction actionWithTitle:@"Montauk"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                 [self changeDefaultBuoyLocationSetting:action.title];
+                                                             }];
+    UIAlertAction *nantucketLocationAction = [UIAlertAction actionWithTitle:@"Nantucket"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                  [self changeDefaultBuoyLocationSetting:action.title];
+                                                              }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    // Add the actions
+    [locationActionSheet addAction:biLocationAction];
+    [locationActionSheet addAction:mtkLocationAction];
+    [locationActionSheet addAction:nantucketLocationAction];
+    [locationActionSheet addAction:cancelAction];
+    
     // Show the action sheet
-    locationActionSheet.tag = BUOY_TAG;
-    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
-    [locationActionSheet showInView:self.view];
+    [self presentViewController:locationActionSheet animated:YES completion:nil];
 }
 
 - (IBAction)activatePremiumContentClicked:(id)sender {
     // TODO: Show the user text input. Check if the string matches and change the premium content show state
     // If enabled, reload the camera data
+    UIAlertController *activatePremiumController = [UIAlertController alertControllerWithTitle:@"Activate Premium Content"
+                                                                                    message:@"Enter the code to activate content"
+                                                                             preferredStyle:UIAlertControllerStyleAlert];
+    __block UITextField *inputCode;
+    [activatePremiumController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Code";
+        inputCode = textField;
+    }];
+    
+    UIAlertAction *activatePremiumAction = [UIAlertAction actionWithTitle:@"Activate:"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * _Nonnull action) {
+                                                                      if (inputCode == nil) {
+                                                                          return;
+                                                                      }
+                                                                      
+                                                                      if ([inputCode.text isEqualToString:@"109485"]) {
+                                                                          [self activatePremiumContentSetting];
+                                                                      }
+                                                                  }];
+    
+    UIAlertAction *cancelPremiumAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:nil];
+    
+    // Add all of the input
+    [activatePremiumController addAction:cancelPremiumAction];
+    [activatePremiumController addAction:activatePremiumAction];
+    
+    // Show the controller
+    [self presentViewController:activatePremiumController animated:YES completion:nil];
 }
 
 - (IBAction)contactDevClicked:(id)sender {
@@ -82,51 +134,55 @@ static const int BUOY_TAG = 2;
 - (IBAction)showDisclaimerClicked:(id)sender {
     // Construct and show the disclaimer alert
     NSString* disclaimer = @"I do not own or claim to own neither the wave camera images or the tide information displayed in this app. This app is simply an interface to make checking the waves easier for surfers when using a phone. I am speifically operating within the user licensing for the Wunderground and WarmWinds API's.";
-    UIAlertView *disclaimerMessage = [[UIAlertView alloc] initWithTitle:@"Disclaimer"
-                                                    message:disclaimer
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Done"
-                                          otherButtonTitles:nil];
-    [disclaimerMessage setTintColor:HACKWINDS_BLUE_COLOR];
-    [disclaimerMessage show];
+    UIAlertController *disclaimerController = [UIAlertController alertControllerWithTitle:@"Disclaimer"
+                                                                                  message:disclaimer
+                                                                           preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:nil];
+    [disclaimerController addAction:doneAction];
+    [self presentViewController:disclaimerController animated:YES completion:nil];
 }
 
 - (IBAction)rateAppClicked:(id)sender {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id945847570"]];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation {
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     
-    if (actionSheet.tag == BUOY_TAG) {
-        if (buttonIndex != [actionSheet numberOfButtons] - 1) {
-            // If the user selects a location, set the settings key to the new location
-            [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"DefaultBuoyLocation"];
-            [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"BuoyLocation"];
-            [defaults synchronize];
-            
-            // Tell everyone the default buoy location has updated
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:DEFAULT_BUOY_LOCATION_CHANGED_TAG
-                 object:self];
-            });
-            
-            // Tell everyone the buoy location has updated
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:BUOY_LOCATION_CHANGED_TAG
-                 object:self];
-            });
-            
-            [self loadSettings];
-        } else {
-            NSLog(@"Buoy location change cancelled, keep location at %@", [defaults objectForKey:@"DefaultBuoyLocation"]);
-        }
-    } else {
-        NSLog(@"Invalid action sheet somehow");
-    }
+    // Set the value in the settings
+    [defaults setObject:newLocation forKey:@"DefaultBuoyLocation"];
+    [defaults setObject:newLocation forKey:@"BuoyLocation"];
+    [defaults synchronize];
     
+    // Tell everyone the default buoy location has updated
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:DEFAULT_BUOY_LOCATION_CHANGED_TAG
+         object:self];
+    });
+    
+    // Tell everyone the buoy location has updated
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+        postNotificationName:BUOY_LOCATION_CHANGED_TAG
+        object:self];
+    });
+    
+    // Reload the settings
+    [self loadSettings];
+}
+
+- (void) activatePremiumContentSetting {
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    
+    // Set the value in the settings
+    [defaults setBool:YES forKey:@"ShowPremiumContent"];
+    
+    // Activate premium things!!
+    [[CameraModel sharedModel] forceFetchCameraURLs];
+    
+    // Reload the interface
+    [self loadSettings];
 }
 
 @end

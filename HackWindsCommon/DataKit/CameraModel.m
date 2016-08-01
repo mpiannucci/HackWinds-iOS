@@ -9,14 +9,13 @@
 #import "CameraModel.h"
 #import "Camera.h"
 
-static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v3.json";
+static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v4.json";
 NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification";
 NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNotification";
 
 @interface CameraModel()
 
 - (BOOL) parseCamerasFromData:(NSData*)rawData;
-- (Camera *) fetchPointJudithURLs:(NSString *)locationURL;
 
 @end
 
@@ -119,6 +118,11 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
         return false;
     }
     
+    // Grab the latest user defaults
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    [defaults synchronize];
+    BOOL showPremium = [defaults boolForKey:@"ShowPremiumContent"];
+    
     NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
     NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
     
@@ -130,25 +134,21 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
             NSDictionary *thisCameraDict = [[cameraDict objectForKey:locationName] objectForKey:cameraName];
             Camera *thisCamera = [[Camera alloc] init];
             
-            if ([cameraName isEqualToString:@"Point Judith"]) {
-                // Skip this for now!!!
-                // TODO: Refactor to support more cameras and better supplimentary fetching
-                continue;
-                //thisCamera = [self fetchPointJudithURLs:[thisCameraDict objectForKey:@"Info"]];
-            } else {
-                thisCamera.videoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
-            }
-            
-            if (thisCamera == nil) {
-                continue;
-            }
-            
-            // For now, the image is common
             thisCamera.imageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
+            thisCamera.videoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
             [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
             [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
+            [thisCamera setPremium:[[thisCameraDict objectForKey:@"Premium"] boolValue]];
+            
+            if([thisCamera isPremium] && !showPremium) {
+                continue;
+            }
             
             tempDict[locationName][cameraName] = thisCamera;
+        }
+        
+        if ([tempDict[locationName] count] < 1) {
+            [tempDict removeObjectForKey:locationName];
         }
     }
     
@@ -158,30 +158,6 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
     forceReload = NO;
     
     return YES;
-}
-
-- (Camera *) fetchPointJudithURLs:(NSString *)locationURL {
-    NSURL *pointJudithURL = [NSURL URLWithString:locationURL];
-    NSData *pointJudithResponse = [NSData dataWithContentsOfURL:pointJudithURL];
-    NSError *error = nil;
-    NSDictionary *pointJudithData = [NSJSONSerialization
-                                    JSONObjectWithData:pointJudithResponse
-                                    options:kNilOptions
-                                    error:&error];
-    if (error != nil) {
-        // Nothing was read so give a null pointer back
-        return nil;
-    }
-    
-    NSDictionary *pointJudithStreamData = [[[pointJudithData objectForKey:@"streamInfo"] objectForKey:@"stream"] objectAtIndex:0];
-    
-    Camera *thisCamera = [[Camera alloc] init];
-    thisCamera.videoURL = [NSURL URLWithString:[pointJudithStreamData objectForKey:@"file"]];
-    thisCamera.info = [NSString stringWithFormat:@"Camera Status: %@\nDate: %@\nTime: %@\n\nIf the video does not play, the camera may be down. It is a daily upload during the summer and it becomes unavailable each evening.", [pointJudithStreamData objectForKey:@"camStatus"],
-                       [pointJudithStreamData objectForKey:@"reportDate"], [pointJudithStreamData objectForKey:@"reportTime"]];
-    
-    return thisCamera;
-
 }
 
 @end
