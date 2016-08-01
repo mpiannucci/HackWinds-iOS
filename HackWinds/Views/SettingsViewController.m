@@ -14,6 +14,7 @@ static const int BUOY_TAG = 2;
 @interface SettingsViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *defaultBuoyLocationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *activatePremiumContentButton;
 
 @end
 
@@ -40,6 +41,12 @@ static const int BUOY_TAG = 2;
     
     // Get the locations and set the cell to reflect it
     [self.defaultBuoyLocationLabel setText:[defaults objectForKey:@"DefaultBuoyLocation"]];
+    
+    BOOL premiumEnabled = [defaults objectForKey:@"ShowPremiumContent"];
+    if (premiumEnabled) {
+        [self.activatePremiumContentButton setEnabled:NO];
+        [self.activatePremiumContentButton setTitle:@"Premium Content Enabled" forState:UIControlStateDisabled];
+    }
 }
 
 - (IBAction)acceptSettingsClick:(id)sender {
@@ -57,6 +64,11 @@ static const int BUOY_TAG = 2;
     locationActionSheet.tag = BUOY_TAG;
     [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
     [locationActionSheet showInView:self.view];
+}
+
+- (IBAction)activatePremiumContentClicked:(id)sender {
+    // TODO: Show the user text input. Check if the string matches and change the premium content show state
+    // If enabled, reload the camera data
 }
 
 - (IBAction)contactDevClicked:(id)sender {

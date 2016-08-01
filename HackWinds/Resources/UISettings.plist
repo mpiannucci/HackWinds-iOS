@@ -16,5 +16,7 @@
 	<real>1</real>
 	<key>ManualChartControl</key>
 	<false/>
+	<key>ShowPremiumContent</key>
+	<false/>
 </dict>
 </plist>
