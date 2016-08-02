@@ -13,6 +13,8 @@
 
 @interface BuoyViewController ()
 
+- (void) changeBuoyLocation:(NSString*)newLocation;
+
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 @property (strong, nonatomic) Buoy *latestBuoy;
 @property (strong, nonatomic) NSURL *waveSpectraURL;
@@ -108,37 +110,52 @@
 }
 
 - (void)locationButtonClicked:(id)sender{
-    UIActionSheet *locationActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Buoy Location"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Cancel"
-                                                       destructiveButtonTitle:nil
-                                                            otherButtonTitles:BUOY_LOCATIONS];
+    UIAlertController *locationSheetController = [UIAlertController alertControllerWithTitle:@"Choose Buoy Location"
+                                                                                    message:@""
+                                                                             preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *biAction = [UIAlertAction actionWithTitle:@"Block Island"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         [self changeBuoyLocation:action.title];
+                                                     }];
+    UIAlertAction *mtkAction = [UIAlertAction actionWithTitle:@"Montauk"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          [self changeBuoyLocation:action.title];
+                                                      }];
+    UIAlertAction *nantucketAction = [UIAlertAction actionWithTitle:@"Nantucket"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                [self changeBuoyLocation:action.title];
+                                                            }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    
+    // Show the actions
+    [locationSheetController addAction:biAction];
+    [locationSheetController addAction:mtkAction];
+    [locationSheetController addAction:nantucketAction];
+    [locationSheetController addAction:cancelAction];
+    
     // Show the action sheet
-    [locationActionSheet setTintColor:HACKWINDS_BLUE_COLOR];
-    [locationActionSheet showInView:self.view];
+    [self presentViewController:locationSheetController animated:YES completion:nil];
 }
 
-#pragma mark - ActionSheet
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void) changeBuoyLocation:(NSString*)newLocation {
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-
-    if (buttonIndex != [actionSheet numberOfButtons] - 1) {
-        // If the user selects a location, set the settings key to the new location
-        [defaults setObject:[actionSheet buttonTitleAtIndex:buttonIndex] forKey:@"BuoyLocation"];
-        [defaults synchronize];
-        [self loadBuoySettings];
-
-        // Tell everyone the data has updated
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:BUOY_LOCATION_CHANGED_TAG
-             object:self];
-        });
-
-    } else {
-        NSLog(@"Buoy Location change cancelled, keep location at %@", [defaults objectForKey:@"BuoyLocation"]);
-    }
+    
+    // If the user selects a location, set the settings key to the new location
+    [defaults setObject:newLocation forKey:@"BuoyLocation"];
+    [defaults synchronize];
+    [self loadBuoySettings];
+    
+    // Tell everyone the data has updated
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:BUOY_LOCATION_CHANGED_TAG
+         object:self];
+    });
 }
 
 #pragma mark - TableView

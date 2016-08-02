@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
-@interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+@interface ForecastViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 - (void) updateUI;
 - (void) forecastUpdateFailed;
