@@ -14,8 +14,8 @@
 - (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation;
 - (void) activatePremiumContentSetting;
 
-@property (weak, nonatomic) IBOutlet UILabel *defaultBuoyLocationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *activatePremiumContentButton;
+@property (weak, nonatomic) IBOutlet UIButton *changeDefaultBuoyButton;
 
 @end
 
@@ -41,7 +41,7 @@
     [defaults synchronize];
     
     // Get the locations and set the cell to reflect it
-    [self.defaultBuoyLocationLabel setText:[defaults objectForKey:@"DefaultBuoyLocation"]];
+    [self.changeDefaultBuoyButton setTitle:[NSString stringWithFormat:@"Default Buoy Location: %@", [defaults objectForKey:@"DefaultBuoyLocation"]] forState:UIControlStateNormal];
     
     BOOL premiumEnabled = [defaults boolForKey:@"ShowPremiumContent"];
     if (premiumEnabled) {
