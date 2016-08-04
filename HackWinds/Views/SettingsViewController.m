@@ -99,7 +99,7 @@
         inputCode = textField;
     }];
     
-    UIAlertAction *activatePremiumAction = [UIAlertAction actionWithTitle:@"Activate:"
+    UIAlertAction *activatePremiumAction = [UIAlertAction actionWithTitle:@"Activate"
                                                                     style:UIAlertActionStyleDefault
                                                                   handler:^(UIAlertAction * _Nonnull action) {
                                                                       if (inputCode == nil) {
