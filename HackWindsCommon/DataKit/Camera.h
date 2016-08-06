@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSURL *imageURL;
 @property (strong, nonatomic) NSURL *videoURL;
+@property (strong, nonatomic) NSURL *webURL;
 @property (strong, nonatomic) NSString *info;
 
 - (void) setIsRefreshable:(BOOL)isRefreshable;

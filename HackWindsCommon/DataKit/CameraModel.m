@@ -9,7 +9,7 @@
 #import "CameraModel.h"
 #import "Camera.h"
 
-static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v4.json";
+static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v5.json";
 NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification";
 NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNotification";
 
@@ -123,7 +123,7 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
     [defaults synchronize];
     BOOL showPremium = [defaults boolForKey:@"ShowPremiumContent"];
     
-    NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"camera_locations"]];
+    NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"CameraLocations"]];
     NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
     
     for (NSString* locationName in cameraDict) {
@@ -136,6 +136,7 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
             
             thisCamera.imageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
             thisCamera.videoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
+            thisCamera.webURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Web"]];
             [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
             [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
             [thisCamera setPremium:[[thisCameraDict objectForKey:@"Premium"] boolValue]];

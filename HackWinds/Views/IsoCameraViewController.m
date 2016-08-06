@@ -25,6 +25,7 @@
 @property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
 @property (weak, nonatomic) IBOutlet UILabel *extraCameraInfo;
 @property (weak, nonatomic) IBOutlet UIButton *videoPlayButton;
+@property (weak, nonatomic) IBOutlet UIWebView *cameraWebView;
 @end
 
 @implementation IsoCameraViewController {
@@ -51,6 +52,9 @@
     // Initialize the play button to be hidden
     [self.videoPlayButton setHidden:YES];
     [self.extraCameraInfo setHidden:YES];
+    
+    // Initialize the web view to be hidden
+    [self.cameraWebView setHidden:YES];
     
     // Set the state of the auto reload switch
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -118,10 +122,32 @@
         [self.extraCameraInfo setNumberOfLines:0];
         [self.extraCameraInfo setText:camera.info];
         [self.extraCameraInfo sizeToFit];
+        return;
+    } else if (![[camera.webURL absoluteString] isEqualToString:@""]) {
+        [self.autoReloadSwitch setOn:NO];
+        [self.autoReloadSwitch setHidden:YES];
+        [self.autoReloadLabel setHidden:YES];
+        [self.refreshIntervalLabel setHidden:YES];
+        [self.fullScreenViewButton setHidden:YES];
+        [self.videoPlayButton setHidden:NO];
+        [self.extraCameraInfo setHidden:NO];
+        [self.extraCameraInfo setNumberOfLines:0];
+        [self.extraCameraInfo setText:camera.info];
+        [self.extraCameraInfo sizeToFit];
+        [self.videoPlayButton setHidden:YES];
+        [self.camImage setHidden:YES];
+        [self.cameraWebView setHidden:NO];
+        [self.cameraWebView loadRequest:[NSURLRequest requestWithURL:camera.webURL]];
+        return;
     }
     
     if (![self.autoReloadSwitch isOn]) {
         // If the switch is deactivated, dont fire the timer
+        return;
+    } else if (![camera isRefreshable]) {
+        // Disable refreshing
+        [self.autoReloadLabel setHidden:YES];
+        [self.autoReloadSwitch setHidden:YES];
         return;
     }
     
