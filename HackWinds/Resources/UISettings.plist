@@ -18,5 +18,7 @@
 	<false/>
 	<key>ShowPremiumContent</key>
 	<false/>
+	<key>LoggedIn</key>
+	<false/>
 </dict>
 </plist>

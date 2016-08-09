@@ -87,40 +87,36 @@
     [self presentViewController:locationActionSheet animated:YES completion:nil];
 }
 
-- (IBAction)activatePremiumContentClicked:(id)sender {
-    // TODO: Show the user text input. Check if the string matches and change the premium content show state
-    // If enabled, reload the camera data
-    UIAlertController *activatePremiumController = [UIAlertController alertControllerWithTitle:@"Activate Premium Content"
-                                                                                    message:@"Enter the code to activate content"
-                                                                             preferredStyle:UIAlertControllerStyleAlert];
-    __block UITextField *inputCode;
-    [activatePremiumController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"Code";
-        inputCode = textField;
+- (IBAction)loginLogoutClicked:(id)sender {
+    UIAlertController *loginDialogController = [UIAlertController alertControllerWithTitle:@"Log in to HackWinds"
+                                                                                       message:@"Enter your email to log in"
+                                                                                preferredStyle:UIAlertControllerStyleAlert];
+    __block UITextField *inputEmail;
+    [loginDialogController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Email";
+        inputEmail = textField;
     }];
     
-    UIAlertAction *activatePremiumAction = [UIAlertAction actionWithTitle:@"Activate"
+    UIAlertAction *logInAction = [UIAlertAction actionWithTitle:@"Log In"
                                                                     style:UIAlertActionStyleDefault
                                                                   handler:^(UIAlertAction * _Nonnull action) {
-                                                                      if (inputCode == nil) {
+                                                                      if (inputEmail == nil) {
                                                                           return;
                                                                       }
                                                                       
-                                                                      if ([inputCode.text isEqualToString:@"109485"]) {
-                                                                          [self activatePremiumContentSetting];
-                                                                      }
+                                                                      // TODO: Log in
                                                                   }];
     
-    UIAlertAction *cancelPremiumAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                                style:UIAlertActionStyleCancel
-                                                              handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                  style:UIAlertActionStyleCancel
+                                                                handler:nil];
     
     // Add all of the input
-    [activatePremiumController addAction:cancelPremiumAction];
-    [activatePremiumController addAction:activatePremiumAction];
+    [loginDialogController addAction:logInAction];
+    [loginDialogController addAction:cancelAction];
     
     // Show the controller
-    [self presentViewController:activatePremiumController animated:YES completion:nil];
+    [self presentViewController:loginDialogController animated:YES completion:nil];
 }
 
 - (IBAction)contactDevClicked:(id)sender {

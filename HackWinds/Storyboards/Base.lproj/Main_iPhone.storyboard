@@ -1616,119 +1616,121 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="NqK-0c-h1v">
-                                        <rect key="frame" x="0.0" y="157.5" width="320" height="44"/>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Account" id="620-YK-GfF">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KWf-kg-NGR">
+                                        <rect key="frame" x="0.0" y="200" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NqK-0c-h1v" id="ucv-fb-36D">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KWf-kg-NGR" id="T61-Im-Vtb">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hac-Go-pT7">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ys-lr-dlW">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
-                                                    <state key="normal" title="Activate Premium Content">
+                                                    <state key="normal" title="Log In">
                                                         <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="activatePremiumContentClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="nGr-e1-mz3"/>
-                                                        <action selector="changeDefaultBuoyLocationClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="jsf-6n-BeB"/>
+                                                        <action selector="loginLogoutClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="dly-tF-PaI"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hac-Go-pT7" firstAttribute="leading" secondItem="ucv-fb-36D" secondAttribute="leadingMargin" id="BuX-X1-tnp"/>
-                                                <constraint firstItem="hac-Go-pT7" firstAttribute="trailing" secondItem="ucv-fb-36D" secondAttribute="trailingMargin" id="dBb-Mm-Xoa"/>
-                                                <constraint firstItem="hac-Go-pT7" firstAttribute="centerY" secondItem="ucv-fb-36D" secondAttribute="centerY" id="yPV-Yn-Rtn"/>
+                                                <constraint firstItem="3ys-lr-dlW" firstAttribute="leading" secondItem="T61-Im-Vtb" secondAttribute="leadingMargin" id="DgI-c2-E9C"/>
+                                                <constraint firstItem="3ys-lr-dlW" firstAttribute="trailing" secondItem="T61-Im-Vtb" secondAttribute="trailingMargin" id="kZo-LU-pAP"/>
+                                                <constraint firstItem="3ys-lr-dlW" firstAttribute="centerY" secondItem="T61-Im-Vtb" secondAttribute="centerY" id="qjy-hK-rgI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="About" id="620-YK-GfF">
+                            <tableViewSection headerTitle="About" id="kcd-Mo-2u8">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gwr-3C-Imt">
-                                        <rect key="frame" x="0.0" y="243.5" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JwV-ds-m8R">
+                                        <rect key="frame" x="0.0" y="285.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gwr-3C-Imt" id="VEl-ic-10G">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JwV-ds-m8R" id="LtU-03-Fwh">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBj-eq-pwI">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohO-tk-pru">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                                     <state key="normal" title="Contact Developer">
                                                         <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="contactDevClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="e7I-mY-Tu1"/>
+                                                        <action selector="contactDevClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="Xdl-fS-WTI"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="HBj-eq-pwI" firstAttribute="trailing" secondItem="VEl-ic-10G" secondAttribute="trailingMargin" id="P8G-fU-wCb"/>
-                                                <constraint firstItem="HBj-eq-pwI" firstAttribute="leading" secondItem="VEl-ic-10G" secondAttribute="leadingMargin" id="ciR-KV-Bg5"/>
-                                                <constraint firstAttribute="centerY" secondItem="HBj-eq-pwI" secondAttribute="centerY" id="kcz-6P-GMW"/>
+                                                <constraint firstItem="ohO-tk-pru" firstAttribute="trailing" secondItem="LtU-03-Fwh" secondAttribute="trailingMargin" id="dYy-fm-TMK"/>
+                                                <constraint firstAttribute="centerY" secondItem="ohO-tk-pru" secondAttribute="centerY" id="dj6-mN-cGK"/>
+                                                <constraint firstItem="ohO-tk-pru" firstAttribute="leading" secondItem="LtU-03-Fwh" secondAttribute="leadingMargin" id="hbm-KZ-fwg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6vT-kf-Lil">
-                                        <rect key="frame" x="0.0" y="287.5" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mTn-vR-wb8">
+                                        <rect key="frame" x="0.0" y="329.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6vT-kf-Lil" id="wLG-tC-Q9B">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mTn-vR-wb8" id="mbe-eI-KYi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znY-n5-4jE">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd7-Hf-G8M">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                                     <state key="normal" title="Disclaimer">
                                                         <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="showDisclaimerClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="fE2-FP-uaP"/>
+                                                        <action selector="showDisclaimerClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="NfT-Xe-zum"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="znY-n5-4jE" secondAttribute="centerY" constant="-0.5" id="hi6-sF-lRR"/>
-                                                <constraint firstItem="znY-n5-4jE" firstAttribute="trailing" secondItem="wLG-tC-Q9B" secondAttribute="trailingMargin" id="nDL-Sk-DgT"/>
-                                                <constraint firstItem="znY-n5-4jE" firstAttribute="leading" secondItem="wLG-tC-Q9B" secondAttribute="leadingMargin" id="npN-3c-6Wh"/>
+                                                <constraint firstItem="wd7-Hf-G8M" firstAttribute="trailing" secondItem="mbe-eI-KYi" secondAttribute="trailingMargin" id="8st-be-32b"/>
+                                                <constraint firstItem="wd7-Hf-G8M" firstAttribute="leading" secondItem="mbe-eI-KYi" secondAttribute="leadingMargin" id="S7c-xa-IVh"/>
+                                                <constraint firstAttribute="centerY" secondItem="wd7-Hf-G8M" secondAttribute="centerY" constant="-0.5" id="Xgg-hb-Sdd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WxN-KC-dl3">
-                                        <rect key="frame" x="0.0" y="331.5" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2a3-VN-6CY">
+                                        <rect key="frame" x="0.0" y="373.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WxN-KC-dl3" id="uDQ-3h-5yd">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2a3-VN-6CY" id="Nwv-sg-aKi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNB-QD-q65">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOj-iQ-CHV">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                                     <state key="normal" title="Rate on the App Store">
                                                         <color key="titleColor" red="0.34901961679999999" green="0.69803923369999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="rateAppClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="uEq-2r-YJA"/>
+                                                        <action selector="rateAppClicked:" destination="kKd-33-s6C" eventType="touchUpInside" id="Ee2-lv-ez0"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KNB-QD-q65" firstAttribute="trailing" secondItem="uDQ-3h-5yd" secondAttribute="trailingMargin" id="CbK-70-mZI"/>
-                                                <constraint firstAttribute="centerY" secondItem="KNB-QD-q65" secondAttribute="centerY" constant="-0.5" id="Elh-GW-gHQ"/>
-                                                <constraint firstItem="KNB-QD-q65" firstAttribute="leading" secondItem="uDQ-3h-5yd" secondAttribute="leadingMargin" id="G9D-Ob-cse"/>
+                                                <constraint firstItem="ZOj-iQ-CHV" firstAttribute="leading" secondItem="Nwv-sg-aKi" secondAttribute="leadingMargin" id="0Ze-Eh-Fgn"/>
+                                                <constraint firstAttribute="centerY" secondItem="ZOj-iQ-CHV" secondAttribute="centerY" constant="-0.5" id="fo7-Rn-qcg"/>
+                                                <constraint firstItem="ZOj-iQ-CHV" firstAttribute="trailing" secondItem="Nwv-sg-aKi" secondAttribute="trailingMargin" id="gRQ-pq-KnP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="h3j-zq-bkZ">
-                                        <rect key="frame" x="0.0" y="375.5" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Jxm-Qc-B8f">
+                                        <rect key="frame" x="0.0" y="417.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h3j-zq-bkZ" id="O3j-Na-KCM">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jxm-Qc-B8f" id="wVg-Tg-Yiq">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2014 Matthew Iannucci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g67-H0-85y">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2014 Matthew Iannucci" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPz-d7-Ost">
                                                     <rect key="frame" x="8" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1736,10 +1738,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="g67-H0-85y" firstAttribute="trailing" secondItem="O3j-Na-KCM" secondAttribute="trailingMargin" id="5a8-lE-rVG"/>
-                                                <constraint firstItem="g67-H0-85y" firstAttribute="leading" secondItem="O3j-Na-KCM" secondAttribute="leadingMargin" id="E7J-bq-jVo"/>
-                                                <constraint firstAttribute="centerY" secondItem="g67-H0-85y" secondAttribute="centerY" constant="0.5" id="f7W-IT-jLn"/>
-                                                <constraint firstItem="g67-H0-85y" firstAttribute="leading" secondItem="O3j-Na-KCM" secondAttribute="leadingMargin" id="jdS-WD-S5t"/>
+                                                <constraint firstItem="UPz-d7-Ost" firstAttribute="leading" secondItem="wVg-Tg-Yiq" secondAttribute="leadingMargin" id="QqZ-Ka-j9b"/>
+                                                <constraint firstItem="UPz-d7-Ost" firstAttribute="trailing" secondItem="wVg-Tg-Yiq" secondAttribute="trailingMargin" id="flu-Cn-8FE"/>
+                                                <constraint firstItem="UPz-d7-Ost" firstAttribute="leading" secondItem="wVg-Tg-Yiq" secondAttribute="leadingMargin" id="i8P-hc-fzq"/>
+                                                <constraint firstAttribute="centerY" secondItem="UPz-d7-Ost" secondAttribute="centerY" constant="0.5" id="ooX-WQ-6Cv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1760,7 +1762,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activatePremiumContentButton" destination="hac-Go-pT7" id="DOd-Qo-yng"/>
                         <outlet property="changeDefaultBuoyButton" destination="mP0-S6-ZMc" id="FUP-J1-CO8"/>
                     </connections>
                 </tableViewController>
