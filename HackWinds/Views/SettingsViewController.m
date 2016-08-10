@@ -13,6 +13,7 @@
 
 - (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation;
 - (void) activatePremiumContentSetting;
+- (void) loginUser:(NSString*) username;
 
 @property (weak, nonatomic) IBOutlet UIButton *activatePremiumContentButton;
 @property (weak, nonatomic) IBOutlet UIButton *changeDefaultBuoyButton;
@@ -43,11 +44,8 @@
     // Get the locations and set the cell to reflect it
     [self.changeDefaultBuoyButton setTitle:[NSString stringWithFormat:@"Default Buoy Location: %@", [defaults objectForKey:@"DefaultBuoyLocation"]] forState:UIControlStateNormal];
     
-    BOOL premiumEnabled = [defaults boolForKey:@"ShowPremiumContent"];
-    if (premiumEnabled) {
-        [self.activatePremiumContentButton setEnabled:NO];
-        [self.activatePremiumContentButton setTitle:@"Premium Content Enabled" forState:UIControlStateDisabled];
-    }
+    BOOL loggedIn = [defaults boolForKey:@"LoggedIn"];
+    // TODO: Change the state based on log in
 }
 
 - (IBAction)acceptSettingsClick:(id)sender {
@@ -88,35 +86,61 @@
 }
 
 - (IBAction)loginLogoutClicked:(id)sender {
-    UIAlertController *loginDialogController = [UIAlertController alertControllerWithTitle:@"Log in to HackWinds"
-                                                                                       message:@"Enter your email to log in"
-                                                                                preferredStyle:UIAlertControllerStyleAlert];
-    __block UITextField *inputEmail;
-    [loginDialogController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"Email";
-        inputEmail = textField;
-    }];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    BOOL loggedIn = [defaults boolForKey:@"LoggedIn"];
     
-    UIAlertAction *logInAction = [UIAlertAction actionWithTitle:@"Log In"
-                                                                    style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * _Nonnull action) {
-                                                                      if (inputEmail == nil) {
-                                                                          return;
-                                                                      }
-                                                                      
-                                                                      // TODO: Log in
-                                                                  }];
+    if (loggedIn) {
+        UIAlertController *logoutDialogController = [UIAlertController alertControllerWithTitle:@"Log Out"
+                                                                                        message:@"Are you sure you want to log out?"
+                                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *logOutAction = [UIAlertAction actionWithTitle:@"Log Out"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+            // TODO
+        }];
+
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
+        
+        // Add all of the actions
+        [logoutDialogController addAction:logOutAction];
+        [logoutDialogController addAction:cancelAction];
+        
+        // Show the controller
+        [self presentViewController:logoutDialogController animated:YES completion:nil];
+        
+    } else {
+        UIAlertController *loginDialogController = [UIAlertController alertControllerWithTitle:@"Log in to HackWinds"
+                                                                                   message:@"Enter your email to log in"
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+        __block UITextField *inputEmail;
+        [loginDialogController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"Email";
+            inputEmail = textField;
+        }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                                  style:UIAlertActionStyleCancel
-                                                                handler:nil];
+        UIAlertAction *logInAction = [UIAlertAction actionWithTitle:@"Log In"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                if (inputEmail == nil) {
+                                                                    return;
+                                                                }
+                                                            
+                                                                [self loginUser:inputEmail.text];
+                                                            }];
     
-    // Add all of the input
-    [loginDialogController addAction:logInAction];
-    [loginDialogController addAction:cancelAction];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
     
-    // Show the controller
-    [self presentViewController:loginDialogController animated:YES completion:nil];
+        // Add all of the input
+        [loginDialogController addAction:logInAction];
+        [loginDialogController addAction:cancelAction];
+    
+        // Show the controller
+        [self presentViewController:loginDialogController animated:YES completion:nil];
+    }
 }
 
 - (IBAction)contactDevClicked:(id)sender {
@@ -179,6 +203,47 @@
     
     // Reload the interface
     [self loadSettings];
+}
+
+- (void) loginUser:(NSString*)username {
+    NSURL *loginURL = [NSURL URLWithString:@"https://mpiannucci.appspot.com/hackwinds_login"];
+    NSString *loginData = [NSString stringWithFormat:@"username=%@", username];
+    
+    NSMutableURLRequest *loginRequest = [NSMutableURLRequest requestWithURL:loginURL];
+    loginRequest.HTTPMethod = @"POST";
+    loginRequest.HTTPBody = [loginData dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURLSessionDataTask *loginTask = [[NSURLSession sharedSession] dataTaskWithRequest:loginRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data == NULL) {
+            // TODO: Show failure
+            return;
+        } else if (error != NULL) {
+            // TODO: Show failure
+            return;
+        }
+        
+        NSError *jsonError;
+        NSDictionary *loginData = [NSJSONSerialization
+                                      JSONObjectWithData:data
+                                      options:kNilOptions
+                                      error:&error];
+        
+        if ((loginData == nil) || (jsonError != nil)) {
+            return;
+        }
+        
+        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+        [defaults synchronize];
+        
+        BOOL isPremium = [loginData valueForKey:@"premium"];
+        [defaults setBool:isPremium forKey:@"ShowPremiumContent"];
+        if (isPremium) {
+            CameraModel *model = [CameraModel sharedModel];
+            [model forceFetchCameraURLs];
+        }
+    }];
+    
+    [loginTask resume];
 }
 
 @end
