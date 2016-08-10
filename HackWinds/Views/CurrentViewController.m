@@ -23,6 +23,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
 @property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *alternateCamerasBarButton;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -83,6 +84,18 @@ static const int CAMERA_IMAGE_COUNT = 11;
                                              selector:@selector(setupCamera)
                                                  name:CAMERA_DATA_UPDATED_TAG
                                                object:nil];
+    
+    // Only show the camera option if enabled
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    [defaults synchronize];
+    
+    if ([defaults boolForKey:@"ShowPremiumContent"]) {
+        [self.alternateCamerasBarButton setEnabled:YES];
+        [self.alternateCamerasBarButton setTintColor:[UIColor whiteColor]];
+    } else {
+        [self.alternateCamerasBarButton setEnabled:NO];
+        [self.alternateCamerasBarButton setTintColor:[UIColor clearColor]];
+    }
 }
 
 - (void)viewDidLayoutSubviews {

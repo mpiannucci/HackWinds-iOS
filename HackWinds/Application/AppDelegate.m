@@ -102,6 +102,20 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    NSString *code = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if ([code isEqualToString:@"surfing"]) {
+        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+        [defaults setBool:YES forKey:@"ShowPremiumContent"];
+        [defaults synchronize];
+        
+        [[CameraModel sharedModel] forceFetchCameraURLs];
+    }
+    
+    return YES;
+}
+
 @end
 
 #pragma mark - Allowing the movie players to rotate in fullscreen
