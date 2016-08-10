@@ -152,7 +152,7 @@
 }
 
 - (NSString*) getSimpleSwellText {
-    return [NSString stringWithFormat:@"%.1f ft @ %.1f s", self.significantWaveHeight.doubleValue, self.dominantPeriod.doubleValue];
+    return [NSString stringWithFormat:@"%.1f ft @ %d s %@", self.significantWaveHeight.doubleValue, self.dominantPeriod.intValue, self.meanDirection];
 }
 
 - (NSString*) getWaveHeightText {

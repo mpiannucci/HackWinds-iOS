@@ -78,7 +78,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the current timeline entry
         
         var longBuoyText = "-- ft @ -- s ---"
-        var shorterBuoyText = "-- ft @ -- s"
         var waveHeightBuoyText = "-- ft"
         var buoyLocationText = "-------"
         var longTideText = "---- ----: --:-- --"
@@ -86,8 +85,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var tideTime  = NSDate()
         
         if let buoy = updateManager.latestBuoy {
-            longBuoyText = buoy.getWaveSummaryStatusText()
-            shorterBuoyText = buoy.getSimpleSwellText()
+            longBuoyText = buoy.getSimpleSwellText()
             waveHeightBuoyText = buoy.getWaveHeightText()
         }
         
@@ -104,7 +102,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         switch complication.family {
         case .ModularLarge:
             let template = CLKComplicationTemplateModularLargeStandardBody()
-            template.headerTextProvider = CLKSimpleTextProvider(text: longBuoyText, shortText: shorterBuoyText)
+            template.headerTextProvider = CLKSimpleTextProvider(text: longBuoyText)
             template.headerTextProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
             template.body1TextProvider = CLKSimpleTextProvider(text: buoyLocationText)
             template.body2TextProvider = CLKSimpleTextProvider(text: longTideText)
@@ -127,7 +125,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             handler(timelineEntry)
         case .UtilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallFlat()
-            template.textProvider = CLKSimpleTextProvider(text: shorterBuoyText, shortText: waveHeightBuoyText)
+            template.textProvider = CLKSimpleTextProvider(text: longBuoyText, shortText: waveHeightBuoyText)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
             handler(timelineEntry)
