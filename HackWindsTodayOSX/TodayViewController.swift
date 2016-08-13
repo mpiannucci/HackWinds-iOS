@@ -47,7 +47,7 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     
     func updateBuoyUI() {
         if let buoy = self.updateManager.latestBuoy {
-            self.latestBuoyLabel.stringValue = buoy.getWaveSummaryStatusText()
+            self.latestBuoyLabel.stringValue = buoy.getSimpleSwellText()
         }
         
         if let location = self.updateManager.buoyLocation {
