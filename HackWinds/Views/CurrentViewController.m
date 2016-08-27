@@ -48,7 +48,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
     self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
     [self.navigationItem setTitleView: self.navigationBarTitle];
     [self.navigationBarTitle setTitleText:@"HackWinds"];
-    [self.navigationBarTitle setDetailText:@"Location: Narragansett"];
+    [self.navigationBarTitle setDetailText:@"Location: Rhode Island"];
     [self.navigationBarTitle.detailButton addTarget:self action:@selector(showModelInformationPopup) forControlEvents:UIControlEventTouchUpInside];
     
     // Set up the imageview scrolling
@@ -155,7 +155,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 }
 
 - (void) showModelInformationPopup {
-    UIAlertController* forecastInfoAlert = [UIAlertController alertControllerWithTitle:@"Narragansett Surf Forecast"
+    UIAlertController* forecastInfoAlert = [UIAlertController alertControllerWithTitle:@"Rhode Island Surf Forecast"
                                                                                message:[NSString stringWithFormat:@"%@\n\nWind Model: %@\n\nUpdated %@", self.forecastModel.waveModelName, self.forecastModel.windModelName, self.forecastModel.waveModelRun]
                                                                         preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
