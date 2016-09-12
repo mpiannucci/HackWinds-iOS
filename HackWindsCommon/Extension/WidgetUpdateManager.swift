@@ -14,16 +14,16 @@ class WidgetUpdateManager {
     var buoyLocation: NSString? = nil
     var latestBuoy: Buoy? = nil
     var nextTide: Tide? = nil
-    var latestBuoyRefreshTime: NSDate? = nil
-    var latestTideRefreshTime: NSDate? = nil
-    var nextBuoyUpdateTime: NSDate? = nil
-    var nextTideUpdateTime: NSDate? = nil
+    var latestBuoyRefreshTime: Date? = nil
+    var latestTideRefreshTime: Date? = nil
+    var nextBuoyUpdateTime: Date? = nil
+    var nextTideUpdateTime: Date? = nil
     
     init() {
         self.restoreData()
     }
     
-    func latestRefreshTime() -> NSDate? {
+    func latestRefreshTime() -> Date? {
         if (self.latestBuoyRefreshTime == nil) && (self.latestTideRefreshTime == nil) {
             return nil
         } else if (self.latestBuoyRefreshTime == nil) {
@@ -32,7 +32,7 @@ class WidgetUpdateManager {
             return self.latestBuoyRefreshTime
         }
         
-        if self.latestBuoyRefreshTime!.compare(self.latestTideRefreshTime!) == NSComparisonResult.OrderedAscending {
+        if self.latestBuoyRefreshTime!.compare(self.latestTideRefreshTime!) == ComparisonResult.orderedAscending {
             return self.latestTideRefreshTime
         } else {
             return self.latestBuoyRefreshTime
@@ -44,11 +44,11 @@ class WidgetUpdateManager {
         self.nextTideUpdateTime = nil
     }
     
-    func fetchBuoyUpdate(completionHandler: ((Void) -> Void)!) {
+    func fetchBuoyUpdate(_ completionHandler: ((Void) -> Void)!) {
         if (doesBuoyNeedUpdate()) {
-            BuoyModel.sharedModel().fetchLatestBuoyReadingForLocation(self.buoyLocation as! String, withCompletionHandler: { (newBuoy: Buoy!) -> Void in
+            BuoyModel.shared().fetchLatestBuoyReading(forLocation: self.buoyLocation as! String, withCompletionHandler: { (newBuoy: Buoy?) -> Void in
                 self.latestBuoy = newBuoy
-                self.latestBuoyRefreshTime = NSDate()
+                self.latestBuoyRefreshTime = Date()
                 self.findNextUpdateTimes()
                 self.cacheData()
                 
@@ -58,11 +58,11 @@ class WidgetUpdateManager {
         }
     }
     
-    func fetchTideUpdate(completionHandler: ((Void) -> Void)!) {
+    func fetchTideUpdate(_ completionHandler: ((Void) -> Void)!) {
         if (doesTideNeedUpdate()) {
-            TideModel.sharedModel().fetchLatestTidalEventOnly({ (newTide: Tide!) -> Void in
+            TideModel.shared().fetchLatestTidalEventOnly({ (newTide: Tide?) -> Void in
                 self.nextTide = newTide
-                self.latestTideRefreshTime = NSDate()
+                self.latestTideRefreshTime = Date()
                 self.findNextUpdateTimes()
                 self.cacheData()
                 
@@ -74,33 +74,33 @@ class WidgetUpdateManager {
     
     func doesBuoyNeedUpdate() -> Bool {
         // Get the latest buoy location from the shared settings. Defaults to Montauk
-        let groupDefaults = NSUserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
-        if let newLocation = groupDefaults?.stringForKey("DefaultBuoyLocation") {
+        let groupDefaults = UserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
+        if let newLocation = groupDefaults?.string(forKey: "DefaultBuoyLocation") {
             if let buoyLocation = self.buoyLocation {
-                if buoyLocation != newLocation {
+                if buoyLocation as String != newLocation {
                     // The location has been changed since the last spin so force a refresh
-                    self.buoyLocation = newLocation
+                    self.buoyLocation = newLocation as NSString?
                     self.nextBuoyUpdateTime = nil
                 }
             } else {
                 // A location has not been set yet so force a refresh
-                self.buoyLocation = newLocation
+                self.buoyLocation = newLocation as NSString?
                 self.nextBuoyUpdateTime = nil
             }
         } else {
             // Just default to montauk if possible
-            self.buoyLocation = BLOCK_ISLAND_LOCATION
-            groupDefaults?.setObject(self.buoyLocation, forKey: "DefaultBuoyLocation")
+            self.buoyLocation = BLOCK_ISLAND_LOCATION as NSString?
+            groupDefaults?.set(self.buoyLocation, forKey: "DefaultBuoyLocation")
             self.nextBuoyUpdateTime = nil
         }
         
         // Check if the buoy should be updated and get the new data if it should
-        let currentDate = NSDate()
+        let currentDate = Date()
         var needUpdate = false
         if self.nextBuoyUpdateTime == nil || self.latestBuoy == nil {
             needUpdate = true
         } else {
-            if self.nextBuoyUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
+            if self.nextBuoyUpdateTime!.compare(currentDate) == ComparisonResult.orderedAscending {
                 needUpdate = true
             }
         }
@@ -110,12 +110,12 @@ class WidgetUpdateManager {
     
     func doesTideNeedUpdate() -> Bool {
         // Check if the tide should be updated and get the new data if it should
-        let currentDate = NSDate()
+        let currentDate = Date()
         var needUpdate = false
         if self.nextTideUpdateTime == nil || self.nextTide == nil {
             needUpdate = true
         } else {
-            if self.nextTideUpdateTime!.compare(currentDate) == NSComparisonResult.OrderedAscending {
+            if self.nextTideUpdateTime!.compare(currentDate) == ComparisonResult.orderedAscending {
                 needUpdate = true
             }
         }
@@ -127,83 +127,83 @@ class WidgetUpdateManager {
             return
         }
         
-        self.nextBuoyUpdateTime = self.latestBuoy?.timestamp.dateByAddingTimeInterval(60*60);
+        self.nextBuoyUpdateTime = self.latestBuoy?.timestamp.addingTimeInterval(60*60);
         self.nextTideUpdateTime = self.nextTide?.timestamp
     }
     
     func cacheData() {
-        let groupDefaults = NSUserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
+        let groupDefaults = UserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
         
         if let defaults = groupDefaults {
-            defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.buoyLocation!), forKey: "buoyLocation")
+            defaults.set(NSKeyedArchiver.archivedData(withRootObject: self.buoyLocation!), forKey: "buoyLocation")
             if self.latestBuoy != nil {
-                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoy!), forKey: "latestBuoy")
+                defaults.set(NSKeyedArchiver.archivedData(withRootObject: self.latestBuoy!), forKey: "latestBuoy")
             }
             if self.nextTide != nil {
-                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTide!), forKey: "nextTide")
+                defaults.set(NSKeyedArchiver.archivedData(withRootObject: self.nextTide!), forKey: "nextTide")
             }
             if self.latestBuoyRefreshTime != nil {
-                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestBuoyRefreshTime!), forKey: "latestBuoyRefreshTime")
+                defaults.set(NSKeyedArchiver.archivedData(withRootObject: self.latestBuoyRefreshTime!), forKey: "latestBuoyRefreshTime")
             }
             if self.latestTideRefreshTime != nil {
-                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.latestTideRefreshTime!), forKey: "latestTideRefreshTime")
+                defaults.set(NSKeyedArchiver.archivedData(withRootObject: self.latestTideRefreshTime!), forKey: "latestTideRefreshTime")
             }
             if self.nextBuoyUpdateTime != nil {
-                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextBuoyUpdateTime!), forKey: "nextBuoyUpdateTime")
+                defaults.set(NSKeyedArchiver.archivedData(withRootObject: self.nextBuoyUpdateTime!), forKey: "nextBuoyUpdateTime")
             }
             if self.nextTideUpdateTime != nil {
-                defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(self.nextTideUpdateTime!), forKey: "nextTideUpdateTime")
+                defaults.set(NSKeyedArchiver.archivedData(withRootObject: self.nextTideUpdateTime!), forKey: "nextTideUpdateTime")
             }
         }
     }
     
     func restoreData() {
-        let groupDefaults = NSUserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
+        let groupDefaults = UserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
         
         if let defaults = groupDefaults {
-            if let rawBuoyLocation = defaults.objectForKey("buoyLocation") {
-                self.buoyLocation = NSKeyedUnarchiver.unarchiveObjectWithData(rawBuoyLocation as! NSData) as? NSString
+            if let rawBuoyLocation = defaults.object(forKey: "buoyLocation") {
+                self.buoyLocation = NSKeyedUnarchiver.unarchiveObject(with: rawBuoyLocation as! Data) as? NSString
             }
-            if let rawLatestBuoy = defaults.objectForKey("latestBuoy") {
-                self.latestBuoy = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestBuoy as! NSData) as? Buoy
+            if let rawLatestBuoy = defaults.object(forKey: "latestBuoy") {
+                self.latestBuoy = NSKeyedUnarchiver.unarchiveObject(with: rawLatestBuoy as! Data) as? Buoy
             }
-            if let rawNextTide = defaults.objectForKey("nextTide") {
-                self.nextTide = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextTide as! NSData) as? Tide
+            if let rawNextTide = defaults.object(forKey: "nextTide") {
+                self.nextTide = NSKeyedUnarchiver.unarchiveObject(with: rawNextTide as! Data) as? Tide
             }
-            if let rawLatestBuoyRefreshTime = defaults.objectForKey("latestBuoyRefreshTime") {
-                self.latestBuoyRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestBuoyRefreshTime as! NSData) as? NSDate
+            if let rawLatestBuoyRefreshTime = defaults.object(forKey: "latestBuoyRefreshTime") {
+                self.latestBuoyRefreshTime = NSKeyedUnarchiver.unarchiveObject(with: rawLatestBuoyRefreshTime as! Data) as? Date
             }
-            if let rawLatestTideRefreshTime = defaults.objectForKey("latestTideRefreshTime") {
-                self.latestTideRefreshTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawLatestTideRefreshTime as! NSData) as? NSDate
+            if let rawLatestTideRefreshTime = defaults.object(forKey: "latestTideRefreshTime") {
+                self.latestTideRefreshTime = NSKeyedUnarchiver.unarchiveObject(with: rawLatestTideRefreshTime as! Data) as? Date
             }
-            if let rawNextBuoyUpdateTime = defaults.objectForKey("nextBuoyUpdateTime") {
-                self.nextBuoyUpdateTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextBuoyUpdateTime as! NSData) as? NSDate
+            if let rawNextBuoyUpdateTime = defaults.object(forKey: "nextBuoyUpdateTime") {
+                self.nextBuoyUpdateTime = NSKeyedUnarchiver.unarchiveObject(with: rawNextBuoyUpdateTime as! Data) as? Date
             }
-            if let rawNextTideUpdateTime = defaults.objectForKey("nextTideUpdateTime") {
-                self.nextTideUpdateTime = NSKeyedUnarchiver.unarchiveObjectWithData(rawNextTideUpdateTime as! NSData) as? NSDate
+            if let rawNextTideUpdateTime = defaults.object(forKey: "nextTideUpdateTime") {
+                self.nextTideUpdateTime = NSKeyedUnarchiver.unarchiveObject(with: rawNextTideUpdateTime as! Data) as? Date
             }
         }
     }
     
-    func dateWithHour(hour: Int, minute: Int, second: Int) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let components: NSDateComponents = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour], fromDate: NSDate())
+    func dateWithHour(_ hour: Int, minute: Int, second: Int) -> Date {
+        let calendar = Calendar.current
+        var components: DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.hour], from: Date())
         
-        if components.hour > 11 && hour < 6 {
-            components.day = components.day + 1
+        if components.hour! > 11 && hour < 6 {
+            components.day = components.day! + 1
         }
         
         components.hour = hour
         components.minute = minute
         components.second = second
         
-        return calendar.dateFromComponents(components)!
+        return calendar.date(from: components)!
         
     }
     
     func check24HourClock() -> Bool {
-        let locale = NSLocale.currentLocale()
-        let dateCheck = NSDateFormatter.dateFormatFromTemplate("j", options: 0, locale: locale)
-        return dateCheck?.rangeOfString("a") == nil
+        let locale = Locale.current
+        let dateCheck = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: locale)
+        return dateCheck?.range(of: "a") == nil
     }
 }

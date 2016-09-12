@@ -21,11 +21,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
             // Fetch new data and update if successful
             updateManager.fetchBuoyUpdate { (Void) -> Void in
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     let server=CLKComplicationServer.sharedInstance()
                     
                     for complication in server.activeComplications! {
-                        server.reloadTimelineForComplication(complication)
+                        server.reloadTimeline(for: complication)
                     }
                 })
             }
@@ -33,11 +33,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         if updateManager.doesTideNeedUpdate() {
             updateManager.fetchTideUpdate { (Void) -> Void in
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     let server=CLKComplicationServer.sharedInstance()
                     
                     for complication in server.activeComplications! {
-                        server.reloadTimelineForComplication(complication)
+                        server.reloadTimeline(for: complication)
                     }
                 })
             }
@@ -48,33 +48,33 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
     }
     
-    func reloadTimelineForComplication(complication: CLKComplication!) {
+    func reloadTimelineForComplication(_ complication: CLKComplication!) {
 
     }
     
     // MARK: - Timeline Configuration
     
-    func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
+    func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         
         // For now no time traval is supported. Eventually we could be able to provide it with future tides or past buoy data
-        handler([.None])
+        handler(CLKComplicationTimeTravelDirections())
     }
     
-    func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        handler(NSDate())
+    func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
+        handler(Date())
     }
     
-    func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        handler(NSDate())
+    func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
+        handler(Date())
     }
     
-    func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void) {
-        handler(.ShowOnLockScreen)
+    func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
+        handler(.showOnLockScreen)
     }
     
     // MARK: - Timeline Population
     
-    func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
+    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: (@escaping (CLKComplicationTimelineEntry?) -> Void)) {
         // Call the handler with the current timeline entry
         
         var longBuoyText = "-- ft @ -- s ---"
@@ -82,7 +82,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var buoyLocationText = "-------"
         var longTideText = "---- ----: --:-- --"
         var shortTideEventText = "----"
-        var tideTime  = NSDate()
+        var tideTime  = Date()
         
         if let buoy = updateManager.latestBuoy {
             longBuoyText = buoy.getSimpleSwellText()
@@ -94,97 +94,101 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         }
         
         if let tide = updateManager.nextTide {
-            longTideText = tide.getTideEventSummary()
-            shortTideEventText = tide.getTideEventAbbreviation()
+            longTideText = tide.getEventSummary()
+            shortTideEventText = tide.getEventAbbreviation()
             tideTime = tide.timestamp
         }
         
         switch complication.family {
-        case .ModularLarge:
+        case .modularLarge:
             let template = CLKComplicationTemplateModularLargeStandardBody()
             template.headerTextProvider = CLKSimpleTextProvider(text: longBuoyText)
             template.headerTextProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
             template.body1TextProvider = CLKSimpleTextProvider(text: buoyLocationText)
             template.body2TextProvider = CLKSimpleTextProvider(text: longTideText)
             
-            let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
-        case .ModularSmall:
+        case .modularSmall:
             let template = CLKComplicationTemplateModularSmallStackText()
             template.line1TextProvider = CLKSimpleTextProvider(text: shortTideEventText)
             template.line1TextProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
             template.line2TextProvider = CLKTimeTextProvider(date: tideTime)
             
-            let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
-        case .UtilitarianLarge:
+        case .utilitarianLarge:
             let template = CLKComplicationTemplateUtilitarianLargeFlat()
             template.textProvider = CLKSimpleTextProvider(text:longBuoyText)
             
-            let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
-        case .UtilitarianSmall:
+        case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallFlat()
             template.textProvider = CLKSimpleTextProvider(text: longBuoyText, shortText: waveHeightBuoyText)
             
-            let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
-        case .CircularSmall:
+        case .circularSmall:
             let template = CLKComplicationTemplateCircularSmallStackText()
             template.line1TextProvider = CLKSimpleTextProvider(text: shortTideEventText)
             template.line2TextProvider = CLKTimeTextProvider(date: tideTime)
             
-            let timelineEntry = CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: template)
+            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
+        default:
+            return
         }
     }
     
-    func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+    func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: (@escaping ([CLKComplicationTimelineEntry]?) -> Void)) {
         // Call the handler with the timeline entries prior to the given date
         handler([])
     }
     
-    func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: (@escaping ([CLKComplicationTimelineEntry]?) -> Void)) {
         // Call the handler with the timeline entries after to the given date
         handler(nil)
     }
     
     // MARK: - Update Scheduling
     
-    func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
+    func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void) {
         // Call the handler with the date when you would next like to be given the opportunity to update your complication content
-        handler(NSDate(timeIntervalSinceNow: 60*30));
+        handler(Date(timeIntervalSinceNow: 60*30));
     }
     
     // MARK: - Placeholder Templates
     
-    func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
+    func getPlaceholderTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
         switch complication.family {
-        case .ModularSmall:
+        case .modularSmall:
             let smallModularTemplate = CLKComplicationTemplateModularSmallStackText()
             smallModularTemplate.line1TextProvider = CLKSimpleTextProvider(text: "---")
-            smallModularTemplate.line2TextProvider = CLKTimeTextProvider(date: NSDate())
+            smallModularTemplate.line2TextProvider = CLKTimeTextProvider(date: Date())
             handler(smallModularTemplate)
-        case .ModularLarge:
+        case .modularLarge:
             let largeModularTemplate = CLKComplicationTemplateModularLargeStandardBody()
             largeModularTemplate.headerTextProvider = CLKSimpleTextProvider(text: "-- ft @ - s --")
             largeModularTemplate.body1TextProvider = CLKSimpleTextProvider(text: "---- ----: --:-- --")
             largeModularTemplate.body2TextProvider = CLKSimpleTextProvider(text: "")
             handler(largeModularTemplate)
-        case .UtilitarianSmall:
+        case .utilitarianSmall:
             let smallUtilitarianTemplate = CLKComplicationTemplateUtilitarianSmallFlat()
             smallUtilitarianTemplate.textProvider = CLKSimpleTextProvider(text: "-- ft")
             handler(smallUtilitarianTemplate)
-        case .UtilitarianLarge:
+        case .utilitarianLarge:
             let largeUtilitarianTemplate = CLKComplicationTemplateUtilitarianLargeFlat()
             largeUtilitarianTemplate.textProvider = CLKSimpleTextProvider(text: "-- ft @ -- s ---")
             handler(largeUtilitarianTemplate)
-        case .CircularSmall:
+        case .circularSmall:
             let circularTemplate = CLKComplicationTemplateCircularSmallStackText()
             circularTemplate.line1TextProvider = CLKSimpleTextProvider(text: "---")
-            circularTemplate.line2TextProvider = CLKTimeTextProvider(date: NSDate())
+            circularTemplate.line2TextProvider = CLKTimeTextProvider(date: Date())
             handler(circularTemplate)
+        default:
+            return
         }
     }
     

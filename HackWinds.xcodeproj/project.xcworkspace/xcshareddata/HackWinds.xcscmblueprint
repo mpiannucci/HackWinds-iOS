@@ -9,8 +9,8 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F868A272-4593-404F-81D6-6B0FC6143567",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5" : "core-plot",
-    "E419394132B0212764C79CDBC7FE49CB36E2E238" : "HackWinds-iOS"
+    "8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5" : "core-plot\/",
+    "E419394132B0212764C79CDBC7FE49CB36E2E238" : "HackWinds-iOS\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "HackWinds",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,

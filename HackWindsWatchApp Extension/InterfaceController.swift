@@ -19,8 +19,8 @@ class InterfaceController: WKInterfaceController {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Update the interface right away
         updateBuoyUI()
@@ -34,14 +34,14 @@ class InterfaceController: WKInterfaceController {
         
         // Fetch new data and update if successful
         updateManager.fetchBuoyUpdate { (Void) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.updateBuoyUI()
                 self.updateTimeUI()
             })
         }
         
         updateManager.fetchTideUpdate { (Void) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.updateTideUI()
                 self.updateTimeUI()
             })
@@ -61,17 +61,17 @@ class InterfaceController: WKInterfaceController {
     
     func updateTideUI() {
         if let tide = updateManager.nextTide {
-            self.nextTideStatusLabel.setText(tide.getTideEventSummary())
+            self.nextTideStatusLabel.setText(tide.getEventSummary())
         }
     
     }
     
     func updateTimeUI() {
         if let lastUpdateTime = updateManager.latestRefreshTime() {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-            self.lastUpdatedTimeLabel.setText("Updated \(dateFormatter.stringFromDate(lastUpdateTime))")
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = DateFormatter.Style.short
+            dateFormatter.dateStyle = DateFormatter.Style.short
+            self.lastUpdatedTimeLabel.setText("Updated \(dateFormatter.string(from: lastUpdateTime as Date))")
         }
     }
 

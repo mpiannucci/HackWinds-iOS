@@ -32,15 +32,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
         fetchUpdates()
         
-        completionHandler(.NewData)
+        completionHandler(.newData)
     }
     
-    @IBAction func updateDataClicked(sender: AnyObject) {
+    @IBAction func updateDataClicked(_ sender: AnyObject) {
         // Force an update
         updateManager.resetUpdateTimes()
         fetchUpdates()
@@ -48,14 +48,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func fetchUpdates() {
         updateManager.fetchBuoyUpdate { (Void) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.updateBuoyUI()
                 self.updateTimeUI()
             })
         }
         
         updateManager.fetchTideUpdate { (Void) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.updateTideUI()
                 self.updateTimeUI()
             })
@@ -71,18 +71,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func updateTideUI() {
         if let tide = updateManager.nextTide {
-            self.nextTideLabel.text = tide.getTideEventSummary()
+            self.nextTideLabel.text = tide.getEventSummary()
         }
     }
     
     func updateTimeUI() {
         if let location = updateManager.buoyLocation as? String {
             if let updateTime = updateManager.latestRefreshTime() {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeStyle = DateFormatter.Style.short
+                dateFormatter.dateStyle = DateFormatter.Style.short
                 
-                self.lastUpdatedButton.setTitle("\(location): Updated \(dateFormatter.stringFromDate(updateTime))", forState: UIControlState.Normal)
+                self.lastUpdatedButton.setTitle("\(location): Updated \(dateFormatter.string(from: updateTime as Date))", for: UIControlState())
             }
         }
     }
