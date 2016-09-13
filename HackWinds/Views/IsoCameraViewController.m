@@ -62,6 +62,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     // Don't cache anything so we can reload a bunch
     AsyncImageLoader *imageLoaderInstance = [AsyncImageLoader sharedLoader];
     imageLoaderInstance.cache = nil;
@@ -93,6 +95,8 @@
     if (!self.streamPlayer.fullscreen) {
         [self videoPlayBackDidFinish:nil];
     }
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
