@@ -50,12 +50,6 @@
     // Let the user know if anything went wrong
     if (networkStatus == NotReachable) {
         NSLog(@"No internet connection");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-                                                        message:@"You can't check waves with no internet!!\n\nMake sure you are connected to the internet and re-launch the app."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
         return YES;
     }       
 
@@ -104,7 +98,7 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
-    NSString *code = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *code = [[url host] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     if ([code isEqualToString:@"surfing"]) {
         NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
         [defaults setBool:YES forKey:@"ShowPremiumContent"];
