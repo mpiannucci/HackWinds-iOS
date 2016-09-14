@@ -31,18 +31,18 @@ class TodayViewController: NSViewController, NCWidgetProviding {
         self.updateTideUI()
         
         updateManager.fetchBuoyUpdate { (Void) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.updateBuoyUI()
             })
         }
         
         updateManager.fetchTideUpdate { (Void) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.updateTideUI()
             })
         }
         
-        completionHandler(.NewData)
+        completionHandler(.newData)
     }
     
     func updateBuoyUI() {
@@ -57,7 +57,7 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     
     func updateTideUI () {
         if let tide = self.updateManager.nextTide {
-            self.nextTideLabel.stringValue = tide.getTideEventSummary()
+            self.nextTideLabel.stringValue = tide.getEventSummary()
         }
     }
 
