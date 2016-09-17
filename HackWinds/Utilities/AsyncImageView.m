@@ -487,16 +487,17 @@ NSString *const AsyncImageErrorKey = @"error";
                                                                          success:success
                                                                          failure:failure];
     BOOL added = NO;
-    for (NSUInteger i = 0, count = self.connections.count; i < count; i++)
-    {
-        AsyncImageConnection *existingConnection = self.connections[i];
-        if (!existingConnection.loading)
-        {
-            [self.connections insertObject:connection atIndex:i];
-            added = YES;
-            break;
-        }
-    }
+    // Not sure why this doesnt work right but for now just get rid of
+//    for (NSUInteger i = 0, count = self.connections.count; i < count; i++)
+//    {
+//        AsyncImageConnection *existingConnection = self.connections[i];
+//        if (!existingConnection.loading)
+//        {
+//            [self.connections insertObject:connection atIndex:i];
+//            added = YES;
+//            break;
+//        }
+//    }
     if (!added)
     {
         [self.connections addObject:connection];
