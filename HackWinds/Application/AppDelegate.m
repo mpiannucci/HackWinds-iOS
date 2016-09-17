@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 #import "Reachability.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
@@ -26,14 +27,15 @@
     [[UITabBar appearance] setTintColor:HACKWINDS_BLUE_COLOR];
     
     // We register ourselves to be notified when the movie player enters or exits full screen
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(willEnterFullScreen:)
-//                                                 name:MPMoviePlayerWillEnterFullscreenNotification
-//                                               object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(willExitFullScreen:)
-//                                                 name:MPMoviePlayerWillExitFullscreenNotification
-//                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willEnterFullScreen:)
+                                                 name:MPMoviePlayerWillEnterFullscreenNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willExitFullScreen:)
+                                                 name:MPMoviePlayerWillExitFullscreenNotification
+                                               object:nil];
+
     // Check for network connectivity. If theres no network, show a dialog.
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
@@ -110,32 +112,32 @@
     return YES;
 }
 
-@end
-
 #pragma mark - Allowing the movie players to rotate in fullscreen
 
 // These next three methods are hacks to make the landscpae orientation work when playing full screen
 // video.
 // Handles the media player requesting full screen
-//- (void)willEnterFullScreen:(NSNotification *)notification
-//{
-//    _isFullScreen = YES;
-//}
-//
-//// Handles the media player leaving full screen.
-//- (void)willExitFullScreen:(NSNotification *)notification
-//{
-//    _isFullScreen = NO;
-//}
-//
-//// Sets the supported orientation based on whether or not the controller is full screen
-//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-//{
-//    if (_isFullScreen) {
-//        // Its full screen, so all rotation
-//        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-//    } else {
-//        // Its not full screen so dont allow it to rotate
-//        return UIInterfaceOrientationMaskPortrait;
-//    }
-//}
+- (void)willEnterFullScreen:(NSNotification *)notification
+{
+    _isFullScreen = YES;
+}
+
+// Handles the media player leaving full screen.
+- (void)willExitFullScreen:(NSNotification *)notification
+{
+    _isFullScreen = NO;
+}
+
+// Sets the supported orientation based on whether or not the controller is full screen
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    if (_isFullScreen) {
+        // Its full screen, so all rotation
+        return UIInterfaceOrientationMaskAllButUpsideDown;;
+    } else {
+        // Its not full screen so dont allow it to rotate
+        return UIInterfaceOrientationMaskPortrait;
+    }
+}
+
+@end

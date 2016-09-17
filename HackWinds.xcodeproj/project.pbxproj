@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		340AFA211A9C320700DAD121 /* UISettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340AFA201A9C320700DAD121 /* UISettings.plist */; };
 		340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */; };
+		3424FBB21D8D935100BD8EBC /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3424FBB11D8D935100BD8EBC /* AVKit.framework */; };
 		342A76221985E18100077F8C /* TideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* TideViewController.m */; };
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
 		3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430838919795D0F00655F15 /* Foundation.framework */; };
@@ -313,6 +314,7 @@
 		340AFA201A9C320700DAD121 /* UISettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UISettings.plist; sourceTree = "<group>"; };
 		340B5C991B938CB400E7203C /* NavigationBarTitleWithSubtitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarTitleWithSubtitleView.h; sourceTree = "<group>"; };
 		340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarTitleWithSubtitleView.m; sourceTree = "<group>"; };
+		3424FBB11D8D935100BD8EBC /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
 		342A76231985E38600077F8C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -450,6 +452,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3424FBB21D8D935100BD8EBC /* AVKit.framework in Frameworks */,
 				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
 				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
 				349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */,
@@ -644,6 +647,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3424FBB11D8D935100BD8EBC /* AVKit.framework */,
 				3438ACD11CA4414F00963234 /* Charts.framework */,
 				34AA86571A41357300AD09CF /* SystemConfiguration.framework */,
 				349679E619E63DE90043A21B /* Accelerate.framework */,
