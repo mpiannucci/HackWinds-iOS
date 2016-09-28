@@ -136,6 +136,7 @@
         return UIInterfaceOrientationMaskAllButUpsideDown;;
     } else {
         // Its not full screen so dont allow it to rotate
+        [UIApplication sharedApplication].statusBarHidden = NO;
         return UIInterfaceOrientationMaskPortrait;
     }
 }
