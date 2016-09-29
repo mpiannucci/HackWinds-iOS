@@ -9,21 +9,16 @@
 #import "BuoyDataContainer.h"
 #import "BuoyModel.h"
 
-// Global constant
-const int BUOY_DATA_POINTS = 20;
-
 // Local constants
-static NSString * const BASE_DATA_URL = @"http://www.ndbc.noaa.gov/data/realtime2/%@%@";
-static NSString * const BASE_SPECTRA_PLOT_URL = @"http://www.ndbc.noaa.gov/spec_plot.php?station=%@";
-static NSString * const BASE_LATEST_DATA_URL = @"http://www.ndbc.noaa.gov/data/latest_obs/%@.txt";
-static NSString * const BUOY_DETAIL_SUFFIX = @".spec";
+static NSString * const BASE_WAVE_DATA_URL = @"https://buoyfinder.appspot.com/api/latest/wave/charts/%@";
+static NSString * const BASE_LATEST_DATA_URL = @"https://buoyfinder.appspot.com/api/latest/%@";
 
 @implementation BuoyDataContainer
 
 -(id)init {
     self = [super init];
     
-    self.buoyData = [NSMutableArray arrayWithCapacity:BUOY_DATA_POINTS];
+    self.buoyData = nil;
     
     // Default the update interval to 50 minutes
     self.updateInterval = 50;
@@ -31,16 +26,16 @@ static NSString * const BUOY_DETAIL_SUFFIX = @".spec";
     return self;
 }
 
-- (NSURL*) createDetailedWaveDataURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:BASE_DATA_URL, self.buoyID, BUOY_DETAIL_SUFFIX]];
+- (NSURL*) getLatestWaveDataURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_WAVE_DATA_URL, self.buoyID]];
 }
 
-- (NSURL*) createLatestReportOnlyURL {
+- (NSURL*) getLatestSummaryURL {
     return [NSURL URLWithString:[NSString stringWithFormat:BASE_LATEST_DATA_URL, self.buoyID]];
 }
 
-- (NSURL*) createSpectraPlotURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:BASE_SPECTRA_PLOT_URL, self.buoyID]];
+- (void) resetData {
+    self.buoyData = nil;
 }
 
 @end

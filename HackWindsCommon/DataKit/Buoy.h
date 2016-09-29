@@ -7,40 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Swell.h"
+
 
 @interface Buoy : NSObject
 
 // Define data for the buoy data model
 @property (strong, nonatomic) NSDate *timestamp;
 
-// Wave Heights
-@property (strong, nonatomic) NSNumber *significantWaveHeight;
-@property (strong, nonatomic) NSNumber *swellWaveHeight;
-@property (strong, nonatomic) NSNumber *windWaveHeight;
+// Wave Data
+@property (strong, nonatomic) Swell *waveSummary;
+@property (strong, nonatomic) NSMutableArray *swellComponents;
 
-// Period
-@property (strong, nonatomic) NSNumber *dominantPeriod;
-@property (strong, nonatomic) NSNumber *swellPeriod;
-@property (strong, nonatomic) NSNumber *windWavePeriod;
-
-// Steepness
-@property (strong, nonatomic) NSString *steepness;
-
-// Direction
-@property (strong, nonatomic) NSString *meanDirection;
-@property (strong, nonatomic) NSString *swellDirection;
-@property (strong, nonatomic) NSString *windWaveDirection;
-
+// Meteorological data
 @property (strong, nonatomic) NSNumber *waterTemperature;
+
+// Charts
+@property (strong, nonatomic) NSString* directionalWaveSpectraBase64;
+@property (strong, nonatomic) NSString* waveEnergySpectraBase64;
 
 - (NSString *) timeString;
 - (NSString *) dateString;
-- (void) interpolateDominantPeriod;
-- (void) interpolateDominantPeriodWithSteepness;
-- (void) interpolateMeanDirection;
 - (NSString*) getWaveSummaryStatusText;
-- (NSString*) getDominantSwellText;
-- (NSString*) getSecondarySwellText;
 - (NSString*) getSimpleSwellText;
 - (NSString*) getWaveHeightText;
 

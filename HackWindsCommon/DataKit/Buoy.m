@@ -20,17 +20,11 @@
 {
     if (self = [super init]) {
         self.timestamp = [aDecoder decodeObjectForKey:@"time"];
-        self.significantWaveHeight = [aDecoder decodeObjectForKey:@"significantWaveHeight"];
-        self.swellWaveHeight = [aDecoder decodeObjectForKey:@"swellWaveHeight"];
-        self.windWaveHeight = [aDecoder decodeObjectForKey:@"windWaveHeight"];
-        self.dominantPeriod = [aDecoder decodeObjectForKey:@"dominantPeriod"];
-        self.swellPeriod = [aDecoder decodeObjectForKey:@"swellPeriod"];
-        self.windWavePeriod = [aDecoder decodeObjectForKey:@"windWavePeriod"];
-        self.steepness = [aDecoder decodeObjectForKey:@"steepness"];
-        self.meanDirection = [aDecoder decodeObjectForKey:@"meanDirection"];
-        self.swellDirection = [aDecoder decodeObjectForKey:@"swellDirection"];
-        self.windWaveDirection = [aDecoder decodeObjectForKey:@"windWaveDirection"];
+        self.waveSummary = [aDecoder decodeObjectForKey:@"waveSummary"];
+        self.swellComponents = [aDecoder decodeObjectForKey:@"swellComponents"];
         self.waterTemperature = [aDecoder decodeObjectForKey:@"waterTemperature"];
+        self.directionalWaveSpectraBase64 = [aDecoder decodeObjectForKey:@"directionalWaveSpectraBase64"];
+        self.waveEnergySpectraBase64 = [aDecoder decodeObjectForKey:@"waveEnergySpectraBase64"];
     }
     return self;
 }
@@ -38,17 +32,11 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.timestamp forKey:@"time"];
-    [aCoder encodeObject:self.significantWaveHeight forKey:@"significantWaveHeight"];
-    [aCoder encodeObject:self.swellWaveHeight forKey:@"swellWaveHeight"];
-    [aCoder encodeObject:self.windWaveHeight forKey:@"windWaveHeight"];
-    [aCoder encodeObject:self.dominantPeriod forKey:@"dominantPeriod"];
-    [aCoder encodeObject:self.swellPeriod forKey:@"swellPeriod"];
-    [aCoder encodeObject:self.windWavePeriod forKey:@"windWavePeriod"];
-    [aCoder encodeObject:self.steepness forKey:@"steepness"];
-    [aCoder encodeObject:self.meanDirection forKey:@"meanDirection"];
-    [aCoder encodeObject:self.swellDirection forKey:@"swellDirection"];
-    [aCoder encodeObject:self.windWaveDirection forKey:@"windWaveDirection"];
+    [aCoder encodeObject:self.waveSummary forKey:@"waveSummary"];
+    [aCoder encodeObject:self.swellComponents forKey:@"swellComponents"];
     [aCoder encodeObject:self.waterTemperature forKey:@"waterTemperature"];
+    [aCoder encodeObject:self.directionalWaveSpectraBase64 forKey:@"directionalWaveSpectraBase64"];
+    [aCoder encodeObject:self.waveEnergySpectraBase64 forKey:@"waveEnergySpectraBase64"];
 }
 
 - (NSString *) timeString {
@@ -65,98 +53,16 @@
     return [formatter stringFromDate:self.timestamp];
 }
 
-- (void) interpolateDominantPeriod {
-    if (self.swellDirection == nil && self.windWaveDirection == nil) {
-        return;
-    }
-    
-    if (self.swellDirection == nil) {
-        self.dominantPeriod = self.windWavePeriod;
-        return;
-    }
-    
-    if (self.windWaveDirection == nil) {
-        self.dominantPeriod = self.swellPeriod;
-        return;
-    }
-    
-    if ([self.swellDirection isEqualToString:self.meanDirection]) {
-        self.dominantPeriod = self.swellPeriod;
-    } else {
-        self.dominantPeriod = self.windWavePeriod;
-    }
-}
-
-- (void) interpolateDominantPeriodWithSteepness {
-    if (self.steepness == nil) {
-        return;
-    }
-    
-    if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
-        self.dominantPeriod = self.swellPeriod;
-    } else {
-        self.dominantPeriod = self.windWavePeriod;
-    }
-}
-
-- (void) interpolateMeanDirection {
-    if (self.swellDirection == nil && self.windWaveDirection == nil) {
-        return;
-    } else if (self.dominantPeriod == nil) {
-        return;
-    }
-    
-    if (self.swellPeriod == nil) {
-        self.meanDirection = self.windWaveDirection;
-        return;
-    }
-    
-    if (self.windWavePeriod == nil) {
-        self.meanDirection = self.swellDirection;
-        return;
-    }
-    
-    double period = [self.dominantPeriod doubleValue];
-    double swellPeriod = [self.swellPeriod doubleValue];
-    double windPeriod = [self.windWavePeriod doubleValue];
-    
-    if (fabs(period - windPeriod) > fabs(period - swellPeriod)) {
-        self.meanDirection = self.swellDirection;
-    } else {
-        self.meanDirection = self.windWaveDirection;
-    }
-}
-
 - (NSString*) getWaveSummaryStatusText {
-    return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.significantWaveHeight.doubleValue, self.dominantPeriod.doubleValue, self.meanDirection];
-}
-
-- (NSString*) getDominantSwellText {
-    if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
-        return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.swellWaveHeight.doubleValue, self.swellPeriod.doubleValue, self.swellDirection];
-    } else {
-        return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.windWaveHeight.doubleValue, self.windWavePeriod.doubleValue, self.windWaveDirection];
-    }
-}
-
-- (NSString*) getSecondarySwellText {
-    if ([self.steepness isEqualToString:@"SWELL"] || [self.steepness isEqualToString:@"AVERAGE"]) {
-        return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.windWaveHeight.doubleValue, self.windWavePeriod.doubleValue, self.windWaveDirection];
-    } else {
-        if (self.swellPeriod.intValue < 1) {
-            return @"";
-        } else {
-            return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.swellWaveHeight.doubleValue, self.swellPeriod.doubleValue, self.swellDirection];
-        }
-    }
+    return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.doubleValue, self.waveSummary.compassDirection];
 }
 
 - (NSString*) getSimpleSwellText {
-    return [NSString stringWithFormat:@"%.1f ft @ %d s %@", self.significantWaveHeight.doubleValue, self.dominantPeriod.intValue, self.meanDirection];
+    return [NSString stringWithFormat:@"%.1f ft @ %d s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.intValue, self.waveSummary.compassDirection];
 }
 
 - (NSString*) getWaveHeightText {
-    return [NSString stringWithFormat:@"%.1f ft", self.significantWaveHeight.doubleValue];
+    return [NSString stringWithFormat:@"%.1f ft", self.waveSummary.waveHeight.doubleValue];
 }
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {

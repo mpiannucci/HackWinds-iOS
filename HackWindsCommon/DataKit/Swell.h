@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString *compassDirection;
 
 - (NSString *) getSwellSummmary;
+- (NSString *) getDetailedSwellSummmary;
 
 @end

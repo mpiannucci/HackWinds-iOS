@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Buoy.h"
 
-extern const int BUOY_DATA_POINTS;
 
 @interface BuoyDataContainer : NSObject
 
 @property (strong, nonatomic) NSString *buoyID;
-@property (strong, nonatomic) NSMutableArray *buoyData;
+@property (strong, nonatomic) Buoy *buoyData;
 @property NSInteger updateInterval;
 
-- (NSURL*) createDetailedWaveDataURL;
-- (NSURL*) createLatestReportOnlyURL;
-- (NSURL*) createSpectraPlotURL;
+- (NSURL*) getLatestWaveDataURL;
+- (NSURL*) getLatestSummaryURL;
+- (void) resetData;
 
 @end

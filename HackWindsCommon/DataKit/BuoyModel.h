@@ -30,13 +30,13 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 
 - (int) getTimeOffset;
 - (void) resetData;
-- (NSMutableArray*) getBuoyData;
-- (NSURL*) getSpectraPlotURL;
+- (Buoy*) getBuoyData;
 - (void) changeBuoyLocation;
 - (void) forceChangeLocation:(NSString*)location;
 - (void) checkForUpdate;
 - (void) fetchBuoyData;
-- (void) fetchLatestBuoyReadingForLocation:(NSString*)location withCompletionHandler:(void(^)(Buoy*))completionHandler;
+- (void) fetchLatestSummaryData;
+- (void) fetchLatestBuoyDataForLocation:(NSString*)location withCompletionHandler:(void(^)(Buoy*))completionHandler;
 
 + (instancetype) sharedModel;
 
