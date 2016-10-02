@@ -77,16 +77,16 @@
 }
 
 - (void)updateUI {
-    NSMutableArray *buoys = [[BuoyModel sharedModel] getBuoyData];
+    Buoy *buoyData = [[BuoyModel sharedModel] getBuoyData];
     
-    if (buoys.count < 1) {
+    if (buoyData.swellComponents.count < 1) {
         lastFetchFailure = YES;
         return;
     }
     
     // Save the latest buoy reading and the spectra plot url
-    self.latestBuoy = [buoys objectAtIndex:0];
-    self.waveSpectraURL = [[BuoyModel sharedModel] getSpectraPlotURL];
+    self.latestBuoy = buoyData;
+    //self.waveSpectraURL = [[BuoyModel sharedModel] getSpectraPlotURL];
     
     // The fetch succeeded!
     lastFetchFailure = NO;
@@ -190,8 +190,8 @@
         UILabel *lastUpdatedLabel = (UILabel*)[cell viewWithTag:44];
         
         currentBuoyStatusLabel.text = [self.latestBuoy getWaveSummaryStatusText];
-        currentDominantSpectraLabel.text = [self.latestBuoy getDominantSwellText];
-        currentSecondarySpectraLabel.text = [self.latestBuoy getSecondarySwellText];
+        currentDominantSpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:0] getDetailedSwellSummmary];
+        currentSecondarySpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:1] getDetailedSwellSummmary];
         
         lastUpdatedLabel.text = [NSString stringWithFormat:@"Buoy reported at %@ %@", [self.latestBuoy timeString], [self.latestBuoy dateString]];
         

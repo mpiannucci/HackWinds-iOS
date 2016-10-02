@@ -34,7 +34,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 // Private methods
 - (void) initBuoyContainers;
 - (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler;
-- (BOOL) parseBuoyData:(NSData*)rawBuoyData;
+- (Buoy*) parseBuoyData:(NSData*)rawBuoyData;
 - (double) getFootConvertedFromMetric:(double)metricValue;
 
 // Private members
@@ -206,9 +206,11 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         }
         
         [self fetchRawBuoyDataFromURL:[currentContainer getLatestWaveDataURL] withCompletionHandler:^(NSData *data) {
-            BOOL parsedBuoys = [self parseBuoyData:data];
+            Buoy* buoyData = [self parseBuoyData:data];
             
-            if (parsedBuoys) {
+            if (buoyData != nil) {
+                currentContainer.buoyData = buoyData;
+                
                 // Tell everything you have buoy data
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
@@ -236,9 +238,11 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         }
         
         [self fetchRawBuoyDataFromURL:[currentContainer getLatestSummaryURL] withCompletionHandler:^(NSData *data) {
-            BOOL parsedBuoys = [self parseBuoyData:data];
+            Buoy *buoyData = [self parseBuoyData:data];
             
-            if (parsedBuoys) {
+            if (buoyData != nil) {
+                currentContainer.buoyData = buoyData;
+                
                 // Tell everything you have buoy data
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
@@ -252,22 +256,20 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 }
 
 - (void) fetchLatestBuoyDataForLocation:(NSString *)location withCompletionHandler:(void (^)(Buoy *))completionHandler {
-    NSString *originalLocation = [self.defaults objectForKey:@"BuoyLocation"];
-    [self forceChangeLocation:location];
+    @synchronized (self) {
     
-    [self fetchRawBuoyDataFromURL:[currentContainer getLatestSummaryURL] withCompletionHandler:^(NSData *rawData) {
-        BOOL parsed = [self parseBuoyData:rawData];
+        [self fetchRawBuoyDataFromURL:[[self.buoyDataContainers objectForKey:location] getLatestSummaryURL] withCompletionHandler:^(NSData *rawData) {
+            Buoy* buoyData = [self parseBuoyData:rawData];
         
-        // Pass the buoy down to the completion handler
-        if (parsed) {
-         completionHandler(currentContainer.buoyData);
-        }
-    }];
-    
-    [self forceChangeLocation:originalLocation];
+            // Pass the buoy down to the completion handler
+            if (buoyData != nil) {
+                completionHandler(buoyData);
+            }
+        }];
+    }
 }
 
-- (BOOL) parseBuoyData:(NSData*)rawBuoyData {
+- (Buoy*) parseBuoyData:(NSData*)rawBuoyData {
     // Parse the data
     NSError *error;
     NSDictionary *rawData = [NSJSONSerialization
@@ -277,15 +279,15 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     
     // If there's no data, return nothing
     if (rawData == nil) {
-        return NO;
+        return nil;
     } else if (error != nil) {
-        return NO;
+        return nil;
     }
     
     // Get the raw buoy data json object
     NSDictionary *buoyDataDict = [rawData objectForKey:@"BuoyData"];
     if (buoyDataDict == nil) {
-        return NO;
+        return nil;
     }
     
     // Create a fresh buoy data object
@@ -293,19 +295,46 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     
     // Get and save the timestamp from the buoyreading
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE MMMM dd, yyyy HHZ"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
     buoy.timestamp = [dateFormatter dateFromString:[buoyDataDict objectForKey:@"Date"]];
     
     // Get the wave summary
     Swell *waveSummary = [[Swell alloc] init];
+    NSString *units = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"Units"];
+    waveSummary.waveHeight = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"WaveHeight"];
+    if ([units isEqualToString:@"metric"]) {
+        waveSummary.waveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:waveSummary.waveHeight.doubleValue]];
+    }
+    waveSummary.period = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"Period"];
+    waveSummary.direction = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"Direction"];
+    waveSummary.compassDirection = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"CompassDirection"];
+    buoy.waveSummary = waveSummary;
     
     // Get the swell components
+    NSMutableArray *swellComponents = [[NSMutableArray alloc] init];
+    NSArray *rawComponents = [buoyDataDict objectForKey:@"SwellComponents"];
+    for (NSDictionary* swellDict in rawComponents) {
+        Swell *swellComponent = [[Swell alloc] init];
+        swellComponent.waveHeight = [swellDict objectForKey:@"WaveHeight"];
+        if ([units isEqualToString:@"metric"]) {
+            swellComponent.waveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:swellComponent.waveHeight.doubleValue]];
+        }
+        swellComponent.period = [swellDict objectForKey:@"Period"];
+        swellComponent.direction = [swellDict objectForKey:@"Direction"];
+        swellComponent.compassDirection = [swellDict objectForKey:@"CompassDirection"];
+        
+        [swellComponents addObject:swellComponent];
+    }
+    buoy.swellComponents = swellComponents;
     
     // Get the water temperature
+    buoy.waterTemperature = [buoyDataDict  objectForKey:@"WaterTemperature"];
     
     // Get the raw charts
+    buoy.directionalWaveSpectraBase64 = [buoyDataDict objectForKey:@"DirectionalSpectraPlot"];
+    buoy.waveEnergySpectraBase64 = [buoyDataDict objectForKey:@"SpectraDistributionPlot"];
     
-    return NO;
+    return buoy;
 }
 
 - (double) getFootConvertedFromMetric:(double)metricValue {

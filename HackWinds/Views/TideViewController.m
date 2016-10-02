@@ -91,7 +91,7 @@
 - (void) loadBuoyData {
     // Load the buoy data for the defualt location so we can get the water temp
     buoyLocation = NEWPORT_LOCATION;
-    [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
+    [self.buoyModel fetchLatestBuoyDataForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
         currentBuoy = buoy;
         if (currentBuoy == nil) {
             [self loadDefaultLocationBuoyData];
@@ -113,7 +113,7 @@
     [defaults synchronize];
     
     buoyLocation = [defaults objectForKey:@"DefaultBuoyLocation"];
-    [self.buoyModel fetchLatestBuoyReadingForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
+    [self.buoyModel fetchLatestBuoyDataForLocation:buoyLocation withCompletionHandler:^(Buoy *buoy) {
         currentBuoy = buoy;
         
         dispatch_async(dispatch_get_main_queue(), ^{

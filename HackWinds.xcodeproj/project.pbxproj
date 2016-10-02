@@ -63,7 +63,6 @@
 		349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; };
 		349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		349264541C3D52E3000D3FEF /* HackWindsDataKitOSX.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3495C95519E7773100C8F4D7 /* BuoyHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495C95419E7773100C8F4D7 /* BuoyHistoryViewController.m */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
 		349D42471C384C69006F7B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D42461C384C69006F7B24 /* AppDelegate.swift */; };
@@ -372,8 +371,6 @@
 		349076611C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076711C24AA8800EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3495C95319E7773100C8F4D7 /* BuoyHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyHistoryViewController.h; sourceTree = "<group>"; };
-		3495C95419E7773100C8F4D7 /* BuoyHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyHistoryViewController.m; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D42441C384C69006F7B24 /* HackWindsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -545,8 +542,6 @@
 				34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */,
 				3479E1301C510659009B8C22 /* BuoyViewController.h */,
 				3479E1311C510659009B8C22 /* BuoyViewController.m */,
-				3495C95319E7773100C8F4D7 /* BuoyHistoryViewController.h */,
-				3495C95419E7773100C8F4D7 /* BuoyHistoryViewController.m */,
 				343083A119795D0F00655F15 /* CurrentViewController.h */,
 				343083A219795D0F00655F15 /* CurrentViewController.m */,
 				34C8E7201ACA43EB0038E895 /* DetailedForecastViewController.h */,
@@ -1387,7 +1382,6 @@
 				34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */,
 				34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */,
 				34AA865E1A41382F00AD09CF /* Reachability.m in Sources */,
-				3495C95519E7773100C8F4D7 /* BuoyHistoryViewController.m in Sources */,
 				343083A619795D0F00655F15 /* ForecastViewController.m in Sources */,
 				340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */,
 				342A76221985E18100077F8C /* TideViewController.m in Sources */,
