@@ -23,8 +23,8 @@
 @property (strong, nonatomic) NSNumber *waterTemperature;
 
 // Charts
-@property (strong, nonatomic) NSString* directionalWaveSpectraBase64;
-@property (strong, nonatomic) NSString* waveEnergySpectraBase64;
+@property (strong, nonatomic) NSData* directionalWaveSpectraBase64;
+@property (strong, nonatomic) NSData* waveEnergySpectraBase64;
 
 - (NSString *) timeString;
 - (NSString *) dateString;

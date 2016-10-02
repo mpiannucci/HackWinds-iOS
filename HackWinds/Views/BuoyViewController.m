@@ -24,6 +24,7 @@
 @implementation BuoyViewController {
     NSString *buoyLocation;
     BOOL lastFetchFailure;
+    double screenWidth;
 }
 
 - (void) viewDidLoad {
@@ -37,6 +38,10 @@
     
     // Load the buoy settings
     [self loadBuoySettings];
+    
+    // Save the screen width for later
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    screenWidth = screenRect.size.width;
     
     // Initialize the failure flag to NO
     lastFetchFailure = NO;
@@ -86,7 +91,6 @@
     
     // Save the latest buoy reading and the spectra plot url
     self.latestBuoy = buoyData;
-    //self.waveSpectraURL = [[BuoyModel sharedModel] getSpectraPlotURL];
     
     // The fetch succeeded!
     lastFetchFailure = NO;
@@ -160,6 +164,17 @@
 
 #pragma mark - TableView
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        return screenWidth;
+    } else if (indexPath.section == 2) {
+        return screenWidth * 2 / 3;
+    }else {
+        return 176.0;
+    }
+}
+
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
@@ -195,9 +210,19 @@
         
         lastUpdatedLabel.text = [NSString stringWithFormat:@"Buoy reported at %@ %@", [self.latestBuoy timeString], [self.latestBuoy dateString]];
         
-    } else if ([cell.reuseIdentifier isEqualToString:@"waveSpectraCell"]) {
-        AsyncImageView *spectraPlotImage = (AsyncImageView*)[cell viewWithTag:51];
-        [spectraPlotImage setImageURL:self.waveSpectraURL];
+    } else if ([cell.reuseIdentifier isEqualToString:@"directionalSpectraCell"]) {
+        UIImageView *directionalSpectraPlotImageView = (UIImageView*)[cell viewWithTag:51];
+        if (self.latestBuoy.directionalWaveSpectraBase64 != nil) {
+            UIImage* plotImage = [UIImage imageWithData:self.latestBuoy.directionalWaveSpectraBase64];
+            [directionalSpectraPlotImageView setImage:plotImage];
+            
+        }
+    } else if ([cell.reuseIdentifier isEqualToString:@"energyDistributionCell"]) {
+        UIImageView *energySpectraPlotImageView = (UIImageView*)[cell viewWithTag:51];
+        if (self.latestBuoy.waveEnergySpectraBase64 != nil) {
+            UIImage* plotImage = [UIImage imageWithData:self.latestBuoy.waveEnergySpectraBase64];
+            [energySpectraPlotImageView setImage:plotImage];
+        }
     }
     
     return cell;

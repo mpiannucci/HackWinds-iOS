@@ -20,8 +20,8 @@ static NSString * const BASE_LATEST_DATA_URL = @"https://buoyfinder.appspot.com/
     
     self.buoyData = nil;
     
-    // Default the update interval to 50 minutes
-    self.updateInterval = 50;
+    // Default the update interval to 60 minutes
+    self.updateInterval = 60;
     
     return self;
 }

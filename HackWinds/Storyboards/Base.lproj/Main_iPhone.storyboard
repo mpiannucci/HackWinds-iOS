@@ -1063,18 +1063,18 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Wave Spectra" id="wlb-Xk-NDs">
+                            <tableViewSection headerTitle="Directional Wave Spectra" id="wlb-Xk-NDs">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="waveSpectraCell" rowHeight="300" id="N0v-NB-DxJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="directionalSpectraCell" rowHeight="300" id="N0v-NB-DxJ">
                                         <rect key="frame" x="0.0" y="296" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N0v-NB-DxJ" id="XSp-KN-mPK">
-                                            <frame key="frameInset" width="375" height="299.5"/>
+                                            <frame key="frameInset" width="375" height="299"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57E-73-bkD" customClass="AsyncImageView">
+                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57E-73-bkD">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="57E-73-bkD" secondAttribute="height" multiplier="4:3" id="TbY-a9-pig"/>
+                                                        <constraint firstAttribute="width" secondItem="57E-73-bkD" secondAttribute="height" multiplier="3:3" id="TbY-a9-pig"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -1082,6 +1082,30 @@
                                                 <constraint firstItem="57E-73-bkD" firstAttribute="top" secondItem="XSp-KN-mPK" secondAttribute="top" id="4SC-nZ-Da5"/>
                                                 <constraint firstAttribute="trailing" secondItem="57E-73-bkD" secondAttribute="trailing" id="8Ca-wY-uQw"/>
                                                 <constraint firstItem="57E-73-bkD" firstAttribute="leading" secondItem="XSp-KN-mPK" secondAttribute="leading" id="c5U-0e-QDR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Wave Energy Distribution" id="H5Q-Wz-f6E">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="energyDistributionCell" rowHeight="300" id="5vb-SD-8Xf">
+                                        <rect key="frame" x="0.0" y="624" width="375" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5vb-SD-8Xf" id="9SM-lR-mkP">
+                                            <frame key="frameInset" width="375" height="299"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3b-Fa-NgT">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="c3b-Fa-NgT" secondAttribute="height" multiplier="3:2" id="23q-UW-N1y"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="c3b-Fa-NgT" firstAttribute="top" secondItem="9SM-lR-mkP" secondAttribute="top" id="C4e-J7-w6P"/>
+                                                <constraint firstAttribute="trailing" secondItem="c3b-Fa-NgT" secondAttribute="trailing" id="Q18-fZ-1NB"/>
+                                                <constraint firstItem="c3b-Fa-NgT" firstAttribute="leading" secondItem="9SM-lR-mkP" secondAttribute="leading" id="u1h-cm-c4F"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

@@ -92,6 +92,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     // Block Island
     BuoyDataContainer *biContainer = [[BuoyDataContainer alloc] init];
     biContainer.buoyID = BI_BUOY_ID;
+    biContainer.updateInterval = 30;
     [self.buoyDataContainers setValue:biContainer forKey:BLOCK_ISLAND_LOCATION];
     
     // Montauk
@@ -143,11 +144,11 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         return;
     }
     
-    if (currentContainer.buoyData.timestamp == nil) {
+    if (currentContainer.fetchTimestamp == nil) {
         return;
     }
     
-    NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:currentContainer.buoyData.timestamp];
+    NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:currentContainer.fetchTimestamp];
     NSInteger minuteDiff = rawTimeDiff / 60;
     
     if (minuteDiff > currentContainer.updateInterval) {
@@ -210,6 +211,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             
             if (buoyData != nil) {
                 currentContainer.buoyData = buoyData;
+                currentContainer.fetchTimestamp = [NSDate date];
                 
                 // Tell everything you have buoy data
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -242,6 +244,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             
             if (buoyData != nil) {
                 currentContainer.buoyData = buoyData;
+                currentContainer.fetchTimestamp = [NSDate date];
                 
                 // Tell everything you have buoy data
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -331,9 +334,16 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     buoy.waterTemperature = [buoyDataDict  objectForKey:@"WaterTemperature"];
     
     // Get the raw charts
-    buoy.directionalWaveSpectraBase64 = [buoyDataDict objectForKey:@"DirectionalSpectraPlot"];
-    buoy.waveEnergySpectraBase64 = [buoyDataDict objectForKey:@"SpectraDistributionPlot"];
+    NSString *rawDirectionalSpectraPlot = [rawData objectForKey:@"DirectionalSpectraPlot"];
+    if (rawDirectionalSpectraPlot != nil) {
+        buoy.directionalWaveSpectraBase64 = [[NSData alloc] initWithBase64EncodedString:rawDirectionalSpectraPlot options:0];
+    }
     
+    NSString *rawEnergySpectraPlot = [rawData objectForKey:@"SpectraDistributionPlot"];
+    if (rawDirectionalSpectraPlot != nil) {
+        buoy.waveEnergySpectraBase64 = [[NSData alloc] initWithBase64EncodedString:rawEnergySpectraPlot options:0];
+    }
+
     return buoy;
 }
 
