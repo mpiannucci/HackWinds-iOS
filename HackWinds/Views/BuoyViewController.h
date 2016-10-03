@@ -12,6 +12,7 @@
 
 - (void)loadBuoySettings;
 - (void)locationButtonClicked:(id)sender;
+- (void)fetchNewBuoyData;
 - (void)updateUI;
 - (void)buoyUpdateFailed;
 

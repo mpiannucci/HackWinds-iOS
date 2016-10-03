@@ -41,6 +41,14 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     // Load the buoy settings
     [self loadBuoySettings];
     
+    // Set up the pull to refresh controller
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = HACKWINDS_BLUE_COLOR;
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(fetchNewBuoyData)
+                  forControlEvents:UIControlEventValueChanged];
+    
     // Save the screen width for later
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     screenWidth = screenRect.size.width;
@@ -82,6 +90,10 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     
     [super viewDidDisappear:animated];
 }
+     
+- (void)fetchNewBuoyData {
+    [[BuoyModel sharedModel] refreshBuoyData];
+}
 
 - (void)updateUI {
     Buoy *buoyData = [[BuoyModel sharedModel] getBuoyData];
@@ -97,11 +109,19 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     // The fetch succeeded!
     lastFetchFailure = NO;
     
+    if (self.refreshControl.refreshing) {
+        [self.refreshControl endRefreshing];
+    }
+    
     [self.tableView reloadData];
 }
 
 - (void)buoyUpdateFailed {
     lastFetchFailure = YES;
+    
+    if (self.refreshControl.refreshing) {
+        [self.refreshControl endRefreshing];
+    }
     
     [self.tableView reloadData];
 }
