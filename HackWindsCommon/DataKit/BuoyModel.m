@@ -155,7 +155,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     NSTimeInterval rawFetchTimeDiff = [[NSDate date] timeIntervalSinceDate:currentContainer.fetchTimestamp];
     NSInteger fetchMinuteDiff = rawFetchTimeDiff / 60;
     
-    if (fetchMinuteDiff > (currentContainer.updateInterval - lastMinuteDiff - currentContainer.updateTimeOffset)) {
+    if (fetchMinuteDiff > (currentContainer.updateInterval - (lastMinuteDiff - currentContainer.updateTimeOffset))) {
         [self resetData];
     }
 }
