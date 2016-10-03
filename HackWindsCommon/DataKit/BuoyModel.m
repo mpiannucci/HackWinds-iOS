@@ -93,6 +93,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     BuoyDataContainer *biContainer = [[BuoyDataContainer alloc] init];
     biContainer.buoyID = BI_BUOY_ID;
     biContainer.updateInterval = 30;
+    biContainer.updateTimeOffset = 20;
     [self.buoyDataContainers setValue:biContainer forKey:BLOCK_ISLAND_LOCATION];
     
     // Montauk
@@ -148,10 +149,13 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         return;
     }
     
-    NSTimeInterval rawTimeDiff = [[NSDate date] timeIntervalSinceDate:currentContainer.fetchTimestamp];
-    NSInteger minuteDiff = rawTimeDiff / 60;
+    NSTimeInterval rawLastTimeDiff = [currentContainer.buoyData.timestamp timeIntervalSinceDate:currentContainer.fetchTimestamp];
+    NSInteger lastMinuteDiff = rawLastTimeDiff / 60;
     
-    if (minuteDiff > currentContainer.updateInterval) {
+    NSTimeInterval rawFetchTimeDiff = [[NSDate date] timeIntervalSinceDate:currentContainer.fetchTimestamp];
+    NSInteger fetchMinuteDiff = rawFetchTimeDiff / 60;
+    
+    if (fetchMinuteDiff > (currentContainer.updateInterval - lastMinuteDiff - currentContainer.updateTimeOffset)) {
         [self resetData];
     }
 }

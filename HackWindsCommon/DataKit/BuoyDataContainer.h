@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *buoyID;
 @property (strong, nonatomic) Buoy *buoyData;
 @property NSInteger updateInterval;
+@property NSInteger updateTimeOffset;
 @property NSDate *fetchTimestamp;
 
 - (NSURL*) getLatestWaveDataURL;
