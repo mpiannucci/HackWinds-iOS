@@ -43,8 +43,8 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     
     // Set up the pull to refresh controller
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = HACKWINDS_BLUE_COLOR;
-    self.refreshControl.tintColor = [UIColor whiteColor];
+    self.refreshControl.backgroundColor = [UIColor whiteColor];
+    self.refreshControl.tintColor = HACKWINDS_BLUE_COLOR;
     [self.refreshControl addTarget:self
                             action:@selector(fetchNewBuoyData)
                   forControlEvents:UIControlEventValueChanged];
