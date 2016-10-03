@@ -1111,6 +1111,30 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Wave Height Estimation" id="euT-RG-Idc">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="waveHeightEstimationCell" rowHeight="300" id="KKx-BT-zqJ">
+                                        <rect key="frame" x="0.0" y="952" width="375" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KKx-BT-zqJ" id="gok-er-4wf">
+                                            <frame key="frameInset" width="375" height="299"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nx8-AJ-Xub" customClass="AsyncImageView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="nx8-AJ-Xub" secondAttribute="height" multiplier="5:2" id="XxA-DW-uNI"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nx8-AJ-Xub" firstAttribute="leading" secondItem="gok-er-4wf" secondAttribute="leading" id="FYi-Ny-Mga"/>
+                                                <constraint firstItem="nx8-AJ-Xub" firstAttribute="top" secondItem="gok-er-4wf" secondAttribute="top" id="JG0-6v-ox0"/>
+                                                <constraint firstAttribute="trailing" secondItem="nx8-AJ-Xub" secondAttribute="trailing" id="gN5-Rc-roJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="E3v-rR-duZ" id="RrX-91-d0U"/>
