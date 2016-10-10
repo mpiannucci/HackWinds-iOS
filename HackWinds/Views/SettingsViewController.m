@@ -53,28 +53,23 @@
     UIAlertController *locationActionSheet = [UIAlertController alertControllerWithTitle:@"Default Buoy Location"
                                                                           message:@"Choose the buoy location to show by default"
                                                                           preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *biLocationAction = [UIAlertAction actionWithTitle:@"Block Island"
+    
+    for (NSString* location in [[BuoyModel sharedModel] getBuoyLocations]) {
+        if ([location isEqualToString:@"Newport"]) {
+            continue;
+        }
+        
+        UIAlertAction *locationAction = [UIAlertAction actionWithTitle:location
                                                                style:UIAlertActionStyleDefault
                                                              handler:^(UIAlertAction * _Nonnull action) {
                                                                  [self changeDefaultBuoyLocationSetting:action.title];
                                                              }];
-    UIAlertAction *mtkLocationAction = [UIAlertAction actionWithTitle:@"Montauk"
-                                                               style:UIAlertActionStyleDefault
-                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                 [self changeDefaultBuoyLocationSetting:action.title];
-                                                             }];
-    UIAlertAction *nantucketLocationAction = [UIAlertAction actionWithTitle:@"Nantucket"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction * _Nonnull action) {
-                                                                  [self changeDefaultBuoyLocationSetting:action.title];
-                                                              }];
+        [locationActionSheet addAction:locationAction];
+        
+    }
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                            style:UIAlertActionStyleCancel
                                                          handler:nil];
-    // Add the actions
-    [locationActionSheet addAction:biLocationAction];
-    [locationActionSheet addAction:mtkLocationAction];
-    [locationActionSheet addAction:nantucketLocationAction];
     [locationActionSheet addAction:cancelAction];
     
     // Show the action sheet

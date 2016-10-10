@@ -15,9 +15,7 @@ NSString * const BLOCK_ISLAND_LOCATION = @"Block Island";
 NSString * const MONTAUK_LOCATION = @"Montauk";
 NSString * const NANTUCKET_LOCATION =  @"Nantucket";
 NSString * const NEWPORT_LOCATION = @"Newport";
-NSString * const SUMMARY_DATA_MODE = @"Summary";
-NSString * const SWELL_DATA_MODE = @"Swell";
-NSString * const WIND_DATA_MODE = @"Wind Wave";
+NSString * const TEXAS_TOWER_LOCATION = @"Texas Tower";
 NSString * const BUOY_DATA_UPDATED_TAG = @"BuoyModelDidUpdateDataNotification";
 NSString * const BUOY_LOCATION_CHANGED_TAG = @"BuoyLocationChangedNotification";
 NSString * const DEFAULT_BUOY_LOCATION_CHANGED_TAG = @"DefaultBuoyLocationChangedNotification";
@@ -27,6 +25,7 @@ NSString * const BUOY_UPDATE_FAILED_TAG = @"BuoyModelUpdatedFailedNotification";
 static NSString * const BI_BUOY_ID = @"44097";
 static NSString * const MTK_BUOY_ID = @"44017";
 static NSString * const ACK_BUOY_ID = @"44008";
+static NSString * const TT_BUOY_ID = @"44066";
 static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 
 @interface BuoyModel ()
@@ -105,10 +104,19 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     BuoyDataContainer *newportContainer = [[BuoyDataContainer alloc] init];
     newportContainer.buoyID = NEWPORT_BUOY_ID;
     [self.buoyDataContainers setValue:newportContainer forKey:NEWPORT_LOCATION];
+    
+    // Texas Tower
+    BuoyDataContainer *texasTowerContainer = [[BuoyDataContainer alloc] init];
+    texasTowerContainer.buoyID = TT_BUOY_ID;
+    [self.buoyDataContainers setValue:texasTowerContainer forKey:TEXAS_TOWER_LOCATION];
 }
 
 - (void) resetData {
     [currentContainer resetData];
+}
+
+- (NSArray*) getBuoyLocations {
+    return self.buoyDataContainers.allKeys;
 }
 
 - (Buoy *) getBuoyData {

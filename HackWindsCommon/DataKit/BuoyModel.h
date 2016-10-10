@@ -14,6 +14,7 @@ extern NSString * const BLOCK_ISLAND_LOCATION;
 extern NSString * const MONTAUK_LOCATION;
 extern NSString * const NANTUCKET_LOCATION;
 extern NSString * const NEWPORT_LOCATION;
+extern NSString * const TEXAS_TOWER_LOCATION;
 
 // Data Mode Constants
 extern NSString * const SUMMARY_DATA_MODE;
@@ -28,8 +29,8 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 
 @interface BuoyModel : NSObject
 
-- (int) getTimeOffset;
 - (void) resetData;
+- (NSArray*) getBuoyLocations;
 - (Buoy*) getBuoyData;
 - (void) changeBuoyLocation;
 - (void) forceChangeLocation:(NSString*)location;

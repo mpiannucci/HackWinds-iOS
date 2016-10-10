@@ -144,29 +144,21 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     UIAlertController *locationSheetController = [UIAlertController alertControllerWithTitle:@"Choose Buoy Location"
                                                                                     message:@""
                                                                              preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *biAction = [UIAlertAction actionWithTitle:@"Block Island"
+    for (NSString* location in [[BuoyModel sharedModel] getBuoyLocations]) {
+        if ([location isEqualToString:@"Newport"]) {
+            continue;
+        }
+        
+        UIAlertAction *locAction = [UIAlertAction actionWithTitle:location
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                          [self changeBuoyLocation:action.title];
                                                      }];
-    UIAlertAction *mtkAction = [UIAlertAction actionWithTitle:@"Montauk"
-                                                        style:UIAlertActionStyleDefault
-                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                          [self changeBuoyLocation:action.title];
-                                                      }];
-    UIAlertAction *nantucketAction = [UIAlertAction actionWithTitle:@"Nantucket"
-                                                              style:UIAlertActionStyleDefault
-                                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                                [self changeBuoyLocation:action.title];
-                                                            }];
+        [locationSheetController addAction:locAction];
+    }
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                            style:UIAlertActionStyleCancel
                                                          handler:nil];
-    
-    // Show the actions
-    [locationSheetController addAction:biAction];
-    [locationSheetController addAction:mtkAction];
-    [locationSheetController addAction:nantucketAction];
     [locationSheetController addAction:cancelAction];
     
     // Show the action sheet
@@ -181,6 +173,7 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     [defaults synchronize];
     [self loadBuoySettings];
     
+    // Show the refresh!
     [self.refreshControl beginRefreshing];
     [self.tableView setContentOffset:CGPointMake(0, -128.0) animated:YES];
     
