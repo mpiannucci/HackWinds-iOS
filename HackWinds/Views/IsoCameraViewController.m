@@ -79,12 +79,6 @@
     // Set the navigation title
     self.navigationItem.title = self.cameraName;
     
-    // Allow rotating for web videos
-    if (![[camera.webURL absoluteString] isEqualToString:@""]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:MPMoviePlayerWillEnterFullscreenNotification
-                                                            object:nil];
-    }
-    
     // Load the first image
     [self loadCamImage];
 }
@@ -96,12 +90,6 @@
     
     // Remove notification observer
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    // Get rid of the full screen allowance we set for web views 
-    if (![[camera.webURL absoluteString] isEqualToString:@""]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:MPMoviePlayerWillExitFullscreenNotification
-                                                            object:nil];
-    }
     
     // If the user leaves the view clean up the video stuff
     if (!self.streamPlayer.fullscreen) {
