@@ -10,7 +10,7 @@
 #import <Charts/Charts.h>
 #import "Buoy.h"
 
-@interface TideViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ChartViewDelegate>
+@interface TideViewController : UITableViewController <ChartViewDelegate>
 
 - (void) setupTideChart;
 - (void) reloadData;

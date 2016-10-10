@@ -13,9 +13,7 @@
 
 @interface TideViewController ()
 
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet LineChartView *tideChartView;
+@property (weak, nonatomic) LineChartView *tideChartView;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) TideModel *tideModel;
@@ -39,8 +37,10 @@
     [self.navigationBarTitle setTitleText:@"HackWinds"];
     [self.navigationBarTitle setDetailText:@"Location: Point Judith Harbor"];
     
+    self.tableView.delegate = self;
+    
     // Setup the chart view
-    [self setupTideChart];
+    //[self setupTideChart];
     
     // Grab the models
     self.tideModel = [TideModel sharedModel];
@@ -126,7 +126,7 @@
 
 - (void) reloadData {
     [self.tableView reloadData];
-    [self loadTideChartData];
+    //[self loadTideChartData];
 }
 
 #pragma mark - Chart View
@@ -333,7 +333,7 @@
 #pragma mark - Table View
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
