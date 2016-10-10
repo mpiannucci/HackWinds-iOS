@@ -37,8 +37,6 @@
     [self.navigationBarTitle setTitleText:@"HackWinds"];
     [self.navigationBarTitle setDetailText:@"Location: Point Judith Harbor"];
     
-    self.tableView.delegate = self;
-    
     // Setup the chart view
     //[self setupTideChart];
     
@@ -356,6 +354,10 @@
         default:
             return nil;
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 90.0;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
