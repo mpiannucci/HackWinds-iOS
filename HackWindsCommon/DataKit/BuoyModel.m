@@ -45,8 +45,8 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 
 @implementation BuoyModel
 {
-    int timeOffset;
     BuoyDataContainer *currentContainer;
+    BOOL fetching;
 }
 
 + (instancetype) sharedModel {
@@ -65,10 +65,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     
     [self initBuoyContainers];
     
-    // Check if daylight savings is in effect. Make sure the time scaling is for EST (GMT-5)
-    NSTimeZone* eastnTZ = [NSTimeZone timeZoneWithName:@"EST5EDT"];
-    int daylightoff = [eastnTZ daylightSavingTimeOffset]/3600;
-    timeOffset = -5 + daylightoff;
+    fetching = NO;
     
     // Grab the latest user defaults
     self.defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
@@ -110,10 +107,6 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     [self.buoyDataContainers setValue:newportContainer forKey:NEWPORT_LOCATION];
 }
 
-- (int) getTimeOffset {
-    return timeOffset;
-}
-
 - (void) resetData {
     [currentContainer resetData];
 }
@@ -153,6 +146,10 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     if (fetchMinuteDiff > currentContainer.updateInterval) {
         [self resetData];
     }
+}
+
+- (BOOL) isFetching {
+    return fetching;
 }
 
 - (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler {
@@ -210,8 +207,12 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             return;
         }
         
+        fetching = YES;
+        
         [self fetchRawBuoyDataFromURL:[currentContainer getLatestWaveDataURL] withCompletionHandler:^(NSData *data) {
             Buoy* buoyData = [self parseBuoyData:data];
+            
+            fetching = NO;
             
             if (buoyData != nil) {
                 currentContainer.buoyData = buoyData;
@@ -243,8 +244,12 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
             return;
         }
         
+        fetching = YES;
+        
         [self fetchRawBuoyDataFromURL:[currentContainer getLatestSummaryURL] withCompletionHandler:^(NSData *data) {
             Buoy *buoyData = [self parseBuoyData:data];
+            
+            fetching = NO;
             
             if (buoyData != nil) {
                 currentContainer.buoyData = buoyData;

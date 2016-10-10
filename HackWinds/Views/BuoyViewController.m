@@ -67,6 +67,11 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     
     [self updateUI];
     
+    if ([[BuoyModel sharedModel] isFetching]) {
+        [self.refreshControl beginRefreshing];
+        [self.tableView setContentOffset:CGPointMake(0, -128.0) animated:YES];
+    }
+    
     // Register the notification center listener for when the buoy data is updated
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUI)
@@ -109,7 +114,7 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     // The fetch succeeded!
     lastFetchFailure = NO;
     
-    if (self.refreshControl.refreshing) {
+    if ([self.refreshControl isRefreshing]) {
         [self.refreshControl endRefreshing];
     }
     
@@ -119,7 +124,7 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
 - (void)buoyUpdateFailed {
     lastFetchFailure = YES;
     
-    if (self.refreshControl.refreshing) {
+    if (self.refreshControl.isRefreshing) {
         [self.refreshControl endRefreshing];
     }
     
@@ -175,6 +180,9 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
     [defaults setObject:newLocation forKey:@"BuoyLocation"];
     [defaults synchronize];
     [self loadBuoySettings];
+    
+    [self.refreshControl beginRefreshing];
+    [self.tableView setContentOffset:CGPointMake(0, -128.0) animated:YES];
     
     // Tell everyone the data has updated
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -233,7 +241,9 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
         currentDominantSpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:0] getDetailedSwellSummmary];
         currentSecondarySpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:1] getDetailedSwellSummmary];
         
-        lastUpdatedLabel.text = [NSString stringWithFormat:@"Buoy reported at %@ %@", [self.latestBuoy timeString], [self.latestBuoy dateString]];
+        if (self.latestBuoy.timestamp != nil) {
+            lastUpdatedLabel.text = [NSString stringWithFormat:@"Buoy reported at %@ %@", [self.latestBuoy timeString], [self.latestBuoy dateString]];
+        }
         
     } else if ([cell.reuseIdentifier isEqualToString:@"directionalSpectraCell"]) {
         UIImageView *directionalSpectraPlotImageView = (UIImageView*)[cell viewWithTag:51];
