@@ -1246,7 +1246,7 @@
                                     <frame key="frameInset" width="375" height="187"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwT-XP-Iek" customClass="LineChartView" customModule="Charts">
+                                        <view tag="78" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwT-XP-Iek" customClass="LineChartView" customModule="Charts">
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                     </subviews>
