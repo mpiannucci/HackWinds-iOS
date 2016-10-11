@@ -123,15 +123,12 @@
 }
 
 - (void) reloadData {
-    [self loadTideChartData];
     [self.tableView reloadData];
 }
 
 #pragma mark - Chart View
 
 - (void) setupTideChart {
-    self.tideChartView = [[LineChartView alloc] init];
-    
     // All the setup work for the chart
     self.tideChartView.delegate = self;
     [self.tideChartView setDrawBordersEnabled:NO];
@@ -377,9 +374,9 @@
     if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tidePlotItem"];
 
-        [[cell viewWithTag:78] removeFromSuperview];
-        self.tideChartView.tag = 78;
-        [cell addSubview:self.tideChartView];
+        self.tideChartView = (LineChartView*)[cell viewWithTag:78];
+        [self setupTideChart];
+        [self loadTideChartData];
         
     } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
