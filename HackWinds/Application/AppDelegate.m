@@ -20,6 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleDidChangeStatusBarOrientationNotification:)
+                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
+                                               object:nil];
     
     // Use these to set the color of the nav bar and tab bar
     [[UINavigationBar appearance] setBarTintColor:HACKWINDS_BLUE_COLOR];
@@ -88,7 +92,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
     
     NSString *code = [[url host] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     if ([code isEqualToString:@"surfing"]) {
@@ -100,6 +105,14 @@
     }
     
     return YES;
+}
+
+- (void)handleDidChangeStatusBarOrientationNotification:(NSNotification *)notification;
+{
+    
+    if ([[notification.userInfo objectForKey:UIApplicationStatusBarOrientationUserInfoKey] integerValue] != UIInterfaceOrientationPortrait) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    }
 }
 
 @end
