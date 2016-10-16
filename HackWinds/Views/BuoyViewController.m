@@ -17,7 +17,7 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
 
 - (void) changeBuoyLocation:(NSString*)newLocation;
 
-@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
+@property (strong, nonatomic) UIButton *navigationBarTitle;
 @property (strong, nonatomic) Buoy *latestBuoy;
 @property (strong, nonatomic) NSURL *waveSpectraURL;
 
@@ -31,11 +31,13 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    // Set up the custom nav bar with the buoy location
-    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
-    [self.navigationItem setTitleView: self.navigationBarTitle];
-    [self.navigationBarTitle setTitleText:@"HackWinds"];
-    [self.navigationBarTitle.detailButton addTarget:self action:@selector(locationButtonClicked:)  forControlEvents:UIControlEventTouchDown];
+    // Set the navbar
+    self.navigationBarTitle = [[UIButton alloc] initWithFrame:self.navigationItem.titleView.frame];
+    [self.navigationBarTitle.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [self.navigationBarTitle addTarget:self action:@selector(locationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationBarTitle setAutoresizesSubviews:YES];
+    [self.navigationBarTitle.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    self.navigationItem.titleView = self.navigationBarTitle;
     
     // Load the buoy settings
     [self loadBuoySettings];
@@ -132,7 +134,7 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
 
     // Grab the last set or default location
     buoyLocation = [defaults objectForKey:@"BuoyLocation"];
-    [self.navigationBarTitle setDetailText:[NSString stringWithFormat:@"Location: %@", buoyLocation]];
+    [self.navigationBarTitle setTitle:buoyLocation forState:UIControlStateNormal];
 }
 
 - (void)locationButtonClicked:(id)sender{

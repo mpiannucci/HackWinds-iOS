@@ -32,10 +32,7 @@
     // Do any additional setup after loading the view.
     
     // Set up the custom nav bar with the forecast location
-    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
-    [self.navigationItem setTitleView: self.navigationBarTitle];
-    [self.navigationBarTitle setTitleText:@"HackWinds"];
-    [self.navigationBarTitle setDetailText:@"Location: Point Judith Harbor"];
+    [self.navigationItem setTitle:@"Point Judith"];
     
     // Setup the chart view
     [self setupTideChart];

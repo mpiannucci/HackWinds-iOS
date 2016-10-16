@@ -31,12 +31,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view
     
-    // Set up the custom nav bar with the forecast location
-    self.navigationBarTitle = [[NavigationBarTitleWithSubtitleView alloc] init];
-    [self.navigationItem setTitleView: self.navigationBarTitle];
-    [self.navigationBarTitle setTitleText:@"HackWinds"];
-    [self.navigationBarTitle setDetailText:@"Location: Rhode Island"];
-    [self.navigationBarTitle.detailButton addTarget:self action:@selector(showModelInformationPopup) forControlEvents:UIControlEventTouchUpInside];
+    // Set the navbar
+    UIButton* titleButton = [[UIButton alloc] initWithFrame:self.navigationItem.titleView.frame];
+    [titleButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [titleButton setTitle:@"Rhode Island" forState:UIControlStateNormal];
+    [titleButton addTarget:self action:@selector(showModelInformationPopup) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = titleButton;
     
     // Get the shared forecast model
     self.forecastModel = [ForecastModel sharedModel];
