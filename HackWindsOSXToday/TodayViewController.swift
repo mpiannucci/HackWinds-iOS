@@ -11,6 +11,10 @@ import NotificationCenter
 
 class TodayViewController: NSViewController, NCWidgetProviding {
     
+    @IBOutlet weak var latestBuoyLabel: NSTextField!
+    @IBOutlet weak var buoyLocationLabel: NSTextField!
+    @IBOutlet weak var upcomingTideLabel: NSTextField!
+    
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
 
     override var nibName: String? {
@@ -44,17 +48,17 @@ class TodayViewController: NSViewController, NCWidgetProviding {
 
     func updateBuoyUI() {
         if let buoy = self.updateManager.latestBuoy {
-            //self.latestBuoyLabel.stringValue = buoy.getSimpleSwellText()
+            self.latestBuoyLabel.stringValue = buoy.getSimpleSwellText()
         }
         
         if let location = self.updateManager.buoyLocation {
-            //self.buoyLocationLabel.stringValue = location as String
+            self.buoyLocationLabel.stringValue = location as String
         }
     }
     
     func updateTideUI () {
         if let tide = self.updateManager.nextTide {
-            //self.nextTideLabel.stringValue = tide.getEventSummary()
+            self.upcomingTideLabel.stringValue = tide.getEventSummary()
         }
     }
 }

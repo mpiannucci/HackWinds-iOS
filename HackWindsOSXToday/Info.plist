@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>HackWindsOSXToday</string>
+	<string>HackWinds</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -36,7 +36,7 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).TodayViewController</string>
 		<key>com.apple.notificationcenter.widget.description</key>
-		<string>HackWindsOSXToday</string>
+		<string>HackWinds</string>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2016 Rhodysurf Development. All rights reserved.</string>
