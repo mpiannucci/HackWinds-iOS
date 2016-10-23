@@ -1,4 +1,0 @@
-/* Display name and description for this extension. */
-"CFBundleDisplayName" = "HackWinds";
-"com.apple.notificationcenter.widget.description" = "View the latest buoy and tide data right in the notification center";
-

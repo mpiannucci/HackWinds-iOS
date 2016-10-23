@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
+		<key>HackWindsOSXToday.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>HackWindsToday.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -87,6 +92,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>340A60351DBD07CF00108CB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3430838519795D0F00655F15</key>
 		<dict>
 			<key>primary</key>
