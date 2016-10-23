@@ -1153,6 +1153,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 39L46PD99U;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 					3430838519795D0F00655F15 = {
 						DevelopmentTeam = 39L46PD99U;

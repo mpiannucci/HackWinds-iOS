@@ -24,6 +24,19 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     override func viewDidLoad() {
         updateBuoyUI()
         updateTideUI()
+        
+        updateManager.fetchBuoyUpdate { (Void) -> Void in
+            DispatchQueue.main.async(execute: {
+                self.updateBuoyUI()
+            })
+        }
+        
+        updateManager.fetchTideUpdate { (Void) -> Void in
+            DispatchQueue.main.async(execute: {
+                self.updateTideUI()
+            })
+        }
+        
     }
 
     private func widgetPerformUpdate(completionHandler: ((NCUpdateResult) -> Void)) {
