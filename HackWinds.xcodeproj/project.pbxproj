@@ -32,7 +32,6 @@
 		3438ACD91CA45BFA00963234 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3438ACD11CA4414F00963234 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
-		34444D1D1C5304EC00FCDA6A /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34444D1C1C5304EC00FCDA6A /* GlanceController.swift */; };
 		34469F5E1C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34469F5F1C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34469F601C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -345,7 +344,6 @@
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
 		34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsoCameraViewController.m; sourceTree = "<group>"; };
-		34444D1C1C5304EC00FCDA6A /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		34444D1E1C5305B300FCDA6A /* HackWindsWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HackWindsWatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		34444D1F1C5305C800FCDA6A /* HackWindsToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsToday.entitlements; sourceTree = "<group>"; };
 		34469F5C1C779799000499CD /* Swell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Swell.h; path = HackWindsCommon/DataKit/Swell.h; sourceTree = "<group>"; };
@@ -726,7 +724,6 @@
 			isa = PBXGroup;
 			children = (
 				34444D1E1C5305B300FCDA6A /* HackWindsWatchApp Extension.entitlements */,
-				34444D1C1C5304EC00FCDA6A /* GlanceController.swift */,
 				349076341C24A7E500EAD0CE /* InterfaceController.swift */,
 				349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */,
 				34D3DF121D3BD05E003304E8 /* ComplicationController.swift */,
@@ -1422,7 +1419,6 @@
 				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
 				34D3DF211D3BD07E003304E8 /* ComplicationController.swift in Sources */,
 				34472BE21C5BFB5300984B4D /* WidgetUpdateManager.swift in Sources */,
-				34444D1D1C5304EC00FCDA6A /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1925,7 +1921,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -1954,7 +1950,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -1982,7 +1978,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -2010,7 +2006,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "HackWindsWatchApp Extension/HackWindsWatch-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -2348,6 +2344,7 @@
 				340A60481DBD07CF00108CB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3430838119795D0F00655F15 /* Build configuration list for PBXProject "HackWinds" */ = {
 			isa = XCConfigurationList;

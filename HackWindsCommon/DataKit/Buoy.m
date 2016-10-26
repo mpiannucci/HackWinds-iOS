@@ -65,6 +65,10 @@
     return [NSString stringWithFormat:@"%.1f ft", self.waveSummary.waveHeight.doubleValue];
 }
 
+- (NSString*) getWaveDirectionText {
+    return self.waveSummary.compassDirection;
+}
+
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {
     // Set the direction to its letter value on a compass
     int windIndex = (int)[degreeDirection doubleValue]/(360/[WIND_DIRS count]);

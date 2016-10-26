@@ -82,11 +82,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var buoyLocationText = "-------"
         var longTideText = "---- ----: --:-- --"
         var shortTideEventText = "----"
+        var waveDirectionText = "--"
         var tideTime  = Date()
         
         if let buoy = updateManager.latestBuoy {
             longBuoyText = buoy.getSimpleSwellText()
             waveHeightBuoyText = buoy.getWaveHeightText()
+            waveDirectionText = buoy.getWaveDirectionText()
         }
         
         if let buoyLocation = updateManager.buoyLocation {
@@ -133,6 +135,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let template = CLKComplicationTemplateCircularSmallStackText()
             template.line1TextProvider = CLKSimpleTextProvider(text: shortTideEventText)
             template.line2TextProvider = CLKTimeTextProvider(date: tideTime)
+            
+            let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+            handler(timelineEntry)
+        case .extraLarge:
+            let template = CLKComplicationTemplateExtraLargeStackText()
+            template.line1TextProvider = CLKSimpleTextProvider(text: longBuoyText, shortText: waveHeightBuoyText)
+            template.line2TextProvider = CLKSimpleTextProvider(text: waveDirectionText)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
@@ -187,6 +196,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             circularTemplate.line1TextProvider = CLKSimpleTextProvider(text: "---")
             circularTemplate.line2TextProvider = CLKTimeTextProvider(date: Date())
             handler(circularTemplate)
+        case .extraLarge:
+            let extraLargeTemplate = CLKComplicationTemplateExtraLargeStackText()
+            extraLargeTemplate.line1TextProvider = CLKSimpleTextProvider(text: "-- --")
+            extraLargeTemplate.line2TextProvider = CLKSimpleTextProvider(text: "--")
+            handler(extraLargeTemplate)
         default:
             return
         }

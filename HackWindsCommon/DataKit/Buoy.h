@@ -31,6 +31,7 @@
 - (NSString*) getWaveSummaryStatusText;
 - (NSString*) getSimpleSwellText;
 - (NSString*) getWaveHeightText;
+- (NSString*) getWaveDirectionText;
 
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;
 

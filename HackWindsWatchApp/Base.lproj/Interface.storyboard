@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -16,19 +16,19 @@
                             </items>
                         </group>
                         <label alignment="left" text="Latest Buoy Reading" minimumScaleFactor="0.10000000000000001" id="27i-HV-TkQ">
-                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" red="0.60271537303924561" green="0.60271537303924561" blue="0.60271537303924561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label alignment="left" text="-- ft @ -- s ---" minimumScaleFactor="0.29999999999999999" id="wrm-rV-8tP">
-                            <color key="textColor" red="0.39233858230000002" green="0.72109957849999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.32910969853401184" green="0.65568190813064575" blue="0.99872314929962158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label alignment="left" id="Ghx-CV-qgd">
-                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" red="0.60271537303924561" green="0.60271537303924561" blue="0.60271537303924561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label alignment="left" text="Upcoming Tide" minimumScaleFactor="0.29999999999999999" id="ggM-Ek-VQp">
-                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" red="0.60271537303924561" green="0.60271537303924561" blue="0.60271537303924561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label alignment="left" text="---- ----: --:-- --" minimumScaleFactor="0.10000000000000001" id="eQx-ni-5LX">
-                            <color key="textColor" red="0.39233858230000002" green="0.72109957849999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.32910969853401184" green="0.65568190813064575" blue="0.99872314929962158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label alignment="left" verticalAlignment="bottom" text="Last updated at --:--" minimumScaleFactor="0.10000000000000001" id="sMh-2p-aE5"/>
                     </items>
@@ -40,43 +40,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
-        </scene>
-        <!--Glance Interface Controller-->
-        <scene sceneID="rjY-Ar-IMT">
-            <objects>
-                <glanceController spacing="0.0" bottomTemplateType="body1LargeBody1Body1Body1Footer" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="HackWindsWatchApp" customModuleProvider="target">
-                    <items>
-                        <group alignment="left" id="lhM-SR-DLu">
-                            <items>
-                                <imageView width="1" height="1" alignment="left" image="CircleWatchLogo" contentMode="left" id="5yh-tH-KA6"/>
-                            </items>
-                        </group>
-                        <label alignment="left" text="Latest Buoy Reading" minimumScaleFactor="0.10000000000000001" id="In8-dm-WDP">
-                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                        </label>
-                        <label alignment="left" text="-- ft @ -- s ---" minimumScaleFactor="0.29999999999999999" id="i7I-xy-145">
-                            <color key="textColor" red="0.39233858231724106" green="0.72109957852758555" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                        </label>
-                        <label alignment="left" id="F8c-p2-8uv">
-                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                        </label>
-                        <label alignment="left" text="Upcoming Tide" minimumScaleFactor="0.29999999999999999" id="2pq-BA-9NJ">
-                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                        </label>
-                        <label alignment="left" text="---- ----: --:-- --" minimumScaleFactor="0.10000000000000001" id="Jxw-OU-8WO">
-                            <color key="textColor" red="0.39233858230000002" green="0.72109957849999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                        </label>
-                        <label alignment="left" text="Last updated at --:--" minimumScaleFactor="0.5" id="qDE-gy-Kem"/>
-                    </items>
-                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
-                    <connections>
-                        <outlet property="lastUpdatedTimeLabel" destination="qDE-gy-Kem" id="gyz-2X-5W8"/>
-                        <outlet property="latestBuoyReportLabel" destination="i7I-xy-145" id="Feh-kh-i1G"/>
-                        <outlet property="nextTideStatusLabel" destination="Jxw-OU-8WO" id="jGt-uF-ijx"/>
-                    </connections>
-                </glanceController>
-            </objects>
-            <point key="canvasLocation" x="164" y="514"/>
         </scene>
     </scenes>
 </document>
