@@ -11,8 +11,6 @@
 #import "AsyncImageView.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
-static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxusercontent.com/s/uplzpw44vva91a1/test.png";
-
 @interface BuoyViewController ()
 
 - (void) changeBuoyLocation:(NSString*)newLocation;
@@ -196,9 +194,6 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
         case 2:
             return screenWidth * 2 / 3;
             break;
-        case 3:
-            return screenWidth * 2 / 5;
-            break;
         default:
             return 176.0;
             break;
@@ -251,9 +246,6 @@ static NSString * const WAVE_HEIGHT_ESTIMATE_IMAGE_URL = @"https://dl.dropboxuse
             UIImage* plotImage = [UIImage imageWithData:self.latestBuoy.waveEnergySpectraBase64];
             [energySpectraPlotImageView setImage:plotImage];
         }
-    } else if ([cell.reuseIdentifier isEqualToString:@"waveHeightEstimationCell"]) {
-        AsyncImageView *waveHeightEstimateView = (AsyncImageView*)[cell viewWithTag:51];
-        [waveHeightEstimateView setImageURL:[NSURL URLWithString:WAVE_HEIGHT_ESTIMATE_IMAGE_URL]];
     }
     
     return cell;
