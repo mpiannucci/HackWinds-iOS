@@ -23,8 +23,6 @@
         self.waveSummary = [aDecoder decodeObjectForKey:@"waveSummary"];
         self.swellComponents = [aDecoder decodeObjectForKey:@"swellComponents"];
         self.waterTemperature = [aDecoder decodeObjectForKey:@"waterTemperature"];
-        self.directionalWaveSpectraBase64 = [aDecoder decodeObjectForKey:@"directionalWaveSpectraBase64"];
-        self.waveEnergySpectraBase64 = [aDecoder decodeObjectForKey:@"waveEnergySpectraBase64"];
     }
     return self;
 }
@@ -35,8 +33,6 @@
     [aCoder encodeObject:self.waveSummary forKey:@"waveSummary"];
     [aCoder encodeObject:self.swellComponents forKey:@"swellComponents"];
     [aCoder encodeObject:self.waterTemperature forKey:@"waterTemperature"];
-    [aCoder encodeObject:self.directionalWaveSpectraBase64 forKey:@"directionalWaveSpectraBase64"];
-    [aCoder encodeObject:self.waveEnergySpectraBase64 forKey:@"waveEnergySpectraBase64"];
 }
 
 - (NSString *) timeString {

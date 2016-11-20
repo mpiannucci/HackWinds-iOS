@@ -351,15 +351,8 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     buoy.waterTemperature = [buoyDataDict  objectForKey:@"WaterTemperature"];
     
     // Get the raw charts
-    NSString *rawDirectionalSpectraPlot = [rawData objectForKey:@"DirectionalSpectraPlot"];
-    if (rawDirectionalSpectraPlot != nil) {
-        buoy.directionalWaveSpectraBase64 = [[NSData alloc] initWithBase64EncodedString:rawDirectionalSpectraPlot options:0];
-    }
-    
-    NSString *rawEnergySpectraPlot = [rawData objectForKey:@"SpectraDistributionPlot"];
-    if (rawDirectionalSpectraPlot != nil) {
-        buoy.waveEnergySpectraBase64 = [[NSData alloc] initWithBase64EncodedString:rawEnergySpectraPlot options:0];
-    }
+    buoy.directionalWaveSpectraPlotURL = [rawData objectForKey:@"DirectionalSpectraPlot"];
+    buoy.waveEnergySpectraPlotURL = [rawData objectForKey:@"SpectraDistributionPlot"];
 
     return buoy;
 }

@@ -234,17 +234,14 @@
         }
         
     } else if ([cell.reuseIdentifier isEqualToString:@"directionalSpectraCell"]) {
-        UIImageView *directionalSpectraPlotImageView = (UIImageView*)[cell viewWithTag:51];
-        if (self.latestBuoy.directionalWaveSpectraBase64 != nil) {
-            UIImage* plotImage = [UIImage imageWithData:self.latestBuoy.directionalWaveSpectraBase64];
-            [directionalSpectraPlotImageView setImage:plotImage];
-            
+        AsyncImageView *directionalSpectraPlotImageView = (AsyncImageView*)[cell viewWithTag:51];
+        if (self.latestBuoy.directionalWaveSpectraPlotURL != nil) {
+            [directionalSpectraPlotImageView setImageURL:[NSURL URLWithString:self.latestBuoy.directionalWaveSpectraPlotURL]];
         }
     } else if ([cell.reuseIdentifier isEqualToString:@"energyDistributionCell"]) {
-        UIImageView *energySpectraPlotImageView = (UIImageView*)[cell viewWithTag:51];
-        if (self.latestBuoy.waveEnergySpectraBase64 != nil) {
-            UIImage* plotImage = [UIImage imageWithData:self.latestBuoy.waveEnergySpectraBase64];
-            [energySpectraPlotImageView setImage:plotImage];
+        AsyncImageView *energySpectraPlotImageView = (AsyncImageView*)[cell viewWithTag:51];
+        if (self.latestBuoy.waveEnergySpectraPlotURL != nil) {
+            [energySpectraPlotImageView setImageURL:[NSURL URLWithString:self.latestBuoy.waveEnergySpectraPlotURL]];
         }
     }
     
