@@ -22,7 +22,7 @@ static const int WW_HOUR_STEP = 3;
 @interface DetailedForecastViewController ()
 
 // UI Properties
-@property (weak, nonatomic) IBOutlet UITableView *mswTable;
+@property (weak, nonatomic) IBOutlet UITableView *forecastTable;
 @property (weak, nonatomic) IBOutlet UIImageView *chartImageView;
 @property (weak, nonatomic) IBOutlet UIProgressView *chartLoadProgressIndicator;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *chartTypeSegmentControl;
@@ -93,9 +93,9 @@ static const int WW_HOUR_STEP = 3;
 }
 
 - (void)getModelData {
-    // Load the MSW Data
+    // Load the forecast Data
     currentConditions = [self.forecastModel getForecastsForDay:(int)self.dayIndex];
-    [self.mswTable performSelectorOnMainThread:@selector(reloadData)
+    [self.forecastTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
     [self sendChartImageAnimationWithType:WAVE_HEIGHT_CHART forIndex:0];
 }
@@ -214,66 +214,33 @@ static const int WW_HOUR_STEP = 3;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be currentconditions.count rows + the header row
     if (currentConditions == nil) {
-        return 1;
+        return 0;
     }
     
-    return currentConditions.count + 1;
+    return currentConditions.count;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     // Get the interface items
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mswHourItem"];
-    UILabel *hourLabel = (UILabel *)[cell viewWithTag:11];
-    UILabel *waveLabel = (UILabel *)[cell viewWithTag:12];
-    UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
-    UILabel *swellLabel = (UILabel *)[cell viewWithTag:14];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailedForecastItem"];
+    UILabel *hourLabel = (UILabel *)[cell viewWithTag:91];
+    UILabel *conditionsLabel = (UILabel *)[cell viewWithTag:92];
+    UILabel *primarySwellLabel = (UILabel *)[cell viewWithTag:93];
+    UILabel *secondarySwellLabel = (UILabel *)[cell viewWithTag:94];
     
-    if ([indexPath row] < 1) {
-        // Set the heder text cuz its the first row
-        hourLabel.text = @"Time";
-        waveLabel.text = @"Surf";
-        windLabel.text = @"Wind";
-        swellLabel.text = @"Swell";
+    // Get the condition object
+    Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row];
         
-        // Set the header label to be hackwinds color blue
-        hourLabel.textColor = HACKWINDS_BLUE_COLOR;
-        waveLabel.textColor = HACKWINDS_BLUE_COLOR;
-        windLabel.textColor = HACKWINDS_BLUE_COLOR;
-        swellLabel.textColor = HACKWINDS_BLUE_COLOR;
-        
-        // Set the text to be bold
-        hourLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        waveLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        windLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        swellLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        
+    // Set the data to show in the labels
+    if (is24HourClock) {
+        hourLabel.text = [thisCondition timeToTwentyFourHourClock];
     } else {
-        // Get the condition object
-        Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
-        
-        // Set the data to show in the labels
-        if (is24HourClock) {
-            hourLabel.text = [thisCondition timeToTwentyFourHourClock];
-        } else {
-            hourLabel.text = [thisCondition timeStringNoZero];
-        }
-        waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
-        windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
-        swellLabel.text = [thisCondition.primarySwellComponent getSwellSummmary];
-        
-        // Make sure that the text is black
-        hourLabel.textColor = [UIColor blackColor];
-        waveLabel.textColor = [UIColor blackColor];
-        windLabel.textColor = [UIColor blackColor];
-        swellLabel.textColor = [UIColor blackColor];
-        
-        // Make sure the text isnt bold
-        hourLabel.font = [UIFont systemFontOfSize:17.0];
-        waveLabel.font = [UIFont systemFontOfSize:17.0];
-        windLabel.font = [UIFont systemFontOfSize:17.0];
-        swellLabel.font = [UIFont systemFontOfSize:17.0];
+        hourLabel.text = [thisCondition timeStringNoZero];
     }
+    conditionsLabel.text = [NSString stringWithFormat:@"%d - %d ft, Wind %@ %d mph", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue, thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
+    primarySwellLabel.text = [thisCondition.primarySwellComponent getDetailedSwellSummmary];
+    secondarySwellLabel.text = [thisCondition.secondarySwellComponent getDetailedSwellSummmary];
     
     return cell;
 }
