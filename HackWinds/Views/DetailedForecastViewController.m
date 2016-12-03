@@ -213,7 +213,7 @@ static const int WW_HOUR_STEP = 3;
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (showDetailedForecastInfo) {
-        return 85;
+        return 90;
     } else {
         return 45;
     }
