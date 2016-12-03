@@ -13,8 +13,8 @@
 
 - (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation;
 
-@property (weak, nonatomic) IBOutlet UIButton *activatePremiumContentButton;
 @property (weak, nonatomic) IBOutlet UIButton *changeDefaultBuoyButton;
+@property (weak, nonatomic) IBOutlet UISwitch *showDetailedForecastSwitch;
 
 @end
 
@@ -41,6 +41,9 @@
     
     // Get the locations and set the cell to reflect it
     [self.changeDefaultBuoyButton setTitle:[NSString stringWithFormat:@"Default Buoy Location: %@", [defaults objectForKey:@"DefaultBuoyLocation"]] forState:UIControlStateNormal];
+    
+    // Update the switch to match if detailed forecast info is enabled
+    [self.showDetailedForecastSwitch setOn:[defaults boolForKey:@"ShowDetailedForecastInfo"]];
     
 }
 
@@ -97,6 +100,12 @@
 
 - (IBAction)rateAppClicked:(id)sender {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id945847570"]];
+}
+
+- (IBAction)showDetailedForecastInfoChanged:(id)sender {
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    [defaults setBool:[sender isOn] forKey:@"ShowDetailedForecastInfo"];
+    [defaults synchronize];
 }
 
 - (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation {

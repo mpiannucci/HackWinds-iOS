@@ -18,5 +18,7 @@
 	<false/>
 	<key>ShowPremiumContent</key>
 	<false/>
+	<key>ShowDetailedForecastInfo</key>
+	<false/>
 </dict>
 </plist>
