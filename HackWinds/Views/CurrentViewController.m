@@ -21,7 +21,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 @property (weak, nonatomic) IBOutlet UIScrollView *camScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *camPaginator;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
-@property (weak, nonatomic) IBOutlet UITableView *mswTodayTable;
+@property (weak, nonatomic) IBOutlet UITableView *forecastTable;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *alternateCamerasBarButton;
 
@@ -138,13 +138,13 @@ static const int CAMERA_IMAGE_COUNT = 11;
         lastFetchFailure = NO;
     }
     
-    [self.mswTodayTable reloadData];
+    [self.forecastTable reloadData];
 }
 
 - (void) forecastUpdateFailed {
     lastFetchFailure = YES;
     
-    [self.mswTodayTable reloadData];
+    [self.forecastTable reloadData];
 }
 
 - (BOOL)check24HourClock {
@@ -287,7 +287,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 - (UITableViewCell *)tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     // Get the interface items
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mswHourItem"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"simpleForecastItem"];
     UILabel *hourLabel = (UILabel *)[cell viewWithTag:11];
     UILabel *waveLabel = (UILabel *)[cell viewWithTag:12];
     UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
