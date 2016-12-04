@@ -15,6 +15,7 @@ NSString * const FORECAST_DATA_UPDATE_FAILED_TAG = @"ForecastModelUpdateFailedNo
 
 // Data count constant
 const int FORECAST_DATA_POINT_COUNT = 60;
+const int FORECAST_CURRENT_DATA_OFFSET = 2;
 
 @interface ForecastModel ()
 
@@ -222,20 +223,13 @@ const int FORECAST_DATA_POINT_COUNT = 60;
     
     dayCount = 0;
     int forecastOffset = 0;
-    for (int i = 0; i < FORECAST_DATA_POINT_COUNT; i++) {
+    for (int i = FORECAST_CURRENT_DATA_OFFSET; i < FORECAST_DATA_POINT_COUNT; i++) {
         Forecast *newForecast = [[Forecast alloc] init];
         
         // Grab the raw data from the next item in the list
         NSDictionary *rawForecast = [rawForecastData objectAtIndex:i];
         newForecast.dateString = [rawForecast objectForKey:@"Date"];
         newForecast.timeString = [rawForecast objectForKey:@"Time"];
-        if ((i == 0) &&
-            ([newForecast.timeString isEqualToString:@"07 PM"] ||
-             [newForecast.timeString isEqualToString:@"08 PM"])) {
-            i += 1;
-            forecastOffset = 2;
-            continue;
-        }
         
         newForecast.minimumBreakingHeight = [rawForecast objectForKey:@"MinimumBreakingHeight"];
         newForecast.maximumBreakingHeight = [rawForecast objectForKey:@"MaximumBreakingHeight"];
@@ -266,10 +260,10 @@ const int FORECAST_DATA_POINT_COUNT = 60;
         
         if ([newForecast.timeString isEqualToString:@"01 AM"] ||
             [newForecast.timeString isEqualToString:@"02 AM"]) {
-            dayIndices[dayCount] = i - forecastOffset;
+            dayIndices[dayCount] = i - FORECAST_CURRENT_DATA_OFFSET - forecastOffset;
             dayCount++;
         } else if (self.forecasts.count == 0) {
-            dayIndices[dayCount] = i - forecastOffset;
+            dayIndices[dayCount] = i - FORECAST_CURRENT_DATA_OFFSET - forecastOffset;
             dayCount++;
         }
         
