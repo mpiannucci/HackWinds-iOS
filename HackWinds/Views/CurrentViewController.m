@@ -324,10 +324,10 @@ static const int CAMERA_IMAGE_COUNT = 11;
         }
         conditionsLabel.text = [NSString stringWithFormat:@"%d - %d ft, Wind %@ %d mph", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue, thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
         primarySwellLabel.text = [thisCondition.primarySwellComponent getDetailedSwellSummmary];
-        if (thisCondition.secondarySwellComponent.waveHeight.intValue < 1000) {
-            secondarySwellLabel.text = [thisCondition.secondarySwellComponent getDetailedSwellSummmary];
-        } else {
+        if ([thisCondition.secondarySwellComponent.compassDirection isEqualToString:@"NULL"]) {
             secondarySwellLabel.text = @"No Secondary Swell Component";
+        } else {
+            secondarySwellLabel.text = [thisCondition.secondarySwellComponent getDetailedSwellSummmary];
         }
     } else {
         // Get the interface items
