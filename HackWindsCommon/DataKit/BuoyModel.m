@@ -348,7 +348,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     buoy.swellComponents = swellComponents;
     
     // Get the water temperature
-    buoy.waterTemperature = [buoyDataDict  objectForKey:@"WaterTemperature"];
+    buoy.waterTemperature = [NSNumber numberWithDouble: [self getFahrenheitConvertedFromCelsius:[[buoyDataDict objectForKey:@"WaterTemperature"] doubleValue]]];
     
     // Get the raw charts
     buoy.directionalWaveSpectraPlotURL = [rawData objectForKey:@"DirectionalSpectraPlot"];
@@ -359,6 +359,10 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 
 - (double) getFootConvertedFromMetric:(double)metricValue {
     return metricValue * 3.28;
+}
+
+- (double) getFahrenheitConvertedFromCelsius:(double)celsiusValue {
+    return (celsiusValue * 1.8) + 32.0;
 }
 
 @end
