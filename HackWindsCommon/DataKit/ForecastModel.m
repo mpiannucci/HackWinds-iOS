@@ -312,6 +312,11 @@ const int FORECAST_CURRENT_DATA_OFFSET = 2;
                     summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:2] maximumBreakingHeight] intValue]) / 3];
                     summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:1] windSpeed];
                     summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:1] windCompassDirection];
+                } else if (dailyForecastData.count >= 2) {
+                    summary.afternoonMinimumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] minimumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:0] minimumBreakingHeight] intValue]) / 2];
+                    summary.afternoonMaximumBreakingHeight = [NSNumber numberWithInt:([[[dailyForecastData objectAtIndex:0] maximumBreakingHeight] intValue] + [[[dailyForecastData objectAtIndex:1] maximumBreakingHeight] intValue]) / 2];
+                    summary.afternoonWindSpeed = [[dailyForecastData objectAtIndex:0] windSpeed];
+                    summary.afternoonWindCompassDirection = [[dailyForecastData objectAtIndex:0] windCompassDirection];
                 }
             } else {
                 if (dailyForecastData.count >= 4) {
