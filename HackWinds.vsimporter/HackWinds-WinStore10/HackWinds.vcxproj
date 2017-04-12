@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>HackWinds</ProjectName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
+    <Keyword>IslandwoodProj</Keyword>
+    <ProjectGuid>{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}</ProjectGuid>
+    <RootNamespace>HackWinds</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <TargetName>HackWinds</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <TargetName>HackWinds</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <Optimize>true</Optimize>
+    <TargetName>HackWinds</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <Optimize>true</Optimize>
+    <TargetName>HackWinds</TargetName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared">
+    <Import Project="../HackWinds-Headers-WinStore10/HackWinds-Headers.vcxitems" Label="Shared" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <PackageCertificateKeyFile>HackWinds_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>D095ED4071F7A0D93085697ECF15F78E76342CCF</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClangCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir);\Applications\Xcode.app\Contents\Developer\Toolchains\XcodeDefault.xctoolchain\usr\include;..\..\..\core-plot\framework\**</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>Disabled</OptimizationLevel>
+      <PrefixHeader>..\..\HackWinds\Application\HackWinds-Prefix.pch</PrefixHeader>
+      <PreprocessorDefinitions>DEBUG=1</PreprocessorDefinitions>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClangCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir);\Applications\Xcode.app\Contents\Developer\Toolchains\XcodeDefault.xctoolchain\usr\include;..\..\..\core-plot\framework\**</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>Disabled</OptimizationLevel>
+      <PrefixHeader>..\..\HackWinds\Application\HackWinds-Prefix.pch</PrefixHeader>
+      <PreprocessorDefinitions>DEBUG=1</PreprocessorDefinitions>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);Charts.lib</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+    <ClangCompile>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir);\Applications\Xcode.app\Contents\Developer\Toolchains\XcodeDefault.xctoolchain\usr\include;..\..\..\core-plot\framework\**</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>MinSpace</OptimizationLevel>
+      <PrefixHeader>..\..\HackWinds\Application\HackWinds-Prefix.pch</PrefixHeader>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+    <ClangCompile>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir);\Applications\Xcode.app\Contents\Developer\Toolchains\XcodeDefault.xctoolchain\usr\include;..\..\..\core-plot\framework\**</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>MinSpace</OptimizationLevel>
+      <PrefixHeader>..\..\HackWinds\Application\HackWinds-Prefix.pch</PrefixHeader>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);Charts.lib</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Xml Include="default.rd.xml" />
+    <None Include="HackWinds_TemporaryKey.pfx" />
+    <None Include="project.json" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png" />
+    <Image Include="Assets\SplashScreen.scale-200.png" />
+    <Image Include="Assets\Square150x150Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Image Include="Assets\StoreLogo.png" />
+    <Image Include="Assets\Wide310x150Logo.scale-200.png" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClInclude>
+    <ClCompile Include="App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <AssetCatalogCompile Include="..\..\HackWinds\Resources\Images.xcassets" />
+    <ClInclude Include="..\..\HackWinds\Application\HackWinds-Prefix.pch" />
+    <ClangCompile Include="..\..\HackWinds\Application\AppDelegate.m" />
+    <ClangCompile Include="..\..\HackWinds\Application\main.m" />
+    <ClangCompile Include="..\..\HackWinds\Utilities\AsyncImageView.m" />
+    <ClangCompile Include="..\..\HackWinds\Utilities\NavigationBarTitleWithSubtitleView.m" />
+    <ClangCompile Include="..\..\HackWinds\Utilities\Reachability.m" />
+    <ClangCompile Include="..\..\HackWinds\Utilities\UIImage+Crop.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\AlternateCamerasViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\BuoyViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\CurrentViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\DetailedForecastViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\ForecastViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\IsoCameraViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\SettingsViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\TideScheduleViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\TideViewController.m" />
+    <ClangCompile Include="..\..\HackWinds\Views\WaveWatchChartViewController.m" />
+    <SBInfoPlistCopy Include="..\..\HackWinds\Application\HackWinds-Info.plist">
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release'">false</ExcludedFromBuild>
+      <VariableFile Condition="'$(Configuration)'=='Debug'">HackWinds-Debug-xcvars.txt</VariableFile>
+      <VariableFile Condition="'$(Configuration)'=='Release'">HackWinds-Release-xcvars.txt</VariableFile>
+    </SBInfoPlistCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Application\en.lproj\InfoPlist.strings">
+      <VariantDir>en.lproj</VariantDir>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Resources\UISettings.plist" />
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\Base.lproj" />
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\en.lproj\LaunchScreen.strings">
+      <VariantDir>en.lproj</VariantDir>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\en.lproj\Main_iPad.strings">
+      <VariantDir>en.lproj</VariantDir>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\en.lproj\Main_iPhone.strings">
+      <VariantDir>en.lproj</VariantDir>
+    </SBResourceCopy>
+    <StoryboardCompile Include="..\..\HackWinds\Storyboards\Base.lproj\Main_iPad.storyboard">
+      <VariantDir>Base.lproj</VariantDir>
+    </StoryboardCompile>
+    <StoryboardCompile Include="..\..\HackWinds\Storyboards\Base.lproj\Main_iPhone.storyboard">
+      <VariantDir>Base.lproj</VariantDir>
+    </StoryboardCompile>
+    <Text Include="HackWinds-Debug-xcvars.txt">
+      <DeploymentContent>false</DeploymentContent>
+    </Text>
+    <Text Include="HackWinds-Release-xcvars.txt">
+      <DeploymentContent>false</DeploymentContent>
+    </Text>
+    <XibCompile Include="..\..\HackWinds\Storyboards\Base.lproj\LaunchScreen.xib">
+      <VariantDir>Base.lproj</VariantDir>
+    </XibCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../HackWindsDataKit-WinStore10/HackWindsDataKit.vcxproj">
+      <Project>{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

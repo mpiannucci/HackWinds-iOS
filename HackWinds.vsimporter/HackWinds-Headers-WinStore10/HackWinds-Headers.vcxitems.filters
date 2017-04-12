@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="HackWinds">
+      <UniqueIdentifier>{9769C9E0-7DAE-4E55-A8E2-A04797B4CE9E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Application">
+      <UniqueIdentifier>{235429D1-D1BE-42CB-B4ED-4B71999EC73C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Utilities">
+      <UniqueIdentifier>{04C2535D-AC38-41DF-BE87-CB543D3945EC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Views">
+      <UniqueIdentifier>{B0740727-F5C5-4C66-A34F-2EB7CBEB5E57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsCommon">
+      <UniqueIdentifier>{A4BD9387-767D-4100-BD9E-B0F8B0542CE6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsCommon\DataKit">
+      <UniqueIdentifier>{2FC28D3C-9BBA-4128-9894-435584CB0947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsDataKit">
+      <UniqueIdentifier>{F91C2023-8E43-458D-BA3C-6A8C71D0A3C0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsDataKitOSX">
+      <UniqueIdentifier>{806EADA8-F1A8-453B-B3C2-75EF43A74F3C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsDataKitWatchOS">
+      <UniqueIdentifier>{E52D828A-237D-4CB3-9543-91327E66BFA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsOSXToday">
+      <UniqueIdentifier>{5A6E20E3-61B4-483F-90FF-8FA1C38273E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsToday">
+      <UniqueIdentifier>{8D280ADA-49C6-4F4A-96F3-7071C32E92E8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsWatchApp Extension">
+      <UniqueIdentifier>{641C5FFE-9C29-4B0C-8AD0-D5B4DF991E06}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Buoy.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\BuoyDataContainer.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\BuoyModel.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Camera.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\CameraModel.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Colors.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Constants.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Forecast.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\ForecastDailySummary.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\ForecastModel.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Swell.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Tide.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\TideModel.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\XMLReader.h">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsDataKitOSX\HackWindsDataKitOSX.h">
+      <Filter>HackWindsDataKitOSX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsDataKitWatchOS\HackWindsDataKitWatchOS.h">
+      <Filter>HackWindsDataKitWatchOS</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsDataKit\HackWindsDataKit.h">
+      <Filter>HackWindsDataKit</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsOSXToday\HackWindsOSX-Bridging-Header.h">
+      <Filter>HackWindsOSXToday</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsToday\HackWinds-Bridging-Header.h">
+      <Filter>HackWindsToday</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsWatchApp Extension\HackWindsWatch-Bridging-Header.h">
+      <Filter>HackWindsWatchApp Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Application\AppDelegate.h">
+      <Filter>HackWinds\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Application\HackWinds-Prefix.pch">
+      <Filter>HackWinds\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\AsyncImageView.h">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\NavigationBarTitleWithSubtitleView.h">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\Reachability.h">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\UIImage+Crop.h">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\AlternateCamerasViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\BuoyViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\CurrentViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\DetailedForecastViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\ForecastViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\IsoCameraViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\SettingsViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\TideScheduleViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\TideViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\WaveWatchChartViewController.h">
+      <Filter>HackWinds\Views</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

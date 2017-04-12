@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>MATTS-SURFACE</Machine>
+    <WindowsUser>miann</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|Win32</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>4ca6ec9b-74f7-44c9-a684-ca5f4a0b2316</PackageIdentityName>
+    <PackageIdentityPublisher>CN=islandwood</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Application\en.lproj\InfoPlist.strings">
+      <PackagePath>en.lproj\InfoPlist.strings</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Resources\UISettings.plist">
+      <PackagePath>UISettings.plist</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Storyboards\en.lproj\LaunchScreen.strings">
+      <PackagePath>en.lproj\LaunchScreen.strings</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Storyboards\en.lproj\Main_iPad.strings">
+      <PackagePath>en.lproj\Main_iPad.strings</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Storyboards\en.lproj\Main_iPhone.strings">
+      <PackagePath>en.lproj\Main_iPhone.strings</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\LaunchScreen.nib">
+      <PackagePath>Base.lproj\LaunchScreen.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\BuoyIcon.png">
+      <PackagePath>BuoyIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\BuoyIcon%402x.png">
+      <PackagePath>BuoyIcon%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\BuoyIcon%403x.png">
+      <PackagePath>BuoyIcon%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ErrorLoading%402x.png">
+      <PackagePath>ErrorLoading%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ForecastIcon.png">
+      <PackagePath>ForecastIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ForecastIcon%402x.png">
+      <PackagePath>ForecastIcon%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ForecastIcon%403x.png">
+      <PackagePath>ForecastIcon%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_autorenew_white.png">
+      <PackagePath>ic_autorenew_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_autorenew_white%402x.png">
+      <PackagePath>ic_autorenew_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_autorenew_white%403x.png">
+      <PackagePath>ic_autorenew_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_brightness_high_white.png">
+      <PackagePath>ic_brightness_high_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_brightness_high_white%402x.png">
+      <PackagePath>ic_brightness_high_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_brightness_high_white%403x.png">
+      <PackagePath>ic_brightness_high_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_brightness_low_white.png">
+      <PackagePath>ic_brightness_low_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_brightness_low_white%402x.png">
+      <PackagePath>ic_brightness_low_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_brightness_low_white%403x.png">
+      <PackagePath>ic_brightness_low_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_camera_enhance_white.png">
+      <PackagePath>ic_camera_enhance_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_camera_enhance_white%402x.png">
+      <PackagePath>ic_camera_enhance_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_camera_enhance_white%403x.png">
+      <PackagePath>ic_camera_enhance_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_left_36pt.png">
+      <PackagePath>ic_chevron_left_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_left_36pt%402x.png">
+      <PackagePath>ic_chevron_left_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_left_36pt%403x.png">
+      <PackagePath>ic_chevron_left_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_left_white_36pt.png">
+      <PackagePath>ic_chevron_left_white_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_left_white_36pt%402x.png">
+      <PackagePath>ic_chevron_left_white_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_left_white_36pt%403x.png">
+      <PackagePath>ic_chevron_left_white_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_right_36pt.png">
+      <PackagePath>ic_chevron_right_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_right_36pt%402x.png">
+      <PackagePath>ic_chevron_right_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_right_36pt%403x.png">
+      <PackagePath>ic_chevron_right_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_right_white_36pt.png">
+      <PackagePath>ic_chevron_right_white_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_right_white_36pt%402x.png">
+      <PackagePath>ic_chevron_right_white_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_chevron_right_white_36pt%403x.png">
+      <PackagePath>ic_chevron_right_white_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_clear_white.png">
+      <PackagePath>ic_clear_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_clear_white%402x.png">
+      <PackagePath>ic_clear_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_clear_white%403x.png">
+      <PackagePath>ic_clear_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_done_white.png">
+      <PackagePath>ic_done_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_done_white%402x.png">
+      <PackagePath>ic_done_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_done_white%403x.png">
+      <PackagePath>ic_done_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_forward_36pt.png">
+      <PackagePath>ic_fast_forward_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_forward_36pt%402x.png">
+      <PackagePath>ic_fast_forward_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_forward_36pt%403x.png">
+      <PackagePath>ic_fast_forward_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_forward_white_36pt.png">
+      <PackagePath>ic_fast_forward_white_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_forward_white_36pt%402x.png">
+      <PackagePath>ic_fast_forward_white_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_forward_white_36pt%403x.png">
+      <PackagePath>ic_fast_forward_white_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_rewind_36pt.png">
+      <PackagePath>ic_fast_rewind_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_rewind_36pt%402x.png">
+      <PackagePath>ic_fast_rewind_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_rewind_36pt%403x.png">
+      <PackagePath>ic_fast_rewind_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_rewind_white_36pt.png">
+      <PackagePath>ic_fast_rewind_white_36pt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_rewind_white_36pt%402x.png">
+      <PackagePath>ic_fast_rewind_white_36pt%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_fast_rewind_white_36pt%403x.png">
+      <PackagePath>ic_fast_rewind_white_36pt%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_history_white.png">
+      <PackagePath>ic_history_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_history_white%402x.png">
+      <PackagePath>ic_history_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_history_white%403x.png">
+      <PackagePath>ic_history_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_schedule_white.png">
+      <PackagePath>ic_schedule_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_schedule_white%402x.png">
+      <PackagePath>ic_schedule_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_schedule_white%403x.png">
+      <PackagePath>ic_schedule_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_settings_white.png">
+      <PackagePath>ic_settings_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_settings_white%402x.png">
+      <PackagePath>ic_settings_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_settings_white%403x.png">
+      <PackagePath>ic_settings_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_track_changes_white.png">
+      <PackagePath>ic_track_changes_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_track_changes_white%402x.png">
+      <PackagePath>ic_track_changes_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_track_changes_white%403x.png">
+      <PackagePath>ic_track_changes_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_trending_down_white.png">
+      <PackagePath>ic_trending_down_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_trending_down_white%402x.png">
+      <PackagePath>ic_trending_down_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_trending_down_white%403x.png">
+      <PackagePath>ic_trending_down_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_trending_up_white.png">
+      <PackagePath>ic_trending_up_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_trending_up_white%402x.png">
+      <PackagePath>ic_trending_up_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_trending_up_white%403x.png">
+      <PackagePath>ic_trending_up_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_whatshot_white.png">
+      <PackagePath>ic_whatshot_white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_whatshot_white%402x.png">
+      <PackagePath>ic_whatshot_white%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\ic_whatshot_white%403x.png">
+      <PackagePath>ic_whatshot_white%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\LiveIcon.png">
+      <PackagePath>LiveIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\LiveIcon%402x.png">
+      <PackagePath>LiveIcon%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\LiveIcon%403x.png">
+      <PackagePath>LiveIcon%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\Logo%402x.png">
+      <PackagePath>Logo%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\Logo%403x.png">
+      <PackagePath>Logo%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\PlayButton.png">
+      <PackagePath>PlayButton.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\PlayButton%402x.png">
+      <PackagePath>PlayButton%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\PlayButton%403x.png">
+      <PackagePath>PlayButton%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\TideIcon.png">
+      <PackagePath>TideIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\TideIcon%402x.png">
+      <PackagePath>TideIcon%402x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\AssetCatalog\TideIcon%403x.png">
+      <PackagePath>TideIcon%403x.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Info.plist">
+      <PackagePath>Info.plist</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Storyboards\Base.lproj\LaunchScreen.xib">
+      <PackagePath>Base.lproj\LaunchScreen.xib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Storyboards\Base.lproj\Main_iPad.storyboard">
+      <PackagePath>Base.lproj\Main_iPad.storyboard</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds\Storyboards\Base.lproj\Main_iPhone.storyboard">
+      <PackagePath>Base.lproj\Main_iPhone.storyboard</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPad.storyboardc\49e-Tb-3d3.nib">
+      <PackagePath>Base.lproj\Main_iPad.storyboardc\49e-Tb-3d3.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve-view-QS5-Rx-YEW.nib">
+      <PackagePath>Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve-view-QS5-Rx-YEW.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve.nib">
+      <PackagePath>Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB-view-tsR-hK-woN.nib">
+      <PackagePath>Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB-view-tsR-hK-woN.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB.nib">
+      <PackagePath>Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPad.storyboardc\Info.plist">
+      <PackagePath>Base.lproj\Main_iPad.storyboardc\Info.plist</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ-view-wNO-4Z-cbw.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ-view-wNO-4Z-cbw.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\2CQ-XL-rjV.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\2CQ-XL-rjV.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\8bO-FM-kiq.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\8bO-FM-kiq.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\8YX-ce-x5E.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\8YX-ce-x5E.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\Ed6-X1-wOn.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\Ed6-X1-wOn.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\Info.plist">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\Info.plist</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C-view-JJx-G8-AZR.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C-view-JJx-G8-AZR.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe-view-Bbd-N4-2hd.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe-view-Bbd-N4-2hd.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\n3n-Wz-yM1.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\n3n-Wz-yM1.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\PkK-9Y-fvK.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\PkK-9Y-fvK.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2-view-beW-Wa-Cbd.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2-view-beW-Wa-Cbd.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\ulq-Y0-oBi.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\ulq-Y0-oBi.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\zvH-p6-z3E.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\zvH-p6-z3E.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Debug\Base.lproj\Main_iPhone.storyboardc\ZwS-Yr-Mhb.nib">
+      <PackagePath>Base.lproj\Main_iPhone.storyboardc\ZwS-Yr-Mhb.nib</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\HackWinds.exe">
+      <PackagePath>HackWinds.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.logging\0.2.170407\build\\lib\Universal Windows\x86\AppInsights_Win10-UAP.dll">
+      <PackagePath>AppInsights_Win10-UAP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.logging\0.2.170407\build\\lib\Universal Windows\x86\ApplicationInsights.dll">
+      <PackagePath>ApplicationInsights.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.logging\0.2.170407\build\\lib\Universal Windows\x86\Logging.dll">
+      <PackagePath>Logging.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.language\0.2.170407\build\msvc\..\lib\Universal Windows\x86\WOCStdLib.dll">
+      <PackagePath>WOCStdLib.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.language\0.2.170407\build\msvc\..\lib\Universal Windows\x86\Debug\WinObjCRT.dll">
+      <PackagePath>WinObjCRT.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.language\0.2.170407\build\msvc\..\deps\prebuilt\Universal Windows\x86\Debug\libdispatch.dll">
+      <PackagePath>libdispatch.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.language\0.2.170407\build\msvc\..\deps\prebuilt\Universal Windows\x86\Debug\libobjc2.dll">
+      <PackagePath>libobjc2.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.thirdparty\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\icudt57.dll">
+      <PackagePath>icudt57.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.thirdparty\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\icuin57.dll">
+      <PackagePath>icuin57.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.thirdparty\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\icuuc57.dll">
+      <PackagePath>icuuc57.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.thirdparty\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\libxml2.dll">
+      <PackagePath>libxml2.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.thirdparty\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\libz.dll">
+      <PackagePath>libz.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.thirdparty\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\OpenAL.dll">
+      <PackagePath>OpenAL.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\lib\Universal Windows\x86\CFNetwork.dll">
+      <PackagePath>CFNetwork.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\lib\Universal Windows\x86\CoreFoundation.dll">
+      <PackagePath>CoreFoundation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\lib\Universal Windows\x86\Foundation.dll">
+      <PackagePath>Foundation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\lib\Universal Windows\x86\MobileCoreServices.dll">
+      <PackagePath>MobileCoreServices.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\lib\Universal Windows\x86\Starboard.dll">
+      <PackagePath>Starboard.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Microsoft_Advertising.dll">
+      <PackagePath>ObjCUWP_Microsoft_Advertising.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_AppExtensions.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_AppExtensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Appointments_DataProvider.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Appointments_DataProvider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_AppService.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_AppService.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Calls_Background.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Calls_Background.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Calls_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Calls_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Chat.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Chat.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_CommunicationBlocking.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_CommunicationBlocking.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Contacts_DataProvider.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Contacts_DataProvider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_DataTransfer.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_DataTransfer.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_DataTransfer_DragDrop.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_DataTransfer_DragDrop.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_DataTransfer_DragDrop_Core.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_DataTransfer_DragDrop_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_DataTransfer_ShareTarget.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_DataTransfer_ShareTarget.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Email_DataProvider.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Email_DataProvider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_ExtendedExecution.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_ExtendedExecution.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_ExtendedExecution_Foreground.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_ExtendedExecution_Foreground.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_LockScreen.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_LockScreen.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Preview_Notes.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Preview_Notes.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Resources.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Resources_Core.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Resources_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Resources_Management.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Resources_Management.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Search.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Search.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Search_Core.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Search_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_SocialInfo.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_SocialInfo.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_SocialInfo_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_SocialInfo_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Store.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Store.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Store_LicenseManagement.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Store_LicenseManagement.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Store_Preview.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Store_Preview.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Store_Preview_InstallControl.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Store_Preview_InstallControl.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_UserDataAccounts_SystemAccess.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_UserDataAccounts_SystemAccess.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_VoiceCommands.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_VoiceCommands.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Wallet.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Wallet.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_ApplicationModel_Wallet_System.dll">
+      <PackagePath>ObjCUWP_Windows_ApplicationModel_Wallet_System.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Data_Html.dll">
+      <PackagePath>ObjCUWP_Windows_Data_Html.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Data_Json.dll">
+      <PackagePath>ObjCUWP_Windows_Data_Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Data_Pdf.dll">
+      <PackagePath>ObjCUWP_Windows_Data_Pdf.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Data_Text.dll">
+      <PackagePath>ObjCUWP_Windows_Data_Text.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Data_Xml_Dom.dll">
+      <PackagePath>ObjCUWP_Windows_Data_Xml_Dom.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Data_Xml_Xsl.dll">
+      <PackagePath>ObjCUWP_Windows_Data_Xml_Xsl.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices.dll">
+      <PackagePath>ObjCUWP_Windows_Devices.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Adc.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Adc.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Adc_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Adc_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_AllJoyn.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_AllJoyn.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Background.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Background.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Custom.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Custom.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Enumeration_Pnp.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Enumeration_Pnp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Geolocation.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Geolocation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Geolocation_Geofencing.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Geolocation_Geofencing.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Gpio.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Gpio.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Gpio_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Gpio_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_HumanInterfaceDevice.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_HumanInterfaceDevice.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_I2c.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_I2c.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_I2c_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_I2c_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Input.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Input.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Lights.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Lights.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Midi.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Midi.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Perception.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Perception.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Perception_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Perception_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_PointOfService.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_PointOfService.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Portable.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Portable.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Power.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Power.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Printers.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Printers.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Printers_Extensions.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Printers_Extensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Pwm.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Pwm.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Pwm_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Pwm_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Radios.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Radios.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Scanners.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Scanners.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Sensors.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Sensors.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Sensors_Custom.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Sensors_Custom.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_SerialCommunication.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_SerialCommunication.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_SmartCards.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_SmartCards.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Sms.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Sms.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Spi.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Spi.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Spi_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Spi_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_Usb.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_Usb.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_WiFi.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_WiFi.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_WiFiDirect.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_WiFiDirect.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Devices_WiFiDirect_Services.dll">
+      <PackagePath>ObjCUWP_Windows_Devices_WiFiDirect_Services.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Embedded_DeviceLockdown.dll">
+      <PackagePath>ObjCUWP_Windows_Embedded_DeviceLockdown.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Foundation.dll">
+      <PackagePath>ObjCUWP_Windows_Foundation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Foundation_Collections.dll">
+      <PackagePath>ObjCUWP_Windows_Foundation_Collections.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Foundation_Diagnostics.dll">
+      <PackagePath>ObjCUWP_Windows_Foundation_Diagnostics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Foundation_Metadata.dll">
+      <PackagePath>ObjCUWP_Windows_Foundation_Metadata.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Foundation_Numerics.dll">
+      <PackagePath>ObjCUWP_Windows_Foundation_Numerics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Gaming_Input.dll">
+      <PackagePath>ObjCUWP_Windows_Gaming_Input.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Gaming_Input_Custom.dll">
+      <PackagePath>ObjCUWP_Windows_Gaming_Input_Custom.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Gaming_Input_ForceFeedback.dll">
+      <PackagePath>ObjCUWP_Windows_Gaming_Input_ForceFeedback.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Gaming_Preview.dll">
+      <PackagePath>ObjCUWP_Windows_Gaming_Preview.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Gaming_Preview_GamesEnumeration.dll">
+      <PackagePath>ObjCUWP_Windows_Gaming_Preview_GamesEnumeration.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Gaming_UI.dll">
+      <PackagePath>ObjCUWP_Windows_Gaming_UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Globalization.dll">
+      <PackagePath>ObjCUWP_Windows_Globalization.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Globalization_Collation.dll">
+      <PackagePath>ObjCUWP_Windows_Globalization_Collation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Globalization_DateTimeFormatting.dll">
+      <PackagePath>ObjCUWP_Windows_Globalization_DateTimeFormatting.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Globalization_Fonts.dll">
+      <PackagePath>ObjCUWP_Windows_Globalization_Fonts.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Globalization_NumberFormatting.dll">
+      <PackagePath>ObjCUWP_Windows_Globalization_NumberFormatting.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Globalization_PhoneNumberFormatting.dll">
+      <PackagePath>ObjCUWP_Windows_Globalization_PhoneNumberFormatting.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_DirectX.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_DirectX.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_DirectX_Direct3D11.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_DirectX_Direct3D11.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_Display.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_Display.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_Effects.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_Effects.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_Holographic.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_Holographic.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_Imaging.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_Imaging.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_Printing.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_Printing.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_Printing3D.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_Printing3D.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Graphics_Printing_OptionDetails.dll">
+      <PackagePath>ObjCUWP_Windows_Graphics_Printing_OptionDetails.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Management_Core.dll">
+      <PackagePath>ObjCUWP_Windows_Management_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Management_Deployment.dll">
+      <PackagePath>ObjCUWP_Windows_Management_Deployment.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Management_Deployment_Preview.dll">
+      <PackagePath>ObjCUWP_Windows_Management_Deployment_Preview.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Management_Orchestration.dll">
+      <PackagePath>ObjCUWP_Windows_Management_Orchestration.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Management_Workplace.dll">
+      <PackagePath>ObjCUWP_Windows_Management_Workplace.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media.dll">
+      <PackagePath>ObjCUWP_Windows_Media.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Audio.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Audio.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Casting.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Casting.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_ClosedCaptioning.dll">
+      <PackagePath>ObjCUWP_Windows_Media_ClosedCaptioning.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_ContentRestrictions.dll">
+      <PackagePath>ObjCUWP_Windows_Media_ContentRestrictions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Devices_Core.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Devices_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_DialProtocol.dll">
+      <PackagePath>ObjCUWP_Windows_Media_DialProtocol.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Effects_Editing.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Effects_Editing.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_FaceAnalysis.dll">
+      <PackagePath>ObjCUWP_Windows_Media_FaceAnalysis.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Import.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Import.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_MediaProperties.dll">
+      <PackagePath>ObjCUWP_Windows_Media_MediaProperties.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Ocr.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Ocr.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Playback_Protection_Core_Capture_Devices.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Playback_Protection_Core_Capture_Devices.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Playlists.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Playlists.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_PlayTo.dll">
+      <PackagePath>ObjCUWP_Windows_Media_PlayTo.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Protection_PlayReady.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Protection_PlayReady.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Render.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Render.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_SpeechRecognition.dll">
+      <PackagePath>ObjCUWP_Windows_Media_SpeechRecognition.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_SpeechSynthesis.dll">
+      <PackagePath>ObjCUWP_Windows_Media_SpeechSynthesis.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Streaming_Adaptive.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Streaming_Adaptive.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Media_Transcoding.dll">
+      <PackagePath>ObjCUWP_Windows_Media_Transcoding.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Networking.dll">
+      <PackagePath>ObjCUWP_Windows_Networking.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Networking_BackgroundTransfer.dll">
+      <PackagePath>ObjCUWP_Windows_Networking_BackgroundTransfer.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Networking_NetworkOperators.dll">
+      <PackagePath>ObjCUWP_Windows_Networking_NetworkOperators.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Networking_Proximity.dll">
+      <PackagePath>ObjCUWP_Windows_Networking_Proximity.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Networking_PushNotifications.dll">
+      <PackagePath>ObjCUWP_Windows_Networking_PushNotifications.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Networking_ServiceDiscovery_Dnssd.dll">
+      <PackagePath>ObjCUWP_Windows_Networking_ServiceDiscovery_Dnssd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Networking_Vpn.dll">
+      <PackagePath>ObjCUWP_Windows_Networking_Vpn.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Perception.dll">
+      <PackagePath>ObjCUWP_Windows_Perception.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Perception_Automation_Core.dll">
+      <PackagePath>ObjCUWP_Windows_Perception_Automation_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Perception_People.dll">
+      <PackagePath>ObjCUWP_Windows_Perception_People.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Perception_Spatial.dll">
+      <PackagePath>ObjCUWP_Windows_Perception_Spatial.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Perception_Spatial_Surfaces.dll">
+      <PackagePath>ObjCUWP_Windows_Perception_Spatial_Surfaces.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone.dll">
+      <PackagePath>ObjCUWP_Windows_Phone.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_ApplicationModel.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_ApplicationModel.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_Devices_Notification.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_Devices_Notification.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_Devices_Power.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_Devices_Power.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_Management_Deployment.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_Management_Deployment.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_Media_Devices.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_Media_Devices.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_Notification_Management.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_Notification_Management.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_PersonalInformation.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_PersonalInformation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_PersonalInformation_Provisioning.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_PersonalInformation_Provisioning.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_Speech_Recognition.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_Speech_Recognition.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_StartScreen.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_StartScreen.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_System.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_System.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_System_Power.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_System_Power.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_System_Profile.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_System_Profile.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_System_UserProfile_GameServices_Core.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_System_UserProfile_GameServices_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Phone_UI_Input.dll">
+      <PackagePath>ObjCUWP_Windows_Phone_UI_Input.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_RandomStuff.dll">
+      <PackagePath>ObjCUWP_Windows_RandomStuff.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Authentication_Identity.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Authentication_Identity.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Authentication_Identity_Core.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Authentication_Identity_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Authentication_Identity_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Authentication_Identity_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Authentication_OnlineId.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Authentication_OnlineId.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Authentication_Web.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Authentication_Web.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Credentials_UI.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Credentials_UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Cryptography.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Cryptography.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Cryptography_Certificates.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Cryptography_Certificates.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Cryptography_Core.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Cryptography_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_Cryptography_DataProtection.dll">
+      <PackagePath>ObjCUWP_Windows_Security_Cryptography_DataProtection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_EnterpriseData.dll">
+      <PackagePath>ObjCUWP_Windows_Security_EnterpriseData.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Security_ExchangeActiveSyncProvisioning.dll">
+      <PackagePath>ObjCUWP_Windows_Security_ExchangeActiveSyncProvisioning.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Services_Maps.dll">
+      <PackagePath>ObjCUWP_Windows_Services_Maps.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Services_Maps_Guidance.dll">
+      <PackagePath>ObjCUWP_Windows_Services_Maps_Guidance.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Services_Maps_LocalSearch.dll">
+      <PackagePath>ObjCUWP_Windows_Services_Maps_LocalSearch.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Services_Store.dll">
+      <PackagePath>ObjCUWP_Windows_Services_Store.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage.dll">
+      <PackagePath>ObjCUWP_Windows_Storage.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage_AccessCache.dll">
+      <PackagePath>ObjCUWP_Windows_Storage_AccessCache.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage_BulkAccess.dll">
+      <PackagePath>ObjCUWP_Windows_Storage_BulkAccess.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage_Compression.dll">
+      <PackagePath>ObjCUWP_Windows_Storage_Compression.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage_FileProperties.dll">
+      <PackagePath>ObjCUWP_Windows_Storage_FileProperties.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage_Pickers.dll">
+      <PackagePath>ObjCUWP_Windows_Storage_Pickers.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage_Pickers_Provider.dll">
+      <PackagePath>ObjCUWP_Windows_Storage_Pickers_Provider.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Storage_Streams.dll">
+      <PackagePath>ObjCUWP_Windows_Storage_Streams.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Diagnostics.dll">
+      <PackagePath>ObjCUWP_Windows_System_Diagnostics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Display.dll">
+      <PackagePath>ObjCUWP_Windows_System_Display.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Power.dll">
+      <PackagePath>ObjCUWP_Windows_System_Power.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Power_Diagnostics.dll">
+      <PackagePath>ObjCUWP_Windows_System_Power_Diagnostics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Profile.dll">
+      <PackagePath>ObjCUWP_Windows_System_Profile.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Profile_SystemManufacturers.dll">
+      <PackagePath>ObjCUWP_Windows_System_Profile_SystemManufacturers.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_RemoteDesktop.dll">
+      <PackagePath>ObjCUWP_Windows_System_RemoteDesktop.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_RemoteSystems.dll">
+      <PackagePath>ObjCUWP_Windows_System_RemoteSystems.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Threading.dll">
+      <PackagePath>ObjCUWP_Windows_System_Threading.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_Threading_Core.dll">
+      <PackagePath>ObjCUWP_Windows_System_Threading_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_System_UserProfile.dll">
+      <PackagePath>ObjCUWP_Windows_System_UserProfile.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI.dll">
+      <PackagePath>ObjCUWP_Windows_UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_ApplicationSettings.dll">
+      <PackagePath>ObjCUWP_Windows_UI_ApplicationSettings.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Composition.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Composition.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Composition_Effects.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Composition_Effects.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Composition_Interactions.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Composition_Interactions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Core_AnimationMetrics.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Core_AnimationMetrics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Input_Inking.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Input_Inking.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Input_Inking_Core.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Input_Inking_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Input_Preview_Injection.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Input_Preview_Injection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Input_Spatial.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Input_Spatial.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Notifications_Management.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Notifications_Management.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Popups.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Popups.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_StartScreen.dll">
+      <PackagePath>ObjCUWP_Windows_UI_StartScreen.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Text.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Text.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Text_Core.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Text_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_ViewManagement.dll">
+      <PackagePath>ObjCUWP_Windows_UI_ViewManagement.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_WebUI.dll">
+      <PackagePath>ObjCUWP_Windows_UI_WebUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_WebUI_Core.dll">
+      <PackagePath>ObjCUWP_Windows_UI_WebUI_Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Automation_Text.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Automation_Text.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Controls_Maps.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Controls_Maps.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Hosting.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Hosting.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Interop.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Interop.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Markup.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Markup.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Media_Imaging.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Media_Imaging.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Printing.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Printing.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Resources.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_UI_Xaml_Shapes.dll">
+      <PackagePath>ObjCUWP_Windows_UI_Xaml_Shapes.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Web.dll">
+      <PackagePath>ObjCUWP_Windows_Web.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Web_AtomPub.dll">
+      <PackagePath>ObjCUWP_Windows_Web_AtomPub.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Web_Http_Diagnostics.dll">
+      <PackagePath>ObjCUWP_Windows_Web_Http_Diagnostics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Web_Http_Filters.dll">
+      <PackagePath>ObjCUWP_Windows_Web_Http_Filters.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\ObjCUWP_Windows_Web_Syndication.dll">
+      <PackagePath>ObjCUWP_Windows_Web_Syndication.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.uwp\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\RTObjCInterop.dll">
+      <PackagePath>RTObjCInterop.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\Accelerate.dll">
+      <PackagePath>Accelerate.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\Accounts.dll">
+      <PackagePath>Accounts.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AddressBook.dll">
+      <PackagePath>AddressBook.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AddressBookUI.dll">
+      <PackagePath>AddressBookUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AdSupport.dll">
+      <PackagePath>AdSupport.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AssetsLibrary.dll">
+      <PackagePath>AssetsLibrary.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AudioToolbox.dll">
+      <PackagePath>AudioToolbox.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AudioUnit.dll">
+      <PackagePath>AudioUnit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AutoLayout.dll">
+      <PackagePath>AutoLayout.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AVFoundation.dll">
+      <PackagePath>AVFoundation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\AVKit.dll">
+      <PackagePath>AVKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CloudKit.dll">
+      <PackagePath>CloudKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\Contacts.dll">
+      <PackagePath>Contacts.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreAudio.dll">
+      <PackagePath>CoreAudio.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreAudioKit.dll">
+      <PackagePath>CoreAudioKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreBluetooth.dll">
+      <PackagePath>CoreBluetooth.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreData.dll">
+      <PackagePath>CoreData.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreGraphics.dll">
+      <PackagePath>CoreGraphics.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreImage.dll">
+      <PackagePath>CoreImage.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreLocation.dll">
+      <PackagePath>CoreLocation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreMedia.dll">
+      <PackagePath>CoreMedia.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreMIDI.dll">
+      <PackagePath>CoreMIDI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreMotion.dll">
+      <PackagePath>CoreMotion.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreTelephony.dll">
+      <PackagePath>CoreTelephony.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreText.dll">
+      <PackagePath>CoreText.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\CoreVideo.dll">
+      <PackagePath>CoreVideo.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\EventKit.dll">
+      <PackagePath>EventKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\EventKitUI.dll">
+      <PackagePath>EventKitUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\GameController.dll">
+      <PackagePath>GameController.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\GameKit.dll">
+      <PackagePath>GameKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\GamePlayKit.dll">
+      <PackagePath>GamePlayKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\GLKit.dll">
+      <PackagePath>GLKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\HealthKit.dll">
+      <PackagePath>HealthKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\HomeKit.dll">
+      <PackagePath>HomeKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\iAd.dll">
+      <PackagePath>iAd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\ImageIO.dll">
+      <PackagePath>ImageIO.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\LocalAuthentication.dll">
+      <PackagePath>LocalAuthentication.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\MapKit.dll">
+      <PackagePath>MapKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\MediaAccessibility.dll">
+      <PackagePath>MediaAccessibility.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\MediaPlayer.dll">
+      <PackagePath>MediaPlayer.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\MessageUI.dll">
+      <PackagePath>MessageUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\Metal.dll">
+      <PackagePath>Metal.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\OpenGLES.dll">
+      <PackagePath>OpenGLES.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\QuartzCore.dll">
+      <PackagePath>QuartzCore.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\QuickLook.dll">
+      <PackagePath>QuickLook.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\SafariServices.dll">
+      <PackagePath>SafariServices.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\Security.dll">
+      <PackagePath>Security.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\Social.dll">
+      <PackagePath>Social.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\StoreKit.dll">
+      <PackagePath>StoreKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\SystemConfiguration.dll">
+      <PackagePath>SystemConfiguration.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\Twitter.dll">
+      <PackagePath>Twitter.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\UIKit.dll">
+      <PackagePath>UIKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\UIKit.Xaml.dll">
+      <PackagePath>UIKit.Xaml.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\WebKit.dll">
+      <PackagePath>WebKit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\deps\prebuilt\Universal Windows\x86\libjpeg.dll">
+      <PackagePath>libjpeg.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\angle.windowsstore\2.1.13\build\uap\..\..\bin\UAP\Win32\libEGL.dll">
+      <PackagePath>libEGL.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\angle.windowsstore\2.1.13\build\uap\..\..\bin\UAP\Win32\libGLESv2.dll">
+      <PackagePath>libGLESv2.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\content\CFCharacterSetBitmaps.bitmap">
+      <PackagePath>CFCharacterSetBitmaps.bitmap</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\content\CFUniCharPropertyDatabase.data">
+      <PackagePath>CFUniCharPropertyDatabase.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\content\CFUnicodeData-B.mapping">
+      <PackagePath>CFUnicodeData-B.mapping</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks.core\0.2.170407\build\\content\CFUnicodeData-L.mapping">
+      <PackagePath>CFUnicodeData-L.mapping</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\Button.xaml">
+      <PackagePath>UIKit.Xaml\Button.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\ContentDialog.xaml">
+      <PackagePath>UIKit.Xaml\ContentDialog.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\Label.xaml">
+      <PackagePath>UIKit.Xaml\Label.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\Layer.xaml">
+      <PackagePath>UIKit.Xaml\Layer.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\ProgressRing.xaml">
+      <PackagePath>UIKit.Xaml\ProgressRing.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\ScrollView.xaml">
+      <PackagePath>UIKit.Xaml\ScrollView.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\Slider.xaml">
+      <PackagePath>UIKit.Xaml\Slider.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\TextBox.xaml">
+      <PackagePath>UIKit.Xaml\TextBox.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\xaml\UIKit.Xaml\Themes\Generic.xaml">
+      <PackagePath>UIKit.Xaml\Themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.logging\0.2.170407\build\\lib\Universal Windows\x86\ApplicationInsights.winmd">
+      <PackagePath>ApplicationInsights.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\.nuget\packages\winobjc.frameworks\0.2.170407\build\\lib\Universal Windows\x86\UIKit.Xaml.winmd">
+      <PackagePath>UIKit.Xaml.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\HackWinds.winmd">
+      <PackagePath>HackWinds.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\default.rd.xml">
+      <PackagePath>default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.14393.0\\redist\Debug\x86\ucrtbased.dll">
+      <PackagePath>ucrtbased.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.25017.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.25017.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.25017.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.25017.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.25017.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.25017.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

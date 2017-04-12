@@ -1,0 +1,2 @@
+C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWindsDataKit-WinStore10\HackWindsDataKit.vcxproj;x86
+C:\Users\miann\Development\HackWinds-iOS\HackWinds.vsimporter\HackWinds-WinStore10\HackWinds.vcxproj;x86

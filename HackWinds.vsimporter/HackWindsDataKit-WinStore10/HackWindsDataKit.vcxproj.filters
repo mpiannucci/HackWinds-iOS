@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="HackWindsCommon">
+      <UniqueIdentifier>{99DEF3A3-E9B0-43D9-B556-7C84DCB0099E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWindsCommon\DataKit">
+      <UniqueIdentifier>{B1360660-6C27-4589-B17B-CCBF4FE227E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Headers">
+      <UniqueIdentifier>{DEA85F31-D0E0-45DE-885F-C4C334FAA329}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\Buoy.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\BuoyDataContainer.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\BuoyModel.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\Camera.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\CameraModel.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\Colors.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\Constants.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\Forecast.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\ForecastDailySummary.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\ForecastModel.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\Swell.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\Tide.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsCommon\DataKit\TideModel.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HackWindsDataKit\HackWindsDataKit.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\Buoy.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\BuoyDataContainer.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\BuoyModel.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\Camera.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\CameraModel.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\Forecast.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\ForecastDailySummary.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\ForecastModel.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\Swell.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\Tide.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\TideModel.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWindsCommon\DataKit\XMLReader.m">
+      <Filter>HackWindsCommon\DataKit</Filter>
+    </ClangCompile>
+  </ItemGroup>
+</Project>

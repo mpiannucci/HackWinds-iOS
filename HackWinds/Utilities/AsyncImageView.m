@@ -164,7 +164,7 @@ NSString *const AsyncImageErrorKey = @"error";
         UIImage *image;
         @synchronized ([self class])
         {
-            CGImageSourceRef imageSourceRef = CGImageSourceCreateWithData((CFDataRef)data, NULL);
+            CGImageSourceRef imageSourceRef = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
             if (imageSourceRef)
             {
                 CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSourceRef, 0, NULL);

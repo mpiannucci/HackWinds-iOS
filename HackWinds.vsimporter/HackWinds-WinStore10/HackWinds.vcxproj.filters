@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{b9d01627-fc84-4910-bca9-2a465103ecf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{a3549a31-b999-4be1-a539-99410b91ada3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds">
+      <UniqueIdentifier>{51990196-4408-4252-A843-CAA8E6E2C30B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Application">
+      <UniqueIdentifier>{D8C93D0E-25D3-49DB-B359-4A6E9B4E2D51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Application\en">
+      <UniqueIdentifier>{CEF58731-5571-467F-ADC3-1B3EEAD33143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Resources">
+      <UniqueIdentifier>{4A5E4D95-7C4A-42A5-9AD3-333FB25FC89D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Storyboards">
+      <UniqueIdentifier>{2C513F32-F7A0-407A-8475-F2448312755C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Storyboards\Base">
+      <UniqueIdentifier>{820C1E76-9F0C-435C-82AB-A496EF2ADD52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Storyboards\en">
+      <UniqueIdentifier>{B55E2333-5680-41CB-8DBF-C949803AEE16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Utilities">
+      <UniqueIdentifier>{B3E764A1-FC43-4F92-913C-9C71E1EC5863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HackWinds\Views">
+      <UniqueIdentifier>{B915B8D7-CCD7-441F-AC0B-9432903E3CAF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xcode Variable Files">
+      <UniqueIdentifier>{A08F1375-EEA9-4475-B676-AC73F9EDACDF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="default.rd.xml" />
+    <AppxManifest Include="Package.appxmanifest" />
+    <None Include="HackWinds_TemporaryKey.pfx" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <AssetCatalogCompile Include="..\..\HackWinds\Resources\Images.xcassets">
+      <Filter>HackWinds\Resources</Filter>
+    </AssetCatalogCompile>
+    <ClInclude Include="..\..\HackWinds\Application\HackWinds-Prefix.pch" />
+    <ClangCompile Include="..\..\HackWinds\Application\AppDelegate.m">
+      <Filter>HackWinds\Application</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Application\main.m">
+      <Filter>HackWinds\Application</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Utilities\AsyncImageView.m">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Utilities\NavigationBarTitleWithSubtitleView.m">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Utilities\Reachability.m">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Utilities\UIImage+Crop.m">
+      <Filter>HackWinds\Utilities</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\AlternateCamerasViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\BuoyViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\CurrentViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\DetailedForecastViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\ForecastViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\IsoCameraViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\SettingsViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\TideScheduleViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\TideViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\HackWinds\Views\WaveWatchChartViewController.m">
+      <Filter>HackWinds\Views</Filter>
+    </ClangCompile>
+    <SBInfoPlistCopy Include="..\..\HackWinds\Application\HackWinds-Info.plist" />
+    <SBResourceCopy Include="..\..\HackWinds\Application\en.lproj\InfoPlist.strings">
+      <Filter>HackWinds\Application\en</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Resources\UISettings.plist">
+      <Filter>HackWinds\Resources</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\Base.lproj">
+      <Filter>HackWinds\Storyboards</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\en.lproj\LaunchScreen.strings">
+      <Filter>HackWinds\Storyboards\en</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\en.lproj\Main_iPad.strings">
+      <Filter>HackWinds\Storyboards\en</Filter>
+    </SBResourceCopy>
+    <SBResourceCopy Include="..\..\HackWinds\Storyboards\en.lproj\Main_iPhone.strings">
+      <Filter>HackWinds\Storyboards\en</Filter>
+    </SBResourceCopy>
+    <StoryboardCompile Include="..\..\HackWinds\Storyboards\Base.lproj\Main_iPad.storyboard">
+      <Filter>HackWinds\Storyboards\Base</Filter>
+    </StoryboardCompile>
+    <StoryboardCompile Include="..\..\HackWinds\Storyboards\Base.lproj\Main_iPhone.storyboard">
+      <Filter>HackWinds\Storyboards\Base</Filter>
+    </StoryboardCompile>
+    <Text Include="HackWinds-Debug-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="HackWinds-Release-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <XibCompile Include="..\..\HackWinds\Storyboards\Base.lproj\LaunchScreen.xib">
+      <Filter>HackWinds\Storyboards\Base</Filter>
+    </XibCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+  </ItemGroup>
+</Project>

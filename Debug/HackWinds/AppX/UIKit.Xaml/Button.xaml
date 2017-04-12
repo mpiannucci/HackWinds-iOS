@@ -1,0 +1,20 @@
+﻿<Button
+    x:Class="UIKit.Xaml.Button"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UIKit.Xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Button.Template>
+        <ControlTemplate TargetType="Button" x:Name="UIKitButtonControlTemplate">
+            <Canvas x:Name="contentCanvas" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="{TemplateBinding Background}">
+                <Image x:Name="buttonImage" Stretch="Fill" IsHitTestVisible="False" />
+                <Border x:Name="buttonBorder" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                <!--TODO: This hits a XamlParseException in some apps; tracked as #1919.
+                <local:Label x:Name="buttonLabel" IsHitTestVisible="False"/>-->
+            </Canvas>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
+

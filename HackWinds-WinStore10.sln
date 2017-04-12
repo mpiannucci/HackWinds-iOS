@@ -1,0 +1,58 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 15.0.26206.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HackWinds", "HackWinds", "{8B4DF241-9AA8-4752-8A4A-F200B2384DDC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HackWinds", "HackWinds.vsimporter\HackWinds-WinStore10\HackWinds.vcxproj", "{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31} = {E227D39A-747C-4B54-93FA-8F6FAA4C8E31}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HackWindsDataKit", "HackWinds.vsimporter\HackWindsDataKit-WinStore10\HackWindsDataKit.vcxproj", "{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HackWinds-Headers", "HackWinds.vsimporter\HackWinds-Headers-WinStore10\HackWinds-Headers.vcxitems", "{916B5F22-FB79-4D0C-8A4D-8C33F4A92CEB}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		HackWinds.vsimporter\HackWinds-Headers-WinStore10\HackWinds-Headers.vcxitems*{916B5F22-FB79-4D0C-8A4D-8C33F4A92CEB}*SharedItemsImports = 9
+		HackWinds.vsimporter\HackWinds-Headers-WinStore10\HackWinds-Headers.vcxitems*{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}*SharedItemsImports = 4
+		HackWinds.vsimporter\HackWinds-Headers-WinStore10\HackWinds-Headers.vcxitems*{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|Win32 = Debug|Win32
+		Release|ARM = Release|ARM
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Debug|ARM.ActiveCfg = Debug|ARM
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Debug|ARM.Build.0 = Debug|ARM
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Debug|ARM.Deploy.0 = Debug|ARM
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Debug|Win32.Build.0 = Debug|Win32
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Debug|Win32.Deploy.0 = Debug|Win32
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Release|ARM.ActiveCfg = Release|ARM
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Release|ARM.Build.0 = Release|ARM
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Release|ARM.Deploy.0 = Release|ARM
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Release|Win32.ActiveCfg = Release|Win32
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Release|Win32.Build.0 = Release|Win32
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04}.Release|Win32.Deploy.0 = Release|Win32
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Debug|ARM.Build.0 = Debug|ARM
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Debug|Win32.Build.0 = Debug|Win32
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Release|ARM.ActiveCfg = Release|ARM
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Release|ARM.Build.0 = Release|ARM
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Release|Win32.ActiveCfg = Release|Win32
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6BD34170-CFB1-4BBB-A41E-ABCCA0DA7E04} = {8B4DF241-9AA8-4752-8A4A-F200B2384DDC}
+		{E227D39A-747C-4B54-93FA-8F6FAA4C8E31} = {8B4DF241-9AA8-4752-8A4A-F200B2384DDC}
+		{916B5F22-FB79-4D0C-8A4D-8C33F4A92CEB} = {8B4DF241-9AA8-4752-8A4A-F200B2384DDC}
+	EndGlobalSection
+EndGlobal

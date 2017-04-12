@@ -13,7 +13,7 @@
 
 @interface TideViewController ()
 
-@property (strong, nonatomic) LineChartView *tideChartView;
+//@property (strong, nonatomic) LineChartView *tideChartView;
 @property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 
 @property (strong, nonatomic) TideModel *tideModel;
@@ -127,202 +127,202 @@
 
 - (void) setupTideChart {
     // All the setup work for the chart
-    self.tideChartView.delegate = self;
-    [self.tideChartView setDrawBordersEnabled:NO];
-    [self.tideChartView setDescriptionText:@""];
-    [self.tideChartView setPinchZoomEnabled:NO];
-    [self.tideChartView setDoubleTapToZoomEnabled:NO];
-    [self.tideChartView setDrawMarkers:NO];
-    [self.tideChartView setMultipleTouchEnabled:NO];
-    [self.tideChartView setUserInteractionEnabled:NO];
-    
-    // xAxis
-    [self.tideChartView.xAxis setDrawGridLinesEnabled:NO];
-    [self.tideChartView.xAxis setDrawAxisLineEnabled:NO];
-    [self.tideChartView.xAxis setDrawLabelsEnabled:NO];
-    
-    // yAxis
-    [self.tideChartView.leftAxis setDrawAxisLineEnabled:NO];
-    [self.tideChartView.leftAxis setDrawGridLinesEnabled:NO];
-    [self.tideChartView.leftAxis setDrawLabelsEnabled:NO];
-    [self.tideChartView.leftAxis setDrawZeroLineEnabled:NO];
-    [self.tideChartView.rightAxis setDrawAxisLineEnabled:NO];
-    [self.tideChartView.rightAxis setDrawGridLinesEnabled:NO];
-    [self.tideChartView.rightAxis setDrawLabelsEnabled:NO];
-    [self.tideChartView.rightAxis setDrawZeroLineEnabled:NO];
-    
-    // Legend
-    [self.tideChartView.legend setEnabled:NO];
+    //self.tideChartView.delegate = self;
+    //[self.tideChartView setDrawBordersEnabled:NO];
+    //[self.tideChartView setDescriptionText:@""];
+    //[self.tideChartView setPinchZoomEnabled:NO];
+    //[self.tideChartView setDoubleTapToZoomEnabled:NO];
+    //[self.tideChartView setDrawMarkers:NO];
+    //[self.tideChartView setMultipleTouchEnabled:NO];
+    //[self.tideChartView setUserInteractionEnabled:NO];
+    //
+    //// xAxis
+    //[self.tideChartView.xAxis setDrawGridLinesEnabled:NO];
+    //[self.tideChartView.xAxis setDrawAxisLineEnabled:NO];
+    //[self.tideChartView.xAxis setDrawLabelsEnabled:NO];
+    //
+    //// yAxis
+    //[self.tideChartView.leftAxis setDrawAxisLineEnabled:NO];
+    //[self.tideChartView.leftAxis setDrawGridLinesEnabled:NO];
+    //[self.tideChartView.leftAxis setDrawLabelsEnabled:NO];
+    //[self.tideChartView.leftAxis setDrawZeroLineEnabled:NO];
+    //[self.tideChartView.rightAxis setDrawAxisLineEnabled:NO];
+    //[self.tideChartView.rightAxis setDrawGridLinesEnabled:NO];
+    //[self.tideChartView.rightAxis setDrawLabelsEnabled:NO];
+    //[self.tideChartView.rightAxis setDrawZeroLineEnabled:NO];
+    //
+    //// Legend
+    //[self.tideChartView.legend setEnabled:NO];
 }
 
 - (void) loadTideChartData {
-    if (self.tideModel.tides.count < 5) {
-        return;
-    }
-    
-    if (self.tideChartView != nil) {
-        [self.tideChartView clear];
-        [self.tideChartView.xAxis removeAllLimitLines];
-    }
-    
-    double min = 0;
-    double max = 0;
-    int firstIndex = 0;
-    BOOL highFirst = NO;
-    int prevIndex = 0;
-    int tideCount = 0;
-    int index = 0;
-    
-    // Set the second to 0
-    NSTimeInterval time = floor([[NSDate date] timeIntervalSinceReferenceDate] / 3600.0) * 3600.0;
-    NSDate *now = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
-    
-    NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:10];
-    
-    ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:0.0 xIndex:-1];
-    [dataEntries addObject:firstEntry];
-    
-    while (tideCount < 5) {
-        Tide *thisTide = [self.tideModel.tides objectAtIndex:index];
-        index++;
-        
-        if (thisTide == nil) {
-            continue;
-        }
-        
-        if (![thisTide isTidalEvent]) {
-            continue;
-        }
-        
-        int xIndex = 0;
-        if (tideCount == 0) {
-            NSTimeInterval interval = [thisTide.timestamp timeIntervalSinceDate:now];
-            firstIndex = (int)fabs(interval / (60 * 60));
-            xIndex = firstIndex;
-            
-            if ([thisTide isHighTide]) {
-                highFirst = YES;
-            } else {
-                highFirst = NO;
-            }
-        } else {
-            xIndex = prevIndex + 6;
-        }
-        
-        double value = [thisTide heightValue];
-        if (value < 0) {
-            value = 0.01;
-        }
-        
-        if (tideCount < 2) {
-            if ([thisTide isHighTide]) {
-                max = value;
-            } else {
-                min = value;
-            }
-        }
-        
-        if (xIndex != 0) {
-            ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:value xIndex:xIndex];
-            [dataEntries addObject:thisEntry];
-        } else {
-            firstEntry.value = value;
-        }
-        
-        if (xIndex < 24 || tideCount < 4) {
-            ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:xIndex];
-            tideLimit.label = [thisTide timeString];
-            if (xIndex > 16) {
-                tideLimit.lineColor = HACKWINDS_BLUE_COLOR;
-                tideLimit.labelPosition = ChartLimitLabelPositionLeftTop;
-            } else {
-                tideLimit.lineColor = [UIColor whiteColor];
-                tideLimit.valueTextColor = [UIColor whiteColor];
-                tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
-            }
-            [self.tideChartView.xAxis addLimitLine:tideLimit];
-        }
-        
-        prevIndex = xIndex;
-        tideCount++;
-    }
-    
-    double amplitude = max - min;
-    
-    if (firstIndex != 0) {
-        if (firstIndex == 6) {
-            ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:0];
-            tideLimit.lineColor = [UIColor whiteColor];
-            tideLimit.valueTextColor = [UIColor whiteColor];
-            tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
-            if (highFirst) {
-                firstEntry.xIndex = 0;
-                firstEntry.value = min;
-                tideLimit.label = @"Low Tide";
-            } else {
-                firstEntry.xIndex = 0;
-                firstEntry.value = max;
-                tideLimit.label = @"High Tide";
-            }
-            [self.tideChartView.xAxis addLimitLine:tideLimit];
-        } else {
-            if (highFirst) {
-                double approxMax = max - (amplitude * ((double)(firstIndex + 1) / 6.0));
-                if (approxMax < 0) {
-                    approxMax = 0.01;
-                }
-                firstEntry.value = approxMax;
-            } else {
-                double approxMin = (amplitude * (((double)firstIndex + 1) / 6.0)) + min;
-                if (approxMin < 0) {
-                    approxMin = 0.01;
-                }
-                firstEntry.value = approxMin;
-            }
-        }
-    } else {
-        firstEntry.xIndex = 0;
-    }
-    
-    NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:prevIndex];
-    for (int i = 0; i < prevIndex; i++) {
-        [xVals addObject:[NSNumber numberWithInt:i]];
-    }
-    
-    LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
-    [dataSet setDrawCirclesEnabled:NO];
-    [dataSet setCircleColor:[UIColor orangeColor]];
-    [dataSet setColor:HACKWINDS_BLUE_COLOR];
-    [dataSet setFillColor:HACKWINDS_BLUE_COLOR];
-    [dataSet setFillAlpha:255];
-    [dataSet setDrawFilledEnabled:YES];
-    [dataSet setLineWidth:2.0];
-    [dataSet setDrawCubicEnabled:YES];
-    
-    LineChartData *chartData = [[LineChartData alloc] initWithXVals:xVals dataSet:dataSet];
-    [chartData setDrawValues:NO];
-    
-    // Draw a limit line at now
-    ChartLimitLine *nowLine = [[ChartLimitLine alloc] initWithLimit:0];
-    nowLine.label = @"Now";
-    nowLine.lineColor = [UIColor blueColor];
-    [nowLine setLineWidth:4.0];
-    [self.tideChartView.xAxis addLimitLine:nowLine];
-    [self.tideChartView.leftAxis setAxisMaxValue:max + 1.0];
-    [self.tideChartView.rightAxis setAxisMaxValue:max + 1.0];
-    [self.tideChartView.leftAxis setAxisMinValue:min - 1.0];
-    [self.tideChartView.rightAxis setAxisMinValue:min - 1.0];
-    
-    self.tideChartView.data = chartData;
+    //if (self.tideModel.tides.count < 5) {
+    //    return;
+    //}
+    //
+    //if (self.tideChartView != nil) {
+    //    [self.tideChartView clear];
+    //    [self.tideChartView.xAxis removeAllLimitLines];
+    //}
+    //
+    //double min = 0;
+    //double max = 0;
+    //int firstIndex = 0;
+    //BOOL highFirst = NO;
+    //int prevIndex = 0;
+    //int tideCount = 0;
+    //int index = 0;
+    //
+    //// Set the second to 0
+    //NSTimeInterval time = floor([[NSDate date] timeIntervalSinceReferenceDate] / 3600.0) * 3600.0;
+    //NSDate *now = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
+    //
+    //NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:10];
+    //
+    //ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:0.0 xIndex:-1];
+    //[dataEntries addObject:firstEntry];
+    //
+    //while (tideCount < 5) {
+    //    Tide *thisTide = [self.tideModel.tides objectAtIndex:index];
+    //    index++;
+    //    
+    //    if (thisTide == nil) {
+    //        continue;
+    //    }
+    //    
+    //    if (![thisTide isTidalEvent]) {
+    //        continue;
+    //    }
+    //    
+    //    int xIndex = 0;
+    //    if (tideCount == 0) {
+    //        NSTimeInterval interval = [thisTide.timestamp timeIntervalSinceDate:now];
+    //        firstIndex = (int)fabs(interval / (60 * 60));
+    //        xIndex = firstIndex;
+    //        
+    //        if ([thisTide isHighTide]) {
+    //            highFirst = YES;
+    //        } else {
+    //            highFirst = NO;
+    //        }
+    //    } else {
+    //        xIndex = prevIndex + 6;
+    //    }
+    //    
+    //    double value = [thisTide heightValue];
+    //    if (value < 0) {
+    //        value = 0.01;
+    //    }
+    //    
+    //    if (tideCount < 2) {
+    //        if ([thisTide isHighTide]) {
+    //            max = value;
+    //        } else {
+    //            min = value;
+    //        }
+    //    }
+    //    
+    //    if (xIndex != 0) {
+    //        ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:value xIndex:xIndex];
+    //        [dataEntries addObject:thisEntry];
+    //    } else {
+    //        firstEntry.value = value;
+    //    }
+    //    
+    //    if (xIndex < 24 || tideCount < 4) {
+    //        ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:xIndex];
+    //        tideLimit.label = [thisTide timeString];
+    //        if (xIndex > 16) {
+    //            tideLimit.lineColor = HACKWINDS_BLUE_COLOR;
+    //            tideLimit.labelPosition = ChartLimitLabelPositionLeftTop;
+    //        } else {
+    //            tideLimit.lineColor = [UIColor whiteColor];
+    //            tideLimit.valueTextColor = [UIColor whiteColor];
+    //            tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
+    //        }
+    //        [self.tideChartView.xAxis addLimitLine:tideLimit];
+    //    }
+    //    
+    //    prevIndex = xIndex;
+    //    tideCount++;
+    //}
+    //
+    //double amplitude = max - min;
+    //
+    //if (firstIndex != 0) {
+    //    if (firstIndex == 6) {
+    //        ChartLimitLine *tideLimit = [[ChartLimitLine alloc] initWithLimit:0];
+    //        tideLimit.lineColor = [UIColor whiteColor];
+    //        tideLimit.valueTextColor = [UIColor whiteColor];
+    //        tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
+    //        if (highFirst) {
+    //            firstEntry.xIndex = 0;
+    //            firstEntry.value = min;
+    //            tideLimit.label = @"Low Tide";
+    //        } else {
+    //            firstEntry.xIndex = 0;
+    //            firstEntry.value = max;
+    //            tideLimit.label = @"High Tide";
+    //        }
+    //        [self.tideChartView.xAxis addLimitLine:tideLimit];
+    //    } else {
+    //        if (highFirst) {
+    //            double approxMax = max - (amplitude * ((double)(firstIndex + 1) / 6.0));
+    //            if (approxMax < 0) {
+    //                approxMax = 0.01;
+    //            }
+    //            firstEntry.value = approxMax;
+    //        } else {
+    //            double approxMin = (amplitude * (((double)firstIndex + 1) / 6.0)) + min;
+    //            if (approxMin < 0) {
+    //                approxMin = 0.01;
+    //            }
+    //            firstEntry.value = approxMin;
+    //        }
+    //    }
+    //} else {
+    //    firstEntry.xIndex = 0;
+    //}
+    //
+    //NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:prevIndex];
+    //for (int i = 0; i < prevIndex; i++) {
+    //    [xVals addObject:[NSNumber numberWithInt:i]];
+    //}
+    //
+    //LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
+    //[dataSet setDrawCirclesEnabled:NO];
+    //[dataSet setCircleColor:[UIColor orangeColor]];
+    //[dataSet setColor:HACKWINDS_BLUE_COLOR];
+    //[dataSet setFillColor:HACKWINDS_BLUE_COLOR];
+    //[dataSet setFillAlpha:255];
+    //[dataSet setDrawFilledEnabled:YES];
+    //[dataSet setLineWidth:2.0];
+    //[dataSet setDrawCubicEnabled:YES];
+    //
+    //LineChartData *chartData = [[LineChartData alloc] initWithXVals:xVals dataSet:dataSet];
+    //[chartData setDrawValues:NO];
+    //
+    //// Draw a limit line at now
+    //ChartLimitLine *nowLine = [[ChartLimitLine alloc] initWithLimit:0];
+    //nowLine.label = @"Now";
+    //nowLine.lineColor = [UIColor blueColor];
+    //[nowLine setLineWidth:4.0];
+    //[self.tideChartView.xAxis addLimitLine:nowLine];
+    //[self.tideChartView.leftAxis setAxisMaxValue:max + 1.0];
+    //[self.tideChartView.rightAxis setAxisMaxValue:max + 1.0];
+    //[self.tideChartView.leftAxis setAxisMinValue:min - 1.0];
+    //[self.tideChartView.rightAxis setAxisMinValue:min - 1.0];
+    //
+    //self.tideChartView.data = chartData;
 }
 
-- (void) chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry dataSetIndex:(NSInteger)dataSetIndex highlight:(ChartHighlight *)highlight {
-    
-}
-
-- (void) chartValueNothingSelected:(ChartViewBase *)chartView {
-    
-}
+//- (void) chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry dataSetIndex:(NSInteger)dataSetIndex highlight:(ChartHighlight *)highlight {
+//    
+//}
+//
+//- (void) chartValueNothingSelected:(ChartViewBase *)chartView {
+//    
+//}
 
 #pragma mark - Table View
 
@@ -371,7 +371,7 @@
     if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tidePlotItem"];
 
-        self.tideChartView = (LineChartView*)[cell viewWithTag:78];
+        //self.tideChartView = (LineChartView*)[cell viewWithTag:78];
         [self setupTideChart];
         [self loadTideChartData];
         

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsRootNamespace>HackWinds_Headers</ItemsRootNamespace>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <Keyword>IslandwoodProj</Keyword>
+    <ItemsProjectGuid>{916B5F22-FB79-4D0C-8A4D-8C33F4A92CEB}</ItemsProjectGuid>
+    <SharedGUID>{98958356-4A13-4E46-8E9B-54CA85BD43FA}</SharedGUID>
+  </PropertyGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Buoy.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\BuoyDataContainer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\BuoyModel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Camera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\CameraModel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Colors.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Constants.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Forecast.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\ForecastDailySummary.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\ForecastModel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Swell.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\Tide.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\TideModel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsCommon\DataKit\XMLReader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsDataKitOSX\HackWindsDataKitOSX.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsDataKitWatchOS\HackWindsDataKitWatchOS.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsDataKit\HackWindsDataKit.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsOSXToday\HackWindsOSX-Bridging-Header.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsToday\HackWinds-Bridging-Header.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWindsWatchApp Extension\HackWindsWatch-Bridging-Header.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Application\AppDelegate.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Application\HackWinds-Prefix.pch" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\AsyncImageView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\NavigationBarTitleWithSubtitleView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\Reachability.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Utilities\UIImage+Crop.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\AlternateCamerasViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\BuoyViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\CurrentViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\DetailedForecastViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\ForecastViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\IsoCameraViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\SettingsViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\TideScheduleViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\TideViewController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\HackWinds\Views\WaveWatchChartViewController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <Target Name="_GenerateRestoreGraphProjectEntry" />
+</Project>

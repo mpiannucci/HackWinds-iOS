@@ -41,12 +41,12 @@
     [self loadBuoySettings];
     
     // Set up the pull to refresh controller
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor whiteColor];
-    self.refreshControl.tintColor = HACKWINDS_BLUE_COLOR;
-    [self.refreshControl addTarget:self
-                            action:@selector(fetchNewBuoyData)
-                  forControlEvents:UIControlEventValueChanged];
+    //self.refreshControl = [[UIRefreshControl alloc] init];
+    //self.refreshControl.backgroundColor = [UIColor whiteColor];
+    //self.refreshControl.tintColor = HACKWINDS_BLUE_COLOR;
+    //[self.refreshControl addTarget:self
+    //                        action:@selector(fetchNewBuoyData)
+    //              forControlEvents:UIControlEventValueChanged];
     
     // Initialize the failure flag to NO
     lastFetchFailure = NO;
@@ -63,7 +63,7 @@
     [self updateUI];
     
     if ([[BuoyModel sharedModel] isFetching]) {
-        [self.refreshControl beginRefreshing];
+        //[self.refreshControl beginRefreshing];
         [self.tableView setContentOffset:CGPointMake(0, -128.0) animated:YES];
     }
     
@@ -109,9 +109,9 @@
     // The fetch succeeded!
     lastFetchFailure = NO;
     
-    if ([self.refreshControl isRefreshing]) {
-        [self.refreshControl endRefreshing];
-    }
+    //if ([self.refreshControl isRefreshing]) {
+    //    [self.refreshControl endRefreshing];
+    //}
     
     [self.tableView reloadData];
 }
@@ -119,9 +119,9 @@
 - (void)buoyUpdateFailed {
     lastFetchFailure = YES;
     
-    if (self.refreshControl.isRefreshing) {
-        [self.refreshControl endRefreshing];
-    }
+    //if (self.refreshControl.isRefreshing) {
+    //    [self.refreshControl endRefreshing];
+    //}
     
     [self.tableView reloadData];
 }

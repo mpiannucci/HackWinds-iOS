@@ -1,0 +1,1805 @@
+﻿  Note: Setting MaxClangProcesses to 1 because Modules are enabled.
+     Creating library C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\HackWinds.lib and object C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\HackWinds.exp
+  HackWinds.vcxproj -> C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\HackWinds.exe
+  HackWinds.vcxproj -> C:\Users\miann\Development\HackWinds-iOS\Debug\HackWinds\HackWinds.pdb (Full PDB)
+  ..\..\HackWinds\Storyboards\Base.lproj\Main_iPad.storyboard
+  Unhandled attribute:/document:(null):type:com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB
+  Unhandled attribute:/document:(null):version:3.0
+  Unhandled attribute:/document:(null):toolsVersion:10116
+  Unhandled attribute:/document:(null):systemVersion:15E65
+  Unhandled attribute:/document:(null):targetRuntime:iOS.CocoaTouch.iPad
+  Unhandled attribute:/document:(null):propertyAccessControl:none
+  Unhandled attribute:/document:(null):useAutolayout:YES
+  Unhandled attribute:/document:(null):initialViewController:49e-Tb-3d3
+  Unhandled node:/document/dependencies:(null)
+  Unhandled node:/document/dependencies/deployment:(null)
+  Unhandled attribute:/document/dependencies/deployment:(null):identifier:iOS
+  Unhandled node:/document/dependencies/plugIn:(null)
+  Unhandled attribute:/document/dependencies/plugIn:(null):identifier:com.apple.InterfaceBuilder.IBCocoaTouchPlugin
+  Unhandled attribute:/document/dependencies/plugIn:(null):version:10085
+  Unhandled node:/document/scenes:(null)
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:hNz-n2-bh7
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:top
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:bottom
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):showsHorizontalScrollIndicator:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):delaysContentTouches:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):canCancelContentTouches:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):minimumZoomScale:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):maximumZoomScale:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):editable:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):text:Loaded by the First View Controller ΓÇö an instance of FirstViewController ΓÇö specified in the app delegate.
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):textAlignment:center
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/textView/textInputTraits:textInputTraits
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:3041
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:150
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:wg7-f3-ORb
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:top
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:bottom
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):showsHorizontalScrollIndicator:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):delaysContentTouches:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):canCancelContentTouches:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):minimumZoomScale:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):maximumZoomScale:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):editable:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):text:Loaded by the Second View Controller ΓÇö an instance of SecondViewController ΓÇö specified in the app delegate.
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/textView:(null):textAlignment:center
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/textView/textInputTraits:textInputTraits
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:3042
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:1284
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:yl2-sM-qoP
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController:(null):sceneMemberID:viewController
+  Unhandled node:/document/scenes/scene/objects/tabBarController/nil:simulatedBottomBarMetrics
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController/connections/segue:(null):relationship:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController/connections/segue:(null):relationship:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:2023
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:718
+  Unhandled node:/document/resources:(null)
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:first
+  Unhandled attribute:/document/resources/image:(null):width:30
+  Unhandled attribute:/document/resources/image:(null):height:30
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:second
+  Unhandled attribute:/document/resources/image:(null):width:30
+  Unhandled attribute:/document/resources/image:(null):height:30
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB-view-tsR-hK-woN.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve-view-QS5-Rx-YEW.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve-view-QS5-Rx-YEW.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB-view-tsR-hK-woN.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\49e-Tb-3d3.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB-view-tsR-hK-woN.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve-view-QS5-Rx-YEW.nib
+  Writing Debug\Base.lproj\Main_iPad.storyboardc\Info.plist
+  ..\..\HackWinds\Storyboards\Base.lproj\Main_iPhone.storyboard
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  UILabel: invalid textAligment value natural, using default (left)
+  Unhandled attribute:/document:(null):type:com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB
+  Unhandled attribute:/document:(null):version:3.0
+  Unhandled attribute:/document:(null):toolsVersion:11542
+  Unhandled attribute:/document:(null):systemVersion:16B2555
+  Unhandled attribute:/document:(null):targetRuntime:iOS.CocoaTouch
+  Unhandled attribute:/document:(null):propertyAccessControl:none
+  Unhandled attribute:/document:(null):useAutolayout:YES
+  Unhandled attribute:/document:(null):colorMatched:YES
+  Unhandled attribute:/document:(null):initialViewController:8YX-ce-x5E
+  Unhandled node:/document/device:(null)
+  Unhandled attribute:/document/device:(null):orientation:portrait
+  Unhandled node:/document/device/adaptation:(null)
+  Unhandled node:/document/dependencies:(null)
+  Unhandled node:/document/dependencies/deployment:(null)
+  Unhandled attribute:/document/dependencies/deployment:(null):identifier:iOS
+  Unhandled node:/document/dependencies/plugIn:(null)
+  Unhandled attribute:/document/dependencies/plugIn:(null):identifier:com.apple.InterfaceBuilder.IBCocoaTouchPlugin
+  Unhandled attribute:/document/dependencies/plugIn:(null):version:11524
+  Unhandled node:/document/dependencies/capability:(null)
+  Unhandled attribute:/document/dependencies/capability:(null):name:Alignment constraints to the first baseline
+  Unhandled attribute:/document/dependencies/capability:(null):minToolsVersion:6.0
+  Unhandled node:/document/dependencies/capability:(null)
+  Unhandled attribute:/document/dependencies/capability:(null):name:Alignment constraints with different attributes
+  Unhandled attribute:/document/dependencies/capability:(null):minToolsVersion:5.1
+  Unhandled node:/document/dependencies/capability:(null)
+  Unhandled attribute:/document/dependencies/capability:(null):name:Aspect ratio constraints
+  Unhandled attribute:/document/dependencies/capability:(null):minToolsVersion:5.1
+  Unhandled node:/document/dependencies/capability:(null)
+  Unhandled attribute:/document/dependencies/capability:(null):name:Constraints to layout margins
+  Unhandled attribute:/document/dependencies/capability:(null):minToolsVersion:6.0
+  Unhandled node:/document/dependencies/capability:(null)
+  Unhandled attribute:/document/dependencies/capability:(null):name:documents saved in the Xcode 8 format
+  Unhandled attribute:/document/dependencies/capability:(null):minToolsVersion:8.0
+  Unhandled node:/document/scenes:(null)
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:W3I-pn-N6e
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):title:Live
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):automaticallyAdjustsScrollViewInsets:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:top
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:bottom
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):dataMode:prototypes
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):style:plain
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):allowsSelection:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):rowHeight:45
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):sectionHeaderHeight:22
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):sectionFooterHeight:22
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):selectionStyle:blue
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):hidesAccessoryWhenEditing:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationLevel:1
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationWidth:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):reuseIdentifier:detailedForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):rowHeight:85
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:vDQ-qX-3sN
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/fontDescription:fontDescription:weight:medium
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/fontDescription:fontDescription:weight:medium
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):selectionStyle:blue
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):hidesAccessoryWhenEditing:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationLevel:1
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationWidth:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):reuseIdentifier:simpleForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:Qix-Ye-HBT
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/sections:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView:(null):alwaysBounceHorizontal:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView:(null):pagingEnabled:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView:(null):showsHorizontalScrollIndicator:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView:(null):showsVerticalScrollIndicator:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/pageControl:(null):numberOfPages:8
+  Unhandled attribute:/document/scenes/scene/objects/viewController/navigationItem/barButtonItem:leftBarButtonItem:image:ic_camera_enhance_white
+  Unhandled attribute:/document/scenes/scene/objects/viewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_settings_white
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:487
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-378
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:OMS-rM-viZ
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):userLabel:Alternate Camera Navigation Controller
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1257
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-919
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:DMI-3a-1af
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController:(null):userLabel:AlternateCameras
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:dataMode:prototypes
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:style:grouped
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:rowHeight:44
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionHeaderHeight:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionFooterHeight:10
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):selectionStyle:gray
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):accessoryType:disclosureIndicator
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):reuseIdentifier:cameraLocationItem
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:rk8-MB-qmh
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_clear_white
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1709
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-919
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:W6V-Sf-bSR
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):userLabel:IsoCamera
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:top
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:bottom
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/switch:(null):on:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal:title:View Full Screen
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal:image:PlayButton
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal:image:ic_clear_white
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_clear_white
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:2153
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-919
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:a5b-nL-wKX
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):automaticallyAdjustsScrollViewInsets:NO
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled node:/document/scenes/scene/objects/navigationController/extendedEdge:edgesForExtendedLayout
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/extendedEdge:edgesForExtendedLayout:bottom:YES
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1736
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-174
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:kme-Tb-7jx
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:top
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:bottom
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView:(null):alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView:(null):showsHorizontalScrollIndicator:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal:image:PlayButton
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/progressView:(null):progress:2.7755575615628914e-17
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl:(null):segmentControlStyle:plain
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl:(null):selectedSegmentIndex:0
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments:(null)
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null):title:Waves
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null):title:Swell
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null):title:Period
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/segmentedControl/segments/segment:(null):title:Wind
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal:image:ic_chevron_right_36pt
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted:image:ic_chevron_right_white_36pt
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/size:titleShadowOffset
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/size:titleShadowOffset:width:20
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/size:titleShadowOffset:height:20
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal:image:ic_fast_rewind_36pt
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:selected
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:selected:image:ic_fast_rewind_36pt
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:selected:backgroundImage:BuoyIcon
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted:image:ic_fast_rewind_white_36pt
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal:image:ic_chevron_left_36pt
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted:image:ic_chevron_left_white_36pt
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/textField:(null):textAlignment:center
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/textField:(null):minimumFontSize:14
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/textField/nil:textColor
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/textField/textInputTraits:textInputTraits
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/textField/textInputTraits:textInputTraits:keyboardType:numberPad
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/textField/connections/action:(null):eventType:editingDidEnd
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/textField/connections/action:(null):eventType:editingDidBegin
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:normal:image:ic_fast_forward_36pt
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/button/state:highlighted:image:ic_fast_forward_white_36pt
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/scrollView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_clear_white
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:2168
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-174
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:1jj-Jj-Ist
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):title:DetailedForecast
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):automaticallyAdjustsScrollViewInsets:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):useStoryboardIdentifierAsRestorationIdentifier:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:top
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:bottom
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl:(null):segmentControlStyle:plain
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl:(null):selectedSegmentIndex:0
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl/segments:(null)
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl/segments/segment:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl/segments/segment:(null):title:Waves
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl/segments/segment:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl/segments/segment:(null):title:Wind
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl/segments/segment:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/segmentedControl/segments/segment:(null):title:Period
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):dataMode:prototypes
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):style:plain
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):allowsSelection:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):rowHeight:91
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):sectionHeaderHeight:22
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):sectionFooterHeight:22
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):selectionStyle:blue
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):hidesAccessoryWhenEditing:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationLevel:1
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationWidth:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):reuseIdentifier:detailedForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:mMk-Cy-XhR
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/fontDescription:fontDescription:weight:medium
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/fontDescription:fontDescription:weight:medium
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):selectionStyle:blue
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):hidesAccessoryWhenEditing:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationLevel:1
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationWidth:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):reuseIdentifier:simpleForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):rowHeight:45
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:XxA-BR-AUI
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal:image:PlayButton
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1256.5
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-174.5
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:ot8-2e-RuS
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):title:Forecast
+  Unhandled attribute:/document/scenes/scene/objects/viewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:top
+  Unhandled attribute:/document/scenes/scene/objects/viewController/layoutGuides/viewControllerLayoutGuide:(null):type:bottom
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):showsHorizontalScrollIndicator:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):dataMode:prototypes
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):style:plain
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):rowHeight:193
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):sectionHeaderHeight:22
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView:(null):sectionFooterHeight:22
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes:(null)
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):selectionStyle:blue
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):accessoryType:disclosureIndicator
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):hidesAccessoryWhenEditing:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationLevel:1
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationWidth:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):reuseIdentifier:fullForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):rowHeight:190
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:restorationIdentifier:fullForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:U9E-Ov-Rvf
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):selectionStyle:blue
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):accessoryType:disclosureIndicator
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):hidesAccessoryWhenEditing:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationLevel:1
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationWidth:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):reuseIdentifier:morningForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):rowHeight:120
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:restorationIdentifier:morningForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:eiJ-BS-tka
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):selectionStyle:blue
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):accessoryType:disclosureIndicator
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):hidesAccessoryWhenEditing:NO
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationLevel:1
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):indentationWidth:0.0
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):reuseIdentifier:afternoonForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell:(null):rowHeight:120
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:restorationIdentifier:afternoonForecastItem
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:Ca6-eG-5en
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/viewController/view/subviews/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/viewController/navigationItem/barButtonItem:leftBarButtonItem:image:ic_track_changes_white
+  Unhandled attribute:/document/scenes/scene/objects/viewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_settings_white
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:487
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:424
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:jXm-cI-FGF
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):userLabel:Settings Navigation Controller
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1257
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:724
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:A4J-ge-FDf
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):title:BuoysNav
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:-39
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:1173
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:NZ7-aU-iMU
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:dataMode:static
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:style:plain
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:allowsSelection:NO
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:rowHeight:44
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionHeaderHeight:28
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionFooterHeight:28
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections:(null)
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null):headerTitle:Latest Buoy Data
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):reuseIdentifier:buoyStatusCell
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):rowHeight:176
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:7of-lT-3W2
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null):headerTitle:Directional Wave Spectra
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):reuseIdentifier:directionalSpectraCell
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):rowHeight:300
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:N0v-NB-DxJ
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null):headerTitle:Wave Energy Distribution
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):reuseIdentifier:energyDistributionCell
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):rowHeight:300
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:5vb-SD-8Xf
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_settings_white
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:487
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:1173
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:FYA-Gp-6OX
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController:(null):title:Tide Tables
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:dataMode:prototypes
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:style:plain
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:allowsSelection:NO
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:rowHeight:53
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionHeaderHeight:28
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionFooterHeight:28
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):reuseIdentifier:tideItem
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):textLabel:s5V-Sj-rPO
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):detailTextLabel:UX9-z6-iwO
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):imageView:oiq-Nb-fZS
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):rowHeight:53
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):style:IBUITableViewCellStyleSubtitle
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:XUX-bd-8f5
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled node:/document/scenes/scene/objects/tableViewController/toolbarItems:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_clear_white
+  Unhandled node:/document/scenes/scene/objects/tableViewController/simulatedToolbarMetrics:simulatedBottomBarMetrics
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1894
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:2273
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:k7Y-L7-0JR
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1354
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:2273
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:a6Q-Gy-Fg5
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:dataMode:prototypes
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:style:plain
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:rowHeight:44
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionHeaderHeight:28
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionFooterHeight:28
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):reuseIdentifier:tidePlotItem
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):rowHeight:188
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:unq-SE-Non
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/view:(null):customModule:Charts
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):reuseIdentifier:tideDataItem
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):textLabel:HKq-cX-yCW
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):detailTextLabel:qh8-zP-S6Y
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):rowHeight:120
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):style:IBUITableViewCellStyleSubtitle
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:lSb-ao-zVD
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):reuseIdentifier:waterTempItem
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):textLabel:NVf-tz-Ld1
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):detailTextLabel:G2r-mm-RVt
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):rowHeight:90
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell:(null):style:IBUITableViewCellStyleSubtitle
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView:contentView:tableViewCell:Cuo-A3-Z5c
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/prototypes/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem:leftBarButtonItem:image:ic_schedule_white
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem/color:tintColor:name:textBackgroundColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem/color:tintColor:catalog:System
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem/color:tintColor:colorSpace:catalog
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_settings_white
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem/color:tintColor:name:textBackgroundColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem/color:tintColor:catalog:System
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem/color:tintColor:colorSpace:catalog
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:495
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:2007
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:Vex-rW-GRa
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController:(null):title:Overview
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController:(null):sceneMemberID:viewController
+  Unhandled node:/document/scenes/scene/objects/tabBarController/simulatedStatusBarMetrics:simulatedStatusBarMetrics
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController/simulatedStatusBarMetrics:simulatedStatusBarMetrics:statusBarStyle:lightContent
+  Unhandled node:/document/scenes/scene/objects/tabBarController/nil:simulatedBottomBarMetrics
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController/connections/segue:(null):relationship:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController/connections/segue:(null):relationship:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController/connections/segue:(null):relationship:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/tabBarController/connections/segue:(null):relationship:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:-788
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:430
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:GfZ-n8-Cv3
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):title:LiveNav
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):automaticallyAdjustsScrollViewInsets:NO
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled node:/document/scenes/scene/objects/navigationController/toolbarItems:(null)
+  Unhandled node:/document/scenes/scene/objects/navigationController/simulatedStatusBarMetrics:simulatedStatusBarMetrics
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/simulatedStatusBarMetrics:simulatedStatusBarMetrics:statusBarStyle:lightContent
+  Unhandled node:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes:titleTextAttributes
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes/color:textColor:white:1
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes/color:textColor:alpha:1
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes/color:textColor:colorSpace:custom
+  Unhandled node:/document/scenes/scene/objects/navigationController/nil:(null)
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/nil:(null):name:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:-39
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:-378
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:l8g-4p-yvN
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):title:ForecastNav
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):automaticallyAdjustsScrollViewInsets:NO
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled node:/document/scenes/scene/objects/navigationController/toolbarItems:(null)
+  Unhandled node:/document/scenes/scene/objects/navigationController/nil:(null)
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/nil:(null):name:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:-39
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:430
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:OPe-de-4Cg
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):title:TideNav
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):automaticallyAdjustsScrollViewInsets:NO
+  Unhandled attribute:/document/scenes/scene/objects/navigationController:(null):sceneMemberID:viewController
+  Unhandled node:/document/scenes/scene/objects/navigationController/toolbarItems:(null)
+  Unhandled node:/document/scenes/scene/objects/navigationController/simulatedStatusBarMetrics:simulatedStatusBarMetrics
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/simulatedStatusBarMetrics:simulatedStatusBarMetrics:statusBarStyle:lightContent
+  Unhandled node:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes:titleTextAttributes
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes/color:textColor:white:1
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes/color:textColor:alpha:1
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/navigationBar/textAttributes/color:textColor:colorSpace:custom
+  Unhandled node:/document/scenes/scene/objects/navigationController/nil:(null)
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/nil:(null):name:viewControllers
+  Unhandled attribute:/document/scenes/scene/objects/navigationController/connections/segue:(null):relationship:rootViewController
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:-39
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:2007
+  Unhandled node:/document/scenes/scene:(null)
+  Unhandled attribute:/document/scenes/scene:(null):sceneID:q6U-VQ-VMs
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController:(null):sceneMemberID:viewController
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:alwaysBounceVertical:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:dataMode:static
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:style:grouped
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:separatorStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:rowHeight:44
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionHeaderHeight:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView:view:sectionFooterHeight:10
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections:(null)
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null):headerTitle:User Interface
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:none
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:PMV-3c-olo
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal:title:Default Buoy Location: Block Island
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:none
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:Thm-3l-2Du
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/switch:(null):on:YES
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsLetterSpacingToFitWidth:YES
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection:(null):headerTitle:About
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells:(null)
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:JwV-ds-m8R
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal:title:Contact Developer
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:mTn-vR-wb8
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal:title:Disclaimer
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:2a3-VN-6CY
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button:(null):lineBreakMode:middleTruncation
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/button/state:normal:title:Rate on the App Store
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):selectionStyle:default
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell:(null):indentationWidth:10
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView:contentView:tableViewCell:Jxm-Qc-B8f
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):baselineAdjustment:alignBaselines
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label:(null):adjustsFontSizeToFit:NO
+  Unhandled node:/document/scenes/scene/objects/tableViewController/tableView/sections/tableViewSection/cells/tableViewCell/tableViewCellContentView/subviews/label/nil:highlightedColor
+  Unhandled attribute:/document/scenes/scene/objects/tableViewController/navigationItem/barButtonItem:rightBarButtonItem:image:ic_done_white
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):userLabel:First Responder
+  Unhandled attribute:/document/scenes/scene/objects/placeholder:(null):sceneMemberID:firstResponder
+  Unhandled node:/document/scenes/scene/point:canvasLocation
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:x:1735.5
+  Unhandled attribute:/document/scenes/scene/point:canvasLocation:y:723.5
+  Unhandled node:/document/resources:(null)
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:BuoyIcon
+  Unhandled attribute:/document/resources/image:(null):width:30
+  Unhandled attribute:/document/resources/image:(null):height:30
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ForecastIcon
+  Unhandled attribute:/document/resources/image:(null):width:30
+  Unhandled attribute:/document/resources/image:(null):height:30
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:PlayButton
+  Unhandled attribute:/document/resources/image:(null):width:120
+  Unhandled attribute:/document/resources/image:(null):height:120
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:TideIcon
+  Unhandled attribute:/document/resources/image:(null):width:30
+  Unhandled attribute:/document/resources/image:(null):height:30
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_camera_enhance_white
+  Unhandled attribute:/document/resources/image:(null):width:24
+  Unhandled attribute:/document/resources/image:(null):height:24
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_chevron_left_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_chevron_left_white_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_chevron_right_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_chevron_right_white_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_clear_white
+  Unhandled attribute:/document/resources/image:(null):width:24
+  Unhandled attribute:/document/resources/image:(null):height:24
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_done_white
+  Unhandled attribute:/document/resources/image:(null):width:24
+  Unhandled attribute:/document/resources/image:(null):height:24
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_fast_forward_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_fast_forward_white_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_fast_rewind_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_fast_rewind_white_36pt
+  Unhandled attribute:/document/resources/image:(null):width:36
+  Unhandled attribute:/document/resources/image:(null):height:36
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_schedule_white
+  Unhandled attribute:/document/resources/image:(null):width:24
+  Unhandled attribute:/document/resources/image:(null):height:24
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_settings_white
+  Unhandled attribute:/document/resources/image:(null):width:24
+  Unhandled attribute:/document/resources/image:(null):height:24
+  Unhandled node:/document/resources/image:(null)
+  Unhandled attribute:/document/resources/image:(null):name:ic_track_changes_white
+  Unhandled attribute:/document/resources/image:(null):width:24
+  Unhandled attribute:/document/resources/image:(null):height:24
+  Unhandled node:/document/simulatedMetricsContainer:defaultSimulatedMetrics
+  Unhandled node:/document/simulatedMetricsContainer/simulatedStatusBarMetrics:statusBar
+  Unhandled node:/document/simulatedMetricsContainer/simulatedOrientationMetrics:orientation
+  Unhandled node:/document/simulatedMetricsContainer/simulatedScreenMetrics:destination
+  Unhandled attribute:/document/simulatedMetricsContainer/simulatedScreenMetrics:destination:type:retina4_7.fullscreen
+  Unhandled node:/document/inferredMetricsTieBreakers:(null)
+  Unhandled attribute:/document/inferredMetricsTieBreakers/segue:(null):reference:iVD-UU-BBq
+  Unhandled attribute:/document/inferredMetricsTieBreakers/segue:(null):reference:rYr-bo-HPU
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ulq-Y0-oBi.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2-view-beW-Wa-Cbd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\n3n-Wz-yM1.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C-view-JJx-G8-AZR.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\Ed6-X1-wOn.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe-view-Bbd-N4-2hd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\zvH-p6-z3E.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ-view-wNO-4Z-cbw.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ-view-wNO-4Z-cbw.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2-view-beW-Wa-Cbd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\PkK-9Y-fvK.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe-view-Bbd-N4-2hd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\8YX-ce-x5E.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\8bO-FM-kiq.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ZwS-Yr-Mhb.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\2CQ-XL-rjV.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C-view-JJx-G8-AZR.nib
+  Writing Debug\Base.lproj\Main_iPhone.storyboardc\Info.plist
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  ..\..\HackWinds\Resources\Images.xcassets
+  Skipping unrecognized set directory: ..\..\HackWinds\Resources\Images.xcassets\AppIcon.appiconset
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in ErrorLoading.imageset.
+  Skipping entry with missing filename in Logo.imageset.
+  Packaging assets
+  ..\..\HackWinds\Application\en.lproj\InfoPlist.strings
+  ..\..\HackWinds\Resources\UISettings.plist
+  ..\..\HackWinds\Storyboards\en.lproj\LaunchScreen.strings
+  ..\..\HackWinds\Storyboards\en.lproj\Main_iPad.strings
+  ..\..\HackWinds\Storyboards\en.lproj\Main_iPhone.strings
+  Debug\Base.lproj\LaunchScreen.nib
+  Debug\AssetCatalog\BuoyIcon.png
+  Debug\AssetCatalog\BuoyIcon@2x.png
+  Debug\AssetCatalog\BuoyIcon@3x.png
+  Debug\AssetCatalog\ErrorLoading@2x.png
+  Debug\AssetCatalog\ForecastIcon.png
+  Debug\AssetCatalog\ForecastIcon@2x.png
+  Debug\AssetCatalog\ForecastIcon@3x.png
+  Debug\AssetCatalog\ic_autorenew_white.png
+  Debug\AssetCatalog\ic_autorenew_white@2x.png
+  Debug\AssetCatalog\ic_autorenew_white@3x.png
+  Debug\AssetCatalog\ic_brightness_high_white.png
+  Debug\AssetCatalog\ic_brightness_high_white@2x.png
+  Debug\AssetCatalog\ic_brightness_high_white@3x.png
+  Debug\AssetCatalog\ic_brightness_low_white.png
+  Debug\AssetCatalog\ic_brightness_low_white@2x.png
+  Debug\AssetCatalog\ic_brightness_low_white@3x.png
+  Debug\AssetCatalog\ic_camera_enhance_white.png
+  Debug\AssetCatalog\ic_camera_enhance_white@2x.png
+  Debug\AssetCatalog\ic_camera_enhance_white@3x.png
+  Debug\AssetCatalog\ic_chevron_left_36pt.png
+  Debug\AssetCatalog\ic_chevron_left_36pt@2x.png
+  Debug\AssetCatalog\ic_chevron_left_36pt@3x.png
+  Debug\AssetCatalog\ic_chevron_left_white_36pt.png
+  Debug\AssetCatalog\ic_chevron_left_white_36pt@2x.png
+  Debug\AssetCatalog\ic_chevron_left_white_36pt@3x.png
+  Debug\AssetCatalog\ic_chevron_right_36pt.png
+  Debug\AssetCatalog\ic_chevron_right_36pt@2x.png
+  Debug\AssetCatalog\ic_chevron_right_36pt@3x.png
+  Debug\AssetCatalog\ic_chevron_right_white_36pt.png
+  Debug\AssetCatalog\ic_chevron_right_white_36pt@2x.png
+  Debug\AssetCatalog\ic_chevron_right_white_36pt@3x.png
+  Debug\AssetCatalog\ic_clear_white.png
+  Debug\AssetCatalog\ic_clear_white@2x.png
+  Debug\AssetCatalog\ic_clear_white@3x.png
+  Debug\AssetCatalog\ic_done_white.png
+  Debug\AssetCatalog\ic_done_white@2x.png
+  Debug\AssetCatalog\ic_done_white@3x.png
+  Debug\AssetCatalog\ic_fast_forward_36pt.png
+  Debug\AssetCatalog\ic_fast_forward_36pt@2x.png
+  Debug\AssetCatalog\ic_fast_forward_36pt@3x.png
+  Debug\AssetCatalog\ic_fast_forward_white_36pt.png
+  Debug\AssetCatalog\ic_fast_forward_white_36pt@2x.png
+  Debug\AssetCatalog\ic_fast_forward_white_36pt@3x.png
+  Debug\AssetCatalog\ic_fast_rewind_36pt.png
+  Debug\AssetCatalog\ic_fast_rewind_36pt@2x.png
+  Debug\AssetCatalog\ic_fast_rewind_36pt@3x.png
+  Debug\AssetCatalog\ic_fast_rewind_white_36pt.png
+  Debug\AssetCatalog\ic_fast_rewind_white_36pt@2x.png
+  Debug\AssetCatalog\ic_fast_rewind_white_36pt@3x.png
+  Debug\AssetCatalog\ic_history_white.png
+  Debug\AssetCatalog\ic_history_white@2x.png
+  Debug\AssetCatalog\ic_history_white@3x.png
+  Debug\AssetCatalog\ic_schedule_white.png
+  Debug\AssetCatalog\ic_schedule_white@2x.png
+  Debug\AssetCatalog\ic_schedule_white@3x.png
+  Debug\AssetCatalog\ic_settings_white.png
+  Debug\AssetCatalog\ic_settings_white@2x.png
+  Debug\AssetCatalog\ic_settings_white@3x.png
+  Debug\AssetCatalog\ic_track_changes_white.png
+  Debug\AssetCatalog\ic_track_changes_white@2x.png
+  Debug\AssetCatalog\ic_track_changes_white@3x.png
+  Debug\AssetCatalog\ic_trending_down_white.png
+  Debug\AssetCatalog\ic_trending_down_white@2x.png
+  Debug\AssetCatalog\ic_trending_down_white@3x.png
+  Debug\AssetCatalog\ic_trending_up_white.png
+  Debug\AssetCatalog\ic_trending_up_white@2x.png
+  Debug\AssetCatalog\ic_trending_up_white@3x.png
+  Debug\AssetCatalog\ic_whatshot_white.png
+  Debug\AssetCatalog\ic_whatshot_white@2x.png
+  Debug\AssetCatalog\ic_whatshot_white@3x.png
+  Debug\AssetCatalog\LiveIcon.png
+  Debug\AssetCatalog\LiveIcon@2x.png
+  Debug\AssetCatalog\LiveIcon@3x.png
+  Debug\AssetCatalog\Logo@2x.png
+  Debug\AssetCatalog\Logo@3x.png
+  Debug\AssetCatalog\PlayButton.png
+  Debug\AssetCatalog\PlayButton@2x.png
+  Debug\AssetCatalog\PlayButton@3x.png
+  Debug\AssetCatalog\TideIcon.png
+  Debug\AssetCatalog\TideIcon@2x.png
+  Debug\AssetCatalog\TideIcon@3x.png
+  Debug\Info.plist
+  ..\..\HackWinds\Storyboards\Base.lproj\LaunchScreen.xib
+  ..\..\HackWinds\Storyboards\Base.lproj\Main_iPad.storyboard
+  ..\..\HackWinds\Storyboards\Base.lproj\Main_iPhone.storyboard
+  Debug\Base.lproj\Main_iPad.storyboardc\49e-Tb-3d3.nib
+  Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve-view-QS5-Rx-YEW.nib
+  Debug\Base.lproj\Main_iPad.storyboardc\8rJ-Kc-sve.nib
+  Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB-view-tsR-hK-woN.nib
+  Debug\Base.lproj\Main_iPad.storyboardc\9pv-A4-QxB.nib
+  Debug\Base.lproj\Main_iPad.storyboardc\Info.plist
+  Debug\Base.lproj\Main_iPhone.storyboardc\0hE-yb-Bg6-view-pSq-BY-NQ5.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ-view-wNO-4Z-cbw.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\20K-pt-DuJ.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\2CQ-XL-rjV.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\8bO-FM-kiq.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\8YX-ce-x5E.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc-view-2VE-Yg-loa.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\CZ4-MO-1fc.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\DetailedForecastViewController.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ-view-HXr-yS-Yhz.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\E3v-rR-duZ.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\Ed6-X1-wOn.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h-view-Wfh-D2-ufd.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\ggC-oe-S9h.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\Info.plist
+  Debug\Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C-view-JJx-G8-AZR.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\kKd-33-s6C.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe-view-Bbd-N4-2hd.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\LCZ-mQ-OKe.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\n3n-Wz-yM1.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC-view-14P-l0-qiN.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\orJ-Og-poC.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\PkK-9Y-fvK.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2-view-beW-Wa-Cbd.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\QUC-am-BN2.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt-view-gMD-aP-Fq6.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\QUy-BD-bpt.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\ulq-Y0-oBi.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\zvH-p6-z3E.nib
+  Debug\Base.lproj\Main_iPhone.storyboardc\ZwS-Yr-Mhb.nib

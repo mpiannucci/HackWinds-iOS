@@ -1,0 +1,72 @@
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Buoy.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\BuoyDataContainer.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\BuoyModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Camera.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\CameraModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Colors.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Constants.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Forecast.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\ForecastDailySummary.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\ForecastModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Swell.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Tide.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\TideModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\XMLReader.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsDataKitOSX\HackWindsDataKitOSX.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsDataKitWatchOS\HackWindsDataKitWatchOS.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsDataKit\HackWindsDataKit.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsOSXToday\HackWindsOSX-Bridging-Header.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsToday\HackWinds-Bridging-Header.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsWatchApp Extension\HackWindsWatch-Bridging-Header.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Application\AppDelegate.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Application\HackWinds-Prefix.pch
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\AsyncImageView.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\NavigationBarTitleWithSubtitleView.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\Reachability.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\UIImage+Crop.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\AlternateCamerasViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\BuoyViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\CurrentViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\DetailedForecastViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\ForecastViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\IsoCameraViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\SettingsViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\TideScheduleViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\TideViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\WaveWatchChartViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Buoy.h	HackWindsDataKit/Buoy.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\BuoyDataContainer.h	HackWindsDataKit/BuoyDataContainer.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\BuoyModel.h	HackWindsDataKit/BuoyModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Camera.h	HackWindsDataKit/Camera.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\CameraModel.h	HackWindsDataKit/CameraModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Colors.h	HackWindsDataKit/Colors.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Constants.h	HackWindsDataKit/Constants.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Forecast.h	HackWindsDataKit/Forecast.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\ForecastDailySummary.h	HackWindsDataKit/ForecastDailySummary.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\ForecastModel.h	HackWindsDataKit/ForecastModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Swell.h	HackWindsDataKit/Swell.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\Tide.h	HackWindsDataKit/Tide.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\TideModel.h	HackWindsDataKit/TideModel.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsCommon\DataKit\XMLReader.h	HackWindsDataKit/XMLReader.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsDataKitOSX\HackWindsDataKitOSX.h	HackWindsDataKit/HackWindsDataKitOSX.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsDataKitWatchOS\HackWindsDataKitWatchOS.h	HackWindsDataKit/HackWindsDataKitWatchOS.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsDataKit\HackWindsDataKit.h	HackWindsDataKit/HackWindsDataKit.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsOSXToday\HackWindsOSX-Bridging-Header.h	HackWindsDataKit/HackWindsOSX-Bridging-Header.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsToday\HackWinds-Bridging-Header.h	HackWindsDataKit/HackWinds-Bridging-Header.h
+C:\Users\miann\Development\HackWinds-iOS\HackWindsWatchApp Extension\HackWindsWatch-Bridging-Header.h	HackWindsDataKit/HackWindsWatch-Bridging-Header.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Application\AppDelegate.h	HackWindsDataKit/AppDelegate.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Application\HackWinds-Prefix.pch	HackWindsDataKit/HackWinds-Prefix.pch
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\AsyncImageView.h	HackWindsDataKit/AsyncImageView.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\NavigationBarTitleWithSubtitleView.h	HackWindsDataKit/NavigationBarTitleWithSubtitleView.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\Reachability.h	HackWindsDataKit/Reachability.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Utilities\UIImage+Crop.h	HackWindsDataKit/UIImage+Crop.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\AlternateCamerasViewController.h	HackWindsDataKit/AlternateCamerasViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\BuoyViewController.h	HackWindsDataKit/BuoyViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\CurrentViewController.h	HackWindsDataKit/CurrentViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\DetailedForecastViewController.h	HackWindsDataKit/DetailedForecastViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\ForecastViewController.h	HackWindsDataKit/ForecastViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\IsoCameraViewController.h	HackWindsDataKit/IsoCameraViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\SettingsViewController.h	HackWindsDataKit/SettingsViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\TideScheduleViewController.h	HackWindsDataKit/TideScheduleViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\TideViewController.h	HackWindsDataKit/TideViewController.h
+C:\Users\miann\Development\HackWinds-iOS\HackWinds\Views\WaveWatchChartViewController.h	HackWindsDataKit/WaveWatchChartViewController.h

@@ -1,0 +1,4 @@
+﻿  Note: Setting MaxClangProcesses to 1 because Modules are enabled.
+Debug\objc_2stage_init.obj : warning LNK4264: archiving object file compiled with /ZW into a static library; note that when authoring Windows Runtime types it is not recommended to link with a static library that contains Windows Runtime metadata unless /WHOLEARCHIVE is specified to include everything from the static library
+Debug\ConsumeRuntimeComponent.obj : warning LNK4264: archiving object file compiled with /ZW into a static library; note that when authoring Windows Runtime types it is not recommended to link with a static library that contains Windows Runtime metadata unless /WHOLEARCHIVE is specified to include everything from the static library
+  HackWindsDataKit.vcxproj -> C:\Users\miann\Development\HackWinds-iOS\Debug\HackWindsDataKit\HackWindsDataKit.lib
