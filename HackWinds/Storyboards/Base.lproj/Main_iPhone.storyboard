@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8YX-ce-x5E">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1301,9 +1301,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57E-73-bkD" customClass="AsyncImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="57E-73-bkD" secondAttribute="height" multiplier="3:3" id="TbY-a9-pig"/>
+                                                        <constraint firstAttribute="width" secondItem="57E-73-bkD" secondAttribute="height" multiplier="4:3" id="TbY-a9-pig"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -1326,9 +1326,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3b-Fa-NgT" customClass="AsyncImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="c3b-Fa-NgT" secondAttribute="height" multiplier="3:2" id="23q-UW-N1y"/>
+                                                        <constraint firstAttribute="width" secondItem="c3b-Fa-NgT" secondAttribute="height" multiplier="4:3" id="23q-UW-N1y"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -1846,6 +1846,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="iVD-UU-BBq"/>
-        <segue reference="rYr-bo-HPU"/>
+        <segue reference="k9I-P6-01B"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -189,10 +189,8 @@
     
     switch (indexPath.section) {
         case 1:
-            return screenWidth;
-            break;
         case 2:
-            return screenWidth * 2 / 3;
+            return screenWidth * (3.0/4.0);
             break;
         default:
             return 176.0;
