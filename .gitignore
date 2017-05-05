@@ -6,5 +6,8 @@
 Carthage/Build
 Carthage/Checkouts
 
+# CocoaPods
+Pods/
+
 # DS_Store File
 *.DS_Store

@@ -179,7 +179,7 @@
     
     NSMutableArray *dataEntries = [[NSMutableArray alloc] initWithCapacity:10];
     
-    ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithValue:0.0 xIndex:-1];
+    ChartDataEntry *firstEntry = [[ChartDataEntry alloc] initWithX:0.0 y:-1];
     [dataEntries addObject:firstEntry];
     
     while (tideCount < 5) {
@@ -223,10 +223,10 @@
         }
         
         if (xIndex != 0) {
-            ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithValue:value xIndex:xIndex];
+            ChartDataEntry *thisEntry = [[ChartDataEntry alloc] initWithX:xIndex y:value];
             [dataEntries addObject:thisEntry];
         } else {
-            firstEntry.value = value;
+            firstEntry.y = value;
         }
         
         if (xIndex < 24 || tideCount < 4) {
@@ -256,12 +256,12 @@
             tideLimit.valueTextColor = [UIColor whiteColor];
             tideLimit.labelPosition = ChartLimitLabelPositionRightBottom;
             if (highFirst) {
-                firstEntry.xIndex = 0;
-                firstEntry.value = min;
+                firstEntry.x = 0;
+                firstEntry.y = min;
                 tideLimit.label = @"Low Tide";
             } else {
-                firstEntry.xIndex = 0;
-                firstEntry.value = max;
+                firstEntry.x = 0;
+                firstEntry.y = max;
                 tideLimit.label = @"High Tide";
             }
             [self.tideChartView.xAxis addLimitLine:tideLimit];
@@ -271,17 +271,17 @@
                 if (approxMax < 0) {
                     approxMax = 0.01;
                 }
-                firstEntry.value = approxMax;
+                firstEntry.y = approxMax;
             } else {
                 double approxMin = (amplitude * (((double)firstIndex + 1) / 6.0)) + min;
                 if (approxMin < 0) {
                     approxMin = 0.01;
                 }
-                firstEntry.value = approxMin;
+                firstEntry.y = approxMin;
             }
         }
     } else {
-        firstEntry.xIndex = 0;
+        firstEntry.x = 0;
     }
     
     NSMutableArray *xVals = [[NSMutableArray alloc] initWithCapacity:prevIndex];
@@ -289,7 +289,7 @@
         [xVals addObject:[NSNumber numberWithInt:i]];
     }
     
-    LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithYVals:dataEntries label:@"Tide Heights"];
+    LineChartDataSet *dataSet = [[LineChartDataSet alloc] initWithValues:dataEntries label:@"Tide Heights"];
     [dataSet setDrawCirclesEnabled:NO];
     [dataSet setCircleColor:[UIColor orangeColor]];
     [dataSet setColor:HACKWINDS_BLUE_COLOR];
@@ -299,7 +299,7 @@
     [dataSet setLineWidth:2.0];
     [dataSet setDrawCubicEnabled:YES];
     
-    LineChartData *chartData = [[LineChartData alloc] initWithXVals:xVals dataSet:dataSet];
+    LineChartData *chartData = [[LineChartData alloc] initWithDataSet:dataSet];
     [chartData setDrawValues:NO];
     
     // Draw a limit line at now

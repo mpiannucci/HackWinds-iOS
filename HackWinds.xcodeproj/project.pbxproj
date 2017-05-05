@@ -28,8 +28,6 @@
 		343083A319795D0F00655F15 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A219795D0F00655F15 /* CurrentViewController.m */; };
 		343083A619795D0F00655F15 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343083A519795D0F00655F15 /* ForecastViewController.m */; };
 		343083A819795D0F00655F15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343083A719795D0F00655F15 /* Images.xcassets */; };
-		3438ACD81CA45BFA00963234 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3438ACD11CA4414F00963234 /* Charts.framework */; };
-		3438ACD91CA45BFA00963234 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3438ACD11CA4414F00963234 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34433DB81AF866AD00E2C7E6 /* AlternateCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */; };
 		34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */; };
 		34469F5E1C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -160,6 +158,7 @@
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
 		34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F933901B3991B400AD23DF /* Main_iPhone.storyboard */; };
+		CCBF1F9DB0AC859229AC9334 /* Pods_HackWinds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CDC1F57D99E028DD55DF4B /* Pods_HackWinds.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,7 +300,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */,
-				3438ACD91CA45BFA00963234 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,7 +337,6 @@
 		343083A519795D0F00655F15 /* ForecastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		343083A719795D0F00655F15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		343083AE19795D0F00655F15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		3438ACD11CA4414F00963234 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		34433DB61AF866AD00E2C7E6 /* AlternateCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlternateCamerasViewController.h; sourceTree = "<group>"; };
 		34433DB71AF866AD00E2C7E6 /* AlternateCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlternateCamerasViewController.m; sourceTree = "<group>"; };
 		34433DBD1AF876E300E2C7E6 /* IsoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoCameraViewController.h; sourceTree = "<group>"; };
@@ -440,6 +437,9 @@
 		34F933971B39926500AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		34F9339A1B39926E00AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		34F9339C1B39927200AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		66D616BF10820548F80793D6 /* Pods-HackWinds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWinds.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds.release.xcconfig"; sourceTree = "<group>"; };
+		B64BD7C2DC01BE33F73F6A81 /* Pods-HackWinds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWinds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds.debug.xcconfig"; sourceTree = "<group>"; };
+		F2CDC1F57D99E028DD55DF4B /* Pods_HackWinds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWinds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,12 +460,12 @@
 				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
 				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
 				349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */,
-				3438ACD81CA45BFA00963234 /* Charts.framework in Frameworks */,
 				342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */,
 				3430838C19795D0F00655F15 /* CoreGraphics.framework in Frameworks */,
 				3430838E19795D0F00655F15 /* UIKit.framework in Frameworks */,
 				34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
 				3430838A19795D0F00655F15 /* Foundation.framework in Frameworks */,
+				CCBF1F9DB0AC859229AC9334 /* Pods_HackWinds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +527,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A0A0ED3A16BA910089EFC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +644,7 @@
 				3490766E1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
 				3430838819795D0F00655F15 /* Frameworks */,
 				3430838719795D0F00655F15 /* Products */,
+				E9A4EA27B47DFD271570A070 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -662,7 +670,6 @@
 			isa = PBXGroup;
 			children = (
 				3424FBB11D8D935100BD8EBC /* AVKit.framework */,
-				3438ACD11CA4414F00963234 /* Charts.framework */,
 				34AA86571A41357300AD09CF /* SystemConfiguration.framework */,
 				349679E619E63DE90043A21B /* Accelerate.framework */,
 				349679E419E63DE20043A21B /* QuartzCore.framework */,
@@ -672,6 +679,7 @@
 				3430838D19795D0F00655F15 /* UIKit.framework */,
 				343083AE19795D0F00655F15 /* XCTest.framework */,
 				34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */,
+				F2CDC1F57D99E028DD55DF4B /* Pods_HackWinds.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -859,6 +867,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E9A4EA27B47DFD271570A070 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B64BD7C2DC01BE33F73F6A81 /* Pods-HackWinds.debug.xcconfig */,
+				66D616BF10820548F80793D6 /* Pods-HackWinds.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -952,13 +969,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 343083BE19795D0F00655F15 /* Build configuration list for PBXNativeTarget "HackWinds" */;
 			buildPhases = (
+				732EA6EAC4CC327140811710 /* [CP] Check Pods Manifest.lock */,
 				3430838219795D0F00655F15 /* Sources */,
 				3430838319795D0F00655F15 /* Frameworks */,
 				3430838419795D0F00655F15 /* Resources */,
 				34E1BA411B62D84700CDA01D /* Embed Frameworks */,
 				34C0AF5F1B7307E8001D2B04 /* Embed App Extensions */,
 				349076491C24A7E600EAD0CE /* Embed Watch Content */,
-				3438ACDA1CA45C0200963234 /* ShellScript */,
+				AA56A4CE35F43ADC045168D5 /* [CP] Embed Pods Frameworks */,
+				4F5679AFA43BEC982E3F6AB5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -995,6 +1014,7 @@
 			buildPhases = (
 				349076211C24A7E500EAD0CE /* Resources */,
 				349076471C24A7E600EAD0CE /* Embed App Extensions */,
+				97A0A0ED3A16BA910089EFC2 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1353,19 +1373,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3438ACDA1CA45C0200963234 /* ShellScript */ = {
+		4F5679AFA43BEC982E3F6AB5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		732EA6EAC4CC327140811710 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA56A4CE35F43ADC045168D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1777,6 +1828,7 @@
 		};
 		343083BF19795D0F00655F15 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B64BD7C2DC01BE33F73F6A81 /* Pods-HackWinds.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1786,10 +1838,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 39L46PD99U;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1814,6 +1863,7 @@
 		};
 		343083C019795D0F00655F15 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66D616BF10820548F80793D6 /* Pods-HackWinds.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1823,10 +1873,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 39L46PD99U;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackWinds/Application/HackWinds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

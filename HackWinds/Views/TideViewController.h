@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Charts/Charts.h>
 #import "Buoy.h"
+
+@import Charts;
 
 @interface TideViewController : UITableViewController <ChartViewDelegate>
 

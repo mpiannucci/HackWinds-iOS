@@ -343,7 +343,11 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     
     // Get the water temperature
     if (![[buoyDataDict objectForKey:@"water_temperature"] isEqual:[NSNull null]]) {
-        buoy.waterTemperature = [NSNumber numberWithDouble: [self getFahrenheitConvertedFromCelsius:[[buoyDataDict objectForKey:@"water_temperature"] doubleValue]]];
+        double waterTemp = [[buoyDataDict objectForKey:@"water_temperature"] doubleValue];
+        if ([unit isEqualToString:@"metric"]) {
+            waterTemp = [self getFahrenheitConvertedFromCelsius:waterTemp];
+        }
+        buoy.waterTemperature = [NSNumber numberWithDouble:waterTemp];
     }
     
     // Get the raw charts
