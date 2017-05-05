@@ -46,7 +46,7 @@ class WidgetUpdateManager {
     
     func fetchBuoyUpdate(_ completionHandler: ((Void) -> Void)!) {
         if (doesBuoyNeedUpdate()) {
-            BuoyModel.shared().fetchLatestBuoyData(forLocation: self.buoyLocation as! String, withCompletionHandler: { (newBuoy: Buoy?) -> Void in
+            BuoyModel.shared().fetchLatestBuoyData(forLocation: self.buoyLocation! as String, withCompletionHandler: { (newBuoy: Buoy?) -> Void in
                 self.latestBuoy = newBuoy
                 self.latestBuoyRefreshTime = Date()
                 self.findNextUpdateTimes()

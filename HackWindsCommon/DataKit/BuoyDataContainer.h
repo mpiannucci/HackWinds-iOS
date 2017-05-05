@@ -19,6 +19,8 @@
 
 - (NSURL*) getLatestWaveDataURL;
 - (NSURL*) getLatestSummaryURL;
+- (NSURL*) getWaveEnergyPlotURL;
+- (NSURL*) getWaveDirectionalPlotURL;
 - (void) resetData;
 
 @end

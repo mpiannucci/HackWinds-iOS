@@ -236,12 +236,12 @@
     } else if ([cell.reuseIdentifier isEqualToString:@"directionalSpectraCell"]) {
         AsyncImageView *directionalSpectraPlotImageView = (AsyncImageView*)[cell viewWithTag:51];
         if (self.latestBuoy.directionalWaveSpectraPlotURL != nil) {
-            [directionalSpectraPlotImageView setImageURL:[NSURL URLWithString:self.latestBuoy.directionalWaveSpectraPlotURL]];
+            [directionalSpectraPlotImageView setImageURL:self.latestBuoy.directionalWaveSpectraPlotURL];
         }
     } else if ([cell.reuseIdentifier isEqualToString:@"energyDistributionCell"]) {
         AsyncImageView *energySpectraPlotImageView = (AsyncImageView*)[cell viewWithTag:51];
         if (self.latestBuoy.waveEnergySpectraPlotURL != nil) {
-            [energySpectraPlotImageView setImageURL:[NSURL URLWithString:self.latestBuoy.waveEnergySpectraPlotURL]];
+            [energySpectraPlotImageView setImageURL:self.latestBuoy.waveEnergySpectraPlotURL];
         }
     }
     

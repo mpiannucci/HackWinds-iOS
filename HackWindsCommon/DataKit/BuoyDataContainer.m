@@ -10,8 +10,9 @@
 #import "BuoyModel.h"
 
 // Local constants
-static NSString * const BASE_WAVE_DATA_URL = @"https://buoyfinder.appspot.com/api/latest/wave/charts/%@";
-static NSString * const BASE_LATEST_DATA_URL = @"https://buoyfinder.appspot.com/api/latest/%@";
+static NSString * const BASE_WAVE_DATA_URL = @"https://mpitester-13.appspot.com/api/station/%@/data/latest/spectra";
+static NSString * const BASE_LATEST_DATA_URL = @"https://mpitester-13.appspot.com/api/station/%@/data/latest";
+static NSString * const BASE_WAVE_ENERGY_PLOT_URL = @"https://mpitester-13.appspot.com/api/station/%@/plot/%@";
 
 @implementation BuoyDataContainer
 
@@ -32,6 +33,14 @@ static NSString * const BASE_LATEST_DATA_URL = @"https://buoyfinder.appspot.com/
 
 - (NSURL*) getLatestSummaryURL {
     return [NSURL URLWithString:[NSString stringWithFormat:BASE_LATEST_DATA_URL, self.buoyID]];
+}
+
+- (NSURL*) getWaveEnergyPlotURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_WAVE_ENERGY_PLOT_URL, self.buoyID, @"energy"]];
+}
+
+- (NSURL*) getWaveDirectionalPlotURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_WAVE_ENERGY_PLOT_URL, self.buoyID, @"direction"]];
 }
 
 - (void) resetData {

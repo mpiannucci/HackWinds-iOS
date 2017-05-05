@@ -76,7 +76,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func updateTimeUI() {
-        if let location = updateManager.buoyLocation as? String {
+        if let location = updateManager.buoyLocation as String? {
             if let updateTime = updateManager.latestRefreshTime() {
                 let dateFormatter = DateFormatter()
                 dateFormatter.timeStyle = DateFormatter.Style.short

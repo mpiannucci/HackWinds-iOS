@@ -292,21 +292,15 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 - (Buoy*) parseBuoyData:(NSData*)rawBuoyData {
     // Parse the data
     NSError *error;
-    NSDictionary *rawData = [NSJSONSerialization
+    NSDictionary *buoyDataDict = [NSJSONSerialization
                              JSONObjectWithData:rawBuoyData
                              options:kNilOptions
                              error:&error];
     
     // If there's no data, return nothing
-    if (rawData == nil) {
+    if (buoyDataDict == nil) {
         return nil;
     } else if (error != nil) {
-        return nil;
-    }
-    
-    // Get the raw buoy data json object
-    NSDictionary *buoyDataDict = [rawData objectForKey:@"BuoyData"];
-    if (buoyDataDict == nil) {
         return nil;
     }
     
@@ -315,44 +309,46 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     
     // Get and save the timestamp from the buoyreading
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-    buoy.timestamp = [dateFormatter dateFromString:[buoyDataDict objectForKey:@"Date"]];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+    buoy.timestamp = [dateFormatter dateFromString:[buoyDataDict objectForKey:@"date"]];
     
     // Get the wave summary
     Swell *waveSummary = [[Swell alloc] init];
-    NSString *units = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"Units"];
-    waveSummary.waveHeight = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"WaveHeight"];
-    if ([units isEqualToString:@"metric"]) {
+    NSString *unit = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"unit"];
+    waveSummary.waveHeight = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"wave_height"];
+    if ([unit isEqualToString:@"metric"]) {
         waveSummary.waveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:waveSummary.waveHeight.doubleValue]];
     }
-    waveSummary.period = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"Period"];
-    waveSummary.direction = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"Direction"];
-    waveSummary.compassDirection = [[buoyDataDict objectForKey:@"WaveSummary"] objectForKey:@"CompassDirection"];
+    waveSummary.period = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"period"];
+    waveSummary.direction = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"direction"];
+    waveSummary.compassDirection = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"compass_direction"];
     buoy.waveSummary = waveSummary;
     
     // Get the swell components
     NSMutableArray *swellComponents = [[NSMutableArray alloc] init];
-    NSArray *rawComponents = [buoyDataDict objectForKey:@"SwellComponents"];
+    NSArray *rawComponents = [buoyDataDict objectForKey:@"swell_components"];
     for (NSDictionary* swellDict in rawComponents) {
         Swell *swellComponent = [[Swell alloc] init];
-        swellComponent.waveHeight = [swellDict objectForKey:@"WaveHeight"];
-        if ([units isEqualToString:@"metric"]) {
+        swellComponent.waveHeight = [swellDict objectForKey:@"wave_height"];
+        if ([unit isEqualToString:@"metric"]) {
             swellComponent.waveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:swellComponent.waveHeight.doubleValue]];
         }
-        swellComponent.period = [swellDict objectForKey:@"Period"];
-        swellComponent.direction = [swellDict objectForKey:@"Direction"];
-        swellComponent.compassDirection = [swellDict objectForKey:@"CompassDirection"];
+        swellComponent.period = [swellDict objectForKey:@"period"];
+        swellComponent.direction = [swellDict objectForKey:@"direction"];
+        swellComponent.compassDirection = [swellDict objectForKey:@"compass_direction"];
         
         [swellComponents addObject:swellComponent];
     }
     buoy.swellComponents = swellComponents;
     
     // Get the water temperature
-    buoy.waterTemperature = [NSNumber numberWithDouble: [self getFahrenheitConvertedFromCelsius:[[buoyDataDict objectForKey:@"WaterTemperature"] doubleValue]]];
+    if (![[buoyDataDict objectForKey:@"water_temperature"] isEqual:[NSNull null]]) {
+        buoy.waterTemperature = [NSNumber numberWithDouble: [self getFahrenheitConvertedFromCelsius:[[buoyDataDict objectForKey:@"water_temperature"] doubleValue]]];
+    }
     
     // Get the raw charts
-    buoy.directionalWaveSpectraPlotURL = [rawData objectForKey:@"DirectionalSpectraPlot"];
-    buoy.waveEnergySpectraPlotURL = [rawData objectForKey:@"SpectraDistributionPlot"];
+    buoy.directionalWaveSpectraPlotURL = [currentContainer getWaveDirectionalPlotURL];
+    buoy.waveEnergySpectraPlotURL = [currentContainer getWaveEnergyPlotURL];
 
     return buoy;
 }
