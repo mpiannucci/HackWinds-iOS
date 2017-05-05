@@ -310,6 +310,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     // Get and save the timestamp from the buoyreading
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     buoy.timestamp = [dateFormatter dateFromString:[buoyDataDict objectForKey:@"date"]];
     
     // Get the wave summary
