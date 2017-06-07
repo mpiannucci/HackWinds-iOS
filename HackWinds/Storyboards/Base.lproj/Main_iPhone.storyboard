@@ -1301,9 +1301,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57E-73-bkD" customClass="AsyncImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="57E-73-bkD" secondAttribute="height" multiplier="4:3" id="TbY-a9-pig"/>
+                                                        <constraint firstAttribute="width" secondItem="57E-73-bkD" secondAttribute="height" multiplier="1:1" id="TbY-a9-pig"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
