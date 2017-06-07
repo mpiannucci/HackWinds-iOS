@@ -89,7 +89,7 @@
 
 - (IBAction)showDisclaimerClicked:(id)sender {
     // Construct and show the disclaimer alert
-    NSString* disclaimer = @"I do not own or claim to own neither the wave camera images or the tide information displayed in this app. This app is simply an interface to make checking the waves easier for surfers when using a phone. I am speifically operating within the user licensing for the Wunderground and WarmWinds API's.";
+    NSString* disclaimer = @"I do not own nor claim to own either the wave camera images or the tide information displayed in this app. This app is simply an interface to make checking the waves easier for surfers when using a phone. I am speifically operating within the user licensing for the Wunderground and WarmWinds API's.";
     UIAlertController *disclaimerController = [UIAlertController alertControllerWithTitle:@"Disclaimer"
                                                                                   message:disclaimer
                                                                            preferredStyle:UIAlertControllerStyleAlert];
