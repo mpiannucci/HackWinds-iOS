@@ -223,9 +223,18 @@
         UILabel *lastUpdatedLabel = (UILabel*)[cell viewWithTag:44];
         
         currentBuoyStatusLabel.text = [self.latestBuoy getWaveSummaryStatusText];
-        currentDominantSpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:0] getDetailedSwellSummmary];
-        currentSecondarySpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:1] getDetailedSwellSummmary];
+        if (self.latestBuoy.swellComponents.count > 0) {
+            currentDominantSpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:0] getDetailedSwellSummmary];
+        } else {
+            currentDominantSpectraLabel.text = @"No primary swell";
+        }
         
+        if (self.latestBuoy.swellComponents.count > 1) {
+            currentSecondarySpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:1] getDetailedSwellSummmary];
+        } else {
+            currentSecondarySpectraLabel.text = @"No secondary swell";
+        }
+            
         if (self.latestBuoy.timestamp != nil) {
             lastUpdatedLabel.text = [NSString stringWithFormat:@"Buoy reported at %@ %@", [self.latestBuoy timeString], [self.latestBuoy dateString]];
         }
