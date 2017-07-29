@@ -21,7 +21,5 @@
 - (IBAction)fullScreenClick:(id)sender;
 - (IBAction)exitButtonClick:(id)sender;
 - (IBAction)fullScreenExitClick:(id)sender;
-- (IBAction)videoPlayButtonClick:(id)sender;
-- (void) videoPlayBackDidFinish:(NSNotification*)notification;
 
 @end

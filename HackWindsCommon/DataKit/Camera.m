@@ -47,4 +47,26 @@
     return premium;
 }
 
+- (NSURL*) url {
+    if ([self hasVideoURL]) {
+        return self.videoURL;
+    } else if ([self hasWebURL]) {
+        return self.webURL;
+    }
+    
+    return self.imageURL;
+}
+
+- (BOOL) hasVideoURL {
+    return ![[self.videoURL absoluteString] isEqualToString:@""];
+}
+
+- (BOOL) hasWebURL {
+    return ![[self.webURL absoluteString] isEqualToString:@""];
+}
+
+- (BOOL) hasImageURL {
+    return ![[self.imageURL absoluteString] isEqualToString:@""];
+}
+
 @end

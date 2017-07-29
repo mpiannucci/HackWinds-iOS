@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SafariServices/SafariServices.h>
 
-@interface AlternateCamerasViewController : UITableViewController
+
+@interface AlternateCamerasViewController : UITableViewController <SFSafariViewControllerDelegate>
 
 - (NSString *)nameOfSection:(NSInteger)section;
 - (IBAction)closeViewClicked:(id)sender;

@@ -10,6 +10,12 @@
 #import "IsoCameraViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 
+@interface AlternateCamerasViewController()
+
+- (BOOL)shouldShowISOCameraView:(NSString*) locationName :(NSString*) cameraName;
+
+@end
+
 @implementation AlternateCamerasViewController {
     CameraModel *cameraModel;
     NSArray *locationKeys;
@@ -37,6 +43,19 @@
 
 - (IBAction)closeViewClicked:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)shouldShowISOCameraView:(NSString*) locationName :(NSString*) cameraName {
+    Camera* camera = [cameraModel cameraForLocation:locationName camera:cameraName];
+    if (camera == nil) {
+        return NO;
+    }
+    
+    if ([[camera.videoURL absoluteString] isEqualToString:@""] && [[camera.webURL absoluteString] isEqualToString:@""] && ![[camera.imageURL absoluteString] isEqualToString:@""]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 #pragma mark - Table view data source
@@ -75,6 +94,16 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* cameraName = [(UILabel*)[[self.tableView cellForRowAtIndexPath:indexPath] viewWithTag:89] text];
+    NSString* locationName = [self nameOfSection:indexPath.section];
+    
+    if (![self shouldShowISOCameraView:locationName :cameraName]) {
+        Camera* camera = [cameraModel cameraForLocation:locationName camera:cameraName];
+        SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:[camera url]];
+        svc.delegate = self;
+        [self presentViewController:svc animated:YES completion:nil];
+    }
+    
     // Deselect the row
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -84,6 +113,14 @@
 }
 
 #pragma mark - Navigation
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSString* cameraName = [(UILabel*)[[self.tableView cellForRowAtIndexPath:indexPath] viewWithTag:89] text];
+    NSString* locationName = [self nameOfSection:indexPath.section];
+    
+    return [self shouldShowISOCameraView:locationName :cameraName];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -100,6 +137,12 @@
         
         [cameraView setCamera:locationLabel.text forLocation:location];
     }
+}
+
+#pragma mark - SafariViewController delegate
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    [controller dismissViewControllerAnimated:true completion:nil];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Camera.h"
 
 // Notification Constants
 extern NSString * const CAMERA_DATA_UPDATED_TAG;
@@ -18,6 +19,7 @@ extern NSString * const CAMERA_DATA_UPDATE_FAILED_TAG;
 
 - (void) forceFetchCameraURLs;
 - (void) fetchCameraURLs;
+- (Camera*) cameraForLocation:(NSString*) locationName camera:(NSString*) cameraName;
 + (instancetype) sharedModel;
 
 @end

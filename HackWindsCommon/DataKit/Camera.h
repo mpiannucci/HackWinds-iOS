@@ -21,5 +21,9 @@
 - (int) getRefreshDuration;
 - (void) setPremium:(BOOL)isPremium;
 - (BOOL) isPremium;
+- (NSURL*) url;
+- (BOOL) hasVideoURL;
+- (BOOL) hasWebURL;
+- (BOOL) hasImageURL;
 
 @end

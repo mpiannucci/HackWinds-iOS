@@ -48,6 +48,7 @@
 		34469F6F1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
 		34472BE11C5BFB5100984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		34472BE21C5BFB5300984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
+		345577451F2CC6BB00EFA569 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345577441F2CC6BB00EFA569 /* SafariServices.framework */; };
 		3457CBF21C4488D400A4BCD2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
 		3457CBF51C4488D400A4BCD2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */; };
 		3457CBF81C4488D400A4BCD2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3457CBF61C4488D400A4BCD2 /* MainInterface.storyboard */; };
@@ -348,6 +349,7 @@
 		34469F661C77C8D0000499CD /* ForecastDailySummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastDailySummary.h; path = HackWindsCommon/DataKit/ForecastDailySummary.h; sourceTree = "<group>"; };
 		34469F671C77C8D0000499CD /* ForecastDailySummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastDailySummary.m; path = HackWindsCommon/DataKit/ForecastDailySummary.m; sourceTree = "<group>"; };
 		34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WidgetUpdateManager.swift; path = HackWindsCommon/Extension/WidgetUpdateManager.swift; sourceTree = "<group>"; };
+		345577441F2CC6BB00EFA569 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		3457CBF71C4488D400A4BCD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345577451F2CC6BB00EFA569 /* SafariServices.framework in Frameworks */,
 				3424FBB21D8D935100BD8EBC /* AVKit.framework in Frameworks */,
 				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
 				349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */,
@@ -669,6 +672,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				345577441F2CC6BB00EFA569 /* SafariServices.framework */,
 				3424FBB11D8D935100BD8EBC /* AVKit.framework */,
 				34AA86571A41357300AD09CF /* SystemConfiguration.framework */,
 				349679E619E63DE90043A21B /* Accelerate.framework */,

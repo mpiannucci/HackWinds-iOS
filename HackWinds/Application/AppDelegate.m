@@ -110,9 +110,9 @@
 - (void)handleDidChangeStatusBarOrientationNotification:(NSNotification *)notification;
 {
     
-    if ([[notification.userInfo objectForKey:UIApplicationStatusBarOrientationUserInfoKey] integerValue] != UIInterfaceOrientationPortrait) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    }
+//    if ([[notification.userInfo objectForKey:UIApplicationStatusBarOrientationUserInfoKey] integerValue] != UIInterfaceOrientationPortrait) {
+//        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+//    }
 }
 
 @end

@@ -161,4 +161,8 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
     return YES;
 }
 
+- (Camera*) cameraForLocation:(NSString*) locationName camera:(NSString*) cameraName {
+    return [[self.cameraURLS objectForKey:locationName] objectForKey:cameraName];
+}
+
 @end

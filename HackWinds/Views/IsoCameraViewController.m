@@ -22,10 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *fullScreenCamImage;
 @property (weak, nonatomic) IBOutlet UIButton *fullScreenExitButton;
 @property (weak, nonatomic) IBOutlet UIButton *fullScreenViewButton;
-@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
 @property (weak, nonatomic) IBOutlet UILabel *extraCameraInfo;
-@property (weak, nonatomic) IBOutlet UIButton *videoPlayButton;
-@property (weak, nonatomic) IBOutlet UIWebView *cameraWebView;
 @end
 
 @implementation IsoCameraViewController {
@@ -48,13 +45,7 @@
     [self.fullScreenCamImage setHidden:YES];
     isFullScreen = NO;
     shouldHideStatusBar = NO;
-    
-    // Initialize the play button to be hidden
-    [self.videoPlayButton setHidden:YES];
     [self.extraCameraInfo setHidden:YES];
-    
-    // Initialize the web view to be hidden
-    [self.cameraWebView setHidden:YES];
     
     // Set the state of the auto reload switch
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -91,11 +82,6 @@
     // Remove notification observer
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    // If the user leaves the view clean up the video stuff
-    if (!self.streamPlayer.fullscreen) {
-        [self videoPlayBackDidFinish:nil];
-    }
-    
     [super viewWillDisappear:animated];
 }
 
@@ -129,41 +115,11 @@
     self.locationName = locName;
     
     CameraModel *cameraModel = [CameraModel sharedModel];
-    camera = [[cameraModel.cameraURLS objectForKey:self.locationName] objectForKey:self.cameraName];
+    camera = [cameraModel cameraForLocation:self.locationName camera:self.cameraName];
 }
 
 - (void)loadCamImage {
     [self.camImage setImageURL:camera.imageURL];
-    
-    if (![[camera.videoURL absoluteString] isEqualToString:@""]) {
-        [self.autoReloadSwitch setOn:NO];
-        [self.autoReloadSwitch setHidden:YES];
-        [self.autoReloadLabel setHidden:YES];
-        [self.refreshIntervalLabel setHidden:YES];
-        [self.fullScreenViewButton setHidden:YES];
-        [self.videoPlayButton setHidden:NO];
-        [self.extraCameraInfo setHidden:NO];
-        [self.extraCameraInfo setNumberOfLines:0];
-        [self.extraCameraInfo setText:camera.info];
-        [self.extraCameraInfo sizeToFit];
-        return;
-    } else if (![[camera.webURL absoluteString] isEqualToString:@""]) {
-        [self.autoReloadSwitch setOn:NO];
-        [self.autoReloadSwitch setHidden:YES];
-        [self.autoReloadLabel setHidden:YES];
-        [self.refreshIntervalLabel setHidden:YES];
-        [self.fullScreenViewButton setHidden:YES];
-        [self.videoPlayButton setHidden:NO];
-        [self.extraCameraInfo setHidden:NO];
-        [self.extraCameraInfo setNumberOfLines:0];
-        [self.extraCameraInfo setText:camera.info];
-        [self.extraCameraInfo sizeToFit];
-        [self.videoPlayButton setHidden:YES];
-        [self.camImage setHidden:YES];
-        [self.cameraWebView setHidden:NO];
-        [self.cameraWebView loadRequest:[NSURLRequest requestWithURL:camera.webURL]];
-        return;
-    }
     
     if (![self.autoReloadSwitch isOn]) {
         // If the switch is deactivated, dont fire the timer
@@ -248,41 +204,6 @@
     // Hide the close button and the full screen image
     [self.fullScreenCamImage setHidden:YES];
     [self.fullScreenExitButton setHidden:YES];
-}
-
-- (IBAction)videoPlayButtonClick:(id)sender {
-    // Get the screen size
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    
-    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:camera.videoURL];
-    [self.streamPlayer.view setFrame:CGRectMake(0, 0, screenWidth, 255)];
-    [self.view addSubview:self.streamPlayer.view];
-    
-    // Set a listener for the video playback finishing
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(videoPlayBackDidFinish:)
-                                                 name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:self.streamPlayer];
-    
-    // Load the stream and play it
-    [self.streamPlayer prepareToPlay];
-    [self.streamPlayer play];
-    
-    // Hide the async holder image
-    [self.camImage setHidden:YES];
-}
-
-- (void)videoPlayBackDidFinish:(NSNotification*)notification {
-    // Remove the notification for the player
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:MPMoviePlayerPlaybackDidFinishNotification
-                                                  object:self.streamPlayer];
-    // Show the holder image again
-    [self.camImage setHidden:NO];
-    
-    // Remove the player from the superview
-    [self.streamPlayer.view removeFromSuperview];
 }
 
 - (BOOL)prefersStatusBarHidden {

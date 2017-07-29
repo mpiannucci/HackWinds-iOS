@@ -174,7 +174,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 
 - (void) setupCamera {
     CameraModel *cameraModel = [CameraModel sharedModel];
-    wwCamera = [[cameraModel.cameraURLS objectForKey:@"Narragansett"] objectForKey:@"Warm Winds"];
+    wwCamera = [cameraModel cameraForLocation:@"Narragansett" camera:@"Warm Winds"];
     [self loadCameraPages];
 }
 
