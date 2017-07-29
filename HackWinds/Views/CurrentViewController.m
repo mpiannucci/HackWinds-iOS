@@ -52,6 +52,12 @@ static const int CAMERA_IMAGE_COUNT = 11;
     [titleButton addTarget:self action:@selector(showModelInformationPopup) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
     
+    // Setup up tap shortcut for the live view
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLiveCamera:)];
+    tapRecognizer.numberOfTapsRequired = 2;
+    [self.camScrollView addGestureRecognizer:tapRecognizer];
+    
+    
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
     self.camPaginator.numberOfPages = CAMERA_IMAGE_COUNT;
@@ -266,6 +272,19 @@ static const int CAMERA_IMAGE_COUNT = 11;
                                                                    withString:[NSString stringWithFormat:@"%02d.jpg", index+1]]];
 }
 
+- (void) showLiveCamera:(UITapGestureRecognizer *)sender {
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    [defaults synchronize];
+    
+    if (![defaults boolForKey:@"ShowPremiumContent"]) {
+        return;
+    }
+    
+    SFSafariViewController* svc = [[SFSafariViewController alloc] initWithURL:[wwCamera url]];
+    svc.delegate = self;
+    [self presentViewController:svc animated:YES completion:nil];
+}
+
 #pragma mark - UIScrollViewDelegate
 
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -389,6 +408,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
     
     return cell;
 }
+
 #pragma mark - Rotation
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
@@ -410,6 +430,12 @@ static const int CAMERA_IMAGE_COUNT = 11;
         [self clearCameraPages];
         [self loadCameraPages];
     }];
+}
+
+#pragma mark - Safari View Controller delegate
+
+- (void) safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

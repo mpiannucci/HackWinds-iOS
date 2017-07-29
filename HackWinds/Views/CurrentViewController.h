@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <HackWindsDataKit/HackWindsDataKit.h>
+#import <SafariServices/SafariServices.h>
 
-@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, SFSafariViewControllerDelegate>
 
 - (void) updateUI;
 - (void) forecastUpdateFailed;
@@ -19,5 +20,6 @@
 - (NSURL*) getCameraURLForIndex:(int)index;
 - (void) removePageForIndex:(int)index;
 - (void) showModelInformationPopup;
+- (void) showLiveCamera:(UITapGestureRecognizer *)sender;
 
 @end
