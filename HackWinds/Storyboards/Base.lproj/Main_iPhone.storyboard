@@ -348,7 +348,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-uA-nQj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dk3-38-MyN">
                                 <rect key="frame" x="13" y="632" width="24" height="24"/>
@@ -373,8 +373,8 @@
                             <constraint firstItem="E57-OS-Fe1" firstAttribute="centerX" secondItem="zhA-NB-6cu" secondAttribute="centerX" id="4eJ-pt-EvD"/>
                             <constraint firstItem="SlJ-f5-zMY" firstAttribute="top" secondItem="Dk3-38-MyN" secondAttribute="bottom" constant="11" id="86b-XC-Tou"/>
                             <constraint firstItem="zhA-NB-6cu" firstAttribute="top" secondItem="AX0-sR-0fV" secondAttribute="bottom" constant="8" symbolic="YES" id="8CI-Um-Hom"/>
-                            <constraint firstItem="K5b-uA-nQj" firstAttribute="centerX" secondItem="ZfW-bJ-KVO" secondAttribute="centerX" id="ASu-KC-lvD"/>
-                            <constraint firstItem="K5b-uA-nQj" firstAttribute="top" secondItem="E57-OS-Fe1" secondAttribute="top" id="Akf-wU-Z38"/>
+                            <constraint firstItem="K5b-uA-nQj" firstAttribute="centerX" secondItem="ZfW-bJ-KVO" secondAttribute="centerX" constant="27.5" id="ASu-KC-lvD"/>
+                            <constraint firstItem="K5b-uA-nQj" firstAttribute="top" secondItem="E57-OS-Fe1" secondAttribute="top" constant="-64" id="Akf-wU-Z38"/>
                             <constraint firstItem="zhA-NB-6cu" firstAttribute="centerX" secondItem="uB7-YH-V4z" secondAttribute="centerX" id="D1a-nM-a9d"/>
                             <constraint firstAttribute="trailing" secondItem="E57-OS-Fe1" secondAttribute="trailing" id="HVw-ZG-rZL"/>
                             <constraint firstItem="K5b-uA-nQj" firstAttribute="bottom" secondItem="SlJ-f5-zMY" secondAttribute="top" id="PkD-YB-4PU"/>
