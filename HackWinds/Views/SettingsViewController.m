@@ -11,9 +11,6 @@
 
 @interface SettingsViewController ()
 
-- (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation;
-
-@property (weak, nonatomic) IBOutlet UIButton *changeDefaultBuoyButton;
 @property (weak, nonatomic) IBOutlet UISwitch *showDetailedForecastSwitch;
 
 @end
@@ -39,9 +36,6 @@
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
     
-    // Get the locations and set the cell to reflect it
-    [self.changeDefaultBuoyButton setTitle:[NSString stringWithFormat:@"Default Buoy Location: %@", [defaults objectForKey:@"DefaultBuoyLocation"]] forState:UIControlStateNormal];
-    
     // Update the switch to match if detailed forecast info is enabled
     [self.showDetailedForecastSwitch setOn:[defaults boolForKey:@"ShowDetailedForecastInfo"]];
     
@@ -50,33 +44,6 @@
 - (IBAction)acceptSettingsClick:(id)sender {
     // For now just make it go away
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)changeDefaultBuoyLocationClicked:(id)sender {
-    UIAlertController *locationActionSheet = [UIAlertController alertControllerWithTitle:@"Default Buoy Location"
-                                                                          message:@"Choose the buoy location to show by default"
-                                                                          preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    for (NSString* location in [[BuoyModel sharedModel] getBuoyLocations]) {
-        if ([location isEqualToString:@"Newport"]) {
-            continue;
-        }
-        
-        UIAlertAction *locationAction = [UIAlertAction actionWithTitle:location
-                                                               style:UIAlertActionStyleDefault
-                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                 [self changeDefaultBuoyLocationSetting:action.title];
-                                                             }];
-        [locationActionSheet addAction:locationAction];
-        
-    }
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:nil];
-    [locationActionSheet addAction:cancelAction];
-    
-    // Show the action sheet
-    [self presentViewController:locationActionSheet animated:YES completion:nil];
 }
 
 - (IBAction)contactDevClicked:(id)sender {
@@ -106,32 +73,6 @@
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults setBool:[sender isOn] forKey:@"ShowDetailedForecastInfo"];
     [defaults synchronize];
-}
-
-- (void) changeDefaultBuoyLocationSetting:(NSString*)newLocation {
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    
-    // Set the value in the settings
-    [defaults setObject:newLocation forKey:@"DefaultBuoyLocation"];
-    [defaults setObject:newLocation forKey:@"BuoyLocation"];
-    [defaults synchronize];
-    
-    // Tell everyone the default buoy location has updated
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:DEFAULT_BUOY_LOCATION_CHANGED_TAG
-         object:self];
-    });
-    
-    // Tell everyone the buoy location has updated
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter]
-        postNotificationName:BUOY_LOCATION_CHANGED_TAG
-        object:self];
-    });
-    
-    // Reload the settings
-    [self loadSettings];
 }
 
 @end
