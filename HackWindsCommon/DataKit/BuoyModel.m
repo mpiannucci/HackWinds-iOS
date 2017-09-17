@@ -34,6 +34,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 - (void) initBuoyContainers;
 - (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler;
 - (Buoy*) parseBuoyData:(NSData*)rawBuoyData;
+- (BOOL) parseStationActive:(NSData*)rawBuoyStationData;
 - (double) getFootConvertedFromMetric:(double)metricValue;
 
 // Private members
@@ -115,6 +116,16 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     [currentContainer resetData];
 }
 
+- (BOOL) getBuoyActive {
+    [self fetchBuoyActive];
+    
+    while (fetching) {
+        [NSThread sleepForTimeInterval:0];
+    }
+    
+    return currentContainer.active;
+}
+
 - (NSArray*) getBuoyLocations {
     return self.buoyDataContainers.allKeys;
 }
@@ -164,7 +175,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     NSURLSessionTask *buoyTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (error != nil) {
-            NSLog(@"Failed to retreive tide data from API");
+            NSLog(@"Failed to retreive data from API");
             
             // Send failure notification
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -178,7 +189,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
         if (httpResponse.statusCode != 200) {
-            NSLog(@"HTTP Error receiving buoy data");
+            NSLog(@"HTTP Error receiving data");
             
             // Send failure notification
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -201,9 +212,14 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     [self fetchBuoyData];
 }
 
-- (void) fetchBuoyInfo {
+- (void) fetchBuoyActive {
     @synchronized(self) {
-        // TODO
+        fetching = YES;
+        
+        [self fetchRawBuoyDataFromURL:[currentContainer getStationInfoURL] withCompletionHandler:^(NSData *data) {
+            currentContainer.active = [self parseStationActive:data];
+            fetching = NO;
+        }];
     }
 }
 
@@ -362,6 +378,24 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     buoy.waveEnergySpectraPlotURL = [currentContainer getWaveEnergyPlotURL];
 
     return buoy;
+}
+
+- (BOOL) parseStationActive:(NSData*)rawBuoyStationData {
+    // Parse the data
+    NSError *error;
+    NSDictionary *buoyDataDict = [NSJSONSerialization
+                                  JSONObjectWithData:rawBuoyStationData
+                                  options:kNilOptions
+                                  error:&error];
+    
+    // If there's no data, return nothing
+    if (buoyDataDict == nil) {
+        return NO;
+    } else if (error != nil) {
+        return NO;
+    }
+    
+    return [[buoyDataDict valueForKey:@"active"] boolValue];
 }
 
 - (double) getFootConvertedFromMetric:(double)metricValue {

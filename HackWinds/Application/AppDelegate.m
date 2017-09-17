@@ -40,7 +40,7 @@
     [defaultPreferences registerDefaults:[NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile]];
     [defaultPreferences synchronize];
     
-    [defaultPreferences setObject:[defaultPreferences objectForKey:@"DefaultBuoyLocation"] forKey:@"BuoyLocation"];
+    [defaultPreferences setObject:BLOCK_ISLAND_LOCATION forKey:@"BuoyLocation"];
     [defaultPreferences synchronize];
    
     // Let the user know if anything went wrong
@@ -55,8 +55,21 @@
     
     // Load all the of the models!!
     [[ForecastModel sharedModel] fetchForecastData];
-    [[BuoyModel sharedModel] fetchBuoyData];
     [[TideModel sharedModel] fetchTideData];
+    
+    // Assume Montauk is always active for now
+    if ([[BuoyModel sharedModel] getBuoyActive]) {
+        [defaultPreferences setObject:BLOCK_ISLAND_LOCATION forKey:@"DefaultBuoyLocation"];
+        [defaultPreferences synchronize];
+    } else {
+        [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"DefaultBuoyLocation"];
+        [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"BuoyLocation"];
+        [defaultPreferences synchronize];
+        
+        // Tell everyone the data has updated
+        [[BuoyModel sharedModel] changeBuoyLocation];
+    }
+    [[BuoyModel sharedModel] fetchBuoyData];
     
     return YES;
 }
