@@ -16,7 +16,9 @@
 @property (strong, nonatomic) Buoy *buoyData;
 @property NSInteger updateInterval;
 @property NSDate *fetchTimestamp;
+@property BOOL active;
 
+- (NSURL*) getStationInfoURL;
 - (NSURL*) getLatestWaveDataURL;
 - (NSURL*) getLatestSummaryURL;
 - (NSURL*) getWaveEnergyPlotURL;

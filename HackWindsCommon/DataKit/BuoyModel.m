@@ -201,6 +201,12 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     [self fetchBuoyData];
 }
 
+- (void) fetchBuoyInfo {
+    @synchronized(self) {
+        // TODO
+    }
+}
+
 - (void) fetchBuoyData {
     @synchronized(self) {
         [self checkForUpdate];

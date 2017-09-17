@@ -36,6 +36,7 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 - (void) forceChangeLocation:(NSString*)location;
 - (void) checkForUpdate;
 - (void) refreshBuoyData;
+- (void) fetchBuoyInfo;
 - (void) fetchBuoyData;
 - (void) fetchLatestSummaryData;
 - (void) fetchLatestBuoyDataForLocation:(NSString*)location withCompletionHandler:(void(^)(Buoy*))completionHandler;

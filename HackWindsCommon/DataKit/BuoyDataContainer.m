@@ -10,6 +10,7 @@
 #import "BuoyModel.h"
 
 // Local constants
+static NSString * const BASE_STATION_INFO_URL = @"https://mpitester-13.appspot.com/api/station/%@/info";
 static NSString * const BASE_WAVE_DATA_URL = @"https://mpitester-13.appspot.com/api/station/%@/data/latest/spectra";
 static NSString * const BASE_LATEST_DATA_URL = @"https://mpitester-13.appspot.com/api/station/%@/data/latest";
 static NSString * const BASE_WAVE_ENERGY_PLOT_URL = @"https://mpitester-13.appspot.com/api/station/%@/plot/%@";
@@ -25,6 +26,10 @@ static NSString * const BASE_WAVE_ENERGY_PLOT_URL = @"https://mpitester-13.appsp
     self.updateInterval = 60;
     
     return self;
+}
+
+- (NSURL*) getStationInfoURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:BASE_STATION_INFO_URL, self.buoyID]];
 }
 
 - (NSURL*) getLatestWaveDataURL {
