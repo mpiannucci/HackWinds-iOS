@@ -67,6 +67,7 @@
 		349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; };
 		349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		349264541C3D52E3000D3FEF /* HackWindsDataKitOSX.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3495E3051F6EBF8400A027F0 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3495E3041F6EBF8400A027F0 /* Settings-Watch.bundle */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
 		349D42471C384C69006F7B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D42461C384C69006F7B24 /* AppDelegate.swift */; };
@@ -375,6 +376,7 @@
 		349076611C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076711C24AA8800EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3495E3041F6EBF8400A027F0 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D42441C384C69006F7B24 /* HackWindsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -633,6 +635,7 @@
 		3430837D19795D0F00655F15 = {
 			isa = PBXGroup;
 			children = (
+				3495E3041F6EBF8400A027F0 /* Settings-Watch.bundle */,
 				3430838F19795D0F00655F15 /* HackWinds */,
 				3457CBF31C4488D400A4BCD2 /* HackWindsToday */,
 				349076241C24A7E500EAD0CE /* HackWindsWatchApp */,
@@ -1297,6 +1300,7 @@
 			files = (
 				34F933951B39922900AD23DF /* Base.lproj in Resources */,
 				34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */,
+				3495E3051F6EBF8400A027F0 /* Settings-Watch.bundle in Resources */,
 				340AFA211A9C320700DAD121 /* UISettings.plist in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
 				34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */,
