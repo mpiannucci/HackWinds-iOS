@@ -19,15 +19,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *autoReloadLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *autoReloadSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *refreshIntervalLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *fullScreenCamImage;
-@property (weak, nonatomic) IBOutlet UIButton *fullScreenExitButton;
-@property (weak, nonatomic) IBOutlet UIButton *fullScreenViewButton;
 @property (weak, nonatomic) IBOutlet UILabel *extraCameraInfo;
 @end
 
 @implementation IsoCameraViewController {
     Camera *camera;
-    BOOL shouldHideStatusBar;
     BOOL isFullScreen;
 }
 
@@ -41,10 +37,7 @@
     self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
     
     // Initialize the full screen to not be full screen
-    [self.fullScreenExitButton setHidden:YES];
-    [self.fullScreenCamImage setHidden:YES];
     isFullScreen = NO;
-    shouldHideStatusBar = NO;
     [self.extraCameraInfo setHidden:YES];
     
     // Set the state of the auto reload switch
@@ -58,12 +51,6 @@
     // Don't cache anything so we can reload a bunch
     AsyncImageLoader *imageLoaderInstance = [AsyncImageLoader sharedLoader];
     imageLoaderInstance.cache = nil;
-    
-    // Register for image loaded notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateFullScreenImage)
-                                                 name:@"AsyncImageLoadDidFinish"
-                                               object:nil];
     
     [self updateRefreshLabel];
     
@@ -88,26 +75,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
-{
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    
-    // Code here will execute before the rotation begins.
-    // Equivalent to placing it in the deprecated method -[willRotateToInterfaceOrientation:duration:]
-    
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        
-        // Place code here to perform animations during the rotation.
-        // You can pass nil or leave this block empty if not necessary.
-        
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        
-        // Code here will execute after the rotation has finished.
-        // Equivalent to placing it in the deprecated method -[didRotateFromInterfaceOrientation:]
-        
-    }];
 }
 
 - (void)setCamera:(NSString *)camName forLocation:(NSString *)locName {
@@ -149,18 +116,6 @@
     }
 }
 
-- (void)updateFullScreenImage {
-    if (!isFullScreen) {
-        return;
-    }
-    
-    // Update the full screen image with a landscape version of the original imageview image
-    UIImage *imageCopy = self.camImage.image;
-    self.fullScreenCamImage.image = [[UIImage alloc] initWithCGImage: imageCopy.CGImage
-                                                               scale: 1.0
-                                                         orientation: UIImageOrientationRight];
-}
-
 - (IBAction)autoReloadSwitchChange:(id)sender {
     // Update the auto reload settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -171,43 +126,34 @@
     [self updateRefreshLabel];
 }
 
-- (IBAction)fullScreenClick:(id)sender {
-    // Set the full screen flag
-    isFullScreen = YES;
-    
-    // Set the initial full screen image
-    [self updateFullScreenImage];
-    
-    // Hide the status bar and nav bar
-    shouldHideStatusBar = YES;
-    [self setNeedsStatusBarAppearanceUpdate];
-    [self.navigationController setNavigationBarHidden:YES];
-
-    // Show the full screen image and the close button
-    [self.fullScreenCamImage setHidden:NO];
-    [self.fullScreenExitButton setHidden:NO];
-}
-
 - (IBAction)exitButtonClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)fullScreenExitClick:(id)sender {
-    // Reset the full screen flag
-    isFullScreen = NO;
-    
-    // Show the status bar and nav bar
-    shouldHideStatusBar = NO;
-    [self setNeedsStatusBarAppearanceUpdate];
-    [self.navigationController setNavigationBarHidden:NO];
-    
-    // Hide the close button and the full screen image
-    [self.fullScreenCamImage setHidden:YES];
-    [self.fullScreenExitButton setHidden:YES];
+- (BOOL)prefersStatusBarHidden {
+    return isFullScreen;
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return shouldHideStatusBar;
+#pragma mark - Rotation
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
+{
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    // Code here will execute before the rotation begins.
+    // Equivalent to placing it in the deprecated method -[willRotateToInterfaceOrientation:duration:]
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        
+        // Place code here to perform animations during the rotation.
+        // You can pass nil or leave this block empty if not necessary.
+        
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        
+        // Code here will execute after the rotation has finished.
+        // Equivalent to placing it in the deprecated method -[didRotateFromInterfaceOrientation:]
+        
+    }];
 }
 
 /*

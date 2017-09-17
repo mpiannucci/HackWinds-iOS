@@ -16,10 +16,7 @@
 - (void)setCamera:(NSString *)camName forLocation:(NSString *)locName;
 - (void)loadCamImage;
 - (void)updateRefreshLabel;
-- (void)updateFullScreenImage;
 - (IBAction)autoReloadSwitchChange:(id)sender;
-- (IBAction)fullScreenClick:(id)sender;
 - (IBAction)exitButtonClick:(id)sender;
-- (IBAction)fullScreenExitClick:(id)sender;
 
 @end
