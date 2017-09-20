@@ -16,6 +16,8 @@
 		340A604B1DBD08A700108CB7 /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		340AFA211A9C320700DAD121 /* UISettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340AFA201A9C320700DAD121 /* UISettings.plist */; };
 		340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */; };
+		34231AD71F72043600B93A8B /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34231AD61F72043600B93A8B /* WatchConnectivity.framework */; };
+		34231ADA1F72079300B93A8B /* WatchSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34231AD91F72079300B93A8B /* WatchSessionManager.m */; };
 		3424FBB21D8D935100BD8EBC /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3424FBB11D8D935100BD8EBC /* AVKit.framework */; };
 		342A76221985E18100077F8C /* TideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* TideViewController.m */; };
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
@@ -67,7 +69,6 @@
 		349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; };
 		349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		349264541C3D52E3000D3FEF /* HackWindsDataKitOSX.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3495E3071F6F4FAE00A027F0 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3495E3061F6F4FAE00A027F0 /* Settings-Watch.bundle */; };
 		349679E519E63DE20043A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E419E63DE20043A21B /* QuartzCore.framework */; };
 		349679E719E63DE90043A21B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349679E619E63DE90043A21B /* Accelerate.framework */; };
 		349D42471C384C69006F7B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D42461C384C69006F7B24 /* AppDelegate.swift */; };
@@ -319,6 +320,9 @@
 		340AFA201A9C320700DAD121 /* UISettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UISettings.plist; sourceTree = "<group>"; };
 		340B5C991B938CB400E7203C /* NavigationBarTitleWithSubtitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarTitleWithSubtitleView.h; sourceTree = "<group>"; };
 		340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarTitleWithSubtitleView.m; sourceTree = "<group>"; };
+		34231AD61F72043600B93A8B /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		34231AD81F72079300B93A8B /* WatchSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchSessionManager.h; sourceTree = "<group>"; };
+		34231AD91F72079300B93A8B /* WatchSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSessionManager.m; sourceTree = "<group>"; };
 		3424FBB11D8D935100BD8EBC /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
@@ -376,7 +380,6 @@
 		349076611C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076711C24AA8800EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3495E3061F6F4FAE00A027F0 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
 		349679E419E63DE20043A21B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		349679E619E63DE90043A21B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		349D42441C384C69006F7B24 /* HackWindsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackWindsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -460,6 +463,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34231AD71F72043600B93A8B /* WatchConnectivity.framework in Frameworks */,
 				345577451F2CC6BB00EFA569 /* SafariServices.framework in Frameworks */,
 				3424FBB21D8D935100BD8EBC /* AVKit.framework in Frameworks */,
 				34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */,
@@ -617,6 +621,8 @@
 				3430839719795D0F00655F15 /* HackWinds-Prefix.pch */,
 				3430839819795D0F00655F15 /* AppDelegate.h */,
 				3430839919795D0F00655F15 /* AppDelegate.m */,
+				34231AD81F72079300B93A8B /* WatchSessionManager.h */,
+				34231AD91F72079300B93A8B /* WatchSessionManager.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -635,7 +641,6 @@
 		3430837D19795D0F00655F15 = {
 			isa = PBXGroup;
 			children = (
-				3495E3061F6F4FAE00A027F0 /* Settings-Watch.bundle */,
 				3430838F19795D0F00655F15 /* HackWinds */,
 				3457CBF31C4488D400A4BCD2 /* HackWindsToday */,
 				349076241C24A7E500EAD0CE /* HackWindsWatchApp */,
@@ -675,6 +680,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34231AD61F72043600B93A8B /* WatchConnectivity.framework */,
 				345577441F2CC6BB00EFA569 /* SafariServices.framework */,
 				3424FBB11D8D935100BD8EBC /* AVKit.framework */,
 				34AA86571A41357300AD09CF /* SystemConfiguration.framework */,
@@ -1300,7 +1306,6 @@
 			files = (
 				34F933951B39922900AD23DF /* Base.lproj in Resources */,
 				34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */,
-				3495E3071F6F4FAE00A027F0 /* Settings-Watch.bundle in Resources */,
 				340AFA211A9C320700DAD121 /* UISettings.plist in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
 				34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */,
@@ -1445,6 +1450,7 @@
 				349F83791C9F614C00994826 /* TideScheduleViewController.m in Sources */,
 				34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */,
 				34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */,
+				34231ADA1F72079300B93A8B /* WatchSessionManager.m in Sources */,
 				34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */,
 				34433DBF1AF876E300E2C7E6 /* IsoCameraViewController.m in Sources */,
 				34AA865E1A41382F00AD09CF /* Reachability.m in Sources */,

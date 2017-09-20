@@ -11,6 +11,7 @@
 #import <AVKit/AVKit.h>
 #import "Reachability.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
+#import <WatchConnectivity/WatchConnectivity.h>
 
 @implementation AppDelegate
 {

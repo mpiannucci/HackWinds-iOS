@@ -8,26 +8,11 @@
 	<array>
 		<dict>
 			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>Buoy Settings</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
 			<string>Buoy Location</string>
 			<key>Key</key>
 			<string>DefaultBuoyLocation</string>
-			<key>DefaultValue</key>
-			<string>Block Island</string>
-			<key>Values</key>
-			<array>
-				<string>Block Island</string>
-				<string>Montauk</string>
-				<string>Nantucket</string>
-				<string>Texas Tower</string>
-			</array>
 		</dict>
 	</array>
 	<key>ApplicationGroupContainerIdentifier</key>

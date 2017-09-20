@@ -75,7 +75,9 @@ class WidgetUpdateManager {
     func doesBuoyNeedUpdate() -> Bool {
         // Get the latest buoy location from the shared settings. Defaults to Montauk
         let groupDefaults = UserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
+        
         if let newLocation = groupDefaults?.string(forKey: "DefaultBuoyLocation") {
+            NSLog("%@", newLocation)
             if let buoyLocation = self.buoyLocation {
                 if buoyLocation as String != newLocation {
                     // The location has been changed since the last spin so force a refresh
@@ -91,6 +93,7 @@ class WidgetUpdateManager {
             // Just default to montauk if possible
             self.buoyLocation = BLOCK_ISLAND_LOCATION as NSString?
             groupDefaults?.set(self.buoyLocation, forKey: "DefaultBuoyLocation")
+            
             self.nextBuoyUpdateTime = nil
         }
         
