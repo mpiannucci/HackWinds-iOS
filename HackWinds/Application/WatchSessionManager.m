@@ -71,7 +71,12 @@
 // DELEGATE
 
 - (void) session:(WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(NSError *)error {
+    if (activationState != WCSessionActivationStateActivated) {
+        return;
+    }
     
+    NSUserDefaults *defaultPreferences = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+    [self transferUserInfo:[defaultPreferences dictionaryRepresentation]];
 }
 
 - (void) sessionDidBecomeInactive:(WCSession *)session {

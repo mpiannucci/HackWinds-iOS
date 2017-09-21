@@ -29,21 +29,14 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         // TODO
     }
-}
-
-// MARK: User Info
-// use when your app needs all the data
-// FIFO queue
-extension WatchSessionManager {
     
-    // Receiver
-    func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
-        
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         // handle receiving user info
-        DispatchQueue.main.async() { [weak self] in
+        DispatchQueue.main.async() { () in
             // TODO: Update what needs to be updated
-            NSLog(userInfo.keys.first as String!)
+            let groupDefaults = UserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
+            groupDefaults?.set(userInfo["DefaultBuoyLocation"], forKey: "DefaultBuoyLocation")
+            groupDefaults?.synchronize()
         }
     }
-    
 }

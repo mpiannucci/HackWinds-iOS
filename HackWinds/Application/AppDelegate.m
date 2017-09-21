@@ -72,9 +72,9 @@
         [[BuoyModel sharedModel] changeBuoyLocation];
     }
     
+    // Update the watch settings 
     WatchSessionManager *watchManager = [WatchSessionManager sharedManager];
     [watchManager startSession];
-    [watchManager transferUserInfo:[defaultPreferences dictionaryRepresentation]];
     
     [[BuoyModel sharedModel] fetchBuoyData];
     

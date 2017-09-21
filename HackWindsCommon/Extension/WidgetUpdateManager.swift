@@ -77,7 +77,6 @@ class WidgetUpdateManager {
         let groupDefaults = UserDefaults.init(suiteName: "group.com.mpiannucci.HackWinds")
         
         if let newLocation = groupDefaults?.string(forKey: "DefaultBuoyLocation") {
-            NSLog("%@", newLocation)
             if let buoyLocation = self.buoyLocation {
                 if buoyLocation as String != newLocation {
                     // The location has been changed since the last spin so force a refresh
