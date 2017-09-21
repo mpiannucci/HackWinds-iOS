@@ -43,8 +43,12 @@
     [sesh activateSession];
 }
 
-- (void) transferUserInfo {
-    // TODO
+- (WCSessionUserInfoTransfer*) transferUserInfo:(NSDictionary*)userInfo {
+    if (![self validSession]) {
+        return nil;
+    }
+    
+    return [[self session] transferUserInfo:userInfo];
 }
 
 - (BOOL) validSession {

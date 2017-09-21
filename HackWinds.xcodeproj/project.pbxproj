@@ -18,6 +18,8 @@
 		340B5C9B1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 340B5C9A1B938CB400E7203C /* NavigationBarTitleWithSubtitleView.m */; };
 		34231AD71F72043600B93A8B /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34231AD61F72043600B93A8B /* WatchConnectivity.framework */; };
 		34231ADA1F72079300B93A8B /* WatchSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34231AD91F72079300B93A8B /* WatchSessionManager.m */; };
+		34231ADC1F73FC2300B93A8B /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34231ADB1F73FC2300B93A8B /* WatchSessionManager.swift */; };
+		34231ADE1F73FC9A00B93A8B /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34231ADD1F73FC9A00B93A8B /* WatchConnectivity.framework */; };
 		3424FBB21D8D935100BD8EBC /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3424FBB11D8D935100BD8EBC /* AVKit.framework */; };
 		342A76221985E18100077F8C /* TideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342A76211985E18100077F8C /* TideViewController.m */; };
 		342A76241985E38600077F8C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A76231985E38600077F8C /* MediaPlayer.framework */; };
@@ -323,6 +325,8 @@
 		34231AD61F72043600B93A8B /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		34231AD81F72079300B93A8B /* WatchSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchSessionManager.h; sourceTree = "<group>"; };
 		34231AD91F72079300B93A8B /* WatchSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSessionManager.m; sourceTree = "<group>"; };
+		34231ADB1F73FC2300B93A8B /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		34231ADD1F73FC9A00B93A8B /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 		3424FBB11D8D935100BD8EBC /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		342A76201985E18100077F8C /* TideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TideViewController.h; sourceTree = "<group>"; };
 		342A76211985E18100077F8C /* TideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TideViewController.m; sourceTree = "<group>"; };
@@ -491,6 +495,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34231ADE1F73FC9A00B93A8B /* WatchConnectivity.framework in Frameworks */,
 				349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +685,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34231ADD1F73FC9A00B93A8B /* WatchConnectivity.framework */,
 				34231AD61F72043600B93A8B /* WatchConnectivity.framework */,
 				345577441F2CC6BB00EFA569 /* SafariServices.framework */,
 				3424FBB11D8D935100BD8EBC /* AVKit.framework */,
@@ -751,6 +757,7 @@
 				349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */,
 				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
 				3490763C1C24A7E500EAD0CE /* Info.plist */,
+				34231ADB1F73FC2300B93A8B /* WatchSessionManager.swift */,
 			);
 			path = "HackWindsWatchApp Extension";
 			sourceTree = "<group>";
@@ -1480,6 +1487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34231ADC1F73FC2300B93A8B /* WatchSessionManager.swift in Sources */,
 				349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */,
 				349076351C24A7E500EAD0CE /* InterfaceController.swift in Sources */,
 				34D3DF211D3BD07E003304E8 /* ComplicationController.swift in Sources */,

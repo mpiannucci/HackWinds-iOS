@@ -13,6 +13,6 @@
 
 + (instancetype) sharedManager;
 - (void) startSession;
-- (void) transferUserInfo;
+- (WCSessionUserInfoTransfer*) transferUserInfo:(NSDictionary*) userInfo;
 
 @end

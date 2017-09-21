@@ -11,7 +11,8 @@
 #import <AVKit/AVKit.h>
 #import "Reachability.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
-#import <WatchConnectivity/WatchConnectivity.h>
+#import "WatchSessionManager.h"
+
 
 @implementation AppDelegate
 {
@@ -70,6 +71,11 @@
         // Tell everyone the data has updated
         [[BuoyModel sharedModel] changeBuoyLocation];
     }
+    
+    WatchSessionManager *watchManager = [WatchSessionManager sharedManager];
+    [watchManager startSession];
+    [watchManager transferUserInfo:[defaultPreferences dictionaryRepresentation]];
+    
     [[BuoyModel sharedModel] fetchBuoyData];
     
     return YES;
