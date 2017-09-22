@@ -116,16 +116,6 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     [currentContainer resetData];
 }
 
-- (BOOL) getBuoyActive {
-    [self fetchBuoyActive];
-    
-    while (fetching) {
-        [NSThread sleepForTimeInterval:0];
-    }
-    
-    return currentContainer.active;
-}
-
 - (NSArray*) getBuoyLocations {
     return self.buoyDataContainers.allKeys;
 }
@@ -212,13 +202,17 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     [self fetchBuoyData];
 }
 
-- (void) fetchBuoyActive {
+- (void) fetchBuoyActive:(void(^)(bool))completionHandler; {
     @synchronized(self) {
         fetching = YES;
         
         [self fetchRawBuoyDataFromURL:[currentContainer getStationInfoURL] withCompletionHandler:^(NSData *data) {
             currentContainer.active = [self parseStationActive:data];
             fetching = NO;
+            
+            if (completionHandler != nil) {
+                completionHandler(currentContainer.active);
+            }
         }];
     }
 }

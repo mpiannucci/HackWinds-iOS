@@ -60,23 +60,23 @@
     [[TideModel sharedModel] fetchTideData];
     
     // Assume Montauk is always active for now
-    if ([[BuoyModel sharedModel] getBuoyActive]) {
-        [defaultPreferences setObject:BLOCK_ISLAND_LOCATION forKey:@"DefaultBuoyLocation"];
-        [defaultPreferences synchronize];
-    } else {
-        [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"DefaultBuoyLocation"];
-        [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"BuoyLocation"];
-        [defaultPreferences synchronize];
+    [[BuoyModel sharedModel] fetchBuoyActive:^(bool active) {
+        if (active) {
+            [defaultPreferences setObject:BLOCK_ISLAND_LOCATION forKey:@"DefaultBuoyLocation"];
+            [defaultPreferences synchronize];
+        } else {
+            [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"DefaultBuoyLocation"];
+            [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"BuoyLocation"];
+            [defaultPreferences synchronize];
+            
+            // Tell everyone the data has updated
+            [[BuoyModel sharedModel] changeBuoyLocation];
+        }
+        WatchSessionManager *watchManager = [WatchSessionManager sharedManager];
+        [watchManager startSession];
         
-        // Tell everyone the data has updated
-        [[BuoyModel sharedModel] changeBuoyLocation];
-    }
-    
-    // Update the watch settings 
-    WatchSessionManager *watchManager = [WatchSessionManager sharedManager];
-    [watchManager startSession];
-    
-    [[BuoyModel sharedModel] fetchBuoyData];
+        [[BuoyModel sharedModel] fetchBuoyData];
+    }];
     
     return YES;
 }
