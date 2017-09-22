@@ -15,7 +15,7 @@
 
 - (void) changeBuoyLocation:(NSString*)newLocation;
 
-@property (strong, nonatomic) UIButton *navigationBarTitle;
+@property (strong, nonatomic) UIButton* navbarTitleButton;
 @property (strong, nonatomic) Buoy *latestBuoy;
 @property (strong, nonatomic) NSURL *waveSpectraURL;
 
@@ -30,12 +30,11 @@
     [super viewDidLoad];
     
     // Set the navbar
-    self.navigationBarTitle = [[UIButton alloc] initWithFrame:self.navigationItem.titleView.frame];
-    [self.navigationBarTitle.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
-    [self.navigationBarTitle addTarget:self action:@selector(locationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationBarTitle setAutoresizesSubviews:YES];
-    [self.navigationBarTitle.titleLabel setAdjustsFontSizeToFitWidth:YES];
-    self.navigationItem.titleView = self.navigationBarTitle;
+    self.navbarTitleButton = [[UIButton alloc] initWithFrame:self.navigationItem.titleView.frame];
+    [self.navbarTitleButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [self.navbarTitleButton setTitle:@"Block Island" forState:UIControlStateNormal];
+    [self.navbarTitleButton addTarget:self action:@selector(locationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = self.navbarTitleButton;
     
     // Load the buoy settings
     [self loadBuoySettings];
@@ -132,7 +131,7 @@
 
     // Grab the last set or default location
     buoyLocation = [defaults objectForKey:@"BuoyLocation"];
-    [self.navigationBarTitle setTitle:buoyLocation forState:UIControlStateNormal];
+    [self.navbarTitleButton setTitle:buoyLocation forState:UIControlStateNormal];
 }
 
 - (void)locationButtonClicked:(id)sender{
