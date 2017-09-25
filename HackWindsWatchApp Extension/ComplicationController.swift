@@ -13,43 +13,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
     
-    // MARK: - Data handling 
-    
-    func requestedUpdateDidBegin() {
-        
-        if updateManager.doesBuoyNeedUpdate() {
-        
-            // Fetch new data and update if successful
-            updateManager.fetchBuoyUpdate { (Void) -> Void in
-                DispatchQueue.main.async(execute: {
-                    let server=CLKComplicationServer.sharedInstance()
-                    
-                    for complication in server.activeComplications! {
-                        server.reloadTimeline(for: complication)
-                    }
-                })
-            }
-        }
-        
-        if updateManager.doesTideNeedUpdate() {
-            updateManager.fetchTideUpdate { (Void) -> Void in
-                DispatchQueue.main.async(execute: {
-                    let server=CLKComplicationServer.sharedInstance()
-                    
-                    for complication in server.activeComplications! {
-                        server.reloadTimeline(for: complication)
-                    }
-                })
-            }
-        }
-    }
-    
-    func requestedUpdateBudgetExhausted() {
-
-    }
+    // MARK: - Data handling
     
     func reloadTimelineForComplication(_ complication: CLKComplication!) {
-
+        
     }
     
     // MARK: - Timeline Configuration
@@ -155,13 +122,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: (@escaping ([CLKComplicationTimelineEntry]?) -> Void)) {
         // Call the handler with the timeline entries after to the given date
         handler(nil)
-    }
-    
-    // MARK: - Update Scheduling
-    
-    func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void) {
-        // Call the handler with the date when you would next like to be given the opportunity to update your complication content
-        handler(Date(timeIntervalSinceNow: 60*30));
     }
     
     // MARK: - Placeholder Templates

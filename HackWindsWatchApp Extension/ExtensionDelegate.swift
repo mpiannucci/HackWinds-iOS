@@ -9,10 +9,18 @@
 import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    
+    let updateManager: WidgetUpdateManager = WidgetUpdateManager()
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         WatchSessionManager.sharedManager.startSession()
+        
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 5), userInfo: nil) { (error: Error?) in
+            if let error = error {
+                print("Error occured while scheduling background refresh: \(error.localizedDescription)")
+            }
+        }
     }
 
     func applicationDidBecomeActive() {
@@ -22,6 +30,53 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
+    }
+    
+    func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
+        for task in backgroundTasks {
+            switch task {
+            case let backgroundTask as WKApplicationRefreshBackgroundTask:
+                self.updateManager.fetchBuoyUpdate { (Void) -> Void in
+                    DispatchQueue.main.async(execute: {
+                        let server=CLKComplicationServer.sharedInstance()
+                        
+                        for complication in server.activeComplications! {
+                            server.reloadTimeline(for: complication)
+                        }
+                    })
+                }
+                
+                self.updateManager.fetchTideUpdate { (Void) -> Void in
+                    DispatchQueue.main.async(execute: {
+                        let server=CLKComplicationServer.sharedInstance()
+                        
+                        for complication in server.activeComplications! {
+                            server.reloadTimeline(for: complication)
+                        }
+                    })
+                }
+                
+                WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 30), userInfo: nil) { (error: Error?) in
+                    if let error = error {
+                        print("Error occured while scheduling background refresh: \(error.localizedDescription)")
+                    }
+                }
+                
+                backgroundTask.setTaskCompleted()
+            case let snapshotTask as WKSnapshotRefreshBackgroundTask:
+                // Snapshot tasks have a unique completion call, make sure to set your expiration date
+                snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
+            case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask:
+                // Be sure to complete the connectivity task once you’re done.
+                connectivityTask.setTaskCompleted()
+            case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
+                // Be sure to complete the URL session task once you’re done.
+                urlSessionTask.setTaskCompleted()
+            default:
+                // make sure to complete unhandled task types
+                task.setTaskCompleted()
+            }
+        }
     }
 
 }

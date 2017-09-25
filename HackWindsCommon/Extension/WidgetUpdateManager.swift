@@ -45,31 +45,35 @@ class WidgetUpdateManager {
     }
     
     func fetchBuoyUpdate(_ completionHandler: (() -> Void)!) {
-        if (doesBuoyNeedUpdate()) {
-            BuoyModel.shared().fetchLatestBuoyData(forLocation: self.buoyLocation! as String, withCompletionHandler: { (newBuoy: Buoy?) -> Void in
-                self.latestBuoy = newBuoy
-                self.latestBuoyRefreshTime = Date()
-                self.findNextUpdateTimes()
-                self.cacheData()
-                
-                // Trigger the callback
-                completionHandler()
-            })
+        if (!doesBuoyNeedUpdate()) {
+            return
         }
+        
+        BuoyModel.shared().fetchLatestBuoyData(forLocation: self.buoyLocation! as String, withCompletionHandler: { (newBuoy: Buoy?) -> Void in
+            self.latestBuoy = newBuoy
+            self.latestBuoyRefreshTime = Date()
+            self.findNextUpdateTimes()
+            self.cacheData()
+                
+            // Trigger the callback
+            completionHandler()
+        })
     }
     
     func fetchTideUpdate(_ completionHandler: (() -> Void)!) {
-        if (doesTideNeedUpdate()) {
-            TideModel.shared().fetchLatestTidalEventOnly({ (newTide: Tide?) -> Void in
-                self.nextTide = newTide
-                self.latestTideRefreshTime = Date()
-                self.findNextUpdateTimes()
-                self.cacheData()
-                
-                // Trigger the callback
-                completionHandler()
-            })
+        if (!doesTideNeedUpdate()) {
+            return
         }
+        
+        TideModel.shared().fetchLatestTidalEventOnly({ (newTide: Tide?) -> Void in
+            self.nextTide = newTide
+            self.latestTideRefreshTime = Date()
+            self.findNextUpdateTimes()
+            self.cacheData()
+                
+            // Trigger the callback
+            completionHandler()
+        })
     }
     
     func doesBuoyNeedUpdate() -> Bool {
