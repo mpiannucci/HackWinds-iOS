@@ -755,9 +755,9 @@
 				349E6A161C2A489800CBDCBD /* HackWindsWatch-Bridging-Header.h */,
 				34D3DF121D3BD05E003304E8 /* ComplicationController.swift */,
 				349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */,
+				34231ADB1F73FC2300B93A8B /* WatchSessionManager.swift */,
 				3490763A1C24A7E500EAD0CE /* Assets.xcassets */,
 				3490763C1C24A7E500EAD0CE /* Info.plist */,
-				34231ADB1F73FC2300B93A8B /* WatchSessionManager.swift */,
 			);
 			path = "HackWindsWatchApp Extension";
 			sourceTree = "<group>";
