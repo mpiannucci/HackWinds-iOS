@@ -81,6 +81,7 @@
 		34AA865B1A41381600AD09CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AA86571A41357300AD09CF /* SystemConfiguration.framework */; };
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
+		34B01A981F93FEA2008E9528 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B01A971F93FEA2008E9528 /* StoreKit.framework */; };
 		34C07E2C1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C07E2B1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m */; };
 		34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2D1C274D67002D3DB8 /* HackWindsDataKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2F1C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h */; };
@@ -401,6 +402,7 @@
 		34AA865D1A41382F00AD09CF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		34AE272319C679E7000DAB81 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		34AE272419C679E7000DAB81 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		34B01A971F93FEA2008E9528 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		34BF8CF51B62E69B00287BC1 /* HackWinds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWinds.entitlements; sourceTree = "<group>"; };
 		34C07E2B1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitOSXTests.m; sourceTree = "<group>"; };
 		34C07E2D1C274D67002D3DB8 /* HackWindsDataKitOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HackWindsDataKitOSX.h; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B01A981F93FEA2008E9528 /* StoreKit.framework in Frameworks */,
 				34231AD71F72043600B93A8B /* WatchConnectivity.framework in Frameworks */,
 				345577451F2CC6BB00EFA569 /* SafariServices.framework in Frameworks */,
 				3424FBB21D8D935100BD8EBC /* AVKit.framework in Frameworks */,
@@ -685,6 +688,7 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34B01A971F93FEA2008E9528 /* StoreKit.framework */,
 				34231ADD1F73FC9A00B93A8B /* WatchConnectivity.framework */,
 				34231AD61F72043600B93A8B /* WatchConnectivity.framework */,
 				345577441F2CC6BB00EFA569 /* SafariServices.framework */,

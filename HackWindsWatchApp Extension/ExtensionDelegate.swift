@@ -11,6 +11,9 @@ import WatchKit
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
+    
+    var lastTask: WKRefreshBackgroundTask? = nil
+    var taskCounter = 0
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
@@ -36,33 +39,51 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         for task in backgroundTasks {
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
-                self.updateManager.fetchBuoyUpdate { (Void) -> Void in
+                let buoyUpdatePending = self.updateManager.fetchBuoyUpdate { (Void) -> Void in
                     DispatchQueue.main.async(execute: {
                         let server=CLKComplicationServer.sharedInstance()
                         
                         for complication in server.activeComplications! {
                             server.reloadTimeline(for: complication)
+                        }
+                        
+                        self.taskCounter -= 1
+                        if self.taskCounter == 0 {
+                            self.lastTask?.setTaskCompleted()
                         }
                     })
                 }
                 
-                self.updateManager.fetchTideUpdate { (Void) -> Void in
+                let tideUpdatePending = self.updateManager.fetchTideUpdate { (Void) -> Void in
                     DispatchQueue.main.async(execute: {
                         let server=CLKComplicationServer.sharedInstance()
                         
                         for complication in server.activeComplications! {
                             server.reloadTimeline(for: complication)
                         }
+                        
+                        self.taskCounter -= 1
+                        if self.taskCounter == 0 {
+                            self.lastTask?.setTaskCompleted()
+                        }
                     })
                 }
+                
+                if buoyUpdatePending {
+                    self.taskCounter += 1
+                }
+                
+                if tideUpdatePending {
+                    self.taskCounter += 1
+                }
+                
+                self.lastTask = backgroundTask
                 
                 WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 30), userInfo: nil) { (error: Error?) in
                     if let error = error {
                         print("Error occured while scheduling background refresh: \(error.localizedDescription)")
                     }
                 }
-                
-                backgroundTask.setTaskCompleted()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)

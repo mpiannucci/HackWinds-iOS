@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Matthew Iannucci. All rights reserved.
 //
 
-#import <MediaPlayer/MediaPlayer.h>
+#import <StoreKit/StoreKit.h>
 #import "CurrentViewController.h"
 #import "AsyncImageView.h"
 #import "Reachability.h"
@@ -106,6 +106,12 @@ static const int CAMERA_IMAGE_COUNT = 11;
     
     // Update the views UI
     [self updateUI];
+    
+    if ([defaults integerForKey:@"RunCount"] > 6) {
+        if([SKStoreReviewController class]){
+            [SKStoreReviewController requestReview] ;
+        }
+    }
 }
 
 - (void)viewDidLayoutSubviews {

@@ -43,6 +43,8 @@
     [defaultPreferences synchronize];
     
     [defaultPreferences setObject:BLOCK_ISLAND_LOCATION forKey:@"BuoyLocation"];
+    NSInteger runCount = [defaultPreferences integerForKey:@"RunCount"];
+    [defaultPreferences setInteger:runCount+1 forKey:@"RunCount"];
     [defaultPreferences synchronize];
    
     // Let the user know if anything went wrong

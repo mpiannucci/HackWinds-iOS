@@ -44,9 +44,9 @@ class WidgetUpdateManager {
         self.nextTideUpdateTime = nil
     }
     
-    func fetchBuoyUpdate(_ completionHandler: (() -> Void)!) {
+    func fetchBuoyUpdate(_ completionHandler: (() -> Void)!) -> Bool {
         if (!doesBuoyNeedUpdate()) {
-            return
+            return false
         }
         
         BuoyModel.shared().fetchLatestBuoyData(forLocation: self.buoyLocation! as String, withCompletionHandler: { (newBuoy: Buoy?) -> Void in
@@ -58,11 +58,13 @@ class WidgetUpdateManager {
             // Trigger the callback
             completionHandler()
         })
+        
+        return true
     }
     
-    func fetchTideUpdate(_ completionHandler: (() -> Void)!) {
+    func fetchTideUpdate(_ completionHandler: (() -> Void)!) -> Bool {
         if (!doesTideNeedUpdate()) {
-            return
+            return false
         }
         
         TideModel.shared().fetchLatestTidalEventOnly({ (newTide: Tide?) -> Void in
@@ -74,6 +76,8 @@ class WidgetUpdateManager {
             // Trigger the callback
             completionHandler()
         })
+        
+        return true
     }
     
     func doesBuoyNeedUpdate() -> Bool {
