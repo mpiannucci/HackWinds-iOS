@@ -107,7 +107,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
     // Update the views UI
     [self updateUI];
     
-    if ([defaults integerForKey:@"RunCount"] > 6) {
+    if ([defaults integerForKey:@"RunCount"] == 7) {
         if([SKStoreReviewController class]){
             [SKStoreReviewController requestReview] ;
         }
