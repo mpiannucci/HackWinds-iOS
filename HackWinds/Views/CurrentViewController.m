@@ -90,21 +90,13 @@ static const int CAMERA_IMAGE_COUNT = 11;
                                                  name:CAMERA_DATA_UPDATED_TAG
                                                object:nil];
     
-    // Only show the camera option if enabled
+    // Only show the default forecast if enabled
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults synchronize];
-    
-    if ([defaults boolForKey:@"ShowPremiumContent"]) {
-        [self.alternateCamerasBarButton setEnabled:YES];
-        [self.alternateCamerasBarButton setTintColor:[UIColor whiteColor]];
-    } else {
-        [self.alternateCamerasBarButton setEnabled:NO];
-        [self.alternateCamerasBarButton setTintColor:[UIColor clearColor]];
-    }
-    
     showDetailedForecastInfo = [defaults boolForKey:@"ShowDetailedForecastInfo"];
     
     // Update the views UI
+    [self setupCamera];
     [self updateUI];
     
     if ([defaults integerForKey:@"RunCount"] == 7) {
@@ -186,8 +178,18 @@ static const int CAMERA_IMAGE_COUNT = 11;
 
 - (void) setupCamera {
     CameraModel *cameraModel = [CameraModel sharedModel];
-    wwCamera = [cameraModel cameraForLocation:@"Narragansett" camera:@"Warm Winds"];
-    [self loadCameraPages];
+    if ([[cameraModel cameraURLS] count] > 0) {
+        [self.alternateCamerasBarButton setEnabled:YES];
+        [self.alternateCamerasBarButton setTintColor:[UIColor whiteColor]];
+    } else {
+        [self.alternateCamerasBarButton setEnabled:NO];
+        [self.alternateCamerasBarButton setTintColor:[UIColor clearColor]];
+    }
+
+    wwCamera = cameraModel.defaultCamera;
+    if (wwCamera != nil) {
+        [self loadCameraPages];
+    }
 }
 
 - (void) loadCameraPages {

@@ -9,7 +9,7 @@
 #import "CameraModel.h"
 #import "Camera.h"
 
-static NSString * const HACKWINDS_API_URL = @"https://mpiannucci.appspot.com/static/API/hackwinds_camera_locations_v5.json";
+static NSString * const HACKWINDS_API_URL = @"https://hackwinds.appspot.com/api/hackwinds_camera_locations_v5.json";
 NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification";
 NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNotification";
 
@@ -22,6 +22,8 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
 @implementation CameraModel {
     BOOL forceReload;
 }
+
+@synthesize defaultCamera;
 
 + (instancetype) sharedModel {
     static CameraModel *_sharedModel = nil;
@@ -43,6 +45,8 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
     }
     
     self.cameraURLS = [[NSDictionary alloc] init];
+    
+    defaultCamera = nil;
     
     return self;
 }
@@ -141,7 +145,12 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
             [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
             [thisCamera setPremium:[[thisCameraDict objectForKey:@"Premium"] boolValue]];
             
-            if([thisCamera isPremium] && !showPremium) {
+            if ([cameraName isEqualToString:@"Warm Winds"]) {
+                // For now hard code this default camera
+                defaultCamera = thisCamera;
+            }
+            
+            if ([thisCamera isPremium] && !showPremium) {
                 continue;
             }
             

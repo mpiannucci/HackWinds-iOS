@@ -15,11 +15,13 @@ extern NSString * const CAMERA_DATA_UPDATE_FAILED_TAG;
 
 @interface CameraModel : NSObject
 
+@property (strong, nonatomic, readonly) Camera* defaultCamera;
 @property (strong, nonatomic) NSDictionary *cameraURLS;
 
 - (void) forceFetchCameraURLs;
 - (void) fetchCameraURLs;
 - (Camera*) cameraForLocation:(NSString*) locationName camera:(NSString*) cameraName;
+- (Camera*) defaultCamera;
 + (instancetype) sharedModel;
 
 @end
