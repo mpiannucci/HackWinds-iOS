@@ -24,6 +24,7 @@
     
     self.inAppProducts = [[NSArray alloc] init];
     
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [self fetchInAppPurchaseProducts];
     [self loadSettings];
 }
@@ -151,6 +152,7 @@
                 break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"Purchase successfully restored");
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             case SKPaymentTransactionStateFailed:
                 NSLog(@"Failed to make in-app purchase");
@@ -162,6 +164,7 @@
                     [failureController addAction:okAction];
                     [self presentViewController:failureController animated:YES completion:nil];
                 }
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             default:
                 break;
