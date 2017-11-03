@@ -32,7 +32,7 @@
     // Set the navbar
     self.navbarTitleButton = [[UIButton alloc] initWithFrame:self.navigationItem.titleView.frame];
     [self.navbarTitleButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
-    [self.navbarTitleButton setTitle:@"Block Island" forState:UIControlStateNormal];
+    [self.navbarTitleButton setTitle:@"Block Island ▼" forState:UIControlStateNormal];
     [self.navbarTitleButton addTarget:self action:@selector(locationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = self.navbarTitleButton;
     
@@ -131,7 +131,8 @@
 
     // Grab the last set or default location
     buoyLocation = [defaults objectForKey:@"BuoyLocation"];
-    [self.navbarTitleButton setTitle:buoyLocation forState:UIControlStateNormal];
+    NSString *title = [NSString stringWithFormat:@"%@ ▼", buoyLocation];
+    [self.navbarTitleButton setTitle:title forState:UIControlStateNormal];
 }
 
 - (void)locationButtonClicked:(id)sender{

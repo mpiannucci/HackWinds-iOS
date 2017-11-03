@@ -34,6 +34,7 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 - (NSArray*) getBuoyLocations;
 - (Buoy*) getBuoyData;
 - (void) changeBuoyLocation;
+- (void) changeBuoyLocationAndUpdate;
 - (void) forceChangeLocation:(NSString*)location;
 - (void) checkForUpdate;
 - (void) refreshBuoyData;

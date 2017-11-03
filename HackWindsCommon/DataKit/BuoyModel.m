@@ -75,7 +75,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     
     // Register to listen for the location being changed
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(changeBuoyLocation)
+                                             selector:@selector(changeBuoyLocationAndUpdate)
                                                  name:BUOY_LOCATION_CHANGED_TAG
                                                object:nil];
     
@@ -136,6 +136,10 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     
     // Get the correct container and send out the notification for everything to update
     currentContainer = [self.buoyDataContainers objectForKey:[self.defaults objectForKey:@"BuoyLocation"]];
+}
+
+- (void) changeBuoyLocationAndUpdate {
+    [self changeBuoyLocation];
     
     [self fetchBuoyData];
 }

@@ -69,17 +69,28 @@
             [defaultPreferences setObject:BLOCK_ISLAND_LOCATION forKey:@"DefaultBuoyLocation"];
             [defaultPreferences synchronize];
         } else {
-            [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"DefaultBuoyLocation"];
             [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"BuoyLocation"];
             [defaultPreferences synchronize];
             
             // Tell everyone the data has updated
             [[BuoyModel sharedModel] changeBuoyLocation];
+            [[BuoyModel sharedModel] fetchBuoyActive:^(bool active) {
+                if (active) {
+                    [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"DefaultBuoyLocation"];
+                    [defaultPreferences synchronize];
+                } else {
+                    [defaultPreferences setObject:NANTUCKET_LOCATION forKey:@"DefaultBuoyLocation"];
+                    [defaultPreferences setObject:NANTUCKET_LOCATION forKey:@"BuoyLocation"];
+                    [defaultPreferences synchronize];
+                    
+                    [[BuoyModel sharedModel] changeBuoyLocation];
+                }
+                [[BuoyModel sharedModel] fetchBuoyData];
+            }];
+            
         }
         WatchSessionManager *watchManager = [WatchSessionManager sharedManager];
         [watchManager startSession];
-        
-        [[BuoyModel sharedModel] fetchBuoyData];
     }];
     
     return YES;
