@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *showDetailedForecastSwitch;
 
+@property (strong, nonatomic) NSArray *inAppProducts;
+
 @end
 
 @implementation SettingsViewController
@@ -20,9 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-
+    self.inAppProducts = [[NSArray alloc] init];
+    
+    [self fetchInAppPurchaseProducts];
     [self loadSettings];
 }
 
@@ -44,6 +46,36 @@
 - (IBAction)acceptSettingsClick:(id)sender {
     // For now just make it go away
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)leaveTipClicked:(id)sender {
+    if (self.inAppProducts.count < 1) {
+        return;
+    }
+    
+    UIAlertController *tipJarAlertController = [UIAlertController alertControllerWithTitle:@"Tip Jar"
+                                                                                   message:@"If you enjoy HackWinds please consider leaving a tip to help support continuing development. This will go a long way to cover things like server costs and development hardware costs that are currently just covered out of my own pocket. Every little bit helps! Thank you!!"
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [tipJarAlertController addAction:cancelAction];
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.formatterBehavior = NSNumberFormatterBehavior10_4;
+    numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    
+    for (SKProduct *product in self.inAppProducts) {
+        if (![product.productIdentifier containsString:@"tip"]) {
+            continue;
+        }
+        
+        NSString *tipTitle = [NSString stringWithFormat:@"%@: %@", product.localizedTitle, [numberFormatter stringFromNumber:product.price]];
+        UIAlertAction *tipAction = [UIAlertAction actionWithTitle:tipTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self purchaseProduct:product];
+            [tipJarAlertController dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [tipJarAlertController addAction:tipAction];
+    }
+    [self presentViewController:tipJarAlertController animated:YES completion:nil];
 }
 
 - (IBAction)contactDevClicked:(id)sender {
@@ -73,6 +105,60 @@
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
     [defaults setBool:[sender isOn] forKey:@"ShowDetailedForecastInfo"];
     [defaults synchronize];
+}
+
+- (void) fetchInAppPurchaseProducts {
+    NSSet *productIds = [NSSet setWithObjects:@"small_user_tip", @"medium_user_tip", @"large_user_tip", nil];
+    SKProductsRequest *inAppPurchaseRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIds];
+    inAppPurchaseRequest.delegate = self;
+    [inAppPurchaseRequest start];
+}
+
+- (BOOL) canMakePurchases {
+    return [SKPaymentQueue canMakePayments];
+}
+
+- (void) purchaseProduct:(SKProduct*)product {
+    if (![self canMakePurchases]) {
+        return;
+    } else if (product == nil) {
+        return;
+    }
+    
+    SKPayment* payment = [SKPayment paymentWithProduct:product];
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+#pragma mark - SKProductDelegate
+
+- (void) paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray<SKPaymentTransaction *> *)transactions {
+    for (SKPaymentTransaction *transaction in transactions) {
+        switch (transaction.transactionState) {
+            case SKPaymentTransactionStatePurchasing:
+                break;
+            case SKPaymentTransactionStatePurchased:
+                {
+                    UIAlertController *successController = [UIAlertController alertControllerWithTitle:@"Tip Jar"
+                                                                                           message:@"Payment received. Thank you for helping support HackWinds! Every little bit goes a long way!"
+                                                                                    preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [successController addAction:okAction];
+                    [self presentViewController:successController animated:YES completion:nil];
+                }
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                break;
+            case SKPaymentTransactionStateRestored:
+                break;
+            case SKPaymentTransactionStateFailed:
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+- (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
+    self.inAppProducts = response.products;
 }
 
 @end
