@@ -14,6 +14,7 @@
 NSString * const BLOCK_ISLAND_LOCATION = @"Block Island";
 NSString * const MONTAUK_LOCATION = @"Montauk";
 NSString * const NANTUCKET_LOCATION =  @"Nantucket";
+NSString * const LONG_ISLAND_LOCATION = @"Long Island";
 NSString * const NEWPORT_LOCATION = @"Newport";
 NSString * const TEXAS_TOWER_LOCATION = @"Texas Tower";
 NSString * const BUOY_DATA_UPDATED_TAG = @"BuoyModelDidUpdateDataNotification";
@@ -24,6 +25,7 @@ NSString * const BUOY_UPDATE_FAILED_TAG = @"BuoyModelUpdatedFailedNotification";
 // URLs
 static NSString * const BI_BUOY_ID = @"44097";
 static NSString * const MTK_BUOY_ID = @"44017";
+static NSString * const LI_BUOY_ID = @"44025";
 static NSString * const ACK_BUOY_ID = @"44008";
 static NSString * const TT_BUOY_ID = @"44066";
 static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
@@ -100,6 +102,11 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     BuoyDataContainer *ackContainer = [[BuoyDataContainer alloc] init];
     ackContainer.buoyID = ACK_BUOY_ID;
     [self.buoyDataContainers setValue:ackContainer forKey:NANTUCKET_LOCATION];
+    
+    // Long Island
+    BuoyDataContainer *liContainer = [[BuoyDataContainer alloc] init];
+    liContainer.buoyID = LI_BUOY_ID;
+    [self.buoyDataContainers setValue:liContainer forKey:LONG_ISLAND_LOCATION];
     
     // Newport
     BuoyDataContainer *newportContainer = [[BuoyDataContainer alloc] init];

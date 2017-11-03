@@ -13,6 +13,7 @@
 extern NSString * const BLOCK_ISLAND_LOCATION;
 extern NSString * const MONTAUK_LOCATION;
 extern NSString * const NANTUCKET_LOCATION;
+extern NSString * const LONG_ISLAND_LOCATION;
 extern NSString * const NEWPORT_LOCATION;
 extern NSString * const TEXAS_TOWER_LOCATION;
 

@@ -135,8 +135,10 @@
     for (SKPaymentTransaction *transaction in transactions) {
         switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchasing:
+                NSLog(@"Purchasing in-app purchase...");
                 break;
             case SKPaymentTransactionStatePurchased:
+                NSLog(@"Successfully purchased in-app purchase!");
                 {
                     UIAlertController *successController = [UIAlertController alertControllerWithTitle:@"Tip Jar"
                                                                                            message:@"Payment received. Thank you for helping support HackWinds! Every little bit goes a long way!"
@@ -148,8 +150,18 @@
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             case SKPaymentTransactionStateRestored:
+                NSLog(@"Purchase successfully restored");
                 break;
             case SKPaymentTransactionStateFailed:
+                NSLog(@"Failed to make in-app purchase");
+                {
+                    UIAlertController *failureController = [UIAlertController alertControllerWithTitle:@"Tip Jar"
+                                                                                               message:@"Payment failed. Please try again in a little while!"
+                                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [failureController addAction:okAction];
+                    [self presentViewController:failureController animated:YES completion:nil];
+                }
                 break;
             default:
                 break;
