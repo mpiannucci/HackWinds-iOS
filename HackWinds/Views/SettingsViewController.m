@@ -140,14 +140,6 @@
                 break;
             case SKPaymentTransactionStatePurchased:
                 NSLog(@"Successfully purchased in-app purchase!");
-                {
-                    UIAlertController *successController = [UIAlertController alertControllerWithTitle:@"Tip Jar"
-                                                                                           message:@"Payment received. Thank you for helping support HackWinds! Every little bit goes a long way!"
-                                                                                    preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [successController addAction:okAction];
-                    [self presentViewController:successController animated:YES completion:nil];
-                }
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             case SKPaymentTransactionStateRestored:
@@ -156,14 +148,6 @@
                 break;
             case SKPaymentTransactionStateFailed:
                 NSLog(@"Failed to make in-app purchase");
-                {
-                    UIAlertController *failureController = [UIAlertController alertControllerWithTitle:@"Tip Jar"
-                                                                                               message:@"Payment failed. Please try again in a little while!"
-                                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [failureController addAction:okAction];
-                    [self presentViewController:failureController animated:YES completion:nil];
-                }
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             default:

@@ -2,13 +2,26 @@ PODS:
   - Charts (3.0.3):
     - Charts/Core (= 3.0.3)
   - Charts/Core (3.0.3)
+  - GoogleAPIClientForREST (1.3.1):
+    - GoogleAPIClientForREST/Core (= 1.3.1)
+    - GTMSessionFetcher (>= 1.1.7)
+  - GoogleAPIClientForREST/Core (1.3.1):
+    - GTMSessionFetcher (>= 1.1.7)
+  - GTMSessionFetcher (1.1.12):
+    - GTMSessionFetcher/Full (= 1.1.12)
+  - GTMSessionFetcher/Core (1.1.12)
+  - GTMSessionFetcher/Full (1.1.12):
+    - GTMSessionFetcher/Core (= 1.1.12)
 
 DEPENDENCIES:
   - Charts
+  - GoogleAPIClientForREST
 
 SPEC CHECKSUMS:
   Charts: bcde37724c161958c1438dd4883971fcb2d50c06
+  GoogleAPIClientForREST: d18c6704317d6d5c56d70f724f8990eb125359a4
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
 
-PODFILE CHECKSUM: 561af264acdd89827c6f294dcfaac6e2f0610232
+PODFILE CHECKSUM: b4ee5249c860bb6a8e5ff1bf09f86446a79855fc
 
 COCOAPODS: 1.3.1

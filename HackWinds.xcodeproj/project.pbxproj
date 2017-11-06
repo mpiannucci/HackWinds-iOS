@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06051AFE0452A0A7162FB90C /* Pods_HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABD5EBE3AA32A847146C052 /* Pods_HackWindsDataKit.framework */; };
+		22EC20DC042ACD824179BBA8 /* Pods_HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEB1250E120391C5735A2BE /* Pods_HackWindsDataKitOSX.framework */; };
 		340A60371DBD07CF00108CB7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
 		340A603C1DBD07CF00108CB7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A603B1DBD07CF00108CB7 /* TodayViewController.swift */; };
 		340A603F1DBD07CF00108CB7 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340A603D1DBD07CF00108CB7 /* TodayViewController.xib */; };
@@ -86,6 +88,27 @@
 		34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2D1C274D67002D3DB8 /* HackWindsDataKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2F1C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h */; };
 		34C07E321C274F42002D3DB8 /* HackWindsDataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E311C274E7F002D3DB8 /* HackWindsDataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE5E1FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; };
+		34C2DE5F1FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; };
+		34C2DE601FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; };
+		34C2DE611FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; };
+		34C2DE621FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; };
+		34C2DE631FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; };
+		34C2DE641FAFF00E003A647A /* GTLRStationObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */; };
+		34C2DE651FAFF00E003A647A /* GTLRStationObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */; };
+		34C2DE661FAFF00E003A647A /* GTLRStationObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */; };
+		34C2DE671FAFF00E003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; };
+		34C2DE681FAFF00F003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; };
+		34C2DE691FAFF00F003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; };
+		34C2DE6A1FAFF00F003A647A /* GTLRStationQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */; };
+		34C2DE6B1FAFF00F003A647A /* GTLRStationQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */; };
+		34C2DE6C1FAFF00F003A647A /* GTLRStationQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */; };
+		34C2DE6D1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; };
+		34C2DE6E1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; };
+		34C2DE6F1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; };
+		34C2DE701FAFF00F003A647A /* GTLRStationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */; };
+		34C2DE711FAFF00F003A647A /* GTLRStationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */; };
+		34C2DE721FAFF00F003A647A /* GTLRStationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */; };
 		34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */; };
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
@@ -164,6 +187,11 @@
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
 		34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F933901B3991B400AD23DF /* Main_iPhone.storyboard */; };
+		65DA756024F06FF4819DE119 /* Pods_HackWindsToday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F34AA9C7792336ACBD8BA /* Pods_HackWindsToday.framework */; };
+		6780190DEE8AD5F29BF6B914 /* Pods_HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDAF62E2F48764039C8261 /* Pods_HackWindsDataKitWatchOS.framework */; };
+		8DDDD1663AE98F77B9CB259F /* Pods_HackWindsWatchApp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C604FB6829F549C3BC1A15 /* Pods_HackWindsWatchApp_Extension.framework */; };
+		9F0680D9FF8771E09A97F749 /* Pods_HackWindsOSXToday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EE97BCBF1E5A8AB75AEF49 /* Pods_HackWindsOSXToday.framework */; };
+		A509F74C45C44EB4D9BE43DC /* Pods_HackWindsOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723FBBBB13F65D78C5CD24B8 /* Pods_HackWindsOSX.framework */; };
 		CCBF1F9DB0AC859229AC9334 /* Pods_HackWinds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CDC1F57D99E028DD55DF4B /* Pods_HackWinds.framework */; };
 /* End PBXBuildFile section */
 
@@ -313,6 +341,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0001FEF701B45E51BB86C9EB /* Pods-HackWindsDataKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKit/Pods-HackWindsDataKit.release.xcconfig"; sourceTree = "<group>"; };
+		23EE97BCBF1E5A8AB75AEF49 /* Pods_HackWindsOSXToday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsOSXToday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		340A60361DBD07CF00108CB7 /* HackWindsOSXToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsOSXToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		340A603A1DBD07CF00108CB7 /* HackWindsOSXToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackWindsOSXToday.entitlements; sourceTree = "<group>"; };
 		340A603B1DBD07CF00108CB7 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -409,6 +439,13 @@
 		34C07E2F1C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HackWindsDataKitWatchOS.h; sourceTree = "<group>"; };
 		34C07E311C274E7F002D3DB8 /* HackWindsDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HackWindsDataKit.h; sourceTree = "<group>"; };
 		34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		34C2DE571FAFF00C003A647A /* GTLRStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStation.h; path = HackWindsCommon/DataKit/GTLRStation.h; sourceTree = "<group>"; };
+		34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStationQuery.h; path = HackWindsCommon/DataKit/GTLRStationQuery.h; sourceTree = "<group>"; };
+		34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRStationObjects.m; path = HackWindsCommon/DataKit/GTLRStationObjects.m; sourceTree = "<group>"; };
+		34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStationService.h; path = HackWindsCommon/DataKit/GTLRStationService.h; sourceTree = "<group>"; };
+		34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRStationQuery.m; path = HackWindsCommon/DataKit/GTLRStationQuery.m; sourceTree = "<group>"; };
+		34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRStationObjects.h; path = HackWindsCommon/DataKit/GTLRStationObjects.h; sourceTree = "<group>"; };
+		34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRStationService.m; path = HackWindsCommon/DataKit/GTLRStationService.m; sourceTree = "<group>"; };
 		34C389571BA27E3D0000EDC8 /* WaveWatchChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveWatchChartViewController.h; sourceTree = "<group>"; };
 		34C389581BA27E3D0000EDC8 /* WaveWatchChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveWatchChartViewController.m; sourceTree = "<group>"; };
 		34C8E7201ACA43EB0038E895 /* DetailedForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedForecastViewController.h; sourceTree = "<group>"; };
@@ -450,9 +487,28 @@
 		34F933971B39926500AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		34F9339A1B39926E00AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		34F9339C1B39927200AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5972436F9944C4D2BEB86DE6 /* Pods-HackWindsOSXToday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSXToday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSXToday/Pods-HackWindsOSXToday.debug.xcconfig"; sourceTree = "<group>"; };
+		5A3BE615A66696C29DEF5FD4 /* Pods-HackWindsDataKitOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitOSX/Pods-HackWindsDataKitOSX.debug.xcconfig"; sourceTree = "<group>"; };
+		5F583BC20A0E7099FC39D9F4 /* Pods-HackWindsDataKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKit/Pods-HackWindsDataKit.debug.xcconfig"; sourceTree = "<group>"; };
 		66D616BF10820548F80793D6 /* Pods-HackWinds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWinds.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds.release.xcconfig"; sourceTree = "<group>"; };
+		6B85D1E6609BE8CA390300FB /* Pods-HackWindsWatchApp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsWatchApp Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsWatchApp Extension/Pods-HackWindsWatchApp Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		6E016B3440360445CFE0C24A /* Pods-HackWindsOSXToday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSXToday.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSXToday/Pods-HackWindsOSXToday.release.xcconfig"; sourceTree = "<group>"; };
+		723FBBBB13F65D78C5CD24B8 /* Pods_HackWindsOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8378DA3CD1064A1CF753217F /* Pods-HackWindsOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSX/Pods-HackWindsOSX.release.xcconfig"; sourceTree = "<group>"; };
+		A49FE6794382F792D1664D99 /* Pods-HackWindsToday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsToday.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsToday/Pods-HackWindsToday.release.xcconfig"; sourceTree = "<group>"; };
+		ABAB914D7DC7997AE609D739 /* Pods-HackWindsToday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsToday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsToday/Pods-HackWindsToday.debug.xcconfig"; sourceTree = "<group>"; };
+		ABEDAF62E2F48764039C8261 /* Pods_HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0878394BFA2818A65BEFB5D /* Pods-HackWindsDataKitWatchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitWatchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitWatchOS/Pods-HackWindsDataKitWatchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B64BD7C2DC01BE33F73F6A81 /* Pods-HackWinds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWinds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds.debug.xcconfig"; sourceTree = "<group>"; };
+		CBEB1250E120391C5735A2BE /* Pods_HackWindsDataKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsDataKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0C604FB6829F549C3BC1A15 /* Pods_HackWindsWatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsWatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D87815B5823473F6A17CD755 /* Pods-HackWindsOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSX/Pods-HackWindsOSX.debug.xcconfig"; sourceTree = "<group>"; };
+		DFE9764E40F4D8E40B66E4E2 /* Pods-HackWindsDataKitWatchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitWatchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitWatchOS/Pods-HackWindsDataKitWatchOS.release.xcconfig"; sourceTree = "<group>"; };
+		E47F34AA9C7792336ACBD8BA /* Pods_HackWindsToday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsToday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E74E17AFDCBC7D7E497D40C7 /* Pods-HackWindsDataKitOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitOSX/Pods-HackWindsDataKitOSX.release.xcconfig"; sourceTree = "<group>"; };
+		ECE96B65C6350D37D2B1B56A /* Pods-HackWindsWatchApp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsWatchApp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsWatchApp Extension/Pods-HackWindsWatchApp Extension.release.xcconfig"; sourceTree = "<group>"; };
 		F2CDC1F57D99E028DD55DF4B /* Pods_HackWinds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWinds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FABD5EBE3AA32A847146C052 /* Pods_HackWindsDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +518,7 @@
 			files = (
 				340A604A1DBD089300108CB7 /* HackWindsDataKitOSX.framework in Frameworks */,
 				340A60371DBD07CF00108CB7 /* NotificationCenter.framework in Frameworks */,
+				9F0680D9FF8771E09A97F749 /* Pods_HackWindsOSXToday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +548,7 @@
 			files = (
 				3475B2381C4EB16500C35196 /* HackWindsDataKit.framework in Frameworks */,
 				3457CBF21C4488D400A4BCD2 /* NotificationCenter.framework in Frameworks */,
+				65DA756024F06FF4819DE119 /* Pods_HackWindsToday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +558,7 @@
 			files = (
 				34231ADE1F73FC9A00B93A8B /* WatchConnectivity.framework in Frameworks */,
 				349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */,
+				8DDDD1663AE98F77B9CB259F /* Pods_HackWindsWatchApp_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +566,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EC20DC042ACD824179BBA8 /* Pods_HackWindsDataKitOSX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +582,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6780190DEE8AD5F29BF6B914 /* Pods_HackWindsDataKitWatchOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +590,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A509F74C45C44EB4D9BE43DC /* Pods_HackWindsOSX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +598,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06051AFE0452A0A7162FB90C /* Pods_HackWindsDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +766,13 @@
 				343083AE19795D0F00655F15 /* XCTest.framework */,
 				34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */,
 				F2CDC1F57D99E028DD55DF4B /* Pods_HackWinds.framework */,
+				FABD5EBE3AA32A847146C052 /* Pods_HackWindsDataKit.framework */,
+				CBEB1250E120391C5735A2BE /* Pods_HackWindsDataKitOSX.framework */,
+				ABEDAF62E2F48764039C8261 /* Pods_HackWindsDataKitWatchOS.framework */,
+				723FBBBB13F65D78C5CD24B8 /* Pods_HackWindsOSX.framework */,
+				23EE97BCBF1E5A8AB75AEF49 /* Pods_HackWindsOSXToday.framework */,
+				E47F34AA9C7792336ACBD8BA /* Pods_HackWindsToday.framework */,
+				D0C604FB6829F549C3BC1A15 /* Pods_HackWindsWatchApp_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -852,6 +922,13 @@
 		34EA40DC1C3E8CA5008FF504 /* DataKit */ = {
 			isa = PBXGroup;
 			children = (
+				34C2DE571FAFF00C003A647A /* GTLRStation.h */,
+				34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */,
+				34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */,
+				34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */,
+				34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */,
+				34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */,
+				34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */,
 				34EA41051C3E8D15008FF504 /* Buoy.h */,
 				34EA41061C3E8D15008FF504 /* Buoy.m */,
 				34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */,
@@ -896,6 +973,20 @@
 			children = (
 				B64BD7C2DC01BE33F73F6A81 /* Pods-HackWinds.debug.xcconfig */,
 				66D616BF10820548F80793D6 /* Pods-HackWinds.release.xcconfig */,
+				5F583BC20A0E7099FC39D9F4 /* Pods-HackWindsDataKit.debug.xcconfig */,
+				0001FEF701B45E51BB86C9EB /* Pods-HackWindsDataKit.release.xcconfig */,
+				5A3BE615A66696C29DEF5FD4 /* Pods-HackWindsDataKitOSX.debug.xcconfig */,
+				E74E17AFDCBC7D7E497D40C7 /* Pods-HackWindsDataKitOSX.release.xcconfig */,
+				B0878394BFA2818A65BEFB5D /* Pods-HackWindsDataKitWatchOS.debug.xcconfig */,
+				DFE9764E40F4D8E40B66E4E2 /* Pods-HackWindsDataKitWatchOS.release.xcconfig */,
+				D87815B5823473F6A17CD755 /* Pods-HackWindsOSX.debug.xcconfig */,
+				8378DA3CD1064A1CF753217F /* Pods-HackWindsOSX.release.xcconfig */,
+				5972436F9944C4D2BEB86DE6 /* Pods-HackWindsOSXToday.debug.xcconfig */,
+				6E016B3440360445CFE0C24A /* Pods-HackWindsOSXToday.release.xcconfig */,
+				ABAB914D7DC7997AE609D739 /* Pods-HackWindsToday.debug.xcconfig */,
+				A49FE6794382F792D1664D99 /* Pods-HackWindsToday.release.xcconfig */,
+				6B85D1E6609BE8CA390300FB /* Pods-HackWindsWatchApp Extension.debug.xcconfig */,
+				ECE96B65C6350D37D2B1B56A /* Pods-HackWindsWatchApp Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -915,12 +1006,16 @@
 				34EA41661C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412D1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F691C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
+				34C2DE681FAFF00F003A647A /* GTLRStationService.h in Headers */,
 				34EA41481C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34C2DE6E1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414B1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41571C3E8D15008FF504 /* ForecastModel.h in Headers */,
 				34469F5F1C779799000499CD /* Swell.h in Headers */,
 				34EA413F1C3E8D15008FF504 /* Colors.h in Headers */,
+				34C2DE5F1FAFF00E003A647A /* GTLRStation.h in Headers */,
+				34C2DE621FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
 				34EA41211C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -937,12 +1032,16 @@
 				34EA41671C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412E1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F6A1C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
+				34C2DE691FAFF00F003A647A /* GTLRStationService.h in Headers */,
 				34EA41491C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34C2DE6F1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414C1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41581C3E8D15008FF504 /* ForecastModel.h in Headers */,
 				34469F601C779799000499CD /* Swell.h in Headers */,
 				34EA41401C3E8D15008FF504 /* Colors.h in Headers */,
+				34C2DE601FAFF00E003A647A /* GTLRStation.h in Headers */,
+				34C2DE631FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
 				34EA41221C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -959,12 +1058,16 @@
 				34EA41651C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412C1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F681C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
+				34C2DE671FAFF00E003A647A /* GTLRStationService.h in Headers */,
 				34EA41471C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34C2DE6D1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414A1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41561C3E8D15008FF504 /* ForecastModel.h in Headers */,
 				34469F5E1C779799000499CD /* Swell.h in Headers */,
 				34EA413E1C3E8D15008FF504 /* Colors.h in Headers */,
+				34C2DE5E1FAFF00E003A647A /* GTLRStation.h in Headers */,
+				34C2DE611FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
 				34EA41201C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -976,9 +1079,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 340A60491DBD07CF00108CB7 /* Build configuration list for PBXNativeTarget "HackWindsOSXToday" */;
 			buildPhases = (
+				6EC03C2A62E2713BA2A85351 /* [CP] Check Pods Manifest.lock */,
 				340A60321DBD07CF00108CB7 /* Sources */,
 				340A60331DBD07CF00108CB7 /* Frameworks */,
 				340A60341DBD07CF00108CB7 /* Resources */,
+				E0631E2EBFE1934BCA858BDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1019,9 +1124,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3457CC011C4488D400A4BCD2 /* Build configuration list for PBXNativeTarget "HackWindsToday" */;
 			buildPhases = (
+				A89288933DEB0032DBA980A1 /* [CP] Check Pods Manifest.lock */,
 				3457CBED1C4488D400A4BCD2 /* Sources */,
 				3457CBEE1C4488D400A4BCD2 /* Frameworks */,
 				3457CBEF1C4488D400A4BCD2 /* Resources */,
+				7D76BF333EA3A47D0334CA85 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1054,10 +1161,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 349076461C24A7E600EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsWatchApp Extension" */;
 			buildPhases = (
+				8320251E92989A2EED53248C /* [CP] Check Pods Manifest.lock */,
 				3490762B1C24A7E500EAD0CE /* Sources */,
 				3490762C1C24A7E500EAD0CE /* Frameworks */,
 				3490762D1C24A7E500EAD0CE /* Resources */,
 				349076791C24AA8900EAD0CE /* Embed Frameworks */,
+				918FB430F03BC9B0539117F2 /* [CP] Embed Pods Frameworks */,
+				38197CA810C5BE5BA4DA154C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1073,10 +1183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 349076621C24AA4700EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitOSX" */;
 			buildPhases = (
+				D17B7E8B09029850893E92F3 /* [CP] Check Pods Manifest.lock */,
 				3490764C1C24AA4700EAD0CE /* Sources */,
 				3490764D1C24AA4700EAD0CE /* Frameworks */,
 				3490764E1C24AA4700EAD0CE /* Headers */,
 				3490764F1C24AA4700EAD0CE /* Resources */,
+				3E1B8FB0232157E29B8B199C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1109,10 +1221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 349076761C24AA8900EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitWatchOS" */;
 			buildPhases = (
+				5DC76EB93E060EFF2749230F /* [CP] Check Pods Manifest.lock */,
 				349076681C24AA8800EAD0CE /* Sources */,
 				349076691C24AA8800EAD0CE /* Frameworks */,
 				3490766A1C24AA8800EAD0CE /* Headers */,
 				3490766B1C24AA8800EAD0CE /* Resources */,
+				212C6BE2749C40F4D4A27C0F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1127,11 +1241,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 349D42501C384C69006F7B24 /* Build configuration list for PBXNativeTarget "HackWindsOSX" */;
 			buildPhases = (
+				280B7687EBAF7C14C01E112B /* [CP] Check Pods Manifest.lock */,
 				349D42401C384C69006F7B24 /* Sources */,
 				349D42411C384C69006F7B24 /* Frameworks */,
 				349D42421C384C69006F7B24 /* Resources */,
 				349D426B1C384C96006F7B24 /* Embed App Extensions */,
 				349264511C3D52C6000D3FEF /* CopyFiles */,
+				9499E86E22237695F8891D01 /* [CP] Embed Pods Frameworks */,
+				C3ECABE2FD506BB7988D3066 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1147,10 +1264,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34E1BA491B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKit" */;
 			buildPhases = (
+				EA72E693D2F48C046B2C61F6 /* [CP] Check Pods Manifest.lock */,
 				34E1BA241B62D84700CDA01D /* Sources */,
 				34E1BA251B62D84700CDA01D /* Frameworks */,
 				34E1BA261B62D84700CDA01D /* Headers */,
 				34E1BA271B62D84700CDA01D /* Resources */,
+				118AB118D9BCC36C9B4818A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1400,6 +1519,84 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		118AB118D9BCC36C9B4818A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsDataKit/Pods-HackWindsDataKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		212C6BE2749C40F4D4A27C0F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsDataKitWatchOS/Pods-HackWindsDataKitWatchOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		280B7687EBAF7C14C01E112B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackWindsOSX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38197CA810C5BE5BA4DA154C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsWatchApp Extension/Pods-HackWindsWatchApp Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E1B8FB0232157E29B8B199C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsDataKitOSX/Pods-HackWindsDataKitOSX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4F5679AFA43BEC982E3F6AB5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1413,6 +1610,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DC76EB93E060EFF2749230F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackWindsDataKitWatchOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EC03C2A62E2713BA2A85351 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackWindsOSXToday-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		732EA6EAC4CC327140811710 /* [CP] Check Pods Manifest.lock */ = {
@@ -1433,6 +1666,97 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7D76BF333EA3A47D0334CA85 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsToday/Pods-HackWindsToday-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8320251E92989A2EED53248C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackWindsWatchApp Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		918FB430F03BC9B0539117F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsWatchApp Extension/Pods-HackWindsWatchApp Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-watchOS/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST-watchOS/GoogleAPIClientForREST.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsWatchApp Extension/Pods-HackWindsWatchApp Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9499E86E22237695F8891D01 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsOSX/Pods-HackWindsOSX-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-macOS/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST-macOS/GoogleAPIClientForREST.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsOSX/Pods-HackWindsOSX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A89288933DEB0032DBA980A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackWindsToday-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AA56A4CE35F43ADC045168D5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1441,14 +1765,84 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST-iOS/GoogleAPIClientForREST.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3ECABE2FD506BB7988D3066 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsOSX/Pods-HackWindsOSX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D17B7E8B09029850893E92F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackWindsDataKitOSX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0631E2EBFE1934BCA858BDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackWindsOSXToday/Pods-HackWindsOSXToday-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA72E693D2F48C046B2C61F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackWindsDataKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1517,10 +1911,13 @@
 				34EA413C1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41691C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA41301C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34C2DE651FAFF00E003A647A /* GTLRStationObjects.m in Sources */,
+				34C2DE711FAFF00F003A647A /* GTLRStationService.m in Sources */,
 				34469F6D1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414E1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41631C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412A1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34C2DE6B1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
 				34EA41241C3E8D15008FF504 /* Buoy.m in Sources */,
 				34469F631C779799000499CD /* Swell.m in Sources */,
 				34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */,
@@ -1546,10 +1943,13 @@
 				34EA413D1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA416A1C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA41311C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34C2DE661FAFF00E003A647A /* GTLRStationObjects.m in Sources */,
+				34C2DE721FAFF00F003A647A /* GTLRStationService.m in Sources */,
 				34469F6F1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414F1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41641C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412B1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34C2DE6C1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
 				34EA41251C3E8D15008FF504 /* Buoy.m in Sources */,
 				34469F651C779799000499CD /* Swell.m in Sources */,
 				34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */,
@@ -1574,10 +1974,13 @@
 				34EA413B1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41681C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA412F1C3E8D15008FF504 /* BuoyModel.m in Sources */,
+				34C2DE641FAFF00E003A647A /* GTLRStationObjects.m in Sources */,
+				34C2DE701FAFF00F003A647A /* GTLRStationService.m in Sources */,
 				34469F6B1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414D1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41621C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA41291C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34C2DE6A1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
 				34EA41231C3E8D15008FF504 /* Buoy.m in Sources */,
 				34469F611C779799000499CD /* Swell.m in Sources */,
 				34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */,
@@ -1725,6 +2128,7 @@
 /* Begin XCBuildConfiguration section */
 		340A60471DBD07CF00108CB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5972436F9944C4D2BEB86DE6 /* Pods-HackWindsOSXToday.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1751,6 +2155,7 @@
 		};
 		340A60481DBD07CF00108CB7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E016B3440360445CFE0C24A /* Pods-HackWindsOSXToday.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1932,6 +2337,7 @@
 		};
 		3457CBFD1C4488D400A4BCD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABAB914D7DC7997AE609D739 /* Pods-HackWindsToday.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = HackWindsToday/HackWindsToday.entitlements;
@@ -1956,6 +2362,7 @@
 		};
 		3457CBFE1C4488D400A4BCD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A49FE6794382F792D1664D99 /* Pods-HackWindsToday.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = HackWindsToday/HackWindsToday.entitlements;
@@ -2038,6 +2445,7 @@
 		};
 		349076421C24A7E600EAD0CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B85D1E6609BE8CA390300FB /* Pods-HackWindsWatchApp Extension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "HackWindsWatchApp Extension/HackWindsWatchApp Extension.entitlements";
@@ -2066,6 +2474,7 @@
 		};
 		349076431C24A7E600EAD0CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECE96B65C6350D37D2B1B56A /* Pods-HackWindsWatchApp Extension.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "HackWindsWatchApp Extension/HackWindsWatchApp Extension.entitlements";
@@ -2094,6 +2503,7 @@
 		};
 		349076631C24AA4700EAD0CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A3BE615A66696C29DEF5FD4 /* Pods-HackWindsDataKitOSX.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -2127,6 +2537,7 @@
 		};
 		349076641C24AA4700EAD0CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E74E17AFDCBC7D7E497D40C7 /* Pods-HackWindsDataKitOSX.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -2199,6 +2610,7 @@
 		};
 		349076771C24AA8900EAD0CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0878394BFA2818A65BEFB5D /* Pods-HackWindsDataKitWatchOS.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -2231,6 +2643,7 @@
 		};
 		349076781C24AA8900EAD0CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFE9764E40F4D8E40B66E4E2 /* Pods-HackWindsDataKitWatchOS.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -2263,6 +2676,7 @@
 		};
 		349D42511C384C69006F7B24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D87815B5823473F6A17CD755 /* Pods-HackWindsOSX.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2287,6 +2701,7 @@
 		};
 		349D42521C384C69006F7B24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8378DA3CD1064A1CF753217F /* Pods-HackWindsOSX.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2311,6 +2726,7 @@
 		};
 		34E1BA431B62D84700CDA01D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F583BC20A0E7099FC39D9F4 /* Pods-HackWindsDataKit.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -2346,6 +2762,7 @@
 		};
 		34E1BA441B62D84700CDA01D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0001FEF701B45E51BB86C9EB /* Pods-HackWindsDataKit.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
