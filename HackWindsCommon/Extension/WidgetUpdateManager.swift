@@ -12,7 +12,7 @@ class WidgetUpdateManager {
     
     // Variables to hold all of the data
     var buoyLocation: NSString? = nil
-    var latestBuoy: Buoy? = nil
+    var latestBuoy: GTLRStation_ApiApiMessagesDataMessage? = nil
     var nextTide: Tide? = nil
     var latestBuoyRefreshTime: Date? = nil
     var latestTideRefreshTime: Date? = nil
@@ -49,7 +49,7 @@ class WidgetUpdateManager {
             return false
         }
         
-        BuoyModel.shared().fetchLatestBuoyData(forLocation: self.buoyLocation! as String, withCompletionHandler: { (newBuoy: Buoy?) -> Void in
+        BuoyModel.shared().fetchLatestBuoyData(forLocation: self.buoyLocation! as String, withCompletionHandler: { (newBuoy: GTLRStation_ApiApiMessagesDataMessage?) -> Void in
             self.latestBuoy = newBuoy
             self.latestBuoyRefreshTime = Date()
             self.findNextUpdateTimes()
@@ -137,7 +137,7 @@ class WidgetUpdateManager {
             return
         }
         
-        self.nextBuoyUpdateTime = self.latestBuoy?.timestamp.addingTimeInterval(60*60);
+        self.nextBuoyUpdateTime = self.latestBuoy?.date?.date.addingTimeInterval(60*60);
         self.nextTideUpdateTime = self.nextTide?.timestamp
     }
     
@@ -175,7 +175,7 @@ class WidgetUpdateManager {
                 self.buoyLocation = NSKeyedUnarchiver.unarchiveObject(with: rawBuoyLocation as! Data) as? NSString
             }
             if let rawLatestBuoy = defaults.object(forKey: "latestBuoy") {
-                self.latestBuoy = NSKeyedUnarchiver.unarchiveObject(with: rawLatestBuoy as! Data) as? Buoy
+                self.latestBuoy = NSKeyedUnarchiver.unarchiveObject(with: rawLatestBuoy as! Data) as? GTLRStation_ApiApiMessagesDataMessage
             }
             if let rawNextTide = defaults.object(forKey: "nextTide") {
                 self.nextTide = NSKeyedUnarchiver.unarchiveObject(with: rawNextTide as! Data) as? Tide

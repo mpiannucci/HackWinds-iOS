@@ -35,42 +35,7 @@
     [aCoder encodeObject:self.waterTemperature forKey:@"waterTemperature"];
 }
 
-- (NSString *) timeString {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.timeStyle = NSDateFormatterShortStyle;
-    formatter.locale = [NSLocale currentLocale];
-    return [formatter stringFromDate:self.timestamp];
-}
 
-- (NSString *) dateString {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateStyle = NSDateFormatterMediumStyle;
-    formatter.locale = [NSLocale currentLocale];
-    return [formatter stringFromDate:self.timestamp];
-}
-
-- (NSString*) getWaveSummaryStatusText {
-    return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.doubleValue, self.waveSummary.compassDirection];
-}
-
-- (NSString*) getSimpleSwellText {
-    return [NSString stringWithFormat:@"%.1f ft @ %d s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.intValue, self.waveSummary.compassDirection];
-}
-
-- (NSString*) getWaveHeightText {
-    return [NSString stringWithFormat:@"%.1f ft", self.waveSummary.waveHeight.doubleValue];
-}
-
-+ (NSString*) getCompassDirection:(NSString*)degreeDirection {
-    // Set the direction to its letter value on a compass
-    int windIndex = (int)[degreeDirection doubleValue]/(360/[WIND_DIRS count]);
-    if (windIndex >= [WIND_DIRS count]) {
-        // Quick hack to make sure it never crashes because of a precision error.
-        // Basically if its larger than NNW, just assume North
-        windIndex = 0;
-    }
-    return [WIND_DIRS objectAtIndex:windIndex];
-}
 
 
 @end

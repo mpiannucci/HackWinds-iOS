@@ -40,17 +40,13 @@
 		34469F5F1C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34469F601C779799000499CD /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F5C1C779799000499CD /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34469F611C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
-		34469F621C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
 		34469F631C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
-		34469F641C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
 		34469F651C779799000499CD /* Swell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F5D1C779799000499CD /* Swell.m */; };
 		34469F681C77C8D0000499CD /* ForecastDailySummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F661C77C8D0000499CD /* ForecastDailySummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34469F691C77C8D0000499CD /* ForecastDailySummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F661C77C8D0000499CD /* ForecastDailySummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34469F6A1C77C8D0000499CD /* ForecastDailySummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 34469F661C77C8D0000499CD /* ForecastDailySummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34469F6B1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
-		34469F6C1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
 		34469F6D1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
-		34469F6E1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
 		34469F6F1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
 		34472BE11C5BFB5100984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		34472BE21C5BFB5300984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
@@ -69,7 +65,6 @@
 		349076371C24A7E500EAD0CE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349076361C24A7E500EAD0CE /* ExtensionDelegate.swift */; };
 		3490763B1C24A7E500EAD0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3490763A1C24A7E500EAD0CE /* Assets.xcassets */; };
 		3490763F1C24A7E500EAD0CE /* HackWindsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */; };
-		3490765B1C24AA4700EAD0CE /* HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; };
 		349076741C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; };
 		349076751C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		349264541C3D52E3000D3FEF /* HackWindsDataKitOSX.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -84,28 +79,27 @@
 		34AA865E1A41382F00AD09CF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AA865D1A41382F00AD09CF /* Reachability.m */; };
 		34AE272519C679E7000DAB81 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AE272419C679E7000DAB81 /* AsyncImageView.m */; };
 		34B01A981F93FEA2008E9528 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B01A971F93FEA2008E9528 /* StoreKit.framework */; };
-		34C07E2C1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C07E2B1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m */; };
 		34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2D1C274D67002D3DB8 /* HackWindsDataKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E2F1C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h */; };
 		34C07E321C274F42002D3DB8 /* HackWindsDataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C07E311C274E7F002D3DB8 /* HackWindsDataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C2DE5E1FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; };
-		34C2DE5F1FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; };
-		34C2DE601FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; };
-		34C2DE611FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; };
-		34C2DE621FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; };
-		34C2DE631FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; };
+		34C2DE5E1FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE5F1FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE601FAFF00E003A647A /* GTLRStation.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE571FAFF00C003A647A /* GTLRStation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE611FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE621FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE631FAFF00E003A647A /* GTLRStationQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE581FAFF00D003A647A /* GTLRStationQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C2DE641FAFF00E003A647A /* GTLRStationObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */; };
 		34C2DE651FAFF00E003A647A /* GTLRStationObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */; };
 		34C2DE661FAFF00E003A647A /* GTLRStationObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */; };
-		34C2DE671FAFF00E003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; };
-		34C2DE681FAFF00F003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; };
-		34C2DE691FAFF00F003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; };
+		34C2DE671FAFF00E003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE681FAFF00F003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE691FAFF00F003A647A /* GTLRStationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C2DE6A1FAFF00F003A647A /* GTLRStationQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */; };
 		34C2DE6B1FAFF00F003A647A /* GTLRStationQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */; };
 		34C2DE6C1FAFF00F003A647A /* GTLRStationQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */; };
-		34C2DE6D1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; };
-		34C2DE6E1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; };
-		34C2DE6F1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; };
+		34C2DE6D1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE6E1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C2DE6F1FAFF00F003A647A /* GTLRStationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34C2DE701FAFF00F003A647A /* GTLRStationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */; };
 		34C2DE711FAFF00F003A647A /* GTLRStationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */; };
 		34C2DE721FAFF00F003A647A /* GTLRStationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */; };
@@ -113,8 +107,6 @@
 		34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C8E7211ACA43EB0038E895 /* DetailedForecastViewController.m */; };
 		34CA15341A9D657000DAB1F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CA15331A9D657000DAB1F8 /* SettingsViewController.m */; };
 		34D3DF211D3BD07E003304E8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D3DF121D3BD05E003304E8 /* ComplicationController.swift */; };
-		34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
-		34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */; };
 		34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34EA41201C3E8D15008FF504 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41051C3E8D15008FF504 /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -224,33 +216,12 @@
 			remoteGlobalIDString = 349076221C24A7E500EAD0CE;
 			remoteInfo = HackWindsWatchApp;
 		};
-		3490765C1C24AA4700EAD0CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 349076501C24AA4700EAD0CE;
-			remoteInfo = HackWindsDataKitOSX;
-		};
 		349076721C24AA8800EAD0CE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3490766C1C24AA8800EAD0CE;
 			remoteInfo = HackWindsDataKitWatchOS;
-		};
-		34E1BA351B62D84700CDA01D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 34E1BA281B62D84700CDA01D;
-			remoteInfo = HackWindsDataKit;
-		};
-		34E1BA371B62D84700CDA01D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3430837E19795D0F00655F15 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3430838519795D0F00655F15;
-			remoteInfo = HackWinds;
 		};
 		34E1BA3E1B62D84700CDA01D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -342,6 +313,7 @@
 
 /* Begin PBXFileReference section */
 		0001FEF701B45E51BB86C9EB /* Pods-HackWindsDataKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKit/Pods-HackWindsDataKit.release.xcconfig"; sourceTree = "<group>"; };
+		14411504E255E65D3C201515 /* Pods-HackWindsDataKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitTests/Pods-HackWindsDataKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		23EE97BCBF1E5A8AB75AEF49 /* Pods_HackWindsOSXToday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsOSXToday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		340A60361DBD07CF00108CB7 /* HackWindsOSXToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsOSXToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		340A603A1DBD07CF00108CB7 /* HackWindsOSXToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackWindsOSXToday.entitlements; sourceTree = "<group>"; };
@@ -411,7 +383,6 @@
 		3490764B1C24A89600EAD0CE /* HackWindsWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HackWindsWatchApp.entitlements; sourceTree = "<group>"; };
 		349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076551C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3490765A1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsDataKitOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076611C24AA4700EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349076711C24AA8800EAD0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -455,7 +426,6 @@
 		34D3DF121D3BD05E003304E8 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HackWindsDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackWindsDataKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1BA3B1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitTests.m; sourceTree = "<group>"; };
 		34EA41051C3E8D15008FF504 /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Buoy.h; path = HackWindsCommon/DataKit/Buoy.h; sourceTree = "<group>"; };
@@ -487,6 +457,8 @@
 		34F933971B39926500AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		34F9339A1B39926E00AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		34F9339C1B39927200AD23DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		494F7541B62402585AF61549 /* Pods-HackWindsDataKitOSXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitOSXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitOSXTests/Pods-HackWindsDataKitOSXTests.debug.xcconfig"; sourceTree = "<group>"; };
+		55E907DB57F6FFE3E8F89022 /* Pods_HackWindsDataKitOSXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsDataKitOSXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5972436F9944C4D2BEB86DE6 /* Pods-HackWindsOSXToday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSXToday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSXToday/Pods-HackWindsOSXToday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A3BE615A66696C29DEF5FD4 /* Pods-HackWindsDataKitOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitOSX/Pods-HackWindsDataKitOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		5F583BC20A0E7099FC39D9F4 /* Pods-HackWindsDataKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKit/Pods-HackWindsDataKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -495,15 +467,18 @@
 		6E016B3440360445CFE0C24A /* Pods-HackWindsOSXToday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSXToday.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSXToday/Pods-HackWindsOSXToday.release.xcconfig"; sourceTree = "<group>"; };
 		723FBBBB13F65D78C5CD24B8 /* Pods_HackWindsOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8378DA3CD1064A1CF753217F /* Pods-HackWindsOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSX/Pods-HackWindsOSX.release.xcconfig"; sourceTree = "<group>"; };
+		A063F7D2CA2375BAB48B792F /* Pods-HackWindsDataKitOSXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitOSXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitOSXTests/Pods-HackWindsDataKitOSXTests.release.xcconfig"; sourceTree = "<group>"; };
 		A49FE6794382F792D1664D99 /* Pods-HackWindsToday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsToday.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsToday/Pods-HackWindsToday.release.xcconfig"; sourceTree = "<group>"; };
 		ABAB914D7DC7997AE609D739 /* Pods-HackWindsToday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsToday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsToday/Pods-HackWindsToday.debug.xcconfig"; sourceTree = "<group>"; };
 		ABEDAF62E2F48764039C8261 /* Pods_HackWindsDataKitWatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsDataKitWatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0878394BFA2818A65BEFB5D /* Pods-HackWindsDataKitWatchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitWatchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitWatchOS/Pods-HackWindsDataKitWatchOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B582661CD99FF4476D6B9475 /* Pods_HackWindsDataKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsDataKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64BD7C2DC01BE33F73F6A81 /* Pods-HackWinds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWinds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWinds/Pods-HackWinds.debug.xcconfig"; sourceTree = "<group>"; };
 		CBEB1250E120391C5735A2BE /* Pods_HackWindsDataKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsDataKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C604FB6829F549C3BC1A15 /* Pods_HackWindsWatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsWatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87815B5823473F6A17CD755 /* Pods-HackWindsOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsOSX/Pods-HackWindsOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		DFE9764E40F4D8E40B66E4E2 /* Pods-HackWindsDataKitWatchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitWatchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitWatchOS/Pods-HackWindsDataKitWatchOS.release.xcconfig"; sourceTree = "<group>"; };
+		E1B4E434412D084AA8AEF556 /* Pods-HackWindsDataKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitTests/Pods-HackWindsDataKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E47F34AA9C7792336ACBD8BA /* Pods_HackWindsToday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsToday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74E17AFDCBC7D7E497D40C7 /* Pods-HackWindsDataKitOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitOSX/Pods-HackWindsDataKitOSX.release.xcconfig"; sourceTree = "<group>"; };
 		ECE96B65C6350D37D2B1B56A /* Pods-HackWindsWatchApp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsWatchApp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsWatchApp Extension/Pods-HackWindsWatchApp Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -570,14 +545,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		349076571C24AA4700EAD0CE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3490765B1C24AA4700EAD0CE /* HackWindsDataKitOSX.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		349076691C24AA8800EAD0CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -599,14 +566,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				06051AFE0452A0A7162FB90C /* Pods_HackWindsDataKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		34E1BA301B62D84700CDA01D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34E1BA341B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,11 +694,9 @@
 			children = (
 				3430838619795D0F00655F15 /* HackWinds.app */,
 				34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */,
-				34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */,
 				349076231C24A7E500EAD0CE /* HackWindsWatchApp.app */,
 				3490762F1C24A7E500EAD0CE /* HackWindsWatchApp Extension.appex */,
 				349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */,
-				3490765A1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.xctest */,
 				3490766D1C24AA8800EAD0CE /* HackWindsDataKitWatchOS.framework */,
 				349D42441C384C69006F7B24 /* HackWindsOSX.app */,
 				3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */,
@@ -773,6 +730,8 @@
 				23EE97BCBF1E5A8AB75AEF49 /* Pods_HackWindsOSXToday.framework */,
 				E47F34AA9C7792336ACBD8BA /* Pods_HackWindsToday.framework */,
 				D0C604FB6829F549C3BC1A15 /* Pods_HackWindsWatchApp_Extension.framework */,
+				55E907DB57F6FFE3E8F89022 /* Pods_HackWindsDataKitOSXTests.framework */,
+				B582661CD99FF4476D6B9475 /* Pods_HackWindsDataKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -987,6 +946,10 @@
 				A49FE6794382F792D1664D99 /* Pods-HackWindsToday.release.xcconfig */,
 				6B85D1E6609BE8CA390300FB /* Pods-HackWindsWatchApp Extension.debug.xcconfig */,
 				ECE96B65C6350D37D2B1B56A /* Pods-HackWindsWatchApp Extension.release.xcconfig */,
+				494F7541B62402585AF61549 /* Pods-HackWindsDataKitOSXTests.debug.xcconfig */,
+				A063F7D2CA2375BAB48B792F /* Pods-HackWindsDataKitOSXTests.release.xcconfig */,
+				E1B4E434412D084AA8AEF556 /* Pods-HackWindsDataKitTests.debug.xcconfig */,
+				14411504E255E65D3C201515 /* Pods-HackWindsDataKitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1199,24 +1162,6 @@
 			productReference = 349076511C24AA4700EAD0CE /* HackWindsDataKitOSX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		349076591C24AA4700EAD0CE /* HackWindsDataKitOSXTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 349076651C24AA4700EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitOSXTests" */;
-			buildPhases = (
-				349076561C24AA4700EAD0CE /* Sources */,
-				349076571C24AA4700EAD0CE /* Frameworks */,
-				349076581C24AA4700EAD0CE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3490765D1C24AA4700EAD0CE /* PBXTargetDependency */,
-			);
-			name = HackWindsDataKitOSXTests;
-			productName = HackWindsDataKitOSXTests;
-			productReference = 3490765A1C24AA4700EAD0CE /* HackWindsDataKitOSXTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 349076761C24AA8900EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitWatchOS" */;
@@ -1279,25 +1224,6 @@
 			productName = HackWindsDataKit;
 			productReference = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		34E1BA321B62D84700CDA01D /* HackWindsDataKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 34E1BA4A1B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKitTests" */;
-			buildPhases = (
-				34E1BA2F1B62D84700CDA01D /* Sources */,
-				34E1BA301B62D84700CDA01D /* Frameworks */,
-				34E1BA311B62D84700CDA01D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				34E1BA361B62D84700CDA01D /* PBXTargetDependency */,
-				34E1BA381B62D84700CDA01D /* PBXTargetDependency */,
-			);
-			name = HackWindsDataKitTests;
-			productName = HackWindsDataKitTests;
-			productReference = 34E1BA331B62D84700CDA01D /* HackWindsDataKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1366,9 +1292,6 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
 					};
-					349076591C24AA4700EAD0CE = {
-						CreatedOnToolsVersion = 7.2;
-					};
 					3490766C1C24AA8800EAD0CE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 39L46PD99U;
@@ -1388,10 +1311,6 @@
 					34E1BA281B62D84700CDA01D = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 39L46PD99U;
-					};
-					34E1BA321B62D84700CDA01D = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 3430838519795D0F00655F15;
 					};
 				};
 			};
@@ -1415,9 +1334,7 @@
 				349D42431C384C69006F7B24 /* HackWindsOSX */,
 				340A60351DBD07CF00108CB7 /* HackWindsOSXToday */,
 				34E1BA281B62D84700CDA01D /* HackWindsDataKit */,
-				34E1BA321B62D84700CDA01D /* HackWindsDataKitTests */,
 				349076501C24AA4700EAD0CE /* HackWindsDataKitOSX */,
-				349076591C24AA4700EAD0CE /* HackWindsDataKitOSXTests */,
 				3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */,
 			);
 		};
@@ -1479,13 +1396,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		349076581C24AA4700EAD0CE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3490766B1C24AA8800EAD0CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1503,13 +1413,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		34E1BA271B62D84700CDA01D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		34E1BA311B62D84700CDA01D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1924,16 +1827,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		349076561C24AA4700EAD0CE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34C07E2C1C274CFD002D3DB8 /* HackWindsDataKitOSXTests.m in Sources */,
-				34469F641C779799000499CD /* Swell.m in Sources */,
-				34469F6E1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		349076681C24AA8800EAD0CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1987,16 +1880,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		34E1BA2F1B62D84700CDA01D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34E1BA3D1B62D84700CDA01D /* HackWindsDataKitTests.m in Sources */,
-				34469F621C779799000499CD /* Swell.m in Sources */,
-				34469F6C1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2020,25 +1903,10 @@
 			target = 349076221C24A7E500EAD0CE /* HackWindsWatchApp */;
 			targetProxy = 3490763D1C24A7E500EAD0CE /* PBXContainerItemProxy */;
 		};
-		3490765D1C24AA4700EAD0CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 349076501C24AA4700EAD0CE /* HackWindsDataKitOSX */;
-			targetProxy = 3490765C1C24AA4700EAD0CE /* PBXContainerItemProxy */;
-		};
 		349076731C24AA8800EAD0CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3490766C1C24AA8800EAD0CE /* HackWindsDataKitWatchOS */;
 			targetProxy = 349076721C24AA8800EAD0CE /* PBXContainerItemProxy */;
-		};
-		34E1BA361B62D84700CDA01D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 34E1BA281B62D84700CDA01D /* HackWindsDataKit */;
-			targetProxy = 34E1BA351B62D84700CDA01D /* PBXContainerItemProxy */;
-		};
-		34E1BA381B62D84700CDA01D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3430838519795D0F00655F15 /* HackWinds */;
-			targetProxy = 34E1BA371B62D84700CDA01D /* PBXContainerItemProxy */;
 		};
 		34E1BA3F1B62D84700CDA01D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2569,45 +2437,6 @@
 			};
 			name = Release;
 		};
-		349076661C24AA4700EAD0CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = HackWindsDataKitOSXTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitOSXTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		349076671C24AA4700EAD0CE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = HackWindsDataKitOSXTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsDataKitOSXTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		349076771C24AA8900EAD0CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0878394BFA2818A65BEFB5D /* Pods-HackWindsDataKitWatchOS.debug.xcconfig */;
@@ -2792,47 +2621,6 @@
 			};
 			name = Release;
 		};
-		34E1BA451B62D84700CDA01D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackWindsDataKitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nucc.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
-			};
-			name = Debug;
-		};
-		34E1BA461B62D84700CDA01D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = HackWindsDataKitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nucc.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackWinds.app/HackWinds";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2899,15 +2687,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		349076651C24AA4700EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitOSXTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				349076661C24AA4700EAD0CE /* Debug */,
-				349076671C24AA4700EAD0CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		349076761C24AA8900EAD0CE /* Build configuration list for PBXNativeTarget "HackWindsDataKitWatchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2931,15 +2710,6 @@
 			buildConfigurations = (
 				34E1BA431B62D84700CDA01D /* Debug */,
 				34E1BA441B62D84700CDA01D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		34E1BA4A1B62D84700CDA01D /* Build configuration list for PBXNativeTarget "HackWindsDataKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				34E1BA451B62D84700CDA01D /* Debug */,
-				34E1BA461B62D84700CDA01D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

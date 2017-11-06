@@ -30,13 +30,14 @@ static NSString * const ACK_BUOY_ID = @"44008";
 static NSString * const TT_BUOY_ID = @"44066";
 static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 
+// Keys
+static NSString * const BUOYFINDER_KEY = @"AIzaSyDDlpruyR4OVCDCdkkbHHlysaKf51zkh68";
+
 @interface BuoyModel ()
 
 // Private methods
 - (void) initBuoyContainers;
-- (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler;
-- (Buoy*) parseBuoyData:(NSData*)rawBuoyData;
-- (BOOL) parseStationActive:(NSData*)rawBuoyStationData;
+- (void) fetchBuoyQuery:(GTLRStationQuery*)query withCompletionHandler:(void(^)(GTLRObject*))completionHandler;
 - (double) getFootConvertedFromMetric:(double)metricValue;
 
 // Private members
@@ -127,7 +128,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     return self.buoyDataContainers.allKeys;
 }
 
-- (Buoy *) getBuoyData {
+- (GTLRStation_ApiApiMessagesDataMessage *) getBuoyData {
     return currentContainer.buoyData;
 }
 
@@ -160,7 +161,7 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         return;
     }
     
-    NSTimeInterval rawFetchTimeDiff = [[NSDate date] timeIntervalSinceDate:currentContainer.buoyData.timestamp];
+    NSTimeInterval rawFetchTimeDiff = [[NSDate date] timeIntervalSinceDate:currentContainer.buoyData.date.date];
     NSInteger fetchMinuteDiff = rawFetchTimeDiff / 60;
     
     if (fetchMinuteDiff > currentContainer.updateInterval) {
@@ -172,40 +173,25 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     return fetching;
 }
 
-- (void) fetchRawBuoyDataFromURL:(NSURL*)url withCompletionHandler:(void(^)(NSData*))completionHandler {
-    NSURLSessionTask *buoyTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        if (error != nil) {
-            NSLog(@"Failed to retreive data from API");
-            
-            // Send failure notification
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:BUOY_UPDATE_FAILED_TAG
-                 object:self];
-            });
-            
-            return;
-        }
-        
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-        if (httpResponse.statusCode != 200) {
-            NSLog(@"HTTP Error receiving data");
-            
-            // Send failure notification
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:BUOY_UPDATE_FAILED_TAG
-                 object:self];
-            });
-            
-            return;
-        }
-        
-        completionHandler(data);
-    }];
+- (void) fetchBuoyQuery:(GTLRStationQuery *)query withCompletionHandler:(void(^)(GTLRObject*))completionHandler {
     
-    [buoyTask resume];
+    GTLRStationService *service = [[GTLRStationService alloc] init];
+    service.APIKey = BUOYFINDER_KEY;
+    [service executeQuery:query completionHandler:^(GTLRServiceTicket * _Nonnull callbackTicket, id  _Nullable object, NSError * _Nullable callbackError) {
+        // TODO: Parse data out
+        if (callbackError != nil) {
+            NSLog(@"BuoyFinder Error: %@", callbackError);
+            completionHandler(nil);
+        } else if (object == nil) {
+            completionHandler(nil);
+        }
+        
+        if (![object isKindOfClass:[GTLRObject class]]) {
+            completionHandler(nil);
+        }
+        
+        completionHandler((GTLRObject*)object);
+    }];
 }
 
 - (void) refreshBuoyData {
@@ -217,10 +203,17 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
     @synchronized(self) {
         fetching = YES;
         
-        [self fetchRawBuoyDataFromURL:[currentContainer getStationInfoURL] withCompletionHandler:^(NSData *data) {
-            currentContainer.active = [self parseStationActive:data];
-            fetching = NO;
+        GTLRStationQuery_Info *infoQuery = [GTLRStationQuery_Info queryWithStationId:currentContainer.buoyID];
+        [self fetchBuoyQuery:infoQuery withCompletionHandler:^(GTLRObject *object) {
+            BOOL active = NO;
+            if (object == nil) {
+                active = NO;
+            } else if ([object isKindOfClass:[GTLRStation_ApiApiMessagesStationMessage class]]) {
+                active = [((GTLRStation_ApiApiMessagesStationMessage*) object).active boolValue];
+            }
             
+            currentContainer.active = active;
+            fetching = NO;
             if (completionHandler != nil) {
                 completionHandler(currentContainer.active);
             }
@@ -244,16 +237,22 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         
         fetching = YES;
         
-        [self fetchRawBuoyDataFromURL:[currentContainer getLatestWaveDataURL] withCompletionHandler:^(NSData *data) {
-            Buoy* buoyData = [self parseBuoyData:data];
-            
+        GTLRStationQuery_Data *dataQuery = [GTLRStationQuery_Data queryWithUnits:kGTLRStationUnitsEnglish stationId:currentContainer.buoyID];
+        dataQuery.dataType = kGTLRStationDataTypeSpectra;
+        
+        [self fetchBuoyQuery:dataQuery withCompletionHandler:^(GTLRObject *object) {
             fetching = NO;
+            if (object == nil) {
+                // Do nothing for now
+                return;
+            }
             
-            if (buoyData != nil) {
-                currentContainer.buoyData = buoyData;
+            if ([object isKindOfClass:[GTLRStation_ApiApiMessagesDataMessage class]]) {
+                currentContainer.buoyData = (GTLRStation_ApiApiMessagesDataMessage*)object;
                 currentContainer.fetchTimestamp = [NSDate date];
-                
-                // Tell everything you have buoy data
+            }
+            
+            if (currentContainer.buoyData != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
                      postNotificationName:BUOY_DATA_UPDATED_TAG
@@ -261,7 +260,6 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
                 });
             }
         }];
-        
     }
 }
 
@@ -281,15 +279,16 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
         
         fetching = YES;
         
-        [self fetchRawBuoyDataFromURL:[currentContainer getLatestSummaryURL] withCompletionHandler:^(NSData *data) {
-            Buoy *buoyData = [self parseBuoyData:data];
-            
+        GTLRStationQuery_Data *dataQuery = [GTLRStationQuery_Data queryWithUnits:kGTLRStationUnitsEnglish stationId:currentContainer.buoyID];
+        [self fetchBuoyQuery:dataQuery withCompletionHandler:^(GTLRObject *object) {
             fetching = NO;
             
-            if (buoyData != nil) {
-                currentContainer.buoyData = buoyData;
+            if ([object isKindOfClass:[GTLRStation_ApiApiMessagesDataMessage class]]) {
+                currentContainer.buoyData = (GTLRStation_ApiApiMessagesDataMessage*)object;
                 currentContainer.fetchTimestamp = [NSDate date];
-                
+            }
+            
+            if (currentContainer.buoyData != nil) {
                 // Tell everything you have buoy data
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
@@ -298,109 +297,27 @@ static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
                 });
             }
         }];
-        
     }
 }
 
-- (void) fetchLatestBuoyDataForLocation:(NSString *)location withCompletionHandler:(void (^)(Buoy *))completionHandler {
+- (void) fetchLatestBuoyDataForLocation:(NSString *)location withCompletionHandler:(void (^)(GTLRStation_ApiApiMessagesDataMessage *))completionHandler {
     @synchronized (self) {
-    
-        [self fetchRawBuoyDataFromURL:[[self.buoyDataContainers objectForKey:location] getLatestSummaryURL] withCompletionHandler:^(NSData *rawData) {
-            Buoy* buoyData = [self parseBuoyData:rawData];
         
-            // Pass the buoy down to the completion handler
-            if (buoyData != nil) {
-                completionHandler(buoyData);
+        BuoyDataContainer *dataContainer = [self.buoyDataContainers objectForKey:location];
+        GTLRStationQuery_Data *dataQuery = [GTLRStationQuery_Data queryWithUnits:kGTLRStationUnitsEnglish stationId: dataContainer.buoyID];
+        [self fetchBuoyQuery:dataQuery withCompletionHandler:^(GTLRObject *object) {
+            GTLRStation_ApiApiMessagesDataMessage *data = nil;
+            if (object == nil) {
+                data = nil;
+            } else if ([object isKindOfClass:[GTLRStation_ApiApiMessagesDataMessage class]]) {
+                data = (GTLRStation_ApiApiMessagesDataMessage*)object;
+            }
+            
+            if (completionHandler != nil) {
+                completionHandler(data);
             }
         }];
     }
-}
-
-- (Buoy*) parseBuoyData:(NSData*)rawBuoyData {
-    // Parse the data
-    NSError *error;
-    NSDictionary *buoyDataDict = [NSJSONSerialization
-                             JSONObjectWithData:rawBuoyData
-                             options:kNilOptions
-                             error:&error];
-    
-    // If there's no data, return nothing
-    if (buoyDataDict == nil) {
-        return nil;
-    } else if (error != nil) {
-        return nil;
-    }
-    
-    // Create a fresh buoy data object
-    Buoy *buoy = [[Buoy alloc] init];
-    
-    // Get and save the timestamp from the buoyreading
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    buoy.timestamp = [dateFormatter dateFromString:[buoyDataDict objectForKey:@"date"]];
-    
-    // Get the wave summary
-    Swell *waveSummary = [[Swell alloc] init];
-    NSString *unit = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"unit"];
-    waveSummary.waveHeight = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"wave_height"];
-    if ([unit isEqualToString:@"metric"]) {
-        waveSummary.waveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:waveSummary.waveHeight.doubleValue]];
-    }
-    waveSummary.period = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"period"];
-    waveSummary.direction = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"direction"];
-    waveSummary.compassDirection = [[buoyDataDict objectForKey:@"wave_summary"] objectForKey:@"compass_direction"];
-    buoy.waveSummary = waveSummary;
-    
-    // Get the swell components
-    NSMutableArray *swellComponents = [[NSMutableArray alloc] init];
-    NSArray *rawComponents = [buoyDataDict objectForKey:@"swell_components"];
-    for (NSDictionary* swellDict in rawComponents) {
-        Swell *swellComponent = [[Swell alloc] init];
-        swellComponent.waveHeight = [swellDict objectForKey:@"wave_height"];
-        if ([unit isEqualToString:@"metric"]) {
-            swellComponent.waveHeight = [NSNumber numberWithDouble:[self getFootConvertedFromMetric:swellComponent.waveHeight.doubleValue]];
-        }
-        swellComponent.period = [swellDict objectForKey:@"period"];
-        swellComponent.direction = [swellDict objectForKey:@"direction"];
-        swellComponent.compassDirection = [swellDict objectForKey:@"compass_direction"];
-        
-        [swellComponents addObject:swellComponent];
-    }
-    buoy.swellComponents = swellComponents;
-    
-    // Get the water temperature
-    if (![[buoyDataDict objectForKey:@"water_temperature"] isEqual:[NSNull null]]) {
-        double waterTemp = [[buoyDataDict objectForKey:@"water_temperature"] doubleValue];
-        if ([unit isEqualToString:@"metric"]) {
-            waterTemp = [self getFahrenheitConvertedFromCelsius:waterTemp];
-        }
-        buoy.waterTemperature = [NSNumber numberWithDouble:waterTemp];
-    }
-    
-    // Get the raw charts
-    buoy.directionalWaveSpectraPlotURL = [currentContainer getWaveDirectionalPlotURL];
-    buoy.waveEnergySpectraPlotURL = [currentContainer getWaveEnergyPlotURL];
-
-    return buoy;
-}
-
-- (BOOL) parseStationActive:(NSData*)rawBuoyStationData {
-    // Parse the data
-    NSError *error;
-    NSDictionary *buoyDataDict = [NSJSONSerialization
-                                  JSONObjectWithData:rawBuoyStationData
-                                  options:kNilOptions
-                                  error:&error];
-    
-    // If there's no data, return nothing
-    if (buoyDataDict == nil) {
-        return NO;
-    } else if (error != nil) {
-        return NO;
-    }
-    
-    return [[buoyDataDict valueForKey:@"active"] boolValue];
 }
 
 - (double) getFootConvertedFromMetric:(double)metricValue {

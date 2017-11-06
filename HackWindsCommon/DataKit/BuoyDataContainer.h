@@ -7,22 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Buoy.h"
+#import "GTLRStation.h"
 
+@interface GTLRStation_ApiApiMessagesDataMessage (StringFormatting)
+- (NSString *) timeString;
+- (NSString *) dateString;
+- (NSString*) getWaveSummaryStatusText;
+- (NSString*) getSimpleSwellText;
+- (NSString*) getWaveHeightText;
++ (NSString*) getCompassDirection:(NSString*)degreeDirection;
+@end
+
+@interface GTLRStation_ApiApiMessagesSwellMessage (StringFormatting)
+- (NSString *) getSwellSummmary;
+- (NSString *) getDetailedSwellSummmary;
+@end
 
 @interface BuoyDataContainer : NSObject
 
 @property (strong, nonatomic) NSString *buoyID;
-@property (strong, nonatomic) Buoy *buoyData;
+@property (strong, nonatomic) GTLRStation_ApiApiMessagesDataMessage *buoyData;
 @property NSInteger updateInterval;
 @property NSDate *fetchTimestamp;
 @property BOOL active;
 
-- (NSURL*) getStationInfoURL;
-- (NSURL*) getLatestWaveDataURL;
-- (NSURL*) getLatestSummaryURL;
-- (NSURL*) getWaveEnergyPlotURL;
-- (NSURL*) getWaveDirectionalPlotURL;
 - (void) resetData;
 
 @end

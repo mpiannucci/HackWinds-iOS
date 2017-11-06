@@ -68,7 +68,7 @@
     // Return the number of rows in the section.
     NSInteger nRows = 0;
     if (section < [locationKeys count]) {
-        nRows += [[[cameraModel cameraURLS] objectForKey:[locationKeys objectAtIndex:section]] count];
+        nRows += [(NSArray*)[[cameraModel cameraURLS] objectForKey:[locationKeys objectAtIndex:section]] count];
     }
     return nRows;
 }
@@ -82,7 +82,7 @@
     NSInteger row = indexPath.row;
     
     if ((indexPath.section < locationKeys.count) &&
-        (indexPath.row < [[cameraKeys objectAtIndex:indexPath.section] count])) {
+        (indexPath.row < [(NSArray*)[cameraKeys objectAtIndex:indexPath.section] count])) {
         [locationLabel setText:[[cameraKeys objectAtIndex:indexPath.section] objectAtIndex:row]];
     }
     

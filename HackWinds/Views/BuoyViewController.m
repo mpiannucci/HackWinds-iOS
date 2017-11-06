@@ -16,7 +16,7 @@
 - (void) changeBuoyLocation:(NSString*)newLocation;
 
 @property (strong, nonatomic) UIButton* navbarTitleButton;
-@property (strong, nonatomic) Buoy *latestBuoy;
+@property (strong, nonatomic) GTLRStation_ApiApiMessagesDataMessage *latestBuoy;
 @property (strong, nonatomic) NSURL *waveSpectraURL;
 
 @end
@@ -95,7 +95,7 @@
 }
 
 - (void)updateUI {
-    Buoy *buoyData = [[BuoyModel sharedModel] getBuoyData];
+    GTLRStation_ApiApiMessagesDataMessage *buoyData = [[BuoyModel sharedModel] getBuoyData];
     
     if (buoyData.swellComponents.count < 1) {
         lastFetchFailure = YES;
@@ -235,19 +235,19 @@
             currentSecondarySpectraLabel.text = @"No secondary swell";
         }
             
-        if (self.latestBuoy.timestamp != nil) {
+        if (self.latestBuoy.date != nil) {
             lastUpdatedLabel.text = [NSString stringWithFormat:@"Buoy reported at %@ %@", [self.latestBuoy timeString], [self.latestBuoy dateString]];
         }
         
     } else if ([cell.reuseIdentifier isEqualToString:@"directionalSpectraCell"]) {
         AsyncImageView *directionalSpectraPlotImageView = (AsyncImageView*)[cell viewWithTag:51];
-        if (self.latestBuoy.directionalWaveSpectraPlotURL != nil) {
-            [directionalSpectraPlotImageView setImageURL:self.latestBuoy.directionalWaveSpectraPlotURL];
+        if (self.latestBuoy.directionSpectraPlot != nil) {
+            [directionalSpectraPlotImageView setImageURL:[NSURL URLWithString:self.latestBuoy.directionSpectraPlot]];
         }
     } else if ([cell.reuseIdentifier isEqualToString:@"energyDistributionCell"]) {
         AsyncImageView *energySpectraPlotImageView = (AsyncImageView*)[cell viewWithTag:51];
-        if (self.latestBuoy.waveEnergySpectraPlotURL != nil) {
-            [energySpectraPlotImageView setImageURL:self.latestBuoy.waveEnergySpectraPlotURL];
+        if (self.latestBuoy.energySpectraPlot != nil) {
+            [energySpectraPlotImageView setImageURL:[NSURL URLWithString:self.latestBuoy.energySpectraPlot]];
         }
     }
     

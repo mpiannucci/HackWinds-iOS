@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Buoy.h"
+#import "GTLRStation.h"
 
 // Location Constants
 extern NSString * const BLOCK_ISLAND_LOCATION;
@@ -32,7 +32,7 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 
 - (void) resetData;
 - (NSArray*) getBuoyLocations;
-- (Buoy*) getBuoyData;
+- (GTLRStation_ApiApiMessagesDataMessage*) getBuoyData;
 - (void) changeBuoyLocation;
 - (void) changeBuoyLocationAndUpdate;
 - (void) forceChangeLocation:(NSString*)location;
@@ -41,7 +41,7 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 - (void) fetchBuoyActive:(void(^)(bool))completionHandler;
 - (void) fetchBuoyData;
 - (void) fetchLatestSummaryData;
-- (void) fetchLatestBuoyDataForLocation:(NSString*)location withCompletionHandler:(void(^)(Buoy*))completionHandler;
+- (void) fetchLatestBuoyDataForLocation:(NSString*)location withCompletionHandler:(void(^)(GTLRStation_ApiApiMessagesDataMessage*))completionHandler;
 - (BOOL) isFetching;
 
 + (instancetype) sharedModel;

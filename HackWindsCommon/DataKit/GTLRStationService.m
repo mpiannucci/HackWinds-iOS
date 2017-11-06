@@ -23,7 +23,7 @@ NSString * const kGTLRAuthScopeStationUserinfoEmail = @"https://www.googleapis.c
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"http://mpitester-13.appspot.com/_ah/api/";
+    self.rootURLString = @"https://mpitester-13.appspot.com/_ah/api/";
     self.servicePath = @"station/v1/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];

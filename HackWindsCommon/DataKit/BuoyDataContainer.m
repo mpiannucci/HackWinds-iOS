@@ -9,11 +9,59 @@
 #import "BuoyDataContainer.h"
 #import "BuoyModel.h"
 
-// Local constants
-static NSString * const BASE_STATION_INFO_URL = @"https://mpitester-13.appspot.com/api/station/%@/info";
-static NSString * const BASE_WAVE_DATA_URL = @"https://mpitester-13.appspot.com/api/station/%@/data/latest/spectra";
-static NSString * const BASE_LATEST_DATA_URL = @"https://mpitester-13.appspot.com/api/station/%@/data/latest";
-static NSString * const BASE_WAVE_ENERGY_PLOT_URL = @"https://mpitester-13.appspot.com/api/station/%@/plot/%@";
+#define WIND_DIRS [NSArray arrayWithObjects:@"N", @"NNE", @"NE", @"ENE", @"E", @"ESE", @"SE", @"SSE", @"S", @"SSW", @"SW", @"WSW", @"W", @"WNW", @"NW", @"NNW", nil]
+
+@implementation GTLRStation_ApiApiMessagesDataMessage (StringFormatting)
+
+- (NSString *) timeString {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    formatter.locale = [NSLocale currentLocale];
+    return [formatter stringFromDate:self.date.date];
+}
+
+- (NSString *) dateString {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle = NSDateFormatterMediumStyle;
+    formatter.locale = [NSLocale currentLocale];
+    return [formatter stringFromDate:self.date.date];
+}
+
+- (NSString*) getWaveSummaryStatusText {
+    return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.doubleValue, self.waveSummary.compassDirection];
+}
+
+- (NSString*) getSimpleSwellText {
+    return [NSString stringWithFormat:@"%.1f ft @ %d s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.intValue, self.waveSummary.compassDirection];
+}
+
+- (NSString*) getWaveHeightText {
+    return [NSString stringWithFormat:@"%.1f ft", self.waveSummary.waveHeight.doubleValue];
+}
+
++ (NSString*) getCompassDirection:(NSString*)degreeDirection {
+    // Set the direction to its letter value on a compass
+    int windIndex = (int)[degreeDirection doubleValue]/(360/[WIND_DIRS count]);
+    if (windIndex >= [WIND_DIRS count]) {
+        // Quick hack to make sure it never crashes because of a precision error.
+        // Basically if its larger than NNW, just assume North
+        windIndex = 0;
+    }
+    return [WIND_DIRS objectAtIndex:windIndex];
+}
+@end
+
+@implementation GTLRStation_ApiApiMessagesSwellMessage (StringFormatting)
+
+- (NSString *) getSwellSummmary {
+    return [NSString stringWithFormat:@"%@ %2.2f ft @ %2.1f s", self.compassDirection, self.waveHeight.floatValue, self.period.floatValue];
+}
+
+- (NSString *) getDetailedSwellSummmary {
+    return [NSString stringWithFormat:@"%2.2f ft @ %2.1f s %d\u00B0 %@ ", self.waveHeight.floatValue, self.period.floatValue, self.direction.intValue, self.compassDirection];
+}
+
+@end
 
 @implementation BuoyDataContainer
 
@@ -26,26 +74,6 @@ static NSString * const BASE_WAVE_ENERGY_PLOT_URL = @"https://mpitester-13.appsp
     self.updateInterval = 60;
     
     return self;
-}
-
-- (NSURL*) getStationInfoURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:BASE_STATION_INFO_URL, self.buoyID]];
-}
-
-- (NSURL*) getLatestWaveDataURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:BASE_WAVE_DATA_URL, self.buoyID]];
-}
-
-- (NSURL*) getLatestSummaryURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:BASE_LATEST_DATA_URL, self.buoyID]];
-}
-
-- (NSURL*) getWaveEnergyPlotURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:BASE_WAVE_ENERGY_PLOT_URL, self.buoyID, @"energy"]];
-}
-
-- (NSURL*) getWaveDirectionalPlotURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:BASE_WAVE_ENERGY_PLOT_URL, self.buoyID, @"direction"]];
 }
 
 - (void) resetData {
