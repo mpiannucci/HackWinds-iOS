@@ -31,7 +31,7 @@ static NSString * const TT_BUOY_ID = @"44066";
 static NSString * const NEWPORT_BUOY_ID = @"nwpr1";
 
 // Keys
-static NSString * const BUOYFINDER_KEY = @"AIzaSyDDlpruyR4OVCDCdkkbHHlysaKf51zkh68";
+static NSString * const BUOYFINDER_KEY = @"AIzaSyBbIPovaMqVVvXvFzoIbW7ul48UJ6p7Npg";
 
 @interface BuoyModel ()
 
