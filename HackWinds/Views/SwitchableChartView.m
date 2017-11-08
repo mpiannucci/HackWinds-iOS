@@ -22,6 +22,7 @@ static const int WW_HOUR_STEP = 3;
 
 @interface SwitchableChartView()
 
+@property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *chartModeSegmentButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
@@ -55,6 +56,12 @@ static const int WW_HOUR_STEP = 3;
     return self;
 }
 
+- (id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    [self initView];
+    return self;
+}
+
 - (id) initWithDayIndex:(NSInteger)index conditionCount:(NSInteger)count {
     self = [super init];
     self.dayIndex = index;
@@ -64,6 +71,8 @@ static const int WW_HOUR_STEP = 3;
 }
 
 - (void) initView {
+    [[NSBundle mainBundle] loadNibNamed:@"SwitchableChartView" owner:self options:nil];
+    
     // Initialize the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
     
