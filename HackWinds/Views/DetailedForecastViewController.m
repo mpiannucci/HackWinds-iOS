@@ -8,27 +8,11 @@
 #import "DetailedForecastViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "AsyncImageView.h"
-#import "UIImage+Crop.h"
-
-// Constants
-static NSString * const BASE_WW_CHART_URL = @"http://polar.ncep.noaa.gov/waves/WEB/multi_1.latest_run/plots/US_eastcoast.%@.%@%03dh.png";
-static NSString * const PAST_HOUR_PREFIX = @"h";
-static NSString * const FUTURE_HOUR_PREFIX = @"f";
-static const int WAVE_HEIGHT_CHART = 0;
-static const int SWELL_PERIOD_CHART = 1;
-static const int WIND_CHART = 2;
-static const int WW_HOUR_STEP = 3;
 
 @interface DetailedForecastViewController ()
 
 // UI Properties
 @property (weak, nonatomic) IBOutlet UITableView *forecastTable;
-@property (weak, nonatomic) IBOutlet UIImageView *chartImageView;
-@property (weak, nonatomic) IBOutlet UIProgressView *chartLoadProgressIndicator;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *chartTypeSegmentControl;
-@property (weak, nonatomic) IBOutlet UIButton *chartAnimationPlayButton;
-@property (weak, nonatomic) IBOutlet UIButton *chartAnimationPauseButton;
-
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
@@ -40,7 +24,6 @@ static const int WW_HOUR_STEP = 3;
 
 @implementation DetailedForecastViewController {
     NSArray *currentConditions;
-    BOOL needsReload[3];
     BOOL is24HourClock;
     BOOL showDetailedForecastInfo;
 }
@@ -58,12 +41,6 @@ static const int WW_HOUR_STEP = 3;
     
     // Get the forecast model instance
     self.forecastModel = [ForecastModel sharedModel];
-    
-    // Initialize the aniimation image array
-    self.animationImages = [[NSMutableArray alloc] init];
-    
-    // Setup the segment titles cuz of the weird storyboard bug
-    [self.chartTypeSegmentControl setTitle:@"Waves" forSegmentAtIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -72,21 +49,12 @@ static const int WW_HOUR_STEP = 3;
     // Check if detailed information should be shown
     showDetailedForecastInfo = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"] boolForKey:@"ShowDetailedForecastInfo"];
     
-    // Hide the play button
-    [self.chartAnimationPlayButton setHidden:YES];
-    
-    // Reset the reload flag
-    for (int i = 0; i < 3; i++) {
-        needsReload[i] = YES;
-    }
-    
     // Reload the data for the correct day
     [self getModelData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:self];
-    [self.chartImageView stopAnimating];
     
     [super viewWillDisappear:animated];
 }
@@ -101,7 +69,6 @@ static const int WW_HOUR_STEP = 3;
     currentConditions = [self.forecastModel getForecastsForDay:(int)self.dayIndex];
     [self.forecastTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
-    [self sendChartImageAnimationWithType:WAVE_HEIGHT_CHART forIndex:0];
 }
 
 - (BOOL)check24HourClock {
@@ -111,108 +78,11 @@ static const int WW_HOUR_STEP = 3;
     return is24HourClock;
 }
 
-- (IBAction)chartTypeChanged:(id)sender {
-    // Clear out the old animation images
-    // Reset the image buttons and animation
-    [self.chartAnimationPlayButton setHidden:YES];
-    [self.chartImageView stopAnimating];
-    
-    // Reset the progress bar
-    [self.chartLoadProgressIndicator setHidden:NO];
-    [self.chartLoadProgressIndicator setProgress:0.0f animated:YES];
-    
-    // Reset the animation images and start lolading the new ones
-    self.animationImages = [[NSMutableArray alloc] init];
-    [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex] forIndex:0];
-}
-
-- (void)sendChartImageAnimationWithType:(int)chartType forIndex:(int)index {
-    NSString *timePrefix = FUTURE_HOUR_PREFIX;
-    if ((self.dayIndex == 0) && (index == 0)) {
-        timePrefix = PAST_HOUR_PREFIX;
-    }
-    
-    int hour = WW_HOUR_STEP * ([self.forecastModel getDayForecastStartingIndex:(int)self.dayIndex] + index);
-    NSURL *wwChartURL = [NSURL URLWithString:[NSString stringWithFormat:BASE_WW_CHART_URL, [self getChartURLPrefixForType:chartType], timePrefix, hour]];
-    [[AsyncImageLoader sharedLoader] loadImageWithURL:wwChartURL target:self success:@selector(imageLoadSuccess:) failure:@selector(imageLoadFailure:)];
-}
-
-- (IBAction)playButtonClicked:(id)sender {
-    [self.chartImageView startAnimating];
-    [self.chartAnimationPlayButton setHidden:YES];
-    [self.chartAnimationPauseButton setHidden:NO];
-}
-
-- (IBAction)pauseButtonClicked:(id)sender {
-    [self.chartImageView stopAnimating];
-    [self.chartAnimationPauseButton setHidden:YES];
-    [self.chartAnimationPlayButton setHidden:NO];
-}
-
-- (void) imageLoadFailure:(id)sender {
-    [self.chartImageView setImage:[UIImage imageNamed:@"ErrorLoading"]];
-    [self.chartLoadProgressIndicator setHidden:YES];
-}
-
-- (void)imageLoadSuccess:(id)sender {
-    
-    // Crop the image
-    UIImage *croppedChart = [sender crop:CGRectMake(60, 0, 400, 300)];
-    
-    // Add the cropped image to the array for animation
-    [self.animationImages addObject:croppedChart];
-    
-    if (needsReload[self.chartTypeSegmentControl.selectedSegmentIndex]) {
-        [self.chartLoadProgressIndicator setProgress:self.animationImages.count/6.0f animated:YES];
-    }
-    
-    if ([self.animationImages count] < 2) {
-        // If its the first image set it to the header as a holder
-        [self.chartImageView setImage:croppedChart];
-    } else if ([self.animationImages count] == currentConditions.count) {
-        // We have all of the images so animate!!!
-        [self.chartImageView setAnimationImages:self.animationImages];
-        [self.chartImageView setAnimationDuration:5];
-        
-        // Okay so this is really hacky... For some reasons the images are not loaded correctly on the first
-        // pass through each of the views. 
-        if (needsReload[self.chartTypeSegmentControl.selectedSegmentIndex]) {
-            self.animationImages = [[NSMutableArray alloc] init];
-            needsReload[self.chartTypeSegmentControl.selectedSegmentIndex] = NO;
-        } else {
-            // Show the play button, Hide the stop Button
-            [self.chartAnimationPauseButton setHidden:YES];
-            [self.chartAnimationPlayButton setHidden:NO];
-            
-            // Hide the progress bar becasue its loaded
-            [self.chartLoadProgressIndicator setHidden:YES];
-        }
-    }
-    if (self.animationImages.count < currentConditions.count) {
-        // If the animation array isnt full, get the next image on the stack
-        [self sendChartImageAnimationWithType:(int)self.chartTypeSegmentControl.selectedSegmentIndex
-                                     forIndex:(int)self.animationImages.count];
-    }
-}
-
-- (NSString*) getChartURLPrefixForType:(int)chartType {
-    switch (chartType) {
-        case WAVE_HEIGHT_CHART:
-            return @"hs";
-        case SWELL_PERIOD_CHART:
-            return @"tp_sw1";
-        case WIND_CHART:
-            return @"u10";
-        default:
-            return @"";
-    }
-}
-
 #pragma mark - TableView Handling
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (showDetailedForecastInfo) {
+    if (showDetailedForecastInfo && indexPath.section == 0) {
         return 90;
     } else {
         return 45;
@@ -221,19 +91,38 @@ static const int WW_HOUR_STEP = 3;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 2;
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Forecast";
+        case 1:
+            return @"Tides";
+        default:
+            return @"";
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return so there will always be currentconditions.count rows + the header row
-    if (currentConditions == nil) {
-        return 0;
-    }
     
-    if (showDetailedForecastInfo) {
-        return currentConditions.count;
-    } else {
-        return currentConditions.count + 1;
+    switch (section) {
+        case 0:
+            if (currentConditions == nil) {
+                return 0;
+            }
+            
+            if (showDetailedForecastInfo) {
+                return currentConditions.count;
+            } else {
+                return currentConditions.count + 1;
+            }
+        case 1:
+            return [[TideModel sharedModel] dataCountForIndex:self.dayIndex];
+        default:
+            return 0;
     }
 }
 
@@ -241,86 +130,122 @@ static const int WW_HOUR_STEP = 3;
 {
     UITableViewCell *cell;
     
-    if (showDetailedForecastInfo) {
-        // Get the interface items
-        cell = [tableView dequeueReusableCellWithIdentifier:@"detailedForecastItem"];
-        UILabel *hourLabel = (UILabel *)[cell viewWithTag:91];
-        UILabel *conditionsLabel = (UILabel *)[cell viewWithTag:92];
-        UILabel *primarySwellLabel = (UILabel *)[cell viewWithTag:93];
-        UILabel *secondarySwellLabel = (UILabel *)[cell viewWithTag:94];
+    switch (indexPath.section) {
+        case 0:
+            if (showDetailedForecastInfo) {
+                // Get the interface items
+                cell = [tableView dequeueReusableCellWithIdentifier:@"detailedForecastItem"];
+                UILabel *hourLabel = (UILabel *)[cell viewWithTag:91];
+                UILabel *conditionsLabel = (UILabel *)[cell viewWithTag:92];
+                UILabel *primarySwellLabel = (UILabel *)[cell viewWithTag:93];
+                UILabel *secondarySwellLabel = (UILabel *)[cell viewWithTag:94];
     
-        // Get the condition object
-        Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row];
+                // Get the condition object
+                Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row];
         
-        // Set the data to show in the labels
-        if (is24HourClock) {
-            hourLabel.text = [thisCondition timeToTwentyFourHourClock];
-        } else {
-            hourLabel.text = [thisCondition timeStringNoZero];
-        }
-        conditionsLabel.text = [NSString stringWithFormat:@"%d - %d ft, Wind %@ %d mph", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue, thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
-        primarySwellLabel.text = [thisCondition.primarySwellComponent getDetailedSwellSummmary];
-        if ([thisCondition.secondarySwellComponent.compassDirection isEqualToString:@"NULL"]) {
-            secondarySwellLabel.text = @"No Secondary Swell Component";
-        } else {
-            secondarySwellLabel.text = [thisCondition.secondarySwellComponent getDetailedSwellSummmary];
-        }
-    } else {
-        // Get the interface items
-        cell = [tableView dequeueReusableCellWithIdentifier:@"simpleForecastItem"];
-        UILabel *hourLabel = (UILabel *)[cell viewWithTag:11];
-        UILabel *waveLabel = (UILabel *)[cell viewWithTag:12];
-        UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
-        UILabel *swellLabel = (UILabel *)[cell viewWithTag:14];
-        
-        if ([indexPath row] < 1) {
-            // Set the heder text cuz its the first row
-            hourLabel.text = @"Time";
-            waveLabel.text = @"Surf";
-            windLabel.text = @"Wind";
-            swellLabel.text = @"Swell";
-            
-            // Set the header label to be hackwinds color blue
-            hourLabel.textColor = HACKWINDS_BLUE_COLOR;
-            waveLabel.textColor = HACKWINDS_BLUE_COLOR;
-            windLabel.textColor = HACKWINDS_BLUE_COLOR;
-            swellLabel.textColor = HACKWINDS_BLUE_COLOR;
-            
-            // Set the text to be bold
-            hourLabel.font = [UIFont boldSystemFontOfSize:17.0];
-            waveLabel.font = [UIFont boldSystemFontOfSize:17.0];
-            windLabel.font = [UIFont boldSystemFontOfSize:17.0];
-            swellLabel.font = [UIFont boldSystemFontOfSize:17.0];
-            
-        } else {
-            if (currentConditions.count == 0) {
-                return cell;
-            }
-            
-            Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
-            
-            // Set the data to show in the labels
-            if (is24HourClock) {
-                hourLabel.text = [thisCondition timeToTwentyFourHourClock];
+                // Set the data to show in the labels
+                if (is24HourClock) {
+                    hourLabel.text = [thisCondition timeToTwentyFourHourClock];
+                } else {
+                    hourLabel.text = [thisCondition timeStringNoZero];
+                }
+                conditionsLabel.text = [NSString stringWithFormat:@"%d - %d ft, Wind %@ %d mph", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue, thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
+                primarySwellLabel.text = [thisCondition.primarySwellComponent getDetailedSwellSummmary];
+                if ([thisCondition.secondarySwellComponent.compassDirection isEqualToString:@"NULL"]) {
+                    secondarySwellLabel.text = @"No Secondary Swell Component";
+                } else {
+                    secondarySwellLabel.text = [thisCondition.secondarySwellComponent getDetailedSwellSummmary];
+                }
             } else {
-                hourLabel.text = [thisCondition timeStringNoZero];
+                // Get the interface items
+                cell = [tableView dequeueReusableCellWithIdentifier:@"simpleForecastItem"];
+                UILabel *hourLabel = (UILabel *)[cell viewWithTag:11];
+                UILabel *waveLabel = (UILabel *)[cell viewWithTag:12];
+                UILabel *windLabel = (UILabel *)[cell viewWithTag:13];
+                UILabel *swellLabel = (UILabel *)[cell viewWithTag:14];
+        
+                if ([indexPath row] < 1) {
+                    // Set the heder text cuz its the first row
+                    hourLabel.text = @"Time";
+                    waveLabel.text = @"Surf";
+                    windLabel.text = @"Wind";
+                    swellLabel.text = @"Swell";
+            
+                    // Set the header label to be hackwinds color blue
+                    hourLabel.textColor = HACKWINDS_BLUE_COLOR;
+                    waveLabel.textColor = HACKWINDS_BLUE_COLOR;
+                    windLabel.textColor = HACKWINDS_BLUE_COLOR;
+                    swellLabel.textColor = HACKWINDS_BLUE_COLOR;
+            
+                    // Set the text to be bold
+                    hourLabel.font = [UIFont boldSystemFontOfSize:17.0];
+                    waveLabel.font = [UIFont boldSystemFontOfSize:17.0];
+                    windLabel.font = [UIFont boldSystemFontOfSize:17.0];
+                    swellLabel.font = [UIFont boldSystemFontOfSize:17.0];
+            
+                } else {
+                    if (currentConditions.count == 0) {
+                        return cell;
+                    }
+            
+                    Forecast *thisCondition = [currentConditions objectAtIndex:indexPath.row-1];
+            
+                    // Set the data to show in the labels
+                    if (is24HourClock) {
+                        hourLabel.text = [thisCondition timeToTwentyFourHourClock];
+                    } else {
+                        hourLabel.text = [thisCondition timeStringNoZero];
+                    }
+                    waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
+                    windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
+                    swellLabel.text = [thisCondition.primarySwellComponent getSwellSummmary];
+            
+                    // Make sure that the text is black
+                    hourLabel.textColor = [UIColor blackColor];
+                    waveLabel.textColor = [UIColor blackColor];
+                    windLabel.textColor = [UIColor blackColor];
+                    swellLabel.textColor = [UIColor blackColor];
+            
+                    // Set the text to be bold
+                    hourLabel.font = [UIFont systemFontOfSize:17.0];
+                    waveLabel.font = [UIFont systemFontOfSize:17.0];
+                    windLabel.font = [UIFont systemFontOfSize:17.0];
+                    swellLabel.font = [UIFont systemFontOfSize:17.0];
+                }
             }
-            waveLabel.text = [NSString stringWithFormat:@"%d - %d", thisCondition.minimumBreakingHeight.intValue, thisCondition.maximumBreakingHeight.intValue];
-            windLabel.text = [NSString stringWithFormat:@"%@ %d", thisCondition.windCompassDirection, thisCondition.windSpeed.intValue];
-            swellLabel.text = [thisCondition.primarySwellComponent getSwellSummmary];
+            break;
+        case 1:
+            {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"tideItem"];
+                Tide *thisTide = [[TideModel sharedModel] tideDataAtIndex:indexPath.row forDay:self.dayIndex];
+                if ([thisTide isTidalEvent]) {
+                    cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
+                } else {
+                    cell.textLabel.text = thisTide.eventType;
+                }
+                cell.detailTextLabel.text = [thisTide timeString];
             
-            // Make sure that the text is black
-            hourLabel.textColor = [UIColor blackColor];
-            waveLabel.textColor = [UIColor blackColor];
-            windLabel.textColor = [UIColor blackColor];
-            swellLabel.textColor = [UIColor blackColor];
-            
-            // Set the text to be bold
-            hourLabel.font = [UIFont systemFontOfSize:17.0];
-            waveLabel.font = [UIFont systemFontOfSize:17.0];
-            windLabel.font = [UIFont systemFontOfSize:17.0];
-            swellLabel.font = [UIFont systemFontOfSize:17.0];
-        }
+                if ([thisTide isHighTide]) {
+                    cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                    cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+                } else if ([thisTide isLowTide]) {
+                    cell.imageView.image = [[UIImage imageNamed:@"ic_trending_down_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                    cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+                } else if ([thisTide isSunrise]) {
+                    cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_high_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                    cell.imageView.tintColor = [UIColor orangeColor];
+                } else if ([thisTide isSunset]) {
+                    cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_low_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                    cell.imageView.tintColor = [UIColor orangeColor];
+                }
+            }
+            break;
+        default:
+            break;
     }
     
     return cell;
