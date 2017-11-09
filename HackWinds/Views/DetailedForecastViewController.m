@@ -83,7 +83,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (showDetailedForecastInfo && indexPath.section == 1) {
+    if (showDetailedForecastInfo && indexPath.section == 0) {
         return 90;
     } else {
         return 45;
@@ -92,14 +92,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 3;
+    return 2;
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
-        case 1:
+        case 0:
             return @"Forecast";
-        case 2:
+        case 1:
             return @"Tides";
         default:
             return @"";
@@ -111,8 +111,6 @@
     
     switch (section) {
         case 0:
-            return 1;
-        case 1:
             if (currentConditions == nil) {
                 return 0;
             }
@@ -122,7 +120,7 @@
             } else {
                 return currentConditions.count + 1;
             }
-        case 2:
+        case 1:
             return [[TideModel sharedModel] dataCountForIndex:self.dayIndex];
         default:
             return 0;
@@ -135,15 +133,6 @@
     
     switch (indexPath.section) {
         case 0:
-            {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"forecastChartItem"];
-                SwitchableChartView *chartView = (SwitchableChartView*)[cell viewWithTag:456];
-//                [chartView setDayIndex:self.dayIndex];
-//                [chartView setConditionCount:currentConditions.count];
-                [chartView initialize];
-            }
-            break;
-        case 1:
             if (showDetailedForecastInfo) {
                 // Get the interface items
                 cell = [tableView dequeueReusableCellWithIdentifier:@"detailedForecastItem"];
@@ -226,7 +215,7 @@
                 }
             }
             break;
-        case 2:
+        case 1:
             {
                 cell = [tableView dequeueReusableCellWithIdentifier:@"tideItem"];
                 Tide *thisTide = [[TideModel sharedModel] tideDataAtIndex:indexPath.row forDay:self.dayIndex];
