@@ -335,7 +335,7 @@
         case 0:
             return 1;
         case 1:
-            return 2;
+            return [self.tideModel dataCountForIndex:0];
         case 2:
             return 1;
         default:
@@ -378,12 +378,20 @@
     } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
         
-        Tide* thisEvent = [self.tideModel.otherEvents objectAtIndex:indexPath.row];
+        Tide* thisEvent = [self.tideModel.tides objectAtIndex:indexPath.row];
         if (thisEvent != nil) {
             cell.textLabel.text = thisEvent.eventType;
             cell.detailTextLabel.text = [thisEvent timeString];
             
-            if ([thisEvent isSunrise]) {
+            if ([thisEvent isHighTide]) {
+                cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+            } else if ([thisEvent isLowTide]) {
+                cell.imageView.image = [[UIImage imageNamed:@"ic_trending_down_white"]
+                                        imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                cell.imageView.tintColor = HACKWINDS_BLUE_COLOR;
+            } else if ([thisEvent isSunrise]) {
                 cell.imageView.image = [[UIImage imageNamed:@"ic_brightness_high_white"]
                                         imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                 cell.imageView.tintColor = [UIColor orangeColor];
@@ -394,7 +402,7 @@
             }
         }
     } else if (indexPath.section == 2) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"waterTempItem"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
         cell.textLabel.text = buoyLocation;
         
         if (currentBuoy != nil) {
