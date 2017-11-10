@@ -30,8 +30,6 @@ static const int WW_HOUR_STEP = 3;
 @property (weak, nonatomic) IBOutlet UIImageView *chartImageView;
 
 @property (strong, nonatomic) NSMutableArray *animationImages;
-@property (nonatomic) NSInteger conditonCount;
-@property (nonatomic) NSInteger dayIndex;
 
 - (void) initView;
 - (void)sendChartImageAnimationWithType:(int)chartType forIndex:(int)index;
@@ -46,18 +44,24 @@ static const int WW_HOUR_STEP = 3;
 
 - (id) init {
     self = [super init];
+    self.dayIndex = 0;
+    self.conditonCount = 0;
     [self initView];
     return self;
 }
 
 - (id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
+    self.dayIndex = 0;
+    self.conditonCount = 0;
     [self initView];
     return self;
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
+    self.dayIndex = 0;
+    self.conditonCount = 0;
     [self initView];
     return self;
 }
@@ -71,7 +75,9 @@ static const int WW_HOUR_STEP = 3;
 }
 
 - (void) initView {
-    [[NSBundle mainBundle] loadNibNamed:@"SwitchableChartView" owner:self options:nil];
+    UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"SwitchableChartView" owner:self options:nil] objectAtIndex:0];
+    [self addSubview:view];
+    [view setFrame:self.bounds];
     
     // Initialize the aniimation image array
     self.animationImages = [[NSMutableArray alloc] init];
@@ -88,29 +94,42 @@ static const int WW_HOUR_STEP = 3;
     for (int i = 0; i < 3; i++) {
         needsReload[i] = YES;
     }
+    
+     [self sendChartImageAnimationWithType:(int)[self.chartModeSegmentButton selectedSegmentIndex] forIndex:0];
 }
 
 - (void) cleanup {
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:self];
     [self.chartImageView stopAnimating];
-}
-
-- (void) setConditionCount:(NSInteger)count {
-    self.conditonCount = count;
-}
-
-- (void) setDayIndex:(NSInteger)index {
-    self.dayIndex = index;
 }
 
 #pragma mark - Button callbacks
 
 - (IBAction)chartModeChanged:(id)sender {
+    // Clear out the old animation images
+    // Reset the image buttons and animation
+    [self.playButton setHidden:YES];
+    [self.chartImageView stopAnimating];
+    
+    // Reset the progress bar
+    [self.progressView setHidden:NO];
+    [self.progressView setProgress:0.0f animated:YES];
+    
+    // Reset the animation images and start lolading the new ones
+    self.animationImages = [[NSMutableArray alloc] init];
+    [self sendChartImageAnimationWithType:(int)[sender selectedSegmentIndex] forIndex:0];
 }
 
 - (IBAction)playButtonClicked:(id)sender {
+    [self.chartImageView startAnimating];
+    [self.playButton setHidden:YES];
+    [self.pauseButton setHidden:NO];
 }
 
 - (IBAction)pauseButtonClicked:(id)sender {
+    [self.chartImageView stopAnimating];
+    [self.pauseButton setHidden:YES];
+    [self.playButton setHidden:NO];
 }
 
 #pragma mark - AsyncImageView handlers

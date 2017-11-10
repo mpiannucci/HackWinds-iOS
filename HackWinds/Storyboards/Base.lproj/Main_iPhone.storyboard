@@ -671,29 +671,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ogB-9u-1iM">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="Yiq-dq-0bm" customClass="SwitchableChartView">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="forecastChartItem" rowHeight="224" id="hOq-WF-So0">
-                                        <rect key="frame" x="0.0" y="22" width="375" height="224"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOq-WF-So0" id="unn-dr-9XG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view tag="456" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XED-or-RdJ" customClass="SwitchableChartView">
-                                                    <rect key="frame" x="0.0" y="-9" width="375" height="233"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="XED-or-RdJ" secondAttribute="trailing" id="I5F-ZG-Uzp"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="XED-or-RdJ" secondAttribute="bottom" constant="-11" id="bIG-Pk-c0s"/>
-                                                <constraint firstItem="XED-or-RdJ" firstAttribute="top" secondItem="unn-dr-9XG" secondAttribute="topMargin" constant="-20" id="jY6-zS-IfC"/>
-                                                <constraint firstItem="XED-or-RdJ" firstAttribute="leading" secondItem="unn-dr-9XG" secondAttribute="leading" id="waH-mj-C9Z"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailedForecastItem" id="mMk-Cy-XhR">
-                                        <rect key="frame" x="0.0" y="246" width="375" height="91"/>
+                                        <rect key="frame" x="0.0" y="282" width="375" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="mMk-Cy-XhR" id="o3o-v8-tOj">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
@@ -774,7 +759,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="simpleForecastItem" rowHeight="45" id="XxA-BR-AUI">
-                                        <rect key="frame" x="0.0" y="337" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="373" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XxA-BR-AUI" id="ZHz-JT-Ii1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
@@ -831,7 +816,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tideItem" textLabel="x2F-Kg-eYE" detailTextLabel="zxa-Gc-1uO" rowHeight="45" style="IBUITableViewCellStyleValue1" id="D7y-aN-F5s">
-                                        <rect key="frame" x="0.0" y="382" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="418" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D7y-aN-F5s" id="BMf-Q1-yrZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
@@ -871,6 +856,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detailed Forecast" id="dlj-EF-Xkq"/>
                     <connections>
+                        <outlet property="forecastChartView" destination="Yiq-dq-0bm" id="vhR-rk-Ueu"/>
                         <outlet property="forecastTable" destination="ogB-9u-1iM" id="CiZ-vT-qIZ"/>
                     </connections>
                 </viewController>

@@ -13,10 +13,12 @@
 @interface DetailedForecastViewController ()
 
 // UI Properties
+@property (weak, nonatomic) IBOutlet SwitchableChartView *forecastChartView;
 @property (weak, nonatomic) IBOutlet UITableView *forecastTable;
 
 // Model Properties
 @property (strong, nonatomic) ForecastModel *forecastModel;
+@property (strong, nonatomic) TideModel *tideModel;
 
 // View specifics
 @property (strong, nonatomic) NSMutableArray *animationImages;
@@ -42,6 +44,7 @@
     
     // Get the forecast model instance
     self.forecastModel = [ForecastModel sharedModel];
+    self.tideModel = [TideModel sharedModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,6 +73,9 @@
     currentConditions = [self.forecastModel getForecastsForDay:(int)self.dayIndex];
     [self.forecastTable performSelectorOnMainThread:@selector(reloadData)
                                     withObject:nil waitUntilDone:YES];
+    self.forecastChartView.dayIndex = self.dayIndex;
+    self.forecastChartView.conditonCount = currentConditions.count;
+    [self.forecastChartView initialize];
 }
 
 - (BOOL)check24HourClock {
@@ -92,7 +98,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 2;
+    if (self.dayIndex < self.tideModel.dayCount) {
+        return 2;
+    } else {
+        return 1;
+    }
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -121,7 +131,11 @@
                 return currentConditions.count + 1;
             }
         case 1:
-            return [[TideModel sharedModel] dataCountForIndex:self.dayIndex];
+            if (self.dayIndex < self.tideModel.dayCount) {
+                return [[TideModel sharedModel] dataCountForIndex:self.dayIndex];
+            } else {
+                return 0;
+            }
         default:
             return 0;
     }

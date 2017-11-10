@@ -10,12 +10,12 @@
 
 @interface SwitchableChartView : UIView
 
+@property NSInteger conditonCount;
+@property NSInteger dayIndex;
+
 - (id) initWithDayIndex:(NSInteger)index conditionCount:(NSInteger)count;
 
 - (void) initialize;
 - (void) cleanup;
-
-- (void) setConditionCount:(NSInteger)count;
-- (void) setDayIndex:(NSInteger)index;
 
 @end
