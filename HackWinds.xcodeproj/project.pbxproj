@@ -50,8 +50,8 @@
 		34469F6F1C77C8D0000499CD /* ForecastDailySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34469F671C77C8D0000499CD /* ForecastDailySummary.m */; };
 		34472BE11C5BFB5100984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
 		34472BE21C5BFB5300984B4D /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */; };
-		34494C091FB154150003F48B /* SwitchableChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34494C081FB154150003F48B /* SwitchableChartView.xib */; };
-		34494C0D1FB1561A0003F48B /* SwitchableChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34494C0C1FB1561A0003F48B /* SwitchableChartView.m */; };
+		34494C091FB154150003F48B /* SwitchableForecastChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34494C081FB154150003F48B /* SwitchableForecastChartView.xib */; };
+		34494C0D1FB1561A0003F48B /* SwitchableForecastChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34494C0C1FB1561A0003F48B /* SwitchableForecastChartView.m */; };
 		345577451F2CC6BB00EFA569 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345577441F2CC6BB00EFA569 /* SafariServices.framework */; };
 		3457CBF21C4488D400A4BCD2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
 		3457CBF51C4488D400A4BCD2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */; };
@@ -363,9 +363,9 @@
 		34469F661C77C8D0000499CD /* ForecastDailySummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastDailySummary.h; path = HackWindsCommon/DataKit/ForecastDailySummary.h; sourceTree = "<group>"; };
 		34469F671C77C8D0000499CD /* ForecastDailySummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastDailySummary.m; path = HackWindsCommon/DataKit/ForecastDailySummary.m; sourceTree = "<group>"; };
 		34472BDF1C5BFB4400984B4D /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WidgetUpdateManager.swift; path = HackWindsCommon/Extension/WidgetUpdateManager.swift; sourceTree = "<group>"; };
-		34494C081FB154150003F48B /* SwitchableChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchableChartView.xib; sourceTree = "<group>"; };
-		34494C0B1FB1561A0003F48B /* SwitchableChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchableChartView.h; sourceTree = "<group>"; };
-		34494C0C1FB1561A0003F48B /* SwitchableChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchableChartView.m; sourceTree = "<group>"; };
+		34494C081FB154150003F48B /* SwitchableForecastChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchableForecastChartView.xib; sourceTree = "<group>"; };
+		34494C0B1FB1561A0003F48B /* SwitchableForecastChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchableForecastChartView.h; sourceTree = "<group>"; };
+		34494C0C1FB1561A0003F48B /* SwitchableForecastChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchableForecastChartView.m; sourceTree = "<group>"; };
 		345577441F2CC6BB00EFA569 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		3457CBF11C4488D400A4BCD2 /* HackWindsToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3457CBF41C4488D400A4BCD2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -622,8 +622,8 @@
 				34433DBE1AF876E300E2C7E6 /* IsoCameraViewController.m */,
 				34CA15321A9D657000DAB1F8 /* SettingsViewController.h */,
 				34CA15331A9D657000DAB1F8 /* SettingsViewController.m */,
-				34494C0B1FB1561A0003F48B /* SwitchableChartView.h */,
-				34494C0C1FB1561A0003F48B /* SwitchableChartView.m */,
+				34494C0B1FB1561A0003F48B /* SwitchableForecastChartView.h */,
+				34494C0C1FB1561A0003F48B /* SwitchableForecastChartView.m */,
 				342A76201985E18100077F8C /* TideViewController.h */,
 				342A76211985E18100077F8C /* TideViewController.m */,
 				349F83771C9F614C00994826 /* TideScheduleViewController.h */,
@@ -667,7 +667,7 @@
 		342BEA6C1AF9A626004D6EE3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				34494C081FB154150003F48B /* SwitchableChartView.xib */,
+				34494C081FB154150003F48B /* SwitchableForecastChartView.xib */,
 				34F9338C1B3991B400AD23DF /* LaunchScreen.xib */,
 				34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */,
 				34F933901B3991B400AD23DF /* Main_iPhone.storyboard */,
@@ -1365,7 +1365,7 @@
 				34F933951B39922900AD23DF /* Base.lproj in Resources */,
 				34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */,
 				340AFA211A9C320700DAD121 /* UISettings.plist in Resources */,
-				34494C091FB154150003F48B /* SwitchableChartView.xib in Resources */,
+				34494C091FB154150003F48B /* SwitchableForecastChartView.xib in Resources */,
 				343083A819795D0F00655F15 /* Images.xcassets in Resources */,
 				34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */,
 				34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */,
@@ -1774,7 +1774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				349F83791C9F614C00994826 /* TideScheduleViewController.m in Sources */,
-				34494C0D1FB1561A0003F48B /* SwitchableChartView.m in Sources */,
+				34494C0D1FB1561A0003F48B /* SwitchableForecastChartView.m in Sources */,
 				34C389591BA27E3D0000EDC8 /* WaveWatchChartViewController.m in Sources */,
 				34C8E7221ACA43EB0038E895 /* DetailedForecastViewController.m in Sources */,
 				34231ADA1F72079300B93A8B /* WatchSessionManager.m in Sources */,

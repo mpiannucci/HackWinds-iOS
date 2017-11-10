@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwitchableChartView">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwitchableForecastChartView">
             <connections>
                 <outlet property="chartImageView" destination="LhV-7A-sNJ" id="uCJ-Aq-BXg"/>
                 <outlet property="chartModeSegmentButton" destination="7cf-bB-czF" id="F6R-5x-Nl4"/>

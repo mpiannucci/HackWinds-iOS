@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SwitchableChartView : UIView
+@interface SwitchableForecastChartView : UIView
 
 @property NSInteger conditonCount;
 @property NSInteger dayIndex;

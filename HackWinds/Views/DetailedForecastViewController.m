@@ -8,12 +8,12 @@
 #import "DetailedForecastViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "AsyncImageView.h"
-#import "SwitchableChartView.h"
+#import "SwitchableForecastChartView.h"
 
 @interface DetailedForecastViewController ()
 
 // UI Properties
-@property (weak, nonatomic) IBOutlet SwitchableChartView *forecastChartView;
+@property (weak, nonatomic) IBOutlet SwitchableForecastChartView *forecastChartView;
 @property (weak, nonatomic) IBOutlet UITableView *forecastTable;
 
 // Model Properties

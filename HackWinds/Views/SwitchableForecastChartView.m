@@ -6,7 +6,7 @@
 //  Copyright © 2017 Rhodysurf Development. All rights reserved.
 //
 
-#import "SwitchableChartView.h"
+#import "SwitchableForecastChartView.h"
 #import "AsyncImageView.h"
 #import "UIImage+Crop.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
@@ -20,7 +20,7 @@ static const int SWELL_PERIOD_CHART = 1;
 static const int WIND_CHART = 2;
 static const int WW_HOUR_STEP = 3;
 
-@interface SwitchableChartView()
+@interface SwitchableForecastChartView()
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *chartModeSegmentButton;
@@ -38,7 +38,7 @@ static const int WW_HOUR_STEP = 3;
 
 @end
 
-@implementation SwitchableChartView {
+@implementation SwitchableForecastChartView {
     BOOL needsReload[3];
 }
 
@@ -75,7 +75,7 @@ static const int WW_HOUR_STEP = 3;
 }
 
 - (void) initView {
-    UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"SwitchableChartView" owner:self options:nil] objectAtIndex:0];
+    UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"SwitchableForecastChartView" owner:self options:nil] objectAtIndex:0];
     [self addSubview:view];
     [view setFrame:self.bounds];
     
