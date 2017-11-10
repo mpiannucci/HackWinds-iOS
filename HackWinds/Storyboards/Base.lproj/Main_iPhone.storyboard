@@ -21,19 +21,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="V1R-2Z-TWG">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-N0-h95">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                 </scrollView>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="8" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-na-VOd">
-                                    <rect key="frame" x="0.0" y="210" width="375" height="37"/>
+                                    <rect key="frame" x="0.0" y="216" width="375" height="44"/>
                                     <color key="pageIndicatorTintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="currentPageIndicatorTintColor" red="0.28950372338294983" green="0.62821328639984131" blue="0.99866831302642822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </pageControl>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rm-Eb-nhm">
-                                    <rect key="frame" x="8" y="255" width="353" height="30"/>
+                                    <rect key="frame" x="15" y="252" width="346" height="30"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -41,21 +41,22 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="PUe-na-VOd" secondAttribute="bottom" constant="8" symbolic="YES" id="CgJ-Pe-7tw"/>
-                                <constraint firstItem="1rm-Eb-nhm" firstAttribute="leading" secondItem="V1R-2Z-TWG" secondAttribute="leading" constant="8" id="Gwv-qK-jPH"/>
-                                <constraint firstAttribute="bottom" secondItem="1rm-Eb-nhm" secondAttribute="bottom" constant="14" id="Jr2-JZ-Nnc"/>
+                                <constraint firstItem="PUe-na-VOd" firstAttribute="top" secondItem="sjN-N0-h95" secondAttribute="bottom" id="22O-hQ-7Lm"/>
+                                <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="PUe-na-VOd" secondAttribute="bottom" constant="-8" id="CgJ-Pe-7tw"/>
+                                <constraint firstItem="1rm-Eb-nhm" firstAttribute="leading" secondItem="V1R-2Z-TWG" secondAttribute="leading" constant="15" id="Gwv-qK-jPH"/>
+                                <constraint firstAttribute="bottom" secondItem="1rm-Eb-nhm" secondAttribute="bottom" id="Jr2-JZ-Nnc"/>
                                 <constraint firstItem="sjN-N0-h95" firstAttribute="leading" secondItem="PUe-na-VOd" secondAttribute="leading" id="Jtw-bg-jsU"/>
                                 <constraint firstItem="sjN-N0-h95" firstAttribute="trailing" secondItem="PUe-na-VOd" secondAttribute="trailing" id="PNp-Xg-yha"/>
                                 <constraint firstAttribute="trailing" secondItem="1rm-Eb-nhm" secondAttribute="trailing" constant="14" id="V4X-Z9-8eV"/>
                                 <constraint firstItem="sjN-N0-h95" firstAttribute="leading" secondItem="V1R-2Z-TWG" secondAttribute="leading" id="WwQ-E9-oJL"/>
                                 <constraint firstItem="sjN-N0-h95" firstAttribute="top" secondItem="V1R-2Z-TWG" secondAttribute="top" id="dKL-OF-h34"/>
-                                <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="sjN-N0-h95" secondAttribute="bottom" constant="44" id="gSk-Sx-KoP"/>
+                                <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="sjN-N0-h95" secondAttribute="bottom" constant="36" id="gSk-Sx-KoP"/>
                                 <constraint firstAttribute="trailing" secondItem="sjN-N0-h95" secondAttribute="trailing" id="jPd-Et-Uvq"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailedForecastItem" rowHeight="85" id="vDQ-qX-3sN">
-                                <rect key="frame" x="0.0" y="327" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="310" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="vDQ-qX-3sN" id="iTo-CH-aRL">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
@@ -136,7 +137,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="simpleForecastItem" id="Qix-Ye-HBT">
-                                <rect key="frame" x="0.0" y="412" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="395" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qix-Ye-HBT" id="5fr-TB-aLA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -219,7 +220,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxK-QB-UtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="-379"/>
+            <point key="canvasLocation" x="486.5" y="-379.5"/>
         </scene>
         <!--Alternate Camera Navigation Controller-->
         <scene sceneID="OMS-rM-viZ">
