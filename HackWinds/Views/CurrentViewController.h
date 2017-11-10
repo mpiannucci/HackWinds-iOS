@@ -10,7 +10,7 @@
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import <SafariServices/SafariServices.h>
 
-@interface CurrentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, SFSafariViewControllerDelegate>
+@interface CurrentViewController : UITableViewController < UIScrollViewDelegate, SFSafariViewControllerDelegate>
 
 - (void) updateUI;
 - (void) forecastUpdateFailed;

@@ -11,7 +11,6 @@
 #import "AsyncImageView.h"
 #import "Reachability.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
-#import "NavigationBarTitleWithSubtitleView.h"
 
 static const int CAMERA_IMAGE_COUNT = 11;
 
@@ -21,8 +20,6 @@ static const int CAMERA_IMAGE_COUNT = 11;
 @property (weak, nonatomic) IBOutlet UIScrollView *camScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *camPaginator;
 @property (weak, nonatomic) IBOutlet UILabel *dayHeader;
-@property (weak, nonatomic) IBOutlet UITableView *forecastTable;
-@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *alternateCamerasBarButton;
 
 // Model Properties
@@ -146,13 +143,13 @@ static const int CAMERA_IMAGE_COUNT = 11;
         lastFetchFailure = NO;
     }
     
-    [self.forecastTable reloadData];
+    [self.tableView reloadData];
 }
 
 - (void) forecastUpdateFailed {
     lastFetchFailure = YES;
     
-    [self.forecastTable reloadData];
+    [self.tableView reloadData];
 }
 
 - (BOOL)check24HourClock {
