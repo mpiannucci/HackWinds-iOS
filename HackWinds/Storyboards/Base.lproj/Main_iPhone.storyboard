@@ -1343,29 +1343,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" tag="78" contentMode="scaleToFill" id="BwT-XP-Iek" customClass="LineChartView" customModule="Charts">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="187.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tidePlotItem" rowHeight="188" id="unq-SE-Non">
-                                <rect key="frame" x="0.0" y="28" width="375" height="188"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="unq-SE-Non" id="g6D-6U-6re">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="187.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view tag="78" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwT-XP-Iek" customClass="LineChartView" customModule="Charts">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="187.5"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="BwT-XP-Iek" secondAttribute="trailing" id="QMf-VL-a5j"/>
-                                        <constraint firstAttribute="bottom" secondItem="BwT-XP-Iek" secondAttribute="bottom" id="aKU-ML-8lQ"/>
-                                        <constraint firstItem="BwT-XP-Iek" firstAttribute="leading" secondItem="g6D-6U-6re" secondAttribute="leading" id="cpa-r0-0dL"/>
-                                        <constraint firstItem="BwT-XP-Iek" firstAttribute="top" secondItem="g6D-6U-6re" secondAttribute="top" id="wTy-GK-uyH"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell tag="180" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tideDataItem" textLabel="HKq-cX-yCW" detailTextLabel="qh8-zP-S6Y" rowHeight="120" style="IBUITableViewCellStyleValue1" id="lSb-ao-zVD">
-                                <rect key="frame" x="0.0" y="216" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="215.5" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lSb-ao-zVD" id="Dzk-rE-LPI">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
@@ -1408,6 +1393,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tideChartView" destination="BwT-XP-Iek" id="z5K-5O-gCJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6z-4C-8PJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

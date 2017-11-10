@@ -9,12 +9,10 @@
 #import "TideViewController.h"
 #import <HackWindsDataKit/HackWindsDataKit.h>
 #import "Reachability.h"
-#import "NavigationBarTitleWithSubtitleView.h"
 
 @interface TideViewController ()
 
-@property (strong, nonatomic) LineChartView *tideChartView;
-@property (strong, nonatomic) NavigationBarTitleWithSubtitleView *navigationBarTitle;
+@property (strong, nonatomic) IBOutlet LineChartView *tideChartView;
 
 @property (strong, nonatomic) TideModel *tideModel;
 @property (strong, nonatomic) BuoyModel *buoyModel;
@@ -120,6 +118,7 @@
 }
 
 - (void) reloadData {
+    [self loadTideChartData];
     [self.tableView reloadData];
 }
 
@@ -317,26 +316,24 @@
 }
 
 - (void) chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry dataSetIndex:(NSInteger)dataSetIndex highlight:(ChartHighlight *)highlight {
-    
+    // Handle chart vaue selection?
 }
 
 - (void) chartValueNothingSelected:(ChartViewBase *)chartView {
-    
+    // Handle nothing selected on the chart?
 }
 
 #pragma mark - Table View
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return 1;
-        case 1:
             return [self.tideModel dataCountForIndex:0];
-        case 2:
+        case 1:
             return 1;
         default:
             return 0;
@@ -346,10 +343,8 @@
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"Upcoming Tides";
+            return @"Upcoming";
         case 1:
-            return @"Upcoming Events";
-        case 2:
             return @"Water Temperature";
         default:
             return nil;
@@ -357,11 +352,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return 188.0;
-    } else {
-        return 90.0;
-    }
+    return 90.0;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -369,13 +360,6 @@
     UITableViewCell * cell;
     
     if (indexPath.section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"tidePlotItem"];
-
-        self.tideChartView = (LineChartView*)[cell viewWithTag:78];
-        [self setupTideChart];
-        [self loadTideChartData];
-        
-    } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
         
         Tide* thisEvent = [self.tideModel.tides objectAtIndex:indexPath.row];
@@ -401,7 +385,7 @@
                 cell.imageView.tintColor = [UIColor orangeColor];
             }
         }
-    } else if (indexPath.section == 2) {
+    } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
         cell.textLabel.text = buoyLocation;
         
