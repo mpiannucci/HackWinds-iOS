@@ -111,12 +111,6 @@
 		34D3DF211D3BD07E003304E8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D3DF121D3BD05E003304E8 /* ComplicationController.swift */; };
 		34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		34EA41201C3E8D15008FF504 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41051C3E8D15008FF504 /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41211C3E8D15008FF504 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41051C3E8D15008FF504 /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41221C3E8D15008FF504 /* Buoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41051C3E8D15008FF504 /* Buoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41231C3E8D15008FF504 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41061C3E8D15008FF504 /* Buoy.m */; };
-		34EA41241C3E8D15008FF504 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41061C3E8D15008FF504 /* Buoy.m */; };
-		34EA41251C3E8D15008FF504 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA41061C3E8D15008FF504 /* Buoy.m */; };
 		34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -433,8 +427,6 @@
 		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA3B1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitTests.m; sourceTree = "<group>"; };
-		34EA41051C3E8D15008FF504 /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Buoy.h; path = HackWindsCommon/DataKit/Buoy.h; sourceTree = "<group>"; };
-		34EA41061C3E8D15008FF504 /* Buoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Buoy.m; path = HackWindsCommon/DataKit/Buoy.m; sourceTree = "<group>"; };
 		34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyDataContainer.h; path = HackWindsCommon/DataKit/BuoyDataContainer.h; sourceTree = "<group>"; };
 		34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyDataContainer.m; path = HackWindsCommon/DataKit/BuoyDataContainer.m; sourceTree = "<group>"; };
 		34EA41091C3E8D15008FF504 /* BuoyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyModel.h; path = HackWindsCommon/DataKit/BuoyModel.h; sourceTree = "<group>"; };
@@ -896,8 +888,6 @@
 				34C2DE5B1FAFF00E003A647A /* GTLRStationQuery.m */,
 				34C2DE5A1FAFF00D003A647A /* GTLRStationService.h */,
 				34C2DE5D1FAFF00E003A647A /* GTLRStationService.m */,
-				34EA41051C3E8D15008FF504 /* Buoy.h */,
-				34EA41061C3E8D15008FF504 /* Buoy.m */,
 				34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */,
 				34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */,
 				34EA41091C3E8D15008FF504 /* BuoyModel.h */,
@@ -987,7 +977,6 @@
 				34EA413F1C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE5F1FAFF00E003A647A /* GTLRStation.h in Headers */,
 				34C2DE621FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
-				34EA41211C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,7 +1002,6 @@
 				34EA41401C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE601FAFF00E003A647A /* GTLRStation.h in Headers */,
 				34C2DE631FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
-				34EA41221C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,7 +1027,6 @@
 				34EA413E1C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE5E1FAFF00E003A647A /* GTLRStation.h in Headers */,
 				34C2DE611FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
-				34EA41201C3E8D15008FF504 /* Buoy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1831,7 +1818,6 @@
 				34EA41631C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412A1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
 				34C2DE6B1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
-				34EA41241C3E8D15008FF504 /* Buoy.m in Sources */,
 				34469F631C779799000499CD /* Swell.m in Sources */,
 				34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */,
 			);
@@ -1853,7 +1839,6 @@
 				34EA41641C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412B1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
 				34C2DE6C1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
-				34EA41251C3E8D15008FF504 /* Buoy.m in Sources */,
 				34469F651C779799000499CD /* Swell.m in Sources */,
 				34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */,
 			);
@@ -1884,7 +1869,6 @@
 				34EA41621C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA41291C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
 				34C2DE6A1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
-				34EA41231C3E8D15008FF504 /* Buoy.m in Sources */,
 				34469F611C779799000499CD /* Swell.m in Sources */,
 				34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */,
 			);
