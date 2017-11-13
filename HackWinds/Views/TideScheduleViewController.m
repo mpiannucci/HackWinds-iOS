@@ -55,11 +55,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tideItem"];
     if ([thisTide isTidalEvent]) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
     } else {
-        cell.textLabel.text = thisTide.eventType;
+        cell.detailTextLabel.text = thisTide.eventType;
     }
-    cell.detailTextLabel.text = [thisTide timeString];
+    cell.textLabel.text = [thisTide timeString];
     
     if ([thisTide isHighTide]) {
         cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]

@@ -438,11 +438,11 @@ static const int CAMERA_IMAGE_COUNT = 11;
                 cell = [tableView dequeueReusableCellWithIdentifier:@"tideItem"];
                 Tide *thisTide = [[TideModel sharedModel] tideDataAtIndex:indexPath.row forDay:0];
                 if ([thisTide isTidalEvent]) {
-                    cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %@", thisTide.eventType, thisTide.height];
                 } else {
-                    cell.textLabel.text = thisTide.eventType;
+                    cell.detailTextLabel.text = thisTide.eventType;
                 }
-                cell.detailTextLabel.text = [thisTide timeString];
+                cell.textLabel.text = [thisTide timeString];
             
                 if ([thisTide isHighTide]) {
                     cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]

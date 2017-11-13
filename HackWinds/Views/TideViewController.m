@@ -364,8 +364,12 @@
         
         Tide* thisEvent = [self.tideModel.tides objectAtIndex:indexPath.row];
         if (thisEvent != nil) {
-            cell.textLabel.text = thisEvent.eventType;
-            cell.detailTextLabel.text = [thisEvent timeString];
+            if ([thisEvent isTidalEvent]) {
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %@", thisEvent.eventType, thisEvent.height];
+            } else {
+                cell.detailTextLabel.text = thisEvent.eventType;
+            }
+            cell.textLabel.text = [thisEvent timeString];
             
             if ([thisEvent isHighTide]) {
                 cell.imageView.image = [[UIImage imageNamed:@"ic_trending_up_white"]
@@ -387,10 +391,10 @@
         }
     } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"tideDataItem"];
-        cell.textLabel.text = buoyLocation;
+        cell.detailTextLabel.text = buoyLocation;
         
         if (currentBuoy != nil) {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f %@F", currentBuoy.waterTemperature.doubleValue, @"\u00B0"];
+            cell.textLabel.text = [NSString stringWithFormat:@"%.1f %@F", currentBuoy.waterTemperature.doubleValue, @"\u00B0"];
             cell.imageView.image = [[UIImage imageNamed:@"ic_whatshot_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             int tempRaw = [currentBuoy.waterTemperature intValue];
             if (tempRaw < 43) {
@@ -405,7 +409,7 @@
                 cell.imageView.tintColor = RED_COLOR;
             }
         } else {
-            cell.detailTextLabel.text = @"";
+            cell.textLabel.text = @"";
             cell.imageView.image = [[UIImage imageNamed:@"ic_whatshot_white"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imageView.tintColor = [UIColor grayColor];
         }
