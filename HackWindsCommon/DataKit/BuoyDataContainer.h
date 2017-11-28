@@ -12,15 +12,13 @@
 @interface GTLRStation_ApiApiMessagesDataMessage (StringFormatting)
 - (NSString *) timeString;
 - (NSString *) dateString;
-- (NSString*) getWaveSummaryStatusText;
-- (NSString*) getSimpleSwellText;
-- (NSString*) getWaveHeightText;
 + (NSString*) getCompassDirection:(NSString*)degreeDirection;
 @end
 
 @interface GTLRStation_ApiApiMessagesSwellMessage (StringFormatting)
 - (NSString *) getSwellSummmary;
 - (NSString *) getDetailedSwellSummmary;
+- (NSString *) getWaveHeightText;
 @end
 
 @interface BuoyDataContainer : NSObject

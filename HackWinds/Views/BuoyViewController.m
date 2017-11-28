@@ -222,7 +222,7 @@
         UILabel *currentSecondarySpectraLabel = (UILabel*)[cell viewWithTag:43];
         UILabel *lastUpdatedLabel = (UILabel*)[cell viewWithTag:44];
         
-        currentBuoyStatusLabel.text = [self.latestBuoy getWaveSummaryStatusText];
+        currentBuoyStatusLabel.text = [[self.latestBuoy waveSummary] getSwellSummmary];
         if (self.latestBuoy.swellComponents.count > 0) {
             currentDominantSpectraLabel.text = [[self.latestBuoy.swellComponents objectAtIndex:0] getDetailedSwellSummmary];
         } else {

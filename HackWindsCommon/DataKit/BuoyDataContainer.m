@@ -27,18 +27,6 @@
     return [formatter stringFromDate:self.date.date];
 }
 
-- (NSString*) getWaveSummaryStatusText {
-    return [NSString stringWithFormat:@"%.2f ft @ %.1f s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.doubleValue, self.waveSummary.compassDirection];
-}
-
-- (NSString*) getSimpleSwellText {
-    return [NSString stringWithFormat:@"%.1f ft @ %d s %@", self.waveSummary.waveHeight.doubleValue, self.waveSummary.period.intValue, self.waveSummary.compassDirection];
-}
-
-- (NSString*) getWaveHeightText {
-    return [NSString stringWithFormat:@"%.1f ft", self.waveSummary.waveHeight.doubleValue];
-}
-
 + (NSString*) getCompassDirection:(NSString*)degreeDirection {
     // Set the direction to its letter value on a compass
     int windIndex = (int)[degreeDirection doubleValue]/(360/[WIND_DIRS count]);
@@ -54,11 +42,20 @@
 @implementation GTLRStation_ApiApiMessagesSwellMessage (StringFormatting)
 
 - (NSString *) getSwellSummmary {
-    return [NSString stringWithFormat:@"%@ %2.2f ft @ %2.1f s", self.compassDirection, self.waveHeight.floatValue, self.period.floatValue];
+    NSString *compassDirectionValue = @"";
+    if (self.compassDirection != nil) {
+        compassDirectionValue = self.compassDirection;
+    }
+    
+    return [NSString stringWithFormat:@"%2.2f ft @ %2.1f s %@", self.waveHeight.floatValue, self.period.floatValue, compassDirectionValue];
 }
 
 - (NSString *) getDetailedSwellSummmary {
     return [NSString stringWithFormat:@"%2.2f ft @ %2.1f s %d\u00B0 %@ ", self.waveHeight.floatValue, self.period.floatValue, self.direction.intValue, self.compassDirection];
+}
+
+- (NSString*) getWaveHeightText {
+    return [NSString stringWithFormat:@"%.1f ft", self.waveHeight.doubleValue];
 }
 
 @end

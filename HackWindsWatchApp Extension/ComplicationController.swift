@@ -52,8 +52,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var tideTime  = Date()
         
         if let buoy = updateManager.latestBuoy {
-            longBuoyText = buoy.getSimpleSwellText()
-            waveHeightBuoyText = buoy.getWaveHeightText()
+            longBuoyText = buoy.waveSummary?.getSwellSummmary() ?? ""
+            waveHeightBuoyText = buoy.waveSummary?.getWaveHeightText() ?? ""
         }
         
         if let buoyLocation = updateManager.buoyLocation {

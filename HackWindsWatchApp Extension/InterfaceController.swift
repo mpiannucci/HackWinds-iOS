@@ -55,7 +55,7 @@ class InterfaceController: WKInterfaceController {
     
     func updateBuoyUI() {
         if let buoy = updateManager.latestBuoy {
-            self.latestBuoyReportLabel.setText(buoy.getWaveSummaryStatusText())
+            self.latestBuoyReportLabel.setText(buoy.waveSummary?.getSwellSummmary());
         }
     }
     
