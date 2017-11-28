@@ -68,6 +68,7 @@
         if (active) {
             [defaultPreferences setObject:BLOCK_ISLAND_LOCATION forKey:@"DefaultBuoyLocation"];
             [defaultPreferences synchronize];
+            [[BuoyModel sharedModel] fetchBuoyData];
         } else {
             [defaultPreferences setObject:MONTAUK_LOCATION forKey:@"BuoyLocation"];
             [defaultPreferences synchronize];
