@@ -82,7 +82,7 @@
     self.locationName = locName;
     
     CameraModel *cameraModel = [CameraModel sharedModel];
-    camera = [cameraModel cameraForLocation:self.locationName camera:self.cameraName];
+    camera = [cameraModel cameraForRegion:self.locationName camera:self.cameraName];
 }
 
 - (void)loadCamImage {

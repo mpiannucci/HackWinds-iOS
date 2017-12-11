@@ -27,13 +27,6 @@
     [super viewDidLoad];
     
     cameraModel = [CameraModel sharedModel];
-    locationKeys = [cameraModel.cameraURLS allKeys];
-    
-    NSMutableArray *tempCameraKeys = [[NSMutableArray alloc] init];
-    for (NSString *location in locationKeys) {
-        [tempCameraKeys addObject:[[[cameraModel cameraURLS] objectForKey:location] allKeys]];
-    }
-    cameraKeys = [NSArray arrayWithArray:tempCameraKeys];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,12 +39,12 @@
 }
 
 - (BOOL)shouldShowISOCameraView:(NSString*) locationName :(NSString*) cameraName {
-    Camera* camera = [cameraModel cameraForLocation:locationName camera:cameraName];
+    GTLRCamera_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegion:locationName camera:cameraName];
     if (camera == nil) {
         return NO;
     }
     
-    if ([[camera.videoURL absoluteString] isEqualToString:@""] && [[camera.webURL absoluteString] isEqualToString:@""] && ![[camera.imageURL absoluteString] isEqualToString:@""]) {
+    if ([camera.videoUrl isEqualToString:@""] && [camera.webUrl isEqualToString:@""] && ![camera.imageUrl isEqualToString:@""]) {
         return YES;
     }
     
@@ -61,16 +54,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[[CameraModel sharedModel] cameraURLS] count];
+    return [[[CameraModel sharedModel] cameras] cameraLocations] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSInteger nRows = 0;
-    if (section < [locationKeys count]) {
-        nRows += [(NSArray*)[[cameraModel cameraURLS] objectForKey:[locationKeys objectAtIndex:section]] count];
-    }
-    return nRows;
+    return [cameraModel cameraCountForRegion:<#(NSString *)#>
 }
 
 

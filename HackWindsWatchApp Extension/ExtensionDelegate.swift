@@ -79,9 +79,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 
                 self.lastTask = backgroundTask
                 
-                WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 60), userInfo: nil) { (error: Error?) in
-                    if let error = error {
-                        print("Error occured while scheduling background refresh: \(error.localizedDescription)")
+                if self.taskCounter > 0 {
+                    WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 60), userInfo: nil) { (error: Error?) in
+                        if let error = error {
+                            print("Error occured while scheduling background refresh: \(error.localizedDescription)")
+                        }
                     }
                 }
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:

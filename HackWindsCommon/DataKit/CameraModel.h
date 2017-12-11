@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Camera.h"
+#import "GTLRCamera.h"
 
 // Notification Constants
 extern NSString * const CAMERA_DATA_UPDATED_TAG;
@@ -15,13 +15,17 @@ extern NSString * const CAMERA_DATA_UPDATE_FAILED_TAG;
 
 @interface CameraModel : NSObject
 
-@property (strong, nonatomic, readonly) Camera* defaultCamera;
-@property (strong, nonatomic) NSDictionary *cameraURLS;
+@property (strong, nonatomic, readonly) GTLRCamera_ModelCameraMessagesCameraMessage* defaultCamera;
+@property (strong, nonatomic, readonly) GTLRCamera_ModelCameraMessagesCameraLocationsMessage *cameras;
 
 - (void) forceFetchCameraURLs;
 - (void) fetchCameraURLs;
-- (Camera*) cameraForLocation:(NSString*) locationName camera:(NSString*) cameraName;
-- (Camera*) defaultCamera;
+- (GTLRCamera_ModelCameraMessagesCameraMessage*) cameraForRegion:(NSString*) regionName camera:(NSString*) cameraName;
+- (GTLRCamera_ModelCameraMessagesCameraMessage*) defaultCamera;
+- (NSString*) regionForIndex:(NSInteger) index;
+- (NSInteger) indexForRegion:(NSString*) regionName;
+- (NSInteger) cameraCountForRegion:(NSString*) regionName;
+- (NSInteger) cameraCountForRegionIndex:(NSInteger) regionIndex;
 + (instancetype) sharedModel;
 
 @end

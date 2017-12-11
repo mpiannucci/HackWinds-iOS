@@ -13,9 +13,9 @@ static NSString * const HACKWINDS_API_URL = @"https://hackwinds.appspot.com/api/
 NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification";
 NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNotification";
 
-@interface CameraModel()
+static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkXbXlts";
 
-- (BOOL) parseCamerasFromData:(NSData*)rawData;
+@interface CameraModel()
 
 @end
 
@@ -23,6 +23,7 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
     BOOL forceReload;
 }
 
+@synthesize cameras;
 @synthesize defaultCamera;
 
 + (instancetype) sharedModel {
@@ -44,7 +45,7 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
         forceReload = NO;
     }
     
-    self.cameraURLS = [[NSDictionary alloc] init];
+    cameras = nil;
     
     defaultCamera = nil;
     
@@ -62,47 +63,34 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
             });
         }
         
-        NSURLSessionTask *cameraTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:HACKWINDS_API_URL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            
-            if (error != nil) {
-                NSLog(@"Failed to fetch camera data from API");
-                
-                // Send failure notification
+        GTLRCameraQuery_Cameras *camerasQuery = [GTLRCameraQuery_Cameras query];
+        GTLRCameraService *service = [[GTLRCameraService alloc] init];
+        service.APIKey = HACKWINDS_API_KEY;
+        [service executeQuery:camerasQuery completionHandler:^(GTLRServiceTicket * _Nonnull callbackTicket, id  _Nullable object, NSError * _Nullable callbackError) {
+            if (callbackError != nil || object == nil) {
+                NSLog(@"HackWinds Camera API Error: %@", callbackError);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
                      postNotificationName:CAMERA_DATA_UPDATE_FAILED_TAG
                      object:self];
                 });
-                
                 return;
             }
             
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-            if (httpResponse.statusCode != 200) {
-                NSLog(@"HTTP Error receiving camera data");
-                
-                // Send failure notification
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter]
-                     postNotificationName:CAMERA_DATA_UPDATE_FAILED_TAG
-                     object:self];
-                });
-                
-                return;
+            if ([object isKindOfClass:[GTLRCamera_ModelCameraMessagesCameraLocationsMessage class]]) {
+                cameras = (GTLRCamera_ModelCameraMessagesCameraLocationsMessage*)object;
             }
             
-            BOOL parsedCameras = [self parseCamerasFromData:data];
-            if (parsedCameras) {
-                // Tell everything you have camera data
+            if (cameras != nil) {
+                defaultCamera = [self cameraForRegion:@"Narragansett" camera:@"Warm Winds"];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
                      postNotificationName:CAMERA_DATA_UPDATED_TAG
-                     object:self];
+                                   object:self];
                 });
             }
         }];
-        
-        [cameraTask resume];
     }
 }
 
@@ -111,67 +99,49 @@ NSString * const CAMERA_DATA_UPDATE_FAILED_TAG = @"CameraModelDataUpdateFailedNo
     return [self fetchCameraURLs];
 }
 
-- (BOOL) parseCamerasFromData:(NSData *)rawData {
-    NSError *error;
-    NSDictionary *settingsData = [NSJSONSerialization
-                                  JSONObjectWithData:rawData
-                                  options:kNilOptions
-                                  error:&error];
-    
-    if ((settingsData == nil) || (error != nil)) {
-        return false;
-    }
-    
-    // Grab the latest user defaults
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
-    [defaults synchronize];
-    BOOL showPremium = [defaults boolForKey:@"ShowPremiumContent"];
-    
-    NSDictionary *cameraDict = [NSMutableDictionary dictionaryWithDictionary:[settingsData objectForKey:@"CameraLocations"]];
-    NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-    
-    for (NSString* locationName in cameraDict) {
-        tempDict[locationName] = [[NSMutableDictionary alloc] init];
+- (GTLRCamera_ModelCameraMessagesCameraMessage*) cameraForRegion:(NSString *)regionName camera:(NSString *)cameraName {
+    for (GTLRCamera_ModelCameraMessagesCameraRegionMessage* region in self.cameras.cameraLocations) {
+        if (region.name != regionName) {
+            continue;
+        }
         
-        for (NSString *cameraName in [cameraDict objectForKey:locationName]) {
-            
-            NSDictionary *thisCameraDict = [[cameraDict objectForKey:locationName] objectForKey:cameraName];
-            Camera *thisCamera = [[Camera alloc] init];
-            
-            thisCamera.imageURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Image"]];
-            thisCamera.videoURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Video"]];
-            thisCamera.webURL = [NSURL URLWithString:[thisCameraDict objectForKey:@"Web"]];
-            [thisCamera setIsRefreshable:[[thisCameraDict objectForKey:@"Refreshable"] boolValue]];
-            [thisCamera setRefreshDuration:[[thisCameraDict objectForKey:@"RefreshInterval"] intValue]];
-            [thisCamera setPremium:[[thisCameraDict objectForKey:@"Premium"] boolValue]];
-            
-            if ([cameraName isEqualToString:@"Warm Winds"]) {
-                // For now hard code this default camera
-                defaultCamera = thisCamera;
-            }
-            
-            if ([thisCamera isPremium] && !showPremium) {
+        for (GTLRCamera_ModelCameraMessagesCameraMessage *camera in region.cameras) {
+            if (camera.name != cameraName) {
                 continue;
             }
             
-            tempDict[locationName][cameraName] = thisCamera;
-        }
-        
-        if ([tempDict[locationName] count] < 1) {
-            [tempDict removeObjectForKey:locationName];
+            return camera;
         }
     }
     
-    self.cameraURLS = tempDict;
-    
-    // Save the camera urls to defaults and set the reload state
-    forceReload = NO;
-    
-    return YES;
+    return nil;
 }
 
-- (Camera*) cameraForLocation:(NSString*) locationName camera:(NSString*) cameraName {
-    return [[self.cameraURLS objectForKey:locationName] objectForKey:cameraName];
+- (NSString*) regionForIndex:(NSInteger) index {
+    return [[self.cameras.cameraLocations objectAtIndex:index] name];
+}
+
+- (NSInteger) indexForRegion:(NSString*) regionName {
+    for (int i = 0; i < self.cameras.cameraLocations.count; i++) {
+        if ([[self.cameras.cameraLocations objectAtIndex:i] name] == regionName) {
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
+- (NSInteger) cameraCountForRegion:(NSString*) regionName {
+    NSInteger regionIndex = [self indexForRegion:regionName];
+    if (regionIndex < 1) {
+        return 0;
+    }
+    
+    return [self cameraCountForRegionIndex:regionIndex];
+}
+
+- (NSInteger) cameraCountForRegionIndex:(NSInteger) regionIndex {
+    return [[[self.cameras.cameraLocations objectAtIndex:regionIndex] cameras] count];
 }
 
 @end

@@ -171,6 +171,27 @@
 		34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
 		34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
 		34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
+		34EA92C91FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92CA1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92CB1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92CC1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */; };
+		34EA92CD1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */; };
+		34EA92CE1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */; };
+		34EA92CF1FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */; };
+		34EA92D01FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */; };
+		34EA92D11FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */; };
+		34EA92D21FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92D31FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92D41FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92D51FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92D61FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92D71FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92D81FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */; };
+		34EA92D91FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */; };
+		34EA92DA1FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */; };
+		34EA92DB1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92DC1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34EA92DD1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
@@ -447,6 +468,13 @@
 		34EA411D1C3E8D15008FF504 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TideModel.m; path = HackWindsCommon/DataKit/TideModel.m; sourceTree = "<group>"; };
 		34EA411E1C3E8D15008FF504 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = HackWindsCommon/DataKit/XMLReader.h; sourceTree = "<group>"; };
 		34EA411F1C3E8D15008FF504 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = HackWindsCommon/DataKit/XMLReader.m; sourceTree = "<group>"; };
+		34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCameraObjects.h; path = HackWindsCommon/DataKit/GTLRCameraObjects.h; sourceTree = "<group>"; };
+		34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCameraQuery.m; path = HackWindsCommon/DataKit/GTLRCameraQuery.m; sourceTree = "<group>"; };
+		34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCameraService.m; path = HackWindsCommon/DataKit/GTLRCameraService.m; sourceTree = "<group>"; };
+		34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCameraQuery.h; path = HackWindsCommon/DataKit/GTLRCameraQuery.h; sourceTree = "<group>"; };
+		34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCameraService.h; path = HackWindsCommon/DataKit/GTLRCameraService.h; sourceTree = "<group>"; };
+		34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCameraObjects.m; path = HackWindsCommon/DataKit/GTLRCameraObjects.m; sourceTree = "<group>"; };
+		34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCamera.h; path = HackWindsCommon/DataKit/GTLRCamera.h; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		34F9338D1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34F9338F1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -881,6 +909,13 @@
 		34EA40DC1C3E8CA5008FF504 /* DataKit */ = {
 			isa = PBXGroup;
 			children = (
+				34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */,
+				34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */,
+				34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */,
+				34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */,
+				34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */,
+				34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */,
+				34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */,
 				34C2DE571FAFF00C003A647A /* GTLRStation.h */,
 				34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */,
 				34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */,
@@ -960,19 +995,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */,
+				34EA92D61FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */,
 				34EA41601C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416C1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA41391C3E8D15008FF504 /* CameraModel.h in Headers */,
 				34EA41331C3E8D15008FF504 /* Camera.h in Headers */,
+				34EA92DC1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41661C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412D1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F691C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34C2DE681FAFF00F003A647A /* GTLRStationService.h in Headers */,
 				34EA41481C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34EA92D31FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */,
 				34C2DE6E1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414B1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41571C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34EA92CA1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */,
 				34469F5F1C779799000499CD /* Swell.h in Headers */,
 				34EA413F1C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE5F1FAFF00E003A647A /* GTLRStation.h in Headers */,
@@ -985,19 +1024,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */,
+				34EA92D71FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */,
 				34EA41611C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416D1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA413A1C3E8D15008FF504 /* CameraModel.h in Headers */,
 				34EA41341C3E8D15008FF504 /* Camera.h in Headers */,
+				34EA92DD1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41671C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412E1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F6A1C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34C2DE691FAFF00F003A647A /* GTLRStationService.h in Headers */,
 				34EA41491C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34EA92D41FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */,
 				34C2DE6F1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414C1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41581C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34EA92CB1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */,
 				34469F601C779799000499CD /* Swell.h in Headers */,
 				34EA41401C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE601FAFF00E003A647A /* GTLRStation.h in Headers */,
@@ -1010,19 +1053,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C07E321C274F42002D3DB8 /* HackWindsDataKit.h in Headers */,
+				34EA92D51FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */,
 				34EA415F1C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416B1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA41381C3E8D15008FF504 /* CameraModel.h in Headers */,
 				34EA41321C3E8D15008FF504 /* Camera.h in Headers */,
+				34EA92DB1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41651C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412C1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F681C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34C2DE671FAFF00E003A647A /* GTLRStationService.h in Headers */,
 				34EA41471C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
+				34EA92D21FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */,
 				34C2DE6D1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414A1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41561C3E8D15008FF504 /* ForecastModel.h in Headers */,
+				34EA92C91FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */,
 				34469F5E1C779799000499CD /* Swell.h in Headers */,
 				34EA413E1C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE5E1FAFF00E003A647A /* GTLRStation.h in Headers */,
@@ -1807,6 +1854,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				34EA415A1C3E8D15008FF504 /* ForecastModel.m in Sources */,
+				34EA92D01FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
+				34EA92CD1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
+				34EA92D91FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
 				34EA41361C3E8D15008FF504 /* Camera.m in Sources */,
 				34EA413C1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41691C3E8D15008FF504 /* TideModel.m in Sources */,
@@ -1828,6 +1878,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				34EA415B1C3E8D15008FF504 /* ForecastModel.m in Sources */,
+				34EA92D11FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
+				34EA92CE1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
+				34EA92DA1FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
 				34EA41371C3E8D15008FF504 /* Camera.m in Sources */,
 				34EA413D1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA416A1C3E8D15008FF504 /* TideModel.m in Sources */,
@@ -1858,6 +1911,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				34EA41591C3E8D15008FF504 /* ForecastModel.m in Sources */,
+				34EA92CF1FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
+				34EA92CC1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
+				34EA92D81FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
 				34EA41351C3E8D15008FF504 /* Camera.m in Sources */,
 				34EA413B1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41681C3E8D15008FF504 /* TideModel.m in Sources */,

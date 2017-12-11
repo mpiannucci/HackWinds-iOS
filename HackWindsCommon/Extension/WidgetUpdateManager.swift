@@ -97,7 +97,7 @@ class WidgetUpdateManager {
                 self.nextBuoyUpdateTime = nil
             }
         } else {
-            // Just default to montauk if possible
+            // Just default to bi if possible
             self.buoyLocation = BLOCK_ISLAND_LOCATION as NSString?
             groupDefaults?.set(self.buoyLocation, forKey: "DefaultBuoyLocation")
             
