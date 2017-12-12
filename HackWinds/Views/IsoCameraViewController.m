@@ -100,7 +100,7 @@
     
     // Fire the refresh timer
     if (camera.refreshable) {
-        [NSTimer scheduledTimerWithTimeInterval:camera.refreshInterval.doubleValue
+        [NSTimer scheduledTimerWithTimeInterval:camera.refreshInterval.integerValue
                                          target:self
                                        selector:@selector(loadCamImage)
                                        userInfo:nil
@@ -112,7 +112,7 @@
     // Show the refresh label if auto refresh is turned on
     if ([self.autoReloadSwitch isOn]) {
         [self.refreshIntervalLabel setHidden:NO];
-        [self.refreshIntervalLabel setText:[NSString stringWithFormat:@"Refresh interval is %ld seconds", (long)camera.refreshInterval]];
+        [self.refreshIntervalLabel setText:[NSString stringWithFormat:@"Refresh interval is %ld seconds", camera.refreshInterval.integerValue]];
     } else {
         [self.refreshIntervalLabel setHidden:YES];
     }

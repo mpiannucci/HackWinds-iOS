@@ -18,12 +18,15 @@
 
 @implementation GTLRCameraQuery_Cameras
 
-+ (instancetype)query {
+@dynamic premium;
+
++ (instancetype)queryWithPremium:(BOOL)premium {
   NSString *pathURITemplate = @"cameras";
   GTLRCameraQuery_Cameras *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.premium = premium;
   query.expectedObjectClass = [GTLRCamera_ModelCameraMessagesCameraLocationsMessage class];
   query.loggingName = @"camera.cameras";
   return query;

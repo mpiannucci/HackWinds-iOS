@@ -41,7 +41,7 @@
         return NO;
     }
     
-    if ([camera.videoUrl isEqualToString:@""] && [camera.webUrl isEqualToString:@""] && ![camera.imageUrl isEqualToString:@""]) {
+    if (camera.videoUrl == nil && camera.webUrl == nil && camera.imageUrl != nil) {
         return YES;
     }
     
@@ -58,7 +58,6 @@
     // Return the number of rows in the section.
     return [cameraModel cameraCountForRegionIndex:section];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cameraLocationItem" forIndexPath:indexPath];

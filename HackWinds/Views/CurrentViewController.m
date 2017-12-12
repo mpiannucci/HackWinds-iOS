@@ -281,7 +281,12 @@ static const int CAMERA_IMAGE_COUNT = 11;
         return;
     }
     
-    SFSafariViewController* svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:wwCamera.webUrl]];
+    GTLRCamera_ModelCameraMessagesCameraMessage *wwLiveCamera = [[CameraModel sharedModel] cameraForRegion:@"Narragansett" camera:@"Warm Winds Live"];
+    if (wwLiveCamera == nil) {
+        return;
+    }
+    
+    SFSafariViewController* svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:wwLiveCamera.webUrl]];
     svc.delegate = self;
     [self presentViewController:svc animated:YES completion:nil];
 }

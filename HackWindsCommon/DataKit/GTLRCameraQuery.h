@@ -39,14 +39,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCameraQuery_Cameras : GTLRCameraQuery
 // Previous library name was
-//   +[GTLQueryCamera queryForCameras]
+//   +[GTLQueryCamera queryForCamerasWithpremium:]
+
+@property(nonatomic, assign) BOOL premium;
 
 /**
  *  Fetches a @c GTLRCamera_ModelCameraMessagesCameraLocationsMessage.
  *
+ *  @param premium BOOL
+ *
  *  @returns GTLRCameraQuery_Cameras
  */
-+ (instancetype)query;
++ (instancetype)queryWithPremium:(BOOL)premium;
 
 @end
 
