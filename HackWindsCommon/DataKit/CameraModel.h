@@ -20,12 +20,14 @@ extern NSString * const CAMERA_DATA_UPDATE_FAILED_TAG;
 
 - (void) forceFetchCameraURLs;
 - (void) fetchCameraURLs;
+- (GTLRCamera_ModelCameraMessagesCameraMessage*) cameraForRegionIndex:(NSInteger) regionIndex cameraIndex:(NSInteger) cameraIndex;
 - (GTLRCamera_ModelCameraMessagesCameraMessage*) cameraForRegion:(NSString*) regionName camera:(NSString*) cameraName;
 - (GTLRCamera_ModelCameraMessagesCameraMessage*) defaultCamera;
 - (NSString*) regionForIndex:(NSInteger) index;
 - (NSInteger) indexForRegion:(NSString*) regionName;
 - (NSInteger) cameraCountForRegion:(NSString*) regionName;
 - (NSInteger) cameraCountForRegionIndex:(NSInteger) regionIndex;
+- (NSString*) cameraNameForRegionIndex:(NSInteger)regionIndex cameraIndex:(NSInteger) cameraIndex;
 + (instancetype) sharedModel;
 
 @end

@@ -18,10 +18,7 @@
 
 @implementation AlternateCamerasViewController {
     CameraModel *cameraModel;
-    NSArray *locationKeys;
-    NSArray *cameraKeys;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,13 +64,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cameraLocationItem" forIndexPath:indexPath];
     
     UILabel *locationLabel = (UILabel *)[cell viewWithTag:89];
-    
-    NSInteger row = indexPath.row;
-    
-    if ((indexPath.section < locationKeys.count) &&
-        (indexPath.row < [(NSArray*)[cameraKeys objectAtIndex:indexPath.section] count])) {
-        [locationLabel setText:[[cameraKeys objectAtIndex:indexPath.section] objectAtIndex:row]];
-    }
+    locationLabel.text = [cameraModel cameraNameForRegionIndex:indexPath.section cameraIndex:indexPath.row];
     
     return cell;
 }
@@ -87,7 +78,7 @@
     NSString* locationName = [self nameOfSection:indexPath.section];
     
     if (![self shouldShowISOCameraView:locationName :cameraName]) {
-        GTLRCamera_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegion:locationName camera:cameraName];
+        GTLRCamera_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegionIndex:indexPath.section cameraIndex:indexPath.row];
         SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:camera.webUrl]];
         svc.delegate = self;
         [self presentViewController:svc animated:YES completion:nil];
@@ -98,7 +89,7 @@
 }
 
 - (NSString *)nameOfSection:(NSInteger)section {
-    return locationKeys[section];
+    return [cameraModel regionForIndex:section];
 }
 
 #pragma mark - Navigation
