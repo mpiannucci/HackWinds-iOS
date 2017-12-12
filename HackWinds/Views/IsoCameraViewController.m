@@ -23,7 +23,7 @@
 @end
 
 @implementation IsoCameraViewController {
-    Camera *camera;
+    GTLRCamera_ModelCameraMessagesCameraMessage *camera;
     BOOL isFullScreen;
 }
 
@@ -86,12 +86,12 @@
 }
 
 - (void)loadCamImage {
-    [self.camImage setImageURL:camera.imageURL];
+    [self.camImage setImageURL:[NSURL URLWithString:camera.imageUrl]];
     
     if (![self.autoReloadSwitch isOn]) {
         // If the switch is deactivated, dont fire the timer
         return;
-    } else if (![camera isRefreshable]) {
+    } else if (!camera.refreshable) {
         // Disable refreshing
         [self.autoReloadLabel setHidden:YES];
         [self.autoReloadSwitch setHidden:YES];
@@ -99,18 +99,20 @@
     }
     
     // Fire the refresh timer
-    [NSTimer scheduledTimerWithTimeInterval:[camera isRefreshable]
-                                     target:self
-                                   selector:@selector(loadCamImage)
-                                   userInfo:nil
-                                    repeats:NO];
+    if (camera.refreshable) {
+        [NSTimer scheduledTimerWithTimeInterval:camera.refreshInterval.doubleValue
+                                         target:self
+                                       selector:@selector(loadCamImage)
+                                       userInfo:nil
+                                        repeats:NO];
+    }
 }
 
 - (void)updateRefreshLabel {
     // Show the refresh label if auto refresh is turned on
     if ([self.autoReloadSwitch isOn]) {
         [self.refreshIntervalLabel setHidden:NO];
-        [self.refreshIntervalLabel setText:[NSString stringWithFormat:@"Refresh interval is %ld seconds", (long)[camera getRefreshDuration]]];
+        [self.refreshIntervalLabel setText:[NSString stringWithFormat:@"Refresh interval is %ld seconds", (long)camera.refreshInterval]];
     } else {
         [self.refreshIntervalLabel setHidden:YES];
     }

@@ -54,12 +54,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[[CameraModel sharedModel] cameras] cameraLocations] count];
+    return cameraModel.cameras.cameraLocations.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [cameraModel cameraCountForRegion:<#(NSString *)#>
+    return [cameraModel cameraCountForRegionIndex:section];
 }
 
 
@@ -87,8 +87,8 @@
     NSString* locationName = [self nameOfSection:indexPath.section];
     
     if (![self shouldShowISOCameraView:locationName :cameraName]) {
-        Camera* camera = [cameraModel cameraForLocation:locationName camera:cameraName];
-        SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:[camera url]];
+        GTLRCamera_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegion:locationName camera:cameraName];
+        SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:camera.webUrl]];
         svc.delegate = self;
         [self presentViewController:svc animated:YES completion:nil];
     }

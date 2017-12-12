@@ -123,12 +123,6 @@
 		34EA412F1C3E8D15008FF504 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410A1C3E8D15008FF504 /* BuoyModel.m */; };
 		34EA41301C3E8D15008FF504 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410A1C3E8D15008FF504 /* BuoyModel.m */; };
 		34EA41311C3E8D15008FF504 /* BuoyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410A1C3E8D15008FF504 /* BuoyModel.m */; };
-		34EA41321C3E8D15008FF504 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410B1C3E8D15008FF504 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41331C3E8D15008FF504 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410B1C3E8D15008FF504 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41341C3E8D15008FF504 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410B1C3E8D15008FF504 /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA41351C3E8D15008FF504 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410C1C3E8D15008FF504 /* Camera.m */; };
-		34EA41361C3E8D15008FF504 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410C1C3E8D15008FF504 /* Camera.m */; };
-		34EA41371C3E8D15008FF504 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA410C1C3E8D15008FF504 /* Camera.m */; };
 		34EA41381C3E8D15008FF504 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410D1C3E8D15008FF504 /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41391C3E8D15008FF504 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410D1C3E8D15008FF504 /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA413A1C3E8D15008FF504 /* CameraModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA410D1C3E8D15008FF504 /* CameraModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -452,8 +446,6 @@
 		34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyDataContainer.m; path = HackWindsCommon/DataKit/BuoyDataContainer.m; sourceTree = "<group>"; };
 		34EA41091C3E8D15008FF504 /* BuoyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyModel.h; path = HackWindsCommon/DataKit/BuoyModel.h; sourceTree = "<group>"; };
 		34EA410A1C3E8D15008FF504 /* BuoyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyModel.m; path = HackWindsCommon/DataKit/BuoyModel.m; sourceTree = "<group>"; };
-		34EA410B1C3E8D15008FF504 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = HackWindsCommon/DataKit/Camera.h; sourceTree = "<group>"; };
-		34EA410C1C3E8D15008FF504 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = HackWindsCommon/DataKit/Camera.m; sourceTree = "<group>"; };
 		34EA410D1C3E8D15008FF504 /* CameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraModel.h; path = HackWindsCommon/DataKit/CameraModel.h; sourceTree = "<group>"; };
 		34EA410E1C3E8D15008FF504 /* CameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraModel.m; path = HackWindsCommon/DataKit/CameraModel.m; sourceTree = "<group>"; };
 		34EA410F1C3E8D15008FF504 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Colors.h; path = HackWindsCommon/DataKit/Colors.h; sourceTree = "<group>"; };
@@ -927,8 +919,6 @@
 				34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */,
 				34EA41091C3E8D15008FF504 /* BuoyModel.h */,
 				34EA410A1C3E8D15008FF504 /* BuoyModel.m */,
-				34EA410B1C3E8D15008FF504 /* Camera.h */,
-				34EA410C1C3E8D15008FF504 /* Camera.m */,
 				34EA410D1C3E8D15008FF504 /* CameraModel.h */,
 				34EA410E1C3E8D15008FF504 /* CameraModel.m */,
 				34EA410F1C3E8D15008FF504 /* Colors.h */,
@@ -999,7 +989,6 @@
 				34EA41601C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416C1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA41391C3E8D15008FF504 /* CameraModel.h in Headers */,
-				34EA41331C3E8D15008FF504 /* Camera.h in Headers */,
 				34EA92DC1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41661C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412D1C3E8D15008FF504 /* BuoyModel.h in Headers */,
@@ -1028,7 +1017,6 @@
 				34EA41611C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416D1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA413A1C3E8D15008FF504 /* CameraModel.h in Headers */,
-				34EA41341C3E8D15008FF504 /* Camera.h in Headers */,
 				34EA92DD1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41671C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412E1C3E8D15008FF504 /* BuoyModel.h in Headers */,
@@ -1057,7 +1045,6 @@
 				34EA415F1C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416B1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA41381C3E8D15008FF504 /* CameraModel.h in Headers */,
-				34EA41321C3E8D15008FF504 /* Camera.h in Headers */,
 				34EA92DB1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41651C3E8D15008FF504 /* TideModel.h in Headers */,
 				34EA412C1C3E8D15008FF504 /* BuoyModel.h in Headers */,
@@ -1857,7 +1844,6 @@
 				34EA92D01FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
 				34EA92CD1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
 				34EA92D91FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
-				34EA41361C3E8D15008FF504 /* Camera.m in Sources */,
 				34EA413C1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41691C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA41301C3E8D15008FF504 /* BuoyModel.m in Sources */,
@@ -1881,7 +1867,6 @@
 				34EA92D11FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
 				34EA92CE1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
 				34EA92DA1FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
-				34EA41371C3E8D15008FF504 /* Camera.m in Sources */,
 				34EA413D1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA416A1C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA41311C3E8D15008FF504 /* BuoyModel.m in Sources */,
@@ -1914,7 +1899,6 @@
 				34EA92CF1FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
 				34EA92CC1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
 				34EA92D81FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
-				34EA41351C3E8D15008FF504 /* Camera.m in Sources */,
 				34EA413B1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41681C3E8D15008FF504 /* TideModel.m in Sources */,
 				34EA412F1C3E8D15008FF504 /* BuoyModel.m in Sources */,

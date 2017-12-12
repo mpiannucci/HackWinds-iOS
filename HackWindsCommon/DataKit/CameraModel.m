@@ -7,7 +7,7 @@
 //
 
 #import "CameraModel.h"
-#import "Camera.h"
+
 
 static NSString * const HACKWINDS_API_URL = @"https://hackwinds.appspot.com/api/hackwinds_camera_locations_v5.json";
 NSString * const CAMERA_DATA_UPDATED_TAG = @"CameraModelDataUpdatedNotification";

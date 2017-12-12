@@ -31,7 +31,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 @implementation CurrentViewController {
     NSArray *currentConditions;
     AsyncImageView *currentCameraPages[CAMERA_IMAGE_COUNT];
-    Camera *wwCamera;
+    GTLRCamera_ModelCameraMessagesCameraMessage *wwCamera;
     BOOL lastFetchFailure;
     BOOL is24HourClock;
     BOOL showDetailedForecastInfo;
@@ -54,7 +54,6 @@ static const int CAMERA_IMAGE_COUNT = 11;
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLiveCamera:)];
     tapRecognizer.numberOfTapsRequired = 2;
     [self.camScrollView addGestureRecognizer:tapRecognizer];
-    
     
     // Set up the imageview scrolling
     self.camScrollView.delegate = self;
@@ -172,7 +171,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 
 - (void) setupCamera {
     CameraModel *cameraModel = [CameraModel sharedModel];
-    if ([[cameraModel cameraURLS] count] > 0) {
+    if (cameraModel.cameras.cameraLocations.count > 0) {
         [self.alternateCamerasBarButton setEnabled:YES];
         [self.alternateCamerasBarButton setTintColor:[UIColor whiteColor]];
     } else {
@@ -269,7 +268,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
         index++;
     }
     
-    NSString *baseURL = [wwCamera.imageURL absoluteString];
+    NSString *baseURL = wwCamera.imageUrl;
     return [NSURL URLWithString:[baseURL stringByReplacingOccurrencesOfString:@"01.jpg"
                                                                    withString:[NSString stringWithFormat:@"%02d.jpg", index+1]]];
 }
@@ -282,7 +281,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
         return;
     }
     
-    SFSafariViewController* svc = [[SFSafariViewController alloc] initWithURL:[wwCamera url]];
+    SFSafariViewController* svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:wwCamera.webUrl]];
     svc.delegate = self;
     [self presentViewController:svc animated:YES completion:nil];
 }
