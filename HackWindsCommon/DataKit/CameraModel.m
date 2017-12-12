@@ -17,6 +17,8 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
 
 @interface CameraModel()
 
+- (void) stripPremiumCameras;
+
 @end
 
 @implementation CameraModel {
@@ -84,6 +86,14 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
             if (cameras != nil) {
                 defaultCamera = [self cameraForRegion:@"Narragansett" camera:@"Warm Winds"];
                 
+                // Grab the latest user defaults
+                NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.mpiannucci.HackWinds"];
+                [defaults synchronize];
+                BOOL showPremium = [defaults boolForKey:@"ShowPremiumContent"];
+                if (!showPremium) {
+                    [self stripPremiumCameras];
+                }
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
                      postNotificationName:CAMERA_DATA_UPDATED_TAG
@@ -91,6 +101,14 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
                 });
             }
         }];
+    }
+}
+
+- (void) stripPremiumCameras {
+    for (GTLRCamera_ModelCameraMessagesCameraRegionMessage* region in self.cameras.cameraLocations) {
+        region.cameras = [region.cameras filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id camera, NSDictionary *bindings) {
+            return [object];  // Return YES for each object you want in filteredArray.
+        }]];
     }
 }
 
