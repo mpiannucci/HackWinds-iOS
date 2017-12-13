@@ -21,7 +21,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         
         WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 5), userInfo: nil) { (error: Error?) in
             if let error = error {
-                print("Error occured while scheduling background refresh: \(error.localizedDescription)")
+                NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
+            } else {
+                NSLog("Background Refresh Scheduled for \(Date(timeIntervalSinceNow: 5))")
             }
         }
     }
@@ -43,6 +45,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                     DispatchQueue.main.async(execute: {
                         let server=CLKComplicationServer.sharedInstance()
                         
+                        NSLog("Timeline Reload Triggered")
                         for complication in server.activeComplications! {
                             server.reloadTimeline(for: complication)
                         }
@@ -58,6 +61,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                     DispatchQueue.main.async(execute: {
                         let server=CLKComplicationServer.sharedInstance()
                         
+                        NSLog("Timeline Reload Triggered")
                         for complication in server.activeComplications! {
                             server.reloadTimeline(for: complication)
                         }
@@ -82,7 +86,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 if self.taskCounter > 0 {
                     WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 60), userInfo: nil) { (error: Error?) in
                         if let error = error {
-                            print("Error occured while scheduling background refresh: \(error.localizedDescription)")
+                            NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
+                        } else {
+                            NSLog("Background Refresh Scheduled for \(Date(timeIntervalSinceNow: 60 * 60))")
                         }
                     }
                 }

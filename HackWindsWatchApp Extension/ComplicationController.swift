@@ -13,12 +13,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
     
-    // MARK: - Data handling
-    
-    func reloadTimelineForComplication(_ complication: CLKComplication!) {
-        
-    }
-    
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
@@ -50,6 +44,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var longTideText = "---- ----: --:-- --"
         var shortTideEventText = "----"
         var tideTime  = Date()
+        
+        NSLog("Reloading Currrent Timeline")
         
         if let buoy = updateManager.latestBuoy {
             longBuoyText = buoy.waveSummary?.getSwellSummmary() ?? ""
