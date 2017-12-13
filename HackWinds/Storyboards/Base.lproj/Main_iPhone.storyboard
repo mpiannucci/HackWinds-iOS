@@ -331,32 +331,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" tag="173" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E57-OS-Fe1" customClass="AsyncImageView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="203"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="211"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="203" id="8Js-QP-fcC"/>
-                                    <constraint firstAttribute="width" secondItem="E57-OS-Fe1" secondAttribute="height" multiplier="375:203" id="WHd-s0-pWN"/>
+                                    <constraint firstAttribute="width" secondItem="E57-OS-Fe1" secondAttribute="height" multiplier="16:9" id="WHd-s0-pWN"/>
                                 </constraints>
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqf-SR-fzl">
-                                <rect key="frame" x="310" y="280" width="51" height="31"/>
+                                <rect key="frame" x="310" y="288" width="51" height="31"/>
                                 <connections>
                                     <action selector="autoReloadSwitchChange:" destination="orJ-Og-poC" eventType="valueChanged" id="ikj-Mu-FOn"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Reload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-sR-0fV">
-                                <rect key="frame" x="16" y="285" width="286" height="21"/>
+                                <rect key="frame" x="16" y="293" width="286" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh interval is 0 seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-NB-6cu">
-                                <rect key="frame" x="16" y="314" width="343" height="15"/>
+                                <rect key="frame" x="16" y="322" width="343" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra Info" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfW-bJ-KVO">
-                                <rect key="frame" x="16" y="285" width="288" height="21"/>
+                                <rect key="frame" x="16" y="293" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1713,7 +1712,7 @@
         <image name="ic_track_changes_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LiU-z1-M0A"/>
+        <segue reference="M8G-vu-cyJ"/>
         <segue reference="iVD-UU-BBq"/>
     </inferredMetricsTieBreakers>
 </document>
