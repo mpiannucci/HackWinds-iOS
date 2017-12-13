@@ -111,6 +111,7 @@
 		34D3DF211D3BD07E003304E8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D3DF121D3BD05E003304E8 /* ComplicationController.swift */; };
 		34E1BA401B62D84700CDA01D /* HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; };
 		34E1BA421B62D84700CDA01D /* HackWindsDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34E1BA291B62D84700CDA01D /* HackWindsDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34E292F01FE0D6AD00FBFE6A /* Pods_HackWindsOSXToday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E292F11FE0D6AD00FBFE6A /* Pods_HackWindsOSXToday.framework */; };
 		34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -192,8 +193,8 @@
 		34F933981B39926C00AD23DF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F933901B3991B400AD23DF /* Main_iPhone.storyboard */; };
 		65DA756024F06FF4819DE119 /* Pods_HackWindsToday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F34AA9C7792336ACBD8BA /* Pods_HackWindsToday.framework */; };
 		6780190DEE8AD5F29BF6B914 /* Pods_HackWindsDataKitWatchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDAF62E2F48764039C8261 /* Pods_HackWindsDataKitWatchOS.framework */; };
+		897BE11F07F68932D2C28375 /* Pods_HackWindsOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E292EF1FE0D6A200FBFE6A /* Pods_HackWindsOSX.framework */; };
 		8DDDD1663AE98F77B9CB259F /* Pods_HackWindsWatchApp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C604FB6829F549C3BC1A15 /* Pods_HackWindsWatchApp_Extension.framework */; };
-		9F0680D9FF8771E09A97F749 /* Pods_HackWindsOSXToday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EE97BCBF1E5A8AB75AEF49 /* Pods_HackWindsOSXToday.framework */; };
 		A509F74C45C44EB4D9BE43DC /* Pods_HackWindsOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723FBBBB13F65D78C5CD24B8 /* Pods_HackWindsOSX.framework */; };
 		CCBF1F9DB0AC859229AC9334 /* Pods_HackWinds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CDC1F57D99E028DD55DF4B /* Pods_HackWinds.framework */; };
 /* End PBXBuildFile section */
@@ -442,6 +443,9 @@
 		34E1BA2C1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA3B1B62D84700CDA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E1BA3C1B62D84700CDA01D /* HackWindsDataKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackWindsDataKitTests.m; sourceTree = "<group>"; };
+		34E292ED1FE0D68A00FBFE6A /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAPIClientForREST.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E292EF1FE0D6A200FBFE6A /* Pods_HackWindsOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_HackWindsOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E292F11FE0D6AD00FBFE6A /* Pods_HackWindsOSXToday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_HackWindsOSXToday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EA41071C3E8D15008FF504 /* BuoyDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyDataContainer.h; path = HackWindsCommon/DataKit/BuoyDataContainer.h; sourceTree = "<group>"; };
 		34EA41081C3E8D15008FF504 /* BuoyDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuoyDataContainer.m; path = HackWindsCommon/DataKit/BuoyDataContainer.m; sourceTree = "<group>"; };
 		34EA41091C3E8D15008FF504 /* BuoyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuoyModel.h; path = HackWindsCommon/DataKit/BuoyModel.h; sourceTree = "<group>"; };
@@ -508,9 +512,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34E292F01FE0D6AD00FBFE6A /* Pods_HackWindsOSXToday.framework in Frameworks */,
 				340A604A1DBD089300108CB7 /* HackWindsDataKitOSX.framework in Frameworks */,
 				340A60371DBD07CF00108CB7 /* NotificationCenter.framework in Frameworks */,
-				9F0680D9FF8771E09A97F749 /* Pods_HackWindsOSXToday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A509F74C45C44EB4D9BE43DC /* Pods_HackWindsOSX.framework in Frameworks */,
+				897BE11F07F68932D2C28375 /* Pods_HackWindsOSX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +733,9 @@
 		3430838819795D0F00655F15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34E292F11FE0D6AD00FBFE6A /* Pods_HackWindsOSXToday.framework */,
+				34E292EF1FE0D6A200FBFE6A /* Pods_HackWindsOSX.framework */,
+				34E292ED1FE0D68A00FBFE6A /* GoogleAPIClientForREST.framework */,
 				34B01A971F93FEA2008E9528 /* StoreKit.framework */,
 				34231ADD1F73FC9A00B93A8B /* WatchConnectivity.framework */,
 				34231AD61F72043600B93A8B /* WatchConnectivity.framework */,
@@ -2042,7 +2050,7 @@
 				DEVELOPMENT_TEAM = 39L46PD99U;
 				INFOPLIST_FILE = HackWindsOSXToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX.HackWindsOSXToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2070,7 +2078,7 @@
 				DEVELOPMENT_TEAM = 39L46PD99U;
 				INFOPLIST_FILE = HackWindsOSXToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX.HackWindsOSXToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2552,7 +2560,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = HackWindsOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2578,7 +2586,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = HackWindsOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpiannucci.HackWinds.HackWindsOSX;
 				PRODUCT_NAME = "$(TARGET_NAME)";

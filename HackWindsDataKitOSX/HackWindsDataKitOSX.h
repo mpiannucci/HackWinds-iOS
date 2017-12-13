@@ -21,11 +21,8 @@ FOUNDATION_EXPORT const unsigned char HackWindsDataKitOSXVersionString[];
 #import <HackWindsDataKitOSX/Constants.h>
 
 // Types
-#import <HackWindsDataKitOSX/Camera.h>
-#import <HackWindsDataKitOSX/Swell.h>
 #import <HackWindsDataKitOSX/Forecast.h>
 #import <HackWindsDataKitOSX/ForecastDailySummary.h>
-#import <HackWindsDataKitOSX/Buoy.h>
 #import <HackWindsDataKitOSX/Tide.h>
 
 // Models

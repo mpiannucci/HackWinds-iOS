@@ -9,7 +9,7 @@ end
 
 
 target 'HackWindsDataKit' do
-    platform :ios, 10.1
+    platform :ios, '10.1'
     
     shared_deps
 
@@ -25,7 +25,7 @@ target 'HackWindsDataKit' do
 end
 
 target 'HackWindsDataKitWatchOS' do
-    platform :watchos, 3.2
+    platform :watchos, '3.2'
     
     shared_deps
 
@@ -34,12 +34,12 @@ target 'HackWindsDataKitWatchOS' do
     end
 end
 
-target 'HackWindsOSX' do
-    platform :osx, 10.13
+target 'HackWindsDataKitOSX' do
+    platform :osx, '10.13'
 
     shared_deps
 
-    target 'HackWindsDataKitOSX' do
+    target 'HackWindsOSX' do
         inherit! :search_paths
     end
 
