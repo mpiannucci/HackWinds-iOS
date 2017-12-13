@@ -5,8 +5,6 @@
 //  Created by Matthew Iannucci on 5/4/15.
 //  Copyright (c) 2015 Rhodysurf Development. All rights reserved.
 //
-#define POINT_JUDITH_STATIC_IMAGE [NSURL URLWithString:@"http://www.asergeev.com/pictures/archives/2004/372/jpeg/20.jpg"]
-
 #import "IsoCameraViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AsyncImageView.h"

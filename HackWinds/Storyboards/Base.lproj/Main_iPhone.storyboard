@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8YX-ce-x5E">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -25,10 +25,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-N0-h95">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="sjN-N0-h95" secondAttribute="height" multiplier="16:9" id="qUs-ad-M7M"/>
+                                    </constraints>
                                 </scrollView>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="8" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-na-VOd">
-                                    <rect key="frame" x="0.0" y="216" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="211" width="375" height="49"/>
                                     <color key="pageIndicatorTintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="currentPageIndicatorTintColor" red="0.28950372338294983" green="0.62821328639984131" blue="0.99866831302642822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </pageControl>
@@ -50,7 +53,6 @@
                                 <constraint firstAttribute="trailing" secondItem="1rm-Eb-nhm" secondAttribute="trailing" constant="14" id="V4X-Z9-8eV"/>
                                 <constraint firstItem="sjN-N0-h95" firstAttribute="leading" secondItem="V1R-2Z-TWG" secondAttribute="leading" id="WwQ-E9-oJL"/>
                                 <constraint firstItem="sjN-N0-h95" firstAttribute="top" secondItem="V1R-2Z-TWG" secondAttribute="top" id="dKL-OF-h34"/>
-                                <constraint firstItem="1rm-Eb-nhm" firstAttribute="top" secondItem="sjN-N0-h95" secondAttribute="bottom" constant="36" id="gSk-Sx-KoP"/>
                                 <constraint firstAttribute="trailing" secondItem="sjN-N0-h95" secondAttribute="trailing" id="jPd-Et-Uvq"/>
                             </constraints>
                         </view>
