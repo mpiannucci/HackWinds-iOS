@@ -128,7 +128,9 @@
     // All the setup work for the chart
     self.tideChartView.delegate = self;
     [self.tideChartView setDrawBordersEnabled:NO];
-    [self.tideChartView setDescriptionText:@""];
+    ChartDescription* tideChartDescription = [[ChartDescription alloc] init];
+    tideChartDescription.text = @"";
+    [self.tideChartView setChartDescription:tideChartDescription];
     [self.tideChartView setPinchZoomEnabled:NO];
     [self.tideChartView setDoubleTapToZoomEnabled:NO];
     [self.tideChartView setDrawMarkers:NO];
@@ -296,7 +298,7 @@
     [dataSet setFillAlpha:255];
     [dataSet setDrawFilledEnabled:YES];
     [dataSet setLineWidth:2.0];
-    [dataSet setDrawCubicEnabled:YES];
+    [dataSet setMode:LineChartModeCubicBezier];
     
     LineChartData *chartData = [[LineChartData alloc] initWithDataSet:dataSet];
     [chartData setDrawValues:NO];
@@ -307,10 +309,10 @@
     nowLine.lineColor = [UIColor blueColor];
     [nowLine setLineWidth:4.0];
     [self.tideChartView.xAxis addLimitLine:nowLine];
-    [self.tideChartView.leftAxis setAxisMaxValue:max + 1.0];
-    [self.tideChartView.rightAxis setAxisMaxValue:max + 1.0];
-    [self.tideChartView.leftAxis setAxisMinValue:min - 1.0];
-    [self.tideChartView.rightAxis setAxisMinValue:min - 1.0];
+    [self.tideChartView.leftAxis setAxisMaximum:max+1.0];
+    [self.tideChartView.rightAxis setAxisMaximum:max+1.0];
+    [self.tideChartView.leftAxis setAxisMinimum:min-1.0];
+    [self.tideChartView.rightAxis setAxisMinimum:min-1.0];
     
     self.tideChartView.data = chartData;
 }

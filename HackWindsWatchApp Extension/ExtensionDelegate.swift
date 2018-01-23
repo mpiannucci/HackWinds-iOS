@@ -12,7 +12,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
     
-    var lastTask: WKRefreshBackgroundTask? = nil
     var taskCounter = 0
 
     func applicationDidFinishLaunching() {
@@ -52,7 +51,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                         
                         self.taskCounter -= 1
                         if self.taskCounter == 0 {
-                            self.lastTask?.setTaskCompleted()
+                            backgroundTask.setTaskCompleted()
                         }
                     })
                 }
@@ -68,7 +67,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                         
                         self.taskCounter -= 1
                         if self.taskCounter == 0 {
-                            self.lastTask?.setTaskCompleted()
+                            backgroundTask.setTaskCompleted()
                         }
                     })
                 }
@@ -81,8 +80,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                     self.taskCounter += 1
                 }
                 
-                self.lastTask = backgroundTask
-                
                 if self.taskCounter > 0 {
                     WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 60), userInfo: nil) { (error: Error?) in
                         if let error = error {
@@ -91,6 +88,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                             NSLog("Background Refresh Scheduled for \(Date(timeIntervalSinceNow: 60 * 60))")
                         }
                     }
+                } else {
+                    backgroundTask.setTaskCompleted()
                 }
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date

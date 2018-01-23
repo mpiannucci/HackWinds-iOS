@@ -1,7 +1,7 @@
 PODS:
-  - Charts (3.0.4):
-    - Charts/Core (= 3.0.4)
-  - Charts/Core (3.0.4)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
   - GoogleAPIClientForREST (1.3.2):
     - GoogleAPIClientForREST/Core (= 1.3.2)
     - GTMSessionFetcher (>= 1.1.7)
@@ -18,7 +18,7 @@ DEPENDENCIES:
   - GoogleAPIClientForREST
 
 SPEC CHECKSUMS:
-  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   GoogleAPIClientForREST: 4fa84fc61fdeea48dd7088de5c1a864ace18125b
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
 
