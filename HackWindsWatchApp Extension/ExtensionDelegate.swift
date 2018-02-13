@@ -12,7 +12,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
     
-    var taskCounter = 0
+    var buoyUpdateTaskPending = false
+    var tideUpdateTaskPending = true
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
@@ -40,47 +41,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         for task in backgroundTasks {
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
-                let buoyUpdatePending = self.updateManager.fetchBuoyUpdate { (Void) -> Void in
-                    DispatchQueue.main.async(execute: {
-                        let server=CLKComplicationServer.sharedInstance()
-                        
-                        NSLog("Timeline Reload Triggered")
-                        for complication in server.activeComplications! {
-                            server.reloadTimeline(for: complication)
-                        }
-                        
-                        self.taskCounter -= 1
-                        if self.taskCounter == 0 {
-                            backgroundTask.setTaskCompleted()
-                        }
-                    })
+                self.buoyUpdateTaskPending = self.updateManager.fetchBuoyUpdate { (Void) -> Void in
+                    self.buoyUpdateTaskPending = false
+                    self.sendComplicationUpdate()
                 }
                 
-                let tideUpdatePending = self.updateManager.fetchTideUpdate { (Void) -> Void in
-                    DispatchQueue.main.async(execute: {
-                        let server=CLKComplicationServer.sharedInstance()
-                        
-                        NSLog("Timeline Reload Triggered")
-                        for complication in server.activeComplications! {
-                            server.reloadTimeline(for: complication)
-                        }
-                        
-                        self.taskCounter -= 1
-                        if self.taskCounter == 0 {
-                            backgroundTask.setTaskCompleted()
-                        }
-                    })
+                self.tideUpdateTaskPending = self.updateManager.fetchTideUpdate { (Void) -> Void in
+                    self.tideUpdateTaskPending = false
+                    self.sendComplicationUpdate()
                 }
                 
-                if buoyUpdatePending {
-                    self.taskCounter += 1
-                }
-                
-                if tideUpdatePending {
-                    self.taskCounter += 1
-                }
-                
-                if self.taskCounter > 0 {
+                if self.buoyUpdateTaskPending && self.tideUpdateTaskPending {
+                    // When fetches are occuring we know when to schedule the next update
                     WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 60), userInfo: nil) { (error: Error?) in
                         if let error = error {
                             NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
@@ -88,9 +60,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                             NSLog("Background Refresh Scheduled for \(Date(timeIntervalSinceNow: 60 * 60))")
                         }
                     }
-                } else {
-                    backgroundTask.setTaskCompleted()
                 }
+                
+                // Clean up
+                backgroundTask.setTaskCompleted()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
@@ -103,6 +76,20 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             default:
                 // make sure to complete unhandled task types
                 task.setTaskCompleted()
+            }
+        }
+    }
+    
+    func sendComplicationUpdate() {
+        if self.buoyUpdateTaskPending || self.tideUpdateTaskPending {
+            // Dont update complications until all the data is ready
+            return
+        }
+        
+        let server=CLKComplicationServer.sharedInstance()
+        if let activeComplications = server.activeComplications {
+            for complication in activeComplications {
+                server.reloadTimeline(for: complication)
             }
         }
     }
