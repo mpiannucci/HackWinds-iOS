@@ -42,22 +42,28 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 self.buoyUpdateTaskPending = self.updateManager.fetchBuoyUpdate { (Void) -> Void in
+                    NSLog("Buoy data updated")
                     self.buoyUpdateTaskPending = false
                     self.sendComplicationUpdate()
                 }
                 
                 self.tideUpdateTaskPending = self.updateManager.fetchTideUpdate { (Void) -> Void in
+                    NSLog("Tide data updated")
                     self.tideUpdateTaskPending = false
                     self.sendComplicationUpdate()
                 }
                 
-                if self.buoyUpdateTaskPending && self.tideUpdateTaskPending {
+                NSLog("Current Date: \(Date())")
+                
+                if self.buoyUpdateTaskPending || self.tideUpdateTaskPending {
                     // When fetches are occuring we know when to schedule the next update
-                    WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 60 * 60), userInfo: nil) { (error: Error?) in
+                    let updateTime = Date(timeIntervalSinceNow: 60*30)
+                    NSLog("Next update is at \(updateTime)")
+                    WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: updateTime, userInfo: nil) { (error: Error?) in
                         if let error = error {
                             NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
                         } else {
-                            NSLog("Background Refresh Scheduled for \(Date(timeIntervalSinceNow: 60 * 60))")
+                            NSLog("Background Refresh Scheduled for \(updateTime)")
                         }
                     }
                 }
@@ -83,12 +89,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     func sendComplicationUpdate() {
         if self.buoyUpdateTaskPending || self.tideUpdateTaskPending {
             // Dont update complications until all the data is ready
+            NSLog("No update... Tasks Pending")
             return
         }
+        
+        NSLog("Sedning complication update")
         
         let server=CLKComplicationServer.sharedInstance()
         if let activeComplications = server.activeComplications {
             for complication in activeComplications {
+                NSLog("Updating complication")
                 server.reloadTimeline(for: complication)
             }
         }
