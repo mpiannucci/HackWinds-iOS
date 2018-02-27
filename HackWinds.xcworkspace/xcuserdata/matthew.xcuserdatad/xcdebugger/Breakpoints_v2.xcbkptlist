@@ -10,60 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackWindsWatchApp Extension/ExtensionDelegate.swift"
-            timestampString = "541398363.0609159"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "urlSession(_:dataTask:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HackWindsWatchApp Extension/ExtensionDelegate.swift"
-            timestampString = "541398363.061379"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "handle(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HackWindsWatchApp Extension/ExtensionDelegate.swift"
-            timestampString = "541398363.06173"
+            timestampString = "541446667.0592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "handle(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HackWindsWatchApp Extension/ExtensionDelegate.swift"
-            timestampString = "541398412.647109"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "urlSession(_:dataTask:didReceive:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

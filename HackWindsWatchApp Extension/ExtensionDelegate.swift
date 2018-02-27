@@ -8,9 +8,11 @@
 
 import WatchKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate , URLSessionDataDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, URLSessionDownloadDelegate {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
+    
+    var pendingURLTask: WKRefreshBackgroundTask? = nil
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
@@ -51,7 +53,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate , URLSessionDataDelegate 
                 let backgroundSession = URLSession(configuration: backgroundConfigObject, delegate: self, delegateQueue: nil)
                 print("Rejoining session ", backgroundSession)
                 
-                urlSessionTask.setTaskCompleted()
+                self.pendingURLTask = urlSessionTask
             default:
                 // make sure to complete unhandled task types
                 task.setTaskCompleted()
@@ -61,15 +63,19 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate , URLSessionDataDelegate 
     
     // URLSessionDelegate
     
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        // TODO: Handle errors?
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        print("Received downloaded data")
+        self.pendingURLTask?.setTaskCompleted()
+        self.pendingURLTask = nil;
     }
     
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        // TODO: Pass the data to the model
-        print("Got Data!")
-        let rawData = try! PropertyListSerialization.propertyList(from: data, options: .mutableContainersAndLeaves, format: nil) as! [String:Any]
-        print(rawData.count)
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        // TODO: Handle errors?
+        if let err = error {
+            print("Error downloading data: \(err)")
+        } else {
+            print("Successfully downloaded data")
+        }
     }
     
     // Conveinence methods
@@ -98,14 +104,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate , URLSessionDataDelegate 
     }
     
     func scheduleBuoyURLSession() {
+        print("Creating download session")
         let backgroundConfigObject = URLSessionConfiguration.background(withIdentifier: NSUUID().uuidString)
         let backgroundSession = URLSession(configuration: backgroundConfigObject, delegate: self, delegateQueue: nil)
-        let buoyDownloadTask = backgroundSession.dataTask(with: self.updateManager.fetchBuoyUpdateRequest() as URLRequest)
+        let buoyDownloadTask = backgroundSession.downloadTask(with: self.updateManager.fetchBuoyUpdateRequest() as URLRequest)
         buoyDownloadTask.resume()
     }
     
     func sendComplicationUpdate() {
-        NSLog("Sedning complication update")
+        NSLog("Sending complication update")
         
         let server=CLKComplicationServer.sharedInstance()
         if let activeComplications = server.activeComplications {

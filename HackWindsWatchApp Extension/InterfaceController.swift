@@ -33,19 +33,19 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         
         // Fetch new data and update if successful
-        updateManager.fetchBuoyUpdate { (Void) -> Void in
-            DispatchQueue.main.async(execute: {
-                self.updateBuoyUI()
-                self.updateTimeUI()
-            })
-        }
-        
-        updateManager.fetchTideUpdate { (Void) -> Void in
-            DispatchQueue.main.async(execute: {
-                self.updateTideUI()
-                self.updateTimeUI()
-            })
-        }
+//        updateManager.fetchBuoyUpdate { (Void) -> Void in
+//            DispatchQueue.main.async(execute: {
+//                self.updateBuoyUI()
+//                self.updateTimeUI()
+//            })
+//        }
+//        
+//        updateManager.fetchTideUpdate { (Void) -> Void in
+//            DispatchQueue.main.async(execute: {
+//                self.updateTideUI()
+//                self.updateTimeUI()
+//            })
+//        }
     }
 
     override func didDeactivate() {

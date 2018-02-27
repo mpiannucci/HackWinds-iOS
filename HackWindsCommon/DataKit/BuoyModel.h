@@ -46,5 +46,6 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 - (BOOL) isFetching;
 
 + (instancetype) sharedModel;
++ (GTLRStation_ApiApiMessagesDataMessage*) buoyDataFromRawData:(NSData*)data;
 
 @end

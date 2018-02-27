@@ -328,6 +328,29 @@ static NSString * const BUOYFINDER_KEY = @"AIzaSyBbIPovaMqVVvXvFzoIbW7ul48UJ6p7N
     return [service requestForQuery:dataQuery];
 }
 
++ (GTLRStation_ApiApiMessagesDataMessage*) buoyDataFromRawData:(NSData*)data {
+    if (data == nil) {
+        return nil;
+    }
+    
+    NSMutableDictionary *dict =
+    [NSPropertyListSerialization propertyListWithData:data
+                                              options:NSPropertyListMutableContainers
+                                               format:nil
+                                                error:nil];
+    
+    if (dict == nil) {
+        return nil;
+    }
+    
+    GTLRStationService *service = [[GTLRStationService alloc] init];
+    service.APIKey = BUOYFINDER_KEY;
+    GTLRStation_ApiApiMessagesDataMessage *buoyData =
+    [GTLRStation_ApiApiMessagesDataMessage objectWithJSON:dict
+                    objectClassResolver:service.objectClassResolver];
+    return buoyData;
+}
+
 - (double) getFootConvertedFromMetric:(double)metricValue {
     return metricValue * 3.28;
 }
