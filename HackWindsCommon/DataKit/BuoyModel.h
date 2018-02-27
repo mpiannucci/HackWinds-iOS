@@ -42,6 +42,7 @@ extern NSString * const BUOY_UPDATE_FAILED_TAG;
 - (void) fetchBuoyData;
 - (void) fetchLatestSummaryData;
 - (void) fetchLatestBuoyDataForLocation:(NSString*)location withCompletionHandler:(void(^)(GTLRStation_ApiApiMessagesDataMessage*))completionHandler;
+- (NSMutableURLRequest*) fetchLatestBuoyDataRequestForLocation:(NSString*)location;
 - (BOOL) isFetching;
 
 + (instancetype) sharedModel;

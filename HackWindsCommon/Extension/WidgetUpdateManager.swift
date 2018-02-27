@@ -62,6 +62,14 @@ class WidgetUpdateManager {
         return true
     }
     
+    func fetchBuoyUpdateRequest() -> NSURLRequest {
+        return BuoyModel.shared().fetchLatestBuoyDataRequest(forLocation: self.buoyLocation! as String)
+    }
+    
+    func addLatestRawBuoyData(rawData: NSData) {
+        // TODO
+    }
+    
     func fetchTideUpdate(_ completionHandler: (() -> Void)!) -> Bool {
         if (!doesTideNeedUpdate()) {
             return false

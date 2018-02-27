@@ -320,6 +320,14 @@ static NSString * const BUOYFINDER_KEY = @"AIzaSyBbIPovaMqVVvXvFzoIbW7ul48UJ6p7N
     }
 }
 
+- (NSMutableURLRequest*) fetchLatestBuoyDataRequestForLocation:(NSString*)location {
+    BuoyDataContainer *dataContainer = [self.buoyDataContainers objectForKey:location];
+    GTLRStationQuery_Data *dataQuery = [GTLRStationQuery_Data queryWithUnits:kGTLRStationUnitsEnglish stationId: dataContainer.buoyID];
+    GTLRStationService *service = [[GTLRStationService alloc] init];
+    service.APIKey = BUOYFINDER_KEY;
+    return [service requestForQuery:dataQuery];
+}
+
 - (double) getFootConvertedFromMetric:(double)metricValue {
     return metricValue * 3.28;
 }

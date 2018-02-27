@@ -8,24 +8,15 @@
 
 import WatchKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate , URLSessionDataDelegate {
     
     let updateManager: WidgetUpdateManager = WidgetUpdateManager()
-    
-    var buoyUpdateTaskPending = false
-    var tideUpdateTaskPending = true
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         WatchSessionManager.sharedManager.startSession()
-        
-        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(timeIntervalSinceNow: 5), userInfo: nil) { (error: Error?) in
-            if let error = error {
-                NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
-            } else {
-                NSLog("Background Refresh Scheduled for \(Date(timeIntervalSinceNow: 5))")
-            }
-        }
+    
+        scheduleBackgroundRefreshNow()
     }
 
     func applicationDidBecomeActive() {
@@ -37,38 +28,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         // Use this method to pause ongoing tasks, disable timers, etc.
     }
     
+    // WKExtensionDelegate
+    
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         for task in backgroundTasks {
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
-                self.buoyUpdateTaskPending = self.updateManager.fetchBuoyUpdate { (Void) -> Void in
-                    NSLog("Buoy data updated")
-                    self.buoyUpdateTaskPending = false
-                    self.sendComplicationUpdate()
+                if self.updateManager.doesBuoyNeedUpdate() {
+                    scheduleBuoyURLSession()
                 }
                 
-                self.tideUpdateTaskPending = self.updateManager.fetchTideUpdate { (Void) -> Void in
-                    NSLog("Tide data updated")
-                    self.tideUpdateTaskPending = false
-                    self.sendComplicationUpdate()
-                }
-                
-                NSLog("Current Date: \(Date())")
-                
-                if self.buoyUpdateTaskPending || self.tideUpdateTaskPending {
-                    // When fetches are occuring we know when to schedule the next update
-                    let updateTime = Date(timeIntervalSinceNow: 60*30)
-                    NSLog("Next update is at \(updateTime)")
-                    WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: updateTime, userInfo: nil) { (error: Error?) in
-                        if let error = error {
-                            NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
-                        } else {
-                            NSLog("Background Refresh Scheduled for \(updateTime)")
-                        }
-                    }
-                }
-                
-                // Clean up
                 backgroundTask.setTaskCompleted()
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
@@ -78,6 +47,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 connectivityTask.setTaskCompleted()
             case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
                 // Be sure to complete the URL session task once you’re done.
+                let backgroundConfigObject = URLSessionConfiguration.background(withIdentifier: urlSessionTask.sessionIdentifier)
+                let backgroundSession = URLSession(configuration: backgroundConfigObject, delegate: self, delegateQueue: nil)
+                print("Rejoining session ", backgroundSession)
+                
                 urlSessionTask.setTaskCompleted()
             default:
                 // make sure to complete unhandled task types
@@ -86,13 +59,52 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         }
     }
     
-    func sendComplicationUpdate() {
-        if self.buoyUpdateTaskPending || self.tideUpdateTaskPending {
-            // Dont update complications until all the data is ready
-            NSLog("No update... Tasks Pending")
-            return
+    // URLSessionDelegate
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        // TODO: Handle errors?
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        // TODO: Pass the data to the model
+        print("Got Data!")
+        let rawData = try! PropertyListSerialization.propertyList(from: data, options: .mutableContainersAndLeaves, format: nil) as! [String:Any]
+        print(rawData.count)
+    }
+    
+    // Conveinence methods
+    
+    func scheduleBackgroundRefreshNow() {
+        let updateTime = Date(timeIntervalSinceNow: 5)
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: updateTime, userInfo: nil) { (error: Error?) in
+            if let error = error {
+                NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
+            } else {
+                NSLog("Background Refresh Scheduled for \(updateTime)")
+            }
         }
-        
+    }
+    
+    func scheduleFutureBackgroundRefresh() {
+        let updateTime = Date(timeIntervalSinceNow: 60*30)
+        NSLog("Next update is at \(updateTime)")
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: updateTime, userInfo: nil) { (error: Error?) in
+            if let error = error {
+                NSLog("Error occured while scheduling background refresh: \(error.localizedDescription)")
+            } else {
+                NSLog("Background Refresh Scheduled for \(updateTime)")
+            }
+        }
+    }
+    
+    func scheduleBuoyURLSession() {
+        let backgroundConfigObject = URLSessionConfiguration.background(withIdentifier: NSUUID().uuidString)
+        let backgroundSession = URLSession(configuration: backgroundConfigObject, delegate: self, delegateQueue: nil)
+        let buoyDownloadTask = backgroundSession.dataTask(with: self.updateManager.fetchBuoyUpdateRequest() as URLRequest)
+        buoyDownloadTask.resume()
+    }
+    
+    func sendComplicationUpdate() {
         NSLog("Sedning complication update")
         
         let server=CLKComplicationServer.sharedInstance()
