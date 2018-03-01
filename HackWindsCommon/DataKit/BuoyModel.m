@@ -334,10 +334,9 @@ static NSString * const BUOYFINDER_KEY = @"AIzaSyBbIPovaMqVVvXvFzoIbW7ul48UJ6p7N
     }
     
     NSMutableDictionary *dict =
-    [NSPropertyListSerialization propertyListWithData:data
-                                              options:NSPropertyListMutableContainers
-                                               format:nil
-                                                error:nil];
+    [NSJSONSerialization JSONObjectWithData:data
+                                    options:NSJSONReadingMutableContainers
+                                      error:nil];
     
     if (dict == nil) {
         return nil;

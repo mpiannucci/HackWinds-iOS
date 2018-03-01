@@ -17,7 +17,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var nextTideStatusLabel: WKInterfaceLabel!
     @IBOutlet var lastUpdatedTimeLabel: WKInterfaceLabel!
     
-    let updateManager: WidgetUpdateManager = WidgetUpdateManager()
+    let updateManager: WidgetUpdateManager = WidgetUpdateManager.sharedInstance
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)

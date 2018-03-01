@@ -10,6 +10,8 @@ import Foundation
 
 class WidgetUpdateManager {
     
+    static let sharedInstance = WidgetUpdateManager()
+    
     // Variables to hold all of the data
     var buoyLocation: NSString? = nil
     var latestBuoy: GTLRStation_ApiApiMessagesDataMessage? = nil
@@ -67,13 +69,12 @@ class WidgetUpdateManager {
     }
     
     func addLatestRawBuoyData(rawData: Data) {
-//        if let newBuoyData = BuoyModel.buoyData(fromRawData: rawData) {
-//            self.latestBuoy = newBuoyData
-//            self.latestBuoyRefreshTime = Date()
-//            self.findNextUpdateTimes()
-//            self.cacheData()
-//        }
-        print("placeholder")
+        if let newBuoyData = BuoyModel.buoyData(fromRawData: rawData) {
+            self.latestBuoy = newBuoyData
+            self.latestBuoyRefreshTime = Date()
+            self.findNextUpdateTimes()
+            self.cacheData()
+        }
     }
     
     func fetchTideUpdate(_ completionHandler: (() -> Void)!) -> Bool {

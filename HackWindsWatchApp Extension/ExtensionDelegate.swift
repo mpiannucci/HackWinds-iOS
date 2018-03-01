@@ -10,7 +10,7 @@ import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate, URLSessionDownloadDelegate {
     
-    let updateManager: WidgetUpdateManager = WidgetUpdateManager()
+    let updateManager: WidgetUpdateManager = WidgetUpdateManager.sharedInstance
     
     var pendingURLTask: WKRefreshBackgroundTask? = nil
 
@@ -38,6 +38,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, URLSessionDownloadDelega
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 if self.updateManager.doesBuoyNeedUpdate() {
                     scheduleBuoyURLSession()
+                    scheduleFutureBackgroundRefresh()
                 }
                 
                 backgroundTask.setTaskCompleted()
@@ -65,8 +66,14 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, URLSessionDownloadDelega
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         print("Received downloaded data")
-        self.pendingURLTask?.setTaskCompleted()
-        self.pendingURLTask = nil;
+        
+        let rawData = NSData(contentsOf: location as URL)
+        if let rawBuoyData = rawData as Data? {
+            self.updateManager.addLatestRawBuoyData(rawData: rawBuoyData)
+            print("Added Latest Data")
+            
+            sendComplicationUpdate()
+        }
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
@@ -76,6 +83,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, URLSessionDownloadDelega
         } else {
             print("Successfully downloaded data")
         }
+        
+        self.pendingURLTask?.setTaskCompleted()
+        self.pendingURLTask = nil;
     }
     
     // Conveinence methods

@@ -11,7 +11,7 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
-    let updateManager: WidgetUpdateManager = WidgetUpdateManager()
+    let updateManager: WidgetUpdateManager = WidgetUpdateManager.sharedInstance
     
     // MARK: - Timeline Configuration
     
