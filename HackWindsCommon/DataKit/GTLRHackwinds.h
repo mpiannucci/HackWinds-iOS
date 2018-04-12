@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   camera/v1
+//   hackwinds/v1
 // Description:
 //   This is an API
 
-#import "GTLRCameraObjects.h"
-#import "GTLRCameraQuery.h"
-#import "GTLRCameraService.h"
+#import "GTLRHackwindsObjects.h"
+#import "GTLRHackwindsQuery.h"
+#import "GTLRHackwindsService.h"

@@ -43,9 +43,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var longBuoyText = "-- ft @ -- s ---"
         var waveHeightBuoyText = "-- ft"
         var buoyLocationText = "-------"
-        var longTideText = "---- ----: --:-- --"
-        var shortTideEventText = "----"
-        var tideTime  = Date()
         
         NSLog("Reloading Currrent Timeline")
         
@@ -58,33 +55,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             buoyLocationText = buoyLocation as String
         }
         
-        if let tide = updateManager.nextTide {
-            longTideText = tide.getEventSummary()
-            shortTideEventText = tide.getEventAbbreviation()
-            tideTime = tide.timestamp
-        }
-        
         switch complication.family {
         case .modularLarge:
             let template = CLKComplicationTemplateModularLargeStandardBody()
             template.headerTextProvider = CLKSimpleTextProvider(text: longBuoyText)
             template.headerTextProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
             template.body1TextProvider = CLKSimpleTextProvider(text: buoyLocationText)
-            template.body2TextProvider = CLKSimpleTextProvider(text: longTideText)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
         case .modularSmall:
-            let template = CLKComplicationTemplateModularSmallStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: shortTideEventText)
-            template.line1TextProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
-            template.line2TextProvider = CLKTimeTextProvider(date: tideTime)
+            let template = CLKComplicationTemplateModularSmallSimpleText()
+            template.textProvider = CLKSimpleTextProvider(text: waveHeightBuoyText)
+            template.textProvider.tintColor = UIColor(red:0.278, green:0.639, blue:1.0, alpha:1.0)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
         case .utilitarianLarge:
             let template = CLKComplicationTemplateUtilitarianLargeFlat()
-            template.textProvider = CLKSimpleTextProvider(text:longBuoyText)
+            template.textProvider = CLKSimpleTextProvider(text: longBuoyText)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
@@ -95,9 +84,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
         case .circularSmall:
-            let template = CLKComplicationTemplateCircularSmallStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: shortTideEventText)
-            template.line2TextProvider = CLKTimeTextProvider(date: tideTime)
+            let template = CLKComplicationTemplateCircularSmallSimpleText()
+            template.textProvider = CLKSimpleTextProvider(text: waveHeightBuoyText)
             
             let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
             handler(timelineEntry)
@@ -128,15 +116,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // This method will be called once per supported complication, and the results will be cached
         switch complication.family {
         case .modularSmall:
-            let smallModularTemplate = CLKComplicationTemplateModularSmallStackText()
-            smallModularTemplate.line1TextProvider = CLKSimpleTextProvider(text: "---")
-            smallModularTemplate.line2TextProvider = CLKTimeTextProvider(date: Date())
+            let smallModularTemplate = CLKComplicationTemplateModularSmallSimpleText()
+            smallModularTemplate.textProvider = CLKSimpleTextProvider(text: "-- ft")
             handler(smallModularTemplate)
         case .modularLarge:
             let largeModularTemplate = CLKComplicationTemplateModularLargeStandardBody()
             largeModularTemplate.headerTextProvider = CLKSimpleTextProvider(text: "-- ft @ - s --")
-            largeModularTemplate.body1TextProvider = CLKSimpleTextProvider(text: "---- ----: --:-- --")
-            largeModularTemplate.body2TextProvider = CLKSimpleTextProvider(text: "")
+            largeModularTemplate.body1TextProvider = CLKSimpleTextProvider(text: "--------")
             handler(largeModularTemplate)
         case .utilitarianSmall:
             let smallUtilitarianTemplate = CLKComplicationTemplateUtilitarianSmallFlat()
@@ -147,13 +133,12 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             largeUtilitarianTemplate.textProvider = CLKSimpleTextProvider(text: "-- ft @ -- s ---")
             handler(largeUtilitarianTemplate)
         case .circularSmall:
-            let circularTemplate = CLKComplicationTemplateCircularSmallStackText()
-            circularTemplate.line1TextProvider = CLKSimpleTextProvider(text: "---")
-            circularTemplate.line2TextProvider = CLKTimeTextProvider(date: Date())
+            let circularTemplate = CLKComplicationTemplateCircularSmallSimpleText()
+            circularTemplate.textProvider = CLKSimpleTextProvider(text: "-- ft")
             handler(circularTemplate)
         case .extraLarge:
             let extraLargeTemplate = CLKComplicationTemplateExtraLargeSimpleText()
-            extraLargeTemplate.textProvider = CLKSimpleTextProvider(text: "-- --")
+            extraLargeTemplate.textProvider = CLKSimpleTextProvider(text: "-- ft")
             handler(extraLargeTemplate)
         default:
             return

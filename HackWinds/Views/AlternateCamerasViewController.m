@@ -36,7 +36,7 @@
 }
 
 - (BOOL)shouldShowISOCameraView:(NSString*) locationName :(NSString*) cameraName {
-    GTLRCamera_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegion:locationName camera:cameraName];
+    GTLRHackwinds_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegion:locationName camera:cameraName];
     if (camera == nil) {
         return NO;
     }
@@ -77,7 +77,7 @@
     NSString* locationName = [self nameOfSection:indexPath.section];
     
     if (![self shouldShowISOCameraView:locationName :cameraName]) {
-        GTLRCamera_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegionIndex:indexPath.section cameraIndex:indexPath.row];
+        GTLRHackwinds_ModelCameraMessagesCameraMessage* camera = [cameraModel cameraForRegionIndex:indexPath.section cameraIndex:indexPath.row];
         SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:camera.webUrl]];
         svc.delegate = self;
         [self presentViewController:svc animated:YES completion:nil];

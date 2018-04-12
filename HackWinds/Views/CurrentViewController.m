@@ -31,7 +31,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
 @implementation CurrentViewController {
     NSArray *currentConditions;
     AsyncImageView *currentCameraPages[CAMERA_IMAGE_COUNT];
-    GTLRCamera_ModelCameraMessagesCameraMessage *wwCamera;
+    GTLRHackwinds_ModelCameraMessagesCameraMessage *wwCamera;
     BOOL lastFetchFailure;
     BOOL is24HourClock;
     BOOL showDetailedForecastInfo;
@@ -281,7 +281,7 @@ static const int CAMERA_IMAGE_COUNT = 11;
         return;
     }
     
-    GTLRCamera_ModelCameraMessagesCameraMessage *wwLiveCamera = [[CameraModel sharedModel] cameraForRegion:@"Narragansett" camera:@"Warm Winds Live"];
+    GTLRHackwinds_ModelCameraMessagesCameraMessage *wwLiveCamera = [[CameraModel sharedModel] cameraForRegion:@"Narragansett" camera:@"Warm Winds Live"];
     if (wwLiveCamera == nil) {
         return;
     }

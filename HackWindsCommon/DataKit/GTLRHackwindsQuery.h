@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   camera/v1
+//   hackwinds/v1
 // Description:
 //   This is an API
 
@@ -20,9 +20,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Parent class for other Camera query classes.
+ *  Parent class for other Hackwinds query classes.
  */
-@interface GTLRCameraQuery : GTLRQuery
+@interface GTLRHackwindsQuery : GTLRQuery
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
@@ -30,27 +30,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GTLRCameraQuery_Cameras
+ *  GTLRHackwindsQuery_CameraCameras
  *
- *  Method: camera.cameras
+ *  Method: hackwinds.camera.cameras
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeCameraUserinfoEmail
+ *    @c kGTLRAuthScopeHackwindsUserinfoEmail
  */
-@interface GTLRCameraQuery_Cameras : GTLRCameraQuery
+@interface GTLRHackwindsQuery_CameraCameras : GTLRHackwindsQuery
 // Previous library name was
-//   +[GTLQueryCamera queryForCamerasWithpremium:]
+//   +[GTLQueryHackwinds queryForCameraCamerasWithpremium:]
 
 @property(nonatomic, assign) BOOL premium;
 
 /**
- *  Fetches a @c GTLRCamera_ModelCameraMessagesCameraLocationsMessage.
+ *  Fetches a @c GTLRHackwinds_ModelCameraMessagesCameraLocationsMessage.
  *
  *  @param premium BOOL
  *
- *  @returns GTLRCameraQuery_Cameras
+ *  @returns GTLRHackwindsQuery_CameraCameras
  */
 + (instancetype)queryWithPremium:(BOOL)premium;
+
+@end
+
+/**
+ *  GTLRHackwindsQuery_ForecastForecast
+ *
+ *  Method: hackwinds.forecast.forecast
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHackwindsUserinfoEmail
+ */
+@interface GTLRHackwindsQuery_ForecastForecast : GTLRHackwindsQuery
+// Previous library name was
+//   +[GTLQueryHackwinds queryForForecastForecast]
+
+/**
+ *  Fetches a @c GTLRHackwinds_ModelForecastMessagesSurfForecastMessage.
+ *
+ *  @returns GTLRHackwindsQuery_ForecastForecast
+ */
++ (instancetype)query;
 
 @end
 

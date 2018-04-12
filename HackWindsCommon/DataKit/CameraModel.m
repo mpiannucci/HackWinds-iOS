@@ -67,8 +67,8 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
         [defaults synchronize];
         BOOL showPremium = [defaults boolForKey:@"ShowPremiumContent"];
         
-        GTLRCameraQuery_Cameras *camerasQuery = [GTLRCameraQuery_Cameras queryWithPremium:showPremium];
-        GTLRCameraService *service = [[GTLRCameraService alloc] init];
+        GTLRHackwindsQuery_CameraCameras *camerasQuery = [GTLRHackwindsQuery_CameraCameras queryWithPremium:showPremium];
+        GTLRHackwindsService *service = [[GTLRHackwindsService alloc] init];
         service.APIKey = HACKWINDS_API_KEY;
         [service executeQuery:camerasQuery completionHandler:^(GTLRServiceTicket * _Nonnull callbackTicket, id  _Nullable object, NSError * _Nullable callbackError) {
             if (callbackError != nil || object == nil) {
@@ -81,8 +81,8 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
                 return;
             }
             
-            if ([object isKindOfClass:[GTLRCamera_ModelCameraMessagesCameraLocationsMessage class]]) {
-                cameras = (GTLRCamera_ModelCameraMessagesCameraLocationsMessage*)object;
+            if ([object isKindOfClass:[GTLRHackwinds_ModelCameraMessagesCameraLocationsMessage class]]) {
+                cameras = (GTLRHackwinds_ModelCameraMessagesCameraLocationsMessage*)object;
             }
             
             if (cameras != nil) {
@@ -103,12 +103,12 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
     return [self fetchCameraURLs];
 }
 
-- (GTLRCamera_ModelCameraMessagesCameraMessage*) cameraForRegionIndex:(NSInteger) regionIndex cameraIndex:(NSInteger) cameraIndex {
+- (GTLRHackwinds_ModelCameraMessagesCameraMessage*) cameraForRegionIndex:(NSInteger) regionIndex cameraIndex:(NSInteger) cameraIndex {
     if (regionIndex >= self.cameras.cameraLocations.count) {
         return nil;
     }
     
-    GTLRCamera_ModelCameraMessagesCameraRegionMessage *region = [self.cameras.cameraLocations objectAtIndex:regionIndex];
+    GTLRHackwinds_ModelCameraMessagesCameraRegionMessage *region = [self.cameras.cameraLocations objectAtIndex:regionIndex];
     if (cameraIndex >= region.cameras.count) {
         return nil;
     }
@@ -116,14 +116,14 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
     return [[region cameras] objectAtIndex:cameraIndex];
 }
 
-- (GTLRCamera_ModelCameraMessagesCameraMessage*) cameraForRegion:(NSString *)regionName camera:(NSString *)cameraName {
+- (GTLRHackwinds_ModelCameraMessagesCameraMessage*) cameraForRegion:(NSString *)regionName camera:(NSString *)cameraName {
     NSInteger regionIndex = [self indexForRegion:regionName];
     if (regionIndex < 0) {
         return nil;
     }
-    GTLRCamera_ModelCameraMessagesCameraRegionMessage *region = [self.cameras.cameraLocations objectAtIndex:regionIndex];
+    GTLRHackwinds_ModelCameraMessagesCameraRegionMessage *region = [self.cameras.cameraLocations objectAtIndex:regionIndex];
     
-    for (GTLRCamera_ModelCameraMessagesCameraMessage *camera in region.cameras) {
+    for (GTLRHackwinds_ModelCameraMessagesCameraMessage *camera in region.cameras) {
         if (![camera.name isEqualToString:cameraName]) {
             continue;
         }
@@ -170,7 +170,7 @@ static NSString * const HACKWINDS_API_KEY = @"AIzaSyB5oaqXIWcUgQ08jyF6Kf47Xh3zkX
 }
 
 - (NSString*) cameraNameForRegionIndex:(NSInteger)regionIndex cameraIndex:(NSInteger) cameraIndex {
-    GTLRCamera_ModelCameraMessagesCameraMessage *camera = [self cameraForRegionIndex:regionIndex cameraIndex:cameraIndex];
+    GTLRHackwinds_ModelCameraMessagesCameraMessage *camera = [self cameraForRegionIndex:regionIndex cameraIndex:cameraIndex];
     if (camera == nil) {
         return nil;
     }

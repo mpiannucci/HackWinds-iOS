@@ -9,6 +9,27 @@
 /* Begin PBXBuildFile section */
 		06051AFE0452A0A7162FB90C /* Pods_HackWindsDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABD5EBE3AA32A847146C052 /* Pods_HackWindsDataKit.framework */; };
 		22EC20DC042ACD824179BBA8 /* Pods_HackWindsDataKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEB1250E120391C5735A2BE /* Pods_HackWindsDataKitOSX.framework */; };
+		34087771207FF05A00009016 /* GTLRHackwindsObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776A207FF05900009016 /* GTLRHackwindsObjects.m */; };
+		34087772207FF05A00009016 /* GTLRHackwindsObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776A207FF05900009016 /* GTLRHackwindsObjects.m */; };
+		34087773207FF05A00009016 /* GTLRHackwindsObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776A207FF05900009016 /* GTLRHackwindsObjects.m */; };
+		34087774207FF05A00009016 /* GTLRHackwindsQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776B207FF05900009016 /* GTLRHackwindsQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087775207FF05A00009016 /* GTLRHackwindsQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776B207FF05900009016 /* GTLRHackwindsQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087776207FF05A00009016 /* GTLRHackwindsQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776B207FF05900009016 /* GTLRHackwindsQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087777207FF05A00009016 /* GTLRHackwindsObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776C207FF05900009016 /* GTLRHackwindsObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087778207FF05A00009016 /* GTLRHackwindsObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776C207FF05900009016 /* GTLRHackwindsObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087779207FF05A00009016 /* GTLRHackwindsObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776C207FF05900009016 /* GTLRHackwindsObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3408777A207FF05A00009016 /* GTLRHackwindsQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776D207FF05A00009016 /* GTLRHackwindsQuery.m */; };
+		3408777B207FF05A00009016 /* GTLRHackwindsQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776D207FF05A00009016 /* GTLRHackwindsQuery.m */; };
+		3408777C207FF05A00009016 /* GTLRHackwindsQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776D207FF05A00009016 /* GTLRHackwindsQuery.m */; };
+		3408777D207FF05A00009016 /* GTLRHackwindsService.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776E207FF05A00009016 /* GTLRHackwindsService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3408777E207FF05A00009016 /* GTLRHackwindsService.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776E207FF05A00009016 /* GTLRHackwindsService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3408777F207FF05A00009016 /* GTLRHackwindsService.h in Headers */ = {isa = PBXBuildFile; fileRef = 3408776E207FF05A00009016 /* GTLRHackwindsService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087780207FF05A00009016 /* GTLRHackwindsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776F207FF05A00009016 /* GTLRHackwindsService.m */; };
+		34087781207FF05A00009016 /* GTLRHackwindsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776F207FF05A00009016 /* GTLRHackwindsService.m */; };
+		34087782207FF05A00009016 /* GTLRHackwindsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3408776F207FF05A00009016 /* GTLRHackwindsService.m */; };
+		34087783207FF05A00009016 /* GTLRHackwinds.h in Headers */ = {isa = PBXBuildFile; fileRef = 34087770207FF05A00009016 /* GTLRHackwinds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087784207FF05A00009016 /* GTLRHackwinds.h in Headers */ = {isa = PBXBuildFile; fileRef = 34087770207FF05A00009016 /* GTLRHackwinds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34087785207FF05A00009016 /* GTLRHackwinds.h in Headers */ = {isa = PBXBuildFile; fileRef = 34087770207FF05A00009016 /* GTLRHackwinds.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		340A60371DBD07CF00108CB7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0AF4D1B7307E8001D2B04 /* NotificationCenter.framework */; };
 		340A603C1DBD07CF00108CB7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A603B1DBD07CF00108CB7 /* TodayViewController.swift */; };
 		340A603F1DBD07CF00108CB7 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340A603D1DBD07CF00108CB7 /* TodayViewController.xib */; };
@@ -166,27 +187,6 @@
 		34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
 		34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
 		34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA411F1C3E8D15008FF504 /* XMLReader.m */; };
-		34EA92C91FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92CA1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92CB1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92CC1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */; };
-		34EA92CD1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */; };
-		34EA92CE1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */; };
-		34EA92CF1FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */; };
-		34EA92D01FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */; };
-		34EA92D11FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */; };
-		34EA92D21FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92D31FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92D41FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92D51FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92D61FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92D71FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92D81FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */; };
-		34EA92D91FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */; };
-		34EA92DA1FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */; };
-		34EA92DB1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92DC1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34EA92DD1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34F933921B3991B400AD23DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338C1B3991B400AD23DF /* LaunchScreen.xib */; };
 		34F933931B3991B400AD23DF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F9338E1B3991B400AD23DF /* Main_iPad.storyboard */; };
 		34F933951B39922900AD23DF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 34F718361A1D8D6B00D6AFFF /* Base.lproj */; };
@@ -327,6 +327,13 @@
 		0001FEF701B45E51BB86C9EB /* Pods-HackWindsDataKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKit/Pods-HackWindsDataKit.release.xcconfig"; sourceTree = "<group>"; };
 		14411504E255E65D3C201515 /* Pods-HackWindsDataKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackWindsDataKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackWindsDataKitTests/Pods-HackWindsDataKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		23EE97BCBF1E5A8AB75AEF49 /* Pods_HackWindsOSXToday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackWindsOSXToday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3408776A207FF05900009016 /* GTLRHackwindsObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRHackwindsObjects.m; path = HackWindsCommon/DataKit/GTLRHackwindsObjects.m; sourceTree = "<group>"; };
+		3408776B207FF05900009016 /* GTLRHackwindsQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRHackwindsQuery.h; path = HackWindsCommon/DataKit/GTLRHackwindsQuery.h; sourceTree = "<group>"; };
+		3408776C207FF05900009016 /* GTLRHackwindsObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRHackwindsObjects.h; path = HackWindsCommon/DataKit/GTLRHackwindsObjects.h; sourceTree = "<group>"; };
+		3408776D207FF05A00009016 /* GTLRHackwindsQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRHackwindsQuery.m; path = HackWindsCommon/DataKit/GTLRHackwindsQuery.m; sourceTree = "<group>"; };
+		3408776E207FF05A00009016 /* GTLRHackwindsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRHackwindsService.h; path = HackWindsCommon/DataKit/GTLRHackwindsService.h; sourceTree = "<group>"; };
+		3408776F207FF05A00009016 /* GTLRHackwindsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRHackwindsService.m; path = HackWindsCommon/DataKit/GTLRHackwindsService.m; sourceTree = "<group>"; };
+		34087770207FF05A00009016 /* GTLRHackwinds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRHackwinds.h; path = HackWindsCommon/DataKit/GTLRHackwinds.h; sourceTree = "<group>"; };
 		340A60361DBD07CF00108CB7 /* HackWindsOSXToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackWindsOSXToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		340A603A1DBD07CF00108CB7 /* HackWindsOSXToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackWindsOSXToday.entitlements; sourceTree = "<group>"; };
 		340A603B1DBD07CF00108CB7 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -464,13 +471,6 @@
 		34EA411D1C3E8D15008FF504 /* TideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TideModel.m; path = HackWindsCommon/DataKit/TideModel.m; sourceTree = "<group>"; };
 		34EA411E1C3E8D15008FF504 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = HackWindsCommon/DataKit/XMLReader.h; sourceTree = "<group>"; };
 		34EA411F1C3E8D15008FF504 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = HackWindsCommon/DataKit/XMLReader.m; sourceTree = "<group>"; };
-		34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCameraObjects.h; path = HackWindsCommon/DataKit/GTLRCameraObjects.h; sourceTree = "<group>"; };
-		34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCameraQuery.m; path = HackWindsCommon/DataKit/GTLRCameraQuery.m; sourceTree = "<group>"; };
-		34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCameraService.m; path = HackWindsCommon/DataKit/GTLRCameraService.m; sourceTree = "<group>"; };
-		34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCameraQuery.h; path = HackWindsCommon/DataKit/GTLRCameraQuery.h; sourceTree = "<group>"; };
-		34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCameraService.h; path = HackWindsCommon/DataKit/GTLRCameraService.h; sourceTree = "<group>"; };
-		34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRCameraObjects.m; path = HackWindsCommon/DataKit/GTLRCameraObjects.m; sourceTree = "<group>"; };
-		34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRCamera.h; path = HackWindsCommon/DataKit/GTLRCamera.h; sourceTree = "<group>"; };
 		34F718361A1D8D6B00D6AFFF /* Base.lproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		34F9338D1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34F9338F1B3991B400AD23DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -909,13 +909,13 @@
 		34EA40DC1C3E8CA5008FF504 /* DataKit */ = {
 			isa = PBXGroup;
 			children = (
-				34EA92C81FDE18F6005CB8B3 /* GTLRCamera.h */,
-				34EA92C21FDE18F5005CB8B3 /* GTLRCameraObjects.h */,
-				34EA92C71FDE18F6005CB8B3 /* GTLRCameraObjects.m */,
-				34EA92C51FDE18F6005CB8B3 /* GTLRCameraQuery.h */,
-				34EA92C31FDE18F6005CB8B3 /* GTLRCameraQuery.m */,
-				34EA92C61FDE18F6005CB8B3 /* GTLRCameraService.h */,
-				34EA92C41FDE18F6005CB8B3 /* GTLRCameraService.m */,
+				34087770207FF05A00009016 /* GTLRHackwinds.h */,
+				3408776C207FF05900009016 /* GTLRHackwindsObjects.h */,
+				3408776A207FF05900009016 /* GTLRHackwindsObjects.m */,
+				3408776B207FF05900009016 /* GTLRHackwindsQuery.h */,
+				3408776D207FF05A00009016 /* GTLRHackwindsQuery.m */,
+				3408776E207FF05A00009016 /* GTLRHackwindsService.h */,
+				3408776F207FF05A00009016 /* GTLRHackwindsService.m */,
 				34C2DE571FAFF00C003A647A /* GTLRStation.h */,
 				34C2DE5C1FAFF00E003A647A /* GTLRStationObjects.h */,
 				34C2DE591FAFF00D003A647A /* GTLRStationObjects.m */,
@@ -993,26 +993,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C07E2E1C274D67002D3DB8 /* HackWindsDataKitOSX.h in Headers */,
-				34EA92D61FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */,
 				34EA41601C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416C1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA41391C3E8D15008FF504 /* CameraModel.h in Headers */,
-				34EA92DC1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41661C3E8D15008FF504 /* TideModel.h in Headers */,
+				34087775207FF05A00009016 /* GTLRHackwindsQuery.h in Headers */,
 				34EA412D1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F691C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34C2DE681FAFF00F003A647A /* GTLRStationService.h in Headers */,
 				34EA41481C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41271C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
-				34EA92D31FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */,
 				34C2DE6E1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414B1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41571C3E8D15008FF504 /* ForecastModel.h in Headers */,
-				34EA92CA1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */,
+				3408777E207FF05A00009016 /* GTLRHackwindsService.h in Headers */,
 				34469F5F1C779799000499CD /* Swell.h in Headers */,
+				34087778207FF05A00009016 /* GTLRHackwindsObjects.h in Headers */,
 				34EA413F1C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE5F1FAFF00E003A647A /* GTLRStation.h in Headers */,
 				34C2DE621FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
+				34087784207FF05A00009016 /* GTLRHackwinds.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,26 +1021,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C07E301C274D6E002D3DB8 /* HackWindsDataKitWatchOS.h in Headers */,
-				34EA92D71FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */,
 				34EA41611C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416D1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA413A1C3E8D15008FF504 /* CameraModel.h in Headers */,
-				34EA92DD1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41671C3E8D15008FF504 /* TideModel.h in Headers */,
+				34087776207FF05A00009016 /* GTLRHackwindsQuery.h in Headers */,
 				34EA412E1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F6A1C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34C2DE691FAFF00F003A647A /* GTLRStationService.h in Headers */,
 				34EA41491C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41281C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
-				34EA92D41FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */,
 				34C2DE6F1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414C1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41581C3E8D15008FF504 /* ForecastModel.h in Headers */,
-				34EA92CB1FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */,
+				3408777F207FF05A00009016 /* GTLRHackwindsService.h in Headers */,
 				34469F601C779799000499CD /* Swell.h in Headers */,
+				34087779207FF05A00009016 /* GTLRHackwindsObjects.h in Headers */,
 				34EA41401C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE601FAFF00E003A647A /* GTLRStation.h in Headers */,
 				34C2DE631FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
+				34087785207FF05A00009016 /* GTLRHackwinds.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,26 +1049,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C07E321C274F42002D3DB8 /* HackWindsDataKit.h in Headers */,
-				34EA92D51FDE18F6005CB8B3 /* GTLRCameraService.h in Headers */,
 				34EA415F1C3E8D15008FF504 /* Tide.h in Headers */,
 				34EA416B1C3E8D15008FF504 /* XMLReader.h in Headers */,
 				34EA41381C3E8D15008FF504 /* CameraModel.h in Headers */,
-				34EA92DB1FDE18F6005CB8B3 /* GTLRCamera.h in Headers */,
 				34EA41651C3E8D15008FF504 /* TideModel.h in Headers */,
+				34087774207FF05A00009016 /* GTLRHackwindsQuery.h in Headers */,
 				34EA412C1C3E8D15008FF504 /* BuoyModel.h in Headers */,
 				34469F681C77C8D0000499CD /* ForecastDailySummary.h in Headers */,
 				34C2DE671FAFF00E003A647A /* GTLRStationService.h in Headers */,
 				34EA41471C3E8D15008FF504 /* Constants.h in Headers */,
 				34EA41261C3E8D15008FF504 /* BuoyDataContainer.h in Headers */,
-				34EA92D21FDE18F6005CB8B3 /* GTLRCameraQuery.h in Headers */,
 				34C2DE6D1FAFF00F003A647A /* GTLRStationObjects.h in Headers */,
 				34EA414A1C3E8D15008FF504 /* Forecast.h in Headers */,
 				34EA41561C3E8D15008FF504 /* ForecastModel.h in Headers */,
-				34EA92C91FDE18F6005CB8B3 /* GTLRCameraObjects.h in Headers */,
+				3408777D207FF05A00009016 /* GTLRHackwindsService.h in Headers */,
 				34469F5E1C779799000499CD /* Swell.h in Headers */,
+				34087777207FF05A00009016 /* GTLRHackwindsObjects.h in Headers */,
 				34EA413E1C3E8D15008FF504 /* Colors.h in Headers */,
 				34C2DE5E1FAFF00E003A647A /* GTLRStation.h in Headers */,
 				34C2DE611FAFF00E003A647A /* GTLRStationQuery.h in Headers */,
+				34087783207FF05A00009016 /* GTLRHackwinds.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1849,18 +1849,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				34EA415A1C3E8D15008FF504 /* ForecastModel.m in Sources */,
-				34EA92D01FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
-				34EA92CD1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
-				34EA92D91FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
 				34EA413C1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41691C3E8D15008FF504 /* TideModel.m in Sources */,
+				3408777B207FF05A00009016 /* GTLRHackwindsQuery.m in Sources */,
 				34EA41301C3E8D15008FF504 /* BuoyModel.m in Sources */,
 				34C2DE651FAFF00E003A647A /* GTLRStationObjects.m in Sources */,
 				34C2DE711FAFF00F003A647A /* GTLRStationService.m in Sources */,
+				34087781207FF05A00009016 /* GTLRHackwindsService.m in Sources */,
 				34469F6D1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414E1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41631C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412A1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34087772207FF05A00009016 /* GTLRHackwindsObjects.m in Sources */,
 				34C2DE6B1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
 				34469F631C779799000499CD /* Swell.m in Sources */,
 				34EA416F1C3E8D15008FF504 /* XMLReader.m in Sources */,
@@ -1872,18 +1872,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				34EA415B1C3E8D15008FF504 /* ForecastModel.m in Sources */,
-				34EA92D11FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
-				34EA92CE1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
-				34EA92DA1FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
 				34EA413D1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA416A1C3E8D15008FF504 /* TideModel.m in Sources */,
+				3408777C207FF05A00009016 /* GTLRHackwindsQuery.m in Sources */,
 				34EA41311C3E8D15008FF504 /* BuoyModel.m in Sources */,
 				34C2DE661FAFF00E003A647A /* GTLRStationObjects.m in Sources */,
 				34C2DE721FAFF00F003A647A /* GTLRStationService.m in Sources */,
+				34087782207FF05A00009016 /* GTLRHackwindsService.m in Sources */,
 				34469F6F1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414F1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41641C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA412B1C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34087773207FF05A00009016 /* GTLRHackwindsObjects.m in Sources */,
 				34C2DE6C1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
 				34469F651C779799000499CD /* Swell.m in Sources */,
 				34EA41701C3E8D15008FF504 /* XMLReader.m in Sources */,
@@ -1904,18 +1904,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				34EA41591C3E8D15008FF504 /* ForecastModel.m in Sources */,
-				34EA92CF1FDE18F6005CB8B3 /* GTLRCameraService.m in Sources */,
-				34EA92CC1FDE18F6005CB8B3 /* GTLRCameraQuery.m in Sources */,
-				34EA92D81FDE18F6005CB8B3 /* GTLRCameraObjects.m in Sources */,
 				34EA413B1C3E8D15008FF504 /* CameraModel.m in Sources */,
 				34EA41681C3E8D15008FF504 /* TideModel.m in Sources */,
+				3408777A207FF05A00009016 /* GTLRHackwindsQuery.m in Sources */,
 				34EA412F1C3E8D15008FF504 /* BuoyModel.m in Sources */,
 				34C2DE641FAFF00E003A647A /* GTLRStationObjects.m in Sources */,
 				34C2DE701FAFF00F003A647A /* GTLRStationService.m in Sources */,
+				34087780207FF05A00009016 /* GTLRHackwindsService.m in Sources */,
 				34469F6B1C77C8D0000499CD /* ForecastDailySummary.m in Sources */,
 				34EA414D1C3E8D15008FF504 /* Forecast.m in Sources */,
 				34EA41621C3E8D15008FF504 /* Tide.m in Sources */,
 				34EA41291C3E8D15008FF504 /* BuoyDataContainer.m in Sources */,
+				34087771207FF05A00009016 /* GTLRHackwindsObjects.m in Sources */,
 				34C2DE6A1FAFF00F003A647A /* GTLRStationQuery.m in Sources */,
 				34469F611C779799000499CD /* Swell.m in Sources */,
 				34EA416E1C3E8D15008FF504 /* XMLReader.m in Sources */,

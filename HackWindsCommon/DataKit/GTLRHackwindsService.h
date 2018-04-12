@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   camera/v1
+//   hackwinds/v1
 // Description:
 //   This is an API
 
@@ -27,10 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCameraUserinfoEmail;
+GTLR_EXTERN NSString * const kGTLRAuthScopeHackwindsUserinfoEmail;
 
 // ----------------------------------------------------------------------------
-//   GTLRCameraService
+//   GTLRHackwindsService
 //
 
 /**
@@ -38,12 +38,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCameraUserinfoEmail;
  *
  *  This is an API
  */
-@interface GTLRCameraService : GTLRService
+@interface GTLRHackwindsService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCameraQuery.h. The query can the be sent with GTLRService's execute
+// GTLRHackwindsQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

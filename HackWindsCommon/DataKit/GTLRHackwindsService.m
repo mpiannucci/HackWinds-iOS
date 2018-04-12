@@ -2,29 +2,29 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   camera/v1
+//   hackwinds/v1
 // Description:
 //   This is an API
 
-#import "GTLRCamera.h"
+#import "GTLRHackwinds.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCameraUserinfoEmail = @"https://www.googleapis.com/auth/userinfo.email";
+NSString * const kGTLRAuthScopeHackwindsUserinfoEmail = @"https://www.googleapis.com/auth/userinfo.email";
 
 // ----------------------------------------------------------------------------
-//   GTLRCameraService
+//   GTLRHackwindsService
 //
 
-@implementation GTLRCameraService
+@implementation GTLRHackwindsService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
     self.rootURLString = @"https://hackwinds.appspot.com/_ah/api/";
-    self.servicePath = @"camera/v1/";
+    self.servicePath = @"hackwinds/v1/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

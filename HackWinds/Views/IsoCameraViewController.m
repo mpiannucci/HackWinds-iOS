@@ -21,7 +21,7 @@
 @end
 
 @implementation IsoCameraViewController {
-    GTLRCamera_ModelCameraMessagesCameraMessage *camera;
+    GTLRHackwinds_ModelCameraMessagesCameraMessage *camera;
     BOOL isFullScreen;
 }
 
